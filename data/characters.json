@@ -17,8 +17,10 @@
       "y_pos": 4610,
       "cur_hp": 52,
       "cur_sp": 10,
-      "town_name": "Roumen",
-      "equips": {}
+      "town_name": "Rou",
+      "equips": {
+        "12": 250
+      }
     }
   ]
 }

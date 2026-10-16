@@ -34,11 +34,20 @@ func WriteBasicCharInfo(ch *database.Character, pw *protocol.PacketWriter) {
 	pw.WriteInt16(int16(ch.Level))
 	pw.WriteByte(ch.Slot)
 
-	town := ch.TownName
-	if town == "" {
-		town = "Roumen"
+	mapShortName := "Rou"
+	switch ch.Map {
+	case 0:
+		mapShortName = "Rou"
+	case 1:
+		mapShortName = "RouCos01"
+	case 2:
+		mapShortName = "RouVal01"
+	case 9:
+		mapShortName = "Eld"
+	default:
+		mapShortName = "Rou"
 	}
-	pw.WriteString(town, 13)
+	pw.WriteString(mapShortName, 13)
 	pw.WriteInt32(0) // random seed
 
 	// Look: 4 bytes
@@ -81,7 +90,7 @@ func WriteBasicCharInfo(ch *database.Character, pw *protocol.PacketWriter) {
 	pw.WriteByte(0xFF)
 	pw.WriteByte(0xFF)
 
-	pw.WriteString(town, 12)
+	pw.WriteString(mapShortName, 12)
 	pw.WriteInt32(0) // pos X
 	pw.WriteInt32(0) // pos Y
 	pw.WriteUint16(0xDB78)
