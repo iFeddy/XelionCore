@@ -224,7 +224,7 @@ func (h *Handler) sendInGameChunk(p *ZonePlayer) {
 	premiumList := protocol.NewPacketWriter(protocol.SH12Type_SendPremiumItemList)
 	premiumList.WriteUint16(0x1041)
 	premiumList.WriteByte(1)  // UNK
-	premiumList.WriteUint16(0) // Item count = 0
+	premiumList.WriteUint16(1) // Page count = 1 (matching NextGen PremiumInventory.PremiumItems.Count)
 	_ = p.Client.SendPacket(premiumList)
 
 	// 16. Reward List (SH12Type_SendRewardList)

@@ -102,18 +102,18 @@ func NewZonePlayer(client *network.Client, ch *database.Character) *ZonePlayer {
 		Client:      client,
 		Char:        ch,
 		State:       1, // PlayerState.Normal
-		Rotation:    0,
+		Rotation:    0x55, // 0x55 (85) matching NextGen ZoneCharacter
 		StonesHP:    stats.MaxHPStones,
 		StonesSP:    stats.MaxSPStones,
 		MaxStonesHP: stats.MaxHPStones,
 		MaxStonesSP: stats.MaxSPStones,
 		MaxHP:       stats.MaxHP,
 		MaxSP:       stats.MaxSP,
-		Str:         stats.Str,
-		End:         stats.End,
-		Dex:         stats.Dex,
-		Int:         stats.Int,
-		Spr:         stats.Spr,
+		Str:         0, // User-allocated stat points (0 at level 1)
+		End:         0,
+		Dex:         0,
+		Int:         0,
+		Spr:         0,
 	}
 }
 
@@ -200,18 +200,20 @@ func (p *ZonePlayer) WriteDetailedInfoExtra(pw *protocol.PacketWriter, levelUp b
 	pw.WriteInt64(0)    // Exp
 	pw.WriteUint64(280) // MaxExp for level 1
 
-	pw.WriteInt32(int32(p.Str))
-	pw.WriteInt32(int32(p.Str))
-	pw.WriteInt32(int32(p.End))
-	pw.WriteInt32(int32(p.End))
-	pw.WriteInt32(int32(p.Dex))
-	pw.WriteInt32(int32(p.Dex))
-	pw.WriteInt32(int32(p.Int))
-	pw.WriteInt32(int32(p.Int))
+	baseStats := GetJobBaseStats(p.Char.Job)
+
+	pw.WriteInt32(int32(baseStats.Str))
+	pw.WriteInt32(int32(baseStats.Str + p.Str))
+	pw.WriteInt32(int32(baseStats.End))
+	pw.WriteInt32(int32(baseStats.End + p.End))
+	pw.WriteInt32(int32(baseStats.Dex))
+	pw.WriteInt32(int32(baseStats.Dex + p.Dex))
+	pw.WriteInt32(int32(baseStats.Int))
+	pw.WriteInt32(int32(baseStats.Int + p.Int))
 	pw.WriteInt32(0) // Wisdom
 	pw.WriteInt32(0) // UNK
-	pw.WriteInt32(int32(p.Spr))
-	pw.WriteInt32(int32(p.Spr))
+	pw.WriteInt32(int32(baseStats.Spr))
+	pw.WriteInt32(int32(baseStats.Spr + p.Spr))
 
 	weaponDmg := int32(15)
 	magicDmg := int32(5)

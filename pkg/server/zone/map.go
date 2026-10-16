@@ -23,7 +23,7 @@ func NewZoneMap(id uint16, name, shortName string) *ZoneMap {
 		ID:        id,
 		Name:      name,
 		ShortName: shortName,
-		nextObjID: 1000,
+		nextObjID: 1,
 		players:   make(map[uint16]*ZonePlayer),
 	}
 }
