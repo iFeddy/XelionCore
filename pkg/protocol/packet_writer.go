@@ -2,8 +2,6 @@ package protocol
 
 import (
 	"encoding/binary"
-
-	"github.com/iFeddy/XelionCore/pkg/crypto"
 )
 
 // PacketWriter constructs packet buffers (Little Endian).
@@ -106,28 +104,24 @@ func (pw *PacketWriter) Data() []byte {
 	return pw.buf
 }
 
-// BuildWirePacket encrypts the payload with the given NetCrypto and adds Fiesta framing.
+// BuildWirePacket adds Fiesta framing to the payload.
+// Server -> Client packets in the Fiesta protocol are unencrypted.
 // Header format:
-// - If len(payload) < 255: [1-byte length] + encrypted payload
-// - If len(payload) >= 255: [0x00, uint16 length] + encrypted payload
-func (pw *PacketWriter) BuildWirePacket(c *crypto.NetCrypto) []byte {
+// - If len(payload) < 255: [1-byte length] + payload
+// - If len(payload) >= 255: [0x00, uint16 length] + payload
+func (pw *PacketWriter) BuildWirePacket() []byte {
 	payloadLen := len(pw.buf)
-	encrypted := make([]byte, payloadLen)
-	copy(encrypted, pw.buf)
-	if c != nil {
-		c.Crypt(encrypted)
-	}
 
 	if payloadLen < 255 {
 		wire := make([]byte, 1+payloadLen)
 		wire[0] = byte(payloadLen)
-		copy(wire[1:], encrypted)
+		copy(wire[1:], pw.buf)
 		return wire
 	}
 
 	wire := make([]byte, 3+payloadLen)
 	wire[0] = 0x00
 	binary.LittleEndian.PutUint16(wire[1:3], uint16(payloadLen))
-	copy(wire[3:], encrypted)
+	copy(wire[3:], pw.buf)
 	return wire
 }

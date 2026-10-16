@@ -1,0 +1,12 @@
+{
+  "next_id": 2,
+  "accounts": [
+    {
+      "id": 1,
+      "username": "admin",
+      "password": "admin",
+      "admin": 2,
+      "banned": false
+    }
+  ]
+}

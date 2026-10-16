@@ -2,7 +2,10 @@ package database
 
 import (
 	"database/sql"
+	"encoding/json"
 	"errors"
+	"os"
+	"path/filepath"
 	"strings"
 	"sync"
 )
@@ -18,34 +21,93 @@ type AccountRepository interface {
 	CreateAccount(username, password string) (*Account, error)
 }
 
-// MemoryAccountRepository is a thread-safe in-memory store for testing without MySQL.
+type accountStore struct {
+	NextID   int        `json:"next_id"`
+	Accounts []*Account `json:"accounts"`
+}
+
+// MemoryAccountRepository is a thread-safe store with JSON persistence for standalone and multi-process runs.
 type MemoryAccountRepository struct {
 	mu       sync.RWMutex
+	filePath string
 	accounts map[string]*Account
 	nextID   int
 }
 
-// NewMemoryAccountRepository creates an in-memory repository with an optional pre-seeded admin.
+// NewMemoryAccountRepository creates an account repository with JSON persistence at data/accounts.json.
 func NewMemoryAccountRepository() *MemoryAccountRepository {
+	filePath := filepath.Join("data", "accounts.json")
 	repo := &MemoryAccountRepository{
+		filePath: filePath,
 		accounts: make(map[string]*Account),
 		nextID:   1,
 	}
-	// Default admin account (password "admin" md5 is 21232f297a57a5a743894a0e4a801fc3)
-	repo.accounts["admin"] = &Account{
-		ID:       1,
-		Username: "admin",
-		Password: "admin",
-		Admin:    2,
-		Banned:   false,
+
+	repo.load()
+
+	// Ensure default admin account exists
+	if _, exists := repo.accounts["admin"]; !exists {
+		repo.accounts["admin"] = &Account{
+			ID:       1,
+			Username: "admin",
+			Password: "admin",
+			Admin:    2,
+			Banned:   false,
+		}
+		if repo.nextID <= 1 {
+			repo.nextID = 2
+		}
+		repo.save()
 	}
-	repo.nextID = 2
+
 	return repo
 }
 
+func (r *MemoryAccountRepository) load() {
+	if r.filePath == "" {
+		return
+	}
+	data, err := os.ReadFile(r.filePath)
+	if err != nil {
+		return
+	}
+	var store accountStore
+	if err := json.Unmarshal(data, &store); err == nil {
+		if store.NextID > 0 {
+			r.nextID = store.NextID
+		}
+		for _, acc := range store.Accounts {
+			r.accounts[strings.ToLower(acc.Username)] = acc
+			if acc.ID >= r.nextID {
+				r.nextID = acc.ID + 1
+			}
+		}
+	}
+}
+
+func (r *MemoryAccountRepository) save() {
+	if r.filePath == "" {
+		return
+	}
+	_ = os.MkdirAll(filepath.Dir(r.filePath), 0755)
+	var list []*Account
+	for _, acc := range r.accounts {
+		list = append(list, acc)
+	}
+	store := accountStore{
+		NextID:   r.nextID,
+		Accounts: list,
+	}
+	data, err := json.MarshalIndent(store, "", "  ")
+	if err == nil {
+		_ = os.WriteFile(r.filePath, data, 0644)
+	}
+}
+
 func (r *MemoryAccountRepository) GetAccountByUsername(username string) (*Account, error) {
-	r.mu.RLock()
-	defer r.mu.RUnlock()
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	r.load()
 
 	acc, exists := r.accounts[strings.ToLower(username)]
 	if !exists {
@@ -58,6 +120,7 @@ func (r *MemoryAccountRepository) GetAccountByUsername(username string) (*Accoun
 func (r *MemoryAccountRepository) CreateAccount(username, password string) (*Account, error) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
+	r.load()
 
 	key := strings.ToLower(username)
 	if _, exists := r.accounts[key]; exists {
@@ -73,6 +136,7 @@ func (r *MemoryAccountRepository) CreateAccount(username, password string) (*Acc
 	}
 	r.nextID++
 	r.accounts[key] = acc
+	r.save()
 
 	copyAcc := *acc
 	return &copyAcc, nil

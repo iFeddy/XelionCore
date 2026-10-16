@@ -24,12 +24,12 @@ type Server struct {
 }
 
 // NewServer creates a new instance of the Login Server.
-func NewServer(cfg *Config, repo database.AccountRepository, wm *WorldManager) *Server {
+func NewServer(cfg *Config, repo database.AccountRepository, wm *WorldManager, tm *database.TransferManager) *Server {
 	if cfg.BindAddr == "" {
 		cfg.BindAddr = fmt.Sprintf("0.0.0.0:%d", cfg.Port)
 	}
 
-	handler := NewHandler(repo, wm)
+	handler := NewHandler(repo, wm, tm)
 
 	s := &Server{
 		config:       cfg,

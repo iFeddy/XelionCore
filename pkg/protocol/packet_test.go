@@ -3,21 +3,15 @@ package protocol
 import (
 	"bytes"
 	"testing"
-
-	"github.com/iFeddy/XelionCore/pkg/crypto"
 )
 
 func TestPacketSerializationAndCrypto(t *testing.T) {
-	xorPos := int16(42)
-	serverCrypto, _ := crypto.NewNetCrypto(xorPos)
-	clientCrypto, _ := crypto.NewNetCrypto(xorPos)
-
 	pw := NewPacketWriter(SH3Type_VersionAllowed)
 	pw.WriteInt16(1)
 
-	wire := pw.BuildWirePacket(serverCrypto)
+	wire := pw.BuildWirePacket()
 
-	// Simulate Client receiving wire packet
+	// Simulate Client receiving wire packet from Server (Server packets are unencrypted)
 	// Check length byte
 	if wire[0] != 4 { // 2 bytes opcode + 2 bytes int16 = 4 bytes
 		t.Fatalf("expected wire length byte to be 4, got %d", wire[0])
@@ -26,12 +20,9 @@ func TestPacketSerializationAndCrypto(t *testing.T) {
 	payload := make([]byte, wire[0])
 	copy(payload, wire[1:])
 
-	// Decrypt on client
-	clientCrypto.Crypt(payload)
-
 	packet := NewPacket(payload)
 	if packet == nil {
-		t.Fatalf("failed to parse decrypted packet")
+		t.Fatalf("failed to parse packet")
 	}
 
 	if packet.OpCode != SH3Type_VersionAllowed {

@@ -17,13 +17,18 @@ import (
 type Handler struct {
 	repo         database.AccountRepository
 	worldManager *WorldManager
+	transfers    *database.TransferManager
 }
 
 // NewHandler creates a new Login packet handler.
-func NewHandler(repo database.AccountRepository, wm *WorldManager) *Handler {
+func NewHandler(repo database.AccountRepository, wm *WorldManager, tm *database.TransferManager) *Handler {
+	if tm == nil {
+		tm = database.NewTransferManager()
+	}
 	return &Handler{
 		repo:         repo,
 		worldManager: wm,
+		transfers:    tm,
 	}
 }
 
@@ -32,7 +37,7 @@ func (h *Handler) HandlePacket(client *network.Client, pkt *protocol.Packet) {
 	switch pkt.OpCode {
 	case protocol.CH3Type_Version:
 		h.handleVersion(client, pkt)
-	case protocol.CH3Type_Login:
+	case protocol.CH3Type_Login, protocol.CH3Type_LoginLegacy55, protocol.CH3Type_LoginLegacy56:
 		h.handleLogin(client, pkt)
 	case protocol.CH3Type_FileHash:
 		h.handleFileHash(client, pkt)
@@ -194,7 +199,7 @@ func (h *Handler) handleWorldSelect(client *network.Client, pkt *protocol.Packet
 		return
 	}
 
-	token := GenerateTransferToken()
+	token := h.transfers.CreateTransfer(client.AccountID, client.Username, client.Admin, client.RemoteAddr())
 	client.IsTransferring = true
 
 	log.Printf("[%s] Transferring '%s' to World '%s' (%s:%d)",

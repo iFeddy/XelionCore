@@ -12,8 +12,7 @@ import (
 	"github.com/iFeddy/XelionCore/pkg/server/login"
 )
 
-// AppConfig represents configuration for the Login daemon.
-type AppConfig struct {
+type Config struct {
 	LoginServer login.Config `json:"login_server"`
 	Worlds      []WorldEntry `json:"worlds"`
 }
@@ -28,48 +27,42 @@ type WorldEntry struct {
 
 func main() {
 	log.Println("==================================================")
-	log.Println("           XELION ONLINE - CORE SERVER            ")
-	log.Println("           Modern Go Implementation v0.1          ")
+	log.Println("           XELION ONLINE - LOGIN SERVER           ")
+	log.Println("                  Port: 9010                      ")
 	log.Println("==================================================")
 
 	cfg := loadConfig("configs/config.json")
 
-	// Initialize Account Repository (In-Memory for zero-dependency standalone start)
 	repo := database.NewMemoryAccountRepository()
-	log.Println("[Database] Using high-performance MemoryAccountRepository (Pre-seeded with 'admin'/'admin')")
+	transfers := database.NewTransferManager()
 
-	// Initialize WorldManager
 	wm := login.NewWorldManager()
-	if len(cfg.Worlds) > 0 {
-		for _, w := range cfg.Worlds {
-			wm.AddWorld(&login.World{
-				ID:     w.ID,
-				Name:   w.Name,
-				Status: protocol.WorldStatus(w.Status),
-				IP:     w.IP,
-				Port:   w.Port,
-			})
-		}
+	for _, w := range cfg.Worlds {
+		wm.AddWorld(&login.World{
+			ID:     w.ID,
+			Name:   w.Name,
+			Status: protocol.WorldStatus(w.Status),
+			IP:     w.IP,
+			Port:   w.Port,
+		})
 	}
 
-	// Create and Start Login Server
-	srv := login.NewServer(&cfg.LoginServer, repo, wm)
+	srv := login.NewServer(&cfg.LoginServer, repo, wm, transfers)
 	if err := srv.Start(); err != nil {
 		log.Fatalf("[Login] Fatal error starting server: %v", err)
 	}
 
-	// Wait for OS shutdown signals
 	sigChan := make(chan os.Signal, 1)
 	signal.Notify(sigChan, os.Interrupt, syscall.SIGTERM)
 	<-sigChan
 
-	log.Println("\n[Login] Interrupted, initiating graceful shutdown...")
+	log.Println("\n[Login] Shutting down...")
 	srv.Stop()
-	log.Println("[Login] Shutdown complete. Goodbye!")
+	log.Println("[Login] Shutdown complete.")
 }
 
-func loadConfig(path string) *AppConfig {
-	defaultCfg := &AppConfig{
+func loadConfig(path string) *Config {
+	defaultCfg := &Config{
 		LoginServer: login.Config{
 			BindAddr: "0.0.0.0:9010",
 			Port:     9010,
@@ -78,24 +71,21 @@ func loadConfig(path string) *AppConfig {
 			{
 				ID:     0,
 				Name:   "INITIO",
-				IP:     "127.0.0.1",
+				IP:     "192.168.0.4",
 				Port:   9110,
-				Status: uint8(protocol.WorldStatus_Low),
+				Status: 6,
 			},
 		},
 	}
 
 	data, err := os.ReadFile(path)
 	if err != nil {
-		log.Printf("[Config] Could not read %s (using defaults): %v", path, err)
 		return defaultCfg
 	}
 
-	var cfg AppConfig
-	if err := json.Unmarshal(data, &cfg); err != nil {
-		log.Printf("[Config] Failed to parse %s (using defaults): %v", path, err)
+	var parsed Config
+	if err := json.Unmarshal(data, &parsed); err != nil {
 		return defaultCfg
 	}
-
-	return &cfg
+	return &parsed
 }

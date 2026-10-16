@@ -56,12 +56,29 @@ func (c *Client) RemoteAddr() string {
 	return c.remoteAddr
 }
 
+// RemoteIP returns only the IP address portion of the client's network address.
+func (c *Client) RemoteIP() string {
+	host, _, err := net.SplitHostPort(c.remoteAddr)
+	if err != nil {
+		return c.remoteAddr
+	}
+	return host
+}
+
+// XorOffset returns the initial/current XOR table position.
+func (c *Client) XorOffset() int16 {
+	if c.crypto != nil {
+		return c.crypto.XorPos()
+	}
+	return 0
+}
+
 // Crypto returns the client's crypto instance.
 func (c *Client) Crypto() *crypto.NetCrypto {
 	return c.crypto
 }
 
-// SendPacket encrypts and writes a PacketWriter buffer over the wire.
+// SendPacket writes a PacketWriter buffer over the wire with Fiesta framing.
 func (c *Client) SendPacket(pw *protocol.PacketWriter) error {
 	if c.closed.Load() {
 		return errors.New("client connection closed")
@@ -70,7 +87,7 @@ func (c *Client) SendPacket(pw *protocol.PacketWriter) error {
 	c.sendMu.Lock()
 	defer c.sendMu.Unlock()
 
-	wire := pw.BuildWirePacket(c.crypto)
+	wire := pw.BuildWirePacket()
 	_, err := c.conn.Write(wire)
 	return err
 }
