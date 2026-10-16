@@ -64,7 +64,7 @@ func main() {
 	for _, w := range cfg.Worlds {
 		zoneIP := w.ZoneIP
 		if zoneIP == "" {
-			zoneIP = "192.168.0.4"
+			zoneIP = "127.0.0.1"
 		}
 		zonePort := w.ZonePort
 		if zonePort == 0 {
@@ -116,17 +116,17 @@ func loadConfig(path string) *AppConfig {
 			{
 				ID:       0,
 				Name:     "INITIO",
-				IP:       "192.168.0.4",
+				IP:       "127.0.0.1",
 				Port:     9110,
 				Status:   6,
-				ZoneIP:   "192.168.0.4",
+				ZoneIP:   "127.0.0.1",
 				ZonePort: 9210,
 			},
 		},
 		ZoneServer: zone.Config{
 			BindAddr: "0.0.0.0:9210",
 			Port:     9210,
-			IP:       "192.168.0.4",
+			IP:       "127.0.0.1",
 			MapID:    0,
 		},
 	}

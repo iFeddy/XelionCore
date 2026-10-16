@@ -45,7 +45,7 @@ func loadConfig(path string) *Config {
 		ZoneServer: zone.Config{
 			BindAddr: "0.0.0.0:9210",
 			Port:     9210,
-			IP:       "192.168.0.4",
+			IP:       "127.0.0.1",
 			MapID:    0,
 		},
 	}

@@ -40,7 +40,7 @@ func main() {
 	for _, w := range cfg.Worlds {
 		zoneIP := w.ZoneIP
 		if zoneIP == "" {
-			zoneIP = "192.168.0.4"
+			zoneIP = "127.0.0.1"
 		}
 		zonePort := w.ZonePort
 		if zonePort == 0 {
@@ -80,9 +80,9 @@ func loadConfig(path string) *Config {
 			{
 				ID:       0,
 				Name:     "INITIO",
-				IP:       "192.168.0.4",
+				IP:       "127.0.0.1",
 				Port:     9110,
-				ZoneIP:   "192.168.0.4",
+				ZoneIP:   "127.0.0.1",
 				ZonePort: 9210,
 			},
 		},

@@ -31,7 +31,7 @@ func NewServer(cfg *Config, charRepo database.CharacterRepository, transfers *da
 		cfg.BindAddr = fmt.Sprintf("0.0.0.0:%d", cfg.Port)
 	}
 	if cfg.ZoneIP == "" {
-		cfg.ZoneIP = "192.168.0.4"
+		cfg.ZoneIP = "127.0.0.1"
 	}
 	if cfg.ZonePort == 0 {
 		cfg.ZonePort = 9210

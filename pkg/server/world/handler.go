@@ -22,7 +22,7 @@ type Handler struct {
 // NewHandler creates a new World packet handler.
 func NewHandler(charRepo database.CharacterRepository, transfers *database.TransferManager, zoneIP string, zonePort uint16) *Handler {
 	if zoneIP == "" {
-		zoneIP = "192.168.0.4"
+		zoneIP = "127.0.0.1"
 	}
 	if zonePort == 0 {
 		zonePort = 9210

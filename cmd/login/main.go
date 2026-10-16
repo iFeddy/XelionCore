@@ -71,7 +71,7 @@ func loadConfig(path string) *Config {
 			{
 				ID:     0,
 				Name:   "INITIO",
-				IP:     "192.168.0.4",
+				IP:     "127.0.0.1",
 				Port:   9110,
 				Status: 6,
 			},
