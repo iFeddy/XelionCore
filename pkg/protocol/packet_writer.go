@@ -107,12 +107,12 @@ func (pw *PacketWriter) Data() []byte {
 // BuildWirePacket adds Fiesta framing to the payload.
 // Server -> Client packets in the Fiesta protocol are unencrypted.
 // Header format:
-// - If len(payload) < 255: [1-byte length] + payload
-// - If len(payload) >= 255: [0x00, uint16 length] + payload
+// - If len(payload) <= 255: [1-byte length] + payload
+// - If len(payload) > 255: [0x00, uint16 length] + payload
 func (pw *PacketWriter) BuildWirePacket() []byte {
 	payloadLen := len(pw.buf)
 
-	if payloadLen < 255 {
+	if payloadLen <= 255 {
 		wire := make([]byte, 1+payloadLen)
 		wire[0] = byte(payloadLen)
 		copy(wire[1:], pw.buf)

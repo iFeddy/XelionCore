@@ -50,6 +50,8 @@ func (h *Handler) HandlePacket(client *network.Client, pkt *protocol.Packet) {
 		h.handleBeginRest(client, pkt)
 	case protocol.CH8Type_EndRest:
 		h.handleEndRest(client, pkt)
+	case protocol.CH2Type_Pong, protocol.CH2Type_Unk1:
+		// Heartbeat pong received, ignore
 	default:
 		log.Printf("[Zone][%s] Unhandled OpCode: 0x%04X (Header=%d, Type=%d, Len=%d)",
 			client.RemoteAddr(), pkt.OpCode, pkt.Header, pkt.Type, len(pkt.Raw))
@@ -217,6 +219,19 @@ func (h *Handler) sendInGameChunk(p *ZonePlayer) {
 	extraPkt := protocol.NewPacketWriter(protocol.SH6Type_DetailedCharacterInfo)
 	p.WriteDetailedInfoExtra(extraPkt, false)
 	_ = p.Client.SendPacket(extraPkt)
+
+	// 15. Premium Item List (SH12Type_SendPremiumItemList)
+	premiumList := protocol.NewPacketWriter(protocol.SH12Type_SendPremiumItemList)
+	premiumList.WriteUint16(0x1041)
+	premiumList.WriteByte(1)  // UNK
+	premiumList.WriteUint16(1) // Page count = 1 (0 items)
+	_ = p.Client.SendPacket(premiumList)
+
+	// 16. Reward List (SH12Type_SendRewardList)
+	rewardList := protocol.NewPacketWriter(protocol.SH12Type_SendRewardList)
+	rewardList.WriteByte(0)  // Item count = 0
+	rewardList.WriteByte(90) // UNK
+	_ = p.Client.SendPacket(rewardList)
 }
 
 func (h *Handler) handleClientReady(client *network.Client, pkt *protocol.Packet) {

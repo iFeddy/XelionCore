@@ -37,8 +37,8 @@ var (
 	SH3Type_VersionAllowed          = MakeOpCode(3, 103)
 
 	// Header 4: Character Selection / Zone Transfer
+	SH4Type_ConnectError              = MakeOpCode(4, 2)
 	SH4Type_ServerIP                  = MakeOpCode(4, 3)
-	SH4Type_ConnectError              = MakeOpCode(4, 4)
 	SH4Type_CharacterInfo             = MakeOpCode(4, 56)
 	SH4Type_CharacterLook             = MakeOpCode(4, 57)
 	SH4Type_CharacterQuestsBusy       = MakeOpCode(4, 58)
@@ -81,6 +81,20 @@ var (
 	SH8Type_BeginRest  = MakeOpCode(8, 40)
 	SH8Type_EndRest    = MakeOpCode(8, 43)
 	SH8Type_BlockWalk  = MakeOpCode(8, 74)
+
+	// Header 12: Inventory & Items
+	SH12Type_ModifyItemSlot           = MakeOpCode(12, 1)
+	SH12Type_ModifyEquipSlot          = MakeOpCode(12, 2)
+	SH12Type_InventoryFull            = MakeOpCode(12, 4)
+	SH12Type_ObtainedItem             = MakeOpCode(12, 10)
+	SH12Type_MoveIteminContaInComplet = MakeOpCode(12, 12)
+	SH12Type_FailedEquip              = MakeOpCode(12, 17)
+	SH12Type_FailedUnequip            = MakeOpCode(12, 19)
+	SH12Type_ItemUseEffect            = MakeOpCode(12, 22)
+	SH12Type_ItemUpgrade              = MakeOpCode(12, 24)
+	SH12Type_ItemUsedOk               = MakeOpCode(12, 26)
+	SH12Type_SendPremiumItemList      = MakeOpCode(12, 33)
+	SH12Type_SendRewardList           = MakeOpCode(12, 45)
 
 	// Header 21: Social / Friends
 	SH21Type_FriendList = MakeOpCode(21, 7)
