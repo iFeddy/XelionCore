@@ -52,6 +52,8 @@ func (h *Handler) HandlePacket(client *network.Client, pkt *protocol.Packet) {
 		h.handleCreateCharacter(client, pkt)
 	case protocol.CH5Type_DeleteCharacter:
 		h.handleDeleteCharacter(client, pkt)
+	case protocol.CH22Type_GotIngame:
+		h.handleGotIngame(client, pkt)
 	case protocol.CH28Type_GetQuickBar:
 		h.handleGetQuickBar(client, pkt)
 	case protocol.CH28Type_GetQuickBarState:
@@ -65,7 +67,7 @@ func (h *Handler) HandlePacket(client *network.Client, pkt *protocol.Packet) {
 	case protocol.CH28Type_SaveQuickBar, protocol.CH28Type_SaveQuickBarState,
 		protocol.CH28Type_SaveGameSettings, protocol.CH28Type_SaveClientSettings,
 		protocol.CH28Type_SaveShortCuts:
-		// Client settings save acknowledgement
+		h.handleSaveSettings(client, pkt)
 	case protocol.CH31Type_GetUnknown:
 		h.handleGetUnknown31(client, pkt)
 	default:
@@ -124,8 +126,10 @@ func (h *Handler) sendCharacterList(client *network.Client) {
 	}
 
 	pw := protocol.NewPacketWriter(protocol.SH3Type_CharacterList)
-	randomID := uint16(rand.Intn(65535))
-	pw.WriteUint16(randomID)
+	if client.RandomID == 0 {
+		client.RandomID = uint16(rand.Intn(65534) + 1)
+	}
+	pw.WriteUint16(client.RandomID)
 	pw.WriteByte(byte(len(chars)))
 
 	for _, ch := range chars {
@@ -290,7 +294,11 @@ func (h *Handler) handleCharSelect(client *network.Client, pkt *protocol.Packet)
 		return
 	}
 
-	randomID := uint16(rand.Intn(65535))
+	randomID := client.RandomID
+	if randomID == 0 {
+		randomID = uint16(rand.Intn(65534) + 1)
+		client.RandomID = randomID
+	}
 	clientIP := client.RemoteIP()
 
 	h.transfers.CreateZoneTransfer(client.AccountID, client.Username, selected.Name, selected.ID, randomID, client.Admin, clientIP)
@@ -352,8 +360,41 @@ func (h *Handler) handleGetShortCuts(client *network.Client, pkt *protocol.Packe
 	_ = client.SendPacket(resp)
 }
 
+func (h *Handler) handleSaveSettings(client *network.Client, pkt *protocol.Packet) {
+	log.Printf("[World][%s] Received settings save packet 0x%04X (Header=%d, Type=%d)",
+		client.RemoteAddr(), pkt.OpCode, pkt.Header, pkt.Type)
+}
+
 func (h *Handler) handleGetUnknown31(client *network.Client, pkt *protocol.Packet) {
 	resp := protocol.NewPacketWriter(protocol.SH31Type_LoadUnknown)
 	resp.WriteInt32(0xBD1)
 	_ = client.SendPacket(resp)
+}
+
+func (h *Handler) handleGotIngame(client *network.Client, pkt *protocol.Packet) {
+	log.Printf("[World][%s] Player '%s' entering in-game zone (CH22Type_GotIngame 0x%04X). Dispatching in-game ACKs...",
+		client.RemoteAddr(), client.Username, pkt.OpCode)
+
+	// 1. Packet 0x581C (Header 22, Type 28)
+	p1 := protocol.NewPacketWriter(protocol.SH22Type_GotIngameAck)
+	p1.WriteUint32(0x4d0bc167)
+	_ = client.SendPacket(p1)
+
+	// 2. Packet 0x581D (Header 22, Type 29) - zero active Kingdom Quests
+	p2 := protocol.NewPacketWriter(protocol.SH22Type_KingdomQuestCount)
+	p2.WriteInt16(0)
+	_ = client.SendPacket(p2)
+
+	// 3. Friends List (Header 21, Type 7) - Friend count = 0
+	p3 := protocol.NewPacketWriter(protocol.SH21Type_FriendList)
+	p3.WriteByte(0)
+	_ = client.SendPacket(p3)
+
+	// 4. Time Sync (Header 2, Type 69)
+	p4 := protocol.NewPacketWriter(protocol.SH2Type_UnkTimePacket)
+	p4.WriteInt16(256)
+	_ = client.SendPacket(p4)
+
+	log.Printf("[World][%s] In-game ACK sequence sent successfully for '%s'",
+		client.RemoteAddr(), client.Username)
 }

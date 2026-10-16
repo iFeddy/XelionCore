@@ -22,6 +22,7 @@ var (
 	SH2Type_Ping              = MakeOpCode(2, 4)
 	SH2Type_SetXorKeyPosition = MakeOpCode(2, 7) // Handshake offset
 	SH2Type_Unk1              = MakeOpCode(2, 14)
+	SH2Type_UnkTimePacket     = MakeOpCode(2, 69)
 	SH2Type_UpdateClientTime  = MakeOpCode(2, 73)
 
 	// Header 3: Login / World Selection
@@ -81,6 +82,13 @@ var (
 	SH8Type_EndRest    = MakeOpCode(8, 43)
 	SH8Type_BlockWalk  = MakeOpCode(8, 74)
 
+	// Header 21: Social / Friends
+	SH21Type_FriendList = MakeOpCode(21, 7)
+
+	// Header 22: In-Game Status / Kingdom Quest
+	SH22Type_GotIngameAck      = MakeOpCode(22, 28) // 0x581C
+	SH22Type_KingdomQuestCount = MakeOpCode(22, 29) // 0x581D
+
 	// Header 28: Settings & QuickBar
 	SH28Type_LoadQuickBar      = MakeOpCode(28, 3)
 	SH28Type_LoadQuickBarState = MakeOpCode(28, 5)
@@ -132,6 +140,9 @@ var (
 	CH8Type_Jump       = MakeOpCode(8, 36)
 	CH8Type_BeginRest  = MakeOpCode(8, 39)
 	CH8Type_EndRest    = MakeOpCode(8, 42)
+
+	// Header 22: In-Game Status / Heartbeat
+	CH22Type_GotIngame = MakeOpCode(22, 27) // 0x581B, matching fc_NC_CHAR_LOGIN_REQ
 
 	// Header 28: Settings & QuickBar
 	CH28Type_GetQuickBar       = MakeOpCode(28, 2)

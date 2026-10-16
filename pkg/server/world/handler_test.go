@@ -34,7 +34,7 @@ func TestWriteBasicCharInfo(t *testing.T) {
 }
 
 func TestCharacterRepositoryOperations(t *testing.T) {
-	repo := database.NewMemoryCharacterRepository()
+	repo := database.NewMemoryCharacterRepositoryWithFile("")
 
 	ch1 := &database.Character{
 		AccountID: 1,

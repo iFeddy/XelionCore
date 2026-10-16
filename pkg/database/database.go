@@ -47,13 +47,15 @@ func NewMemoryAccountRepository() *MemoryAccountRepository {
 
 	// Ensure default admin account exists
 	if _, exists := repo.accounts["admin"]; !exists {
-		repo.accounts["admin"] = &Account{
+		adminAcc := &Account{
 			ID:       1,
 			Username: "admin",
 			Password: "admin",
 			Admin:    2,
 			Banned:   false,
 		}
+		adminAcc.Sync()
+		repo.accounts["admin"] = adminAcc
 		if repo.nextID <= 1 {
 			repo.nextID = 2
 		}
@@ -77,6 +79,7 @@ func (r *MemoryAccountRepository) load() {
 			r.nextID = store.NextID
 		}
 		for _, acc := range store.Accounts {
+			acc.Sync()
 			r.accounts[strings.ToLower(acc.Username)] = acc
 			if acc.ID >= r.nextID {
 				r.nextID = acc.ID + 1
@@ -92,6 +95,7 @@ func (r *MemoryAccountRepository) save() {
 	_ = os.MkdirAll(filepath.Dir(r.filePath), 0755)
 	var list []*Account
 	for _, acc := range r.accounts {
+		acc.Sync()
 		list = append(list, acc)
 	}
 	store := accountStore{
@@ -134,6 +138,7 @@ func (r *MemoryAccountRepository) CreateAccount(username, password string) (*Acc
 		Admin:    0,
 		Banned:   false,
 	}
+	acc.Sync()
 	r.nextID++
 	r.accounts[key] = acc
 	r.save()

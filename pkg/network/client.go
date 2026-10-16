@@ -27,6 +27,7 @@ type Client struct {
 	ClientVersion   uint16
 	IsTransferring  bool
 	Admin           byte
+	RandomID        uint16
 
 	closed atomic.Bool
 	sendMu sync.Mutex
