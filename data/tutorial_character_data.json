@@ -1,0 +1,94 @@
+{
+  "tutorials": {
+    "1": {
+      "class_id": 1,
+      "class_name": "Fighter",
+      "start_map": "RouN",
+      "start_x": 7178,
+      "start_y": 7011,
+      "hp": 52,
+      "sp": 10,
+      "hp_soul": 14,
+      "sp_soul": 7,
+      "money": 300,
+      "starter_items": [
+        {
+          "item_id": 250,
+          "amount": 1
+        }
+      ]
+    },
+    "6": {
+      "class_id": 6,
+      "class_name": "Cleric",
+      "start_map": "RouN",
+      "start_x": 7178,
+      "start_y": 7011,
+      "hp": 46,
+      "sp": 32,
+      "hp_soul": 13,
+      "sp_soul": 10,
+      "money": 300,
+      "starter_items": [
+        {
+          "item_id": 750,
+          "amount": 1
+        }
+      ]
+    },
+    "11": {
+      "class_id": 11,
+      "class_name": "Archer",
+      "start_map": "RouN",
+      "start_x": 7178,
+      "start_y": 7011,
+      "hp": 46,
+      "sp": 24,
+      "hp_soul": 12,
+      "sp_soul": 10,
+      "money": 300,
+      "starter_items": [
+        {
+          "item_id": 1250,
+          "amount": 1
+        }
+      ]
+    },
+    "16": {
+      "class_id": 16,
+      "class_name": "Mage",
+      "start_map": "RouN",
+      "start_x": 7178,
+      "start_y": 7011,
+      "hp": 42,
+      "sp": 46,
+      "hp_soul": 10,
+      "sp_soul": 15,
+      "money": 300,
+      "starter_items": [
+        {
+          "item_id": 1750,
+          "amount": 1
+        }
+      ]
+    },
+    "21": {
+      "class_id": 21,
+      "class_name": "Joker",
+      "start_map": "RouN",
+      "start_x": 7178,
+      "start_y": 7011,
+      "hp": 48,
+      "sp": 46,
+      "hp_soul": 14,
+      "sp_soul": 11,
+      "money": 300,
+      "starter_items": [
+        {
+          "item_id": 57363,
+          "amount": 1
+        }
+      ]
+    }
+  }
+}

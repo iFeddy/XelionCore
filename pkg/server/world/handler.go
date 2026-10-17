@@ -11,16 +11,23 @@ import (
 	"github.com/iFeddy/XelionCore/pkg/protocol"
 )
 
-// Handler dispatches incoming packets for the World Server.
+// Handler despacha los paquetes de red del World Server (WorldManager + Character unificados).
 type Handler struct {
 	charRepo  database.CharacterRepository
 	transfers *database.TransferManager
+	dataStore *WorldDataStore
 	zoneIP    string
 	zonePort  uint16
 }
 
-// NewHandler creates a new World packet handler.
-func NewHandler(charRepo database.CharacterRepository, transfers *database.TransferManager, zoneIP string, zonePort uint16) *Handler {
+// NewHandler inicializa un nuevo despachador de paquetes para WorldService.
+func NewHandler(
+	charRepo database.CharacterRepository,
+	transfers *database.TransferManager,
+	dataStore *WorldDataStore,
+	zoneIP string,
+	zonePort uint16,
+) *Handler {
 	if zoneIP == "" {
 		zoneIP = "127.0.0.1"
 	}
@@ -30,75 +37,110 @@ func NewHandler(charRepo database.CharacterRepository, transfers *database.Trans
 	return &Handler{
 		charRepo:  charRepo,
 		transfers: transfers,
+		dataStore: dataStore,
 		zoneIP:    zoneIP,
 		zonePort:  zonePort,
 	}
 }
 
-// HandlePacket dispatches packets based on OpCode.
+// HandlePacket despacha paquetes basándose exclusivamente en OpCodes oficiales PROTO_NC_*.
 func (h *Handler) HandlePacket(client *network.Client, pkt *protocol.Packet) {
 	switch pkt.OpCode {
-	case protocol.CH2Type_Pong:
+	case protocol.PROTO_NC_MISC_HEARTBEAT_ACK, protocol.CH2Type_Pong:
 		// Client heartbeat acknowledge
-	case protocol.CH2Type_Unk1:
-		h.handleUnk1(client, pkt)
-	case protocol.CH3Type_WorldClientKey:
+
+	case protocol.PROTO_NC_MISC_GAMETIME_REQ, protocol.CH2Type_Unk1:
+		h.handleGameTime(client, pkt)
+
+	case protocol.PROTO_NC_MISC_WORLD_CLIENT_KEY_REQ:
 		h.handleWorldClientKey(client, pkt)
-	case protocol.CH3Type_BackToWorldSelect:
+
+	case protocol.PROTO_NC_USER_BACKTOWORLDLIST_REQ:
 		h.handleBackToWorldSelect(client, pkt)
-	case protocol.CH4Type_CharSelect:
+
+	case protocol.PROTO_NC_CHAR_LOGIN_REQ:
 		h.handleCharSelect(client, pkt)
-	case protocol.CH5Type_CreateCharacter:
+
+	case protocol.PROTO_NC_CHAR_CREATE_REQ:
 		h.handleCreateCharacter(client, pkt)
-	case protocol.CH5Type_DeleteCharacter:
+
+	case protocol.PROTO_NC_CHAR_DELETE_REQ, protocol.CH5Type_DeleteCharacter:
 		h.handleDeleteCharacter(client, pkt)
-	case protocol.CH22Type_GotIngame:
+
+	case protocol.PROTO_NC_CHAR_INGAME_REQ:
 		h.handleGotIngame(client, pkt)
-	case protocol.CH28Type_GetQuickBar:
+
+	case protocol.PROTO_NC_CHAR_GET_QUICKBAR_REQ:
 		h.handleGetQuickBar(client, pkt)
-	case protocol.CH28Type_GetQuickBarState:
+
+	case protocol.PROTO_NC_CHAR_GET_QUICKBAR_STATE_REQ:
 		h.handleGetQuickBarState(client, pkt)
-	case protocol.CH28Type_GetGameSettings:
+
+	case protocol.PROTO_NC_CHAR_GET_GAME_SETTINGS_REQ:
 		h.handleGetGameSettings(client, pkt)
-	case protocol.CH28Type_GetClientSettings:
+
+	case protocol.PROTO_NC_CHAR_GET_CLIENT_SETTINGS_REQ:
 		h.handleGetClientSettings(client, pkt)
-	case protocol.CH28Type_GetShortCuts:
+
+	case protocol.PROTO_NC_CHAR_GET_SHORTCUTS_REQ:
 		h.handleGetShortCuts(client, pkt)
-	case protocol.CH28Type_SaveQuickBar, protocol.CH28Type_SaveQuickBarState,
-		protocol.CH28Type_SaveGameSettings, protocol.CH28Type_SaveClientSettings,
-		protocol.CH28Type_SaveShortCuts:
+
+	case protocol.PROTO_NC_CHAR_SAVE_QUICKBAR_REQ,
+		protocol.PROTO_NC_CHAR_SAVE_QUICKBAR_STATE_REQ,
+		protocol.PROTO_NC_CHAR_SAVE_GAME_SETTINGS_REQ,
+		protocol.PROTO_NC_CHAR_SAVE_CLIENT_SETTINGS_REQ,
+		protocol.PROTO_NC_CHAR_SAVE_SHORTCUTS_REQ:
 		h.handleSaveSettings(client, pkt)
-	case protocol.CH31Type_GetUnknown:
+
+	case protocol.PROTO_NC_SYSTEM_UNKNOWN_REQ:
 		h.handleGetUnknown31(client, pkt)
+
 	default:
-		log.Printf("[World][%s] Unhandled OpCode: 0x%04X (Header=%d, Type=%d)",
+		log.Printf("[World][%s] Unhandled OpCode: 0x%04X (Dept=%d, Cmd=%d)",
 			client.RemoteAddr(), pkt.OpCode, pkt.Header, pkt.Type)
 	}
 }
 
-func (h *Handler) handleUnk1(client *network.Client, pkt *protocol.Packet) {
+// handleGameTime responde con la hora del servidor (PROTO_NC_MISC_GAMETIME_ACK - 0x080E).
+func (h *Handler) handleGameTime(client *network.Client, pkt *protocol.Packet) {
 	now := time.Now()
-	resp := protocol.NewPacketWriter(protocol.SH2Type_Unk1)
-	resp.WriteByte(byte(now.Hour()))
-	resp.WriteByte(byte(now.Minute()))
-	resp.WriteByte(byte(now.Second()))
+	resp := protocol.New_PROTO_NC_MISC_GAMETIME_ACK(byte(now.Hour()), byte(now.Minute()), byte(now.Second()))
 	_ = client.SendPacket(resp)
 }
 
+// handleWorldClientKey valida el token de traspaso proveniente de LoginService
+// y autentica la sesión del cliente en el WorldServer.
+// Soporta la estructura oficial PROTO_NC_USER_LOGINWORLD_REQ (320 bytes payload):
+//   - char user[256] /* Name256Byte */
+//   - unsigned short validate_new[32] (64 bytes)
 func (h *Handler) handleWorldClientKey(client *network.Client, pkt *protocol.Packet) {
-	log.Printf("[World][%s] Raw WorldClientKey (len %d): %x (ASCII: %q)",
-		client.RemoteAddr(), len(pkt.Raw), pkt.Raw, string(pkt.Raw))
+	log.Printf("[World][%s] Received PROTO_NC_USER_LOGINWORLD_REQ (len %d)",
+		client.RemoteAddr(), len(pkt.Raw))
 
+	var username string
 	var token string
-	if pkt.Reader.Remaining() >= 18+32 {
+
+	if pkt.Reader.Remaining() >= 256 {
+		uBytes, _ := pkt.Reader.ReadBytes(256)
+		username = strings.TrimRight(string(uBytes), "\x00")
+		username = strings.TrimSpace(username)
+
+		if pkt.Reader.Remaining() >= 32 {
+			tBytes, _ := pkt.Reader.ReadBytes(32)
+			token = strings.TrimRight(string(tBytes), "\x00")
+			token = strings.TrimSpace(token)
+		}
+	} else if pkt.Reader.Remaining() >= 18+32 {
+		// Fallback para paquetes heredados/mockeados en tests
 		_ = pkt.Reader.Skip(18)
 		token, _ = pkt.Reader.ReadString(32)
 		token = strings.TrimSpace(token)
 	}
 
-	transfer, ok := h.transfers.ConsumeTransfer(token, pkt.Raw)
+	transfer, ok := h.transfers.ConsumeTransfer(token, pkt.Raw, username)
 	if !ok {
-		log.Printf("[World][%s] Transfer token '%s' not found or expired", client.RemoteAddr(), token)
+		log.Printf("[World][%s] Transfer token '%s' (user: '%s') not found or expired",
+			client.RemoteAddr(), token, username)
 		h.sendError(client, protocol.ErrInvalidCredentials)
 		client.Close()
 		return
@@ -112,10 +154,11 @@ func (h *Handler) handleWorldClientKey(client *network.Client, pkt *protocol.Pac
 	log.Printf("[World][%s] Authenticated user '%s' (AccountID: %d)",
 		client.RemoteAddr(), client.Username, client.AccountID)
 
-	// Send Character List
+	// Enviar lista de personajes disponibles
 	h.sendCharacterList(client)
 }
 
+// sendCharacterList despacha la lista oficial de avatares (PROTO_NC_CHAR_CLIENT_CHARLIST_ACK - 0x0C14).
 func (h *Handler) sendCharacterList(client *network.Client) {
 	chars, err := h.charRepo.GetCharactersByAccount(client.AccountID)
 	if err != nil {
@@ -125,7 +168,7 @@ func (h *Handler) sendCharacterList(client *network.Client) {
 		return
 	}
 
-	pw := protocol.NewPacketWriter(protocol.SH3Type_CharacterList)
+	pw := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_CLIENT_CHARLIST_ACK)
 	if client.RandomID == 0 {
 		client.RandomID = uint16(rand.Intn(65534) + 1)
 	}
@@ -142,9 +185,11 @@ func (h *Handler) sendCharacterList(client *network.Client) {
 	_ = client.SendPacket(pw)
 }
 
+// handleCreateCharacter procesa la creación de personaje validando contra BadNameFilter.shn
+// y asignando valores base desde default_character_data.json.
 func (h *Handler) handleCreateCharacter(client *network.Client, pkt *protocol.Packet) {
 	if !client.IsAuthenticated {
-		log.Printf("[World][%s] Unauthenticated CreateCharacter request", client.RemoteAddr())
+		log.Printf("[World][%s] Unauthenticated CreateCharacter request rejected", client.RemoteAddr())
 		return
 	}
 
@@ -178,24 +223,76 @@ func (h *Handler) handleCreateCharacter(client *network.Client, pkt *protocol.Pa
 		return
 	}
 
-	// Check if name is taken
-	if existing, _ := h.charRepo.GetCharacterByName(name); existing != nil {
-		log.Printf("[World][%s] Character name '%s' already taken", client.RemoteAddr(), name)
-		h.sendCharCreationError(client, protocol.CreateCharError_NameTaken)
-		return
-	}
-
 	isMale := ((jobGender >> 7) & 0x01) == 1
 	classID := byte((jobGender >> 2) & 0x1F)
 	job := protocol.Job(classID)
 
 	switch job {
-	case protocol.Job_Fighter, protocol.Job_Cleric, protocol.Job_Archer, protocol.Job_Mage, protocol.Job_Trickster:
-		// Valid job
+	case protocol.Job_Fighter, protocol.Job_Cleric, protocol.Job_Archer, protocol.Job_Mage, protocol.Job_Trickster, protocol.Job_Crusader:
+		// Clase válida soportada por el cliente oficial
 	default:
 		log.Printf("[World][%s] Invalid job ID %d requested", client.RemoteAddr(), classID)
 		h.sendCharCreationError(client, protocol.CreateCharError_WrongClass)
 		return
+	}
+
+	// 1. Validación de apariencia oficial (FaceInfo, HairInfo, HairColorInfo y límites de clase)
+	if h.dataStore != nil && !h.dataStore.ValidateAppearance(classID, hair, color, style) {
+		log.Printf("[World][%s] Character appearance rejected by limits (Class=%d, Hair=%d, Color=%d, Face=%d)",
+			client.RemoteAddr(), classID, hair, color, style)
+		h.sendCharCreationError(client, protocol.CreateCharError_FailedToCreate)
+		return
+	}
+
+	// 2. Validación contra BadNameFilter.shn oficial
+	if h.dataStore != nil && h.dataStore.BadNames != nil && h.dataStore.BadNames.IsBadName(name) {
+		log.Printf("[World][%s] Character name '%s' rejected by BadNameFilter", client.RemoteAddr(), name)
+		h.sendCharCreationError(client, protocol.CreateCharError_FailedToCreate)
+		return
+	}
+
+	// 3. Validación de unicidad de nombre en la base de datos
+	if existing, _ := h.charRepo.GetCharacterByName(name); existing != nil {
+		log.Printf("[World][%s] Character name '%s' already exists in database", client.RemoteAddr(), name)
+		h.sendCharCreationError(client, protocol.CreateCharError_NameTaken)
+		return
+	}
+
+	// 4. Cargar parámetros base desde default_character_data.json
+	startMap := "RouN"
+	startX := 6888
+	startY := 7045
+	hp := 100
+	sp := 100
+	hpSoul := int16(15)
+	spSoul := int16(7)
+	money := int64(0)
+
+	if h.dataStore != nil && h.dataStore.DefaultData != nil {
+		if classData, exists := h.dataStore.DefaultData.GetClassData(classID); exists {
+			if classData.StartMap != "" {
+				startMap = classData.StartMap
+			}
+			if classData.StartX != 0 {
+				startX = classData.StartX
+			}
+			if classData.StartY != 0 {
+				startY = classData.StartY
+			}
+			if classData.HP != 0 {
+				hp = classData.HP
+			}
+			if classData.SP != 0 {
+				sp = classData.SP
+			}
+			if classData.HPSoul != 0 {
+				hpSoul = classData.HPSoul
+			}
+			if classData.SPSoul != 0 {
+				spSoul = classData.SPSoul
+			}
+			money = classData.Money
+		}
 	}
 
 	wSlot, wItem := GetBeginnerWeapon(job)
@@ -210,30 +307,34 @@ func (h *Handler) handleCreateCharacter(client *network.Client, pkt *protocol.Pa
 		Hair:      hair,
 		HairColor: color,
 		Face:      style,
-		TownName:  "Roumen",
-		XPos:      7636,
-		YPos:      4610,
-		CurHP:     100,
-		CurSP:     100,
+		TownName:  startMap,
+		XPos:      startX,
+		YPos:      startY,
+		CurHP:     hp,
+		CurSP:     sp,
 		Equips:    map[byte]uint16{wSlot: wItem},
 	}
+	newChar.TCharacterState.Money = money
+	newChar.TCharacterState.HPStones = hpSoul
+	newChar.TCharacterState.SPStones = spSoul
 
 	if err := h.charRepo.CreateCharacter(newChar); err != nil {
-		log.Printf("[World][%s] Failed to save character '%s': %v", client.RemoteAddr(), name, err)
+		log.Printf("[World][%s] Failed to create character '%s': %v", client.RemoteAddr(), name, err)
 		h.sendCharCreationError(client, protocol.CreateCharError_FailedToCreate)
 		return
 	}
 
-	log.Printf("[World][%s] Created character '%s' (Job: %d, Slot: %d) for user '%s'",
-		client.RemoteAddr(), name, classID, slot, client.Username)
+	log.Printf("[World][%s] Created character '%s' (ID: %d, Job: %d, Slot: %d) for user '%s'",
+		client.RemoteAddr(), name, newChar.ID, classID, slot, client.Username)
 
-	// Send Character Creation OK response
-	resp := protocol.NewPacketWriter(protocol.SH5Type_CharCreationOK)
-	resp.WriteByte(1)
-	WriteBasicCharInfo(newChar, resp)
+	// Enviar respuesta oficial de confirmación PROTO_NC_CHAR_CREATE_ACK (0x1406)
+	resp := protocol.New_PROTO_NC_CHAR_CREATE_ACK(func(pw *protocol.PacketWriter) {
+		WriteBasicCharInfo(newChar, pw)
+	})
 	_ = client.SendPacket(resp)
 }
 
+// handleDeleteCharacter ejecuta el soft-delete oficial liberando el slot y nickname.
 func (h *Handler) handleDeleteCharacter(client *network.Client, pkt *protocol.Packet) {
 	if !client.IsAuthenticated {
 		return
@@ -250,20 +351,19 @@ func (h *Handler) handleDeleteCharacter(client *network.Client, pkt *protocol.Pa
 		return
 	}
 
-	log.Printf("[World][%s] Deleted character in slot %d for user '%s'", client.RemoteAddr(), slot, client.Username)
+	log.Printf("[World][%s] Soft-deleted character in slot %d for user '%s'", client.RemoteAddr(), slot, client.Username)
 
-	resp := protocol.NewPacketWriter(protocol.SH5Type_CharDeleteOK)
-	resp.WriteByte(slot)
+	resp := protocol.New_PROTO_NC_CHAR_DELETE_ACK(slot)
 	_ = client.SendPacket(resp)
 }
 
+// handleBackToWorldSelect procesa la solicitud de volver a la selección de mundos.
 func (h *Handler) handleBackToWorldSelect(client *network.Client, pkt *protocol.Packet) {
-	resp := protocol.NewPacketWriter(protocol.SH3Type_BackToWorldListFromChar)
-	resp.WriteBytes([]byte{0x58, 0x1E})
-	resp.Fill(32, 0)
+	resp := protocol.New_PROTO_NC_USER_BACKTOWORLDLIST_ACK()
 	_ = client.SendPacket(resp)
 }
 
+// handleCharSelect procesa la selección de un personaje y entrega el traspaso oficial hacia ZoneServer.
 func (h *Handler) handleCharSelect(client *network.Client, pkt *protocol.Packet) {
 	if !client.IsAuthenticated {
 		return
@@ -271,7 +371,7 @@ func (h *Handler) handleCharSelect(client *network.Client, pkt *protocol.Packet)
 
 	slot, err := pkt.Reader.ReadByte()
 	if err != nil || slot > 5 {
-		log.Printf("[World][%s] Invalid character slot: %v", client.RemoteAddr(), err)
+		log.Printf("[World][%s] Invalid character slot in CharSelect: %v", client.RemoteAddr(), err)
 		return
 	}
 
@@ -290,7 +390,10 @@ func (h *Handler) handleCharSelect(client *network.Client, pkt *protocol.Packet)
 	}
 
 	if selected == nil {
-		log.Printf("[World][%s] Character in slot %d not found for account %d", client.RemoteAddr(), slot, client.AccountID)
+		log.Printf("[World][%s] Character in slot %d not found for account %d",
+			client.RemoteAddr(), slot, client.AccountID)
+		failResp := protocol.New_PROTO_NC_CHAR_LOGINFAIL_ACK(uint16(protocol.ErrInvalidCredentials))
+		_ = client.SendPacket(failResp)
 		return
 	}
 
@@ -301,15 +404,21 @@ func (h *Handler) handleCharSelect(client *network.Client, pkt *protocol.Packet)
 	}
 	clientIP := client.RemoteIP()
 
-	h.transfers.CreateZoneTransfer(client.AccountID, client.Username, selected.Name, selected.ID, randomID, client.Admin, clientIP)
+	h.transfers.CreateZoneTransfer(
+		client.AccountID,
+		client.Username,
+		selected.Name,
+		selected.ID,
+		randomID,
+		client.Admin,
+		clientIP,
+	)
 
-	log.Printf("[World][%s] Character '%s' (ID: %d) selected. Transfer registered with RandomID: %d. Dispatching SH4Type_ServerIP -> %s:%d",
-		client.RemoteAddr(), selected.Name, selected.ID, randomID, h.zoneIP, h.zonePort)
+	log.Printf("[World][%s] Character '%s' (ID: %d) selected. Zone transfer token generated for %s:%d",
+		client.RemoteAddr(), selected.Name, selected.ID, h.zoneIP, h.zonePort)
 
-	// Send SH4Type_ServerIP (Header 4, Type 3)
-	resp := protocol.NewPacketWriter(protocol.SH4Type_ServerIP)
-	resp.WriteString(h.zoneIP, 16)
-	resp.WriteUint16(h.zonePort)
+	// Enviar respuesta oficial PROTO_NC_CHAR_LOGIN_ACK (0x1003) con IP y Puerto de Zone
+	resp := protocol.New_PROTO_NC_CHAR_LOGIN_ACK(h.zoneIP, h.zonePort)
 	_ = client.SendPacket(resp)
 }
 
@@ -320,78 +429,77 @@ func (h *Handler) sendError(client *network.Client, errCode protocol.ServerError
 }
 
 func (h *Handler) sendCharCreationError(client *network.Client, errCode protocol.CreateCharError) {
-	resp := protocol.NewPacketWriter(protocol.SH5Type_CharCreationError)
-	resp.WriteUint16(uint16(errCode))
+	resp := protocol.New_PROTO_NC_CHAR_CREATE_FAIL_ACK(uint16(errCode))
 	_ = client.SendPacket(resp)
 }
 
 func (h *Handler) handleGetQuickBar(client *network.Client, pkt *protocol.Packet) {
-	resp := protocol.NewPacketWriter(protocol.SH28Type_LoadQuickBar)
+	resp := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_GET_QUICKBAR_ACK)
 	resp.WriteByte(0) // hasData = false
 	resp.WriteByte(0)
 	_ = client.SendPacket(resp)
 }
 
 func (h *Handler) handleGetQuickBarState(client *network.Client, pkt *protocol.Packet) {
-	resp := protocol.NewPacketWriter(protocol.SH28Type_LoadQuickBarState)
+	resp := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_GET_QUICKBAR_STATE_ACK)
 	resp.WriteByte(0)
 	resp.WriteByte(0)
 	_ = client.SendPacket(resp)
 }
 
 func (h *Handler) handleGetGameSettings(client *network.Client, pkt *protocol.Packet) {
-	resp := protocol.NewPacketWriter(protocol.SH28Type_LoadGameSettings)
+	resp := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_GET_GAME_SETTINGS_ACK)
 	resp.WriteByte(0)
 	resp.WriteByte(0)
 	_ = client.SendPacket(resp)
 }
 
 func (h *Handler) handleGetClientSettings(client *network.Client, pkt *protocol.Packet) {
-	resp := protocol.NewPacketWriter(protocol.SH28Type_LoadClientSettings)
+	resp := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_GET_CLIENT_SETTINGS_ACK)
 	resp.WriteByte(0)
 	resp.WriteByte(0)
 	_ = client.SendPacket(resp)
 }
 
 func (h *Handler) handleGetShortCuts(client *network.Client, pkt *protocol.Packet) {
-	resp := protocol.NewPacketWriter(protocol.SH28Type_LoadShortCuts)
+	resp := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_GET_SHORTCUTS_ACK)
 	resp.WriteByte(0)
 	resp.WriteByte(0)
 	_ = client.SendPacket(resp)
 }
 
 func (h *Handler) handleSaveSettings(client *network.Client, pkt *protocol.Packet) {
-	log.Printf("[World][%s] Received settings save packet 0x%04X (Header=%d, Type=%d)",
+	log.Printf("[World][%s] Received settings save packet 0x%04X (Dept=%d, Cmd=%d)",
 		client.RemoteAddr(), pkt.OpCode, pkt.Header, pkt.Type)
 }
 
 func (h *Handler) handleGetUnknown31(client *network.Client, pkt *protocol.Packet) {
-	resp := protocol.NewPacketWriter(protocol.SH31Type_LoadUnknown)
+	resp := protocol.NewPacketWriter(protocol.PROTO_NC_SYSTEM_UNKNOWN_ACK)
 	resp.WriteInt32(0xBD1)
 	_ = client.SendPacket(resp)
 }
 
 func (h *Handler) handleGotIngame(client *network.Client, pkt *protocol.Packet) {
-	log.Printf("[World][%s] Player '%s' entering in-game zone (CH22Type_GotIngame 0x%04X). Dispatching in-game ACKs...",
+	log.Printf("[World][%s] Player '%s' entering in-game zone (0x%04X). Dispatching in-game ACKs...",
 		client.RemoteAddr(), client.Username, pkt.OpCode)
 
-	// 1. Packet 0x581C (Header 22, Type 28)
-	p1 := protocol.NewPacketWriter(protocol.SH22Type_GotIngameAck)
+	// 1. Packet PROTO_NC_CHAR_INGAME_ACK (0x581C)
+	p1 := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_INGAME_ACK)
 	p1.WriteUint32(0x4d0bc167)
 	_ = client.SendPacket(p1)
 
-	// 2. Packet 0x581D (Header 22, Type 29) - zero active Kingdom Quests
-	p2 := protocol.NewPacketWriter(protocol.SH22Type_KingdomQuestCount)
+	// 2. Packet PROTO_NC_KQ_LIST_COUNT_ACK (0x581D) - 0 active Kingdom Quests
+	p2 := protocol.NewPacketWriter(protocol.PROTO_NC_KQ_LIST_COUNT_ACK)
 	p2.WriteInt16(0)
 	_ = client.SendPacket(p2)
 
-	// 3. Friends List (Header 21, Type 7) - Friend count = 0
-	p3 := protocol.NewPacketWriter(protocol.SH21Type_FriendList)
+	// 3. Packet PROTO_NC_FRIEND_LIST_ACK (21, 7) - 0 friends
+	p3 := protocol.NewPacketWriter(protocol.PROTO_NC_FRIEND_LIST_ACK)
 	p3.WriteByte(0)
 	_ = client.SendPacket(p3)
 
-	// 4. Time Sync (Header 2, Type 69)
-	p4 := protocol.NewPacketWriter(protocol.SH2Type_UnkTimePacket)
+	// 4. Packet PROTO_NC_MISC_TIME_SYNC_ACK (2, 69) - Time sync
+	p4 := protocol.NewPacketWriter(protocol.PROTO_NC_MISC_TIME_SYNC_ACK)
 	p4.WriteInt16(256)
 	_ = client.SendPacket(p4)
 

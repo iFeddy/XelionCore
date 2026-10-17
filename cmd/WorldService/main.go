@@ -1,40 +1,51 @@
 package main
 
 import (
-	"encoding/json"
+	"database/sql"
 	"fmt"
 	"log"
 	"os"
 	"os/signal"
 	"syscall"
 
+	_ "github.com/go-sql-driver/mysql"
+	"github.com/iFeddy/XelionCore/pkg/config"
 	"github.com/iFeddy/XelionCore/pkg/database"
 	"github.com/iFeddy/XelionCore/pkg/server/world"
 )
 
-type Config struct {
-	Worlds []WorldEntry `json:"worlds"`
-}
-
-type WorldEntry struct {
-	ID       byte   `json:"id"`
-	Name     string `json:"name"`
-	IP       string `json:"ip"`
-	Port     uint16 `json:"port"`
-	ZoneIP   string `json:"zone_ip"`
-	ZonePort uint16 `json:"zone_port"`
-}
-
 func main() {
 	log.Println("==================================================")
-	log.Println("      XELION ONLINE - WORLD / CHAR SERVER         ")
-	log.Println("                  Port: 9110                      ")
+	log.Println("           XELION ONLINE - WORLD SERVICE          ")
 	log.Println("==================================================")
 
-	cfg := loadConfig("configs/config.json")
+	cfg, err := config.Load()
+	if err != nil {
+		log.Fatalf("[WorldService] Failed to load configuration: %v", err)
+	}
 
-	charRepo := database.NewMemoryCharacterRepository()
-	transfers := database.NewTransferManager()
+	dsn := fmt.Sprintf("%s:%s@tcp(%s:%d)/%s?parseTime=true",
+		cfg.DBUser, cfg.DBPassword, cfg.DBHost, cfg.DBPort, cfg.DBName)
+	db, err := sql.Open("mysql", dsn)
+	if err != nil {
+		log.Fatalf("[WorldService] Failed to open MySQL: %v", err)
+	}
+	defer db.Close()
+
+	if err := db.Ping(); err != nil {
+		log.Fatalf("[WorldService] Failed to ping MySQL at %s:%d: %v", cfg.DBHost, cfg.DBPort, err)
+	}
+	log.Printf("[WorldService] Connected to MySQL database '%s' at %s:%d", cfg.DBName, cfg.DBHost, cfg.DBPort)
+
+	charRepo := database.NewMySQLCharacterRepository(db)
+	transfers := database.NewTransferManager(db)
+
+	// Cargar todos los archivos SHN y configuraciones estáticas oficiales (22 WorldManager + 4 Character + Checksums)
+	dataStore, err := world.LoadWorldDataStore("data")
+	if err != nil {
+		log.Fatalf("[WorldService] Failed to load WorldDataStore: %v", err)
+	}
+	log.Printf("[WorldService] WorldDataStore loaded successfully (%d SHN files loaded in memory)", len(dataStore.LoadedFiles))
 
 	var worldServers []*world.Server
 	for _, w := range cfg.Worlds {
@@ -56,9 +67,9 @@ func main() {
 			ZonePort: zonePort,
 		}
 
-		srv := world.NewServer(worldCfg, charRepo, transfers)
+		srv := world.NewServer(worldCfg, charRepo, transfers, dataStore)
 		if err := srv.Start(); err != nil {
-			log.Fatalf("[World] Fatal error starting world '%s': %v", w.Name, err)
+			log.Fatalf("[WorldService] Fatal error starting world '%s': %v", w.Name, err)
 		}
 		worldServers = append(worldServers, srv)
 	}
@@ -67,35 +78,9 @@ func main() {
 	signal.Notify(sigChan, os.Interrupt, syscall.SIGTERM)
 	<-sigChan
 
-	log.Println("\n[World] Shutting down...")
+	log.Println("\n[WorldService] Shutting down...")
 	for _, ws := range worldServers {
 		ws.Stop()
 	}
-	log.Println("[World] Shutdown complete.")
-}
-
-func loadConfig(path string) *Config {
-	defaultCfg := &Config{
-		Worlds: []WorldEntry{
-			{
-				ID:       0,
-				Name:     "INITIO",
-				IP:       "127.0.0.1",
-				Port:     9110,
-				ZoneIP:   "127.0.0.1",
-				ZonePort: 9210,
-			},
-		},
-	}
-
-	data, err := os.ReadFile(path)
-	if err != nil {
-		return defaultCfg
-	}
-
-	var parsed Config
-	if err := json.Unmarshal(data, &parsed); err != nil {
-		return defaultCfg
-	}
-	return &parsed
+	log.Println("[WorldService] Shutdown complete.")
 }

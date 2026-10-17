@@ -26,7 +26,12 @@ type Server struct {
 }
 
 // NewServer initializes a new World Server.
-func NewServer(cfg *Config, charRepo database.CharacterRepository, transfers *database.TransferManager) *Server {
+func NewServer(
+	cfg *Config,
+	charRepo database.CharacterRepository,
+	transfers *database.TransferManager,
+	dataStore *WorldDataStore,
+) *Server {
 	if cfg.BindAddr == "" {
 		cfg.BindAddr = fmt.Sprintf("0.0.0.0:%d", cfg.Port)
 	}
@@ -37,7 +42,7 @@ func NewServer(cfg *Config, charRepo database.CharacterRepository, transfers *da
 		cfg.ZonePort = 9210
 	}
 
-	handler := NewHandler(charRepo, transfers, cfg.ZoneIP, cfg.ZonePort)
+	handler := NewHandler(charRepo, transfers, dataStore, cfg.ZoneIP, cfg.ZonePort)
 
 	s := &Server{
 		config:  cfg,

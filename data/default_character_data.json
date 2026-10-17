@@ -1,0 +1,540 @@
+{
+  "classes": {
+    "1": {
+      "class_id": 1,
+      "class_name": "Fighter",
+      "start_map": "RouN",
+      "start_x": 6888,
+      "start_y": 7045,
+      "hp": 52,
+      "sp": 10,
+      "hp_soul": 15,
+      "sp_soul": 7,
+      "money": 0,
+      "init_level": 1,
+      "init_exp": 0,
+      "max_shape": {
+        "max_face": 3,
+        "max_hair": 3,
+        "max_hair_color": 3
+      },
+      "starter_items": [
+        {
+          "item_id": 46003,
+          "amount": 1,
+          "name": "Damaged Mystery Vault"
+        },
+        {
+          "item_id": 250,
+          "amount": 1,
+          "name": "Short Sword"
+        }
+      ],
+      "shortcuts": [
+        {
+          "slot": 0,
+          "code_no": 4,
+          "value": 0
+        },
+        {
+          "slot": 1,
+          "code_no": 4,
+          "value": 1
+        },
+        {
+          "slot": 10,
+          "code_no": 1,
+          "value": 3500
+        },
+        {
+          "slot": 11,
+          "code_no": 1,
+          "value": 3505
+        }
+      ],
+      "starter_skills": [
+        29200,
+        29201,
+        29202,
+        29203,
+        29204,
+        29205,
+        29206,
+        29001,
+        29429,
+        29430,
+        29468,
+        29469,
+        29480,
+        29482,
+        29484,
+        29498,
+        29499,
+        29500,
+        29613,
+        29614,
+        29644,
+        29645,
+        29209,
+        29745,
+        29746
+      ]
+    },
+    "6": {
+      "class_id": 6,
+      "class_name": "Cleric",
+      "start_map": "RouN",
+      "start_x": 6888,
+      "start_y": 7045,
+      "hp": 46,
+      "sp": 32,
+      "hp_soul": 14,
+      "sp_soul": 10,
+      "money": 0,
+      "init_level": 1,
+      "init_exp": 0,
+      "max_shape": {
+        "max_face": 3,
+        "max_hair": 3,
+        "max_hair_color": 3
+      },
+      "starter_items": [
+        {
+          "item_id": 46003,
+          "amount": 1,
+          "name": "Damaged Mystery Vault"
+        },
+        {
+          "item_id": 750,
+          "amount": 1,
+          "name": "Short Mace"
+        }
+      ],
+      "shortcuts": [
+        {
+          "slot": 0,
+          "code_no": 4,
+          "value": 0
+        },
+        {
+          "slot": 1,
+          "code_no": 4,
+          "value": 1
+        },
+        {
+          "slot": 10,
+          "code_no": 1,
+          "value": 3500
+        },
+        {
+          "slot": 11,
+          "code_no": 1,
+          "value": 3505
+        }
+      ],
+      "starter_skills": [
+        29200,
+        29201,
+        29202,
+        29203,
+        29204,
+        29205,
+        29206,
+        29001,
+        29429,
+        29430,
+        29468,
+        29469,
+        29480,
+        29482,
+        29484,
+        29498,
+        29499,
+        29500,
+        29613,
+        29614,
+        29644,
+        29645,
+        29209,
+        29745,
+        29746
+      ]
+    },
+    "11": {
+      "class_id": 11,
+      "class_name": "Archer",
+      "start_map": "RouN",
+      "start_x": 6888,
+      "start_y": 7045,
+      "hp": 46,
+      "sp": 24,
+      "hp_soul": 13,
+      "sp_soul": 10,
+      "money": 0,
+      "init_level": 1,
+      "init_exp": 0,
+      "max_shape": {
+        "max_face": 3,
+        "max_hair": 3,
+        "max_hair_color": 3
+      },
+      "starter_items": [
+        {
+          "item_id": 46003,
+          "amount": 1,
+          "name": "Damaged Mystery Vault"
+        },
+        {
+          "item_id": 1250,
+          "amount": 1,
+          "name": "Short Bow"
+        }
+      ],
+      "shortcuts": [
+        {
+          "slot": 0,
+          "code_no": 4,
+          "value": 0
+        },
+        {
+          "slot": 1,
+          "code_no": 4,
+          "value": 1
+        },
+        {
+          "slot": 10,
+          "code_no": 1,
+          "value": 3500
+        },
+        {
+          "slot": 11,
+          "code_no": 1,
+          "value": 3505
+        }
+      ],
+      "starter_skills": [
+        29200,
+        29201,
+        29202,
+        29203,
+        29204,
+        29205,
+        29206,
+        29001,
+        29429,
+        29430,
+        29468,
+        29469,
+        29480,
+        29482,
+        29484,
+        29498,
+        29499,
+        29500,
+        29613,
+        29614,
+        29644,
+        29645,
+        29209,
+        29745,
+        29746
+      ]
+    },
+    "16": {
+      "class_id": 16,
+      "class_name": "Mage",
+      "start_map": "RouN",
+      "start_x": 6888,
+      "start_y": 7045,
+      "hp": 42,
+      "sp": 46,
+      "hp_soul": 11,
+      "sp_soul": 15,
+      "money": 0,
+      "init_level": 1,
+      "init_exp": 0,
+      "max_shape": {
+        "max_face": 3,
+        "max_hair": 3,
+        "max_hair_color": 3
+      },
+      "starter_items": [
+        {
+          "item_id": 46003,
+          "amount": 1,
+          "name": "Damaged Mystery Vault"
+        },
+        {
+          "item_id": 1750,
+          "amount": 1,
+          "name": "Short Staff"
+        }
+      ],
+      "shortcuts": [
+        {
+          "slot": 0,
+          "code_no": 4,
+          "value": 0
+        },
+        {
+          "slot": 1,
+          "code_no": 4,
+          "value": 1
+        },
+        {
+          "slot": 2,
+          "code_no": 3,
+          "value": 6000
+        },
+        {
+          "slot": 10,
+          "code_no": 1,
+          "value": 3500
+        },
+        {
+          "slot": 11,
+          "code_no": 1,
+          "value": 3505
+        }
+      ],
+      "starter_skills": [
+        6000,
+        29200,
+        29201,
+        29202,
+        29203,
+        29204,
+        29205,
+        29206,
+        29001,
+        29429,
+        29430,
+        29468,
+        29469,
+        29480,
+        29482,
+        29484,
+        29498,
+        29499,
+        29500,
+        29613,
+        29614,
+        29644,
+        29645,
+        29209,
+        29745,
+        29746
+      ]
+    },
+    "21": {
+      "class_id": 21,
+      "class_name": "Joker",
+      "start_map": "RouN",
+      "start_x": 6888,
+      "start_y": 7045,
+      "hp": 48,
+      "sp": 46,
+      "hp_soul": 15,
+      "sp_soul": 11,
+      "money": 0,
+      "init_level": 1,
+      "init_exp": 0,
+      "max_shape": {
+        "max_face": 3,
+        "max_hair": 3,
+        "max_hair_color": 3
+      },
+      "starter_items": [
+        {
+          "item_id": 46003,
+          "amount": 1,
+          "name": "Damaged Mystery Vault"
+        },
+        {
+          "item_id": 57363,
+          "amount": 1,
+          "name": "Abel Claws"
+        }
+      ],
+      "shortcuts": [
+        {
+          "slot": 0,
+          "code_no": 4,
+          "value": 0
+        },
+        {
+          "slot": 1,
+          "code_no": 4,
+          "value": 1
+        },
+        {
+          "slot": 10,
+          "code_no": 1,
+          "value": 3500
+        },
+        {
+          "slot": 11,
+          "code_no": 1,
+          "value": 3505
+        }
+      ],
+      "starter_skills": [
+        29200,
+        29201,
+        29202,
+        29203,
+        29204,
+        29205,
+        29206,
+        29001,
+        29429,
+        29430,
+        29468,
+        29469,
+        29480,
+        29482,
+        29484,
+        29498,
+        29499,
+        29500,
+        29613,
+        29614,
+        29644,
+        29645,
+        29209,
+        29745,
+        29746
+      ]
+    },
+    "26": {
+      "class_id": 26,
+      "class_name": "Sentinel",
+      "start_map": "Eld",
+      "start_x": 12259,
+      "start_y": 13434,
+      "hp": 1177,
+      "sp": 1,
+      "hp_soul": 261,
+      "sp_soul": 0,
+      "money": 0,
+      "init_level": 60,
+      "init_exp": 24346145,
+      "max_shape": {
+        "max_face": 3,
+        "max_hair": 3,
+        "max_hair_color": 3
+      },
+      "starter_items": [
+        {
+          "item_id": 62923,
+          "amount": 1,
+          "name": "Novice Crusader`s Blade"
+        },
+        {
+          "item_id": 62930,
+          "amount": 50,
+          "name": "HP Potion (Tier 4)"
+        },
+        {
+          "item_id": 62931,
+          "amount": 10,
+          "name": "Aim(Tier 3)"
+        },
+        {
+          "item_id": 62932,
+          "amount": 10,
+          "name": "Nature's Agility (Tier 3)"
+        },
+        {
+          "item_id": 62933,
+          "amount": 10,
+          "name": "Magical Defense (Tier 3)"
+        },
+        {
+          "item_id": 62934,
+          "amount": 10,
+          "name": "Shield Increase (Tier 3)"
+        },
+        {
+          "item_id": 62935,
+          "amount": 10,
+          "name": "Concentration Increase (Tier 3)"
+        },
+        {
+          "item_id": 62936,
+          "amount": 10,
+          "name": "Vitality (Tier 3)"
+        },
+        {
+          "item_id": 62937,
+          "amount": 10,
+          "name": "Strength Increase (Tier 3)"
+        },
+        {
+          "item_id": 62938,
+          "amount": 10,
+          "name": "Quickness (Tier 3)"
+        },
+        {
+          "item_id": 62939,
+          "amount": 10,
+          "name": "Protection (Tier 3)"
+        },
+        {
+          "item_id": 46012,
+          "amount": 1,
+          "name": "Blessed Mystery Vault"
+        }
+      ],
+      "shortcuts": [
+        {
+          "slot": 0,
+          "code_no": 4,
+          "value": 0
+        },
+        {
+          "slot": 1,
+          "code_no": 4,
+          "value": 1
+        },
+        {
+          "slot": 10,
+          "code_no": 1,
+          "value": 3500
+        },
+        {
+          "slot": 11,
+          "code_no": 1,
+          "value": 3505
+        }
+      ],
+      "starter_skills": [
+        29200,
+        29201,
+        29202,
+        29203,
+        29204,
+        29205,
+        29206,
+        29001,
+        29429,
+        29430,
+        29468,
+        29469,
+        29480,
+        29482,
+        29484,
+        29498,
+        29499,
+        29500,
+        29613,
+        29614,
+        29644,
+        29645,
+        29209,
+        29745,
+        29746
+      ]
+    }
+  }
+}

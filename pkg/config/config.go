@@ -10,10 +10,12 @@ import (
 
 // WorldConfig representa la configuración de un mundo/servidor disponible en el Login.
 type WorldConfig struct {
-	ID   uint8
-	Name string
-	IP   string
-	Port uint16
+	ID       uint8
+	Name     string
+	IP       string
+	Port     uint16
+	ZoneIP   string
+	ZonePort uint16
 }
 
 // Config contiene todas las variables de configuración de LoginService.
@@ -105,10 +107,12 @@ func Load(envPath ...string) (*Config, error) {
 				legacyName := getEnv("WORLD_NAME", "")
 				if legacyName != "" {
 					cfg.Worlds = append(cfg.Worlds, WorldConfig{
-						ID:   0,
-						Name: legacyName,
-						IP:   getEnv("WORLD_IP", "127.0.0.1"),
-						Port: getEnvUint16("WORLD_PORT", 9014),
+						ID:       0,
+						Name:     legacyName,
+						IP:       getEnv("WORLD_IP", "127.0.0.1"),
+						Port:     getEnvUint16("WORLD_PORT", 9014),
+						ZoneIP:   getEnv("ZONE_IP", "127.0.0.1"),
+						ZonePort: getEnvUint16("ZONE_PORT", 9210),
 					})
 				}
 			}
@@ -117,22 +121,28 @@ func Load(envPath ...string) (*Config, error) {
 
 		ipKey := fmt.Sprintf("WORLD_%d_IP", i)
 		portKey := fmt.Sprintf("WORLD_%d_PORT", i)
+		zoneIPKey := fmt.Sprintf("ZONE_%d_IP", i)
+		zonePortKey := fmt.Sprintf("ZONE_%d_PORT", i)
 
 		cfg.Worlds = append(cfg.Worlds, WorldConfig{
-			ID:   uint8(i),
-			Name: name,
-			IP:   getEnv(ipKey, "127.0.0.1"),
-			Port: getEnvUint16(portKey, 9014),
+			ID:       uint8(i),
+			Name:     name,
+			IP:       getEnv(ipKey, "127.0.0.1"),
+			Port:     getEnvUint16(portKey, 9014),
+			ZoneIP:   getEnv(zoneIPKey, getEnv("ZONE_IP", "127.0.0.1")),
+			ZonePort: getEnvUint16(zonePortKey, getEnvUint16("ZONE_PORT", 9210)),
 		})
 	}
 
 	// Si no se configuró ningún mundo, registrar al menos un mundo por defecto
 	if len(cfg.Worlds) == 0 {
 		cfg.Worlds = append(cfg.Worlds, WorldConfig{
-			ID:   0,
-			Name: "Xelion",
-			IP:   "127.0.0.1",
-			Port: 9014,
+			ID:       0,
+			Name:     "Xelion",
+			IP:       "127.0.0.1",
+			Port:     9014,
+			ZoneIP:   "127.0.0.1",
+			ZonePort: 9210,
 		})
 	}
 

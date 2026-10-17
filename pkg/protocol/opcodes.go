@@ -21,8 +21,8 @@ var (
 	// Header 2: System / Handshake
 	SH2Type_Ping              = PROTO_NC_MISC_HEARTBEAT_REQ
 	SH2Type_SetXorKeyPosition = PROTO_NC_MISC_SEED_CMD // Handshake offset
-	SH2Type_Unk1              = MakeOpCode(2, 14)
-	SH2Type_UnkTimePacket     = MakeOpCode(2, 69)
+	SH2Type_Unk1              = PROTO_NC_MISC_GAMETIME_ACK
+	SH2Type_UnkTimePacket     = PROTO_NC_MISC_TIME_SYNC_ACK
 	SH2Type_UpdateClientTime  = MakeOpCode(2, 73)
 
 	// Header 3: Login / World Selection
@@ -31,14 +31,62 @@ var (
 	SH3Type_Error                   = PROTO_NC_USER_LOGINFAIL_ACK
 	SH3Type_WorldlistNew            = PROTO_NC_USER_LOGIN_ACK
 	SH3Type_WorldServerIP           = PROTO_NC_USER_WORLDSELECT_ACK
-	SH3Type_CharacterList           = MakeOpCode(3, 20)
+	SH3Type_CharacterList           = PROTO_NC_CHAR_CLIENT_CHARLIST_ACK
 	SH3Type_WorldistResend          = PROTO_NC_USER_WORLDSTATUS_ACK
-	SH3Type_BackToWorldListFromChar = MakeOpCode(3, 52)
+	SH3Type_BackToWorldListFromChar = PROTO_NC_USER_BACKTOWORLDLIST_ACK
 	SH3Type_VersionAllowed          = PROTO_NC_USER_CLIENT_RIGHTVERSION_CHECK_ACK
+
+	// Nombres oficiales PROTO_NC_* para World/Character (Header 2, 3, 4, 5, 21, 22, 28, 31)
+	PROTO_NC_MISC_GAMETIME_REQ  = MakeOpCode(2, 13) // 0x080D
+	PROTO_NC_MISC_GAMETIME_ACK  = MakeOpCode(2, 14) // 0x080E
+	PROTO_NC_MISC_TIME_SYNC_ACK = MakeOpCode(2, 69)
+
+	PROTO_NC_USER_LOGINWORLD_REQ       = MakeOpCode(3, 15) // 0x0C0F
+	PROTO_NC_MISC_WORLD_CLIENT_KEY_REQ = PROTO_NC_USER_LOGINWORLD_REQ
+	PROTO_NC_USER_LOGINWORLD_ACK       = MakeOpCode(3, 16) // 0x0C10
+	PROTO_NC_MISC_WORLD_CLIENT_KEY_ACK = PROTO_NC_USER_LOGINWORLD_ACK
+	PROTO_NC_CHAR_CLIENT_CHARLIST_ACK  = MakeOpCode(3, 20) // 0x0C14
+	PROTO_NC_USER_BACKTOWORLDLIST_REQ  = MakeOpCode(3, 51) // 0x0C33
+	PROTO_NC_USER_BACKTOWORLDLIST_ACK  = MakeOpCode(3, 52) // 0x0C34
+
+	PROTO_NC_CHAR_LOGIN_REQ     = MakeOpCode(4, 1) // 0x1001
+	PROTO_NC_CHAR_LOGINFAIL_ACK = MakeOpCode(4, 2) // 0x1002
+	PROTO_NC_CHAR_LOGIN_ACK     = MakeOpCode(4, 3) // 0x1003
+	PROTO_NC_CHAR_SERVER_IP_ACK = PROTO_NC_CHAR_LOGIN_ACK
+
+	PROTO_NC_CHAR_CREATE_REQ      = MakeOpCode(5, 1)  // 0x1401
+	PROTO_NC_CHAR_DELETE_REQ      = MakeOpCode(5, 2)  // 0x1402
+	PROTO_NC_CHAR_CREATE_FAIL_ACK = MakeOpCode(5, 4)  // 0x1404
+	PROTO_NC_CHAR_CREATE_ACK      = MakeOpCode(5, 6)  // 0x1406
+	PROTO_NC_CHAR_DELETE_ACK      = MakeOpCode(5, 12) // 0x140C
+
+	PROTO_NC_FRIEND_LIST_ACK    = MakeOpCode(21, 7)
+	PROTO_NC_CHAR_INGAME_REQ    = MakeOpCode(22, 27) // 0x581B
+	PROTO_NC_CHAR_INGAME_ACK    = MakeOpCode(22, 28) // 0x581C
+	PROTO_NC_KQ_LIST_COUNT_ACK  = MakeOpCode(22, 29) // 0x581D
+
+	PROTO_NC_CHAR_GET_QUICKBAR_REQ       = MakeOpCode(28, 2)
+	PROTO_NC_CHAR_GET_QUICKBAR_ACK       = MakeOpCode(28, 3)
+	PROTO_NC_CHAR_GET_QUICKBAR_STATE_REQ = MakeOpCode(28, 4)
+	PROTO_NC_CHAR_GET_QUICKBAR_STATE_ACK = MakeOpCode(28, 5)
+	PROTO_NC_CHAR_GET_GAME_SETTINGS_REQ  = MakeOpCode(28, 10)
+	PROTO_NC_CHAR_GET_GAME_SETTINGS_ACK  = MakeOpCode(28, 11)
+	PROTO_NC_CHAR_GET_CLIENT_SETTINGS_REQ = MakeOpCode(28, 12)
+	PROTO_NC_CHAR_GET_CLIENT_SETTINGS_ACK = MakeOpCode(28, 13)
+	PROTO_NC_CHAR_GET_SHORTCUTS_REQ      = MakeOpCode(28, 14)
+	PROTO_NC_CHAR_GET_SHORTCUTS_ACK      = MakeOpCode(28, 15)
+	PROTO_NC_CHAR_SAVE_QUICKBAR_REQ      = MakeOpCode(28, 16)
+	PROTO_NC_CHAR_SAVE_QUICKBAR_STATE_REQ = MakeOpCode(28, 17)
+	PROTO_NC_CHAR_SAVE_GAME_SETTINGS_REQ = MakeOpCode(28, 20)
+	PROTO_NC_CHAR_SAVE_CLIENT_SETTINGS_REQ = MakeOpCode(28, 21)
+	PROTO_NC_CHAR_SAVE_SHORTCUTS_REQ     = MakeOpCode(28, 22)
+
+	PROTO_NC_SYSTEM_UNKNOWN_REQ = MakeOpCode(31, 6)
+	PROTO_NC_SYSTEM_UNKNOWN_ACK = MakeOpCode(31, 7)
 
 	// Header 4: Character Selection / Zone Transfer
 	SH4Type_ConnectError              = MakeOpCode(4, 2)
-	SH4Type_ServerIP                  = MakeOpCode(4, 3)
+	SH4Type_ServerIP                  = PROTO_NC_CHAR_SERVER_IP_ACK
 	SH4Type_CharacterInfo             = MakeOpCode(4, 56)
 	SH4Type_CharacterLook             = MakeOpCode(4, 57)
 	SH4Type_CharacterQuestsBusy       = MakeOpCode(4, 58)
@@ -51,9 +99,9 @@ var (
 	SH4Type_CharacterPoints           = MakeOpCode(4, 91)
 
 	// Header 5: Character Management
-	SH5Type_CharCreationError          = MakeOpCode(5, 4)
-	SH5Type_CharCreationOK             = MakeOpCode(5, 6)
-	SH5Type_CharDeleteOK               = MakeOpCode(5, 12)
+	SH5Type_CharCreationError          = PROTO_NC_CHAR_CREATE_FAIL_ACK
+	SH5Type_CharCreationOK             = PROTO_NC_CHAR_CREATE_ACK
+	SH5Type_CharDeleteOK               = PROTO_NC_CHAR_DELETE_ACK
 	SH5Type_SendCharacterChangeNewName = MakeOpCode(5, 16)
 
 	// Header 6: Zone Transfer & Detailed Info
@@ -123,20 +171,20 @@ var (
 	// Header 3: Login / World Selection
 	CH3Type_FileHash          = PROTO_NC_USER_FILE_CHECK_REQ
 	CH3Type_WorldSelect       = PROTO_NC_USER_WORLDSELECT_REQ
-	CH3Type_WorldClientKey    = MakeOpCode(3, 15)
+	CH3Type_WorldClientKey    = PROTO_NC_MISC_WORLD_CLIENT_KEY_REQ
 	CH3Type_BackToCharSelect  = MakeOpCode(3, 24)
 	CH3Type_WorldReRequest    = PROTO_NC_USER_WORLDSTATUS_REQ
-	CH3Type_BackToWorldSelect = MakeOpCode(3, 51)
+	CH3Type_BackToWorldSelect = PROTO_NC_USER_BACKTOWORLDLIST_REQ
 	CH3Type_LoginLegacy55     = MakeOpCode(3, 55)
 	CH3Type_LoginLegacy56     = MakeOpCode(3, 56)
 	CH3Type_Login             = PROTO_NC_USER_US_LOGIN_REQ
 	CH3Type_Version           = PROTO_NC_USER_CLIENT_VERSION_CHECK_REQ
 
 	// Header 4: Character Selection
-	CH4Type_CharSelect = MakeOpCode(4, 1)
+	CH4Type_CharSelect = PROTO_NC_CHAR_LOGIN_REQ
 
 	// Header 5: Character Management
-	CH5Type_CreateCharacter     = MakeOpCode(5, 1)
+	CH5Type_CreateCharacter     = PROTO_NC_CHAR_CREATE_REQ
 	CH5Type_ChangeCharacterName = MakeOpCode(5, 5)
 	CH5Type_DeleteCharacter     = MakeOpCode(5, 7)
 
@@ -225,4 +273,5 @@ const (
 	Job_Archer    Job = 11
 	Job_Mage      Job = 16
 	Job_Trickster Job = 21
+	Job_Crusader  Job = 26
 )

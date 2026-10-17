@@ -33,8 +33,3 @@ Thumbs.db
 .env.local
 .env.*.local
 !.env.example
-
-# Runtime ephemeral data
-data/
-**/data/
-

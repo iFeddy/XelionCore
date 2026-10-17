@@ -60,6 +60,8 @@ func main() {
 	}
 
 	// 2. World Server
+	dataStore, _ := world.LoadWorldDataStore("data")
+
 	var worldServers []*world.Server
 	for _, w := range cfg.Worlds {
 		zoneIP := w.ZoneIP
@@ -78,7 +80,7 @@ func main() {
 			ZoneIP:   zoneIP,
 			ZonePort: zonePort,
 		}
-		worldSrv := world.NewServer(worldCfg, charRepo, transfers)
+		worldSrv := world.NewServer(worldCfg, charRepo, transfers, dataStore)
 		if err := worldSrv.Start(); err != nil {
 			log.Fatalf("[World] Fatal error starting world '%s': %v", w.Name, err)
 		}

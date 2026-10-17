@@ -25,8 +25,8 @@ const (
 	SlotPet           byte = 28
 )
 
-// WriteBasicCharInfo encodes character information into the packet buffer.
-// Matches NextGen.World PacketHelper.WriteBasicCharInfo binary layout.
+// WriteBasicCharInfo serializa la información del personaje según el struct oficial
+// PROTO_AVATARINFORMATION (130 bytes) extraído de WorldManager.pdb / Character.pdb.
 func WriteBasicCharInfo(ch *database.Character, pw *protocol.PacketWriter) {
 	pw.WriteInt32(int32(ch.ID))
 	pw.WriteString(ch.Name, 16)
@@ -112,6 +112,8 @@ func GetBeginnerWeapon(job protocol.Job) (slot byte, itemID uint16) {
 		return SlotWeapon, 1750 // Staff
 	case protocol.Job_Trickster:
 		return SlotWeapon, 57363 // Claws
+	case protocol.Job_Crusader:
+		return SlotWeapon, 62923 // Novice Crusader's Blade
 	default:
 		return SlotWeapon, 250
 	}

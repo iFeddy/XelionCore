@@ -41,7 +41,7 @@ func main() {
 	log.Printf("[LoginService] Connected to MySQL database '%s' at %s:%d", cfg.DBName, cfg.DBHost, cfg.DBPort)
 
 	repo := database.NewMySQLAccountRepository(db)
-	transfers := database.NewTransferManager()
+	transfers := database.NewTransferManager(db)
 
 	wm := login.NewWorldManager()
 	for _, w := range cfg.Worlds {
