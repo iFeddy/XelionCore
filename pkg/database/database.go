@@ -1,7 +1,6 @@
 package database
 
 import (
-	"database/sql"
 	"encoding/json"
 	"errors"
 	"os"
@@ -145,47 +144,4 @@ func (r *MemoryAccountRepository) CreateAccount(username, password string) (*Acc
 
 	copyAcc := *acc
 	return &copyAcc, nil
-}
-
-// MySQLAccountRepository executes queries against a MySQL / MariaDB database.
-type MySQLAccountRepository struct {
-	db *sql.DB
-}
-
-// NewMySQLAccountRepository wraps an existing sql.DB.
-func NewMySQLAccountRepository(db *sql.DB) *MySQLAccountRepository {
-	return &MySQLAccountRepository{db: db}
-}
-
-func (r *MySQLAccountRepository) GetAccountByUsername(username string) (*Account, error) {
-	row := r.db.QueryRow("SELECT id, username, password, admin, banned FROM accounts WHERE username = ?", username)
-	acc := &Account{}
-	var bannedInt int
-	err := row.Scan(&acc.ID, &acc.Username, &acc.Password, &acc.Admin, &bannedInt)
-	if err != nil {
-		if errors.Is(err, sql.ErrNoRows) {
-			return nil, ErrAccountNotFound
-		}
-		return nil, err
-	}
-	acc.Banned = (bannedInt != 0)
-	return acc, nil
-}
-
-func (r *MySQLAccountRepository) CreateAccount(username, password string) (*Account, error) {
-	res, err := r.db.Exec("INSERT INTO accounts (username, password, admin, banned) VALUES (?, ?, 0, 0)", username, password)
-	if err != nil {
-		return nil, err
-	}
-	id, err := res.LastInsertId()
-	if err != nil {
-		return nil, err
-	}
-	return &Account{
-		ID:       int(id),
-		Username: username,
-		Password: password,
-		Admin:    0,
-		Banned:   false,
-	}, nil
 }

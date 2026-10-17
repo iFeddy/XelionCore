@@ -4,7 +4,6 @@ import (
 	"crypto/md5"
 	"encoding/hex"
 	"errors"
-	"fmt"
 	"log"
 	"strings"
 
@@ -13,14 +12,15 @@ import (
 	"github.com/iFeddy/XelionCore/pkg/protocol"
 )
 
-// Handler processes incoming packets for the Login service.
+// Handler procesa los paquetes entrantes para LoginService respetando estrictamente
+// la nomenclatura y estructuras oficiales de red (docs/Servicios/Login.md).
 type Handler struct {
 	repo         database.AccountRepository
 	worldManager *WorldManager
 	transfers    *database.TransferManager
 }
 
-// NewHandler creates a new Login packet handler.
+// NewHandler inicializa el despachador de protocolos oficiales de LoginService.
 func NewHandler(repo database.AccountRepository, wm *WorldManager, tm *database.TransferManager) *Handler {
 	if tm == nil {
 		tm = database.NewTransferManager()
@@ -32,116 +32,151 @@ func NewHandler(repo database.AccountRepository, wm *WorldManager, tm *database.
 	}
 }
 
-// HandlePacket dispatches the incoming packet to its dedicated routine based on OpCode.
+// HandlePacket enruta cada paquete entrante según su OpCode oficial PROTO_NC_*.
 func (h *Handler) HandlePacket(client *network.Client, pkt *protocol.Packet) {
 	switch pkt.OpCode {
-	case protocol.CH3Type_Version:
-		h.handleVersion(client, pkt)
-	case protocol.CH3Type_Login, protocol.CH3Type_LoginLegacy55, protocol.CH3Type_LoginLegacy56:
-		h.handleLogin(client, pkt)
-	case protocol.CH3Type_FileHash:
-		h.handleFileHash(client, pkt)
-	case protocol.CH3Type_WorldReRequest:
-		h.handleWorldReRequest(client, pkt)
-	case protocol.CH3Type_WorldSelect:
-		h.handleWorldSelect(client, pkt)
+	case protocol.PROTO_NC_USER_CLIENT_VERSION_CHECK_REQ:
+		h.handle_PROTO_NC_USER_CLIENT_VERSION_CHECK_REQ(client, pkt)
+	case protocol.PROTO_NC_USER_US_LOGIN_REQ, protocol.PROTO_NC_USER_LOGIN_REQ:
+		h.handle_PROTO_NC_USER_US_LOGIN_REQ(client, pkt)
+	case protocol.PROTO_NC_USER_FILE_CHECK_REQ:
+		h.handle_PROTO_NC_USER_FILE_CHECK_REQ(client, pkt)
+	case protocol.PROTO_NC_USER_WORLDSTATUS_REQ:
+		h.handle_PROTO_NC_USER_WORLDSTATUS_REQ(client, pkt)
+	case protocol.PROTO_NC_USER_WORLDSELECT_REQ:
+		h.handle_PROTO_NC_USER_WORLDSELECT_REQ(client, pkt)
 	default:
-		log.Printf("[%s] Unhandled Login OpCode: 0x%04X (Header=%d, Type=%d)",
+		log.Printf("[%s] OpCode no manejado en LoginService: 0x%04X (Dept=%d, Cmd=%d)",
 			client.RemoteAddr(), pkt.OpCode, pkt.Header, pkt.Type)
 	}
 }
 
-func (h *Handler) handleVersion(client *network.Client, pkt *protocol.Packet) {
-	year, err := pkt.Reader.ReadUint16()
-	if err != nil {
-		log.Printf("[%s] failed to read client version year: %v", client.RemoteAddr(), err)
-		client.Close()
-		return
+// handle_PROTO_NC_USER_CLIENT_VERSION_CHECK_REQ procesa el handshake de versión del cliente (0x0C65).
+func (h *Handler) handle_PROTO_NC_USER_CLIENT_VERSION_CHECK_REQ(client *network.Client, pkt *protocol.Packet) {
+	rem := pkt.Reader.Remaining()
+	var versionKey string
+
+	if rem >= 64 {
+		// Estructura oficial C++: char sVersionKey[64]
+		s, err := pkt.Reader.ReadString(64)
+		if err != nil {
+			log.Printf("[%s] Error leyendo sVersionKey: %v", client.RemoteAddr(), err)
+			_ = client.SendPacket(protocol.New_PROTO_NC_USER_CLIENT_WRONGVERSION_CHECK_ACK())
+			client.Close()
+			return
+		}
+		versionKey = strings.TrimSpace(s)
+	} else if rem == 4 {
+		// Compatibilidad legacy (2 uint16: Year, Version)
+		year, _ := pkt.Reader.ReadUint16()
+		ver, _ := pkt.Reader.ReadUint16()
+		client.ClientYear = year
+		client.ClientVersion = ver
+	} else if rem > 0 {
+		versionKey, _ = pkt.Reader.ReadString(rem)
+		versionKey = strings.TrimSpace(versionKey)
 	}
-	version, err := pkt.Reader.ReadUint16()
-	if err != nil {
-		log.Printf("[%s] failed to read client version number: %v", client.RemoteAddr(), err)
-		client.Close()
-		return
-	}
 
-	client.ClientYear = year
-	client.ClientVersion = version
+	log.Printf("[%s] PROTO_NC_USER_CLIENT_VERSION_CHECK_REQ recibido (Key='%s')", client.RemoteAddr(), versionKey)
 
-	log.Printf("[%s] Client authenticated version: Year=%d, Version=%d", client.RemoteAddr(), year, version)
-
-	// Send version allowed response
-	resp := protocol.NewPacketWriter(protocol.SH3Type_VersionAllowed)
-	resp.WriteInt16(1)
+	// Responder con éxito de verificación de versión: PROTO_NC_USER_CLIENT_RIGHTVERSION_CHECK_ACK (0x0C67)
+	resp := protocol.New_PROTO_NC_USER_CLIENT_RIGHTVERSION_CHECK_ACK()
 	if err := client.SendPacket(resp); err != nil {
-		log.Printf("[%s] error sending VersionAllowed: %v", client.RemoteAddr(), err)
+		log.Printf("[%s] Error enviando PROTO_NC_USER_CLIENT_RIGHTVERSION_CHECK_ACK: %v", client.RemoteAddr(), err)
 	}
 }
 
-func (h *Handler) handleLogin(client *network.Client, pkt *protocol.Packet) {
-	// Payload structure:
-	// - Username: 260 bytes (null-terminated)
-	// - Password: 32 bytes (MD5 hex string)
-	// - Padding: 4 bytes
-	// - ClientTag: 8 bytes ("Original")
+// handle_PROTO_NC_USER_US_LOGIN_REQ procesa la solicitud de autenticación (0x0C5A / 0x0C03).
+// Estructura oficial: sUserName[260], sPassword[36], spawnapps[20] (316 bytes).
+func (h *Handler) handle_PROTO_NC_USER_US_LOGIN_REQ(client *network.Client, pkt *protocol.Packet) {
 	username, err := pkt.Reader.ReadString(260)
 	if err != nil {
-		log.Printf("[%s] failed to read username: %v", client.RemoteAddr(), err)
-		h.sendError(client, protocol.ErrException)
+		log.Printf("[%s] Error leyendo sUserName: %v", client.RemoteAddr(), err)
+		h.send_PROTO_NC_USER_LOGINFAIL_ACK(client, protocol.ErrException)
 		return
 	}
 
-	clientPassword, err := pkt.Reader.ReadString(32)
+	password, err := pkt.Reader.ReadString(36)
 	if err != nil {
-		log.Printf("[%s] failed to read password: %v", client.RemoteAddr(), err)
-		h.sendError(client, protocol.ErrException)
+		log.Printf("[%s] Error leyendo sPassword: %v", client.RemoteAddr(), err)
+		h.send_PROTO_NC_USER_LOGINFAIL_ACK(client, protocol.ErrException)
 		return
 	}
 
-	_ = pkt.Reader.Skip(4) // Skip padding
-
-	clientTag, _ := pkt.Reader.ReadString(8)
+	var spawnApps string
+	if pkt.Reader.Remaining() >= 20 {
+		spawnApps, _ = pkt.Reader.ReadString(20)
+	}
 
 	username = strings.TrimSpace(username)
-	log.Printf("[%s] Login attempt from user '%s' (tag: '%s')", client.RemoteAddr(), username, clientTag)
+	password = strings.TrimSpace(password)
+	clientIP := client.RemoteIP()
 
-	if len(username) == 0 || len(username) > 32 {
-		log.Printf("[%s] rejected invalid username length", client.RemoteAddr())
-		h.sendError(client, protocol.ErrBlocked)
+	log.Printf("[%s] Intento de login para usuario '%s' (spawnapps: '%s')", client.RemoteAddr(), username, spawnApps)
+
+	if len(username) == 0 || len(username) > 60 {
+		log.Printf("[%s] Longitud de usuario inválida", client.RemoteAddr())
+		h.send_PROTO_NC_USER_LOGINFAIL_ACK(client, protocol.ErrBlocked)
 		return
 	}
 
-	// Database lookup / auto account creation
-	acc, err := h.repo.GetAccountByUsername(username)
-	if err != nil {
-		if errors.Is(err, database.ErrAccountNotFound) {
-			// Auto create account
-			log.Printf("[%s] Account '%s' not found, auto-creating...", client.RemoteAddr(), username)
-			acc, err = h.repo.CreateAccount(username, clientPassword)
-			if err != nil {
-				log.Printf("[%s] failed to auto-create account: %v", client.RemoteAddr(), err)
-				h.sendError(client, protocol.ErrDatabase)
-				return
-			}
-		} else {
-			log.Printf("[%s] database error on login: %v", client.RemoteAddr(), err)
-			h.sendError(client, protocol.ErrDatabase)
+	// 1. Verificar si la IP está en el firewall tIPBlock
+	if mysqlRepo, ok := h.repo.(*database.MySQLAccountRepository); ok {
+		blocked, err := mysqlRepo.IsIPBlocked(clientIP)
+		if err == nil && blocked {
+			log.Printf("[%s] IP bloqueada por tIPBlock: %s", client.RemoteAddr(), clientIP)
+			_ = mysqlRepo.LogAccount(username, 2, 0, 0, uint16(protocol.ErrBlocked), clientIP)
+			h.send_PROTO_NC_USER_LOGINFAIL_ACK(client, protocol.ErrBlocked)
 			return
 		}
 	}
 
-	// Validate credentials: compare MD5 hex string or plaintext
-	computedMD5 := md5Hash(acc.Password)
-	if clientPassword != acc.Password && clientPassword != computedMD5 {
-		log.Printf("[%s] Invalid password for user '%s'", client.RemoteAddr(), username)
-		h.sendError(client, protocol.ErrInvalidCredentials)
+	// 2. Consulta en base de datos oficial tUser
+	acc, err := h.repo.GetAccountByUsername(username)
+	if err != nil {
+		if errors.Is(err, database.ErrAccountNotFound) {
+			log.Printf("[%s] Usuario '%s' no encontrado", client.RemoteAddr(), username)
+			if mysqlRepo, ok := h.repo.(*database.MySQLAccountRepository); ok {
+				_ = mysqlRepo.LogAccount(username, 2, 0, 0, uint16(protocol.ErrInvalidCredentials), clientIP)
+			}
+			h.send_PROTO_NC_USER_LOGINFAIL_ACK(client, protocol.ErrInvalidCredentials)
+			return
+		}
+
+		log.Printf("[%s] Error en base de datos al autenticar: %v", client.RemoteAddr(), err)
+		h.send_PROTO_NC_USER_LOGINFAIL_ACK(client, protocol.ErrDatabase)
 		return
 	}
 
-	if acc.Banned {
-		log.Printf("[%s] Account '%s' is banned", client.RemoteAddr(), username)
-		h.sendError(client, protocol.ErrBlocked)
+	// 3. Validar credenciales: MD5 hash oficial de 32 chars o texto plano
+	inputHash := password
+	if len(password) != 32 {
+		inputHash = md5Hash(password)
+	}
+
+	if strings.ToLower(inputHash) != strings.ToLower(acc.Password) && strings.ToLower(password) != strings.ToLower(acc.Password) {
+		log.Printf("[%s] Contraseña incorrecta para usuario '%s'", client.RemoteAddr(), username)
+		if mysqlRepo, ok := h.repo.(*database.MySQLAccountRepository); ok {
+			_ = mysqlRepo.LogAccount(username, 2, acc.ID, 0, uint16(protocol.ErrInvalidCredentials), clientIP)
+		}
+		h.send_PROTO_NC_USER_LOGINFAIL_ACK(client, protocol.ErrInvalidCredentials)
 		return
+	}
+
+	// 4. Validar estado de la cuenta (bloqueada, eliminada o sin permisos)
+	if acc.Banned {
+		log.Printf("[%s] Cuenta '%s' bloqueada o inhabilitada", client.RemoteAddr(), username)
+		if mysqlRepo, ok := h.repo.(*database.MySQLAccountRepository); ok {
+			_ = mysqlRepo.LogAccount(username, 2, acc.ID, 0, uint16(protocol.ErrBlocked), clientIP)
+		}
+		h.send_PROTO_NC_USER_LOGINFAIL_ACK(client, protocol.ErrBlocked)
+		return
+	}
+
+	// 5. Autenticación exitosa: registrar auditoría y actualizar sesión en tUser
+	if mysqlRepo, ok := h.repo.(*database.MySQLAccountRepository); ok {
+		_ = mysqlRepo.UpdateLoginSession(acc.ID, clientIP)
+		_ = mysqlRepo.LogAccount(username, 1, acc.ID, 0, 0, clientIP)
 	}
 
 	client.AccountID = acc.ID
@@ -149,103 +184,88 @@ func (h *Handler) handleLogin(client *network.Client, pkt *protocol.Packet) {
 	client.Admin = acc.Admin
 	client.IsAuthenticated = true
 
-	log.Printf("[%s] Successfully authenticated as '%s' (ID: %d)", client.RemoteAddr(), client.Username, client.AccountID)
+	log.Printf("[%s] Autenticación oficial exitosa para '%s' (UserNo: %d, AuthID: %d)",
+		client.RemoteAddr(), client.Username, client.AccountID, client.Admin)
 
-	// Send initial World List
-	h.sendWorldList(client, false)
+	// 6. Enviar listado de mundos oficiales (PROTO_NC_USER_LOGIN_ACK 0x0C0A)
+	h.send_PROTO_NC_USER_LOGIN_ACK(client, false)
 }
 
-func (h *Handler) handleFileHash(client *network.Client, pkt *protocol.Packet) {
-	_, err := pkt.Reader.ReadString(pkt.Reader.Remaining())
-	if err != nil {
-		h.sendError(client, protocol.ErrException)
-		return
-	}
-
-	resp := protocol.NewPacketWriter(protocol.SH3Type_FilecheckAllow)
-	resp.WriteBool(true)
+// handle_PROTO_NC_USER_FILE_CHECK_REQ procesa la verificación de archivos del cliente (0x0C04).
+func (h *Handler) handle_PROTO_NC_USER_FILE_CHECK_REQ(client *network.Client, pkt *protocol.Packet) {
+	resp := protocol.New_PROTO_NC_USER_FILE_CHECK_ACK(true)
 	_ = client.SendPacket(resp)
 }
 
-func (h *Handler) handleWorldReRequest(client *network.Client, pkt *protocol.Packet) {
+// handle_PROTO_NC_USER_WORLDSTATUS_REQ procesa la solicitud de refresco del listado de mundos (0x0C1B).
+func (h *Handler) handle_PROTO_NC_USER_WORLDSTATUS_REQ(client *network.Client, pkt *protocol.Packet) {
 	if !client.IsAuthenticated {
-		log.Printf("[%s] unauthenticated world re-request rejected", client.RemoteAddr())
+		log.Printf("[%s] Refresco de mundos no autenticado rechazado", client.RemoteAddr())
 		return
 	}
-	h.sendWorldList(client, true)
+	h.send_PROTO_NC_USER_LOGIN_ACK(client, true)
 }
 
-func (h *Handler) handleWorldSelect(client *network.Client, pkt *protocol.Packet) {
+// handle_PROTO_NC_USER_WORLDSELECT_REQ procesa la selección de mundo (0x0C0B, 1 byte worldno).
+func (h *Handler) handle_PROTO_NC_USER_WORLDSELECT_REQ(client *network.Client, pkt *protocol.Packet) {
 	if !client.IsAuthenticated || client.IsTransferring {
-		h.sendError(client, protocol.ErrException)
+		h.send_PROTO_NC_USER_LOGINFAIL_ACK(client, protocol.ErrException)
 		return
 	}
 
 	worldID, err := pkt.Reader.ReadByte()
 	if err != nil {
-		log.Printf("[%s] invalid world select packet", client.RemoteAddr())
+		log.Printf("[%s] Paquete PROTO_NC_USER_WORLDSELECT_REQ inválido: %v", client.RemoteAddr(), err)
 		return
 	}
 
 	world, exists := h.worldManager.GetWorld(worldID)
 	if !exists {
-		log.Printf("[%s] user '%s' selected non-existent world %d", client.RemoteAddr(), client.Username, worldID)
+		log.Printf("[%s] Usuario '%s' seleccionó un mundo inexistente: %d", client.RemoteAddr(), client.Username, worldID)
 		return
 	}
 
 	if world.Status == protocol.WorldStatus_Maintenance || world.Status == protocol.WorldStatus_Offline {
-		log.Printf("[%s] user '%s' attempted to join offline/maintenance world %d", client.RemoteAddr(), client.Username, worldID)
-		h.sendError(client, protocol.ErrServerMaintenance)
+		log.Printf("[%s] Mundo %d fuera de servicio o en mantenimiento", client.RemoteAddr(), worldID)
+		h.send_PROTO_NC_USER_LOGINFAIL_ACK(client, protocol.ErrServerMaintenance)
 		return
 	}
 
 	token := h.transfers.CreateTransfer(client.AccountID, client.Username, client.Admin, client.RemoteAddr())
 	client.IsTransferring = true
 
-	log.Printf("[%s] Transferring '%s' to World '%s' (%s:%d)",
+	log.Printf("[%s] Transfiriendo '%s' a World '%s' (%s:%d)",
 		client.RemoteAddr(), client.Username, world.Name, world.IP, world.Port)
 
-	// Send WorldServerIP packet
-	resp := protocol.NewPacketWriter(protocol.SH3Type_WorldServerIP)
-	resp.WriteByte(byte(world.Status))
-	resp.WriteString(world.IP, 16)
-	resp.WriteUint16(world.Port)
-	resp.WriteString(token, 32)
-	resp.Fill(32, 0) // 32 bytes padding
-
+	// Respuesta oficial: PROTO_NC_USER_WORLDSELECT_ACK (0x0C0C, 83 bytes)
+	resp := protocol.New_PROTO_NC_USER_WORLDSELECT_ACK(byte(world.Status), world.IP, world.Port, token)
 	_ = client.SendPacket(resp)
 }
 
-func (h *Handler) sendWorldList(client *network.Client, isPing bool) {
-	opCode := protocol.SH3Type_WorldlistNew
-	if isPing {
-		opCode = protocol.SH3Type_WorldistResend
+// send_PROTO_NC_USER_LOGIN_ACK emite el listado de mundos activos (0x0C0A / 0x0C1C).
+func (h *Handler) send_PROTO_NC_USER_LOGIN_ACK(client *network.Client, isResend bool) {
+	opCode := uint16(protocol.PROTO_NC_USER_LOGIN_ACK)
+	if isResend {
+		opCode = protocol.PROTO_NC_USER_WORLDSTATUS_ACK
 	}
-
-	pw := protocol.NewPacketWriter(opCode)
-	const maxWorldSlots = 11
-	pw.WriteByte(maxWorldSlots)
 
 	worlds := h.worldManager.WorldsList()
+	worldInfos := make([]protocol.PROTO_NC_USER_LOGIN_ACK_WorldInfo, 0, len(worlds))
 	for _, w := range worlds {
-		pw.WriteByte(w.ID)
-		pw.WriteString(w.Name, 16)
-		pw.WriteByte(byte(w.Status))
+		worldInfos = append(worldInfos, protocol.PROTO_NC_USER_LOGIN_ACK_WorldInfo{
+			WorldNo:     w.ID,
+			WorldName:   w.Name,
+			WorldStatus: byte(w.Status),
+		})
 	}
 
-	// Fill remaining dummy slots up to maxWorldSlots
-	for i := len(worlds); i < maxWorldSlots; i++ {
-		pw.WriteByte(byte(i))
-		pw.WriteString(fmt.Sprintf("DUMMY%d", i), 16)
-		pw.WriteByte(byte(protocol.WorldStatus_Offline))
-	}
-
-	_ = client.SendPacket(pw)
+	resp := protocol.New_PROTO_NC_USER_LOGIN_ACK(opCode, worldInfos)
+	_ = client.SendPacket(resp)
 }
 
-func (h *Handler) sendError(client *network.Client, errCode protocol.ServerError) {
-	resp := protocol.NewPacketWriter(protocol.SH3Type_Error)
-	resp.WriteUint16(uint16(errCode))
+// send_PROTO_NC_USER_LOGINFAIL_ACK emite el paquete oficial de rechazo de login (0x0C09).
+func (h *Handler) send_PROTO_NC_USER_LOGINFAIL_ACK(client *network.Client, errCode protocol.ServerError) {
+	resp := protocol.New_PROTO_NC_USER_LOGINFAIL_ACK(uint16(errCode))
 	_ = client.SendPacket(resp)
 }
 

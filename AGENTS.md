@@ -6,9 +6,10 @@ Desarrollar un emulador del servidor oficial de Fiesta Online en Go (`XelionCore
 ---
 
 ## 2. Reglas de Oro (Mandatorias para la IA)
-1. **Cero Omisiones y Cero Resúmenes:**
+1. **Cero Omisiones, Cero Resúmenes y Nomenclatura Oficial 100% Idéntica:**
    - Está terminantemente prohibido usar "...", simplificar campos, o agrupar paquetes en listas genéricas.
-   - Toda estructura de paquete debe coincidir exactamente con los tipos C++, tamaños en bytes (`sizeof`) y offsets documentados.
+   - **Nombres de Paquetes Idénticos a la Documentación:** En el código Go (structs, constantes, funciones y tests) se debe usar **estrictamente el nombre oficial exacto del paquete** documentado (`PROTO_NC_*`, por ejemplo `PROTO_NC_USER_CLIENT_VERSION_CHECK_REQ`, `PROTO_NC_USER_US_LOGIN_REQ`, `PROTO_NC_USER_LOGIN_ACK`, etc.). Prohibido renombrar a nombres genéricos o usar nomenclaturas de emuladores privados (ej. `SH3Type_*`, `LoginReq`, etc.).
+   - Toda estructura de paquete debe coincidir exactamente con los tipos C++, tamaños en bytes (`sizeof`) y offsets documentados en `docs/Servicios/`.
    - Nunca inventar estructuras ni usar esquemas de emuladores no oficiales / NextGen. Toda verdad técnica proviene de los PDBs y ejecutables oficiales.
 2. **Fuente de la Verdad Oficial (Ground Truth):**
    - **Estructuras y Paquetes de Red:** [docs/Servicios/](docs/Servicios/) (generados directamente desde los flujos TPI de los PDBs oficiales).

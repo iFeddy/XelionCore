@@ -1,20 +1,20 @@
 {
   "transfers": {
-    "2cbaa08ec762dc89c62ebd77b4fc63fc": {
-      "token": "2cbaa08ec762dc89c62ebd77b4fc63fc",
-      "account_id": 1,
-      "username": "admin",
-      "admin": 2,
-      "host_ip": "192.168.0.10:54220",
-      "created_at": "2026-10-16T19:56:17.247307-03:00"
+    "38dfd8c6643c5666cec1a7606b157e4d": {
+      "token": "38dfd8c6643c5666cec1a7606b157e4d",
+      "account_id": 2,
+      "username": "test",
+      "admin": 1,
+      "host_ip": "192.168.0.10:55620",
+      "created_at": "2026-10-17T14:46:23.789871-03:00"
     },
-    "667a9a0ec7bf239b49ba6acc0a56b6b8": {
-      "token": "667a9a0ec7bf239b49ba6acc0a56b6b8",
+    "886335f84c5882d9ce0370706f831640": {
+      "token": "886335f84c5882d9ce0370706f831640",
       "account_id": 1,
       "username": "admin",
-      "admin": 2,
-      "host_ip": "127.0.0.1:51466",
-      "created_at": "2026-10-16T13:57:58.9264513-03:00"
+      "admin": 4,
+      "host_ip": "192.168.0.10:54293",
+      "created_at": "2026-10-17T14:45:39.398577-03:00"
     }
   },
   "zone_transfers": {}

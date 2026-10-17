@@ -19,22 +19,22 @@ func ExtractType(opCode uint16) uint16 {
 // Server -> Client OpCodes (SH = Server Header)
 var (
 	// Header 2: System / Handshake
-	SH2Type_Ping              = MakeOpCode(2, 4)
-	SH2Type_SetXorKeyPosition = MakeOpCode(2, 7) // Handshake offset
+	SH2Type_Ping              = PROTO_NC_MISC_HEARTBEAT_REQ
+	SH2Type_SetXorKeyPosition = PROTO_NC_MISC_SEED_CMD // Handshake offset
 	SH2Type_Unk1              = MakeOpCode(2, 14)
 	SH2Type_UnkTimePacket     = MakeOpCode(2, 69)
 	SH2Type_UpdateClientTime  = MakeOpCode(2, 73)
 
 	// Header 3: Login / World Selection
-	SH3Type_IncorrectVersion        = MakeOpCode(3, 2)
-	SH3Type_FilecheckAllow          = MakeOpCode(3, 5)
-	SH3Type_Error                   = MakeOpCode(3, 9)
-	SH3Type_WorldlistNew            = MakeOpCode(3, 10)
-	SH3Type_WorldServerIP           = MakeOpCode(3, 12)
+	SH3Type_IncorrectVersion        = PROTO_NC_USER_CLIENT_WRONGVERSION_CHECK_ACK
+	SH3Type_FilecheckAllow          = PROTO_NC_USER_FILE_CHECK_ACK
+	SH3Type_Error                   = PROTO_NC_USER_LOGINFAIL_ACK
+	SH3Type_WorldlistNew            = PROTO_NC_USER_LOGIN_ACK
+	SH3Type_WorldServerIP           = PROTO_NC_USER_WORLDSELECT_ACK
 	SH3Type_CharacterList           = MakeOpCode(3, 20)
-	SH3Type_WorldistResend          = MakeOpCode(3, 28)
+	SH3Type_WorldistResend          = PROTO_NC_USER_WORLDSTATUS_ACK
 	SH3Type_BackToWorldListFromChar = MakeOpCode(3, 52)
-	SH3Type_VersionAllowed          = MakeOpCode(3, 103)
+	SH3Type_VersionAllowed          = PROTO_NC_USER_CLIENT_RIGHTVERSION_CHECK_ACK
 
 	// Header 4: Character Selection / Zone Transfer
 	SH4Type_ConnectError              = MakeOpCode(4, 2)
@@ -121,16 +121,16 @@ var (
 	CH2Type_Unk1 = MakeOpCode(2, 13)
 
 	// Header 3: Login / World Selection
-	CH3Type_FileHash          = MakeOpCode(3, 4)
-	CH3Type_WorldSelect       = MakeOpCode(3, 11)
+	CH3Type_FileHash          = PROTO_NC_USER_FILE_CHECK_REQ
+	CH3Type_WorldSelect       = PROTO_NC_USER_WORLDSELECT_REQ
 	CH3Type_WorldClientKey    = MakeOpCode(3, 15)
 	CH3Type_BackToCharSelect  = MakeOpCode(3, 24)
-	CH3Type_WorldReRequest    = MakeOpCode(3, 27)
+	CH3Type_WorldReRequest    = PROTO_NC_USER_WORLDSTATUS_REQ
 	CH3Type_BackToWorldSelect = MakeOpCode(3, 51)
 	CH3Type_LoginLegacy55     = MakeOpCode(3, 55)
 	CH3Type_LoginLegacy56     = MakeOpCode(3, 56)
-	CH3Type_Login             = MakeOpCode(3, 90) // Corrected for NA2016 client
-	CH3Type_Version           = MakeOpCode(3, 101)
+	CH3Type_Login             = PROTO_NC_USER_US_LOGIN_REQ
+	CH3Type_Version           = PROTO_NC_USER_CLIENT_VERSION_CHECK_REQ
 
 	// Header 4: Character Selection
 	CH4Type_CharSelect = MakeOpCode(4, 1)
