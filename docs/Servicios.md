@@ -57,3 +57,18 @@ flowchart TD
 1. **Unificación sin intermediarios S2S**: En Legacy, `Login.exe` requería comunicarse por sockets internos con `Account.exe` y `Zone.exe` con `Character.exe`. En Go, los servicios acceden directamente al pool de conexiones de MySQL con cero latencia interna.
 2. **Logs No-Bloqueantes (Goroutines y Canales)**: Los registros a `AccountLog` y `GameLog` se envían a través de canales asíncronos (`chan LogEvent`), asegurando que ni el combate ni el movimiento del servidor de zona sufran congelamientos o pérdidas de rendimiento por operaciones de disco.
 3. **Carga Única de Datos Estáticos**: Los archivos oficiales `.shn` (`MapInfo.shn`, `ItemInfoServer.shn`, etc.) y `.txt` (`DefaultCharacterData.txt`) se leen y parsean en memoria una sola vez para todos los servicios del núcleo.
+
+---
+
+## 4. Especificaciones Técnicas Detalladas por Servicio
+
+Documentación exhaustiva con ingeniería inversa directa de binarios, flujos TPI de PDBs, paquetes, payloads binarios y procedimientos SQL:
+
+* 🔐 [**Login** (`Login.exe` / `Login.pdb`)](file:///Users/fedemac/Desktop/Xelion%20Online/XelionCore/docs/Servicios/Login.md) — 85 estructuras de red, sockets C2S y S2S, chequeo de versión `ClientVersionKeyInfo.txt`, zero-SQL.
+* 👤 [**Account** (`Account.exe` / `Account.pdb`)](file:///Users/fedemac/Desktop/Xelion%20Online/XelionCore/docs/Servicios/Account.md) — 101 estructuras, 13 Stored Procedures, 53 SHN checksums, autenticación multirregión.
+* 📋 [**AccountLog** (`AccountLog.exe` / `AccountLog.pdb`)](file:///Users/fedemac/Desktop/Xelion%20Online/XelionCore/docs/Servicios/AccountLog.md) — 106 estructuras, 12 Stored Procedures, auditoría de sesiones y baneo de IPs.
+* 🌍 [**WorldManager** (`WorldManager.exe` / `WorldManager.pdb`)](file:///Users/fedemac/Desktop/Xelion%20Online/XelionCore/docs/Servicios/WorldManager.md) — 1.379 estructuras, 463 handlers de coordinación de mundo, gremios, bodas, 71 SHNs.
+* ⚔️ [**Zone** (`Zone.exe` / `Zone.pdb`)](file:///Users/fedemac/Desktop/Xelion%20Online/XelionCore/docs/Servicios/Zone.md) — 1.343 estructuras, game loop, combate, inventario, 189 SHNs, 31 archivos TXT de scripts.
+* 💾 [**Character** (`Character.exe`)](file:///Users/fedemac/Desktop/Xelion%20Online/XelionCore/docs/Servicios/Character.md) — 1.369 estructuras, 196 handlers, 311 Stored Procedures de persistencia de personaje.
+* 📜 [**GameLog** (`GameLog.exe`)](file:///Users/fedemac/Desktop/Xelion%20Online/XelionCore/docs/Servicios/GameLog.md) — 44 estructuras, 23 Stored Procedures de auditoría económica, combate y drops.
+
