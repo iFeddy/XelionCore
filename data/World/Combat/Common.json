@@ -1,0 +1,17 @@
+{
+  "runSpeed": 127,
+  "walkSpeed": 33,
+  "attackSpeed": 13,
+  "shoutLevel": 5,
+  "shoutDelay": 2,
+  "levelLimit": 125,
+  "maxExpBonus": 3000,
+  "restExpRate": 1100,
+  "minNeedTime": 21600,
+  "defaultBonusTime": 600,
+  "intervalTime": 3600,
+  "addBuffTime": 600,
+  "maxBuffTime": 7200,
+  "lostExpLevel": 21,
+  "maxFreeStat": 180
+}

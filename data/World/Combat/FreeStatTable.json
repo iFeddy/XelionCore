@@ -1,0 +1,4537 @@
+{
+  "str": [
+    {
+      "points": 0,
+      "physicalAttack": 0
+    },
+    {
+      "points": 1,
+      "physicalAttack": 1
+    },
+    {
+      "points": 2,
+      "physicalAttack": 2
+    },
+    {
+      "points": 3,
+      "physicalAttack": 3
+    },
+    {
+      "points": 4,
+      "physicalAttack": 4
+    },
+    {
+      "points": 5,
+      "physicalAttack": 6
+    },
+    {
+      "points": 6,
+      "physicalAttack": 7
+    },
+    {
+      "points": 7,
+      "physicalAttack": 8
+    },
+    {
+      "points": 8,
+      "physicalAttack": 9
+    },
+    {
+      "points": 9,
+      "physicalAttack": 10
+    },
+    {
+      "points": 10,
+      "physicalAttack": 12
+    },
+    {
+      "points": 11,
+      "physicalAttack": 13
+    },
+    {
+      "points": 12,
+      "physicalAttack": 14
+    },
+    {
+      "points": 13,
+      "physicalAttack": 15
+    },
+    {
+      "points": 14,
+      "physicalAttack": 16
+    },
+    {
+      "points": 15,
+      "physicalAttack": 18
+    },
+    {
+      "points": 16,
+      "physicalAttack": 19
+    },
+    {
+      "points": 17,
+      "physicalAttack": 20
+    },
+    {
+      "points": 18,
+      "physicalAttack": 21
+    },
+    {
+      "points": 19,
+      "physicalAttack": 22
+    },
+    {
+      "points": 20,
+      "physicalAttack": 24
+    },
+    {
+      "points": 21,
+      "physicalAttack": 25
+    },
+    {
+      "points": 22,
+      "physicalAttack": 26
+    },
+    {
+      "points": 23,
+      "physicalAttack": 27
+    },
+    {
+      "points": 24,
+      "physicalAttack": 28
+    },
+    {
+      "points": 25,
+      "physicalAttack": 30
+    },
+    {
+      "points": 26,
+      "physicalAttack": 31
+    },
+    {
+      "points": 27,
+      "physicalAttack": 32
+    },
+    {
+      "points": 28,
+      "physicalAttack": 33
+    },
+    {
+      "points": 29,
+      "physicalAttack": 34
+    },
+    {
+      "points": 30,
+      "physicalAttack": 36
+    },
+    {
+      "points": 31,
+      "physicalAttack": 37
+    },
+    {
+      "points": 32,
+      "physicalAttack": 38
+    },
+    {
+      "points": 33,
+      "physicalAttack": 39
+    },
+    {
+      "points": 34,
+      "physicalAttack": 40
+    },
+    {
+      "points": 35,
+      "physicalAttack": 42
+    },
+    {
+      "points": 36,
+      "physicalAttack": 43
+    },
+    {
+      "points": 37,
+      "physicalAttack": 44
+    },
+    {
+      "points": 38,
+      "physicalAttack": 45
+    },
+    {
+      "points": 39,
+      "physicalAttack": 46
+    },
+    {
+      "points": 40,
+      "physicalAttack": 48
+    },
+    {
+      "points": 41,
+      "physicalAttack": 49
+    },
+    {
+      "points": 42,
+      "physicalAttack": 50
+    },
+    {
+      "points": 43,
+      "physicalAttack": 51
+    },
+    {
+      "points": 44,
+      "physicalAttack": 52
+    },
+    {
+      "points": 45,
+      "physicalAttack": 54
+    },
+    {
+      "points": 46,
+      "physicalAttack": 55
+    },
+    {
+      "points": 47,
+      "physicalAttack": 56
+    },
+    {
+      "points": 48,
+      "physicalAttack": 57
+    },
+    {
+      "points": 49,
+      "physicalAttack": 58
+    },
+    {
+      "points": 50,
+      "physicalAttack": 60
+    },
+    {
+      "points": 51,
+      "physicalAttack": 61
+    },
+    {
+      "points": 52,
+      "physicalAttack": 62
+    },
+    {
+      "points": 53,
+      "physicalAttack": 63
+    },
+    {
+      "points": 54,
+      "physicalAttack": 64
+    },
+    {
+      "points": 55,
+      "physicalAttack": 66
+    },
+    {
+      "points": 56,
+      "physicalAttack": 67
+    },
+    {
+      "points": 57,
+      "physicalAttack": 68
+    },
+    {
+      "points": 58,
+      "physicalAttack": 69
+    },
+    {
+      "points": 59,
+      "physicalAttack": 70
+    },
+    {
+      "points": 60,
+      "physicalAttack": 72
+    },
+    {
+      "points": 61,
+      "physicalAttack": 73
+    },
+    {
+      "points": 62,
+      "physicalAttack": 74
+    },
+    {
+      "points": 63,
+      "physicalAttack": 75
+    },
+    {
+      "points": 64,
+      "physicalAttack": 76
+    },
+    {
+      "points": 65,
+      "physicalAttack": 78
+    },
+    {
+      "points": 66,
+      "physicalAttack": 79
+    },
+    {
+      "points": 67,
+      "physicalAttack": 80
+    },
+    {
+      "points": 68,
+      "physicalAttack": 81
+    },
+    {
+      "points": 69,
+      "physicalAttack": 82
+    },
+    {
+      "points": 70,
+      "physicalAttack": 84
+    },
+    {
+      "points": 71,
+      "physicalAttack": 85
+    },
+    {
+      "points": 72,
+      "physicalAttack": 86
+    },
+    {
+      "points": 73,
+      "physicalAttack": 87
+    },
+    {
+      "points": 74,
+      "physicalAttack": 88
+    },
+    {
+      "points": 75,
+      "physicalAttack": 90
+    },
+    {
+      "points": 76,
+      "physicalAttack": 91
+    },
+    {
+      "points": 77,
+      "physicalAttack": 92
+    },
+    {
+      "points": 78,
+      "physicalAttack": 93
+    },
+    {
+      "points": 79,
+      "physicalAttack": 94
+    },
+    {
+      "points": 80,
+      "physicalAttack": 96
+    },
+    {
+      "points": 81,
+      "physicalAttack": 97
+    },
+    {
+      "points": 82,
+      "physicalAttack": 98
+    },
+    {
+      "points": 83,
+      "physicalAttack": 99
+    },
+    {
+      "points": 84,
+      "physicalAttack": 100
+    },
+    {
+      "points": 85,
+      "physicalAttack": 102
+    },
+    {
+      "points": 86,
+      "physicalAttack": 103
+    },
+    {
+      "points": 87,
+      "physicalAttack": 104
+    },
+    {
+      "points": 88,
+      "physicalAttack": 105
+    },
+    {
+      "points": 89,
+      "physicalAttack": 106
+    },
+    {
+      "points": 90,
+      "physicalAttack": 108
+    },
+    {
+      "points": 91,
+      "physicalAttack": 109
+    },
+    {
+      "points": 92,
+      "physicalAttack": 110
+    },
+    {
+      "points": 93,
+      "physicalAttack": 111
+    },
+    {
+      "points": 94,
+      "physicalAttack": 112
+    },
+    {
+      "points": 95,
+      "physicalAttack": 114
+    },
+    {
+      "points": 96,
+      "physicalAttack": 115
+    },
+    {
+      "points": 97,
+      "physicalAttack": 116
+    },
+    {
+      "points": 98,
+      "physicalAttack": 117
+    },
+    {
+      "points": 99,
+      "physicalAttack": 118
+    },
+    {
+      "points": 100,
+      "physicalAttack": 120
+    },
+    {
+      "points": 101,
+      "physicalAttack": 121
+    },
+    {
+      "points": 102,
+      "physicalAttack": 122
+    },
+    {
+      "points": 103,
+      "physicalAttack": 123
+    },
+    {
+      "points": 104,
+      "physicalAttack": 124
+    },
+    {
+      "points": 105,
+      "physicalAttack": 126
+    },
+    {
+      "points": 106,
+      "physicalAttack": 127
+    },
+    {
+      "points": 107,
+      "physicalAttack": 128
+    },
+    {
+      "points": 108,
+      "physicalAttack": 129
+    },
+    {
+      "points": 109,
+      "physicalAttack": 130
+    },
+    {
+      "points": 110,
+      "physicalAttack": 132
+    },
+    {
+      "points": 111,
+      "physicalAttack": 133
+    },
+    {
+      "points": 112,
+      "physicalAttack": 134
+    },
+    {
+      "points": 113,
+      "physicalAttack": 135
+    },
+    {
+      "points": 114,
+      "physicalAttack": 136
+    },
+    {
+      "points": 115,
+      "physicalAttack": 138
+    },
+    {
+      "points": 116,
+      "physicalAttack": 139
+    },
+    {
+      "points": 117,
+      "physicalAttack": 140
+    },
+    {
+      "points": 118,
+      "physicalAttack": 141
+    },
+    {
+      "points": 119,
+      "physicalAttack": 142
+    },
+    {
+      "points": 120,
+      "physicalAttack": 144
+    },
+    {
+      "points": 121,
+      "physicalAttack": 145
+    },
+    {
+      "points": 122,
+      "physicalAttack": 146
+    },
+    {
+      "points": 123,
+      "physicalAttack": 147
+    },
+    {
+      "points": 124,
+      "physicalAttack": 148
+    },
+    {
+      "points": 125,
+      "physicalAttack": 150
+    },
+    {
+      "points": 126,
+      "physicalAttack": 151
+    },
+    {
+      "points": 127,
+      "physicalAttack": 152
+    },
+    {
+      "points": 128,
+      "physicalAttack": 153
+    },
+    {
+      "points": 129,
+      "physicalAttack": 154
+    },
+    {
+      "points": 130,
+      "physicalAttack": 156
+    },
+    {
+      "points": 131,
+      "physicalAttack": 157
+    },
+    {
+      "points": 132,
+      "physicalAttack": 158
+    },
+    {
+      "points": 133,
+      "physicalAttack": 159
+    },
+    {
+      "points": 134,
+      "physicalAttack": 160
+    },
+    {
+      "points": 135,
+      "physicalAttack": 162
+    },
+    {
+      "points": 136,
+      "physicalAttack": 163
+    },
+    {
+      "points": 137,
+      "physicalAttack": 164
+    },
+    {
+      "points": 138,
+      "physicalAttack": 165
+    },
+    {
+      "points": 139,
+      "physicalAttack": 166
+    },
+    {
+      "points": 140,
+      "physicalAttack": 168
+    },
+    {
+      "points": 141,
+      "physicalAttack": 169
+    },
+    {
+      "points": 142,
+      "physicalAttack": 170
+    },
+    {
+      "points": 143,
+      "physicalAttack": 171
+    },
+    {
+      "points": 144,
+      "physicalAttack": 172
+    },
+    {
+      "points": 145,
+      "physicalAttack": 174
+    },
+    {
+      "points": 146,
+      "physicalAttack": 175
+    },
+    {
+      "points": 147,
+      "physicalAttack": 176
+    },
+    {
+      "points": 148,
+      "physicalAttack": 177
+    },
+    {
+      "points": 149,
+      "physicalAttack": 178
+    },
+    {
+      "points": 150,
+      "physicalAttack": 180
+    },
+    {
+      "points": 151,
+      "physicalAttack": 181
+    },
+    {
+      "points": 152,
+      "physicalAttack": 182
+    },
+    {
+      "points": 153,
+      "physicalAttack": 183
+    },
+    {
+      "points": 154,
+      "physicalAttack": 184
+    },
+    {
+      "points": 155,
+      "physicalAttack": 186
+    },
+    {
+      "points": 156,
+      "physicalAttack": 187
+    },
+    {
+      "points": 157,
+      "physicalAttack": 188
+    },
+    {
+      "points": 158,
+      "physicalAttack": 189
+    },
+    {
+      "points": 159,
+      "physicalAttack": 190
+    },
+    {
+      "points": 160,
+      "physicalAttack": 192
+    },
+    {
+      "points": 161,
+      "physicalAttack": 193
+    },
+    {
+      "points": 162,
+      "physicalAttack": 194
+    },
+    {
+      "points": 163,
+      "physicalAttack": 195
+    },
+    {
+      "points": 164,
+      "physicalAttack": 196
+    },
+    {
+      "points": 165,
+      "physicalAttack": 198
+    },
+    {
+      "points": 166,
+      "physicalAttack": 199
+    },
+    {
+      "points": 167,
+      "physicalAttack": 200
+    },
+    {
+      "points": 168,
+      "physicalAttack": 201
+    },
+    {
+      "points": 169,
+      "physicalAttack": 202
+    },
+    {
+      "points": 170,
+      "physicalAttack": 204
+    },
+    {
+      "points": 171,
+      "physicalAttack": 205
+    },
+    {
+      "points": 172,
+      "physicalAttack": 206
+    },
+    {
+      "points": 173,
+      "physicalAttack": 207
+    },
+    {
+      "points": 174,
+      "physicalAttack": 208
+    },
+    {
+      "points": 175,
+      "physicalAttack": 210
+    },
+    {
+      "points": 176,
+      "physicalAttack": 211
+    },
+    {
+      "points": 177,
+      "physicalAttack": 212
+    },
+    {
+      "points": 178,
+      "physicalAttack": 213
+    },
+    {
+      "points": 179,
+      "physicalAttack": 214
+    },
+    {
+      "points": 180,
+      "physicalAttack": 216
+    }
+  ],
+  "int": [
+    {
+      "points": 0,
+      "magicAttack": 0
+    },
+    {
+      "points": 1,
+      "magicAttack": 1
+    },
+    {
+      "points": 2,
+      "magicAttack": 2
+    },
+    {
+      "points": 3,
+      "magicAttack": 3
+    },
+    {
+      "points": 4,
+      "magicAttack": 4
+    },
+    {
+      "points": 5,
+      "magicAttack": 6
+    },
+    {
+      "points": 6,
+      "magicAttack": 7
+    },
+    {
+      "points": 7,
+      "magicAttack": 8
+    },
+    {
+      "points": 8,
+      "magicAttack": 9
+    },
+    {
+      "points": 9,
+      "magicAttack": 10
+    },
+    {
+      "points": 10,
+      "magicAttack": 12
+    },
+    {
+      "points": 11,
+      "magicAttack": 13
+    },
+    {
+      "points": 12,
+      "magicAttack": 14
+    },
+    {
+      "points": 13,
+      "magicAttack": 15
+    },
+    {
+      "points": 14,
+      "magicAttack": 16
+    },
+    {
+      "points": 15,
+      "magicAttack": 18
+    },
+    {
+      "points": 16,
+      "magicAttack": 19
+    },
+    {
+      "points": 17,
+      "magicAttack": 20
+    },
+    {
+      "points": 18,
+      "magicAttack": 21
+    },
+    {
+      "points": 19,
+      "magicAttack": 22
+    },
+    {
+      "points": 20,
+      "magicAttack": 24
+    },
+    {
+      "points": 21,
+      "magicAttack": 25
+    },
+    {
+      "points": 22,
+      "magicAttack": 26
+    },
+    {
+      "points": 23,
+      "magicAttack": 27
+    },
+    {
+      "points": 24,
+      "magicAttack": 28
+    },
+    {
+      "points": 25,
+      "magicAttack": 30
+    },
+    {
+      "points": 26,
+      "magicAttack": 31
+    },
+    {
+      "points": 27,
+      "magicAttack": 32
+    },
+    {
+      "points": 28,
+      "magicAttack": 33
+    },
+    {
+      "points": 29,
+      "magicAttack": 34
+    },
+    {
+      "points": 30,
+      "magicAttack": 36
+    },
+    {
+      "points": 31,
+      "magicAttack": 37
+    },
+    {
+      "points": 32,
+      "magicAttack": 38
+    },
+    {
+      "points": 33,
+      "magicAttack": 39
+    },
+    {
+      "points": 34,
+      "magicAttack": 40
+    },
+    {
+      "points": 35,
+      "magicAttack": 42
+    },
+    {
+      "points": 36,
+      "magicAttack": 43
+    },
+    {
+      "points": 37,
+      "magicAttack": 44
+    },
+    {
+      "points": 38,
+      "magicAttack": 45
+    },
+    {
+      "points": 39,
+      "magicAttack": 46
+    },
+    {
+      "points": 40,
+      "magicAttack": 48
+    },
+    {
+      "points": 41,
+      "magicAttack": 49
+    },
+    {
+      "points": 42,
+      "magicAttack": 50
+    },
+    {
+      "points": 43,
+      "magicAttack": 51
+    },
+    {
+      "points": 44,
+      "magicAttack": 52
+    },
+    {
+      "points": 45,
+      "magicAttack": 54
+    },
+    {
+      "points": 46,
+      "magicAttack": 55
+    },
+    {
+      "points": 47,
+      "magicAttack": 56
+    },
+    {
+      "points": 48,
+      "magicAttack": 57
+    },
+    {
+      "points": 49,
+      "magicAttack": 58
+    },
+    {
+      "points": 50,
+      "magicAttack": 60
+    },
+    {
+      "points": 51,
+      "magicAttack": 61
+    },
+    {
+      "points": 52,
+      "magicAttack": 62
+    },
+    {
+      "points": 53,
+      "magicAttack": 63
+    },
+    {
+      "points": 54,
+      "magicAttack": 64
+    },
+    {
+      "points": 55,
+      "magicAttack": 66
+    },
+    {
+      "points": 56,
+      "magicAttack": 67
+    },
+    {
+      "points": 57,
+      "magicAttack": 68
+    },
+    {
+      "points": 58,
+      "magicAttack": 69
+    },
+    {
+      "points": 59,
+      "magicAttack": 70
+    },
+    {
+      "points": 60,
+      "magicAttack": 72
+    },
+    {
+      "points": 61,
+      "magicAttack": 73
+    },
+    {
+      "points": 62,
+      "magicAttack": 74
+    },
+    {
+      "points": 63,
+      "magicAttack": 75
+    },
+    {
+      "points": 64,
+      "magicAttack": 76
+    },
+    {
+      "points": 65,
+      "magicAttack": 78
+    },
+    {
+      "points": 66,
+      "magicAttack": 79
+    },
+    {
+      "points": 67,
+      "magicAttack": 80
+    },
+    {
+      "points": 68,
+      "magicAttack": 81
+    },
+    {
+      "points": 69,
+      "magicAttack": 82
+    },
+    {
+      "points": 70,
+      "magicAttack": 84
+    },
+    {
+      "points": 71,
+      "magicAttack": 85
+    },
+    {
+      "points": 72,
+      "magicAttack": 86
+    },
+    {
+      "points": 73,
+      "magicAttack": 87
+    },
+    {
+      "points": 74,
+      "magicAttack": 88
+    },
+    {
+      "points": 75,
+      "magicAttack": 90
+    },
+    {
+      "points": 76,
+      "magicAttack": 91
+    },
+    {
+      "points": 77,
+      "magicAttack": 92
+    },
+    {
+      "points": 78,
+      "magicAttack": 93
+    },
+    {
+      "points": 79,
+      "magicAttack": 94
+    },
+    {
+      "points": 80,
+      "magicAttack": 96
+    },
+    {
+      "points": 81,
+      "magicAttack": 97
+    },
+    {
+      "points": 82,
+      "magicAttack": 98
+    },
+    {
+      "points": 83,
+      "magicAttack": 99
+    },
+    {
+      "points": 84,
+      "magicAttack": 100
+    },
+    {
+      "points": 85,
+      "magicAttack": 102
+    },
+    {
+      "points": 86,
+      "magicAttack": 103
+    },
+    {
+      "points": 87,
+      "magicAttack": 104
+    },
+    {
+      "points": 88,
+      "magicAttack": 105
+    },
+    {
+      "points": 89,
+      "magicAttack": 106
+    },
+    {
+      "points": 90,
+      "magicAttack": 108
+    },
+    {
+      "points": 91,
+      "magicAttack": 109
+    },
+    {
+      "points": 92,
+      "magicAttack": 110
+    },
+    {
+      "points": 93,
+      "magicAttack": 111
+    },
+    {
+      "points": 94,
+      "magicAttack": 112
+    },
+    {
+      "points": 95,
+      "magicAttack": 114
+    },
+    {
+      "points": 96,
+      "magicAttack": 115
+    },
+    {
+      "points": 97,
+      "magicAttack": 116
+    },
+    {
+      "points": 98,
+      "magicAttack": 117
+    },
+    {
+      "points": 99,
+      "magicAttack": 118
+    },
+    {
+      "points": 100,
+      "magicAttack": 120
+    },
+    {
+      "points": 101,
+      "magicAttack": 121
+    },
+    {
+      "points": 102,
+      "magicAttack": 122
+    },
+    {
+      "points": 103,
+      "magicAttack": 123
+    },
+    {
+      "points": 104,
+      "magicAttack": 124
+    },
+    {
+      "points": 105,
+      "magicAttack": 126
+    },
+    {
+      "points": 106,
+      "magicAttack": 127
+    },
+    {
+      "points": 107,
+      "magicAttack": 128
+    },
+    {
+      "points": 108,
+      "magicAttack": 129
+    },
+    {
+      "points": 109,
+      "magicAttack": 130
+    },
+    {
+      "points": 110,
+      "magicAttack": 132
+    },
+    {
+      "points": 111,
+      "magicAttack": 133
+    },
+    {
+      "points": 112,
+      "magicAttack": 134
+    },
+    {
+      "points": 113,
+      "magicAttack": 135
+    },
+    {
+      "points": 114,
+      "magicAttack": 136
+    },
+    {
+      "points": 115,
+      "magicAttack": 138
+    },
+    {
+      "points": 116,
+      "magicAttack": 139
+    },
+    {
+      "points": 117,
+      "magicAttack": 140
+    },
+    {
+      "points": 118,
+      "magicAttack": 141
+    },
+    {
+      "points": 119,
+      "magicAttack": 142
+    },
+    {
+      "points": 120,
+      "magicAttack": 144
+    },
+    {
+      "points": 121,
+      "magicAttack": 145
+    },
+    {
+      "points": 122,
+      "magicAttack": 146
+    },
+    {
+      "points": 123,
+      "magicAttack": 147
+    },
+    {
+      "points": 124,
+      "magicAttack": 148
+    },
+    {
+      "points": 125,
+      "magicAttack": 150
+    },
+    {
+      "points": 126,
+      "magicAttack": 151
+    },
+    {
+      "points": 127,
+      "magicAttack": 152
+    },
+    {
+      "points": 128,
+      "magicAttack": 153
+    },
+    {
+      "points": 129,
+      "magicAttack": 154
+    },
+    {
+      "points": 130,
+      "magicAttack": 156
+    },
+    {
+      "points": 131,
+      "magicAttack": 157
+    },
+    {
+      "points": 132,
+      "magicAttack": 158
+    },
+    {
+      "points": 133,
+      "magicAttack": 159
+    },
+    {
+      "points": 134,
+      "magicAttack": 160
+    },
+    {
+      "points": 135,
+      "magicAttack": 162
+    },
+    {
+      "points": 136,
+      "magicAttack": 163
+    },
+    {
+      "points": 137,
+      "magicAttack": 164
+    },
+    {
+      "points": 138,
+      "magicAttack": 165
+    },
+    {
+      "points": 139,
+      "magicAttack": 166
+    },
+    {
+      "points": 140,
+      "magicAttack": 168
+    },
+    {
+      "points": 141,
+      "magicAttack": 169
+    },
+    {
+      "points": 142,
+      "magicAttack": 170
+    },
+    {
+      "points": 143,
+      "magicAttack": 171
+    },
+    {
+      "points": 144,
+      "magicAttack": 172
+    },
+    {
+      "points": 145,
+      "magicAttack": 174
+    },
+    {
+      "points": 146,
+      "magicAttack": 175
+    },
+    {
+      "points": 147,
+      "magicAttack": 176
+    },
+    {
+      "points": 148,
+      "magicAttack": 177
+    },
+    {
+      "points": 149,
+      "magicAttack": 178
+    },
+    {
+      "points": 150,
+      "magicAttack": 180
+    },
+    {
+      "points": 151,
+      "magicAttack": 181
+    },
+    {
+      "points": 152,
+      "magicAttack": 182
+    },
+    {
+      "points": 153,
+      "magicAttack": 183
+    },
+    {
+      "points": 154,
+      "magicAttack": 184
+    },
+    {
+      "points": 155,
+      "magicAttack": 186
+    },
+    {
+      "points": 156,
+      "magicAttack": 187
+    },
+    {
+      "points": 157,
+      "magicAttack": 188
+    },
+    {
+      "points": 158,
+      "magicAttack": 189
+    },
+    {
+      "points": 159,
+      "magicAttack": 190
+    },
+    {
+      "points": 160,
+      "magicAttack": 192
+    },
+    {
+      "points": 161,
+      "magicAttack": 193
+    },
+    {
+      "points": 162,
+      "magicAttack": 194
+    },
+    {
+      "points": 163,
+      "magicAttack": 195
+    },
+    {
+      "points": 164,
+      "magicAttack": 196
+    },
+    {
+      "points": 165,
+      "magicAttack": 198
+    },
+    {
+      "points": 166,
+      "magicAttack": 199
+    },
+    {
+      "points": 167,
+      "magicAttack": 200
+    },
+    {
+      "points": 168,
+      "magicAttack": 201
+    },
+    {
+      "points": 169,
+      "magicAttack": 202
+    },
+    {
+      "points": 170,
+      "magicAttack": 204
+    },
+    {
+      "points": 171,
+      "magicAttack": 205
+    },
+    {
+      "points": 172,
+      "magicAttack": 206
+    },
+    {
+      "points": 173,
+      "magicAttack": 207
+    },
+    {
+      "points": 174,
+      "magicAttack": 208
+    },
+    {
+      "points": 175,
+      "magicAttack": 210
+    },
+    {
+      "points": 176,
+      "magicAttack": 211
+    },
+    {
+      "points": 177,
+      "magicAttack": 212
+    },
+    {
+      "points": 178,
+      "magicAttack": 213
+    },
+    {
+      "points": 179,
+      "magicAttack": 214
+    },
+    {
+      "points": 180,
+      "magicAttack": 216
+    }
+  ],
+  "dex": [
+    {
+      "points": 0,
+      "aimRate": 0,
+      "evasionRate": 0
+    },
+    {
+      "points": 1,
+      "aimRate": 3,
+      "evasionRate": 2
+    },
+    {
+      "points": 2,
+      "aimRate": 6,
+      "evasionRate": 4
+    },
+    {
+      "points": 3,
+      "aimRate": 9,
+      "evasionRate": 6
+    },
+    {
+      "points": 4,
+      "aimRate": 12,
+      "evasionRate": 8
+    },
+    {
+      "points": 5,
+      "aimRate": 15,
+      "evasionRate": 10
+    },
+    {
+      "points": 6,
+      "aimRate": 18,
+      "evasionRate": 12
+    },
+    {
+      "points": 7,
+      "aimRate": 21,
+      "evasionRate": 14
+    },
+    {
+      "points": 8,
+      "aimRate": 24,
+      "evasionRate": 16
+    },
+    {
+      "points": 9,
+      "aimRate": 27,
+      "evasionRate": 18
+    },
+    {
+      "points": 10,
+      "aimRate": 30,
+      "evasionRate": 20
+    },
+    {
+      "points": 11,
+      "aimRate": 33,
+      "evasionRate": 22
+    },
+    {
+      "points": 12,
+      "aimRate": 36,
+      "evasionRate": 24
+    },
+    {
+      "points": 13,
+      "aimRate": 39,
+      "evasionRate": 26
+    },
+    {
+      "points": 14,
+      "aimRate": 42,
+      "evasionRate": 28
+    },
+    {
+      "points": 15,
+      "aimRate": 45,
+      "evasionRate": 30
+    },
+    {
+      "points": 16,
+      "aimRate": 48,
+      "evasionRate": 32
+    },
+    {
+      "points": 17,
+      "aimRate": 51,
+      "evasionRate": 34
+    },
+    {
+      "points": 18,
+      "aimRate": 54,
+      "evasionRate": 36
+    },
+    {
+      "points": 19,
+      "aimRate": 57,
+      "evasionRate": 38
+    },
+    {
+      "points": 20,
+      "aimRate": 60,
+      "evasionRate": 40
+    },
+    {
+      "points": 21,
+      "aimRate": 63,
+      "evasionRate": 42
+    },
+    {
+      "points": 22,
+      "aimRate": 66,
+      "evasionRate": 44
+    },
+    {
+      "points": 23,
+      "aimRate": 69,
+      "evasionRate": 46
+    },
+    {
+      "points": 24,
+      "aimRate": 72,
+      "evasionRate": 48
+    },
+    {
+      "points": 25,
+      "aimRate": 75,
+      "evasionRate": 50
+    },
+    {
+      "points": 26,
+      "aimRate": 78,
+      "evasionRate": 52
+    },
+    {
+      "points": 27,
+      "aimRate": 81,
+      "evasionRate": 54
+    },
+    {
+      "points": 28,
+      "aimRate": 84,
+      "evasionRate": 56
+    },
+    {
+      "points": 29,
+      "aimRate": 87,
+      "evasionRate": 58
+    },
+    {
+      "points": 30,
+      "aimRate": 90,
+      "evasionRate": 60
+    },
+    {
+      "points": 31,
+      "aimRate": 93,
+      "evasionRate": 62
+    },
+    {
+      "points": 32,
+      "aimRate": 96,
+      "evasionRate": 64
+    },
+    {
+      "points": 33,
+      "aimRate": 99,
+      "evasionRate": 66
+    },
+    {
+      "points": 34,
+      "aimRate": 101,
+      "evasionRate": 68
+    },
+    {
+      "points": 35,
+      "aimRate": 103,
+      "evasionRate": 70
+    },
+    {
+      "points": 36,
+      "aimRate": 105,
+      "evasionRate": 72
+    },
+    {
+      "points": 37,
+      "aimRate": 107,
+      "evasionRate": 74
+    },
+    {
+      "points": 38,
+      "aimRate": 109,
+      "evasionRate": 76
+    },
+    {
+      "points": 39,
+      "aimRate": 111,
+      "evasionRate": 78
+    },
+    {
+      "points": 40,
+      "aimRate": 113,
+      "evasionRate": 80
+    },
+    {
+      "points": 41,
+      "aimRate": 115,
+      "evasionRate": 82
+    },
+    {
+      "points": 42,
+      "aimRate": 117,
+      "evasionRate": 84
+    },
+    {
+      "points": 43,
+      "aimRate": 119,
+      "evasionRate": 86
+    },
+    {
+      "points": 44,
+      "aimRate": 121,
+      "evasionRate": 88
+    },
+    {
+      "points": 45,
+      "aimRate": 123,
+      "evasionRate": 90
+    },
+    {
+      "points": 46,
+      "aimRate": 125,
+      "evasionRate": 92
+    },
+    {
+      "points": 47,
+      "aimRate": 127,
+      "evasionRate": 94
+    },
+    {
+      "points": 48,
+      "aimRate": 129,
+      "evasionRate": 96
+    },
+    {
+      "points": 49,
+      "aimRate": 131,
+      "evasionRate": 98
+    },
+    {
+      "points": 50,
+      "aimRate": 133,
+      "evasionRate": 100
+    },
+    {
+      "points": 51,
+      "aimRate": 135,
+      "evasionRate": 101
+    },
+    {
+      "points": 52,
+      "aimRate": 137,
+      "evasionRate": 102
+    },
+    {
+      "points": 53,
+      "aimRate": 139,
+      "evasionRate": 103
+    },
+    {
+      "points": 54,
+      "aimRate": 141,
+      "evasionRate": 104
+    },
+    {
+      "points": 55,
+      "aimRate": 143,
+      "evasionRate": 105
+    },
+    {
+      "points": 56,
+      "aimRate": 145,
+      "evasionRate": 106
+    },
+    {
+      "points": 57,
+      "aimRate": 147,
+      "evasionRate": 107
+    },
+    {
+      "points": 58,
+      "aimRate": 149,
+      "evasionRate": 108
+    },
+    {
+      "points": 59,
+      "aimRate": 151,
+      "evasionRate": 109
+    },
+    {
+      "points": 60,
+      "aimRate": 153,
+      "evasionRate": 110
+    },
+    {
+      "points": 61,
+      "aimRate": 155,
+      "evasionRate": 111
+    },
+    {
+      "points": 62,
+      "aimRate": 157,
+      "evasionRate": 112
+    },
+    {
+      "points": 63,
+      "aimRate": 159,
+      "evasionRate": 113
+    },
+    {
+      "points": 64,
+      "aimRate": 161,
+      "evasionRate": 114
+    },
+    {
+      "points": 65,
+      "aimRate": 163,
+      "evasionRate": 115
+    },
+    {
+      "points": 66,
+      "aimRate": 165,
+      "evasionRate": 116
+    },
+    {
+      "points": 67,
+      "aimRate": 167,
+      "evasionRate": 117
+    },
+    {
+      "points": 68,
+      "aimRate": 168,
+      "evasionRate": 118
+    },
+    {
+      "points": 69,
+      "aimRate": 169,
+      "evasionRate": 119
+    },
+    {
+      "points": 70,
+      "aimRate": 170,
+      "evasionRate": 120
+    },
+    {
+      "points": 71,
+      "aimRate": 171,
+      "evasionRate": 121
+    },
+    {
+      "points": 72,
+      "aimRate": 172,
+      "evasionRate": 122
+    },
+    {
+      "points": 73,
+      "aimRate": 173,
+      "evasionRate": 123
+    },
+    {
+      "points": 74,
+      "aimRate": 174,
+      "evasionRate": 124
+    },
+    {
+      "points": 75,
+      "aimRate": 175,
+      "evasionRate": 125
+    },
+    {
+      "points": 76,
+      "aimRate": 176,
+      "evasionRate": 126
+    },
+    {
+      "points": 77,
+      "aimRate": 177,
+      "evasionRate": 127
+    },
+    {
+      "points": 78,
+      "aimRate": 178,
+      "evasionRate": 128
+    },
+    {
+      "points": 79,
+      "aimRate": 179,
+      "evasionRate": 129
+    },
+    {
+      "points": 80,
+      "aimRate": 180,
+      "evasionRate": 130
+    },
+    {
+      "points": 81,
+      "aimRate": 181,
+      "evasionRate": 131
+    },
+    {
+      "points": 82,
+      "aimRate": 182,
+      "evasionRate": 132
+    },
+    {
+      "points": 83,
+      "aimRate": 183,
+      "evasionRate": 133
+    },
+    {
+      "points": 84,
+      "aimRate": 184,
+      "evasionRate": 134
+    },
+    {
+      "points": 85,
+      "aimRate": 185,
+      "evasionRate": 135
+    },
+    {
+      "points": 86,
+      "aimRate": 186,
+      "evasionRate": 136
+    },
+    {
+      "points": 87,
+      "aimRate": 187,
+      "evasionRate": 137
+    },
+    {
+      "points": 88,
+      "aimRate": 188,
+      "evasionRate": 138
+    },
+    {
+      "points": 89,
+      "aimRate": 189,
+      "evasionRate": 139
+    },
+    {
+      "points": 90,
+      "aimRate": 190,
+      "evasionRate": 140
+    },
+    {
+      "points": 91,
+      "aimRate": 191,
+      "evasionRate": 141
+    },
+    {
+      "points": 92,
+      "aimRate": 192,
+      "evasionRate": 142
+    },
+    {
+      "points": 93,
+      "aimRate": 193,
+      "evasionRate": 143
+    },
+    {
+      "points": 94,
+      "aimRate": 194,
+      "evasionRate": 144
+    },
+    {
+      "points": 95,
+      "aimRate": 195,
+      "evasionRate": 145
+    },
+    {
+      "points": 96,
+      "aimRate": 196,
+      "evasionRate": 146
+    },
+    {
+      "points": 97,
+      "aimRate": 197,
+      "evasionRate": 147
+    },
+    {
+      "points": 98,
+      "aimRate": 198,
+      "evasionRate": 148
+    },
+    {
+      "points": 99,
+      "aimRate": 199,
+      "evasionRate": 149
+    },
+    {
+      "points": 100,
+      "aimRate": 200,
+      "evasionRate": 150
+    },
+    {
+      "points": 101,
+      "aimRate": 201,
+      "evasionRate": 151
+    },
+    {
+      "points": 102,
+      "aimRate": 202,
+      "evasionRate": 152
+    },
+    {
+      "points": 103,
+      "aimRate": 203,
+      "evasionRate": 153
+    },
+    {
+      "points": 104,
+      "aimRate": 204,
+      "evasionRate": 154
+    },
+    {
+      "points": 105,
+      "aimRate": 205,
+      "evasionRate": 155
+    },
+    {
+      "points": 106,
+      "aimRate": 206,
+      "evasionRate": 156
+    },
+    {
+      "points": 107,
+      "aimRate": 207,
+      "evasionRate": 157
+    },
+    {
+      "points": 108,
+      "aimRate": 208,
+      "evasionRate": 158
+    },
+    {
+      "points": 109,
+      "aimRate": 209,
+      "evasionRate": 159
+    },
+    {
+      "points": 110,
+      "aimRate": 210,
+      "evasionRate": 160
+    },
+    {
+      "points": 111,
+      "aimRate": 211,
+      "evasionRate": 161
+    },
+    {
+      "points": 112,
+      "aimRate": 212,
+      "evasionRate": 162
+    },
+    {
+      "points": 113,
+      "aimRate": 213,
+      "evasionRate": 163
+    },
+    {
+      "points": 114,
+      "aimRate": 214,
+      "evasionRate": 164
+    },
+    {
+      "points": 115,
+      "aimRate": 215,
+      "evasionRate": 165
+    },
+    {
+      "points": 116,
+      "aimRate": 216,
+      "evasionRate": 166
+    },
+    {
+      "points": 117,
+      "aimRate": 217,
+      "evasionRate": 167
+    },
+    {
+      "points": 118,
+      "aimRate": 218,
+      "evasionRate": 168
+    },
+    {
+      "points": 119,
+      "aimRate": 219,
+      "evasionRate": 169
+    },
+    {
+      "points": 120,
+      "aimRate": 220,
+      "evasionRate": 170
+    },
+    {
+      "points": 121,
+      "aimRate": 221,
+      "evasionRate": 171
+    },
+    {
+      "points": 122,
+      "aimRate": 222,
+      "evasionRate": 172
+    },
+    {
+      "points": 123,
+      "aimRate": 223,
+      "evasionRate": 173
+    },
+    {
+      "points": 124,
+      "aimRate": 224,
+      "evasionRate": 174
+    },
+    {
+      "points": 125,
+      "aimRate": 225,
+      "evasionRate": 175
+    },
+    {
+      "points": 126,
+      "aimRate": 226,
+      "evasionRate": 176
+    },
+    {
+      "points": 127,
+      "aimRate": 227,
+      "evasionRate": 177
+    },
+    {
+      "points": 128,
+      "aimRate": 228,
+      "evasionRate": 178
+    },
+    {
+      "points": 129,
+      "aimRate": 229,
+      "evasionRate": 179
+    },
+    {
+      "points": 130,
+      "aimRate": 230,
+      "evasionRate": 180
+    },
+    {
+      "points": 131,
+      "aimRate": 231,
+      "evasionRate": 181
+    },
+    {
+      "points": 132,
+      "aimRate": 232,
+      "evasionRate": 182
+    },
+    {
+      "points": 133,
+      "aimRate": 233,
+      "evasionRate": 183
+    },
+    {
+      "points": 134,
+      "aimRate": 234,
+      "evasionRate": 184
+    },
+    {
+      "points": 135,
+      "aimRate": 235,
+      "evasionRate": 185
+    },
+    {
+      "points": 136,
+      "aimRate": 236,
+      "evasionRate": 186
+    },
+    {
+      "points": 137,
+      "aimRate": 237,
+      "evasionRate": 187
+    },
+    {
+      "points": 138,
+      "aimRate": 238,
+      "evasionRate": 188
+    },
+    {
+      "points": 139,
+      "aimRate": 239,
+      "evasionRate": 189
+    },
+    {
+      "points": 140,
+      "aimRate": 240,
+      "evasionRate": 190
+    },
+    {
+      "points": 141,
+      "aimRate": 241,
+      "evasionRate": 191
+    },
+    {
+      "points": 142,
+      "aimRate": 242,
+      "evasionRate": 192
+    },
+    {
+      "points": 143,
+      "aimRate": 243,
+      "evasionRate": 193
+    },
+    {
+      "points": 144,
+      "aimRate": 244,
+      "evasionRate": 194
+    },
+    {
+      "points": 145,
+      "aimRate": 245,
+      "evasionRate": 195
+    },
+    {
+      "points": 146,
+      "aimRate": 246,
+      "evasionRate": 196
+    },
+    {
+      "points": 147,
+      "aimRate": 247,
+      "evasionRate": 197
+    },
+    {
+      "points": 148,
+      "aimRate": 248,
+      "evasionRate": 198
+    },
+    {
+      "points": 149,
+      "aimRate": 249,
+      "evasionRate": 199
+    },
+    {
+      "points": 150,
+      "aimRate": 250,
+      "evasionRate": 200
+    },
+    {
+      "points": 151,
+      "aimRate": 251,
+      "evasionRate": 201
+    },
+    {
+      "points": 152,
+      "aimRate": 252,
+      "evasionRate": 202
+    },
+    {
+      "points": 153,
+      "aimRate": 253,
+      "evasionRate": 203
+    },
+    {
+      "points": 154,
+      "aimRate": 254,
+      "evasionRate": 204
+    },
+    {
+      "points": 155,
+      "aimRate": 255,
+      "evasionRate": 205
+    },
+    {
+      "points": 156,
+      "aimRate": 256,
+      "evasionRate": 206
+    },
+    {
+      "points": 157,
+      "aimRate": 257,
+      "evasionRate": 207
+    },
+    {
+      "points": 158,
+      "aimRate": 258,
+      "evasionRate": 208
+    },
+    {
+      "points": 159,
+      "aimRate": 259,
+      "evasionRate": 209
+    },
+    {
+      "points": 160,
+      "aimRate": 260,
+      "evasionRate": 210
+    },
+    {
+      "points": 161,
+      "aimRate": 261,
+      "evasionRate": 211
+    },
+    {
+      "points": 162,
+      "aimRate": 262,
+      "evasionRate": 212
+    },
+    {
+      "points": 163,
+      "aimRate": 263,
+      "evasionRate": 213
+    },
+    {
+      "points": 164,
+      "aimRate": 264,
+      "evasionRate": 214
+    },
+    {
+      "points": 165,
+      "aimRate": 265,
+      "evasionRate": 215
+    },
+    {
+      "points": 166,
+      "aimRate": 266,
+      "evasionRate": 216
+    },
+    {
+      "points": 167,
+      "aimRate": 267,
+      "evasionRate": 217
+    },
+    {
+      "points": 168,
+      "aimRate": 268,
+      "evasionRate": 218
+    },
+    {
+      "points": 169,
+      "aimRate": 269,
+      "evasionRate": 219
+    },
+    {
+      "points": 170,
+      "aimRate": 270,
+      "evasionRate": 220
+    },
+    {
+      "points": 171,
+      "aimRate": 271,
+      "evasionRate": 221
+    },
+    {
+      "points": 172,
+      "aimRate": 272,
+      "evasionRate": 222
+    },
+    {
+      "points": 173,
+      "aimRate": 273,
+      "evasionRate": 223
+    },
+    {
+      "points": 174,
+      "aimRate": 274,
+      "evasionRate": 224
+    },
+    {
+      "points": 175,
+      "aimRate": 275,
+      "evasionRate": 225
+    },
+    {
+      "points": 176,
+      "aimRate": 276,
+      "evasionRate": 226
+    },
+    {
+      "points": 177,
+      "aimRate": 277,
+      "evasionRate": 227
+    },
+    {
+      "points": 178,
+      "aimRate": 278,
+      "evasionRate": 228
+    },
+    {
+      "points": 179,
+      "aimRate": 279,
+      "evasionRate": 229
+    },
+    {
+      "points": 180,
+      "aimRate": 280,
+      "evasionRate": 230
+    }
+  ],
+  "con": [
+    {
+      "points": 0,
+      "physicalDef": 0,
+      "blockRate": 0,
+      "maxHp": 0
+    },
+    {
+      "points": 1,
+      "physicalDef": 1,
+      "blockRate": 1,
+      "maxHp": 5
+    },
+    {
+      "points": 2,
+      "physicalDef": 1,
+      "blockRate": 2,
+      "maxHp": 10
+    },
+    {
+      "points": 3,
+      "physicalDef": 2,
+      "blockRate": 3,
+      "maxHp": 15
+    },
+    {
+      "points": 4,
+      "physicalDef": 2,
+      "blockRate": 4,
+      "maxHp": 20
+    },
+    {
+      "points": 5,
+      "physicalDef": 3,
+      "blockRate": 5,
+      "maxHp": 25
+    },
+    {
+      "points": 6,
+      "physicalDef": 3,
+      "blockRate": 6,
+      "maxHp": 30
+    },
+    {
+      "points": 7,
+      "physicalDef": 4,
+      "blockRate": 7,
+      "maxHp": 35
+    },
+    {
+      "points": 8,
+      "physicalDef": 4,
+      "blockRate": 8,
+      "maxHp": 40
+    },
+    {
+      "points": 9,
+      "physicalDef": 5,
+      "blockRate": 9,
+      "maxHp": 45
+    },
+    {
+      "points": 10,
+      "physicalDef": 5,
+      "blockRate": 10,
+      "maxHp": 50
+    },
+    {
+      "points": 11,
+      "physicalDef": 6,
+      "blockRate": 11,
+      "maxHp": 55
+    },
+    {
+      "points": 12,
+      "physicalDef": 6,
+      "blockRate": 12,
+      "maxHp": 60
+    },
+    {
+      "points": 13,
+      "physicalDef": 7,
+      "blockRate": 13,
+      "maxHp": 65
+    },
+    {
+      "points": 14,
+      "physicalDef": 7,
+      "blockRate": 14,
+      "maxHp": 70
+    },
+    {
+      "points": 15,
+      "physicalDef": 8,
+      "blockRate": 15,
+      "maxHp": 75
+    },
+    {
+      "points": 16,
+      "physicalDef": 8,
+      "blockRate": 16,
+      "maxHp": 80
+    },
+    {
+      "points": 17,
+      "physicalDef": 9,
+      "blockRate": 17,
+      "maxHp": 85
+    },
+    {
+      "points": 18,
+      "physicalDef": 9,
+      "blockRate": 18,
+      "maxHp": 90
+    },
+    {
+      "points": 19,
+      "physicalDef": 10,
+      "blockRate": 19,
+      "maxHp": 95
+    },
+    {
+      "points": 20,
+      "physicalDef": 10,
+      "blockRate": 20,
+      "maxHp": 100
+    },
+    {
+      "points": 21,
+      "physicalDef": 11,
+      "blockRate": 21,
+      "maxHp": 105
+    },
+    {
+      "points": 22,
+      "physicalDef": 11,
+      "blockRate": 22,
+      "maxHp": 110
+    },
+    {
+      "points": 23,
+      "physicalDef": 12,
+      "blockRate": 23,
+      "maxHp": 115
+    },
+    {
+      "points": 24,
+      "physicalDef": 12,
+      "blockRate": 24,
+      "maxHp": 120
+    },
+    {
+      "points": 25,
+      "physicalDef": 13,
+      "blockRate": 25,
+      "maxHp": 125
+    },
+    {
+      "points": 26,
+      "physicalDef": 13,
+      "blockRate": 26,
+      "maxHp": 130
+    },
+    {
+      "points": 27,
+      "physicalDef": 14,
+      "blockRate": 27,
+      "maxHp": 135
+    },
+    {
+      "points": 28,
+      "physicalDef": 14,
+      "blockRate": 28,
+      "maxHp": 140
+    },
+    {
+      "points": 29,
+      "physicalDef": 15,
+      "blockRate": 29,
+      "maxHp": 145
+    },
+    {
+      "points": 30,
+      "physicalDef": 15,
+      "blockRate": 30,
+      "maxHp": 150
+    },
+    {
+      "points": 31,
+      "physicalDef": 16,
+      "blockRate": 31,
+      "maxHp": 155
+    },
+    {
+      "points": 32,
+      "physicalDef": 16,
+      "blockRate": 32,
+      "maxHp": 160
+    },
+    {
+      "points": 33,
+      "physicalDef": 17,
+      "blockRate": 33,
+      "maxHp": 165
+    },
+    {
+      "points": 34,
+      "physicalDef": 17,
+      "blockRate": 34,
+      "maxHp": 170
+    },
+    {
+      "points": 35,
+      "physicalDef": 18,
+      "blockRate": 35,
+      "maxHp": 175
+    },
+    {
+      "points": 36,
+      "physicalDef": 18,
+      "blockRate": 36,
+      "maxHp": 180
+    },
+    {
+      "points": 37,
+      "physicalDef": 19,
+      "blockRate": 37,
+      "maxHp": 185
+    },
+    {
+      "points": 38,
+      "physicalDef": 19,
+      "blockRate": 38,
+      "maxHp": 190
+    },
+    {
+      "points": 39,
+      "physicalDef": 20,
+      "blockRate": 39,
+      "maxHp": 195
+    },
+    {
+      "points": 40,
+      "physicalDef": 20,
+      "blockRate": 40,
+      "maxHp": 200
+    },
+    {
+      "points": 41,
+      "physicalDef": 21,
+      "blockRate": 41,
+      "maxHp": 205
+    },
+    {
+      "points": 42,
+      "physicalDef": 21,
+      "blockRate": 42,
+      "maxHp": 210
+    },
+    {
+      "points": 43,
+      "physicalDef": 22,
+      "blockRate": 43,
+      "maxHp": 215
+    },
+    {
+      "points": 44,
+      "physicalDef": 22,
+      "blockRate": 44,
+      "maxHp": 220
+    },
+    {
+      "points": 45,
+      "physicalDef": 23,
+      "blockRate": 45,
+      "maxHp": 225
+    },
+    {
+      "points": 46,
+      "physicalDef": 23,
+      "blockRate": 46,
+      "maxHp": 230
+    },
+    {
+      "points": 47,
+      "physicalDef": 24,
+      "blockRate": 47,
+      "maxHp": 235
+    },
+    {
+      "points": 48,
+      "physicalDef": 24,
+      "blockRate": 48,
+      "maxHp": 240
+    },
+    {
+      "points": 49,
+      "physicalDef": 25,
+      "blockRate": 49,
+      "maxHp": 245
+    },
+    {
+      "points": 50,
+      "physicalDef": 25,
+      "blockRate": 50,
+      "maxHp": 250
+    },
+    {
+      "points": 51,
+      "physicalDef": 26,
+      "blockRate": 50,
+      "maxHp": 255
+    },
+    {
+      "points": 52,
+      "physicalDef": 26,
+      "blockRate": 51,
+      "maxHp": 260
+    },
+    {
+      "points": 53,
+      "physicalDef": 27,
+      "blockRate": 51,
+      "maxHp": 265
+    },
+    {
+      "points": 54,
+      "physicalDef": 27,
+      "blockRate": 52,
+      "maxHp": 270
+    },
+    {
+      "points": 55,
+      "physicalDef": 28,
+      "blockRate": 52,
+      "maxHp": 275
+    },
+    {
+      "points": 56,
+      "physicalDef": 28,
+      "blockRate": 53,
+      "maxHp": 280
+    },
+    {
+      "points": 57,
+      "physicalDef": 29,
+      "blockRate": 53,
+      "maxHp": 285
+    },
+    {
+      "points": 58,
+      "physicalDef": 29,
+      "blockRate": 54,
+      "maxHp": 290
+    },
+    {
+      "points": 59,
+      "physicalDef": 30,
+      "blockRate": 54,
+      "maxHp": 295
+    },
+    {
+      "points": 60,
+      "physicalDef": 30,
+      "blockRate": 55,
+      "maxHp": 300
+    },
+    {
+      "points": 61,
+      "physicalDef": 31,
+      "blockRate": 55,
+      "maxHp": 305
+    },
+    {
+      "points": 62,
+      "physicalDef": 31,
+      "blockRate": 56,
+      "maxHp": 310
+    },
+    {
+      "points": 63,
+      "physicalDef": 32,
+      "blockRate": 56,
+      "maxHp": 315
+    },
+    {
+      "points": 64,
+      "physicalDef": 32,
+      "blockRate": 57,
+      "maxHp": 320
+    },
+    {
+      "points": 65,
+      "physicalDef": 33,
+      "blockRate": 57,
+      "maxHp": 325
+    },
+    {
+      "points": 66,
+      "physicalDef": 33,
+      "blockRate": 58,
+      "maxHp": 330
+    },
+    {
+      "points": 67,
+      "physicalDef": 34,
+      "blockRate": 58,
+      "maxHp": 335
+    },
+    {
+      "points": 68,
+      "physicalDef": 34,
+      "blockRate": 59,
+      "maxHp": 340
+    },
+    {
+      "points": 69,
+      "physicalDef": 35,
+      "blockRate": 59,
+      "maxHp": 345
+    },
+    {
+      "points": 70,
+      "physicalDef": 35,
+      "blockRate": 60,
+      "maxHp": 350
+    },
+    {
+      "points": 71,
+      "physicalDef": 36,
+      "blockRate": 60,
+      "maxHp": 355
+    },
+    {
+      "points": 72,
+      "physicalDef": 36,
+      "blockRate": 61,
+      "maxHp": 360
+    },
+    {
+      "points": 73,
+      "physicalDef": 37,
+      "blockRate": 61,
+      "maxHp": 365
+    },
+    {
+      "points": 74,
+      "physicalDef": 37,
+      "blockRate": 62,
+      "maxHp": 370
+    },
+    {
+      "points": 75,
+      "physicalDef": 38,
+      "blockRate": 62,
+      "maxHp": 375
+    },
+    {
+      "points": 76,
+      "physicalDef": 38,
+      "blockRate": 63,
+      "maxHp": 380
+    },
+    {
+      "points": 77,
+      "physicalDef": 39,
+      "blockRate": 63,
+      "maxHp": 385
+    },
+    {
+      "points": 78,
+      "physicalDef": 39,
+      "blockRate": 64,
+      "maxHp": 390
+    },
+    {
+      "points": 79,
+      "physicalDef": 40,
+      "blockRate": 64,
+      "maxHp": 395
+    },
+    {
+      "points": 80,
+      "physicalDef": 40,
+      "blockRate": 65,
+      "maxHp": 400
+    },
+    {
+      "points": 81,
+      "physicalDef": 41,
+      "blockRate": 65,
+      "maxHp": 405
+    },
+    {
+      "points": 82,
+      "physicalDef": 41,
+      "blockRate": 66,
+      "maxHp": 410
+    },
+    {
+      "points": 83,
+      "physicalDef": 42,
+      "blockRate": 66,
+      "maxHp": 415
+    },
+    {
+      "points": 84,
+      "physicalDef": 42,
+      "blockRate": 67,
+      "maxHp": 420
+    },
+    {
+      "points": 85,
+      "physicalDef": 43,
+      "blockRate": 67,
+      "maxHp": 425
+    },
+    {
+      "points": 86,
+      "physicalDef": 43,
+      "blockRate": 68,
+      "maxHp": 430
+    },
+    {
+      "points": 87,
+      "physicalDef": 44,
+      "blockRate": 68,
+      "maxHp": 435
+    },
+    {
+      "points": 88,
+      "physicalDef": 44,
+      "blockRate": 69,
+      "maxHp": 440
+    },
+    {
+      "points": 89,
+      "physicalDef": 45,
+      "blockRate": 69,
+      "maxHp": 445
+    },
+    {
+      "points": 90,
+      "physicalDef": 45,
+      "blockRate": 70,
+      "maxHp": 450
+    },
+    {
+      "points": 91,
+      "physicalDef": 46,
+      "blockRate": 70,
+      "maxHp": 455
+    },
+    {
+      "points": 92,
+      "physicalDef": 46,
+      "blockRate": 71,
+      "maxHp": 460
+    },
+    {
+      "points": 93,
+      "physicalDef": 47,
+      "blockRate": 71,
+      "maxHp": 465
+    },
+    {
+      "points": 94,
+      "physicalDef": 47,
+      "blockRate": 72,
+      "maxHp": 470
+    },
+    {
+      "points": 95,
+      "physicalDef": 48,
+      "blockRate": 72,
+      "maxHp": 475
+    },
+    {
+      "points": 96,
+      "physicalDef": 48,
+      "blockRate": 73,
+      "maxHp": 480
+    },
+    {
+      "points": 97,
+      "physicalDef": 49,
+      "blockRate": 73,
+      "maxHp": 485
+    },
+    {
+      "points": 98,
+      "physicalDef": 49,
+      "blockRate": 74,
+      "maxHp": 490
+    },
+    {
+      "points": 99,
+      "physicalDef": 50,
+      "blockRate": 74,
+      "maxHp": 495
+    },
+    {
+      "points": 100,
+      "physicalDef": 50,
+      "blockRate": 75,
+      "maxHp": 500
+    },
+    {
+      "points": 101,
+      "physicalDef": 51,
+      "blockRate": 75,
+      "maxHp": 505
+    },
+    {
+      "points": 102,
+      "physicalDef": 51,
+      "blockRate": 76,
+      "maxHp": 510
+    },
+    {
+      "points": 103,
+      "physicalDef": 52,
+      "blockRate": 76,
+      "maxHp": 515
+    },
+    {
+      "points": 104,
+      "physicalDef": 52,
+      "blockRate": 77,
+      "maxHp": 520
+    },
+    {
+      "points": 105,
+      "physicalDef": 53,
+      "blockRate": 77,
+      "maxHp": 525
+    },
+    {
+      "points": 106,
+      "physicalDef": 53,
+      "blockRate": 78,
+      "maxHp": 530
+    },
+    {
+      "points": 107,
+      "physicalDef": 54,
+      "blockRate": 78,
+      "maxHp": 535
+    },
+    {
+      "points": 108,
+      "physicalDef": 54,
+      "blockRate": 79,
+      "maxHp": 540
+    },
+    {
+      "points": 109,
+      "physicalDef": 55,
+      "blockRate": 79,
+      "maxHp": 545
+    },
+    {
+      "points": 110,
+      "physicalDef": 55,
+      "blockRate": 80,
+      "maxHp": 550
+    },
+    {
+      "points": 111,
+      "physicalDef": 56,
+      "blockRate": 80,
+      "maxHp": 555
+    },
+    {
+      "points": 112,
+      "physicalDef": 56,
+      "blockRate": 81,
+      "maxHp": 560
+    },
+    {
+      "points": 113,
+      "physicalDef": 57,
+      "blockRate": 81,
+      "maxHp": 565
+    },
+    {
+      "points": 114,
+      "physicalDef": 57,
+      "blockRate": 82,
+      "maxHp": 570
+    },
+    {
+      "points": 115,
+      "physicalDef": 58,
+      "blockRate": 82,
+      "maxHp": 575
+    },
+    {
+      "points": 116,
+      "physicalDef": 58,
+      "blockRate": 83,
+      "maxHp": 580
+    },
+    {
+      "points": 117,
+      "physicalDef": 59,
+      "blockRate": 83,
+      "maxHp": 585
+    },
+    {
+      "points": 118,
+      "physicalDef": 59,
+      "blockRate": 84,
+      "maxHp": 590
+    },
+    {
+      "points": 119,
+      "physicalDef": 60,
+      "blockRate": 84,
+      "maxHp": 595
+    },
+    {
+      "points": 120,
+      "physicalDef": 60,
+      "blockRate": 85,
+      "maxHp": 600
+    },
+    {
+      "points": 121,
+      "physicalDef": 61,
+      "blockRate": 85,
+      "maxHp": 605
+    },
+    {
+      "points": 122,
+      "physicalDef": 61,
+      "blockRate": 86,
+      "maxHp": 610
+    },
+    {
+      "points": 123,
+      "physicalDef": 62,
+      "blockRate": 86,
+      "maxHp": 615
+    },
+    {
+      "points": 124,
+      "physicalDef": 62,
+      "blockRate": 87,
+      "maxHp": 620
+    },
+    {
+      "points": 125,
+      "physicalDef": 63,
+      "blockRate": 87,
+      "maxHp": 625
+    },
+    {
+      "points": 126,
+      "physicalDef": 63,
+      "blockRate": 88,
+      "maxHp": 630
+    },
+    {
+      "points": 127,
+      "physicalDef": 64,
+      "blockRate": 88,
+      "maxHp": 635
+    },
+    {
+      "points": 128,
+      "physicalDef": 64,
+      "blockRate": 89,
+      "maxHp": 640
+    },
+    {
+      "points": 129,
+      "physicalDef": 65,
+      "blockRate": 89,
+      "maxHp": 645
+    },
+    {
+      "points": 130,
+      "physicalDef": 65,
+      "blockRate": 90,
+      "maxHp": 650
+    },
+    {
+      "points": 131,
+      "physicalDef": 66,
+      "blockRate": 90,
+      "maxHp": 655
+    },
+    {
+      "points": 132,
+      "physicalDef": 66,
+      "blockRate": 91,
+      "maxHp": 660
+    },
+    {
+      "points": 133,
+      "physicalDef": 67,
+      "blockRate": 91,
+      "maxHp": 665
+    },
+    {
+      "points": 134,
+      "physicalDef": 67,
+      "blockRate": 92,
+      "maxHp": 670
+    },
+    {
+      "points": 135,
+      "physicalDef": 68,
+      "blockRate": 92,
+      "maxHp": 675
+    },
+    {
+      "points": 136,
+      "physicalDef": 68,
+      "blockRate": 93,
+      "maxHp": 680
+    },
+    {
+      "points": 137,
+      "physicalDef": 69,
+      "blockRate": 93,
+      "maxHp": 685
+    },
+    {
+      "points": 138,
+      "physicalDef": 69,
+      "blockRate": 94,
+      "maxHp": 690
+    },
+    {
+      "points": 139,
+      "physicalDef": 70,
+      "blockRate": 94,
+      "maxHp": 695
+    },
+    {
+      "points": 140,
+      "physicalDef": 70,
+      "blockRate": 95,
+      "maxHp": 700
+    },
+    {
+      "points": 141,
+      "physicalDef": 71,
+      "blockRate": 95,
+      "maxHp": 705
+    },
+    {
+      "points": 142,
+      "physicalDef": 71,
+      "blockRate": 96,
+      "maxHp": 710
+    },
+    {
+      "points": 143,
+      "physicalDef": 72,
+      "blockRate": 96,
+      "maxHp": 715
+    },
+    {
+      "points": 144,
+      "physicalDef": 72,
+      "blockRate": 97,
+      "maxHp": 720
+    },
+    {
+      "points": 145,
+      "physicalDef": 73,
+      "blockRate": 97,
+      "maxHp": 725
+    },
+    {
+      "points": 146,
+      "physicalDef": 73,
+      "blockRate": 98,
+      "maxHp": 730
+    },
+    {
+      "points": 147,
+      "physicalDef": 74,
+      "blockRate": 98,
+      "maxHp": 735
+    },
+    {
+      "points": 148,
+      "physicalDef": 74,
+      "blockRate": 99,
+      "maxHp": 740
+    },
+    {
+      "points": 149,
+      "physicalDef": 75,
+      "blockRate": 99,
+      "maxHp": 745
+    },
+    {
+      "points": 150,
+      "physicalDef": 75,
+      "blockRate": 100,
+      "maxHp": 750
+    },
+    {
+      "points": 151,
+      "physicalDef": 76,
+      "blockRate": 100,
+      "maxHp": 755
+    },
+    {
+      "points": 152,
+      "physicalDef": 76,
+      "blockRate": 100,
+      "maxHp": 760
+    },
+    {
+      "points": 153,
+      "physicalDef": 77,
+      "blockRate": 100,
+      "maxHp": 765
+    },
+    {
+      "points": 154,
+      "physicalDef": 77,
+      "blockRate": 100,
+      "maxHp": 770
+    },
+    {
+      "points": 155,
+      "physicalDef": 78,
+      "blockRate": 100,
+      "maxHp": 775
+    },
+    {
+      "points": 156,
+      "physicalDef": 78,
+      "blockRate": 100,
+      "maxHp": 780
+    },
+    {
+      "points": 157,
+      "physicalDef": 79,
+      "blockRate": 100,
+      "maxHp": 785
+    },
+    {
+      "points": 158,
+      "physicalDef": 79,
+      "blockRate": 100,
+      "maxHp": 790
+    },
+    {
+      "points": 159,
+      "physicalDef": 80,
+      "blockRate": 100,
+      "maxHp": 795
+    },
+    {
+      "points": 160,
+      "physicalDef": 80,
+      "blockRate": 100,
+      "maxHp": 800
+    },
+    {
+      "points": 161,
+      "physicalDef": 81,
+      "blockRate": 100,
+      "maxHp": 805
+    },
+    {
+      "points": 162,
+      "physicalDef": 81,
+      "blockRate": 100,
+      "maxHp": 810
+    },
+    {
+      "points": 163,
+      "physicalDef": 82,
+      "blockRate": 100,
+      "maxHp": 815
+    },
+    {
+      "points": 164,
+      "physicalDef": 82,
+      "blockRate": 100,
+      "maxHp": 820
+    },
+    {
+      "points": 165,
+      "physicalDef": 83,
+      "blockRate": 100,
+      "maxHp": 825
+    },
+    {
+      "points": 166,
+      "physicalDef": 83,
+      "blockRate": 100,
+      "maxHp": 830
+    },
+    {
+      "points": 167,
+      "physicalDef": 84,
+      "blockRate": 100,
+      "maxHp": 835
+    },
+    {
+      "points": 168,
+      "physicalDef": 84,
+      "blockRate": 100,
+      "maxHp": 840
+    },
+    {
+      "points": 169,
+      "physicalDef": 85,
+      "blockRate": 100,
+      "maxHp": 845
+    },
+    {
+      "points": 170,
+      "physicalDef": 85,
+      "blockRate": 100,
+      "maxHp": 850
+    },
+    {
+      "points": 171,
+      "physicalDef": 86,
+      "blockRate": 100,
+      "maxHp": 855
+    },
+    {
+      "points": 172,
+      "physicalDef": 86,
+      "blockRate": 100,
+      "maxHp": 860
+    },
+    {
+      "points": 173,
+      "physicalDef": 87,
+      "blockRate": 100,
+      "maxHp": 865
+    },
+    {
+      "points": 174,
+      "physicalDef": 87,
+      "blockRate": 100,
+      "maxHp": 870
+    },
+    {
+      "points": 175,
+      "physicalDef": 88,
+      "blockRate": 100,
+      "maxHp": 875
+    },
+    {
+      "points": 176,
+      "physicalDef": 88,
+      "blockRate": 100,
+      "maxHp": 880
+    },
+    {
+      "points": 177,
+      "physicalDef": 89,
+      "blockRate": 100,
+      "maxHp": 885
+    },
+    {
+      "points": 178,
+      "physicalDef": 89,
+      "blockRate": 100,
+      "maxHp": 890
+    },
+    {
+      "points": 179,
+      "physicalDef": 90,
+      "blockRate": 100,
+      "maxHp": 895
+    },
+    {
+      "points": 180,
+      "physicalDef": 90,
+      "blockRate": 100,
+      "maxHp": 900
+    }
+  ],
+  "men": [
+    {
+      "points": 0,
+      "magicDef": 0,
+      "critRate": 0,
+      "maxSp": 0
+    },
+    {
+      "points": 1,
+      "magicDef": 1,
+      "critRate": 2,
+      "maxSp": 5
+    },
+    {
+      "points": 2,
+      "magicDef": 1,
+      "critRate": 4,
+      "maxSp": 10
+    },
+    {
+      "points": 3,
+      "magicDef": 2,
+      "critRate": 6,
+      "maxSp": 15
+    },
+    {
+      "points": 4,
+      "magicDef": 2,
+      "critRate": 8,
+      "maxSp": 20
+    },
+    {
+      "points": 5,
+      "magicDef": 3,
+      "critRate": 10,
+      "maxSp": 25
+    },
+    {
+      "points": 6,
+      "magicDef": 3,
+      "critRate": 12,
+      "maxSp": 30
+    },
+    {
+      "points": 7,
+      "magicDef": 4,
+      "critRate": 14,
+      "maxSp": 35
+    },
+    {
+      "points": 8,
+      "magicDef": 4,
+      "critRate": 16,
+      "maxSp": 40
+    },
+    {
+      "points": 9,
+      "magicDef": 5,
+      "critRate": 18,
+      "maxSp": 45
+    },
+    {
+      "points": 10,
+      "magicDef": 5,
+      "critRate": 20,
+      "maxSp": 50
+    },
+    {
+      "points": 11,
+      "magicDef": 6,
+      "critRate": 22,
+      "maxSp": 55
+    },
+    {
+      "points": 12,
+      "magicDef": 6,
+      "critRate": 24,
+      "maxSp": 60
+    },
+    {
+      "points": 13,
+      "magicDef": 7,
+      "critRate": 26,
+      "maxSp": 65
+    },
+    {
+      "points": 14,
+      "magicDef": 7,
+      "critRate": 28,
+      "maxSp": 70
+    },
+    {
+      "points": 15,
+      "magicDef": 8,
+      "critRate": 30,
+      "maxSp": 75
+    },
+    {
+      "points": 16,
+      "magicDef": 8,
+      "critRate": 32,
+      "maxSp": 80
+    },
+    {
+      "points": 17,
+      "magicDef": 9,
+      "critRate": 34,
+      "maxSp": 85
+    },
+    {
+      "points": 18,
+      "magicDef": 9,
+      "critRate": 36,
+      "maxSp": 90
+    },
+    {
+      "points": 19,
+      "magicDef": 10,
+      "critRate": 38,
+      "maxSp": 95
+    },
+    {
+      "points": 20,
+      "magicDef": 10,
+      "critRate": 40,
+      "maxSp": 100
+    },
+    {
+      "points": 21,
+      "magicDef": 11,
+      "critRate": 42,
+      "maxSp": 105
+    },
+    {
+      "points": 22,
+      "magicDef": 11,
+      "critRate": 44,
+      "maxSp": 110
+    },
+    {
+      "points": 23,
+      "magicDef": 12,
+      "critRate": 46,
+      "maxSp": 115
+    },
+    {
+      "points": 24,
+      "magicDef": 12,
+      "critRate": 48,
+      "maxSp": 120
+    },
+    {
+      "points": 25,
+      "magicDef": 13,
+      "critRate": 50,
+      "maxSp": 125
+    },
+    {
+      "points": 26,
+      "magicDef": 13,
+      "critRate": 51,
+      "maxSp": 130
+    },
+    {
+      "points": 27,
+      "magicDef": 14,
+      "critRate": 52,
+      "maxSp": 135
+    },
+    {
+      "points": 28,
+      "magicDef": 14,
+      "critRate": 53,
+      "maxSp": 140
+    },
+    {
+      "points": 29,
+      "magicDef": 15,
+      "critRate": 54,
+      "maxSp": 145
+    },
+    {
+      "points": 30,
+      "magicDef": 15,
+      "critRate": 55,
+      "maxSp": 150
+    },
+    {
+      "points": 31,
+      "magicDef": 16,
+      "critRate": 56,
+      "maxSp": 155
+    },
+    {
+      "points": 32,
+      "magicDef": 16,
+      "critRate": 57,
+      "maxSp": 160
+    },
+    {
+      "points": 33,
+      "magicDef": 17,
+      "critRate": 58,
+      "maxSp": 165
+    },
+    {
+      "points": 34,
+      "magicDef": 17,
+      "critRate": 59,
+      "maxSp": 170
+    },
+    {
+      "points": 35,
+      "magicDef": 18,
+      "critRate": 60,
+      "maxSp": 175
+    },
+    {
+      "points": 36,
+      "magicDef": 18,
+      "critRate": 61,
+      "maxSp": 180
+    },
+    {
+      "points": 37,
+      "magicDef": 19,
+      "critRate": 62,
+      "maxSp": 185
+    },
+    {
+      "points": 38,
+      "magicDef": 19,
+      "critRate": 63,
+      "maxSp": 190
+    },
+    {
+      "points": 39,
+      "magicDef": 20,
+      "critRate": 64,
+      "maxSp": 195
+    },
+    {
+      "points": 40,
+      "magicDef": 20,
+      "critRate": 65,
+      "maxSp": 200
+    },
+    {
+      "points": 41,
+      "magicDef": 21,
+      "critRate": 66,
+      "maxSp": 205
+    },
+    {
+      "points": 42,
+      "magicDef": 21,
+      "critRate": 67,
+      "maxSp": 210
+    },
+    {
+      "points": 43,
+      "magicDef": 22,
+      "critRate": 68,
+      "maxSp": 215
+    },
+    {
+      "points": 44,
+      "magicDef": 22,
+      "critRate": 69,
+      "maxSp": 220
+    },
+    {
+      "points": 45,
+      "magicDef": 23,
+      "critRate": 70,
+      "maxSp": 225
+    },
+    {
+      "points": 46,
+      "magicDef": 23,
+      "critRate": 71,
+      "maxSp": 230
+    },
+    {
+      "points": 47,
+      "magicDef": 24,
+      "critRate": 72,
+      "maxSp": 235
+    },
+    {
+      "points": 48,
+      "magicDef": 24,
+      "critRate": 73,
+      "maxSp": 240
+    },
+    {
+      "points": 49,
+      "magicDef": 25,
+      "critRate": 74,
+      "maxSp": 245
+    },
+    {
+      "points": 50,
+      "magicDef": 25,
+      "critRate": 75,
+      "maxSp": 250
+    },
+    {
+      "points": 51,
+      "magicDef": 26,
+      "critRate": 76,
+      "maxSp": 255
+    },
+    {
+      "points": 52,
+      "magicDef": 26,
+      "critRate": 77,
+      "maxSp": 260
+    },
+    {
+      "points": 53,
+      "magicDef": 27,
+      "critRate": 78,
+      "maxSp": 265
+    },
+    {
+      "points": 54,
+      "magicDef": 27,
+      "critRate": 79,
+      "maxSp": 270
+    },
+    {
+      "points": 55,
+      "magicDef": 28,
+      "critRate": 80,
+      "maxSp": 275
+    },
+    {
+      "points": 56,
+      "magicDef": 28,
+      "critRate": 81,
+      "maxSp": 280
+    },
+    {
+      "points": 57,
+      "magicDef": 29,
+      "critRate": 82,
+      "maxSp": 285
+    },
+    {
+      "points": 58,
+      "magicDef": 29,
+      "critRate": 83,
+      "maxSp": 290
+    },
+    {
+      "points": 59,
+      "magicDef": 30,
+      "critRate": 84,
+      "maxSp": 295
+    },
+    {
+      "points": 60,
+      "magicDef": 30,
+      "critRate": 85,
+      "maxSp": 300
+    },
+    {
+      "points": 61,
+      "magicDef": 31,
+      "critRate": 86,
+      "maxSp": 305
+    },
+    {
+      "points": 62,
+      "magicDef": 31,
+      "critRate": 86,
+      "maxSp": 310
+    },
+    {
+      "points": 63,
+      "magicDef": 32,
+      "critRate": 87,
+      "maxSp": 315
+    },
+    {
+      "points": 64,
+      "magicDef": 32,
+      "critRate": 87,
+      "maxSp": 320
+    },
+    {
+      "points": 65,
+      "magicDef": 33,
+      "critRate": 88,
+      "maxSp": 325
+    },
+    {
+      "points": 66,
+      "magicDef": 33,
+      "critRate": 88,
+      "maxSp": 330
+    },
+    {
+      "points": 67,
+      "magicDef": 34,
+      "critRate": 89,
+      "maxSp": 335
+    },
+    {
+      "points": 68,
+      "magicDef": 34,
+      "critRate": 89,
+      "maxSp": 340
+    },
+    {
+      "points": 69,
+      "magicDef": 35,
+      "critRate": 90,
+      "maxSp": 345
+    },
+    {
+      "points": 70,
+      "magicDef": 35,
+      "critRate": 90,
+      "maxSp": 350
+    },
+    {
+      "points": 71,
+      "magicDef": 36,
+      "critRate": 91,
+      "maxSp": 355
+    },
+    {
+      "points": 72,
+      "magicDef": 36,
+      "critRate": 91,
+      "maxSp": 360
+    },
+    {
+      "points": 73,
+      "magicDef": 37,
+      "critRate": 92,
+      "maxSp": 365
+    },
+    {
+      "points": 74,
+      "magicDef": 37,
+      "critRate": 92,
+      "maxSp": 370
+    },
+    {
+      "points": 75,
+      "magicDef": 38,
+      "critRate": 93,
+      "maxSp": 375
+    },
+    {
+      "points": 76,
+      "magicDef": 38,
+      "critRate": 93,
+      "maxSp": 380
+    },
+    {
+      "points": 77,
+      "magicDef": 39,
+      "critRate": 94,
+      "maxSp": 385
+    },
+    {
+      "points": 78,
+      "magicDef": 39,
+      "critRate": 94,
+      "maxSp": 390
+    },
+    {
+      "points": 79,
+      "magicDef": 40,
+      "critRate": 95,
+      "maxSp": 395
+    },
+    {
+      "points": 80,
+      "magicDef": 40,
+      "critRate": 95,
+      "maxSp": 400
+    },
+    {
+      "points": 81,
+      "magicDef": 41,
+      "critRate": 96,
+      "maxSp": 405
+    },
+    {
+      "points": 82,
+      "magicDef": 41,
+      "critRate": 96,
+      "maxSp": 410
+    },
+    {
+      "points": 83,
+      "magicDef": 42,
+      "critRate": 97,
+      "maxSp": 415
+    },
+    {
+      "points": 84,
+      "magicDef": 42,
+      "critRate": 97,
+      "maxSp": 420
+    },
+    {
+      "points": 85,
+      "magicDef": 43,
+      "critRate": 98,
+      "maxSp": 425
+    },
+    {
+      "points": 86,
+      "magicDef": 43,
+      "critRate": 98,
+      "maxSp": 430
+    },
+    {
+      "points": 87,
+      "magicDef": 44,
+      "critRate": 99,
+      "maxSp": 435
+    },
+    {
+      "points": 88,
+      "magicDef": 44,
+      "critRate": 99,
+      "maxSp": 440
+    },
+    {
+      "points": 89,
+      "magicDef": 45,
+      "critRate": 100,
+      "maxSp": 445
+    },
+    {
+      "points": 90,
+      "magicDef": 45,
+      "critRate": 100,
+      "maxSp": 450
+    },
+    {
+      "points": 91,
+      "magicDef": 46,
+      "critRate": 101,
+      "maxSp": 455
+    },
+    {
+      "points": 92,
+      "magicDef": 46,
+      "critRate": 101,
+      "maxSp": 460
+    },
+    {
+      "points": 93,
+      "magicDef": 47,
+      "critRate": 102,
+      "maxSp": 465
+    },
+    {
+      "points": 94,
+      "magicDef": 47,
+      "critRate": 102,
+      "maxSp": 470
+    },
+    {
+      "points": 95,
+      "magicDef": 48,
+      "critRate": 103,
+      "maxSp": 475
+    },
+    {
+      "points": 96,
+      "magicDef": 48,
+      "critRate": 103,
+      "maxSp": 480
+    },
+    {
+      "points": 97,
+      "magicDef": 49,
+      "critRate": 104,
+      "maxSp": 485
+    },
+    {
+      "points": 98,
+      "magicDef": 49,
+      "critRate": 104,
+      "maxSp": 490
+    },
+    {
+      "points": 99,
+      "magicDef": 50,
+      "critRate": 105,
+      "maxSp": 495
+    },
+    {
+      "points": 100,
+      "magicDef": 50,
+      "critRate": 105,
+      "maxSp": 500
+    },
+    {
+      "points": 101,
+      "magicDef": 51,
+      "critRate": 106,
+      "maxSp": 505
+    },
+    {
+      "points": 102,
+      "magicDef": 51,
+      "critRate": 106,
+      "maxSp": 510
+    },
+    {
+      "points": 103,
+      "magicDef": 52,
+      "critRate": 107,
+      "maxSp": 515
+    },
+    {
+      "points": 104,
+      "magicDef": 52,
+      "critRate": 107,
+      "maxSp": 520
+    },
+    {
+      "points": 105,
+      "magicDef": 53,
+      "critRate": 108,
+      "maxSp": 525
+    },
+    {
+      "points": 106,
+      "magicDef": 53,
+      "critRate": 108,
+      "maxSp": 530
+    },
+    {
+      "points": 107,
+      "magicDef": 54,
+      "critRate": 109,
+      "maxSp": 535
+    },
+    {
+      "points": 108,
+      "magicDef": 54,
+      "critRate": 109,
+      "maxSp": 540
+    },
+    {
+      "points": 109,
+      "magicDef": 55,
+      "critRate": 110,
+      "maxSp": 545
+    },
+    {
+      "points": 110,
+      "magicDef": 55,
+      "critRate": 110,
+      "maxSp": 550
+    },
+    {
+      "points": 111,
+      "magicDef": 56,
+      "critRate": 111,
+      "maxSp": 555
+    },
+    {
+      "points": 112,
+      "magicDef": 56,
+      "critRate": 111,
+      "maxSp": 560
+    },
+    {
+      "points": 113,
+      "magicDef": 57,
+      "critRate": 112,
+      "maxSp": 565
+    },
+    {
+      "points": 114,
+      "magicDef": 57,
+      "critRate": 112,
+      "maxSp": 570
+    },
+    {
+      "points": 115,
+      "magicDef": 58,
+      "critRate": 113,
+      "maxSp": 575
+    },
+    {
+      "points": 116,
+      "magicDef": 58,
+      "critRate": 113,
+      "maxSp": 580
+    },
+    {
+      "points": 117,
+      "magicDef": 59,
+      "critRate": 114,
+      "maxSp": 585
+    },
+    {
+      "points": 118,
+      "magicDef": 59,
+      "critRate": 114,
+      "maxSp": 590
+    },
+    {
+      "points": 119,
+      "magicDef": 60,
+      "critRate": 115,
+      "maxSp": 595
+    },
+    {
+      "points": 120,
+      "magicDef": 60,
+      "critRate": 115,
+      "maxSp": 600
+    },
+    {
+      "points": 121,
+      "magicDef": 61,
+      "critRate": 116,
+      "maxSp": 605
+    },
+    {
+      "points": 122,
+      "magicDef": 61,
+      "critRate": 116,
+      "maxSp": 610
+    },
+    {
+      "points": 123,
+      "magicDef": 62,
+      "critRate": 117,
+      "maxSp": 615
+    },
+    {
+      "points": 124,
+      "magicDef": 62,
+      "critRate": 117,
+      "maxSp": 620
+    },
+    {
+      "points": 125,
+      "magicDef": 63,
+      "critRate": 118,
+      "maxSp": 625
+    },
+    {
+      "points": 126,
+      "magicDef": 63,
+      "critRate": 118,
+      "maxSp": 630
+    },
+    {
+      "points": 127,
+      "magicDef": 64,
+      "critRate": 119,
+      "maxSp": 635
+    },
+    {
+      "points": 128,
+      "magicDef": 64,
+      "critRate": 119,
+      "maxSp": 640
+    },
+    {
+      "points": 129,
+      "magicDef": 65,
+      "critRate": 120,
+      "maxSp": 645
+    },
+    {
+      "points": 130,
+      "magicDef": 65,
+      "critRate": 120,
+      "maxSp": 650
+    },
+    {
+      "points": 131,
+      "magicDef": 66,
+      "critRate": 121,
+      "maxSp": 655
+    },
+    {
+      "points": 132,
+      "magicDef": 66,
+      "critRate": 121,
+      "maxSp": 660
+    },
+    {
+      "points": 133,
+      "magicDef": 67,
+      "critRate": 122,
+      "maxSp": 665
+    },
+    {
+      "points": 134,
+      "magicDef": 67,
+      "critRate": 122,
+      "maxSp": 670
+    },
+    {
+      "points": 135,
+      "magicDef": 68,
+      "critRate": 123,
+      "maxSp": 675
+    },
+    {
+      "points": 136,
+      "magicDef": 68,
+      "critRate": 123,
+      "maxSp": 680
+    },
+    {
+      "points": 137,
+      "magicDef": 69,
+      "critRate": 124,
+      "maxSp": 685
+    },
+    {
+      "points": 138,
+      "magicDef": 69,
+      "critRate": 124,
+      "maxSp": 690
+    },
+    {
+      "points": 139,
+      "magicDef": 70,
+      "critRate": 125,
+      "maxSp": 695
+    },
+    {
+      "points": 140,
+      "magicDef": 70,
+      "critRate": 125,
+      "maxSp": 700
+    },
+    {
+      "points": 141,
+      "magicDef": 71,
+      "critRate": 126,
+      "maxSp": 705
+    },
+    {
+      "points": 142,
+      "magicDef": 71,
+      "critRate": 126,
+      "maxSp": 710
+    },
+    {
+      "points": 143,
+      "magicDef": 72,
+      "critRate": 127,
+      "maxSp": 715
+    },
+    {
+      "points": 144,
+      "magicDef": 72,
+      "critRate": 127,
+      "maxSp": 720
+    },
+    {
+      "points": 145,
+      "magicDef": 73,
+      "critRate": 128,
+      "maxSp": 725
+    },
+    {
+      "points": 146,
+      "magicDef": 73,
+      "critRate": 128,
+      "maxSp": 730
+    },
+    {
+      "points": 147,
+      "magicDef": 74,
+      "critRate": 129,
+      "maxSp": 735
+    },
+    {
+      "points": 148,
+      "magicDef": 74,
+      "critRate": 129,
+      "maxSp": 740
+    },
+    {
+      "points": 149,
+      "magicDef": 75,
+      "critRate": 130,
+      "maxSp": 745
+    },
+    {
+      "points": 150,
+      "magicDef": 75,
+      "critRate": 130,
+      "maxSp": 750
+    },
+    {
+      "points": 151,
+      "magicDef": 76,
+      "critRate": 130,
+      "maxSp": 755
+    },
+    {
+      "points": 152,
+      "magicDef": 76,
+      "critRate": 130,
+      "maxSp": 760
+    },
+    {
+      "points": 153,
+      "magicDef": 77,
+      "critRate": 130,
+      "maxSp": 765
+    },
+    {
+      "points": 154,
+      "magicDef": 77,
+      "critRate": 130,
+      "maxSp": 770
+    },
+    {
+      "points": 155,
+      "magicDef": 78,
+      "critRate": 130,
+      "maxSp": 775
+    },
+    {
+      "points": 156,
+      "magicDef": 78,
+      "critRate": 130,
+      "maxSp": 780
+    },
+    {
+      "points": 157,
+      "magicDef": 79,
+      "critRate": 130,
+      "maxSp": 785
+    },
+    {
+      "points": 158,
+      "magicDef": 79,
+      "critRate": 130,
+      "maxSp": 790
+    },
+    {
+      "points": 159,
+      "magicDef": 80,
+      "critRate": 130,
+      "maxSp": 795
+    },
+    {
+      "points": 160,
+      "magicDef": 80,
+      "critRate": 130,
+      "maxSp": 800
+    },
+    {
+      "points": 161,
+      "magicDef": 81,
+      "critRate": 130,
+      "maxSp": 805
+    },
+    {
+      "points": 162,
+      "magicDef": 81,
+      "critRate": 130,
+      "maxSp": 810
+    },
+    {
+      "points": 163,
+      "magicDef": 82,
+      "critRate": 130,
+      "maxSp": 815
+    },
+    {
+      "points": 164,
+      "magicDef": 82,
+      "critRate": 130,
+      "maxSp": 820
+    },
+    {
+      "points": 165,
+      "magicDef": 83,
+      "critRate": 130,
+      "maxSp": 825
+    },
+    {
+      "points": 166,
+      "magicDef": 83,
+      "critRate": 130,
+      "maxSp": 830
+    },
+    {
+      "points": 167,
+      "magicDef": 84,
+      "critRate": 130,
+      "maxSp": 835
+    },
+    {
+      "points": 168,
+      "magicDef": 84,
+      "critRate": 130,
+      "maxSp": 840
+    },
+    {
+      "points": 169,
+      "magicDef": 85,
+      "critRate": 130,
+      "maxSp": 845
+    },
+    {
+      "points": 170,
+      "magicDef": 85,
+      "critRate": 130,
+      "maxSp": 850
+    },
+    {
+      "points": 171,
+      "magicDef": 86,
+      "critRate": 130,
+      "maxSp": 855
+    },
+    {
+      "points": 172,
+      "magicDef": 86,
+      "critRate": 130,
+      "maxSp": 860
+    },
+    {
+      "points": 173,
+      "magicDef": 87,
+      "critRate": 130,
+      "maxSp": 865
+    },
+    {
+      "points": 174,
+      "magicDef": 87,
+      "critRate": 130,
+      "maxSp": 870
+    },
+    {
+      "points": 175,
+      "magicDef": 88,
+      "critRate": 130,
+      "maxSp": 875
+    },
+    {
+      "points": 176,
+      "magicDef": 88,
+      "critRate": 130,
+      "maxSp": 880
+    },
+    {
+      "points": 177,
+      "magicDef": 89,
+      "critRate": 130,
+      "maxSp": 885
+    },
+    {
+      "points": 178,
+      "magicDef": 89,
+      "critRate": 130,
+      "maxSp": 890
+    },
+    {
+      "points": 179,
+      "magicDef": 90,
+      "critRate": 130,
+      "maxSp": 895
+    },
+    {
+      "points": 180,
+      "magicDef": 90,
+      "critRate": 130,
+      "maxSp": 900
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+[
+  {
+    "containerId": "Tbag06",
+    "dummyId": "DTbag06",
+    "minLot": 1,
+    "maxLot": 1,
+    "rewards": [
+      {
+        "itemId": "GrimjawMask00",
+        "lot": 1,
+        "upgradeMin": 0,
+        "upgradeMax": 0,
+        "rate": 50000
+      },
+      {
+        "itemId": "AnbooCatMask00",
+        "lot": 1,
+        "upgradeMin": 0,
+        "upgradeMax": 0,
+        "rate": 50000
+      },
+      {
+        "itemId": "SoulDevourerMask00",
+        "lot": 1,
+        "upgradeMin": 0,
+        "upgradeMax": 0,
+        "rate": 70000
+      },
+      {
+        "itemId": "Hat_HallGhost03",
+        "lot": 1,
+        "upgradeMin": 0,
+        "upgradeMax": 0,
+        "rate": 150000
+      },
+      {
+        "itemId": "Hat_HallKaby04",
+        "lot": 1,
+        "upgradeMin": 0,
+        "upgradeMax": 0,
+        "rate": 150000
+      },
+      {
+        "itemId": "Hat_HallPumpkin03",
+        "lot": 1,
+        "upgradeMin": 0,
+        "upgradeMax": 0,
+        "rate": 150000
+      },
+      {
+        "itemId": "Hat_3YearSlime02",
+        "lot": 1,
+        "upgradeMin": 0,
+        "upgradeMax": 0,
+        "rate": 150000
+      },
+      {
+        "itemId": "Hat_BlackCat04",
+        "lot": 1,
+        "upgradeMin": 0,
+        "upgradeMax": 0,
+        "rate": 115000
+      },
+      {
+        "itemId": "Hat_Mighty07",
+        "lot": 1,
+        "upgradeMin": 0,
+        "upgradeMax": 0,
+        "rate": 115000
+      }
+    ]
+  },
+  {
+    "containerId": "EQ_US_IceBox",
+    "dummyId": "EQ_US_DIceBox",
+    "minLot": 1,
+    "maxLot": 1,
+    "rewards": [
+      {
+        "itemId": "EQ_US_Snowflake",
+        "lot": 1,
+        "upgradeMin": 0,
+        "upgradeMax": 0,
+        "rate": 100000
+      },
+      {
+        "itemId": "EQ_US_Coal",
+        "lot": 1,
+        "upgradeMin": 0,
+        "upgradeMax": 0,
+        "rate": 100000
+      },
+      {
+        "itemId": "EQ_US_WaterDrop",
+        "lot": 1,
+        "upgradeMin": 0,
+        "upgradeMax": 0,
+        "rate": 800000
+      }
+    ]
+  }
+]

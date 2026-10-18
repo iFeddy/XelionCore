@@ -1,0 +1,54 @@
+{
+  "character": [
+    {
+      "angle": 0,
+      "damageRate": 1000
+    },
+    {
+      "angle": 45,
+      "damageRate": 1040
+    },
+    {
+      "angle": 90,
+      "damageRate": 1100
+    },
+    {
+      "angle": 135,
+      "damageRate": 1120
+    },
+    {
+      "angle": 170,
+      "damageRate": 1140
+    },
+    {
+      "angle": 180,
+      "damageRate": 1200
+    }
+  ],
+  "monster": [
+    {
+      "angle": 0,
+      "damageRate": 1000
+    },
+    {
+      "angle": 45,
+      "damageRate": 1040
+    },
+    {
+      "angle": 90,
+      "damageRate": 1100
+    },
+    {
+      "angle": 135,
+      "damageRate": 1120
+    },
+    {
+      "angle": 170,
+      "damageRate": 1140
+    },
+    {
+      "angle": 180,
+      "damageRate": 1200
+    }
+  ]
+}

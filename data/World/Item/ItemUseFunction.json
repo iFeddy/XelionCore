@@ -1,0 +1,90 @@
+{
+  "SilverWings": {
+    "broadcast": false,
+    "useFunction": "UseSilverWings"
+  },
+  "FreeStatusReloadAll": {
+    "broadcast": false,
+    "useFunction": "StatClearStat"
+  },
+  "SkillReloadbundleAll": {
+    "broadcast": false,
+    "useFunction": "StatClearEmpow"
+  },
+  "LicenseClear": {
+    "broadcast": false,
+    "useFunction": "LicenceClear"
+  },
+  "HPMPotion1": {
+    "broadcast": false,
+    "useFunction": "AmountHP"
+  },
+  "HPMPotion2": {
+    "broadcast": false,
+    "useFunction": "AmountHP"
+  },
+  "HPMPotion0": {
+    "broadcast": false,
+    "useFunction": "AmountHP"
+  },
+  "HPMPotion3": {
+    "broadcast": false,
+    "useFunction": "AmountHP"
+  },
+  "HPMPotion4": {
+    "broadcast": false,
+    "useFunction": "AmountHP"
+  },
+  "HPMPotion5": {
+    "broadcast": false,
+    "useFunction": "AmountHP"
+  },
+  "SPMPotion1": {
+    "broadcast": false,
+    "useFunction": "AmountMP"
+  },
+  "SPMPotion2": {
+    "broadcast": false,
+    "useFunction": "AmountMP"
+  },
+  "SPMPotion0": {
+    "broadcast": false,
+    "useFunction": "AmountMP"
+  },
+  "SPMPotion3": {
+    "broadcast": false,
+    "useFunction": "AmountMP"
+  },
+  "GoddessWing": {
+    "broadcast": false,
+    "useFunction": "MemoryFeather"
+  },
+  "KQ_SoulCrystal": {
+    "broadcast": true,
+    "useFunction": "BossMobDetect"
+  },
+  "Firecracker02": {
+    "broadcast": true,
+    "useFunction": "NoEffect"
+  },
+  "HFirecracker00": {
+    "broadcast": true,
+    "useFunction": "NoEffect"
+  },
+  "HPMPotion2_1": {
+    "broadcast": false,
+    "useFunction": "AmountHP"
+  },
+  "SPMPotion2_1": {
+    "broadcast": false,
+    "useFunction": "AmountMP"
+  },
+  "CC_Closed": {
+    "broadcast": false,
+    "useFunction": "MobCardOpen"
+  },
+  "E_SixYear_Cake": {
+    "broadcast": false,
+    "useFunction": "AmountHP"
+  }
+}

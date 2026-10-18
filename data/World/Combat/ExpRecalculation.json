@@ -1,0 +1,180 @@
+{
+  "byPartyMembers": [
+    {
+      "partyMembers": 0,
+      "bonusRate": 1000
+    },
+    {
+      "partyMembers": 1,
+      "bonusRate": 1000
+    },
+    {
+      "partyMembers": 2,
+      "bonusRate": 1200
+    },
+    {
+      "partyMembers": 3,
+      "bonusRate": 1400
+    },
+    {
+      "partyMembers": 4,
+      "bonusRate": 1600
+    },
+    {
+      "partyMembers": 5,
+      "bonusRate": 1800
+    }
+  ],
+  "byLevelDiff": [
+    {
+      "levelDiff": -150,
+      "bonusRate": 0
+    },
+    {
+      "levelDiff": -30,
+      "bonusRate": 0
+    },
+    {
+      "levelDiff": -29,
+      "bonusRate": 200
+    },
+    {
+      "levelDiff": -28,
+      "bonusRate": 400
+    },
+    {
+      "levelDiff": -27,
+      "bonusRate": 600
+    },
+    {
+      "levelDiff": -26,
+      "bonusRate": 800
+    },
+    {
+      "levelDiff": -25,
+      "bonusRate": 1000
+    },
+    {
+      "levelDiff": -24,
+      "bonusRate": 1200
+    },
+    {
+      "levelDiff": -10,
+      "bonusRate": 1200
+    },
+    {
+      "levelDiff": -9,
+      "bonusRate": 1200
+    },
+    {
+      "levelDiff": -8,
+      "bonusRate": 1200
+    },
+    {
+      "levelDiff": -7,
+      "bonusRate": 1200
+    },
+    {
+      "levelDiff": -6,
+      "bonusRate": 1200
+    },
+    {
+      "levelDiff": -5,
+      "bonusRate": 1200
+    },
+    {
+      "levelDiff": -4,
+      "bonusRate": 1150
+    },
+    {
+      "levelDiff": -3,
+      "bonusRate": 1100
+    },
+    {
+      "levelDiff": -2,
+      "bonusRate": 1050
+    },
+    {
+      "levelDiff": -1,
+      "bonusRate": 1000
+    },
+    {
+      "levelDiff": 0,
+      "bonusRate": 1000
+    },
+    {
+      "levelDiff": 1,
+      "bonusRate": 1000
+    },
+    {
+      "levelDiff": 2,
+      "bonusRate": 950
+    },
+    {
+      "levelDiff": 3,
+      "bonusRate": 850
+    },
+    {
+      "levelDiff": 4,
+      "bonusRate": 750
+    },
+    {
+      "levelDiff": 5,
+      "bonusRate": 650
+    },
+    {
+      "levelDiff": 6,
+      "bonusRate": 500
+    },
+    {
+      "levelDiff": 7,
+      "bonusRate": 350
+    },
+    {
+      "levelDiff": 8,
+      "bonusRate": 150
+    },
+    {
+      "levelDiff": 9,
+      "bonusRate": 10
+    },
+    {
+      "levelDiff": 10,
+      "bonusRate": 5
+    },
+    {
+      "levelDiff": 11,
+      "bonusRate": 0
+    },
+    {
+      "levelDiff": 150,
+      "bonusRate": 0
+    }
+  ],
+  "standardDeviation": [
+    {
+      "lowerBound": 0,
+      "handicapRate": 1000
+    },
+    {
+      "lowerBound": 1501,
+      "handicapRate": 800
+    },
+    {
+      "lowerBound": 1601,
+      "handicapRate": 600
+    },
+    {
+      "lowerBound": 1701,
+      "handicapRate": 400
+    },
+    {
+      "lowerBound": 1801,
+      "handicapRate": 200
+    },
+    {
+      "lowerBound": 1901,
+      "handicapRate": 0
+    }
+  ]
+}
