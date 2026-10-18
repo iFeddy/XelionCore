@@ -1,0 +1,17 @@
+{
+  "Hayreddin_FaceCut01": "I can see invaders around the entrance. Varamus, Ilkane, protect the entrance!",
+  "CyrusKey_FaceCut01": "Varamus failed to stop you. But don’t think you can pass through here!",
+  "CyrusKey_FaceCut02": "Hah.. Try to open the gate behind you with the key I just dropped. If you are lucky, you can avoid the leader.. Hahaha",
+  "Hayreddin_FaceCut02": "Wait.. Can we wait for a battle little bit more? I have to tell Freloan about you.",
+  "HayEvo_FaceCut01": "Hahahaha! Let's see whether you can defeat me and go to Freloan!!",
+  "HayEvo_FaceCut02": "If I fail to stop you, powerful Freloan will defeat you with his sword and magic!",
+  "HayEvo_FaceCut03": "Hah.. Go meet Freloan. You can get to him through the portal infront of you...",
+  "Freloan_FaceCut01": "Haha!! You are the stupid, arrogant human and elves. I heard about you from Fargels.",
+  "Freloan_FaceCut02": "I will show you what power is!",
+  "SystemMessage01": "You don't have the right key to open the gate.",
+  "Freloan_FaceCut03": "I couldn't imagine you were too strong… I will let you go back to the world..",
+  "KQReturn30": "You will be moved in 30 seconds.",
+  "KQReturn20": "You will be moved in 20 seconds.",
+  "KQReturn10": "You will be moved in 10 seconds.",
+  "KQReturn5": "You will be moved in 5 seconds."
+}

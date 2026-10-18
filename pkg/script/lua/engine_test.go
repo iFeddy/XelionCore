@@ -93,3 +93,37 @@ func TestMobBehavior_LoadAllLua(t *testing.T) {
 		}
 	}
 }
+
+func TestMigratedScenarios_LoadAllLua(t *testing.T) {
+	luaPath := filepath.Join("..", "..", "..", "data", "LuaScript")
+
+	engine, err := lua.NewEngine(lua.Config{
+		BasePath: luaPath,
+		Debug:    false,
+	})
+	if err != nil {
+		t.Fatalf("Failed to initialize Lua engine: %v", err)
+	}
+	defer engine.Close()
+
+	scripts := []string{
+		filepath.Join(luaPath, "Wedding", "Wedding.lua"),
+		filepath.Join(luaPath, "Promote", "JobChange1.lua"),
+		filepath.Join(luaPath, "Promote", "JobChange2-1.lua"),
+		filepath.Join(luaPath, "Map", "OXField.lua"),
+		filepath.Join(luaPath, "Map", "Monkey.lua"),
+		filepath.Join(luaPath, "Guild", "GuildTournament.lua"),
+		filepath.Join(luaPath, "Guild", "GuildTournament1.lua"),
+		filepath.Join(luaPath, "KQ", "Honeying", "Honeying.lua"),
+		filepath.Join(luaPath, "KQ", "GordonMaster", "GordonMaster.lua"),
+		filepath.Join(luaPath, "KQ", "ConditionOfHero", "ConditionOfHero.lua"),
+		filepath.Join(luaPath, "KQ", "UnderHall", "UnderHall.lua"),
+		filepath.Join(luaPath, "KQ", "KQHBat", "KQHBat.lua"),
+	}
+
+	for _, s := range scripts {
+		if err := engine.DoFile(s); err != nil {
+			t.Errorf("Failed to compile/execute migrated Lua scenario %s: %v", s, err)
+		}
+	}
+}

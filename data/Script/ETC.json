@@ -1,0 +1,19 @@
+{
+  "Cancel": "Cancel",
+  "Yes": "Yes",
+  "No": "No",
+  "RecallDisableField": "This location is not accessible via Warping.",
+  "KQEntryInCamp0": "You have entered Kingdom Quest field.",
+  "KQEntryInCamp1": "Please close active Vendor to enter the Kingdom Quest.",
+  "PresentBoxInvenFull": "Inventory is full, the box cannot be opened.",
+  "PresentBoxInformCall": "Loading the box information.  Please check again soon.",
+  "LevelLimit": "The level limit for this area is (%d-%d).",
+  "PartyLimitedField": "To enter the map, please leave your party.",
+  "ButtonOK": "OK",
+  "ButtonCancel": "Cancel",
+  "DeamonDead": "We honor those who returned Helga to his ancient home.",
+  "NeedPartyOrQuest": "You must belong in a party to enter.",
+  "NeedItem": "You must have the admission item to enter Instance Dungeon.",
+  "CannotAddAnymore": "You can not enter because Instance Dungeon is currently full.",
+  "BoothInterior": "Repairing"
+}

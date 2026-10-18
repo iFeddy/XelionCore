@@ -1,0 +1,23 @@
+{
+  "ReftMob10": "There are more than 10 zombies left",
+  "ReftMob9": "There are 9 zombies left",
+  "ReftMob8": "There are 8 zombies left",
+  "ReftMob7": "There are 7 zombies left",
+  "ReftMob6": "There are 6 zombies left",
+  "ReftMob5": "There are 5 zombies left",
+  "ReftMob4": "There are 4 zombies left",
+  "ReftMob3": "There are 3 zombies left",
+  "ReftMob2": "There are 2 zombies left",
+  "ReftMob1": "One last zombie left",
+  "Scream0": "Ouch!",
+  "Scream1": "Ak!!",
+  "Scream2": "Ak!!",
+  "KQReturn30": "Move to Grandmaster Sean in 30 seconds.",
+  "KQReturn20": "Move to Grandmaster Sean in 20 seconds.",
+  "KQReturn10": "Move to Grandmaster Sean in 10 seconds.",
+  "KQReturn5": "Move to Grandmaster Sean in 5 seconds.",
+  "RouReturn30": "Move to Roumen in 30 seconds.",
+  "RouReturn20": "Move to Roumen in 20 seconds.",
+  "RouReturn10": "Move to Roumen in 10 seconds.",
+  "RouReturn5": "Move to Roumen in 5 seconds."
+}

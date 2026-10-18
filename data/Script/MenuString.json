@@ -1,0 +1,13 @@
+{
+  "LinkTitle": "Do you want to move to %s field?",
+  "SilverWingTitle": "Use silver wings",
+  "SilverWingLocSet": "Save location",
+  "SilverWingPortal": "Fly to the saved location",
+  "Revive": "Do you want to revive now?",
+  "ItemBreakWarn0": "If you discard this item, it will automatically be destroyed.",
+  "ItemBreakWarn1": "Do you want to destory the selected item?",
+  "ItemDropWarn": "Do you want to discard the item?",
+  "Summons": "Would you like to be summoned by your spouse?",
+  "ID_DeleteNow": "There's no one inside. Would you like to quit?",
+  "InstantDivorce": "Item will be consumed and cannot be cancelled once used"
+}

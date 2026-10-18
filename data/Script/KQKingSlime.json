@@ -1,0 +1,19 @@
+{
+  "Guardian": "Spear Guard",
+  "KingSlime0": "You, who affront the sacred Slime",
+  "KingSlime1": "My curse shall be with you forever!!",
+  "KingSlimeSummon": "Slimes, destroy them with my power!!",
+  "KingSlimeDead": "??",
+  "StartWarn0": "What are you doing in this time of crisis?",
+  "StartWarn1": "Slimes, fighting under King Slime, have invaded!!!",
+  "StartWarn2": "We are  in big trouble if we don't defeat them within 50 minutes.",
+  "StartWarn3": "I will go and request reinforcements.",
+  "StartWarn4": "You should leave here as soon as possible.",
+  "GuardianSuc0": "Are you all safe and well?",
+  "GuardianSuc1": "Our reinforcements will arrive in 5 minutes.",
+  "GuardianSuc2": "In the meantime, try to hide somewhere safe.",
+  "KQReturn30": "Move to Roumen in 30 seconds.",
+  "KQReturn20": "Move to Roumen in 20 seconds.",
+  "KQReturn10": "Move to Roumen in 10 seconds.",
+  "KQReturn5": "Move to Roumen in 5 seconds."
+}

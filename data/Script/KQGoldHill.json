@@ -1,0 +1,15 @@
+{
+  "Intro0": "You, stupid and covetous fool, there is no such gold that you are looking for.",
+  "Intro1": "It was just a trick to make Haness show up.",
+  "Intro2": "Muhaha, since killing you all now seems boring, I'll give you a chance. I hid a key in ore. You go find it and bring to be.",
+  "FirstGateOpen": "It isn't easy to find the key. But if you look carefully among the minerals, you will find it. No need to hurry.",
+  "SecondGateOpen": "Are my soldiers disturbing you? They will take real good care of you, Hahahah!",
+  "ThirdGateOpen": "I grow tiresome of waiting for you.  Are you still on the top floor?? You are not even worth the name of Heneath expedition.",
+  "LastGateOpen0": "Hurry up and get down here…Huh? When did you get here?",
+  "LastGateOpen1": "As long as I am standing here, you cannot leave.",
+  "ItemDrop": "The hidden key has been discovered.",
+  "KQReturn30": "Move to Elderine in 30 seconds.",
+  "KQReturn20": "Move to Elderine in 20 seconds.",
+  "KQReturn10": "Move to Elderine in 10 seconds.",
+  "KQReturn5": "Move to Elderine in 5 seconds."
+}

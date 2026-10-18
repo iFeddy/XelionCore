@@ -1,0 +1,14 @@
+{
+  "Intro0": "Welcome everyone, who wants to participate in the hero tests.",
+  "Intro1": "To save this country in danger, we need heroes like you.",
+  "Intro2": "Show us the results of your training.",
+  "Intro3": "You cannot eat the stone here, What? Ah, I am talking about HP stone and SP stone.",
+  "Intro4": "Instead, liquid medicine is hidden in this mineral, look for the liquid medicine first.",
+  "DualStart": "Fight start!!",
+  "DualStop": "Fight over!! Don't move!!",
+  "DualResult": "the winner of the first prize %s, the second is %s, the third one is %s, these three will get prizes.",
+  "KQReturn30": "Move to Elderine in 30 seconds.",
+  "KQReturn20": "Move to Elderine in 20 seconds.",
+  "KQReturn10": "Move to Elderine in 10 seconds.",
+  "KQReturn5": "Move to Elderine in 5 seconds."
+}

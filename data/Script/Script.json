@@ -1,0 +1,15 @@
+{
+  "Cancel": "Cancel",
+  "Yes": "Yes",
+  "No": "No",
+  "RecallDisableField": "This location is not accessible via Warping.",
+  "KQEntryInCamp0": "You have entered Kingdom Quest field.",
+  "KQEntryInCamp1": "Please close your personal store in order to enter the Kingdom Quest.",
+  "PresentBoxInvenFull": "Inventory is full, the box cannot be opened.",
+  "PresentBoxInformCall": "Loading the box information.  Please check again soon.",
+  "LevelLimit": "The level limit for this area is (%d-%d).",
+  "PartyLimitedField": "To enter the map, please leave your party.",
+  "ButtonOK": "OK",
+  "ButtonCancel": "Cancel",
+  "DeamonDead": "We honor those who returned Helga to his ancient home."
+}

@@ -1,0 +1,21 @@
+{
+  "Mob_01": "I'm exhausted and I want to get some rest.",
+  "Mob_02": "I wonder how the village people have been these days.",
+  "Mob_03": "I want to go home.",
+  "Mob_04": "Eeek! What is that sound? The keeper came early?!",
+  "Mob_05": "Ahh! There's a human!",
+  "Notice_01": "Devil monster has appeared.",
+  "Notice_02": "Devil monster has been killed.",
+  "Boss_01": "Such a useless human being! I will show you the power of devil.",
+  "Boss_02": "Kill all of them!",
+  "Boss_03": "You cannot accomplish anything without me! Prepare to die, you pathetic warriors!",
+  "Foras_01": "This will be the end of you!",
+  "Foras_02": "After all, humans are somewhat useful. Thank you!",
+  "Foras_03": "We're free!!! Thank you!",
+  "Foras_04": "We are finally free from the devil! Hooray!",
+  "KQReturn60": "You will be teleported out of the dungeon in 1 minute.",
+  "KQReturn30": "You will be teleported out of the dungeon in 30 seconds.",
+  "KQReturn20": "You will be teleported out of the dungeon in 20 seconds.",
+  "KQReturn10": "You will be teleported out of the dungeon in 10 seconds.",
+  "KQReturn5": "You will be teleported out of the dungeon in 5 seconds."
+}
