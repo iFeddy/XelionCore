@@ -1,0 +1,57 @@
+{
+  "merchant": "RouWeaponTitleMctZach",
+  "tabs": [
+    {
+      "tab": "Tab00",
+      "title": "무기 타이틀 상점",
+      "rows": [
+        [
+          "WTL_Ratman",
+          "WTL_Boar",
+          "WTL_Boogy",
+          "-",
+          "-",
+          "-"
+        ],
+        [
+          "WTL_MaraCrew",
+          "WTL_MaraElite",
+          "WTL_MaraSailor",
+          "-",
+          "-",
+          "-"
+        ]
+      ]
+    },
+    {
+      "tab": "Tab01",
+      "title": "무기 타이틀 상점",
+      "rows": [
+        [
+          "EnM_Undead_Hp01",
+          "EnM_Undead_AddDmg01",
+          "EnM_Beast_Hp01",
+          "EnM_Beast_AddDmg01",
+          "EnM_Elementa_Hp01",
+          "EnM_Elementa_AddDmg01"
+        ],
+        [
+          "EnM_Magic_Hp01",
+          "EnM_Magic_AddDmg01",
+          "EnM_Spirit_Hp01",
+          "EnM_Spirit_AddDmg01",
+          "EnM_Human_Hp01",
+          "EnM_Human_AddDmg01"
+        ],
+        [
+          "EnS_WC01",
+          "EnS_MA01",
+          "EnS_AtkSpd01",
+          "-",
+          "-",
+          "-"
+        ]
+      ]
+    }
+  ]
+}

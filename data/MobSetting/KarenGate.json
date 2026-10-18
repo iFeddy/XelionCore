@@ -1,0 +1,9 @@
+{
+  "entity": "KarenGate",
+  "triggers": [
+    {
+      "condition_id": 1,
+      "action_id": 1
+    }
+  ]
+}

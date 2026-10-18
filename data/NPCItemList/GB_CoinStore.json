@@ -1,0 +1,51 @@
+{
+  "merchant": "GB_CoinStore",
+  "tabs": [
+    {
+      "tab": "Tab00",
+      "title": "인첸트 상점",
+      "rows": [
+        [
+          "NorHpPotionProd",
+          "NorSpPotionProd",
+          "-",
+          "-",
+          "-",
+          "-"
+        ],
+        [
+          "NorConHPPotion",
+          "NorConSPPotion",
+          "-",
+          "-",
+          "-",
+          "-"
+        ],
+        [
+          "NorTHScroll",
+          "NorTBScroll",
+          "NorACScroll",
+          "NorCriScroll",
+          "-",
+          "-"
+        ],
+        [
+          "NorMaxHPScroll",
+          "NorMaxSPScroll",
+          "NorMSScroll",
+          "-",
+          "-",
+          "-"
+        ],
+        [
+          "Ruby",
+          "Topaz",
+          "Sapphire",
+          "-",
+          "-",
+          "-"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "merchant": "GB_MasterRoan",
+  "tabs": [
+    {
+      "tab": "Tab00",
+      "title": "인첸트 상점",
+      "rows": [
+        [
+          "GB_VipCard",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "mob": "Anti_Henis_G_M10",
+  "sequence": [
+    {
+      "order": 0,
+      "attack": "FireBolt01"
+    },
+    {
+      "order": 1,
+      "attack": "IceBolt02"
+    },
+    {
+      "order": 2,
+      "attack": "FireBolt01"
+    },
+    {
+      "order": 3,
+      "attack": "IceBolt02"
+    },
+    {
+      "order": 4,
+      "attack": "FireBolt01"
+    },
+    {
+      "order": 5,
+      "attack": "IceBolt02"
+    },
+    {
+      "order": 6,
+      "attack": "FireBolt01"
+    },
+    {
+      "order": 7,
+      "attack": "IceBolt02"
+    },
+    {
+      "order": 8,
+      "attack": "FireBolt01"
+    },
+    {
+      "order": 9,
+      "attack": "IceBolt02"
+    },
+    {
+      "order": 10,
+      "attack": "FireBolt01"
+    },
+    {
+      "order": 11,
+      "attack": "IceBolt02"
+    }
+  ],
+  "skill_changes": []
+}

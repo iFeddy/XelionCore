@@ -1,0 +1,9 @@
+{
+  "entity": "LightField03",
+  "triggers": [
+    {
+      "condition_id": 18,
+      "action_id": 29
+    }
+  ]
+}

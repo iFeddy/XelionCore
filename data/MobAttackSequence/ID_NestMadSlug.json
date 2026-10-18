@@ -1,0 +1,110 @@
+{
+  "mob": "ID_NestMadSlug",
+  "sequence": [
+    {
+      "order": 0,
+      "attack": "-"
+    },
+    {
+      "order": 1,
+      "attack": "MadSlugAtkSkill1"
+    },
+    {
+      "order": 2,
+      "attack": "-"
+    },
+    {
+      "order": 3,
+      "attack": "-"
+    },
+    {
+      "order": 4,
+      "attack": "MadSlugAtkSkill1"
+    },
+    {
+      "order": 5,
+      "attack": "-"
+    },
+    {
+      "order": 6,
+      "attack": "-"
+    },
+    {
+      "order": 7,
+      "attack": "MadSlugAtkSkill1"
+    },
+    {
+      "order": 8,
+      "attack": "-"
+    },
+    {
+      "order": 9,
+      "attack": "-"
+    },
+    {
+      "order": 10,
+      "attack": "MadSlugAtkSkill1"
+    },
+    {
+      "order": 11,
+      "attack": "-"
+    },
+    {
+      "order": 12,
+      "attack": "-"
+    },
+    {
+      "order": 13,
+      "attack": "MadSlugAtkSkill1"
+    },
+    {
+      "order": 14,
+      "attack": "-"
+    },
+    {
+      "order": 15,
+      "attack": "-"
+    },
+    {
+      "order": 16,
+      "attack": "MadSlugAtkSkill1"
+    },
+    {
+      "order": 17,
+      "attack": "-"
+    },
+    {
+      "order": 18,
+      "attack": "-"
+    },
+    {
+      "order": 19,
+      "attack": "MadSlugAtkSkill1"
+    },
+    {
+      "order": 20,
+      "attack": "-"
+    },
+    {
+      "order": 21,
+      "attack": "-"
+    },
+    {
+      "order": 22,
+      "attack": "MadSlugAtkSkill1"
+    },
+    {
+      "order": 23,
+      "attack": "-"
+    },
+    {
+      "order": 24,
+      "attack": "-"
+    },
+    {
+      "order": 25,
+      "attack": "MadSlugAtkSkill1"
+    }
+  ],
+  "skill_changes": []
+}

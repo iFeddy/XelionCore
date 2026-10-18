@@ -1,0 +1,30 @@
+{
+  "mob": "TestSilberk02",
+  "sequence": [
+    {
+      "order": 0,
+      "attack": "-"
+    },
+    {
+      "order": 1,
+      "attack": "SilberkDash"
+    },
+    {
+      "order": 2,
+      "attack": "-"
+    },
+    {
+      "order": 3,
+      "attack": "-"
+    },
+    {
+      "order": 4,
+      "attack": "-"
+    },
+    {
+      "order": 5,
+      "attack": "-"
+    }
+  ],
+  "skill_changes": []
+}

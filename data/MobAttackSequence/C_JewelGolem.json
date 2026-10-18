@@ -1,0 +1,174 @@
+{
+  "mob": "C_JewelGolem",
+  "sequence": [
+    {
+      "order": 0,
+      "attack": "C_JewelGolemBuff"
+    },
+    {
+      "order": 1,
+      "attack": "-"
+    },
+    {
+      "order": 2,
+      "attack": "-"
+    },
+    {
+      "order": 3,
+      "attack": "C_JewelGolemWide"
+    },
+    {
+      "order": 4,
+      "attack": "-"
+    },
+    {
+      "order": 5,
+      "attack": "-"
+    },
+    {
+      "order": 6,
+      "attack": "C_JewelGolemSkill1"
+    },
+    {
+      "order": 7,
+      "attack": "-"
+    },
+    {
+      "order": 8,
+      "attack": "-"
+    },
+    {
+      "order": 9,
+      "attack": "-"
+    },
+    {
+      "order": 10,
+      "attack": "C_JewelGolemSkill1"
+    },
+    {
+      "order": 11,
+      "attack": "-"
+    },
+    {
+      "order": 12,
+      "attack": "-"
+    },
+    {
+      "order": 13,
+      "attack": "-"
+    },
+    {
+      "order": 14,
+      "attack": "C_JewelGolemWide"
+    },
+    {
+      "order": 15,
+      "attack": "-"
+    },
+    {
+      "order": 16,
+      "attack": "-"
+    },
+    {
+      "order": 17,
+      "attack": "C_JewelGolemSkill1"
+    },
+    {
+      "order": 18,
+      "attack": "-"
+    },
+    {
+      "order": 19,
+      "attack": "-"
+    },
+    {
+      "order": 20,
+      "attack": "-"
+    },
+    {
+      "order": 21,
+      "attack": "C_JewelGolemSummon"
+    },
+    {
+      "order": 22,
+      "attack": "-"
+    },
+    {
+      "order": 23,
+      "attack": "-"
+    },
+    {
+      "order": 24,
+      "attack": "-"
+    },
+    {
+      "order": 25,
+      "attack": "C_JewelGolemSkill1"
+    },
+    {
+      "order": 26,
+      "attack": "-"
+    },
+    {
+      "order": 27,
+      "attack": "-"
+    },
+    {
+      "order": 28,
+      "attack": "C_JewelGolemSkill1"
+    },
+    {
+      "order": 29,
+      "attack": "-"
+    },
+    {
+      "order": 30,
+      "attack": "-"
+    },
+    {
+      "order": 31,
+      "attack": "-"
+    },
+    {
+      "order": 32,
+      "attack": "C_JewelGolemWide"
+    },
+    {
+      "order": 33,
+      "attack": "-"
+    },
+    {
+      "order": 34,
+      "attack": "-"
+    },
+    {
+      "order": 35,
+      "attack": "C_JewelGolemSkill1"
+    },
+    {
+      "order": 36,
+      "attack": "-"
+    },
+    {
+      "order": 37,
+      "attack": "-"
+    },
+    {
+      "order": 38,
+      "attack": "C_JewelGolemWide"
+    },
+    {
+      "order": 39,
+      "attack": "-"
+    },
+    {
+      "order": 40,
+      "attack": "C_JewelGolemSkill1"
+    },
+    {
+      "order": 41,
+      "attack": "-"
+    }
+  ],
+  "skill_changes": []
+}

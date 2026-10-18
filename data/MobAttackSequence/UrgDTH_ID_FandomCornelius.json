@@ -1,0 +1,58 @@
+{
+  "mob": "UrgDTH_ID_FandomCornelius",
+  "sequence": [
+    {
+      "order": 0,
+      "attack": "IDCorneliusNeut01"
+    },
+    {
+      "order": 1,
+      "attack": "IDCorneliusAtkSkill1"
+    },
+    {
+      "order": 2,
+      "attack": "-"
+    },
+    {
+      "order": 3,
+      "attack": "IDCorneliusAtkSkill1"
+    },
+    {
+      "order": 4,
+      "attack": "-"
+    },
+    {
+      "order": 5,
+      "attack": "Dragonneut_Skill05_W"
+    },
+    {
+      "order": 6,
+      "attack": "-"
+    },
+    {
+      "order": 7,
+      "attack": "IDCorneliusNeut01"
+    },
+    {
+      "order": 8,
+      "attack": "IDCorneliusAtkSkill1"
+    },
+    {
+      "order": 9,
+      "attack": "IDCorneliusAtkSkill2"
+    },
+    {
+      "order": 10,
+      "attack": "-"
+    },
+    {
+      "order": 11,
+      "attack": "IDCorneliusAtkSkill2"
+    },
+    {
+      "order": 12,
+      "attack": "Dragonneut_Skill05_W"
+    }
+  ],
+  "skill_changes": []
+}

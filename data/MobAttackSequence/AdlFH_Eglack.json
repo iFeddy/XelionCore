@@ -1,0 +1,213 @@
+{
+  "mob": "AdlFH_Eglack",
+  "sequence": [
+    {
+      "order": 0,
+      "attack": "-"
+    },
+    {
+      "order": 1,
+      "attack": "Eglack_Skill01_N"
+    },
+    {
+      "order": 2,
+      "attack": "-"
+    },
+    {
+      "order": 3,
+      "attack": "Eglack_Skill01_N"
+    },
+    {
+      "order": 4,
+      "attack": "-"
+    },
+    {
+      "order": 5,
+      "attack": "Eglack_Skill01_N"
+    },
+    {
+      "order": 6,
+      "attack": "Eglack_Skill02_N"
+    },
+    {
+      "order": 7,
+      "attack": "Eglack_Skill02_N"
+    },
+    {
+      "order": 8,
+      "attack": "Eglack_Skill01_N"
+    },
+    {
+      "order": 9,
+      "attack": "Eglack_Skill01_N"
+    },
+    {
+      "order": 10,
+      "attack": "Eglack_Skill02_N"
+    },
+    {
+      "order": 11,
+      "attack": "Eglack_Skill02_N"
+    },
+    {
+      "order": 12,
+      "attack": "Eglack_Skill01_N"
+    },
+    {
+      "order": 13,
+      "attack": "Eglack_Skill01_N"
+    },
+    {
+      "order": 14,
+      "attack": "Eglack_Skill02_N"
+    },
+    {
+      "order": 15,
+      "attack": "Eglack_Skill02_N"
+    },
+    {
+      "order": 16,
+      "attack": "-"
+    },
+    {
+      "order": 17,
+      "attack": "Eglack_Skill01_N"
+    },
+    {
+      "order": 18,
+      "attack": "Eglack_Skill01_N"
+    },
+    {
+      "order": 19,
+      "attack": "Eglack_Skill02_N"
+    }
+  ],
+  "skill_changes": [
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 400,
+      "from": 0,
+      "to": "Eglack_Skill05_W"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 400,
+      "from": 1,
+      "to": "Eglack_Skill04_N"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 400,
+      "from": 4,
+      "to": "Eglack_Skill03_W"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 400,
+      "from": 9,
+      "to": "Eglack_Skill06_W"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 400,
+      "from": 10,
+      "to": "Eglack_Skill05_W"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 400,
+      "from": 11,
+      "to": "Eglack_Skill04_N"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 400,
+      "from": 13,
+      "to": "Eglack_Skill02_N"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 400,
+      "from": 15,
+      "to": "Eglack_Skill01_N"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 400,
+      "from": 16,
+      "to": "Eglack_Skill03_W"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 400,
+      "from": 17,
+      "to": "Eglack_Skill06_W"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 400,
+      "from": 18,
+      "to": "Eglack_Skill02_N"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 400,
+      "from": 19,
+      "to": "Eglack_Skill01_N"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 700,
+      "from": 0,
+      "to": "Eglack_Skill04_N"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 700,
+      "from": 1,
+      "to": "Eglack_Skill03_W"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 700,
+      "from": 6,
+      "to": "Eglack_Skill03_W"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 700,
+      "from": 10,
+      "to": "Eglack_Skill03_W"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 700,
+      "from": 11,
+      "to": "Eglack_Skill04_N"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 700,
+      "from": 14,
+      "to": "Eglack_Skill03_W"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 700,
+      "from": 15,
+      "to": "Eglack_Skill01_N"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 700,
+      "from": 16,
+      "to": "Eglack_Skill03_W"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 700,
+      "from": 19,
+      "to": "Eglack_Skill03_W"
+    }
+  ]
+}

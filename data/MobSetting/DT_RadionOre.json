@@ -1,0 +1,17 @@
+{
+  "entity": "DT_RadionOre",
+  "triggers": [
+    {
+      "condition_id": 20,
+      "action_id": 31
+    },
+    {
+      "condition_id": 20,
+      "action_id": 32
+    },
+    {
+      "condition_id": 20,
+      "action_id": 33
+    }
+  ]
+}

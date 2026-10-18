@@ -1,0 +1,67 @@
+{
+  "merchant": "Egg2014_HoshemingNPC",
+  "tabs": [
+    {
+      "tab": "Tab00",
+      "title": "",
+      "rows": [
+        [
+          "Egg2014_Cos_EasterBunny",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-"
+        ],
+        [
+          "Egg2014_Hat_EasterBunny01",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-"
+        ],
+        [
+          "Egg2014_Hat_EasterBunny02",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-"
+        ],
+        [
+          "Egg2014_Back_EasterBunny",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-"
+        ],
+        [
+          "Egg2014_MiniEasterEgg",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-"
+        ],
+        [
+          "Egg2014_MiniEasterBunny",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-"
+        ],
+        [
+          "Egg2014_H_EasterEgg",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "mob": "Silberk",
+  "sequence": [
+    {
+      "order": 0,
+      "attack": "-"
+    },
+    {
+      "order": 1,
+      "attack": "SilberkBlood"
+    },
+    {
+      "order": 2,
+      "attack": "-"
+    },
+    {
+      "order": 3,
+      "attack": "-"
+    },
+    {
+      "order": 4,
+      "attack": "SilberkBlood"
+    },
+    {
+      "order": 5,
+      "attack": "-"
+    },
+    {
+      "order": 6,
+      "attack": "-"
+    },
+    {
+      "order": 7,
+      "attack": "SilberkBlood"
+    },
+    {
+      "order": 8,
+      "attack": "-"
+    },
+    {
+      "order": 9,
+      "attack": "-"
+    },
+    {
+      "order": 10,
+      "attack": "SilberkBlood"
+    },
+    {
+      "order": 11,
+      "attack": "-"
+    },
+    {
+      "order": 12,
+      "attack": "-"
+    },
+    {
+      "order": 13,
+      "attack": "SilberkBlood"
+    },
+    {
+      "order": 14,
+      "attack": "-"
+    },
+    {
+      "order": 15,
+      "attack": "-"
+    },
+    {
+      "order": 16,
+      "attack": "SilberkBlood"
+    },
+    {
+      "order": 17,
+      "attack": "-"
+    },
+    {
+      "order": 18,
+      "attack": "-"
+    },
+    {
+      "order": 19,
+      "attack": "SilberkBlood"
+    },
+    {
+      "order": 20,
+      "attack": "-"
+    },
+    {
+      "order": 21,
+      "attack": "SilberkBlood"
+    }
+  ],
+  "skill_changes": [
+    {
+      "condition": "OutOfRange",
+      "value": "-",
+      "from": "-",
+      "to": "SilberkDash"
+    }
+  ]
+}

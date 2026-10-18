@@ -1,0 +1,59 @@
+{
+  "merchant": "RouSoulMctJulia",
+  "tabs": [
+    {
+      "tab": "Tab00",
+      "title": "아이템 상점",
+      "rows": [
+        [
+          "Pickaxe",
+          "Q_Peg",
+          "Q_Hammer",
+          "-",
+          "-",
+          "-"
+        ],
+        [
+          "El1",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-"
+        ],
+        [
+          "Hay",
+          "FlyStone",
+          "Sap",
+          "Meat",
+          "Djewel",
+          "Dew"
+        ],
+        [
+          "House_MushRoom01",
+          "House_MushRoom02",
+          "-",
+          "-",
+          "-",
+          "-"
+        ],
+        [
+          "WTL_Ratman",
+          "WTL_Boar",
+          "WTL_Boogy",
+          "Recipe_BestLowCurScroll",
+          "Recipe_LowCurScroll",
+          "-"
+        ],
+        [
+          "ShortBow",
+          "LongBow",
+          "BlackColl",
+          "ThoroColl01",
+          "RedColl01",
+          "-"
+        ]
+      ]
+    }
+  ]
+}

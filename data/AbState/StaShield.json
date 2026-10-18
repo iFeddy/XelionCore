@@ -1,0 +1,1822 @@
+{
+  "id": 13,
+  "name": "StaShield",
+  "description": "Escudo Sagrado protector de Cleric",
+  "max_levels": 151,
+  "record_size_bytes": 16,
+  "meta_hex": "0d00537461536869656c64000000000000000000000000000000000000000000000000bdafb5e50000000000000000000000000000000000000000000000000000000000010000000100000000000000010000000100000000000000010000000000000000000000",
+  "levels": [
+    {
+      "level": 0,
+      "duration_ms": 0,
+      "min_shield": 0,
+      "max_shield": 0,
+      "raw": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "level": 1,
+      "duration_ms": 303000,
+      "min_shield": 4,
+      "max_shield": 4,
+      "raw": [
+        1,
+        303000,
+        4,
+        4
+      ]
+    },
+    {
+      "level": 2,
+      "duration_ms": 306000,
+      "min_shield": 5,
+      "max_shield": 5,
+      "raw": [
+        2,
+        306000,
+        5,
+        5
+      ]
+    },
+    {
+      "level": 3,
+      "duration_ms": 309000,
+      "min_shield": 6,
+      "max_shield": 6,
+      "raw": [
+        3,
+        309000,
+        6,
+        6
+      ]
+    },
+    {
+      "level": 4,
+      "duration_ms": 312000,
+      "min_shield": 7,
+      "max_shield": 7,
+      "raw": [
+        4,
+        312000,
+        7,
+        7
+      ]
+    },
+    {
+      "level": 5,
+      "duration_ms": 315000,
+      "min_shield": 7,
+      "max_shield": 7,
+      "raw": [
+        5,
+        315000,
+        7,
+        7
+      ]
+    },
+    {
+      "level": 6,
+      "duration_ms": 318000,
+      "min_shield": 8,
+      "max_shield": 8,
+      "raw": [
+        6,
+        318000,
+        8,
+        8
+      ]
+    },
+    {
+      "level": 7,
+      "duration_ms": 321000,
+      "min_shield": 9,
+      "max_shield": 9,
+      "raw": [
+        7,
+        321000,
+        9,
+        9
+      ]
+    },
+    {
+      "level": 8,
+      "duration_ms": 324000,
+      "min_shield": 10,
+      "max_shield": 10,
+      "raw": [
+        8,
+        324000,
+        10,
+        10
+      ]
+    },
+    {
+      "level": 9,
+      "duration_ms": 327000,
+      "min_shield": 10,
+      "max_shield": 10,
+      "raw": [
+        9,
+        327000,
+        10,
+        10
+      ]
+    },
+    {
+      "level": 10,
+      "duration_ms": 330000,
+      "min_shield": 11,
+      "max_shield": 11,
+      "raw": [
+        10,
+        330000,
+        11,
+        11
+      ]
+    },
+    {
+      "level": 11,
+      "duration_ms": 333000,
+      "min_shield": 12,
+      "max_shield": 12,
+      "raw": [
+        11,
+        333000,
+        12,
+        12
+      ]
+    },
+    {
+      "level": 12,
+      "duration_ms": 336000,
+      "min_shield": 12,
+      "max_shield": 12,
+      "raw": [
+        12,
+        336000,
+        12,
+        12
+      ]
+    },
+    {
+      "level": 13,
+      "duration_ms": 339000,
+      "min_shield": 13,
+      "max_shield": 13,
+      "raw": [
+        13,
+        339000,
+        13,
+        13
+      ]
+    },
+    {
+      "level": 14,
+      "duration_ms": 342000,
+      "min_shield": 14,
+      "max_shield": 14,
+      "raw": [
+        14,
+        342000,
+        14,
+        14
+      ]
+    },
+    {
+      "level": 15,
+      "duration_ms": 345000,
+      "min_shield": 15,
+      "max_shield": 15,
+      "raw": [
+        15,
+        345000,
+        15,
+        15
+      ]
+    },
+    {
+      "level": 16,
+      "duration_ms": 348000,
+      "min_shield": 15,
+      "max_shield": 15,
+      "raw": [
+        16,
+        348000,
+        15,
+        15
+      ]
+    },
+    {
+      "level": 17,
+      "duration_ms": 351000,
+      "min_shield": 16,
+      "max_shield": 16,
+      "raw": [
+        17,
+        351000,
+        16,
+        16
+      ]
+    },
+    {
+      "level": 18,
+      "duration_ms": 354000,
+      "min_shield": 17,
+      "max_shield": 17,
+      "raw": [
+        18,
+        354000,
+        17,
+        17
+      ]
+    },
+    {
+      "level": 19,
+      "duration_ms": 357000,
+      "min_shield": 18,
+      "max_shield": 18,
+      "raw": [
+        19,
+        357000,
+        18,
+        18
+      ]
+    },
+    {
+      "level": 20,
+      "duration_ms": 360000,
+      "min_shield": 18,
+      "max_shield": 18,
+      "raw": [
+        20,
+        360000,
+        18,
+        18
+      ]
+    },
+    {
+      "level": 21,
+      "duration_ms": 363000,
+      "min_shield": 19,
+      "max_shield": 19,
+      "raw": [
+        21,
+        363000,
+        19,
+        19
+      ]
+    },
+    {
+      "level": 22,
+      "duration_ms": 366000,
+      "min_shield": 20,
+      "max_shield": 20,
+      "raw": [
+        22,
+        366000,
+        20,
+        20
+      ]
+    },
+    {
+      "level": 23,
+      "duration_ms": 369000,
+      "min_shield": 20,
+      "max_shield": 20,
+      "raw": [
+        23,
+        369000,
+        20,
+        20
+      ]
+    },
+    {
+      "level": 24,
+      "duration_ms": 372000,
+      "min_shield": 21,
+      "max_shield": 21,
+      "raw": [
+        24,
+        372000,
+        21,
+        21
+      ]
+    },
+    {
+      "level": 25,
+      "duration_ms": 375000,
+      "min_shield": 22,
+      "max_shield": 22,
+      "raw": [
+        25,
+        375000,
+        22,
+        22
+      ]
+    },
+    {
+      "level": 26,
+      "duration_ms": 378000,
+      "min_shield": 23,
+      "max_shield": 23,
+      "raw": [
+        26,
+        378000,
+        23,
+        23
+      ]
+    },
+    {
+      "level": 27,
+      "duration_ms": 381000,
+      "min_shield": 23,
+      "max_shield": 23,
+      "raw": [
+        27,
+        381000,
+        23,
+        23
+      ]
+    },
+    {
+      "level": 28,
+      "duration_ms": 384000,
+      "min_shield": 24,
+      "max_shield": 24,
+      "raw": [
+        28,
+        384000,
+        24,
+        24
+      ]
+    },
+    {
+      "level": 29,
+      "duration_ms": 387000,
+      "min_shield": 25,
+      "max_shield": 25,
+      "raw": [
+        29,
+        387000,
+        25,
+        25
+      ]
+    },
+    {
+      "level": 30,
+      "duration_ms": 390000,
+      "min_shield": 26,
+      "max_shield": 26,
+      "raw": [
+        30,
+        390000,
+        26,
+        26
+      ]
+    },
+    {
+      "level": 31,
+      "duration_ms": 393000,
+      "min_shield": 26,
+      "max_shield": 26,
+      "raw": [
+        31,
+        393000,
+        26,
+        26
+      ]
+    },
+    {
+      "level": 32,
+      "duration_ms": 396000,
+      "min_shield": 27,
+      "max_shield": 27,
+      "raw": [
+        32,
+        396000,
+        27,
+        27
+      ]
+    },
+    {
+      "level": 33,
+      "duration_ms": 399000,
+      "min_shield": 28,
+      "max_shield": 28,
+      "raw": [
+        33,
+        399000,
+        28,
+        28
+      ]
+    },
+    {
+      "level": 34,
+      "duration_ms": 402000,
+      "min_shield": 29,
+      "max_shield": 29,
+      "raw": [
+        34,
+        402000,
+        29,
+        29
+      ]
+    },
+    {
+      "level": 35,
+      "duration_ms": 405000,
+      "min_shield": 29,
+      "max_shield": 29,
+      "raw": [
+        35,
+        405000,
+        29,
+        29
+      ]
+    },
+    {
+      "level": 36,
+      "duration_ms": 408000,
+      "min_shield": 30,
+      "max_shield": 30,
+      "raw": [
+        36,
+        408000,
+        30,
+        30
+      ]
+    },
+    {
+      "level": 37,
+      "duration_ms": 411000,
+      "min_shield": 31,
+      "max_shield": 31,
+      "raw": [
+        37,
+        411000,
+        31,
+        31
+      ]
+    },
+    {
+      "level": 38,
+      "duration_ms": 414000,
+      "min_shield": 31,
+      "max_shield": 31,
+      "raw": [
+        38,
+        414000,
+        31,
+        31
+      ]
+    },
+    {
+      "level": 39,
+      "duration_ms": 417000,
+      "min_shield": 32,
+      "max_shield": 32,
+      "raw": [
+        39,
+        417000,
+        32,
+        32
+      ]
+    },
+    {
+      "level": 40,
+      "duration_ms": 420000,
+      "min_shield": 33,
+      "max_shield": 33,
+      "raw": [
+        40,
+        420000,
+        33,
+        33
+      ]
+    },
+    {
+      "level": 41,
+      "duration_ms": 423000,
+      "min_shield": 34,
+      "max_shield": 34,
+      "raw": [
+        41,
+        423000,
+        34,
+        34
+      ]
+    },
+    {
+      "level": 42,
+      "duration_ms": 426000,
+      "min_shield": 34,
+      "max_shield": 34,
+      "raw": [
+        42,
+        426000,
+        34,
+        34
+      ]
+    },
+    {
+      "level": 43,
+      "duration_ms": 429000,
+      "min_shield": 35,
+      "max_shield": 35,
+      "raw": [
+        43,
+        429000,
+        35,
+        35
+      ]
+    },
+    {
+      "level": 44,
+      "duration_ms": 432000,
+      "min_shield": 36,
+      "max_shield": 36,
+      "raw": [
+        44,
+        432000,
+        36,
+        36
+      ]
+    },
+    {
+      "level": 45,
+      "duration_ms": 435000,
+      "min_shield": 37,
+      "max_shield": 37,
+      "raw": [
+        45,
+        435000,
+        37,
+        37
+      ]
+    },
+    {
+      "level": 46,
+      "duration_ms": 438000,
+      "min_shield": 37,
+      "max_shield": 37,
+      "raw": [
+        46,
+        438000,
+        37,
+        37
+      ]
+    },
+    {
+      "level": 47,
+      "duration_ms": 441000,
+      "min_shield": 38,
+      "max_shield": 38,
+      "raw": [
+        47,
+        441000,
+        38,
+        38
+      ]
+    },
+    {
+      "level": 48,
+      "duration_ms": 444000,
+      "min_shield": 39,
+      "max_shield": 39,
+      "raw": [
+        48,
+        444000,
+        39,
+        39
+      ]
+    },
+    {
+      "level": 49,
+      "duration_ms": 447000,
+      "min_shield": 40,
+      "max_shield": 40,
+      "raw": [
+        49,
+        447000,
+        40,
+        40
+      ]
+    },
+    {
+      "level": 50,
+      "duration_ms": 450000,
+      "min_shield": 40,
+      "max_shield": 40,
+      "raw": [
+        50,
+        450000,
+        40,
+        40
+      ]
+    },
+    {
+      "level": 51,
+      "duration_ms": 453000,
+      "min_shield": 41,
+      "max_shield": 41,
+      "raw": [
+        51,
+        453000,
+        41,
+        41
+      ]
+    },
+    {
+      "level": 52,
+      "duration_ms": 456000,
+      "min_shield": 42,
+      "max_shield": 42,
+      "raw": [
+        52,
+        456000,
+        42,
+        42
+      ]
+    },
+    {
+      "level": 53,
+      "duration_ms": 459000,
+      "min_shield": 42,
+      "max_shield": 42,
+      "raw": [
+        53,
+        459000,
+        42,
+        42
+      ]
+    },
+    {
+      "level": 54,
+      "duration_ms": 462000,
+      "min_shield": 43,
+      "max_shield": 43,
+      "raw": [
+        54,
+        462000,
+        43,
+        43
+      ]
+    },
+    {
+      "level": 55,
+      "duration_ms": 465000,
+      "min_shield": 44,
+      "max_shield": 44,
+      "raw": [
+        55,
+        465000,
+        44,
+        44
+      ]
+    },
+    {
+      "level": 56,
+      "duration_ms": 468000,
+      "min_shield": 45,
+      "max_shield": 45,
+      "raw": [
+        56,
+        468000,
+        45,
+        45
+      ]
+    },
+    {
+      "level": 57,
+      "duration_ms": 471000,
+      "min_shield": 45,
+      "max_shield": 45,
+      "raw": [
+        57,
+        471000,
+        45,
+        45
+      ]
+    },
+    {
+      "level": 58,
+      "duration_ms": 474000,
+      "min_shield": 46,
+      "max_shield": 46,
+      "raw": [
+        58,
+        474000,
+        46,
+        46
+      ]
+    },
+    {
+      "level": 59,
+      "duration_ms": 477000,
+      "min_shield": 47,
+      "max_shield": 47,
+      "raw": [
+        59,
+        477000,
+        47,
+        47
+      ]
+    },
+    {
+      "level": 60,
+      "duration_ms": 480000,
+      "min_shield": 48,
+      "max_shield": 48,
+      "raw": [
+        60,
+        480000,
+        48,
+        48
+      ]
+    },
+    {
+      "level": 61,
+      "duration_ms": 483000,
+      "min_shield": 48,
+      "max_shield": 48,
+      "raw": [
+        61,
+        483000,
+        48,
+        48
+      ]
+    },
+    {
+      "level": 62,
+      "duration_ms": 486000,
+      "min_shield": 49,
+      "max_shield": 49,
+      "raw": [
+        62,
+        486000,
+        49,
+        49
+      ]
+    },
+    {
+      "level": 63,
+      "duration_ms": 489000,
+      "min_shield": 50,
+      "max_shield": 50,
+      "raw": [
+        63,
+        489000,
+        50,
+        50
+      ]
+    },
+    {
+      "level": 64,
+      "duration_ms": 492000,
+      "min_shield": 50,
+      "max_shield": 50,
+      "raw": [
+        64,
+        492000,
+        50,
+        50
+      ]
+    },
+    {
+      "level": 65,
+      "duration_ms": 495000,
+      "min_shield": 51,
+      "max_shield": 51,
+      "raw": [
+        65,
+        495000,
+        51,
+        51
+      ]
+    },
+    {
+      "level": 66,
+      "duration_ms": 498000,
+      "min_shield": 52,
+      "max_shield": 52,
+      "raw": [
+        66,
+        498000,
+        52,
+        52
+      ]
+    },
+    {
+      "level": 67,
+      "duration_ms": 501000,
+      "min_shield": 53,
+      "max_shield": 53,
+      "raw": [
+        67,
+        501000,
+        53,
+        53
+      ]
+    },
+    {
+      "level": 68,
+      "duration_ms": 504000,
+      "min_shield": 53,
+      "max_shield": 53,
+      "raw": [
+        68,
+        504000,
+        53,
+        53
+      ]
+    },
+    {
+      "level": 69,
+      "duration_ms": 507000,
+      "min_shield": 54,
+      "max_shield": 54,
+      "raw": [
+        69,
+        507000,
+        54,
+        54
+      ]
+    },
+    {
+      "level": 70,
+      "duration_ms": 510000,
+      "min_shield": 55,
+      "max_shield": 55,
+      "raw": [
+        70,
+        510000,
+        55,
+        55
+      ]
+    },
+    {
+      "level": 71,
+      "duration_ms": 513000,
+      "min_shield": 56,
+      "max_shield": 56,
+      "raw": [
+        71,
+        513000,
+        56,
+        56
+      ]
+    },
+    {
+      "level": 72,
+      "duration_ms": 516000,
+      "min_shield": 56,
+      "max_shield": 56,
+      "raw": [
+        72,
+        516000,
+        56,
+        56
+      ]
+    },
+    {
+      "level": 73,
+      "duration_ms": 519000,
+      "min_shield": 57,
+      "max_shield": 57,
+      "raw": [
+        73,
+        519000,
+        57,
+        57
+      ]
+    },
+    {
+      "level": 74,
+      "duration_ms": 522000,
+      "min_shield": 58,
+      "max_shield": 58,
+      "raw": [
+        74,
+        522000,
+        58,
+        58
+      ]
+    },
+    {
+      "level": 75,
+      "duration_ms": 525000,
+      "min_shield": 59,
+      "max_shield": 59,
+      "raw": [
+        75,
+        525000,
+        59,
+        59
+      ]
+    },
+    {
+      "level": 76,
+      "duration_ms": 528000,
+      "min_shield": 59,
+      "max_shield": 59,
+      "raw": [
+        76,
+        528000,
+        59,
+        59
+      ]
+    },
+    {
+      "level": 77,
+      "duration_ms": 531000,
+      "min_shield": 60,
+      "max_shield": 60,
+      "raw": [
+        77,
+        531000,
+        60,
+        60
+      ]
+    },
+    {
+      "level": 78,
+      "duration_ms": 534000,
+      "min_shield": 61,
+      "max_shield": 61,
+      "raw": [
+        78,
+        534000,
+        61,
+        61
+      ]
+    },
+    {
+      "level": 79,
+      "duration_ms": 537000,
+      "min_shield": 61,
+      "max_shield": 61,
+      "raw": [
+        79,
+        537000,
+        61,
+        61
+      ]
+    },
+    {
+      "level": 80,
+      "duration_ms": 540000,
+      "min_shield": 62,
+      "max_shield": 62,
+      "raw": [
+        80,
+        540000,
+        62,
+        62
+      ]
+    },
+    {
+      "level": 81,
+      "duration_ms": 543000,
+      "min_shield": 63,
+      "max_shield": 63,
+      "raw": [
+        81,
+        543000,
+        63,
+        63
+      ]
+    },
+    {
+      "level": 82,
+      "duration_ms": 546000,
+      "min_shield": 64,
+      "max_shield": 64,
+      "raw": [
+        82,
+        546000,
+        64,
+        64
+      ]
+    },
+    {
+      "level": 83,
+      "duration_ms": 549000,
+      "min_shield": 64,
+      "max_shield": 64,
+      "raw": [
+        83,
+        549000,
+        64,
+        64
+      ]
+    },
+    {
+      "level": 84,
+      "duration_ms": 552000,
+      "min_shield": 65,
+      "max_shield": 65,
+      "raw": [
+        84,
+        552000,
+        65,
+        65
+      ]
+    },
+    {
+      "level": 85,
+      "duration_ms": 555000,
+      "min_shield": 66,
+      "max_shield": 66,
+      "raw": [
+        85,
+        555000,
+        66,
+        66
+      ]
+    },
+    {
+      "level": 86,
+      "duration_ms": 558000,
+      "min_shield": 67,
+      "max_shield": 67,
+      "raw": [
+        86,
+        558000,
+        67,
+        67
+      ]
+    },
+    {
+      "level": 87,
+      "duration_ms": 561000,
+      "min_shield": 67,
+      "max_shield": 67,
+      "raw": [
+        87,
+        561000,
+        67,
+        67
+      ]
+    },
+    {
+      "level": 88,
+      "duration_ms": 564000,
+      "min_shield": 68,
+      "max_shield": 68,
+      "raw": [
+        88,
+        564000,
+        68,
+        68
+      ]
+    },
+    {
+      "level": 89,
+      "duration_ms": 567000,
+      "min_shield": 69,
+      "max_shield": 69,
+      "raw": [
+        89,
+        567000,
+        69,
+        69
+      ]
+    },
+    {
+      "level": 90,
+      "duration_ms": 570000,
+      "min_shield": 70,
+      "max_shield": 70,
+      "raw": [
+        90,
+        570000,
+        70,
+        70
+      ]
+    },
+    {
+      "level": 91,
+      "duration_ms": 573000,
+      "min_shield": 70,
+      "max_shield": 70,
+      "raw": [
+        91,
+        573000,
+        70,
+        70
+      ]
+    },
+    {
+      "level": 92,
+      "duration_ms": 576000,
+      "min_shield": 71,
+      "max_shield": 71,
+      "raw": [
+        92,
+        576000,
+        71,
+        71
+      ]
+    },
+    {
+      "level": 93,
+      "duration_ms": 579000,
+      "min_shield": 72,
+      "max_shield": 72,
+      "raw": [
+        93,
+        579000,
+        72,
+        72
+      ]
+    },
+    {
+      "level": 94,
+      "duration_ms": 582000,
+      "min_shield": 72,
+      "max_shield": 72,
+      "raw": [
+        94,
+        582000,
+        72,
+        72
+      ]
+    },
+    {
+      "level": 95,
+      "duration_ms": 585000,
+      "min_shield": 73,
+      "max_shield": 73,
+      "raw": [
+        95,
+        585000,
+        73,
+        73
+      ]
+    },
+    {
+      "level": 96,
+      "duration_ms": 588000,
+      "min_shield": 74,
+      "max_shield": 74,
+      "raw": [
+        96,
+        588000,
+        74,
+        74
+      ]
+    },
+    {
+      "level": 97,
+      "duration_ms": 591000,
+      "min_shield": 75,
+      "max_shield": 75,
+      "raw": [
+        97,
+        591000,
+        75,
+        75
+      ]
+    },
+    {
+      "level": 98,
+      "duration_ms": 594000,
+      "min_shield": 75,
+      "max_shield": 75,
+      "raw": [
+        98,
+        594000,
+        75,
+        75
+      ]
+    },
+    {
+      "level": 99,
+      "duration_ms": 597000,
+      "min_shield": 76,
+      "max_shield": 76,
+      "raw": [
+        99,
+        597000,
+        76,
+        76
+      ]
+    },
+    {
+      "level": 100,
+      "duration_ms": 600000,
+      "min_shield": 77,
+      "max_shield": 77,
+      "raw": [
+        100,
+        600000,
+        77,
+        77
+      ]
+    },
+    {
+      "level": 101,
+      "duration_ms": 603000,
+      "min_shield": 78,
+      "max_shield": 78,
+      "raw": [
+        101,
+        603000,
+        78,
+        78
+      ]
+    },
+    {
+      "level": 102,
+      "duration_ms": 606000,
+      "min_shield": 80,
+      "max_shield": 80,
+      "raw": [
+        102,
+        606000,
+        80,
+        80
+      ]
+    },
+    {
+      "level": 103,
+      "duration_ms": 609000,
+      "min_shield": 81,
+      "max_shield": 81,
+      "raw": [
+        103,
+        609000,
+        81,
+        81
+      ]
+    },
+    {
+      "level": 104,
+      "duration_ms": 612000,
+      "min_shield": 83,
+      "max_shield": 83,
+      "raw": [
+        104,
+        612000,
+        83,
+        83
+      ]
+    },
+    {
+      "level": 105,
+      "duration_ms": 615000,
+      "min_shield": 84,
+      "max_shield": 84,
+      "raw": [
+        105,
+        615000,
+        84,
+        84
+      ]
+    },
+    {
+      "level": 106,
+      "duration_ms": 618000,
+      "min_shield": 86,
+      "max_shield": 86,
+      "raw": [
+        106,
+        618000,
+        86,
+        86
+      ]
+    },
+    {
+      "level": 107,
+      "duration_ms": 621000,
+      "min_shield": 87,
+      "max_shield": 87,
+      "raw": [
+        107,
+        621000,
+        87,
+        87
+      ]
+    },
+    {
+      "level": 108,
+      "duration_ms": 624000,
+      "min_shield": 89,
+      "max_shield": 89,
+      "raw": [
+        108,
+        624000,
+        89,
+        89
+      ]
+    },
+    {
+      "level": 109,
+      "duration_ms": 627000,
+      "min_shield": 90,
+      "max_shield": 90,
+      "raw": [
+        109,
+        627000,
+        90,
+        90
+      ]
+    },
+    {
+      "level": 110,
+      "duration_ms": 630000,
+      "min_shield": 91,
+      "max_shield": 91,
+      "raw": [
+        110,
+        630000,
+        91,
+        91
+      ]
+    },
+    {
+      "level": 111,
+      "duration_ms": 633000,
+      "min_shield": 93,
+      "max_shield": 93,
+      "raw": [
+        111,
+        633000,
+        93,
+        93
+      ]
+    },
+    {
+      "level": 112,
+      "duration_ms": 636000,
+      "min_shield": 94,
+      "max_shield": 94,
+      "raw": [
+        112,
+        636000,
+        94,
+        94
+      ]
+    },
+    {
+      "level": 113,
+      "duration_ms": 639000,
+      "min_shield": 96,
+      "max_shield": 96,
+      "raw": [
+        113,
+        639000,
+        96,
+        96
+      ]
+    },
+    {
+      "level": 114,
+      "duration_ms": 642000,
+      "min_shield": 97,
+      "max_shield": 97,
+      "raw": [
+        114,
+        642000,
+        97,
+        97
+      ]
+    },
+    {
+      "level": 115,
+      "duration_ms": 645000,
+      "min_shield": 99,
+      "max_shield": 99,
+      "raw": [
+        115,
+        645000,
+        99,
+        99
+      ]
+    },
+    {
+      "level": 116,
+      "duration_ms": 648000,
+      "min_shield": 100,
+      "max_shield": 100,
+      "raw": [
+        116,
+        648000,
+        100,
+        100
+      ]
+    },
+    {
+      "level": 117,
+      "duration_ms": 651000,
+      "min_shield": 102,
+      "max_shield": 102,
+      "raw": [
+        117,
+        651000,
+        102,
+        102
+      ]
+    },
+    {
+      "level": 118,
+      "duration_ms": 654000,
+      "min_shield": 103,
+      "max_shield": 103,
+      "raw": [
+        118,
+        654000,
+        103,
+        103
+      ]
+    },
+    {
+      "level": 119,
+      "duration_ms": 657000,
+      "min_shield": 105,
+      "max_shield": 105,
+      "raw": [
+        119,
+        657000,
+        105,
+        105
+      ]
+    },
+    {
+      "level": 120,
+      "duration_ms": 660000,
+      "min_shield": 106,
+      "max_shield": 106,
+      "raw": [
+        120,
+        660000,
+        106,
+        106
+      ]
+    },
+    {
+      "level": 121,
+      "duration_ms": 663000,
+      "min_shield": 108,
+      "max_shield": 108,
+      "raw": [
+        121,
+        663000,
+        108,
+        108
+      ]
+    },
+    {
+      "level": 122,
+      "duration_ms": 666000,
+      "min_shield": 109,
+      "max_shield": 109,
+      "raw": [
+        122,
+        666000,
+        109,
+        109
+      ]
+    },
+    {
+      "level": 123,
+      "duration_ms": 669000,
+      "min_shield": 110,
+      "max_shield": 110,
+      "raw": [
+        123,
+        669000,
+        110,
+        110
+      ]
+    },
+    {
+      "level": 124,
+      "duration_ms": 672000,
+      "min_shield": 112,
+      "max_shield": 112,
+      "raw": [
+        124,
+        672000,
+        112,
+        112
+      ]
+    },
+    {
+      "level": 125,
+      "duration_ms": 675000,
+      "min_shield": 113,
+      "max_shield": 113,
+      "raw": [
+        125,
+        675000,
+        113,
+        113
+      ]
+    },
+    {
+      "level": 126,
+      "duration_ms": 678000,
+      "min_shield": 115,
+      "max_shield": 115,
+      "raw": [
+        126,
+        678000,
+        115,
+        115
+      ]
+    },
+    {
+      "level": 127,
+      "duration_ms": 681000,
+      "min_shield": 116,
+      "max_shield": 116,
+      "raw": [
+        127,
+        681000,
+        116,
+        116
+      ]
+    },
+    {
+      "level": 128,
+      "duration_ms": 684000,
+      "min_shield": 118,
+      "max_shield": 118,
+      "raw": [
+        128,
+        684000,
+        118,
+        118
+      ]
+    },
+    {
+      "level": 129,
+      "duration_ms": 687000,
+      "min_shield": 119,
+      "max_shield": 119,
+      "raw": [
+        129,
+        687000,
+        119,
+        119
+      ]
+    },
+    {
+      "level": 130,
+      "duration_ms": 690000,
+      "min_shield": 121,
+      "max_shield": 121,
+      "raw": [
+        130,
+        690000,
+        121,
+        121
+      ]
+    },
+    {
+      "level": 131,
+      "duration_ms": 693000,
+      "min_shield": 122,
+      "max_shield": 122,
+      "raw": [
+        131,
+        693000,
+        122,
+        122
+      ]
+    },
+    {
+      "level": 132,
+      "duration_ms": 696000,
+      "min_shield": 124,
+      "max_shield": 124,
+      "raw": [
+        132,
+        696000,
+        124,
+        124
+      ]
+    },
+    {
+      "level": 133,
+      "duration_ms": 699000,
+      "min_shield": 125,
+      "max_shield": 125,
+      "raw": [
+        133,
+        699000,
+        125,
+        125
+      ]
+    },
+    {
+      "level": 134,
+      "duration_ms": 702000,
+      "min_shield": 127,
+      "max_shield": 127,
+      "raw": [
+        134,
+        702000,
+        127,
+        127
+      ]
+    },
+    {
+      "level": 135,
+      "duration_ms": 705000,
+      "min_shield": 128,
+      "max_shield": 128,
+      "raw": [
+        135,
+        705000,
+        128,
+        128
+      ]
+    },
+    {
+      "level": 136,
+      "duration_ms": 708000,
+      "min_shield": 130,
+      "max_shield": 130,
+      "raw": [
+        136,
+        708000,
+        130,
+        130
+      ]
+    },
+    {
+      "level": 137,
+      "duration_ms": 711000,
+      "min_shield": 131,
+      "max_shield": 131,
+      "raw": [
+        137,
+        711000,
+        131,
+        131
+      ]
+    },
+    {
+      "level": 138,
+      "duration_ms": 714000,
+      "min_shield": 132,
+      "max_shield": 132,
+      "raw": [
+        138,
+        714000,
+        132,
+        132
+      ]
+    },
+    {
+      "level": 139,
+      "duration_ms": 717000,
+      "min_shield": 134,
+      "max_shield": 134,
+      "raw": [
+        139,
+        717000,
+        134,
+        134
+      ]
+    },
+    {
+      "level": 140,
+      "duration_ms": 720000,
+      "min_shield": 135,
+      "max_shield": 135,
+      "raw": [
+        140,
+        720000,
+        135,
+        135
+      ]
+    },
+    {
+      "level": 141,
+      "duration_ms": 723000,
+      "min_shield": 137,
+      "max_shield": 137,
+      "raw": [
+        141,
+        723000,
+        137,
+        137
+      ]
+    },
+    {
+      "level": 142,
+      "duration_ms": 726000,
+      "min_shield": 138,
+      "max_shield": 138,
+      "raw": [
+        142,
+        726000,
+        138,
+        138
+      ]
+    },
+    {
+      "level": 143,
+      "duration_ms": 729000,
+      "min_shield": 140,
+      "max_shield": 140,
+      "raw": [
+        143,
+        729000,
+        140,
+        140
+      ]
+    },
+    {
+      "level": 144,
+      "duration_ms": 732000,
+      "min_shield": 141,
+      "max_shield": 141,
+      "raw": [
+        144,
+        732000,
+        141,
+        141
+      ]
+    },
+    {
+      "level": 145,
+      "duration_ms": 735000,
+      "min_shield": 143,
+      "max_shield": 143,
+      "raw": [
+        145,
+        735000,
+        143,
+        143
+      ]
+    },
+    {
+      "level": 146,
+      "duration_ms": 738000,
+      "min_shield": 144,
+      "max_shield": 144,
+      "raw": [
+        146,
+        738000,
+        144,
+        144
+      ]
+    },
+    {
+      "level": 147,
+      "duration_ms": 741000,
+      "min_shield": 146,
+      "max_shield": 146,
+      "raw": [
+        147,
+        741000,
+        146,
+        146
+      ]
+    },
+    {
+      "level": 148,
+      "duration_ms": 744000,
+      "min_shield": 147,
+      "max_shield": 147,
+      "raw": [
+        148,
+        744000,
+        147,
+        147
+      ]
+    },
+    {
+      "level": 149,
+      "duration_ms": 747000,
+      "min_shield": 149,
+      "max_shield": 149,
+      "raw": [
+        149,
+        747000,
+        149,
+        149
+      ]
+    },
+    {
+      "level": 150,
+      "duration_ms": 750000,
+      "min_shield": 150,
+      "max_shield": 150,
+      "raw": [
+        150,
+        750000,
+        150,
+        150
+      ]
+    }
+  ]
+}

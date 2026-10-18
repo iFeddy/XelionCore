@@ -1,0 +1,22 @@
+{
+  "mob": "AdlF_Fknuckleman",
+  "sequence": [
+    {
+      "order": 0,
+      "attack": "-"
+    },
+    {
+      "order": 1,
+      "attack": "FKnuckleman_Skill_N01"
+    },
+    {
+      "order": 2,
+      "attack": "FKnuckleman_Skill_N_OPU"
+    },
+    {
+      "order": 3,
+      "attack": "FKnuckleman_Skill_N02"
+    }
+  ],
+  "skill_changes": []
+}

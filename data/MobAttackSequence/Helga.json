@@ -1,0 +1,198 @@
+{
+  "mob": "Helga",
+  "sequence": [
+    {
+      "order": 0,
+      "attack": "B_HelgaAtkskill5"
+    },
+    {
+      "order": 1,
+      "attack": "B_HelgaHeal1"
+    },
+    {
+      "order": 2,
+      "attack": "B_HelgaAtkskill4"
+    },
+    {
+      "order": 3,
+      "attack": "-"
+    },
+    {
+      "order": 4,
+      "attack": "B_HelgaAtkskill1"
+    },
+    {
+      "order": 5,
+      "attack": "-"
+    },
+    {
+      "order": 6,
+      "attack": "B_HelgaAtkskill3"
+    },
+    {
+      "order": 7,
+      "attack": "B_HelgaAtkskill5"
+    },
+    {
+      "order": 8,
+      "attack": "-"
+    },
+    {
+      "order": 9,
+      "attack": "B_HelgaHeal1"
+    },
+    {
+      "order": 10,
+      "attack": "B_HelgaAtkskill2"
+    },
+    {
+      "order": 11,
+      "attack": "-"
+    },
+    {
+      "order": 12,
+      "attack": "B_HelgaAtkskill3"
+    },
+    {
+      "order": 13,
+      "attack": "B_HelgaAtkskill4"
+    },
+    {
+      "order": 14,
+      "attack": "-"
+    },
+    {
+      "order": 15,
+      "attack": "B_HelgaAtkskill3"
+    },
+    {
+      "order": 16,
+      "attack": "B_HelgaAtkskill5"
+    },
+    {
+      "order": 17,
+      "attack": "-"
+    },
+    {
+      "order": 18,
+      "attack": "B_HelgaHeal1"
+    },
+    {
+      "order": 19,
+      "attack": "B_HelgaAtkskill1"
+    },
+    {
+      "order": 20,
+      "attack": "-"
+    },
+    {
+      "order": 21,
+      "attack": "B_HelgaAtkskill3"
+    },
+    {
+      "order": 22,
+      "attack": "B_HelgaAtkskill5"
+    },
+    {
+      "order": 23,
+      "attack": "-"
+    },
+    {
+      "order": 24,
+      "attack": "B_HelgaAtkskill2"
+    },
+    {
+      "order": 25,
+      "attack": "B_HelgaHeal1"
+    },
+    {
+      "order": 26,
+      "attack": "B_HelgaAtkskill1"
+    },
+    {
+      "order": 27,
+      "attack": "-"
+    },
+    {
+      "order": 28,
+      "attack": "B_HelgaAtkskill3"
+    },
+    {
+      "order": 29,
+      "attack": "B_HelgaAtkskill3"
+    },
+    {
+      "order": 30,
+      "attack": "B_HelgaAtkskill5"
+    },
+    {
+      "order": 31,
+      "attack": "-"
+    },
+    {
+      "order": 32,
+      "attack": "B_HelgaAtkskill4"
+    },
+    {
+      "order": 33,
+      "attack": "-"
+    },
+    {
+      "order": 34,
+      "attack": "B_HelgaAtkskill1"
+    },
+    {
+      "order": 35,
+      "attack": "-"
+    },
+    {
+      "order": 36,
+      "attack": "B_HelgaHeal1"
+    },
+    {
+      "order": 37,
+      "attack": "B_HelgaAtkskill3"
+    },
+    {
+      "order": 38,
+      "attack": "B_HelgaAtkskill5"
+    },
+    {
+      "order": 39,
+      "attack": "-"
+    },
+    {
+      "order": 40,
+      "attack": "B_HelgaAtkskill2"
+    },
+    {
+      "order": 41,
+      "attack": "-"
+    },
+    {
+      "order": 42,
+      "attack": "B_HelgaHeal1"
+    },
+    {
+      "order": 43,
+      "attack": "B_HelgaAtkskill3"
+    },
+    {
+      "order": 44,
+      "attack": "B_HelgaAtkskill5"
+    },
+    {
+      "order": 45,
+      "attack": "-"
+    },
+    {
+      "order": 46,
+      "attack": "B_HelgaAtkskill3"
+    },
+    {
+      "order": 47,
+      "attack": "B_HelgaAtkskill4"
+    }
+  ],
+  "skill_changes": []
+}

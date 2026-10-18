@@ -1,0 +1,107 @@
+{
+  "mob": "Psy_Wraith",
+  "sequence": [
+    {
+      "order": 0,
+      "attack": "-"
+    },
+    {
+      "order": 1,
+      "attack": "GhostLumpSkill"
+    },
+    {
+      "order": 2,
+      "attack": "-"
+    },
+    {
+      "order": 3,
+      "attack": "Psy_Wraith_Skill_N"
+    },
+    {
+      "order": 4,
+      "attack": "-"
+    },
+    {
+      "order": 5,
+      "attack": "-"
+    },
+    {
+      "order": 6,
+      "attack": "-"
+    },
+    {
+      "order": 7,
+      "attack": "Psy_Wraith_Skill_N"
+    },
+    {
+      "order": 8,
+      "attack": "-"
+    },
+    {
+      "order": 9,
+      "attack": "GhostLumpSkill"
+    },
+    {
+      "order": 10,
+      "attack": "-"
+    },
+    {
+      "order": 11,
+      "attack": "-"
+    },
+    {
+      "order": 12,
+      "attack": "GhostLumpSkill"
+    },
+    {
+      "order": 13,
+      "attack": "-"
+    },
+    {
+      "order": 14,
+      "attack": "Psy_Wraith_Skill_N"
+    },
+    {
+      "order": 15,
+      "attack": "-"
+    },
+    {
+      "order": 16,
+      "attack": "-"
+    },
+    {
+      "order": 17,
+      "attack": "-"
+    },
+    {
+      "order": 18,
+      "attack": "Psy_Wraith_Skill_N"
+    },
+    {
+      "order": 19,
+      "attack": "-"
+    },
+    {
+      "order": 20,
+      "attack": "GhostLumpSkill"
+    },
+    {
+      "order": 21,
+      "attack": "-"
+    }
+  ],
+  "skill_changes": [
+    {
+      "condition": "OutOfRange",
+      "value": "-",
+      "from": "-",
+      "to": "Psy_Wraith_Skill_N"
+    },
+    {
+      "condition": "OutOfRange",
+      "value": "-",
+      "from": "GhostLumpSkill",
+      "to": "Psy_Wraith_Skill_N"
+    }
+  ]
+}

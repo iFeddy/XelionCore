@@ -1,0 +1,67 @@
+{
+  "merchant": "UruItemMctVellon",
+  "tabs": [
+    {
+      "tab": "Tab00",
+      "title": "아이템 상점(우르가)",
+      "rows": [
+        [
+          "Grade6",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-"
+        ],
+        [
+          "FlyStone",
+          "Hobby01",
+          "-",
+          "-",
+          "-",
+          "-"
+        ],
+        [
+          "House_MushRoom01",
+          "House_MushRoom02",
+          "House_MushRoom03",
+          "-",
+          "-",
+          "-"
+        ],
+        [
+          "Converter1",
+          "Converter2",
+          "Converter3",
+          "Converter4",
+          "Converter5",
+          "-"
+        ],
+        [
+          "NorMagicCrystal",
+          "NorBeastLeather",
+          "NorMeat",
+          "NorSkin",
+          "NorSpiritDust",
+          "NorBrokenBone"
+        ],
+        [
+          "NorCleanWater",
+          "NorKylinLeather",
+          "NorPledge",
+          "NorGemDust",
+          "NorSoulDust",
+          "NorBeastTooth"
+        ],
+        [
+          "GoldColl01",
+          "FireColl01",
+          "ThoroColl01",
+          "RedColl01",
+          "Hay",
+          "-"
+        ]
+      ]
+    }
+  ]
+}

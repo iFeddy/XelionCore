@@ -1,0 +1,54 @@
+{
+  "mob": "Anti_Henis_C69",
+  "sequence": [
+    {
+      "order": 0,
+      "attack": "-"
+    },
+    {
+      "order": 1,
+      "attack": "Wield09"
+    },
+    {
+      "order": 2,
+      "attack": "Heal12"
+    },
+    {
+      "order": 3,
+      "attack": "PsychicBlunt04"
+    },
+    {
+      "order": 4,
+      "attack": "-"
+    },
+    {
+      "order": 5,
+      "attack": "Wield09"
+    },
+    {
+      "order": 6,
+      "attack": "Heal12"
+    },
+    {
+      "order": 7,
+      "attack": "PsychicBlunt04"
+    },
+    {
+      "order": 8,
+      "attack": "-"
+    },
+    {
+      "order": 9,
+      "attack": "Wield09"
+    },
+    {
+      "order": 10,
+      "attack": "Heal12"
+    },
+    {
+      "order": 11,
+      "attack": "PsychicBlunt04"
+    }
+  ],
+  "skill_changes": []
+}

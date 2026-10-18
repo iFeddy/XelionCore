@@ -1,0 +1,54 @@
+{
+  "mob": "Anti_Henis_A64",
+  "sequence": [
+    {
+      "order": 0,
+      "attack": "-"
+    },
+    {
+      "order": 1,
+      "attack": "PowerShot05"
+    },
+    {
+      "order": 2,
+      "attack": "BoneArrow05"
+    },
+    {
+      "order": 3,
+      "attack": "PoisonShot04"
+    },
+    {
+      "order": 4,
+      "attack": "-"
+    },
+    {
+      "order": 5,
+      "attack": "PowerShot05"
+    },
+    {
+      "order": 6,
+      "attack": "BoneArrow05"
+    },
+    {
+      "order": 7,
+      "attack": "PoisonShot04"
+    },
+    {
+      "order": 8,
+      "attack": "-"
+    },
+    {
+      "order": 9,
+      "attack": "PowerShot05"
+    },
+    {
+      "order": 10,
+      "attack": "BoneArrow05"
+    },
+    {
+      "order": 11,
+      "attack": "PoisonShot04"
+    }
+  ],
+  "skill_changes": []
+}

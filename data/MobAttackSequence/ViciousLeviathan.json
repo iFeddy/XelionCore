@@ -1,0 +1,97 @@
+{
+  "mob": "ViciousLeviathan",
+  "sequence": [
+    {
+      "order": 0,
+      "attack": "-"
+    },
+    {
+      "order": 1,
+      "attack": "-"
+    },
+    {
+      "order": 2,
+      "attack": "VLeviathanCry"
+    },
+    {
+      "order": 3,
+      "attack": "-"
+    },
+    {
+      "order": 4,
+      "attack": "VLeviathanPoison"
+    },
+    {
+      "order": 5,
+      "attack": "-"
+    },
+    {
+      "order": 6,
+      "attack": "-"
+    },
+    {
+      "order": 7,
+      "attack": "-"
+    },
+    {
+      "order": 8,
+      "attack": "VLJewelPower"
+    },
+    {
+      "order": 9,
+      "attack": "-"
+    },
+    {
+      "order": 10,
+      "attack": "-"
+    },
+    {
+      "order": 11,
+      "attack": "-"
+    },
+    {
+      "order": 19,
+      "attack": "-"
+    },
+    {
+      "order": 20,
+      "attack": "VLeviathanPoison"
+    },
+    {
+      "order": 21,
+      "attack": "-"
+    },
+    {
+      "order": 22,
+      "attack": "-"
+    },
+    {
+      "order": 23,
+      "attack": "-"
+    },
+    {
+      "order": 24,
+      "attack": "-"
+    },
+    {
+      "order": 25,
+      "attack": "VLeviathanBlind"
+    },
+    {
+      "order": 26,
+      "attack": "-"
+    },
+    {
+      "order": 27,
+      "attack": "-"
+    }
+  ],
+  "skill_changes": [
+    {
+      "condition": "OutOfRange",
+      "value": "-",
+      "from": "-",
+      "to": "-"
+    }
+  ]
+}

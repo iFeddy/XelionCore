@@ -1,0 +1,22 @@
+{
+  "route": "GB_Waitress06",
+  "loop_mode": "rotate",
+  "total_points": 3,
+  "points": [
+    {
+      "id": 0,
+      "x": 1435,
+      "y": 1751
+    },
+    {
+      "id": 1,
+      "x": 948,
+      "y": 2252
+    },
+    {
+      "id": 2,
+      "x": 1435,
+      "y": 1751
+    }
+  ]
+}

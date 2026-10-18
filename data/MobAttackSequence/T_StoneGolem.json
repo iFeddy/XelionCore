@@ -1,0 +1,78 @@
+{
+  "mob": "T_StoneGolem",
+  "sequence": [
+    {
+      "order": 0,
+      "attack": "-"
+    },
+    {
+      "order": 1,
+      "attack": "-"
+    },
+    {
+      "order": 2,
+      "attack": "T_StoneGolem_Atk0"
+    },
+    {
+      "order": 3,
+      "attack": "-"
+    },
+    {
+      "order": 4,
+      "attack": "-"
+    },
+    {
+      "order": 5,
+      "attack": "T_StoneGolem_Atk1"
+    },
+    {
+      "order": 6,
+      "attack": "-"
+    },
+    {
+      "order": 7,
+      "attack": "-"
+    },
+    {
+      "order": 8,
+      "attack": "T_StoneGolem_Wide0"
+    },
+    {
+      "order": 9,
+      "attack": "-"
+    },
+    {
+      "order": 10,
+      "attack": "-"
+    },
+    {
+      "order": 11,
+      "attack": "T_StoneGolem_Atk0"
+    },
+    {
+      "order": 12,
+      "attack": "-"
+    },
+    {
+      "order": 13,
+      "attack": "-"
+    },
+    {
+      "order": 14,
+      "attack": "T_StoneGolem_Atk1"
+    },
+    {
+      "order": 15,
+      "attack": "-"
+    },
+    {
+      "order": 16,
+      "attack": "-"
+    },
+    {
+      "order": 17,
+      "attack": "T_StoneGolem_Buf0"
+    }
+  ],
+  "skill_changes": []
+}

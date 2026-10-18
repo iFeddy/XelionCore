@@ -1,0 +1,161 @@
+{
+  "mob": "Karen",
+  "sequence": [
+    {
+      "order": 0,
+      "attack": "-"
+    },
+    {
+      "order": 1,
+      "attack": "-"
+    },
+    {
+      "order": 2,
+      "attack": "KarenWide"
+    },
+    {
+      "order": 3,
+      "attack": "-"
+    },
+    {
+      "order": 4,
+      "attack": "KarenWingWide"
+    },
+    {
+      "order": 5,
+      "attack": "-"
+    },
+    {
+      "order": 6,
+      "attack": "KarenWingAtk"
+    },
+    {
+      "order": 7,
+      "attack": "-"
+    },
+    {
+      "order": 8,
+      "attack": "KarenWingAtk"
+    },
+    {
+      "order": 9,
+      "attack": "-"
+    },
+    {
+      "order": 10,
+      "attack": "KarenWide"
+    },
+    {
+      "order": 11,
+      "attack": "-"
+    },
+    {
+      "order": 12,
+      "attack": "-"
+    },
+    {
+      "order": 13,
+      "attack": "KarenWingAtk"
+    },
+    {
+      "order": 14,
+      "attack": "KarenSPMinus"
+    },
+    {
+      "order": 15,
+      "attack": "KarenWide"
+    },
+    {
+      "order": 16,
+      "attack": "-"
+    },
+    {
+      "order": 17,
+      "attack": "KarenWingAtk"
+    },
+    {
+      "order": 18,
+      "attack": "-"
+    },
+    {
+      "order": 19,
+      "attack": "-"
+    },
+    {
+      "order": 20,
+      "attack": "KarenWingAtk"
+    },
+    {
+      "order": 21,
+      "attack": "-"
+    },
+    {
+      "order": 22,
+      "attack": "KarenWide"
+    },
+    {
+      "order": 23,
+      "attack": "-"
+    },
+    {
+      "order": 24,
+      "attack": "KarenWingAtk"
+    },
+    {
+      "order": 25,
+      "attack": "-"
+    },
+    {
+      "order": 26,
+      "attack": "KarenCaptivate"
+    },
+    {
+      "order": 27,
+      "attack": "-"
+    }
+  ],
+  "skill_changes": [
+    {
+      "condition": "OutOfRange",
+      "value": "-",
+      "from": "-",
+      "to": "KarenWingAtk"
+    },
+    {
+      "condition": "OutOfRange",
+      "value": "-",
+      "from": "KarenWingWide",
+      "to": "KarenWingAtk"
+    },
+    {
+      "condition": "NextSkill",
+      "value": "-",
+      "from": "KarenCaptivate",
+      "to": "KarenHeal"
+    },
+    {
+      "condition": "NextSkill",
+      "value": "-",
+      "from": "KarenSPMinus",
+      "to": "KarenSPMinusHeal"
+    },
+    {
+      "condition": "HPLow",
+      "value": 500,
+      "from": "KarenSPMinus",
+      "to": "KarenCaptivate"
+    },
+    {
+      "condition": "HPLow",
+      "value": 300,
+      "from": "KarenWingWide",
+      "to": "KarenCaptivate"
+    },
+    {
+      "condition": "HPLow",
+      "value": 100,
+      "from": "KarenWingAtk",
+      "to": "KarenHeal"
+    }
+  ]
+}

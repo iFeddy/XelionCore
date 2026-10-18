@@ -1,0 +1,54 @@
+{
+  "mob": "Anti_Henis_C101",
+  "sequence": [
+    {
+      "order": 0,
+      "attack": "-"
+    },
+    {
+      "order": 1,
+      "attack": "Wield12"
+    },
+    {
+      "order": 2,
+      "attack": "Heal15"
+    },
+    {
+      "order": 3,
+      "attack": "PsychicBlunt06"
+    },
+    {
+      "order": 4,
+      "attack": "-"
+    },
+    {
+      "order": 5,
+      "attack": "Wield12"
+    },
+    {
+      "order": 6,
+      "attack": "Heal15"
+    },
+    {
+      "order": 7,
+      "attack": "PsychicBlunt06"
+    },
+    {
+      "order": 8,
+      "attack": "-"
+    },
+    {
+      "order": 9,
+      "attack": "Wield12"
+    },
+    {
+      "order": 10,
+      "attack": "Heal15"
+    },
+    {
+      "order": 11,
+      "attack": "PsychicBlunt06"
+    }
+  ],
+  "skill_changes": []
+}

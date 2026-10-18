@@ -1,0 +1,46 @@
+{
+  "mob": "ID_Kruge",
+  "sequence": [
+    {
+      "order": 0,
+      "attack": "IDKrugeAtkSkill2"
+    },
+    {
+      "order": 1,
+      "attack": "IDKrugeAtkSkill1"
+    },
+    {
+      "order": 2,
+      "attack": "-"
+    },
+    {
+      "order": 3,
+      "attack": "-"
+    },
+    {
+      "order": 4,
+      "attack": "IDKrugeAtkSkill1"
+    },
+    {
+      "order": 5,
+      "attack": "-"
+    },
+    {
+      "order": 6,
+      "attack": "-"
+    },
+    {
+      "order": 7,
+      "attack": "IDKrugeAtkSkill1"
+    },
+    {
+      "order": 8,
+      "attack": "-"
+    },
+    {
+      "order": 9,
+      "attack": "-"
+    }
+  ],
+  "skill_changes": []
+}

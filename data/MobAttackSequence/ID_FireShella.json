@@ -1,0 +1,70 @@
+{
+  "mob": "ID_FireShella",
+  "sequence": [
+    {
+      "order": 0,
+      "attack": "IDFireSellPole01"
+    },
+    {
+      "order": 1,
+      "attack": "IDFireSellPole01"
+    },
+    {
+      "order": 2,
+      "attack": "IDFireSellPole01"
+    },
+    {
+      "order": 3,
+      "attack": "IDFireSellAtkSkill1"
+    },
+    {
+      "order": 4,
+      "attack": "IDFireSellAtkSkill1"
+    },
+    {
+      "order": 5,
+      "attack": "-"
+    },
+    {
+      "order": 6,
+      "attack": "-"
+    },
+    {
+      "order": 7,
+      "attack": "-"
+    },
+    {
+      "order": 8,
+      "attack": "-"
+    },
+    {
+      "order": 9,
+      "attack": "-"
+    },
+    {
+      "order": 10,
+      "attack": "-"
+    },
+    {
+      "order": 11,
+      "attack": "-"
+    },
+    {
+      "order": 12,
+      "attack": "-"
+    },
+    {
+      "order": 13,
+      "attack": "-"
+    },
+    {
+      "order": 14,
+      "attack": "-"
+    },
+    {
+      "order": 15,
+      "attack": "-"
+    }
+  ],
+  "skill_changes": []
+}

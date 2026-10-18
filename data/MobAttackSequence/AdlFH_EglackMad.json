@@ -1,0 +1,457 @@
+{
+  "mob": "AdlFH_EglackMad",
+  "sequence": [
+    {
+      "order": 0,
+      "attack": "-"
+    },
+    {
+      "order": 1,
+      "attack": "EglackMad_Skill01_N"
+    },
+    {
+      "order": 2,
+      "attack": "-"
+    },
+    {
+      "order": 3,
+      "attack": "EglackMad_Skill01_N"
+    },
+    {
+      "order": 4,
+      "attack": "-"
+    },
+    {
+      "order": 5,
+      "attack": "EglackMad_Skill01_N"
+    },
+    {
+      "order": 6,
+      "attack": "EglackMad_Skill02_N"
+    },
+    {
+      "order": 7,
+      "attack": "-"
+    },
+    {
+      "order": 8,
+      "attack": "EglackMad_Skill01_N"
+    },
+    {
+      "order": 9,
+      "attack": "EglackMad_Skill01_N"
+    },
+    {
+      "order": 10,
+      "attack": "-"
+    },
+    {
+      "order": 11,
+      "attack": "-"
+    },
+    {
+      "order": 12,
+      "attack": "EglackMad_Skill01_N"
+    },
+    {
+      "order": 13,
+      "attack": "EglackMad_Skill01_N"
+    },
+    {
+      "order": 14,
+      "attack": "EglackMad_Skill02_N"
+    },
+    {
+      "order": 15,
+      "attack": "-"
+    },
+    {
+      "order": 16,
+      "attack": "EglackMad_Skill01_N"
+    },
+    {
+      "order": 17,
+      "attack": "EglackMad_Skill01_N"
+    },
+    {
+      "order": 18,
+      "attack": "-"
+    },
+    {
+      "order": 19,
+      "attack": "-"
+    },
+    {
+      "order": 20,
+      "attack": "EglackMad_Skill01_N"
+    },
+    {
+      "order": 21,
+      "attack": "EglackMad_Skill01_N"
+    },
+    {
+      "order": 22,
+      "attack": "EglackMad_Skill02_N"
+    },
+    {
+      "order": 23,
+      "attack": "-"
+    },
+    {
+      "order": 24,
+      "attack": "EglackMad_Skill01_N"
+    },
+    {
+      "order": 25,
+      "attack": "EglackMad_Skill01_N"
+    },
+    {
+      "order": 26,
+      "attack": "EglackMad_Skill01_N"
+    }
+  ],
+  "skill_changes": [
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 200,
+      "from": 0,
+      "to": "EglackMad_Skill06_W"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 200,
+      "from": 1,
+      "to": "EglackMad_Skill04_N"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 200,
+      "from": 2,
+      "to": "EglackMad_Skill07_W"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 200,
+      "from": 4,
+      "to": "EglackMad_Skill01_N"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 200,
+      "from": 5,
+      "to": "EglackMad_Skill06_W"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 200,
+      "from": 6,
+      "to": "EglackMad_Skill05_W"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 200,
+      "from": 7,
+      "to": "EglackMad_Skill01_N"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 200,
+      "from": 8,
+      "to": "EglackMad_Skill03_W"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 200,
+      "from": 9,
+      "to": "EglackMad_Skill07_W"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 200,
+      "from": 10,
+      "to": "EglackMad_Skill06_W"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 200,
+      "from": 11,
+      "to": "EglackMad_Skill04_N"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 200,
+      "from": 12,
+      "to": "-"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 200,
+      "from": 14,
+      "to": "EglackMad_Skill01_N"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 200,
+      "from": 15,
+      "to": "EglackMad_Skill06_W"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 200,
+      "from": 16,
+      "to": "EglackMad_Skill05_W"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 200,
+      "from": 18,
+      "to": "EglackMad_Skill03_W"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 200,
+      "from": 19,
+      "to": "EglackMad_Skill01_N"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 200,
+      "from": 20,
+      "to": "EglackMad_Skill06_W"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 200,
+      "from": 21,
+      "to": "EglackMad_Skill04_N"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 200,
+      "from": 22,
+      "to": "EglackMad_Skill01_N"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 200,
+      "from": 23,
+      "to": "EglackMad_Skill01_N"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 200,
+      "from": 24,
+      "to": "EglackMad_Skill05_W"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 200,
+      "from": 25,
+      "to": "EglackMad_Skill03_W"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 500,
+      "from": 0,
+      "to": "EglackMad_Skill05_W"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 500,
+      "from": 1,
+      "to": "EglackMad_Skill04_N"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 500,
+      "from": 2,
+      "to": "EglackMad_Skill07_W"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 500,
+      "from": 7,
+      "to": "EglackMad_Skill01_N"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 500,
+      "from": 10,
+      "to": "EglackMad_Skill05_W"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 500,
+      "from": 11,
+      "to": "EglackMad_Skill04_N"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 500,
+      "from": 12,
+      "to": "-"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 500,
+      "from": 14,
+      "to": "-"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 500,
+      "from": 15,
+      "to": "EglackMad_Skill01_N"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 500,
+      "from": 16,
+      "to": "EglackMad_Skill02_N"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 500,
+      "from": 17,
+      "to": "EglackMad_Skill07_W"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 500,
+      "from": 18,
+      "to": "EglackMad_Skill01_N"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 500,
+      "from": 19,
+      "to": "EglackMad_Skill01_N"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 500,
+      "from": 20,
+      "to": "EglackMad_Skill05_W"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 500,
+      "from": 21,
+      "to": "EglackMad_Skill04_N"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 500,
+      "from": 22,
+      "to": "EglackMad_Skill01_N"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 500,
+      "from": 23,
+      "to": "EglackMad_Skill01_N"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 500,
+      "from": 24,
+      "to": "EglackMad_Skill02_N"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 500,
+      "from": 26,
+      "to": "-"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 800,
+      "from": 0,
+      "to": "EglackMad_Skill04_N"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 800,
+      "from": 1,
+      "to": "-"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 800,
+      "from": 2,
+      "to": "EglackMad_Skill01_N"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 800,
+      "from": 6,
+      "to": "EglackMad_Skill03_W"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 800,
+      "from": 7,
+      "to": "EglackMad_Skill01_N"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 800,
+      "from": 8,
+      "to": "-"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 800,
+      "from": 10,
+      "to": "EglackMad_Skill01_N"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 800,
+      "from": 11,
+      "to": "EglackMad_Skill04_N"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 800,
+      "from": 12,
+      "to": "-"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 800,
+      "from": 14,
+      "to": "EglackMad_Skill01_N"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 800,
+      "from": 17,
+      "to": "EglackMad_Skill03_W"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 800,
+      "from": 18,
+      "to": "EglackMad_Skill01_N"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 800,
+      "from": 22,
+      "to": "EglackMad_Skill01_N"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 800,
+      "from": 23,
+      "to": "EglackMad_Skill04_N"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 800,
+      "from": 24,
+      "to": "-"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "entity": "E_Ski_Snowman",
+  "triggers": [
+    {
+      "condition_id": 1,
+      "action_id": 49
+    }
+  ]
+}

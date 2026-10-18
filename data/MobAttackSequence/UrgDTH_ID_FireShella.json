@@ -1,0 +1,66 @@
+{
+  "mob": "UrgDTH_ID_FireShella",
+  "sequence": [
+    {
+      "order": 0,
+      "attack": "-"
+    },
+    {
+      "order": 1,
+      "attack": "-"
+    },
+    {
+      "order": 2,
+      "attack": "-"
+    },
+    {
+      "order": 3,
+      "attack": "IDFireSellPole01"
+    },
+    {
+      "order": 4,
+      "attack": "IDFireSellAtkSkill1"
+    },
+    {
+      "order": 5,
+      "attack": "-"
+    },
+    {
+      "order": 6,
+      "attack": "-"
+    },
+    {
+      "order": 7,
+      "attack": "-"
+    },
+    {
+      "order": 8,
+      "attack": "IDFireSellPole01"
+    },
+    {
+      "order": 9,
+      "attack": "IDFireSellAtkSkill1"
+    },
+    {
+      "order": 10,
+      "attack": "-"
+    },
+    {
+      "order": 11,
+      "attack": "-"
+    },
+    {
+      "order": 12,
+      "attack": "-"
+    },
+    {
+      "order": 13,
+      "attack": "IDFireSellPole01"
+    },
+    {
+      "order": 14,
+      "attack": "IDFireSellAtkSkill1"
+    }
+  ],
+  "skill_changes": []
+}

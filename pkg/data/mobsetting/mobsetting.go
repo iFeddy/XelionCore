@@ -5,13 +5,19 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+	"strings"
 )
 
 // ActionTrigger representa un vínculo condicional entre una condición del jugador/mundo y una acción ejecutada por ZoneService.
-// Corresponde a la especificación oficial de NPCAction::Trigger / NPCAction::Util::loadTriggers de Zone.exe.
 type ActionTrigger struct {
 	ConditionID uint32 `json:"condition_id"`
 	ActionID    uint32 `json:"action_id"`
+}
+
+// EntitySetting almacena la configuración de triggers para una entidad individual (Mob o NPC).
+type EntitySetting struct {
+	Entity   string          `json:"entity"`
+	Triggers []ActionTrigger `json:"triggers"`
 }
 
 // Database mantiene en memoria el mapeo de triggers de interacción indexados por Mob o NPC.
@@ -19,31 +25,70 @@ type Database struct {
 	Actions map[string][]ActionTrigger
 }
 
-// LoadFromFile carga y deserializa el registro de acciones desde mob_actions.json o la carpeta data/MobSetting.
-func LoadFromFile(path string) (*Database, error) {
-	fi, err := os.Stat(path)
-	if err == nil && fi.IsDir() {
-		path = filepath.Join(path, "mob_actions.json")
-	} else if err != nil {
-		alt := filepath.Join(filepath.Dir(path), "MobSetting", filepath.Base(path))
-		if _, errAlt := os.Stat(alt); errAlt == nil {
-			path = alt
-		}
-	}
-
-	data, err := os.ReadFile(path)
+// LoadFromDir carga todos los archivos .json individuales desde el directorio especificado.
+func LoadFromDir(dirPath string) (*Database, error) {
+	entries, err := os.ReadDir(dirPath)
 	if err != nil {
-		return nil, fmt.Errorf("error leyendo archivo mob_actions (%s): %w", path, err)
+		return nil, fmt.Errorf("error leyendo directorio de mobsetting (%s): %w", dirPath, err)
 	}
 
 	actions := make(map[string][]ActionTrigger)
-	if err := json.Unmarshal(data, &actions); err != nil {
-		return nil, fmt.Errorf("error parseando JSON mob_actions (%s): %w", path, err)
+
+	for _, entry := range entries {
+		if entry.IsDir() || !strings.HasSuffix(entry.Name(), ".json") {
+			continue
+		}
+
+		fullPath := filepath.Join(dirPath, entry.Name())
+		data, err := os.ReadFile(fullPath)
+		if err != nil {
+			return nil, fmt.Errorf("error leyendo archivo (%s): %w", fullPath, err)
+		}
+
+		var setting EntitySetting
+		if err := json.Unmarshal(data, &setting); err != nil {
+			return nil, fmt.Errorf("error parseando JSON (%s): %w", fullPath, err)
+		}
+
+		actions[setting.Entity] = setting.Triggers
 	}
 
 	return &Database{
 		Actions: actions,
 	}, nil
+}
+
+// LoadFromFile carga la base de datos ya sea desde un directorio o un archivo individual.
+func LoadFromFile(path string) (*Database, error) {
+	fi, err := os.Stat(path)
+	if err != nil {
+		return nil, fmt.Errorf("ruta no encontrada (%s): %w", path, err)
+	}
+	if fi.IsDir() {
+		return LoadFromDir(path)
+	}
+
+	data, err := os.ReadFile(path)
+	if err != nil {
+		return nil, fmt.Errorf("error leyendo archivo (%s): %w", path, err)
+	}
+
+	var setting EntitySetting
+	if err := json.Unmarshal(data, &setting); err == nil && setting.Entity != "" {
+		return &Database{
+			Actions: map[string][]ActionTrigger{
+				setting.Entity: setting.Triggers,
+			},
+		}, nil
+	}
+
+	// Fallback para mapa directo si fuera unificado
+	var direct map[string][]ActionTrigger
+	if err := json.Unmarshal(data, &direct); err == nil {
+		return &Database{Actions: direct}, nil
+	}
+
+	return nil, fmt.Errorf("formato no reconocido en (%s)", path)
 }
 
 // GetTriggers devuelve la lista de triggers de interacción asociados al mob o NPC indicado.

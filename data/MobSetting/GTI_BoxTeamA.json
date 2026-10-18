@@ -1,0 +1,13 @@
+{
+  "entity": "GTI_BoxTeamA",
+  "triggers": [
+    {
+      "condition_id": 16,
+      "action_id": 27
+    },
+    {
+      "condition_id": 16,
+      "action_id": 28
+    }
+  ]
+}

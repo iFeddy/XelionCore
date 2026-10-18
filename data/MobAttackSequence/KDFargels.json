@@ -1,0 +1,131 @@
+{
+  "mob": "KDFargels",
+  "sequence": [
+    {
+      "order": 0,
+      "attack": "-"
+    },
+    {
+      "order": 1,
+      "attack": "KDFargels_Skill04_W"
+    },
+    {
+      "order": 2,
+      "attack": "-"
+    },
+    {
+      "order": 3,
+      "attack": "-"
+    },
+    {
+      "order": 4,
+      "attack": "KDFargels_Skill03_W"
+    },
+    {
+      "order": 5,
+      "attack": "-"
+    },
+    {
+      "order": 6,
+      "attack": "-"
+    },
+    {
+      "order": 7,
+      "attack": "-"
+    },
+    {
+      "order": 8,
+      "attack": "KDFargels_Skill02_W"
+    },
+    {
+      "order": 9,
+      "attack": "-"
+    },
+    {
+      "order": 10,
+      "attack": "KDFargels_Skill04_W"
+    },
+    {
+      "order": 11,
+      "attack": "-"
+    },
+    {
+      "order": 12,
+      "attack": "KDFargels_Skill02_W"
+    },
+    {
+      "order": 13,
+      "attack": "-"
+    },
+    {
+      "order": 14,
+      "attack": "-"
+    },
+    {
+      "order": 15,
+      "attack": "-"
+    },
+    {
+      "order": 16,
+      "attack": "KDFargels_Skill03_W"
+    },
+    {
+      "order": 17,
+      "attack": "-"
+    },
+    {
+      "order": 18,
+      "attack": "-"
+    }
+  ],
+  "skill_changes": [
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 750,
+      "from": 2,
+      "to": "KDFargels_Skill05_N"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 750,
+      "from": 6,
+      "to": "KDFargels_Skill05_N"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 750,
+      "from": 11,
+      "to": "KDFargels_Skill05_N"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 750,
+      "from": 17,
+      "to": "KDFargels_Skill05_N"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 500,
+      "from": 3,
+      "to": "KDFargels_Skill06_N"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 500,
+      "from": 8,
+      "to": "KDFargels_Skill06_N"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 500,
+      "from": 15,
+      "to": "KDFargels_Skill06_N"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 500,
+      "from": 17,
+      "to": "KDFargels_Skill06_N"
+    }
+  ]
+}

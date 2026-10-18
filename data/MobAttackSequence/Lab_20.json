@@ -1,0 +1,294 @@
+{
+  "mob": "Lab_20",
+  "sequence": [
+    {
+      "order": 0,
+      "attack": "-"
+    },
+    {
+      "order": 1,
+      "attack": "Lab_20_Knock_Wide"
+    },
+    {
+      "order": 2,
+      "attack": "Lab_20_Normal_Atk"
+    },
+    {
+      "order": 3,
+      "attack": "-"
+    },
+    {
+      "order": 4,
+      "attack": "-"
+    },
+    {
+      "order": 5,
+      "attack": "-"
+    },
+    {
+      "order": 6,
+      "attack": "-"
+    },
+    {
+      "order": 7,
+      "attack": "-"
+    },
+    {
+      "order": 8,
+      "attack": "Lab_20_Normal_Atk"
+    },
+    {
+      "order": 9,
+      "attack": "Lab_20_Angry_Buf"
+    },
+    {
+      "order": 10,
+      "attack": "Lab_20_Normal_Atk"
+    },
+    {
+      "order": 11,
+      "attack": "-"
+    },
+    {
+      "order": 12,
+      "attack": "-"
+    },
+    {
+      "order": 13,
+      "attack": "-"
+    },
+    {
+      "order": 14,
+      "attack": "Lab_20_Normal_Atk"
+    },
+    {
+      "order": 15,
+      "attack": "-"
+    },
+    {
+      "order": 16,
+      "attack": "-"
+    },
+    {
+      "order": 17,
+      "attack": "-"
+    },
+    {
+      "order": 18,
+      "attack": "-"
+    },
+    {
+      "order": 19,
+      "attack": "-"
+    },
+    {
+      "order": 20,
+      "attack": "Lab_20_Angry_Buf"
+    },
+    {
+      "order": 21,
+      "attack": "Lab_20_Normal_Atk"
+    },
+    {
+      "order": 22,
+      "attack": "Lab_20_Angry_Buf"
+    },
+    {
+      "order": 23,
+      "attack": "Lab_20_Normal_Atk"
+    },
+    {
+      "order": 24,
+      "attack": "-"
+    },
+    {
+      "order": 25,
+      "attack": "-"
+    },
+    {
+      "order": 26,
+      "attack": "-"
+    },
+    {
+      "order": 27,
+      "attack": "-"
+    },
+    {
+      "order": 28,
+      "attack": "-"
+    },
+    {
+      "order": 29,
+      "attack": "Lab_20_Angry_Buf"
+    },
+    {
+      "order": 30,
+      "attack": "Lab_20_Knock_Wide"
+    },
+    {
+      "order": 31,
+      "attack": "-"
+    },
+    {
+      "order": 32,
+      "attack": "-"
+    },
+    {
+      "order": 33,
+      "attack": "-"
+    },
+    {
+      "order": 34,
+      "attack": "Lab_20_Normal_Atk"
+    },
+    {
+      "order": 35,
+      "attack": "-"
+    },
+    {
+      "order": 36,
+      "attack": "-"
+    },
+    {
+      "order": 37,
+      "attack": "-"
+    },
+    {
+      "order": 38,
+      "attack": "-"
+    },
+    {
+      "order": 39,
+      "attack": "Lab_20_Normal_Atk"
+    },
+    {
+      "order": 40,
+      "attack": "-"
+    },
+    {
+      "order": 41,
+      "attack": "-"
+    },
+    {
+      "order": 42,
+      "attack": "-"
+    },
+    {
+      "order": 43,
+      "attack": "Lab_20_Angry_Buf"
+    },
+    {
+      "order": 44,
+      "attack": "Lab_20_Normal_Atk"
+    },
+    {
+      "order": 45,
+      "attack": "-"
+    },
+    {
+      "order": 46,
+      "attack": "-"
+    },
+    {
+      "order": 47,
+      "attack": "-"
+    },
+    {
+      "order": 48,
+      "attack": "Lab_20_Knock_Atk"
+    },
+    {
+      "order": 49,
+      "attack": "-"
+    },
+    {
+      "order": 50,
+      "attack": "-"
+    },
+    {
+      "order": 51,
+      "attack": "-"
+    },
+    {
+      "order": 52,
+      "attack": "-"
+    },
+    {
+      "order": 53,
+      "attack": "Lab_20_Knock_Atk"
+    },
+    {
+      "order": 54,
+      "attack": "Lab_20_Knock_Wide"
+    },
+    {
+      "order": 55,
+      "attack": "-"
+    },
+    {
+      "order": 56,
+      "attack": "-"
+    },
+    {
+      "order": 57,
+      "attack": "-"
+    },
+    {
+      "order": 58,
+      "attack": "-"
+    },
+    {
+      "order": 59,
+      "attack": "-"
+    },
+    {
+      "order": 60,
+      "attack": "Lab_20_Angry_Buf"
+    },
+    {
+      "order": 61,
+      "attack": "Lab_20_Normal_Atk"
+    },
+    {
+      "order": 62,
+      "attack": "-"
+    },
+    {
+      "order": 63,
+      "attack": "-"
+    },
+    {
+      "order": 64,
+      "attack": "-"
+    },
+    {
+      "order": 65,
+      "attack": "Lab_20_Fear_Wide"
+    },
+    {
+      "order": 66,
+      "attack": "-"
+    },
+    {
+      "order": 67,
+      "attack": "-"
+    },
+    {
+      "order": 68,
+      "attack": "-"
+    },
+    {
+      "order": 69,
+      "attack": "-"
+    },
+    {
+      "order": 70,
+      "attack": "Lab_20_Angry_Buf"
+    },
+    {
+      "order": 71,
+      "attack": "Lab_20_Normal_Atk"
+    }
+  ],
+  "skill_changes": []
+}

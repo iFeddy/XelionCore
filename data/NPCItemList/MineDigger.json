@@ -1,0 +1,27 @@
+{
+  "merchant": "MineDigger",
+  "tabs": [
+    {
+      "tab": "Tab00",
+      "title": "아이템 상점(우르가)",
+      "rows": [
+        [
+          "MineMelee",
+          "MineRange",
+          "-",
+          "-",
+          "-",
+          "-"
+        ],
+        [
+          "MineIce",
+          "MineStun",
+          "-",
+          "-",
+          "-",
+          "-"
+        ]
+      ]
+    }
+  ]
+}

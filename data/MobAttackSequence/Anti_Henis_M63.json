@@ -1,0 +1,54 @@
+{
+  "mob": "Anti_Henis_M63",
+  "sequence": [
+    {
+      "order": 0,
+      "attack": "FireBall02"
+    },
+    {
+      "order": 1,
+      "attack": "IceBlast02"
+    },
+    {
+      "order": 2,
+      "attack": "MagicBurst05"
+    },
+    {
+      "order": 3,
+      "attack": "ManaBurn04"
+    },
+    {
+      "order": 4,
+      "attack": "FireBall02"
+    },
+    {
+      "order": 5,
+      "attack": "IceBlast02"
+    },
+    {
+      "order": 6,
+      "attack": "MagicBurst05"
+    },
+    {
+      "order": 7,
+      "attack": "ManaBurn04"
+    },
+    {
+      "order": 8,
+      "attack": "FireBall02"
+    },
+    {
+      "order": 9,
+      "attack": "IceBlast02"
+    },
+    {
+      "order": 10,
+      "attack": "MagicBurst05"
+    },
+    {
+      "order": 11,
+      "attack": "ManaBurn04"
+    }
+  ],
+  "skill_changes": []
+}

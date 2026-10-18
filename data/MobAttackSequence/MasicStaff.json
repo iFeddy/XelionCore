@@ -1,0 +1,29 @@
+{
+  "mob": "MasicStaff",
+  "sequence": [
+    {
+      "order": 0,
+      "attack": "-"
+    },
+    {
+      "order": 1,
+      "attack": "MasicStaffSk1"
+    },
+    {
+      "order": 2,
+      "attack": "-"
+    },
+    {
+      "order": 3,
+      "attack": "MasicStaffSk1"
+    }
+  ],
+  "skill_changes": [
+    {
+      "condition": "OutOfRange",
+      "value": "-",
+      "from": "-",
+      "to": "MasicStaffSk1"
+    }
+  ]
+}

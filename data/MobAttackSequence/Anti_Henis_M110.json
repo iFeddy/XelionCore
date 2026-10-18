@@ -1,0 +1,54 @@
+{
+  "mob": "Anti_Henis_M110",
+  "sequence": [
+    {
+      "order": 0,
+      "attack": "FireBall06"
+    },
+    {
+      "order": 1,
+      "attack": "IceBlast07"
+    },
+    {
+      "order": 2,
+      "attack": "MagicBurst08"
+    },
+    {
+      "order": 3,
+      "attack": "ManaBurn07"
+    },
+    {
+      "order": 4,
+      "attack": "FireBall06"
+    },
+    {
+      "order": 5,
+      "attack": "IceBlast07"
+    },
+    {
+      "order": 6,
+      "attack": "MagicBurst08"
+    },
+    {
+      "order": 7,
+      "attack": "ManaBurn07"
+    },
+    {
+      "order": 8,
+      "attack": "FireBall06"
+    },
+    {
+      "order": 9,
+      "attack": "IceBlast07"
+    },
+    {
+      "order": 10,
+      "attack": "MagicBurst08"
+    },
+    {
+      "order": 11,
+      "attack": "ManaBurn07"
+    }
+  ],
+  "skill_changes": []
+}

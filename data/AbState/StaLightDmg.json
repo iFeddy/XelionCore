@@ -1,0 +1,1822 @@
+{
+  "id": 46,
+  "name": "StaLightDmg",
+  "description": "Daño periódico de relámpago (DoT)",
+  "max_levels": 151,
+  "record_size_bytes": 16,
+  "meta_hex": "2e005374614c69676874446d6700000000000000000000000000000000000000000000c0fcb1e2c7c7c7d800000000000000000000000000000000000000000000000000010000000100000000000000010000000100000001000000000000000000000001000000",
+  "levels": [
+    {
+      "level": 0,
+      "duration_ms": 0,
+      "dot_damage": 0,
+      "dot_interval_ms": 0,
+      "raw": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "level": 1,
+      "duration_ms": 1150,
+      "dot_damage": 4,
+      "dot_interval_ms": 3000,
+      "raw": [
+        1,
+        1150,
+        4,
+        3000
+      ]
+    },
+    {
+      "level": 2,
+      "duration_ms": 1300,
+      "dot_damage": 4,
+      "dot_interval_ms": 3000,
+      "raw": [
+        2,
+        1300,
+        4,
+        3000
+      ]
+    },
+    {
+      "level": 3,
+      "duration_ms": 1450,
+      "dot_damage": 5,
+      "dot_interval_ms": 3000,
+      "raw": [
+        3,
+        1450,
+        5,
+        3000
+      ]
+    },
+    {
+      "level": 4,
+      "duration_ms": 1600,
+      "dot_damage": 5,
+      "dot_interval_ms": 3000,
+      "raw": [
+        4,
+        1600,
+        5,
+        3000
+      ]
+    },
+    {
+      "level": 5,
+      "duration_ms": 1750,
+      "dot_damage": 6,
+      "dot_interval_ms": 3000,
+      "raw": [
+        5,
+        1750,
+        6,
+        3000
+      ]
+    },
+    {
+      "level": 6,
+      "duration_ms": 1900,
+      "dot_damage": 6,
+      "dot_interval_ms": 3000,
+      "raw": [
+        6,
+        1900,
+        6,
+        3000
+      ]
+    },
+    {
+      "level": 7,
+      "duration_ms": 2050,
+      "dot_damage": 7,
+      "dot_interval_ms": 3000,
+      "raw": [
+        7,
+        2050,
+        7,
+        3000
+      ]
+    },
+    {
+      "level": 8,
+      "duration_ms": 2200,
+      "dot_damage": 8,
+      "dot_interval_ms": 3000,
+      "raw": [
+        8,
+        2200,
+        8,
+        3000
+      ]
+    },
+    {
+      "level": 9,
+      "duration_ms": 2350,
+      "dot_damage": 8,
+      "dot_interval_ms": 3000,
+      "raw": [
+        9,
+        2350,
+        8,
+        3000
+      ]
+    },
+    {
+      "level": 10,
+      "duration_ms": 2500,
+      "dot_damage": 9,
+      "dot_interval_ms": 3000,
+      "raw": [
+        10,
+        2500,
+        9,
+        3000
+      ]
+    },
+    {
+      "level": 11,
+      "duration_ms": 2650,
+      "dot_damage": 9,
+      "dot_interval_ms": 3000,
+      "raw": [
+        11,
+        2650,
+        9,
+        3000
+      ]
+    },
+    {
+      "level": 12,
+      "duration_ms": 2800,
+      "dot_damage": 10,
+      "dot_interval_ms": 3000,
+      "raw": [
+        12,
+        2800,
+        10,
+        3000
+      ]
+    },
+    {
+      "level": 13,
+      "duration_ms": 2950,
+      "dot_damage": 11,
+      "dot_interval_ms": 3000,
+      "raw": [
+        13,
+        2950,
+        11,
+        3000
+      ]
+    },
+    {
+      "level": 14,
+      "duration_ms": 3100,
+      "dot_damage": 11,
+      "dot_interval_ms": 3000,
+      "raw": [
+        14,
+        3100,
+        11,
+        3000
+      ]
+    },
+    {
+      "level": 15,
+      "duration_ms": 3250,
+      "dot_damage": 12,
+      "dot_interval_ms": 3000,
+      "raw": [
+        15,
+        3250,
+        12,
+        3000
+      ]
+    },
+    {
+      "level": 16,
+      "duration_ms": 3400,
+      "dot_damage": 12,
+      "dot_interval_ms": 3000,
+      "raw": [
+        16,
+        3400,
+        12,
+        3000
+      ]
+    },
+    {
+      "level": 17,
+      "duration_ms": 3550,
+      "dot_damage": 13,
+      "dot_interval_ms": 3000,
+      "raw": [
+        17,
+        3550,
+        13,
+        3000
+      ]
+    },
+    {
+      "level": 18,
+      "duration_ms": 3700,
+      "dot_damage": 13,
+      "dot_interval_ms": 3000,
+      "raw": [
+        18,
+        3700,
+        13,
+        3000
+      ]
+    },
+    {
+      "level": 19,
+      "duration_ms": 3850,
+      "dot_damage": 14,
+      "dot_interval_ms": 3000,
+      "raw": [
+        19,
+        3850,
+        14,
+        3000
+      ]
+    },
+    {
+      "level": 20,
+      "duration_ms": 4000,
+      "dot_damage": 15,
+      "dot_interval_ms": 3000,
+      "raw": [
+        20,
+        4000,
+        15,
+        3000
+      ]
+    },
+    {
+      "level": 21,
+      "duration_ms": 4150,
+      "dot_damage": 15,
+      "dot_interval_ms": 3000,
+      "raw": [
+        21,
+        4150,
+        15,
+        3000
+      ]
+    },
+    {
+      "level": 22,
+      "duration_ms": 4300,
+      "dot_damage": 16,
+      "dot_interval_ms": 3000,
+      "raw": [
+        22,
+        4300,
+        16,
+        3000
+      ]
+    },
+    {
+      "level": 23,
+      "duration_ms": 4450,
+      "dot_damage": 16,
+      "dot_interval_ms": 3000,
+      "raw": [
+        23,
+        4450,
+        16,
+        3000
+      ]
+    },
+    {
+      "level": 24,
+      "duration_ms": 4600,
+      "dot_damage": 17,
+      "dot_interval_ms": 3000,
+      "raw": [
+        24,
+        4600,
+        17,
+        3000
+      ]
+    },
+    {
+      "level": 25,
+      "duration_ms": 4750,
+      "dot_damage": 18,
+      "dot_interval_ms": 3000,
+      "raw": [
+        25,
+        4750,
+        18,
+        3000
+      ]
+    },
+    {
+      "level": 26,
+      "duration_ms": 4900,
+      "dot_damage": 18,
+      "dot_interval_ms": 3000,
+      "raw": [
+        26,
+        4900,
+        18,
+        3000
+      ]
+    },
+    {
+      "level": 27,
+      "duration_ms": 5050,
+      "dot_damage": 19,
+      "dot_interval_ms": 3000,
+      "raw": [
+        27,
+        5050,
+        19,
+        3000
+      ]
+    },
+    {
+      "level": 28,
+      "duration_ms": 5200,
+      "dot_damage": 19,
+      "dot_interval_ms": 3000,
+      "raw": [
+        28,
+        5200,
+        19,
+        3000
+      ]
+    },
+    {
+      "level": 29,
+      "duration_ms": 5350,
+      "dot_damage": 20,
+      "dot_interval_ms": 3000,
+      "raw": [
+        29,
+        5350,
+        20,
+        3000
+      ]
+    },
+    {
+      "level": 30,
+      "duration_ms": 5500,
+      "dot_damage": 20,
+      "dot_interval_ms": 3000,
+      "raw": [
+        30,
+        5500,
+        20,
+        3000
+      ]
+    },
+    {
+      "level": 31,
+      "duration_ms": 5650,
+      "dot_damage": 21,
+      "dot_interval_ms": 3000,
+      "raw": [
+        31,
+        5650,
+        21,
+        3000
+      ]
+    },
+    {
+      "level": 32,
+      "duration_ms": 5800,
+      "dot_damage": 22,
+      "dot_interval_ms": 3000,
+      "raw": [
+        32,
+        5800,
+        22,
+        3000
+      ]
+    },
+    {
+      "level": 33,
+      "duration_ms": 5950,
+      "dot_damage": 22,
+      "dot_interval_ms": 3000,
+      "raw": [
+        33,
+        5950,
+        22,
+        3000
+      ]
+    },
+    {
+      "level": 34,
+      "duration_ms": 6100,
+      "dot_damage": 23,
+      "dot_interval_ms": 3000,
+      "raw": [
+        34,
+        6100,
+        23,
+        3000
+      ]
+    },
+    {
+      "level": 35,
+      "duration_ms": 6250,
+      "dot_damage": 23,
+      "dot_interval_ms": 3000,
+      "raw": [
+        35,
+        6250,
+        23,
+        3000
+      ]
+    },
+    {
+      "level": 36,
+      "duration_ms": 6400,
+      "dot_damage": 24,
+      "dot_interval_ms": 3000,
+      "raw": [
+        36,
+        6400,
+        24,
+        3000
+      ]
+    },
+    {
+      "level": 37,
+      "duration_ms": 6550,
+      "dot_damage": 25,
+      "dot_interval_ms": 3000,
+      "raw": [
+        37,
+        6550,
+        25,
+        3000
+      ]
+    },
+    {
+      "level": 38,
+      "duration_ms": 6700,
+      "dot_damage": 25,
+      "dot_interval_ms": 3000,
+      "raw": [
+        38,
+        6700,
+        25,
+        3000
+      ]
+    },
+    {
+      "level": 39,
+      "duration_ms": 6850,
+      "dot_damage": 26,
+      "dot_interval_ms": 3000,
+      "raw": [
+        39,
+        6850,
+        26,
+        3000
+      ]
+    },
+    {
+      "level": 40,
+      "duration_ms": 7000,
+      "dot_damage": 26,
+      "dot_interval_ms": 3000,
+      "raw": [
+        40,
+        7000,
+        26,
+        3000
+      ]
+    },
+    {
+      "level": 41,
+      "duration_ms": 7150,
+      "dot_damage": 27,
+      "dot_interval_ms": 3000,
+      "raw": [
+        41,
+        7150,
+        27,
+        3000
+      ]
+    },
+    {
+      "level": 42,
+      "duration_ms": 7300,
+      "dot_damage": 28,
+      "dot_interval_ms": 3000,
+      "raw": [
+        42,
+        7300,
+        28,
+        3000
+      ]
+    },
+    {
+      "level": 43,
+      "duration_ms": 7450,
+      "dot_damage": 28,
+      "dot_interval_ms": 3000,
+      "raw": [
+        43,
+        7450,
+        28,
+        3000
+      ]
+    },
+    {
+      "level": 44,
+      "duration_ms": 7600,
+      "dot_damage": 29,
+      "dot_interval_ms": 3000,
+      "raw": [
+        44,
+        7600,
+        29,
+        3000
+      ]
+    },
+    {
+      "level": 45,
+      "duration_ms": 7750,
+      "dot_damage": 29,
+      "dot_interval_ms": 3000,
+      "raw": [
+        45,
+        7750,
+        29,
+        3000
+      ]
+    },
+    {
+      "level": 46,
+      "duration_ms": 7900,
+      "dot_damage": 30,
+      "dot_interval_ms": 3000,
+      "raw": [
+        46,
+        7900,
+        30,
+        3000
+      ]
+    },
+    {
+      "level": 47,
+      "duration_ms": 8050,
+      "dot_damage": 30,
+      "dot_interval_ms": 3000,
+      "raw": [
+        47,
+        8050,
+        30,
+        3000
+      ]
+    },
+    {
+      "level": 48,
+      "duration_ms": 8200,
+      "dot_damage": 31,
+      "dot_interval_ms": 3000,
+      "raw": [
+        48,
+        8200,
+        31,
+        3000
+      ]
+    },
+    {
+      "level": 49,
+      "duration_ms": 8350,
+      "dot_damage": 32,
+      "dot_interval_ms": 3000,
+      "raw": [
+        49,
+        8350,
+        32,
+        3000
+      ]
+    },
+    {
+      "level": 50,
+      "duration_ms": 8500,
+      "dot_damage": 32,
+      "dot_interval_ms": 3000,
+      "raw": [
+        50,
+        8500,
+        32,
+        3000
+      ]
+    },
+    {
+      "level": 51,
+      "duration_ms": 8650,
+      "dot_damage": 33,
+      "dot_interval_ms": 3000,
+      "raw": [
+        51,
+        8650,
+        33,
+        3000
+      ]
+    },
+    {
+      "level": 52,
+      "duration_ms": 8800,
+      "dot_damage": 33,
+      "dot_interval_ms": 3000,
+      "raw": [
+        52,
+        8800,
+        33,
+        3000
+      ]
+    },
+    {
+      "level": 53,
+      "duration_ms": 8950,
+      "dot_damage": 34,
+      "dot_interval_ms": 3000,
+      "raw": [
+        53,
+        8950,
+        34,
+        3000
+      ]
+    },
+    {
+      "level": 54,
+      "duration_ms": 9100,
+      "dot_damage": 35,
+      "dot_interval_ms": 3000,
+      "raw": [
+        54,
+        9100,
+        35,
+        3000
+      ]
+    },
+    {
+      "level": 55,
+      "duration_ms": 9250,
+      "dot_damage": 35,
+      "dot_interval_ms": 3000,
+      "raw": [
+        55,
+        9250,
+        35,
+        3000
+      ]
+    },
+    {
+      "level": 56,
+      "duration_ms": 9400,
+      "dot_damage": 36,
+      "dot_interval_ms": 3000,
+      "raw": [
+        56,
+        9400,
+        36,
+        3000
+      ]
+    },
+    {
+      "level": 57,
+      "duration_ms": 9550,
+      "dot_damage": 36,
+      "dot_interval_ms": 3000,
+      "raw": [
+        57,
+        9550,
+        36,
+        3000
+      ]
+    },
+    {
+      "level": 58,
+      "duration_ms": 9700,
+      "dot_damage": 37,
+      "dot_interval_ms": 3000,
+      "raw": [
+        58,
+        9700,
+        37,
+        3000
+      ]
+    },
+    {
+      "level": 59,
+      "duration_ms": 9850,
+      "dot_damage": 37,
+      "dot_interval_ms": 3000,
+      "raw": [
+        59,
+        9850,
+        37,
+        3000
+      ]
+    },
+    {
+      "level": 60,
+      "duration_ms": 10000,
+      "dot_damage": 38,
+      "dot_interval_ms": 3000,
+      "raw": [
+        60,
+        10000,
+        38,
+        3000
+      ]
+    },
+    {
+      "level": 61,
+      "duration_ms": 10150,
+      "dot_damage": 39,
+      "dot_interval_ms": 3000,
+      "raw": [
+        61,
+        10150,
+        39,
+        3000
+      ]
+    },
+    {
+      "level": 62,
+      "duration_ms": 10300,
+      "dot_damage": 39,
+      "dot_interval_ms": 3000,
+      "raw": [
+        62,
+        10300,
+        39,
+        3000
+      ]
+    },
+    {
+      "level": 63,
+      "duration_ms": 10450,
+      "dot_damage": 40,
+      "dot_interval_ms": 3000,
+      "raw": [
+        63,
+        10450,
+        40,
+        3000
+      ]
+    },
+    {
+      "level": 64,
+      "duration_ms": 10600,
+      "dot_damage": 40,
+      "dot_interval_ms": 3000,
+      "raw": [
+        64,
+        10600,
+        40,
+        3000
+      ]
+    },
+    {
+      "level": 65,
+      "duration_ms": 10750,
+      "dot_damage": 41,
+      "dot_interval_ms": 3000,
+      "raw": [
+        65,
+        10750,
+        41,
+        3000
+      ]
+    },
+    {
+      "level": 66,
+      "duration_ms": 10900,
+      "dot_damage": 42,
+      "dot_interval_ms": 3000,
+      "raw": [
+        66,
+        10900,
+        42,
+        3000
+      ]
+    },
+    {
+      "level": 67,
+      "duration_ms": 11050,
+      "dot_damage": 42,
+      "dot_interval_ms": 3000,
+      "raw": [
+        67,
+        11050,
+        42,
+        3000
+      ]
+    },
+    {
+      "level": 68,
+      "duration_ms": 11200,
+      "dot_damage": 43,
+      "dot_interval_ms": 3000,
+      "raw": [
+        68,
+        11200,
+        43,
+        3000
+      ]
+    },
+    {
+      "level": 69,
+      "duration_ms": 11350,
+      "dot_damage": 43,
+      "dot_interval_ms": 3000,
+      "raw": [
+        69,
+        11350,
+        43,
+        3000
+      ]
+    },
+    {
+      "level": 70,
+      "duration_ms": 11500,
+      "dot_damage": 44,
+      "dot_interval_ms": 3000,
+      "raw": [
+        70,
+        11500,
+        44,
+        3000
+      ]
+    },
+    {
+      "level": 71,
+      "duration_ms": 11650,
+      "dot_damage": 44,
+      "dot_interval_ms": 3000,
+      "raw": [
+        71,
+        11650,
+        44,
+        3000
+      ]
+    },
+    {
+      "level": 72,
+      "duration_ms": 11800,
+      "dot_damage": 45,
+      "dot_interval_ms": 3000,
+      "raw": [
+        72,
+        11800,
+        45,
+        3000
+      ]
+    },
+    {
+      "level": 73,
+      "duration_ms": 11950,
+      "dot_damage": 46,
+      "dot_interval_ms": 3000,
+      "raw": [
+        73,
+        11950,
+        46,
+        3000
+      ]
+    },
+    {
+      "level": 74,
+      "duration_ms": 12100,
+      "dot_damage": 46,
+      "dot_interval_ms": 3000,
+      "raw": [
+        74,
+        12100,
+        46,
+        3000
+      ]
+    },
+    {
+      "level": 75,
+      "duration_ms": 12250,
+      "dot_damage": 47,
+      "dot_interval_ms": 3000,
+      "raw": [
+        75,
+        12250,
+        47,
+        3000
+      ]
+    },
+    {
+      "level": 76,
+      "duration_ms": 12400,
+      "dot_damage": 47,
+      "dot_interval_ms": 3000,
+      "raw": [
+        76,
+        12400,
+        47,
+        3000
+      ]
+    },
+    {
+      "level": 77,
+      "duration_ms": 12550,
+      "dot_damage": 48,
+      "dot_interval_ms": 3000,
+      "raw": [
+        77,
+        12550,
+        48,
+        3000
+      ]
+    },
+    {
+      "level": 78,
+      "duration_ms": 12700,
+      "dot_damage": 49,
+      "dot_interval_ms": 3000,
+      "raw": [
+        78,
+        12700,
+        49,
+        3000
+      ]
+    },
+    {
+      "level": 79,
+      "duration_ms": 12850,
+      "dot_damage": 49,
+      "dot_interval_ms": 3000,
+      "raw": [
+        79,
+        12850,
+        49,
+        3000
+      ]
+    },
+    {
+      "level": 80,
+      "duration_ms": 13000,
+      "dot_damage": 50,
+      "dot_interval_ms": 3000,
+      "raw": [
+        80,
+        13000,
+        50,
+        3000
+      ]
+    },
+    {
+      "level": 81,
+      "duration_ms": 13150,
+      "dot_damage": 50,
+      "dot_interval_ms": 3000,
+      "raw": [
+        81,
+        13150,
+        50,
+        3000
+      ]
+    },
+    {
+      "level": 82,
+      "duration_ms": 13300,
+      "dot_damage": 51,
+      "dot_interval_ms": 3000,
+      "raw": [
+        82,
+        13300,
+        51,
+        3000
+      ]
+    },
+    {
+      "level": 83,
+      "duration_ms": 13450,
+      "dot_damage": 52,
+      "dot_interval_ms": 3000,
+      "raw": [
+        83,
+        13450,
+        52,
+        3000
+      ]
+    },
+    {
+      "level": 84,
+      "duration_ms": 13600,
+      "dot_damage": 52,
+      "dot_interval_ms": 3000,
+      "raw": [
+        84,
+        13600,
+        52,
+        3000
+      ]
+    },
+    {
+      "level": 85,
+      "duration_ms": 13750,
+      "dot_damage": 53,
+      "dot_interval_ms": 3000,
+      "raw": [
+        85,
+        13750,
+        53,
+        3000
+      ]
+    },
+    {
+      "level": 86,
+      "duration_ms": 13900,
+      "dot_damage": 53,
+      "dot_interval_ms": 3000,
+      "raw": [
+        86,
+        13900,
+        53,
+        3000
+      ]
+    },
+    {
+      "level": 87,
+      "duration_ms": 14050,
+      "dot_damage": 54,
+      "dot_interval_ms": 3000,
+      "raw": [
+        87,
+        14050,
+        54,
+        3000
+      ]
+    },
+    {
+      "level": 88,
+      "duration_ms": 14200,
+      "dot_damage": 54,
+      "dot_interval_ms": 3000,
+      "raw": [
+        88,
+        14200,
+        54,
+        3000
+      ]
+    },
+    {
+      "level": 89,
+      "duration_ms": 14350,
+      "dot_damage": 55,
+      "dot_interval_ms": 3000,
+      "raw": [
+        89,
+        14350,
+        55,
+        3000
+      ]
+    },
+    {
+      "level": 90,
+      "duration_ms": 14500,
+      "dot_damage": 56,
+      "dot_interval_ms": 3000,
+      "raw": [
+        90,
+        14500,
+        56,
+        3000
+      ]
+    },
+    {
+      "level": 91,
+      "duration_ms": 14650,
+      "dot_damage": 56,
+      "dot_interval_ms": 3000,
+      "raw": [
+        91,
+        14650,
+        56,
+        3000
+      ]
+    },
+    {
+      "level": 92,
+      "duration_ms": 14800,
+      "dot_damage": 57,
+      "dot_interval_ms": 3000,
+      "raw": [
+        92,
+        14800,
+        57,
+        3000
+      ]
+    },
+    {
+      "level": 93,
+      "duration_ms": 14950,
+      "dot_damage": 57,
+      "dot_interval_ms": 3000,
+      "raw": [
+        93,
+        14950,
+        57,
+        3000
+      ]
+    },
+    {
+      "level": 94,
+      "duration_ms": 15100,
+      "dot_damage": 58,
+      "dot_interval_ms": 3000,
+      "raw": [
+        94,
+        15100,
+        58,
+        3000
+      ]
+    },
+    {
+      "level": 95,
+      "duration_ms": 15250,
+      "dot_damage": 59,
+      "dot_interval_ms": 3000,
+      "raw": [
+        95,
+        15250,
+        59,
+        3000
+      ]
+    },
+    {
+      "level": 96,
+      "duration_ms": 15400,
+      "dot_damage": 59,
+      "dot_interval_ms": 3000,
+      "raw": [
+        96,
+        15400,
+        59,
+        3000
+      ]
+    },
+    {
+      "level": 97,
+      "duration_ms": 15550,
+      "dot_damage": 60,
+      "dot_interval_ms": 3000,
+      "raw": [
+        97,
+        15550,
+        60,
+        3000
+      ]
+    },
+    {
+      "level": 98,
+      "duration_ms": 15700,
+      "dot_damage": 60,
+      "dot_interval_ms": 3000,
+      "raw": [
+        98,
+        15700,
+        60,
+        3000
+      ]
+    },
+    {
+      "level": 99,
+      "duration_ms": 15850,
+      "dot_damage": 61,
+      "dot_interval_ms": 3000,
+      "raw": [
+        99,
+        15850,
+        61,
+        3000
+      ]
+    },
+    {
+      "level": 100,
+      "duration_ms": 16000,
+      "dot_damage": 61,
+      "dot_interval_ms": 3000,
+      "raw": [
+        100,
+        16000,
+        61,
+        3000
+      ]
+    },
+    {
+      "level": 101,
+      "duration_ms": 16150,
+      "dot_damage": 63,
+      "dot_interval_ms": 3000,
+      "raw": [
+        101,
+        16150,
+        63,
+        3000
+      ]
+    },
+    {
+      "level": 102,
+      "duration_ms": 16300,
+      "dot_damage": 64,
+      "dot_interval_ms": 3000,
+      "raw": [
+        102,
+        16300,
+        64,
+        3000
+      ]
+    },
+    {
+      "level": 103,
+      "duration_ms": 16450,
+      "dot_damage": 65,
+      "dot_interval_ms": 3000,
+      "raw": [
+        103,
+        16450,
+        65,
+        3000
+      ]
+    },
+    {
+      "level": 104,
+      "duration_ms": 16600,
+      "dot_damage": 66,
+      "dot_interval_ms": 3000,
+      "raw": [
+        104,
+        16600,
+        66,
+        3000
+      ]
+    },
+    {
+      "level": 105,
+      "duration_ms": 16750,
+      "dot_damage": 67,
+      "dot_interval_ms": 3000,
+      "raw": [
+        105,
+        16750,
+        67,
+        3000
+      ]
+    },
+    {
+      "level": 106,
+      "duration_ms": 16900,
+      "dot_damage": 68,
+      "dot_interval_ms": 3000,
+      "raw": [
+        106,
+        16900,
+        68,
+        3000
+      ]
+    },
+    {
+      "level": 107,
+      "duration_ms": 17050,
+      "dot_damage": 70,
+      "dot_interval_ms": 3000,
+      "raw": [
+        107,
+        17050,
+        70,
+        3000
+      ]
+    },
+    {
+      "level": 108,
+      "duration_ms": 17200,
+      "dot_damage": 71,
+      "dot_interval_ms": 3000,
+      "raw": [
+        108,
+        17200,
+        71,
+        3000
+      ]
+    },
+    {
+      "level": 109,
+      "duration_ms": 17350,
+      "dot_damage": 72,
+      "dot_interval_ms": 3000,
+      "raw": [
+        109,
+        17350,
+        72,
+        3000
+      ]
+    },
+    {
+      "level": 110,
+      "duration_ms": 17500,
+      "dot_damage": 73,
+      "dot_interval_ms": 3000,
+      "raw": [
+        110,
+        17500,
+        73,
+        3000
+      ]
+    },
+    {
+      "level": 111,
+      "duration_ms": 17650,
+      "dot_damage": 74,
+      "dot_interval_ms": 3000,
+      "raw": [
+        111,
+        17650,
+        74,
+        3000
+      ]
+    },
+    {
+      "level": 112,
+      "duration_ms": 17800,
+      "dot_damage": 76,
+      "dot_interval_ms": 3000,
+      "raw": [
+        112,
+        17800,
+        76,
+        3000
+      ]
+    },
+    {
+      "level": 113,
+      "duration_ms": 17950,
+      "dot_damage": 77,
+      "dot_interval_ms": 3000,
+      "raw": [
+        113,
+        17950,
+        77,
+        3000
+      ]
+    },
+    {
+      "level": 114,
+      "duration_ms": 18100,
+      "dot_damage": 78,
+      "dot_interval_ms": 3000,
+      "raw": [
+        114,
+        18100,
+        78,
+        3000
+      ]
+    },
+    {
+      "level": 115,
+      "duration_ms": 18250,
+      "dot_damage": 79,
+      "dot_interval_ms": 3000,
+      "raw": [
+        115,
+        18250,
+        79,
+        3000
+      ]
+    },
+    {
+      "level": 116,
+      "duration_ms": 18400,
+      "dot_damage": 80,
+      "dot_interval_ms": 3000,
+      "raw": [
+        116,
+        18400,
+        80,
+        3000
+      ]
+    },
+    {
+      "level": 117,
+      "duration_ms": 18550,
+      "dot_damage": 81,
+      "dot_interval_ms": 3000,
+      "raw": [
+        117,
+        18550,
+        81,
+        3000
+      ]
+    },
+    {
+      "level": 118,
+      "duration_ms": 18700,
+      "dot_damage": 83,
+      "dot_interval_ms": 3000,
+      "raw": [
+        118,
+        18700,
+        83,
+        3000
+      ]
+    },
+    {
+      "level": 119,
+      "duration_ms": 18850,
+      "dot_damage": 84,
+      "dot_interval_ms": 3000,
+      "raw": [
+        119,
+        18850,
+        84,
+        3000
+      ]
+    },
+    {
+      "level": 120,
+      "duration_ms": 19000,
+      "dot_damage": 85,
+      "dot_interval_ms": 3000,
+      "raw": [
+        120,
+        19000,
+        85,
+        3000
+      ]
+    },
+    {
+      "level": 121,
+      "duration_ms": 19150,
+      "dot_damage": 86,
+      "dot_interval_ms": 3000,
+      "raw": [
+        121,
+        19150,
+        86,
+        3000
+      ]
+    },
+    {
+      "level": 122,
+      "duration_ms": 19300,
+      "dot_damage": 87,
+      "dot_interval_ms": 3000,
+      "raw": [
+        122,
+        19300,
+        87,
+        3000
+      ]
+    },
+    {
+      "level": 123,
+      "duration_ms": 19450,
+      "dot_damage": 88,
+      "dot_interval_ms": 3000,
+      "raw": [
+        123,
+        19450,
+        88,
+        3000
+      ]
+    },
+    {
+      "level": 124,
+      "duration_ms": 19600,
+      "dot_damage": 90,
+      "dot_interval_ms": 3000,
+      "raw": [
+        124,
+        19600,
+        90,
+        3000
+      ]
+    },
+    {
+      "level": 125,
+      "duration_ms": 19750,
+      "dot_damage": 91,
+      "dot_interval_ms": 3000,
+      "raw": [
+        125,
+        19750,
+        91,
+        3000
+      ]
+    },
+    {
+      "level": 126,
+      "duration_ms": 19900,
+      "dot_damage": 92,
+      "dot_interval_ms": 3000,
+      "raw": [
+        126,
+        19900,
+        92,
+        3000
+      ]
+    },
+    {
+      "level": 127,
+      "duration_ms": 20050,
+      "dot_damage": 93,
+      "dot_interval_ms": 3000,
+      "raw": [
+        127,
+        20050,
+        93,
+        3000
+      ]
+    },
+    {
+      "level": 128,
+      "duration_ms": 20200,
+      "dot_damage": 94,
+      "dot_interval_ms": 3000,
+      "raw": [
+        128,
+        20200,
+        94,
+        3000
+      ]
+    },
+    {
+      "level": 129,
+      "duration_ms": 20350,
+      "dot_damage": 95,
+      "dot_interval_ms": 3000,
+      "raw": [
+        129,
+        20350,
+        95,
+        3000
+      ]
+    },
+    {
+      "level": 130,
+      "duration_ms": 20500,
+      "dot_damage": 97,
+      "dot_interval_ms": 3000,
+      "raw": [
+        130,
+        20500,
+        97,
+        3000
+      ]
+    },
+    {
+      "level": 131,
+      "duration_ms": 20650,
+      "dot_damage": 98,
+      "dot_interval_ms": 3000,
+      "raw": [
+        131,
+        20650,
+        98,
+        3000
+      ]
+    },
+    {
+      "level": 132,
+      "duration_ms": 20800,
+      "dot_damage": 99,
+      "dot_interval_ms": 3000,
+      "raw": [
+        132,
+        20800,
+        99,
+        3000
+      ]
+    },
+    {
+      "level": 133,
+      "duration_ms": 20950,
+      "dot_damage": 100,
+      "dot_interval_ms": 3000,
+      "raw": [
+        133,
+        20950,
+        100,
+        3000
+      ]
+    },
+    {
+      "level": 134,
+      "duration_ms": 21100,
+      "dot_damage": 101,
+      "dot_interval_ms": 3000,
+      "raw": [
+        134,
+        21100,
+        101,
+        3000
+      ]
+    },
+    {
+      "level": 135,
+      "duration_ms": 21250,
+      "dot_damage": 102,
+      "dot_interval_ms": 3000,
+      "raw": [
+        135,
+        21250,
+        102,
+        3000
+      ]
+    },
+    {
+      "level": 136,
+      "duration_ms": 21400,
+      "dot_damage": 104,
+      "dot_interval_ms": 3000,
+      "raw": [
+        136,
+        21400,
+        104,
+        3000
+      ]
+    },
+    {
+      "level": 137,
+      "duration_ms": 21550,
+      "dot_damage": 105,
+      "dot_interval_ms": 3000,
+      "raw": [
+        137,
+        21550,
+        105,
+        3000
+      ]
+    },
+    {
+      "level": 138,
+      "duration_ms": 21700,
+      "dot_damage": 106,
+      "dot_interval_ms": 3000,
+      "raw": [
+        138,
+        21700,
+        106,
+        3000
+      ]
+    },
+    {
+      "level": 139,
+      "duration_ms": 21850,
+      "dot_damage": 107,
+      "dot_interval_ms": 3000,
+      "raw": [
+        139,
+        21850,
+        107,
+        3000
+      ]
+    },
+    {
+      "level": 140,
+      "duration_ms": 22000,
+      "dot_damage": 108,
+      "dot_interval_ms": 3000,
+      "raw": [
+        140,
+        22000,
+        108,
+        3000
+      ]
+    },
+    {
+      "level": 141,
+      "duration_ms": 22150,
+      "dot_damage": 109,
+      "dot_interval_ms": 3000,
+      "raw": [
+        141,
+        22150,
+        109,
+        3000
+      ]
+    },
+    {
+      "level": 142,
+      "duration_ms": 22300,
+      "dot_damage": 111,
+      "dot_interval_ms": 3000,
+      "raw": [
+        142,
+        22300,
+        111,
+        3000
+      ]
+    },
+    {
+      "level": 143,
+      "duration_ms": 22450,
+      "dot_damage": 112,
+      "dot_interval_ms": 3000,
+      "raw": [
+        143,
+        22450,
+        112,
+        3000
+      ]
+    },
+    {
+      "level": 144,
+      "duration_ms": 22600,
+      "dot_damage": 113,
+      "dot_interval_ms": 3000,
+      "raw": [
+        144,
+        22600,
+        113,
+        3000
+      ]
+    },
+    {
+      "level": 145,
+      "duration_ms": 22750,
+      "dot_damage": 114,
+      "dot_interval_ms": 3000,
+      "raw": [
+        145,
+        22750,
+        114,
+        3000
+      ]
+    },
+    {
+      "level": 146,
+      "duration_ms": 22900,
+      "dot_damage": 115,
+      "dot_interval_ms": 3000,
+      "raw": [
+        146,
+        22900,
+        115,
+        3000
+      ]
+    },
+    {
+      "level": 147,
+      "duration_ms": 23050,
+      "dot_damage": 116,
+      "dot_interval_ms": 3000,
+      "raw": [
+        147,
+        23050,
+        116,
+        3000
+      ]
+    },
+    {
+      "level": 148,
+      "duration_ms": 23200,
+      "dot_damage": 118,
+      "dot_interval_ms": 3000,
+      "raw": [
+        148,
+        23200,
+        118,
+        3000
+      ]
+    },
+    {
+      "level": 149,
+      "duration_ms": 23350,
+      "dot_damage": 119,
+      "dot_interval_ms": 3000,
+      "raw": [
+        149,
+        23350,
+        119,
+        3000
+      ]
+    },
+    {
+      "level": 150,
+      "duration_ms": 23500,
+      "dot_damage": 120,
+      "dot_interval_ms": 3000,
+      "raw": [
+        150,
+        23500,
+        120,
+        3000
+      ]
+    }
+  ]
+}

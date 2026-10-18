@@ -1,0 +1,54 @@
+{
+  "mob": "T_Imp",
+  "sequence": [
+    {
+      "order": 0,
+      "attack": "-"
+    },
+    {
+      "order": 1,
+      "attack": "-"
+    },
+    {
+      "order": 2,
+      "attack": "T_Imp_Atk0"
+    },
+    {
+      "order": 3,
+      "attack": "T_Imp_Atk1"
+    },
+    {
+      "order": 4,
+      "attack": "-"
+    },
+    {
+      "order": 5,
+      "attack": "-"
+    },
+    {
+      "order": 6,
+      "attack": "T_Imp_Atk0"
+    },
+    {
+      "order": 7,
+      "attack": "T_Imp_Atk1"
+    },
+    {
+      "order": 8,
+      "attack": "-"
+    },
+    {
+      "order": 9,
+      "attack": "-"
+    },
+    {
+      "order": 10,
+      "attack": "T_Imp_Atk0"
+    },
+    {
+      "order": 11,
+      "attack": "T_Imp_Atk1"
+    }
+  ],
+  "skill_changes": []
+}

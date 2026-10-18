@@ -1,0 +1,70 @@
+{
+  "mob": "ID_FireTaitan",
+  "sequence": [
+    {
+      "order": 0,
+      "attack": "IDFireTaiNeut01"
+    },
+    {
+      "order": 1,
+      "attack": "IDFireTaiAtkSkill2"
+    },
+    {
+      "order": 2,
+      "attack": "IDFireTaiAtkSkill1"
+    },
+    {
+      "order": 3,
+      "attack": "-"
+    },
+    {
+      "order": 4,
+      "attack": "-"
+    },
+    {
+      "order": 5,
+      "attack": "-"
+    },
+    {
+      "order": 6,
+      "attack": "IDFireTaiNeut01"
+    },
+    {
+      "order": 7,
+      "attack": "IDFireTaiAtkSkill1"
+    },
+    {
+      "order": 8,
+      "attack": "-"
+    },
+    {
+      "order": 9,
+      "attack": "-"
+    },
+    {
+      "order": 10,
+      "attack": "-"
+    },
+    {
+      "order": 11,
+      "attack": "IDFireTaiNeut01"
+    },
+    {
+      "order": 12,
+      "attack": "IDFireTaiAtkSkill2"
+    },
+    {
+      "order": 13,
+      "attack": "-"
+    },
+    {
+      "order": 14,
+      "attack": "-"
+    },
+    {
+      "order": 15,
+      "attack": "-"
+    }
+  ],
+  "skill_changes": []
+}

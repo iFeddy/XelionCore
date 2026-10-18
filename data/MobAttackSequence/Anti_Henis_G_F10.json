@@ -1,0 +1,54 @@
+{
+  "mob": "Anti_Henis_G_F10",
+  "sequence": [
+    {
+      "order": 0,
+      "attack": "-"
+    },
+    {
+      "order": 1,
+      "attack": "TripleHit01"
+    },
+    {
+      "order": 2,
+      "attack": "RedSlash01"
+    },
+    {
+      "order": 3,
+      "attack": "-"
+    },
+    {
+      "order": 4,
+      "attack": "TripleHit01"
+    },
+    {
+      "order": 5,
+      "attack": "RedSlash01"
+    },
+    {
+      "order": 6,
+      "attack": "-"
+    },
+    {
+      "order": 7,
+      "attack": "TripleHit01"
+    },
+    {
+      "order": 8,
+      "attack": "RedSlash01"
+    },
+    {
+      "order": 9,
+      "attack": "-"
+    },
+    {
+      "order": 10,
+      "attack": "TripleHit01"
+    },
+    {
+      "order": 11,
+      "attack": "RedSlash01"
+    }
+  ],
+  "skill_changes": []
+}

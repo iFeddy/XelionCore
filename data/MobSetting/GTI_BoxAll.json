@@ -1,0 +1,13 @@
+{
+  "entity": "GTI_BoxAll",
+  "triggers": [
+    {
+      "condition_id": 1,
+      "action_id": 27
+    },
+    {
+      "condition_id": 1,
+      "action_id": 28
+    }
+  ]
+}

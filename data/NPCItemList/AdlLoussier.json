@@ -1,0 +1,67 @@
+{
+  "merchant": "AdlLoussier",
+  "tabs": [
+    {
+      "tab": "Tab00",
+      "title": "아이템 상점(아델리아)",
+      "rows": [
+        [
+          "Grade6",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-"
+        ],
+        [
+          "FlyStone",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-"
+        ],
+        [
+          "House_MushRoom01",
+          "House_MushRoom02",
+          "House_MushRoom03",
+          "House_MushRoom04",
+          "-",
+          "-"
+        ],
+        [
+          "Converter1",
+          "Converter2",
+          "Converter3",
+          "Converter4",
+          "Converter5",
+          "-"
+        ],
+        [
+          "HighMagicCrystal",
+          "HighBeastTooth",
+          "HighMeat",
+          "HighSkin",
+          "HighSpiritDust",
+          "HighBrokenBone"
+        ],
+        [
+          "HighCleanWater",
+          "HighKylinLeather",
+          "HighPledge",
+          "HighGemDust",
+          "HighSoulDust",
+          "HighBeastLeather"
+        ],
+        [
+          "Q_MeatDry",
+          "Q_MilkSweety",
+          "-",
+          "-",
+          "-",
+          "-"
+        ]
+      ]
+    }
+  ]
+}

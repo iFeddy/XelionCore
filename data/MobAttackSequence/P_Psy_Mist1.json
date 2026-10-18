@@ -1,0 +1,113 @@
+{
+  "mob": "P_Psy_Mist1",
+  "sequence": [
+    {
+      "order": 0,
+      "attack": "-"
+    },
+    {
+      "order": 1,
+      "attack": "GhostLumpSkill"
+    },
+    {
+      "order": 2,
+      "attack": "-"
+    },
+    {
+      "order": 3,
+      "attack": "-"
+    },
+    {
+      "order": 4,
+      "attack": "Psy_Mist_Skill_N"
+    },
+    {
+      "order": 5,
+      "attack": "-"
+    },
+    {
+      "order": 6,
+      "attack": "-"
+    },
+    {
+      "order": 7,
+      "attack": "Psy_Mist_Skill_W"
+    },
+    {
+      "order": 8,
+      "attack": "-"
+    },
+    {
+      "order": 9,
+      "attack": "Psy_Mist_Skill_N"
+    },
+    {
+      "order": 10,
+      "attack": "-"
+    },
+    {
+      "order": 11,
+      "attack": "GhostLumpSkill"
+    },
+    {
+      "order": 12,
+      "attack": "-"
+    },
+    {
+      "order": 13,
+      "attack": "-"
+    },
+    {
+      "order": 14,
+      "attack": "Psy_Mist_Skill_N"
+    },
+    {
+      "order": 15,
+      "attack": "-"
+    },
+    {
+      "order": 16,
+      "attack": "-"
+    },
+    {
+      "order": 17,
+      "attack": "Psy_Mist_Skill_W"
+    },
+    {
+      "order": 18,
+      "attack": "-"
+    },
+    {
+      "order": 19,
+      "attack": "Psy_Mist_Skill_N"
+    },
+    {
+      "order": 20,
+      "attack": "-"
+    },
+    {
+      "order": 21,
+      "attack": "GhostLumpSkill"
+    }
+  ],
+  "skill_changes": [
+    {
+      "condition": "OutOfRange",
+      "value": "-",
+      "from": "-",
+      "to": "Psy_Mist_Skill_N"
+    },
+    {
+      "condition": "OutOfRange",
+      "value": "-",
+      "from": "Psy_Mist_Skill_W",
+      "to": "Psy_Mist_Skill_N"
+    },
+    {
+      "condition": "OutOfRange",
+      "value": "-",
+      "from": "GhostLumpSkill",
+      "to": "Psy_Mist_Skill_N"
+    }
+  ]
+}

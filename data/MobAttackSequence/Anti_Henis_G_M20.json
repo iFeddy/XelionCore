@@ -1,0 +1,54 @@
+{
+  "mob": "Anti_Henis_G_M20",
+  "sequence": [
+    {
+      "order": 0,
+      "attack": "FireBolt03"
+    },
+    {
+      "order": 1,
+      "attack": "IceBolt03"
+    },
+    {
+      "order": 2,
+      "attack": "MagicBurst01"
+    },
+    {
+      "order": 3,
+      "attack": "FireBolt03"
+    },
+    {
+      "order": 4,
+      "attack": "IceBolt03"
+    },
+    {
+      "order": 5,
+      "attack": "MagicBurst01"
+    },
+    {
+      "order": 6,
+      "attack": "FireBolt03"
+    },
+    {
+      "order": 7,
+      "attack": "IceBolt03"
+    },
+    {
+      "order": 8,
+      "attack": "MagicBurst01"
+    },
+    {
+      "order": 9,
+      "attack": "FireBolt03"
+    },
+    {
+      "order": 10,
+      "attack": "IceBolt03"
+    },
+    {
+      "order": 11,
+      "attack": "MagicBurst01"
+    }
+  ],
+  "skill_changes": []
+}

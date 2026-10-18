@@ -1,0 +1,54 @@
+{
+  "mob": "Anti_Henis_G_A110",
+  "sequence": [
+    {
+      "order": 0,
+      "attack": "-"
+    },
+    {
+      "order": 1,
+      "attack": "PowerShot08"
+    },
+    {
+      "order": 2,
+      "attack": "BoneArrow09"
+    },
+    {
+      "order": 3,
+      "attack": "PoisonShot08"
+    },
+    {
+      "order": 4,
+      "attack": "-"
+    },
+    {
+      "order": 5,
+      "attack": "PowerShot08"
+    },
+    {
+      "order": 6,
+      "attack": "BoneArrow09"
+    },
+    {
+      "order": 7,
+      "attack": "PoisonShot08"
+    },
+    {
+      "order": 8,
+      "attack": "-"
+    },
+    {
+      "order": 9,
+      "attack": "PowerShot08"
+    },
+    {
+      "order": 10,
+      "attack": "BoneArrow09"
+    },
+    {
+      "order": 11,
+      "attack": "PoisonShot08"
+    }
+  ],
+  "skill_changes": []
+}

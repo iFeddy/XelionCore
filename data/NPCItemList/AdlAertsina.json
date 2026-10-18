@@ -1,0 +1,81 @@
+{
+  "merchant": "AdlAertsina",
+  "tabs": [
+    {
+      "tab": "Tab00",
+      "title": "인첸트 상점",
+      "rows": [
+        [
+          "WTL_LeoPard",
+          "WTL_Ape",
+          "-",
+          "-",
+          "-",
+          "-"
+        ],
+        [
+          "-",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-"
+        ],
+        [
+          "-",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-"
+        ],
+        [
+          "-",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-"
+        ],
+        [
+          "-",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-"
+        ]
+      ]
+    },
+    {
+      "tab": "Tab01",
+      "title": "인첸트 상점",
+      "rows": [
+        [
+          "EnM_Undead_Hp04",
+          "EnM_Undead_AddDmg04",
+          "EnM_Beast_Hp04",
+          "EnM_Beast_AddDmg04",
+          "EnM_Elementa_Hp04",
+          "EnM_Elementa_AddDmg04"
+        ],
+        [
+          "EnM_Magic_Hp04",
+          "EnM_Magic_AddDmg04",
+          "EnM_Spirit_Hp04",
+          "EnM_Spirit_AddDmg04",
+          "EnM_Human_Hp04",
+          "EnM_Human_AddDmg04"
+        ],
+        [
+          "EnS_WC04",
+          "EnS_MA04",
+          "EnS_AtkSpd04",
+          "-",
+          "-",
+          "-"
+        ]
+      ]
+    }
+  ]
+}

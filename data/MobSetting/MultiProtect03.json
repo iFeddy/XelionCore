@@ -1,0 +1,13 @@
+{
+  "entity": "MultiProtect03",
+  "triggers": [
+    {
+      "condition_id": 18,
+      "action_id": 29
+    },
+    {
+      "condition_id": 19,
+      "action_id": 43
+    }
+  ]
+}

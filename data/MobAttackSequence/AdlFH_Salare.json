@@ -1,0 +1,165 @@
+{
+  "mob": "AdlFH_Salare",
+  "sequence": [
+    {
+      "order": 0,
+      "attack": "-"
+    },
+    {
+      "order": 1,
+      "attack": "-"
+    },
+    {
+      "order": 2,
+      "attack": "Salare_Skill01_N"
+    },
+    {
+      "order": 3,
+      "attack": "-"
+    },
+    {
+      "order": 4,
+      "attack": "Salare_Skill01_N"
+    },
+    {
+      "order": 5,
+      "attack": "-"
+    },
+    {
+      "order": 6,
+      "attack": "Salare_Skill02_W"
+    },
+    {
+      "order": 7,
+      "attack": "Salare_Skill02_W"
+    },
+    {
+      "order": 8,
+      "attack": "Salare_Skill01_N"
+    },
+    {
+      "order": 9,
+      "attack": "Salare_Skill02_W"
+    },
+    {
+      "order": 10,
+      "attack": "Salare_Skill01_N"
+    },
+    {
+      "order": 11,
+      "attack": "Salare_Skill02_W"
+    },
+    {
+      "order": 12,
+      "attack": "-"
+    },
+    {
+      "order": 13,
+      "attack": "Salare_Skill02_W"
+    },
+    {
+      "order": 14,
+      "attack": "-"
+    },
+    {
+      "order": 15,
+      "attack": "-"
+    },
+    {
+      "order": 16,
+      "attack": "Salare_Skill02_W"
+    },
+    {
+      "order": 17,
+      "attack": "Salare_Skill01_N"
+    },
+    {
+      "order": 18,
+      "attack": "Salare_Skill01_N"
+    },
+    {
+      "order": 19,
+      "attack": "Salare_Skill01_N"
+    }
+  ],
+  "skill_changes": [
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 400,
+      "from": 6,
+      "to": "Salare_Skill04_W"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 400,
+      "from": 7,
+      "to": "Salare_Skill04_W"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 400,
+      "from": 9,
+      "to": "Salare_Skill04_W"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 400,
+      "from": 11,
+      "to": "Salare_Skill04_W"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 400,
+      "from": 13,
+      "to": "Salare_Skill04_W"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 400,
+      "from": 16,
+      "to": "Salare_Skill04_W"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 700,
+      "from": 0,
+      "to": "Salare_Skill03_N"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 700,
+      "from": 3,
+      "to": "Salare_Skill03_N"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 700,
+      "from": 5,
+      "to": "Salare_Skill03_N"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 700,
+      "from": 7,
+      "to": "Salare_Skill03_N"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 700,
+      "from": 12,
+      "to": "Salare_Skill03_N"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 700,
+      "from": 14,
+      "to": "Salare_Skill03_N"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 700,
+      "from": 18,
+      "to": "Salare_Skill03_N"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "merchant": "Daliy_Merchant",
+  "tabs": [
+    {
+      "tab": "Tab00",
+      "title": "일일퀘스트 명성치 상인(엘더린)",
+      "rows": [
+        [
+          "D_LuckyCapsule01",
+          "D_LuckyCapsule02",
+          "D_LuckyCapsule03",
+          "-",
+          "-",
+          "-"
+        ]
+      ]
+    }
+  ]
+}

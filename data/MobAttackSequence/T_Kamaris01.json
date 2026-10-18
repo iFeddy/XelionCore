@@ -1,0 +1,54 @@
+{
+  "mob": "T_Kamaris01",
+  "sequence": [
+    {
+      "order": 0,
+      "attack": "T_Kamaris01_Wide0"
+    },
+    {
+      "order": 1,
+      "attack": "-"
+    },
+    {
+      "order": 2,
+      "attack": "-"
+    },
+    {
+      "order": 3,
+      "attack": "T_StoneGolem_Atk0"
+    },
+    {
+      "order": 4,
+      "attack": "-"
+    },
+    {
+      "order": 5,
+      "attack": "-"
+    },
+    {
+      "order": 6,
+      "attack": "T_Kamaris01_Wide1"
+    },
+    {
+      "order": 7,
+      "attack": "-"
+    },
+    {
+      "order": 8,
+      "attack": "-"
+    },
+    {
+      "order": 9,
+      "attack": "T_StoneGolem_Atk1"
+    },
+    {
+      "order": 10,
+      "attack": "-"
+    },
+    {
+      "order": 11,
+      "attack": "-"
+    }
+  ],
+  "skill_changes": []
+}

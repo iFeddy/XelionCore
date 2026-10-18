@@ -1,0 +1,19 @@
+{
+  "merchant": "WeddingDreian",
+  "tabs": [
+    {
+      "tab": "Tab00",
+      "title": "결혼 아이템 판매",
+      "rows": [
+        [
+          "ProposeRing",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-"
+        ]
+      ]
+    }
+  ]
+}

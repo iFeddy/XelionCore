@@ -1,0 +1,9 @@
+{
+  "entity": "KDSoccer_Ball_14",
+  "triggers": [
+    {
+      "condition_id": 1,
+      "action_id": 49
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "mob": "UrgDTH_ID_EarthNerpa",
+  "sequence": [
+    {
+      "order": 0,
+      "attack": "IDNerpaAtkSkill1"
+    },
+    {
+      "order": 1,
+      "attack": "IDNerpaSlowShot01"
+    },
+    {
+      "order": 2,
+      "attack": "IDNerpaSlowShot01"
+    },
+    {
+      "order": 3,
+      "attack": "IDNerpaSlowShot01"
+    },
+    {
+      "order": 4,
+      "attack": "-"
+    },
+    {
+      "order": 5,
+      "attack": "-"
+    },
+    {
+      "order": 6,
+      "attack": "-"
+    },
+    {
+      "order": 7,
+      "attack": "IDNerpaSlowShot01"
+    },
+    {
+      "order": 8,
+      "attack": "-"
+    },
+    {
+      "order": 9,
+      "attack": "IDNerpaSlowShot01"
+    },
+    {
+      "order": 10,
+      "attack": "-"
+    },
+    {
+      "order": 11,
+      "attack": "-"
+    }
+  ],
+  "skill_changes": []
+}

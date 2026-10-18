@@ -1,0 +1,19 @@
+{
+  "merchant": "KQSpring_Bman",
+  "tabs": [
+    {
+      "tab": "Tab00",
+      "title": "깃발 뺏기 킹퀘 상점",
+      "rows": [
+        [
+          "BallHoney01",
+          "BallHive01",
+          "TeleportCharm01",
+          "-",
+          "-",
+          "-"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "mob": "BomBoogy02",
+  "sequence": [
+    {
+      "order": 0,
+      "attack": "BombBoogy02Bomb"
+    },
+    {
+      "order": 1,
+      "attack": "BombBoogy02Bomb"
+    }
+  ],
+  "skill_changes": []
+}

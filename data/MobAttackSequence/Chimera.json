@@ -1,0 +1,145 @@
+{
+  "mob": "Chimera",
+  "sequence": [
+    {
+      "order": 0,
+      "attack": "-"
+    },
+    {
+      "order": 1,
+      "attack": "Chimera_Skill_N"
+    },
+    {
+      "order": 2,
+      "attack": "-"
+    },
+    {
+      "order": 3,
+      "attack": "Chimera_Skill_W01"
+    },
+    {
+      "order": 4,
+      "attack": "-"
+    },
+    {
+      "order": 5,
+      "attack": "Chimera_Skill_W02"
+    },
+    {
+      "order": 6,
+      "attack": "Chimera_Skill_W01"
+    },
+    {
+      "order": 7,
+      "attack": "-"
+    },
+    {
+      "order": 8,
+      "attack": "Chimera_Skill_W02"
+    },
+    {
+      "order": 9,
+      "attack": "-"
+    },
+    {
+      "order": 10,
+      "attack": "-"
+    },
+    {
+      "order": 11,
+      "attack": "Chimera_Skill_W01"
+    },
+    {
+      "order": 12,
+      "attack": "Chimera_Skill_N"
+    },
+    {
+      "order": 13,
+      "attack": "-"
+    },
+    {
+      "order": 14,
+      "attack": "Chimera_Skill_W01"
+    },
+    {
+      "order": 15,
+      "attack": "-"
+    },
+    {
+      "order": 16,
+      "attack": "-"
+    },
+    {
+      "order": 17,
+      "attack": "Chimera_Skill_W01"
+    },
+    {
+      "order": 18,
+      "attack": "Chimera_Skill_W02"
+    },
+    {
+      "order": 19,
+      "attack": "-"
+    },
+    {
+      "order": 20,
+      "attack": "Chimera_Skill_N"
+    },
+    {
+      "order": 21,
+      "attack": "-"
+    },
+    {
+      "order": 22,
+      "attack": "Chimera_Skill_W01"
+    },
+    {
+      "order": 23,
+      "attack": "-"
+    },
+    {
+      "order": 24,
+      "attack": "Chimera_Skill_W02"
+    },
+    {
+      "order": 25,
+      "attack": "-"
+    },
+    {
+      "order": 26,
+      "attack": "Chimera_Skill_N"
+    },
+    {
+      "order": 27,
+      "attack": "-"
+    },
+    {
+      "order": 28,
+      "attack": "-"
+    },
+    {
+      "order": 29,
+      "attack": "Chimera_Skill_W01"
+    }
+  ],
+  "skill_changes": [
+    {
+      "condition": "OutOfRange",
+      "value": "-",
+      "from": "-",
+      "to": "Chimera_Skill_W01"
+    },
+    {
+      "condition": "OutOfRange",
+      "value": "-",
+      "from": "Chimera_Skill_N",
+      "to": "Chimera_Skill_W02"
+    },
+    {
+      "condition": "OutOfRange",
+      "value": "-",
+      "from": "Chimera_Skill_W02",
+      "to": "Chimera_Skill_W01"
+    }
+  ]
+}

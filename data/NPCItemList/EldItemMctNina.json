@@ -1,0 +1,43 @@
+{
+  "merchant": "EldItemMctNina",
+  "tabs": [
+    {
+      "tab": "Tab00",
+      "title": "아이템 상점(엘더린)",
+      "rows": [
+        [
+          "Converter1",
+          "Converter2",
+          "Converter3",
+          "Converter4",
+          "Converter5",
+          "-"
+        ],
+        [
+          "LowMagicCrystal",
+          "LowBeastLeather",
+          "LowMeat",
+          "LowSkin",
+          "LowSpiritDust",
+          "LowBrokenBone"
+        ],
+        [
+          "LowCleanWater",
+          "LowKylinLeather",
+          "LowPledge",
+          "LowGemDust",
+          "LowSoulDust",
+          "LowBeastTooth"
+        ],
+        [
+          "Q_Peg",
+          "Q_Hammer",
+          "-",
+          "-",
+          "-",
+          "-"
+        ]
+      ]
+    }
+  ]
+}

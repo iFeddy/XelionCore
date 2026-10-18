@@ -1,0 +1,58 @@
+{
+  "mob": "BH_Humar",
+  "sequence": [
+    {
+      "order": 0,
+      "attack": "BH_Humar_AC_Down_Atk"
+    },
+    {
+      "order": 1,
+      "attack": "-"
+    },
+    {
+      "order": 2,
+      "attack": "BH_Humar_Skill_DrainSP"
+    },
+    {
+      "order": 3,
+      "attack": "BH_Humar_Skill_Heal"
+    },
+    {
+      "order": 4,
+      "attack": "-"
+    },
+    {
+      "order": 5,
+      "attack": "B_CrackerHumar_Normal_Atk"
+    },
+    {
+      "order": 6,
+      "attack": "-"
+    },
+    {
+      "order": 7,
+      "attack": "B_CrackerHumar_Normal_Wide"
+    },
+    {
+      "order": 8,
+      "attack": "-"
+    },
+    {
+      "order": 9,
+      "attack": "B_CrackerHumar_Normal_Atk"
+    },
+    {
+      "order": 10,
+      "attack": "-"
+    },
+    {
+      "order": 11,
+      "attack": "B_CrackerHumar_Normal_Atk"
+    },
+    {
+      "order": 12,
+      "attack": "-"
+    }
+  ],
+  "skill_changes": []
+}

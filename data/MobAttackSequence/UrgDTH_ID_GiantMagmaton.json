@@ -1,0 +1,70 @@
+{
+  "mob": "UrgDTH_ID_GiantMagmaton",
+  "sequence": [
+    {
+      "order": 0,
+      "attack": "IDGMagmaNeut01"
+    },
+    {
+      "order": 1,
+      "attack": "IDGMagmaAtkSkill1"
+    },
+    {
+      "order": 2,
+      "attack": "-"
+    },
+    {
+      "order": 3,
+      "attack": "-"
+    },
+    {
+      "order": 4,
+      "attack": "IDGMagmaNeut01"
+    },
+    {
+      "order": 5,
+      "attack": "-"
+    },
+    {
+      "order": 6,
+      "attack": "-"
+    },
+    {
+      "order": 7,
+      "attack": "IDGMagmaAtkSkill1"
+    },
+    {
+      "order": 8,
+      "attack": "-"
+    },
+    {
+      "order": 9,
+      "attack": "-"
+    },
+    {
+      "order": 10,
+      "attack": "IDGMagmaNeut01"
+    },
+    {
+      "order": 11,
+      "attack": "-"
+    },
+    {
+      "order": 12,
+      "attack": "-"
+    },
+    {
+      "order": 13,
+      "attack": "IDGMagmaAtkSkill1"
+    },
+    {
+      "order": 14,
+      "attack": "-"
+    },
+    {
+      "order": 15,
+      "attack": "-"
+    }
+  ],
+  "skill_changes": []
+}

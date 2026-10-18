@@ -1,0 +1,9 @@
+{
+  "entity": "B_Slime",
+  "triggers": [
+    {
+      "condition_id": 18,
+      "action_id": 29
+    }
+  ]
+}

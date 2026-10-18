@@ -1,0 +1,9 @@
+{
+  "entity": "Egg2014_BigEgg",
+  "triggers": [
+    {
+      "condition_id": 1,
+      "action_id": 49
+    }
+  ]
+}

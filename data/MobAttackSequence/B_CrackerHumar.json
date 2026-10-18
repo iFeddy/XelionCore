@@ -1,0 +1,166 @@
+{
+  "mob": "B_CrackerHumar",
+  "sequence": [
+    {
+      "order": 0,
+      "attack": "BH_Humar_Skill_DrainSP"
+    },
+    {
+      "order": 1,
+      "attack": "BH_Humar_Skill_Heal"
+    },
+    {
+      "order": 2,
+      "attack": "B_CrackerHumar_AC_Down_Atk"
+    },
+    {
+      "order": 3,
+      "attack": "-"
+    },
+    {
+      "order": 4,
+      "attack": "B_CrackerHumar_Normal_Wide"
+    },
+    {
+      "order": 5,
+      "attack": "-"
+    },
+    {
+      "order": 6,
+      "attack": "-"
+    },
+    {
+      "order": 7,
+      "attack": "B_CrackerHumar_Normal_Atk"
+    },
+    {
+      "order": 8,
+      "attack": "-"
+    },
+    {
+      "order": 9,
+      "attack": "B_CrackerHumar_AC_Down_Atk"
+    },
+    {
+      "order": 10,
+      "attack": "-"
+    },
+    {
+      "order": 11,
+      "attack": "B_CrackerHumar_Normal_Wide"
+    },
+    {
+      "order": 12,
+      "attack": "-"
+    },
+    {
+      "order": 13,
+      "attack": "-"
+    },
+    {
+      "order": 14,
+      "attack": "B_CrackerHumar_Normal_Atk"
+    },
+    {
+      "order": 15,
+      "attack": "-"
+    },
+    {
+      "order": 16,
+      "attack": "B_CrackerHumar_AC_Down_Atk"
+    },
+    {
+      "order": 17,
+      "attack": "-"
+    },
+    {
+      "order": 18,
+      "attack": "B_CrackerHumar_Normal_Wide"
+    },
+    {
+      "order": 19,
+      "attack": "-"
+    },
+    {
+      "order": 20,
+      "attack": "-"
+    },
+    {
+      "order": 21,
+      "attack": "B_CrackerHumar_Normal_Atk"
+    },
+    {
+      "order": 22,
+      "attack": "-"
+    },
+    {
+      "order": 23,
+      "attack": "B_CrackerHumar_AC_Down_Atk"
+    },
+    {
+      "order": 24,
+      "attack": "-"
+    },
+    {
+      "order": 25,
+      "attack": "B_CrackerHumar_Normal_Wide"
+    },
+    {
+      "order": 26,
+      "attack": "-"
+    },
+    {
+      "order": 27,
+      "attack": "-"
+    },
+    {
+      "order": 28,
+      "attack": "B_CrackerHumar_Normal_Atk"
+    },
+    {
+      "order": 29,
+      "attack": "-"
+    },
+    {
+      "order": 30,
+      "attack": "B_CrackerHumar_AC_Down_Atk"
+    },
+    {
+      "order": 31,
+      "attack": "-"
+    },
+    {
+      "order": 32,
+      "attack": "B_CrackerHumar_Normal_Wide"
+    },
+    {
+      "order": 33,
+      "attack": "-"
+    },
+    {
+      "order": 34,
+      "attack": "-"
+    },
+    {
+      "order": 35,
+      "attack": "B_CrackerHumar_Normal_Atk"
+    },
+    {
+      "order": 36,
+      "attack": "-"
+    },
+    {
+      "order": 37,
+      "attack": "B_CrackerHumar_AC_Down_Atk"
+    },
+    {
+      "order": 38,
+      "attack": "-"
+    },
+    {
+      "order": 39,
+      "attack": "B_CrackerHumar_Normal_Wide"
+    }
+  ],
+  "skill_changes": []
+}

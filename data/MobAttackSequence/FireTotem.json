@@ -1,0 +1,14 @@
+{
+  "mob": "FireTotem",
+  "sequence": [
+    {
+      "order": 0,
+      "attack": "FireTotemDetect"
+    },
+    {
+      "order": 1,
+      "attack": "FireTotemDetect"
+    }
+  ],
+  "skill_changes": []
+}

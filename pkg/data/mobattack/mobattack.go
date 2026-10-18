@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+	"strings"
 )
 
 // AttackOrder representa un paso en la rotación fija de combate de un monstruo.
@@ -23,6 +24,7 @@ type SkillChange struct {
 
 // MobAI almacena la secuencia de turnos y las reglas dinámicas de combate de un mob.
 type MobAI struct {
+	Mob          string        `json:"mob,omitempty"`
 	Sequence     []AttackOrder `json:"sequence"`
 	SkillChanges []SkillChange `json:"skill_changes,omitempty"`
 }
@@ -32,21 +34,63 @@ type Database struct {
 	Mobs map[string]MobAI
 }
 
-// LoadFromFile carga y deserializa el catálogo de secuencias de ataque desde mob_attack_sequence.json o directorio.
+// LoadFromDir carga y deserializa todas las secuencias de combate desde archivos JSON individuales en data/MobAttackSequence.
+func LoadFromDir(dirPath string) (*Database, error) {
+	entries, err := os.ReadDir(dirPath)
+	if err != nil {
+		return nil, fmt.Errorf("error leyendo directorio de secuencias de ataque (%s): %w", dirPath, err)
+	}
+
+	mobs := make(map[string]MobAI)
+
+	for _, entry := range entries {
+		if entry.IsDir() || !strings.HasSuffix(entry.Name(), ".json") {
+			continue
+		}
+
+		fullPath := filepath.Join(dirPath, entry.Name())
+		data, err := os.ReadFile(fullPath)
+		if err != nil {
+			return nil, fmt.Errorf("error leyendo archivo de ataque (%s): %w", fullPath, err)
+		}
+
+		var ai MobAI
+		if err := json.Unmarshal(data, &ai); err != nil {
+			return nil, fmt.Errorf("error parseando JSON (%s): %w", fullPath, err)
+		}
+
+		mobName := ai.Mob
+		if mobName == "" {
+			mobName = strings.TrimSuffix(entry.Name(), ".json")
+		}
+		mobs[mobName] = ai
+	}
+
+	return &Database{
+		Mobs: mobs,
+	}, nil
+}
+
+// LoadFromFile carga y deserializa el catálogo de secuencias de ataque desde un archivo o directorio.
 func LoadFromFile(path string) (*Database, error) {
 	fi, err := os.Stat(path)
-	if err == nil && fi.IsDir() {
-		path = filepath.Join(path, "mob_attack_sequence.json")
-	} else if err != nil {
-		alt := filepath.Join(filepath.Dir(path), "MobAttackSequence", filepath.Base(path))
-		if _, errAlt := os.Stat(alt); errAlt == nil {
-			path = alt
-		}
+	if err != nil {
+		return nil, fmt.Errorf("ruta no encontrada (%s): %w", path, err)
+	}
+	if fi.IsDir() {
+		return LoadFromDir(path)
 	}
 
 	data, err := os.ReadFile(path)
 	if err != nil {
 		return nil, fmt.Errorf("error leyendo archivo mob_attack_sequence (%s): %w", path, err)
+	}
+
+	var single MobAI
+	if err := json.Unmarshal(data, &single); err == nil && single.Mob != "" {
+		return &Database{
+			Mobs: map[string]MobAI{single.Mob: single},
+		}, nil
 	}
 
 	mobs := make(map[string]MobAI)

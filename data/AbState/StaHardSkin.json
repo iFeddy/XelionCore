@@ -1,0 +1,1822 @@
+{
+  "id": 1,
+  "name": "StaHardSkin",
+  "description": "Piel de Piedra (Defensa física de Fighter)",
+  "max_levels": 151,
+  "record_size_bytes": 16,
+  "meta_hex": "010053746148617264536b696e00000000000000000000000000000000000000000000c7cfb5e5bdbac5b200000000000000000000000000000000000000000000000000010000000100000000000000020000000100000000000000010000000000000000000000",
+  "levels": [
+    {
+      "level": 0,
+      "duration_ms": 0,
+      "min_def": 0,
+      "max_def": 0,
+      "raw": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "level": 1,
+      "duration_ms": 303000,
+      "min_def": 4,
+      "max_def": 5,
+      "raw": [
+        1,
+        303000,
+        4,
+        5
+      ]
+    },
+    {
+      "level": 2,
+      "duration_ms": 306000,
+      "min_def": 4,
+      "max_def": 5,
+      "raw": [
+        2,
+        306000,
+        4,
+        5
+      ]
+    },
+    {
+      "level": 3,
+      "duration_ms": 309000,
+      "min_def": 5,
+      "max_def": 6,
+      "raw": [
+        3,
+        309000,
+        5,
+        6
+      ]
+    },
+    {
+      "level": 4,
+      "duration_ms": 312000,
+      "min_def": 5,
+      "max_def": 7,
+      "raw": [
+        4,
+        312000,
+        5,
+        7
+      ]
+    },
+    {
+      "level": 5,
+      "duration_ms": 315000,
+      "min_def": 6,
+      "max_def": 8,
+      "raw": [
+        5,
+        315000,
+        6,
+        8
+      ]
+    },
+    {
+      "level": 6,
+      "duration_ms": 318000,
+      "min_def": 6,
+      "max_def": 8,
+      "raw": [
+        6,
+        318000,
+        6,
+        8
+      ]
+    },
+    {
+      "level": 7,
+      "duration_ms": 321000,
+      "min_def": 7,
+      "max_def": 9,
+      "raw": [
+        7,
+        321000,
+        7,
+        9
+      ]
+    },
+    {
+      "level": 8,
+      "duration_ms": 324000,
+      "min_def": 8,
+      "max_def": 10,
+      "raw": [
+        8,
+        324000,
+        8,
+        10
+      ]
+    },
+    {
+      "level": 9,
+      "duration_ms": 327000,
+      "min_def": 8,
+      "max_def": 11,
+      "raw": [
+        9,
+        327000,
+        8,
+        11
+      ]
+    },
+    {
+      "level": 10,
+      "duration_ms": 330000,
+      "min_def": 9,
+      "max_def": 11,
+      "raw": [
+        10,
+        330000,
+        9,
+        11
+      ]
+    },
+    {
+      "level": 11,
+      "duration_ms": 333000,
+      "min_def": 9,
+      "max_def": 12,
+      "raw": [
+        11,
+        333000,
+        9,
+        12
+      ]
+    },
+    {
+      "level": 12,
+      "duration_ms": 336000,
+      "min_def": 10,
+      "max_def": 13,
+      "raw": [
+        12,
+        336000,
+        10,
+        13
+      ]
+    },
+    {
+      "level": 13,
+      "duration_ms": 339000,
+      "min_def": 11,
+      "max_def": 14,
+      "raw": [
+        13,
+        339000,
+        11,
+        14
+      ]
+    },
+    {
+      "level": 14,
+      "duration_ms": 342000,
+      "min_def": 11,
+      "max_def": 14,
+      "raw": [
+        14,
+        342000,
+        11,
+        14
+      ]
+    },
+    {
+      "level": 15,
+      "duration_ms": 345000,
+      "min_def": 12,
+      "max_def": 15,
+      "raw": [
+        15,
+        345000,
+        12,
+        15
+      ]
+    },
+    {
+      "level": 16,
+      "duration_ms": 348000,
+      "min_def": 12,
+      "max_def": 16,
+      "raw": [
+        16,
+        348000,
+        12,
+        16
+      ]
+    },
+    {
+      "level": 17,
+      "duration_ms": 351000,
+      "min_def": 13,
+      "max_def": 17,
+      "raw": [
+        17,
+        351000,
+        13,
+        17
+      ]
+    },
+    {
+      "level": 18,
+      "duration_ms": 354000,
+      "min_def": 13,
+      "max_def": 18,
+      "raw": [
+        18,
+        354000,
+        13,
+        18
+      ]
+    },
+    {
+      "level": 19,
+      "duration_ms": 357000,
+      "min_def": 14,
+      "max_def": 18,
+      "raw": [
+        19,
+        357000,
+        14,
+        18
+      ]
+    },
+    {
+      "level": 20,
+      "duration_ms": 360000,
+      "min_def": 15,
+      "max_def": 19,
+      "raw": [
+        20,
+        360000,
+        15,
+        19
+      ]
+    },
+    {
+      "level": 21,
+      "duration_ms": 363000,
+      "min_def": 15,
+      "max_def": 20,
+      "raw": [
+        21,
+        363000,
+        15,
+        20
+      ]
+    },
+    {
+      "level": 22,
+      "duration_ms": 366000,
+      "min_def": 16,
+      "max_def": 21,
+      "raw": [
+        22,
+        366000,
+        16,
+        21
+      ]
+    },
+    {
+      "level": 23,
+      "duration_ms": 369000,
+      "min_def": 16,
+      "max_def": 21,
+      "raw": [
+        23,
+        369000,
+        16,
+        21
+      ]
+    },
+    {
+      "level": 24,
+      "duration_ms": 372000,
+      "min_def": 17,
+      "max_def": 22,
+      "raw": [
+        24,
+        372000,
+        17,
+        22
+      ]
+    },
+    {
+      "level": 25,
+      "duration_ms": 375000,
+      "min_def": 18,
+      "max_def": 23,
+      "raw": [
+        25,
+        375000,
+        18,
+        23
+      ]
+    },
+    {
+      "level": 26,
+      "duration_ms": 378000,
+      "min_def": 18,
+      "max_def": 24,
+      "raw": [
+        26,
+        378000,
+        18,
+        24
+      ]
+    },
+    {
+      "level": 27,
+      "duration_ms": 381000,
+      "min_def": 19,
+      "max_def": 24,
+      "raw": [
+        27,
+        381000,
+        19,
+        24
+      ]
+    },
+    {
+      "level": 28,
+      "duration_ms": 384000,
+      "min_def": 19,
+      "max_def": 25,
+      "raw": [
+        28,
+        384000,
+        19,
+        25
+      ]
+    },
+    {
+      "level": 29,
+      "duration_ms": 387000,
+      "min_def": 20,
+      "max_def": 26,
+      "raw": [
+        29,
+        387000,
+        20,
+        26
+      ]
+    },
+    {
+      "level": 30,
+      "duration_ms": 390000,
+      "min_def": 20,
+      "max_def": 27,
+      "raw": [
+        30,
+        390000,
+        20,
+        27
+      ]
+    },
+    {
+      "level": 31,
+      "duration_ms": 393000,
+      "min_def": 21,
+      "max_def": 27,
+      "raw": [
+        31,
+        393000,
+        21,
+        27
+      ]
+    },
+    {
+      "level": 32,
+      "duration_ms": 396000,
+      "min_def": 22,
+      "max_def": 28,
+      "raw": [
+        32,
+        396000,
+        22,
+        28
+      ]
+    },
+    {
+      "level": 33,
+      "duration_ms": 399000,
+      "min_def": 22,
+      "max_def": 29,
+      "raw": [
+        33,
+        399000,
+        22,
+        29
+      ]
+    },
+    {
+      "level": 34,
+      "duration_ms": 402000,
+      "min_def": 23,
+      "max_def": 30,
+      "raw": [
+        34,
+        402000,
+        23,
+        30
+      ]
+    },
+    {
+      "level": 35,
+      "duration_ms": 405000,
+      "min_def": 23,
+      "max_def": 30,
+      "raw": [
+        35,
+        405000,
+        23,
+        30
+      ]
+    },
+    {
+      "level": 36,
+      "duration_ms": 408000,
+      "min_def": 24,
+      "max_def": 31,
+      "raw": [
+        36,
+        408000,
+        24,
+        31
+      ]
+    },
+    {
+      "level": 37,
+      "duration_ms": 411000,
+      "min_def": 25,
+      "max_def": 32,
+      "raw": [
+        37,
+        411000,
+        25,
+        32
+      ]
+    },
+    {
+      "level": 38,
+      "duration_ms": 414000,
+      "min_def": 25,
+      "max_def": 33,
+      "raw": [
+        38,
+        414000,
+        25,
+        33
+      ]
+    },
+    {
+      "level": 39,
+      "duration_ms": 417000,
+      "min_def": 26,
+      "max_def": 33,
+      "raw": [
+        39,
+        417000,
+        26,
+        33
+      ]
+    },
+    {
+      "level": 40,
+      "duration_ms": 420000,
+      "min_def": 26,
+      "max_def": 34,
+      "raw": [
+        40,
+        420000,
+        26,
+        34
+      ]
+    },
+    {
+      "level": 41,
+      "duration_ms": 423000,
+      "min_def": 27,
+      "max_def": 35,
+      "raw": [
+        41,
+        423000,
+        27,
+        35
+      ]
+    },
+    {
+      "level": 42,
+      "duration_ms": 426000,
+      "min_def": 28,
+      "max_def": 36,
+      "raw": [
+        42,
+        426000,
+        28,
+        36
+      ]
+    },
+    {
+      "level": 43,
+      "duration_ms": 429000,
+      "min_def": 28,
+      "max_def": 37,
+      "raw": [
+        43,
+        429000,
+        28,
+        37
+      ]
+    },
+    {
+      "level": 44,
+      "duration_ms": 432000,
+      "min_def": 29,
+      "max_def": 37,
+      "raw": [
+        44,
+        432000,
+        29,
+        37
+      ]
+    },
+    {
+      "level": 45,
+      "duration_ms": 435000,
+      "min_def": 29,
+      "max_def": 38,
+      "raw": [
+        45,
+        435000,
+        29,
+        38
+      ]
+    },
+    {
+      "level": 46,
+      "duration_ms": 438000,
+      "min_def": 30,
+      "max_def": 39,
+      "raw": [
+        46,
+        438000,
+        30,
+        39
+      ]
+    },
+    {
+      "level": 47,
+      "duration_ms": 441000,
+      "min_def": 30,
+      "max_def": 40,
+      "raw": [
+        47,
+        441000,
+        30,
+        40
+      ]
+    },
+    {
+      "level": 48,
+      "duration_ms": 444000,
+      "min_def": 31,
+      "max_def": 40,
+      "raw": [
+        48,
+        444000,
+        31,
+        40
+      ]
+    },
+    {
+      "level": 49,
+      "duration_ms": 447000,
+      "min_def": 32,
+      "max_def": 41,
+      "raw": [
+        49,
+        447000,
+        32,
+        41
+      ]
+    },
+    {
+      "level": 50,
+      "duration_ms": 450000,
+      "min_def": 32,
+      "max_def": 42,
+      "raw": [
+        50,
+        450000,
+        32,
+        42
+      ]
+    },
+    {
+      "level": 51,
+      "duration_ms": 453000,
+      "min_def": 33,
+      "max_def": 43,
+      "raw": [
+        51,
+        453000,
+        33,
+        43
+      ]
+    },
+    {
+      "level": 52,
+      "duration_ms": 456000,
+      "min_def": 33,
+      "max_def": 43,
+      "raw": [
+        52,
+        456000,
+        33,
+        43
+      ]
+    },
+    {
+      "level": 53,
+      "duration_ms": 459000,
+      "min_def": 34,
+      "max_def": 44,
+      "raw": [
+        53,
+        459000,
+        34,
+        44
+      ]
+    },
+    {
+      "level": 54,
+      "duration_ms": 462000,
+      "min_def": 35,
+      "max_def": 45,
+      "raw": [
+        54,
+        462000,
+        35,
+        45
+      ]
+    },
+    {
+      "level": 55,
+      "duration_ms": 465000,
+      "min_def": 35,
+      "max_def": 46,
+      "raw": [
+        55,
+        465000,
+        35,
+        46
+      ]
+    },
+    {
+      "level": 56,
+      "duration_ms": 468000,
+      "min_def": 36,
+      "max_def": 46,
+      "raw": [
+        56,
+        468000,
+        36,
+        46
+      ]
+    },
+    {
+      "level": 57,
+      "duration_ms": 471000,
+      "min_def": 36,
+      "max_def": 47,
+      "raw": [
+        57,
+        471000,
+        36,
+        47
+      ]
+    },
+    {
+      "level": 58,
+      "duration_ms": 474000,
+      "min_def": 37,
+      "max_def": 48,
+      "raw": [
+        58,
+        474000,
+        37,
+        48
+      ]
+    },
+    {
+      "level": 59,
+      "duration_ms": 477000,
+      "min_def": 37,
+      "max_def": 49,
+      "raw": [
+        59,
+        477000,
+        37,
+        49
+      ]
+    },
+    {
+      "level": 60,
+      "duration_ms": 480000,
+      "min_def": 38,
+      "max_def": 49,
+      "raw": [
+        60,
+        480000,
+        38,
+        49
+      ]
+    },
+    {
+      "level": 61,
+      "duration_ms": 483000,
+      "min_def": 39,
+      "max_def": 50,
+      "raw": [
+        61,
+        483000,
+        39,
+        50
+      ]
+    },
+    {
+      "level": 62,
+      "duration_ms": 486000,
+      "min_def": 39,
+      "max_def": 51,
+      "raw": [
+        62,
+        486000,
+        39,
+        51
+      ]
+    },
+    {
+      "level": 63,
+      "duration_ms": 489000,
+      "min_def": 40,
+      "max_def": 52,
+      "raw": [
+        63,
+        489000,
+        40,
+        52
+      ]
+    },
+    {
+      "level": 64,
+      "duration_ms": 492000,
+      "min_def": 40,
+      "max_def": 53,
+      "raw": [
+        64,
+        492000,
+        40,
+        53
+      ]
+    },
+    {
+      "level": 65,
+      "duration_ms": 495000,
+      "min_def": 41,
+      "max_def": 53,
+      "raw": [
+        65,
+        495000,
+        41,
+        53
+      ]
+    },
+    {
+      "level": 66,
+      "duration_ms": 498000,
+      "min_def": 42,
+      "max_def": 54,
+      "raw": [
+        66,
+        498000,
+        42,
+        54
+      ]
+    },
+    {
+      "level": 67,
+      "duration_ms": 501000,
+      "min_def": 42,
+      "max_def": 55,
+      "raw": [
+        67,
+        501000,
+        42,
+        55
+      ]
+    },
+    {
+      "level": 68,
+      "duration_ms": 504000,
+      "min_def": 43,
+      "max_def": 56,
+      "raw": [
+        68,
+        504000,
+        43,
+        56
+      ]
+    },
+    {
+      "level": 69,
+      "duration_ms": 507000,
+      "min_def": 43,
+      "max_def": 56,
+      "raw": [
+        69,
+        507000,
+        43,
+        56
+      ]
+    },
+    {
+      "level": 70,
+      "duration_ms": 510000,
+      "min_def": 44,
+      "max_def": 57,
+      "raw": [
+        70,
+        510000,
+        44,
+        57
+      ]
+    },
+    {
+      "level": 71,
+      "duration_ms": 513000,
+      "min_def": 44,
+      "max_def": 58,
+      "raw": [
+        71,
+        513000,
+        44,
+        58
+      ]
+    },
+    {
+      "level": 72,
+      "duration_ms": 516000,
+      "min_def": 45,
+      "max_def": 59,
+      "raw": [
+        72,
+        516000,
+        45,
+        59
+      ]
+    },
+    {
+      "level": 73,
+      "duration_ms": 519000,
+      "min_def": 46,
+      "max_def": 59,
+      "raw": [
+        73,
+        519000,
+        46,
+        59
+      ]
+    },
+    {
+      "level": 74,
+      "duration_ms": 522000,
+      "min_def": 46,
+      "max_def": 60,
+      "raw": [
+        74,
+        522000,
+        46,
+        60
+      ]
+    },
+    {
+      "level": 75,
+      "duration_ms": 525000,
+      "min_def": 47,
+      "max_def": 61,
+      "raw": [
+        75,
+        525000,
+        47,
+        61
+      ]
+    },
+    {
+      "level": 76,
+      "duration_ms": 528000,
+      "min_def": 47,
+      "max_def": 62,
+      "raw": [
+        76,
+        528000,
+        47,
+        62
+      ]
+    },
+    {
+      "level": 77,
+      "duration_ms": 531000,
+      "min_def": 48,
+      "max_def": 62,
+      "raw": [
+        77,
+        531000,
+        48,
+        62
+      ]
+    },
+    {
+      "level": 78,
+      "duration_ms": 534000,
+      "min_def": 49,
+      "max_def": 63,
+      "raw": [
+        78,
+        534000,
+        49,
+        63
+      ]
+    },
+    {
+      "level": 79,
+      "duration_ms": 537000,
+      "min_def": 49,
+      "max_def": 64,
+      "raw": [
+        79,
+        537000,
+        49,
+        64
+      ]
+    },
+    {
+      "level": 80,
+      "duration_ms": 540000,
+      "min_def": 50,
+      "max_def": 65,
+      "raw": [
+        80,
+        540000,
+        50,
+        65
+      ]
+    },
+    {
+      "level": 81,
+      "duration_ms": 543000,
+      "min_def": 50,
+      "max_def": 65,
+      "raw": [
+        81,
+        543000,
+        50,
+        65
+      ]
+    },
+    {
+      "level": 82,
+      "duration_ms": 546000,
+      "min_def": 51,
+      "max_def": 66,
+      "raw": [
+        82,
+        546000,
+        51,
+        66
+      ]
+    },
+    {
+      "level": 83,
+      "duration_ms": 549000,
+      "min_def": 52,
+      "max_def": 67,
+      "raw": [
+        83,
+        549000,
+        52,
+        67
+      ]
+    },
+    {
+      "level": 84,
+      "duration_ms": 552000,
+      "min_def": 52,
+      "max_def": 68,
+      "raw": [
+        84,
+        552000,
+        52,
+        68
+      ]
+    },
+    {
+      "level": 85,
+      "duration_ms": 555000,
+      "min_def": 53,
+      "max_def": 68,
+      "raw": [
+        85,
+        555000,
+        53,
+        68
+      ]
+    },
+    {
+      "level": 86,
+      "duration_ms": 558000,
+      "min_def": 53,
+      "max_def": 69,
+      "raw": [
+        86,
+        558000,
+        53,
+        69
+      ]
+    },
+    {
+      "level": 87,
+      "duration_ms": 561000,
+      "min_def": 54,
+      "max_def": 70,
+      "raw": [
+        87,
+        561000,
+        54,
+        70
+      ]
+    },
+    {
+      "level": 88,
+      "duration_ms": 564000,
+      "min_def": 54,
+      "max_def": 71,
+      "raw": [
+        88,
+        564000,
+        54,
+        71
+      ]
+    },
+    {
+      "level": 89,
+      "duration_ms": 567000,
+      "min_def": 55,
+      "max_def": 72,
+      "raw": [
+        89,
+        567000,
+        55,
+        72
+      ]
+    },
+    {
+      "level": 90,
+      "duration_ms": 570000,
+      "min_def": 56,
+      "max_def": 72,
+      "raw": [
+        90,
+        570000,
+        56,
+        72
+      ]
+    },
+    {
+      "level": 91,
+      "duration_ms": 573000,
+      "min_def": 56,
+      "max_def": 73,
+      "raw": [
+        91,
+        573000,
+        56,
+        73
+      ]
+    },
+    {
+      "level": 92,
+      "duration_ms": 576000,
+      "min_def": 57,
+      "max_def": 74,
+      "raw": [
+        92,
+        576000,
+        57,
+        74
+      ]
+    },
+    {
+      "level": 93,
+      "duration_ms": 579000,
+      "min_def": 57,
+      "max_def": 75,
+      "raw": [
+        93,
+        579000,
+        57,
+        75
+      ]
+    },
+    {
+      "level": 94,
+      "duration_ms": 582000,
+      "min_def": 58,
+      "max_def": 75,
+      "raw": [
+        94,
+        582000,
+        58,
+        75
+      ]
+    },
+    {
+      "level": 95,
+      "duration_ms": 585000,
+      "min_def": 59,
+      "max_def": 76,
+      "raw": [
+        95,
+        585000,
+        59,
+        76
+      ]
+    },
+    {
+      "level": 96,
+      "duration_ms": 588000,
+      "min_def": 59,
+      "max_def": 77,
+      "raw": [
+        96,
+        588000,
+        59,
+        77
+      ]
+    },
+    {
+      "level": 97,
+      "duration_ms": 591000,
+      "min_def": 60,
+      "max_def": 78,
+      "raw": [
+        97,
+        591000,
+        60,
+        78
+      ]
+    },
+    {
+      "level": 98,
+      "duration_ms": 594000,
+      "min_def": 60,
+      "max_def": 78,
+      "raw": [
+        98,
+        594000,
+        60,
+        78
+      ]
+    },
+    {
+      "level": 99,
+      "duration_ms": 597000,
+      "min_def": 61,
+      "max_def": 79,
+      "raw": [
+        99,
+        597000,
+        61,
+        79
+      ]
+    },
+    {
+      "level": 100,
+      "duration_ms": 600000,
+      "min_def": 61,
+      "max_def": 80,
+      "raw": [
+        100,
+        600000,
+        61,
+        80
+      ]
+    },
+    {
+      "level": 101,
+      "duration_ms": 603000,
+      "min_def": 63,
+      "max_def": 81,
+      "raw": [
+        101,
+        603000,
+        63,
+        81
+      ]
+    },
+    {
+      "level": 102,
+      "duration_ms": 606000,
+      "min_def": 64,
+      "max_def": 83,
+      "raw": [
+        102,
+        606000,
+        64,
+        83
+      ]
+    },
+    {
+      "level": 103,
+      "duration_ms": 609000,
+      "min_def": 65,
+      "max_def": 84,
+      "raw": [
+        103,
+        609000,
+        65,
+        84
+      ]
+    },
+    {
+      "level": 104,
+      "duration_ms": 612000,
+      "min_def": 66,
+      "max_def": 86,
+      "raw": [
+        104,
+        612000,
+        66,
+        86
+      ]
+    },
+    {
+      "level": 105,
+      "duration_ms": 615000,
+      "min_def": 67,
+      "max_def": 88,
+      "raw": [
+        105,
+        615000,
+        67,
+        88
+      ]
+    },
+    {
+      "level": 106,
+      "duration_ms": 618000,
+      "min_def": 68,
+      "max_def": 89,
+      "raw": [
+        106,
+        618000,
+        68,
+        89
+      ]
+    },
+    {
+      "level": 107,
+      "duration_ms": 621000,
+      "min_def": 70,
+      "max_def": 91,
+      "raw": [
+        107,
+        621000,
+        70,
+        91
+      ]
+    },
+    {
+      "level": 108,
+      "duration_ms": 624000,
+      "min_def": 71,
+      "max_def": 92,
+      "raw": [
+        108,
+        624000,
+        71,
+        92
+      ]
+    },
+    {
+      "level": 109,
+      "duration_ms": 627000,
+      "min_def": 72,
+      "max_def": 94,
+      "raw": [
+        109,
+        627000,
+        72,
+        94
+      ]
+    },
+    {
+      "level": 110,
+      "duration_ms": 630000,
+      "min_def": 73,
+      "max_def": 95,
+      "raw": [
+        110,
+        630000,
+        73,
+        95
+      ]
+    },
+    {
+      "level": 111,
+      "duration_ms": 633000,
+      "min_def": 74,
+      "max_def": 97,
+      "raw": [
+        111,
+        633000,
+        74,
+        97
+      ]
+    },
+    {
+      "level": 112,
+      "duration_ms": 636000,
+      "min_def": 76,
+      "max_def": 98,
+      "raw": [
+        112,
+        636000,
+        76,
+        98
+      ]
+    },
+    {
+      "level": 113,
+      "duration_ms": 639000,
+      "min_def": 77,
+      "max_def": 100,
+      "raw": [
+        113,
+        639000,
+        77,
+        100
+      ]
+    },
+    {
+      "level": 114,
+      "duration_ms": 642000,
+      "min_def": 78,
+      "max_def": 101,
+      "raw": [
+        114,
+        642000,
+        78,
+        101
+      ]
+    },
+    {
+      "level": 115,
+      "duration_ms": 645000,
+      "min_def": 79,
+      "max_def": 103,
+      "raw": [
+        115,
+        645000,
+        79,
+        103
+      ]
+    },
+    {
+      "level": 116,
+      "duration_ms": 648000,
+      "min_def": 80,
+      "max_def": 104,
+      "raw": [
+        116,
+        648000,
+        80,
+        104
+      ]
+    },
+    {
+      "level": 117,
+      "duration_ms": 651000,
+      "min_def": 81,
+      "max_def": 106,
+      "raw": [
+        117,
+        651000,
+        81,
+        106
+      ]
+    },
+    {
+      "level": 118,
+      "duration_ms": 654000,
+      "min_def": 83,
+      "max_def": 107,
+      "raw": [
+        118,
+        654000,
+        83,
+        107
+      ]
+    },
+    {
+      "level": 119,
+      "duration_ms": 657000,
+      "min_def": 84,
+      "max_def": 109,
+      "raw": [
+        119,
+        657000,
+        84,
+        109
+      ]
+    },
+    {
+      "level": 120,
+      "duration_ms": 660000,
+      "min_def": 85,
+      "max_def": 110,
+      "raw": [
+        120,
+        660000,
+        85,
+        110
+      ]
+    },
+    {
+      "level": 121,
+      "duration_ms": 663000,
+      "min_def": 86,
+      "max_def": 112,
+      "raw": [
+        121,
+        663000,
+        86,
+        112
+      ]
+    },
+    {
+      "level": 122,
+      "duration_ms": 666000,
+      "min_def": 87,
+      "max_def": 113,
+      "raw": [
+        122,
+        666000,
+        87,
+        113
+      ]
+    },
+    {
+      "level": 123,
+      "duration_ms": 669000,
+      "min_def": 88,
+      "max_def": 115,
+      "raw": [
+        123,
+        669000,
+        88,
+        115
+      ]
+    },
+    {
+      "level": 124,
+      "duration_ms": 672000,
+      "min_def": 90,
+      "max_def": 116,
+      "raw": [
+        124,
+        672000,
+        90,
+        116
+      ]
+    },
+    {
+      "level": 125,
+      "duration_ms": 675000,
+      "min_def": 91,
+      "max_def": 118,
+      "raw": [
+        125,
+        675000,
+        91,
+        118
+      ]
+    },
+    {
+      "level": 126,
+      "duration_ms": 678000,
+      "min_def": 92,
+      "max_def": 119,
+      "raw": [
+        126,
+        678000,
+        92,
+        119
+      ]
+    },
+    {
+      "level": 127,
+      "duration_ms": 681000,
+      "min_def": 93,
+      "max_def": 121,
+      "raw": [
+        127,
+        681000,
+        93,
+        121
+      ]
+    },
+    {
+      "level": 128,
+      "duration_ms": 684000,
+      "min_def": 94,
+      "max_def": 123,
+      "raw": [
+        128,
+        684000,
+        94,
+        123
+      ]
+    },
+    {
+      "level": 129,
+      "duration_ms": 687000,
+      "min_def": 95,
+      "max_def": 124,
+      "raw": [
+        129,
+        687000,
+        95,
+        124
+      ]
+    },
+    {
+      "level": 130,
+      "duration_ms": 690000,
+      "min_def": 97,
+      "max_def": 126,
+      "raw": [
+        130,
+        690000,
+        97,
+        126
+      ]
+    },
+    {
+      "level": 131,
+      "duration_ms": 693000,
+      "min_def": 98,
+      "max_def": 127,
+      "raw": [
+        131,
+        693000,
+        98,
+        127
+      ]
+    },
+    {
+      "level": 132,
+      "duration_ms": 696000,
+      "min_def": 99,
+      "max_def": 129,
+      "raw": [
+        132,
+        696000,
+        99,
+        129
+      ]
+    },
+    {
+      "level": 133,
+      "duration_ms": 699000,
+      "min_def": 100,
+      "max_def": 130,
+      "raw": [
+        133,
+        699000,
+        100,
+        130
+      ]
+    },
+    {
+      "level": 134,
+      "duration_ms": 702000,
+      "min_def": 101,
+      "max_def": 132,
+      "raw": [
+        134,
+        702000,
+        101,
+        132
+      ]
+    },
+    {
+      "level": 135,
+      "duration_ms": 705000,
+      "min_def": 102,
+      "max_def": 133,
+      "raw": [
+        135,
+        705000,
+        102,
+        133
+      ]
+    },
+    {
+      "level": 136,
+      "duration_ms": 708000,
+      "min_def": 104,
+      "max_def": 135,
+      "raw": [
+        136,
+        708000,
+        104,
+        135
+      ]
+    },
+    {
+      "level": 137,
+      "duration_ms": 711000,
+      "min_def": 105,
+      "max_def": 136,
+      "raw": [
+        137,
+        711000,
+        105,
+        136
+      ]
+    },
+    {
+      "level": 138,
+      "duration_ms": 714000,
+      "min_def": 106,
+      "max_def": 138,
+      "raw": [
+        138,
+        714000,
+        106,
+        138
+      ]
+    },
+    {
+      "level": 139,
+      "duration_ms": 717000,
+      "min_def": 107,
+      "max_def": 139,
+      "raw": [
+        139,
+        717000,
+        107,
+        139
+      ]
+    },
+    {
+      "level": 140,
+      "duration_ms": 720000,
+      "min_def": 108,
+      "max_def": 141,
+      "raw": [
+        140,
+        720000,
+        108,
+        141
+      ]
+    },
+    {
+      "level": 141,
+      "duration_ms": 723000,
+      "min_def": 109,
+      "max_def": 142,
+      "raw": [
+        141,
+        723000,
+        109,
+        142
+      ]
+    },
+    {
+      "level": 142,
+      "duration_ms": 726000,
+      "min_def": 111,
+      "max_def": 144,
+      "raw": [
+        142,
+        726000,
+        111,
+        144
+      ]
+    },
+    {
+      "level": 143,
+      "duration_ms": 729000,
+      "min_def": 112,
+      "max_def": 145,
+      "raw": [
+        143,
+        729000,
+        112,
+        145
+      ]
+    },
+    {
+      "level": 144,
+      "duration_ms": 732000,
+      "min_def": 113,
+      "max_def": 147,
+      "raw": [
+        144,
+        732000,
+        113,
+        147
+      ]
+    },
+    {
+      "level": 145,
+      "duration_ms": 735000,
+      "min_def": 114,
+      "max_def": 148,
+      "raw": [
+        145,
+        735000,
+        114,
+        148
+      ]
+    },
+    {
+      "level": 146,
+      "duration_ms": 738000,
+      "min_def": 115,
+      "max_def": 150,
+      "raw": [
+        146,
+        738000,
+        115,
+        150
+      ]
+    },
+    {
+      "level": 147,
+      "duration_ms": 741000,
+      "min_def": 116,
+      "max_def": 151,
+      "raw": [
+        147,
+        741000,
+        116,
+        151
+      ]
+    },
+    {
+      "level": 148,
+      "duration_ms": 744000,
+      "min_def": 118,
+      "max_def": 153,
+      "raw": [
+        148,
+        744000,
+        118,
+        153
+      ]
+    },
+    {
+      "level": 149,
+      "duration_ms": 747000,
+      "min_def": 119,
+      "max_def": 154,
+      "raw": [
+        149,
+        747000,
+        119,
+        154
+      ]
+    },
+    {
+      "level": 150,
+      "duration_ms": 750000,
+      "min_def": 120,
+      "max_def": 156,
+      "raw": [
+        150,
+        750000,
+        120,
+        156
+      ]
+    }
+  ]
+}

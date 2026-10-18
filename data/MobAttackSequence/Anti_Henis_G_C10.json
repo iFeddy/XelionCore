@@ -1,0 +1,54 @@
+{
+  "mob": "Anti_Henis_G_C10",
+  "sequence": [
+    {
+      "order": 0,
+      "attack": "-"
+    },
+    {
+      "order": 1,
+      "attack": "Wield01"
+    },
+    {
+      "order": 2,
+      "attack": "Heal02"
+    },
+    {
+      "order": 3,
+      "attack": "-"
+    },
+    {
+      "order": 4,
+      "attack": "Wield01"
+    },
+    {
+      "order": 5,
+      "attack": "Heal02"
+    },
+    {
+      "order": 6,
+      "attack": "-"
+    },
+    {
+      "order": 7,
+      "attack": "Wield01"
+    },
+    {
+      "order": 8,
+      "attack": "Heal02"
+    },
+    {
+      "order": 9,
+      "attack": "-"
+    },
+    {
+      "order": 10,
+      "attack": "Wield01"
+    },
+    {
+      "order": 11,
+      "attack": "Heal02"
+    }
+  ],
+  "skill_changes": []
+}

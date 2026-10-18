@@ -1,0 +1,302 @@
+{
+  "mob": "Lab_25",
+  "sequence": [
+    {
+      "order": 0,
+      "attack": "Lab_25_Poison_Atk"
+    },
+    {
+      "order": 1,
+      "attack": "-"
+    },
+    {
+      "order": 2,
+      "attack": "-"
+    },
+    {
+      "order": 3,
+      "attack": "-"
+    },
+    {
+      "order": 4,
+      "attack": "Lab_25_Poison_Wide"
+    },
+    {
+      "order": 5,
+      "attack": "-"
+    },
+    {
+      "order": 6,
+      "attack": "-"
+    },
+    {
+      "order": 7,
+      "attack": "-"
+    },
+    {
+      "order": 8,
+      "attack": "Lab_25_Knock_Atk"
+    },
+    {
+      "order": 9,
+      "attack": "-"
+    },
+    {
+      "order": 10,
+      "attack": "-"
+    },
+    {
+      "order": 11,
+      "attack": "-"
+    },
+    {
+      "order": 12,
+      "attack": "-"
+    },
+    {
+      "order": 13,
+      "attack": "Lab_25_Poison_Atk"
+    },
+    {
+      "order": 14,
+      "attack": "-"
+    },
+    {
+      "order": 15,
+      "attack": "-"
+    },
+    {
+      "order": 16,
+      "attack": "-"
+    },
+    {
+      "order": 17,
+      "attack": "-"
+    },
+    {
+      "order": 18,
+      "attack": "Lab_25_Paralysis_Atk"
+    },
+    {
+      "order": 19,
+      "attack": "-"
+    },
+    {
+      "order": 20,
+      "attack": "-"
+    },
+    {
+      "order": 21,
+      "attack": "-"
+    },
+    {
+      "order": 22,
+      "attack": "-"
+    },
+    {
+      "order": 23,
+      "attack": "-"
+    },
+    {
+      "order": 24,
+      "attack": "-"
+    },
+    {
+      "order": 25,
+      "attack": "Lab_25_Paralysis_Wide"
+    },
+    {
+      "order": 26,
+      "attack": "-"
+    },
+    {
+      "order": 27,
+      "attack": "-"
+    },
+    {
+      "order": 28,
+      "attack": "Lab_25_Angry_Buf"
+    },
+    {
+      "order": 29,
+      "attack": "-"
+    },
+    {
+      "order": 30,
+      "attack": "-"
+    },
+    {
+      "order": 31,
+      "attack": "-"
+    },
+    {
+      "order": 32,
+      "attack": "-"
+    },
+    {
+      "order": 33,
+      "attack": "Lab_25_Angry_Buf"
+    },
+    {
+      "order": 34,
+      "attack": "-"
+    },
+    {
+      "order": 35,
+      "attack": "-"
+    },
+    {
+      "order": 36,
+      "attack": "-"
+    },
+    {
+      "order": 37,
+      "attack": "-"
+    },
+    {
+      "order": 38,
+      "attack": "-"
+    },
+    {
+      "order": 39,
+      "attack": "-"
+    },
+    {
+      "order": 40,
+      "attack": "Lab_25_Poison_Atk"
+    },
+    {
+      "order": 41,
+      "attack": "Lab_25_Poison_Wide"
+    },
+    {
+      "order": 42,
+      "attack": "-"
+    },
+    {
+      "order": 43,
+      "attack": "-"
+    },
+    {
+      "order": 44,
+      "attack": "-"
+    },
+    {
+      "order": 45,
+      "attack": "-"
+    },
+    {
+      "order": 46,
+      "attack": "-"
+    },
+    {
+      "order": 47,
+      "attack": "-"
+    },
+    {
+      "order": 48,
+      "attack": "-"
+    },
+    {
+      "order": 49,
+      "attack": "-"
+    },
+    {
+      "order": 50,
+      "attack": "Lab_25_Angry_Buf"
+    },
+    {
+      "order": 51,
+      "attack": "-"
+    },
+    {
+      "order": 52,
+      "attack": "-"
+    },
+    {
+      "order": 53,
+      "attack": "-"
+    },
+    {
+      "order": 54,
+      "attack": "-"
+    },
+    {
+      "order": 55,
+      "attack": "-"
+    },
+    {
+      "order": 56,
+      "attack": "-"
+    },
+    {
+      "order": 57,
+      "attack": "-"
+    },
+    {
+      "order": 58,
+      "attack": "Lab_25_Poison_Atk"
+    },
+    {
+      "order": 59,
+      "attack": "Lab_25_Knock_Atk"
+    },
+    {
+      "order": 60,
+      "attack": "Lab_25_Knock_Wide"
+    },
+    {
+      "order": 61,
+      "attack": "Lab_25_Paralysis_Atk"
+    },
+    {
+      "order": 62,
+      "attack": "Lab_25_Angry_Buf"
+    },
+    {
+      "order": 63,
+      "attack": "-"
+    },
+    {
+      "order": 64,
+      "attack": "-"
+    },
+    {
+      "order": 65,
+      "attack": "-"
+    },
+    {
+      "order": 66,
+      "attack": "-"
+    },
+    {
+      "order": 67,
+      "attack": "Lab_25_Angry_Buf"
+    },
+    {
+      "order": 68,
+      "attack": "-"
+    },
+    {
+      "order": 69,
+      "attack": "-"
+    },
+    {
+      "order": 70,
+      "attack": "-"
+    },
+    {
+      "order": 71,
+      "attack": "-"
+    },
+    {
+      "order": 72,
+      "attack": "-"
+    },
+    {
+      "order": 73,
+      "attack": "-"
+    }
+  ],
+  "skill_changes": []
+}

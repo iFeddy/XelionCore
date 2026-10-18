@@ -1,0 +1,43 @@
+{
+  "merchant": "BeraItemMilly",
+  "tabs": [
+    {
+      "tab": "Tab00",
+      "title": "아이템 상점(베라)",
+      "rows": [
+        [
+          "Converter1",
+          "Converter2",
+          "Converter3",
+          "Converter4",
+          "Converter5",
+          "-"
+        ],
+        [
+          "HighMagicCrystal",
+          "HighBeastTooth",
+          "HighMeat",
+          "HighSkin",
+          "HighSpiritDust",
+          "HighBrokenBone"
+        ],
+        [
+          "HighCleanWater",
+          "HighKylinLeather",
+          "HighPledge",
+          "HighGemDust",
+          "HighSoulDust",
+          "HighBeastLeather"
+        ],
+        [
+          "Q_Peg",
+          "Q_Hammer",
+          "-",
+          "-",
+          "-",
+          "-"
+        ]
+      ]
+    }
+  ]
+}

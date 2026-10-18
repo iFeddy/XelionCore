@@ -1,0 +1,18 @@
+{
+  "mob": "ID_Weasel",
+  "sequence": [
+    {
+      "order": 0,
+      "attack": "-"
+    },
+    {
+      "order": 1,
+      "attack": "-"
+    },
+    {
+      "order": 2,
+      "attack": "IDWeaselAtkSkill1"
+    }
+  ],
+  "skill_changes": []
+}

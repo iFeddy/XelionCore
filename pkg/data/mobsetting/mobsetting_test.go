@@ -6,12 +6,11 @@ import (
 )
 
 func TestLoadMobSetting(t *testing.T) {
-	// Ruta relativa al archivo generado
-	path := filepath.Join("..", "..", "..", "data", "MobSetting", "mob_actions.json")
+	dirPath := filepath.Join("..", "..", "..", "data", "MobSetting")
 
-	db, err := LoadFromFile(path)
+	db, err := LoadFromDir(dirPath)
 	if err != nil {
-		t.Fatalf("Error al cargar MobSetting: %v", err)
+		t.Fatalf("Error al cargar MobSetting desde dir: %v", err)
 	}
 
 	if db.TotalEntities() != 56 {

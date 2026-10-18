@@ -1,0 +1,54 @@
+{
+  "mob": "Anti_Henis_A65",
+  "sequence": [
+    {
+      "order": 0,
+      "attack": "-"
+    },
+    {
+      "order": 1,
+      "attack": "PowerShot06"
+    },
+    {
+      "order": 2,
+      "attack": "PuryImpact06"
+    },
+    {
+      "order": 3,
+      "attack": "BoneArrow06"
+    },
+    {
+      "order": 4,
+      "attack": "-"
+    },
+    {
+      "order": 5,
+      "attack": "PowerShot06"
+    },
+    {
+      "order": 6,
+      "attack": "PuryImpact06"
+    },
+    {
+      "order": 7,
+      "attack": "BoneArrow06"
+    },
+    {
+      "order": 8,
+      "attack": "-"
+    },
+    {
+      "order": 9,
+      "attack": "PowerShot06"
+    },
+    {
+      "order": 10,
+      "attack": "PuryImpact06"
+    },
+    {
+      "order": 11,
+      "attack": "BoneArrow06"
+    }
+  ],
+  "skill_changes": []
+}

@@ -1,0 +1,13 @@
+{
+  "entity": "SpUpShoes",
+  "triggers": [
+    {
+      "condition_id": 1,
+      "action_id": 35
+    },
+    {
+      "condition_id": 1,
+      "action_id": 28
+    }
+  ]
+}

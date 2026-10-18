@@ -1,0 +1,27 @@
+{
+  "merchant": "GuildItemMct",
+  "tabs": [
+    {
+      "tab": "Tab00",
+      "title": "아이템 상점(우르가)",
+      "rows": [
+        [
+          "GR_ThorEmeraldEar_01",
+          "GR_ThorGoldRing_01",
+          "GR_ThorNeck_01",
+          "-",
+          "-",
+          "-"
+        ],
+        [
+          "Unicorn00",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-"
+        ]
+      ]
+    }
+  ]
+}

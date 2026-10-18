@@ -1,0 +1,9 @@
+{
+  "entity": "BallCake01",
+  "triggers": [
+    {
+      "condition_id": 1,
+      "action_id": 49
+    }
+  ]
+}

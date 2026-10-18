@@ -1,0 +1,9 @@
+{
+  "entity": "LightOrb08",
+  "triggers": [
+    {
+      "condition_id": 19,
+      "action_id": 46
+    }
+  ]
+}

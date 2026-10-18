@@ -1,0 +1,302 @@
+{
+  "mob": "LabH_25",
+  "sequence": [
+    {
+      "order": 0,
+      "attack": "Lab_25_Poison_Atk"
+    },
+    {
+      "order": 1,
+      "attack": "-"
+    },
+    {
+      "order": 2,
+      "attack": "-"
+    },
+    {
+      "order": 3,
+      "attack": "Lab_25_Poison_Wide"
+    },
+    {
+      "order": 4,
+      "attack": "-"
+    },
+    {
+      "order": 5,
+      "attack": "-"
+    },
+    {
+      "order": 6,
+      "attack": "Lab_25_Knock_Atk"
+    },
+    {
+      "order": 7,
+      "attack": "-"
+    },
+    {
+      "order": 8,
+      "attack": "-"
+    },
+    {
+      "order": 9,
+      "attack": "-"
+    },
+    {
+      "order": 10,
+      "attack": "Lab_25_Poison_Atk"
+    },
+    {
+      "order": 11,
+      "attack": "-"
+    },
+    {
+      "order": 12,
+      "attack": "-"
+    },
+    {
+      "order": 13,
+      "attack": "-"
+    },
+    {
+      "order": 14,
+      "attack": "Lab_25_Paralysis_Atk"
+    },
+    {
+      "order": 15,
+      "attack": "-"
+    },
+    {
+      "order": 16,
+      "attack": "-"
+    },
+    {
+      "order": 17,
+      "attack": "-"
+    },
+    {
+      "order": 18,
+      "attack": "-"
+    },
+    {
+      "order": 19,
+      "attack": "-"
+    },
+    {
+      "order": 20,
+      "attack": "Lab_25_Paralysis_Wide"
+    },
+    {
+      "order": 21,
+      "attack": "-"
+    },
+    {
+      "order": 22,
+      "attack": "Lab_25_Angry_Buf"
+    },
+    {
+      "order": 23,
+      "attack": "-"
+    },
+    {
+      "order": 24,
+      "attack": "-"
+    },
+    {
+      "order": 25,
+      "attack": "-"
+    },
+    {
+      "order": 26,
+      "attack": "Lab_25_Angry_Buf"
+    },
+    {
+      "order": 27,
+      "attack": "-"
+    },
+    {
+      "order": 28,
+      "attack": "-"
+    },
+    {
+      "order": 29,
+      "attack": "-"
+    },
+    {
+      "order": 30,
+      "attack": "-"
+    },
+    {
+      "order": 31,
+      "attack": "-"
+    },
+    {
+      "order": 32,
+      "attack": "Lab_25_Poison_Atk"
+    },
+    {
+      "order": 33,
+      "attack": "Lab_25_Poison_Wide"
+    },
+    {
+      "order": 34,
+      "attack": "-"
+    },
+    {
+      "order": 35,
+      "attack": "-"
+    },
+    {
+      "order": 36,
+      "attack": "-"
+    },
+    {
+      "order": 37,
+      "attack": "-"
+    },
+    {
+      "order": 38,
+      "attack": "-"
+    },
+    {
+      "order": 39,
+      "attack": "-"
+    },
+    {
+      "order": 40,
+      "attack": "-"
+    },
+    {
+      "order": 41,
+      "attack": "Lab_25_Angry_Buf"
+    },
+    {
+      "order": 42,
+      "attack": "-"
+    },
+    {
+      "order": 43,
+      "attack": "-"
+    },
+    {
+      "order": 44,
+      "attack": "-"
+    },
+    {
+      "order": 45,
+      "attack": "-"
+    },
+    {
+      "order": 46,
+      "attack": "-"
+    },
+    {
+      "order": 47,
+      "attack": "-"
+    },
+    {
+      "order": 48,
+      "attack": "Lab_25_Poison_Atk"
+    },
+    {
+      "order": 49,
+      "attack": "Lab_25_Knock_Atk"
+    },
+    {
+      "order": 50,
+      "attack": "Lab_25_Knock_Wide"
+    },
+    {
+      "order": 51,
+      "attack": "Lab_25_Paralysis_Atk"
+    },
+    {
+      "order": 52,
+      "attack": "Lab_25_Angry_Buf"
+    },
+    {
+      "order": 53,
+      "attack": "-"
+    },
+    {
+      "order": 54,
+      "attack": "-"
+    },
+    {
+      "order": 55,
+      "attack": "-"
+    },
+    {
+      "order": 56,
+      "attack": "Lab_25_Angry_Buf"
+    },
+    {
+      "order": 57,
+      "attack": "-"
+    },
+    {
+      "order": 58,
+      "attack": "-"
+    },
+    {
+      "order": 59,
+      "attack": "Lab_25_Poison_Atk"
+    },
+    {
+      "order": 60,
+      "attack": "-"
+    },
+    {
+      "order": 61,
+      "attack": "-"
+    },
+    {
+      "order": 62,
+      "attack": "Lab_25_Knock_Atk"
+    },
+    {
+      "order": 63,
+      "attack": "-"
+    },
+    {
+      "order": 64,
+      "attack": "-"
+    },
+    {
+      "order": 65,
+      "attack": "Lab_25_Knock_Wide"
+    },
+    {
+      "order": 66,
+      "attack": "-"
+    },
+    {
+      "order": 67,
+      "attack": "-"
+    },
+    {
+      "order": 68,
+      "attack": "Lab_25_Paralysis_Atk"
+    },
+    {
+      "order": 69,
+      "attack": "-"
+    },
+    {
+      "order": 70,
+      "attack": "-"
+    },
+    {
+      "order": 71,
+      "attack": "Lab_25_Angry_Buf"
+    },
+    {
+      "order": 72,
+      "attack": "-"
+    },
+    {
+      "order": 73,
+      "attack": "-"
+    }
+  ],
+  "skill_changes": []
+}

@@ -1,0 +1,1520 @@
+{
+  "id": 45,
+  "name": "StaMagSpdDown",
+  "description": "Ralentización de velocidad mágica",
+  "max_levels": 151,
+  "record_size_bytes": 12,
+  "meta_hex": "2d005374614d6167537064446f776e0000000000000000000000000000000000000000b5d0c8ad0000000000000000000000000000000000000000000000000000000000010000000100000000000000010000000100000001000000000000000000000001000000",
+  "levels": [
+    {
+      "level": 0,
+      "duration_ms": 0,
+      "speed_down_rate": 0,
+      "raw": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "level": 1,
+      "duration_ms": 1000,
+      "speed_down_rate": 5,
+      "raw": [
+        1,
+        1000,
+        5
+      ]
+    },
+    {
+      "level": 2,
+      "duration_ms": 1050,
+      "speed_down_rate": 6,
+      "raw": [
+        2,
+        1050,
+        6
+      ]
+    },
+    {
+      "level": 3,
+      "duration_ms": 1100,
+      "speed_down_rate": 7,
+      "raw": [
+        3,
+        1100,
+        7
+      ]
+    },
+    {
+      "level": 4,
+      "duration_ms": 1150,
+      "speed_down_rate": 8,
+      "raw": [
+        4,
+        1150,
+        8
+      ]
+    },
+    {
+      "level": 5,
+      "duration_ms": 1200,
+      "speed_down_rate": 9,
+      "raw": [
+        5,
+        1200,
+        9
+      ]
+    },
+    {
+      "level": 6,
+      "duration_ms": 1250,
+      "speed_down_rate": 10,
+      "raw": [
+        6,
+        1250,
+        10
+      ]
+    },
+    {
+      "level": 7,
+      "duration_ms": 1300,
+      "speed_down_rate": 11,
+      "raw": [
+        7,
+        1300,
+        11
+      ]
+    },
+    {
+      "level": 8,
+      "duration_ms": 1350,
+      "speed_down_rate": 12,
+      "raw": [
+        8,
+        1350,
+        12
+      ]
+    },
+    {
+      "level": 9,
+      "duration_ms": 1400,
+      "speed_down_rate": 13,
+      "raw": [
+        9,
+        1400,
+        13
+      ]
+    },
+    {
+      "level": 10,
+      "duration_ms": 1450,
+      "speed_down_rate": 14,
+      "raw": [
+        10,
+        1450,
+        14
+      ]
+    },
+    {
+      "level": 11,
+      "duration_ms": 1500,
+      "speed_down_rate": 15,
+      "raw": [
+        11,
+        1500,
+        15
+      ]
+    },
+    {
+      "level": 12,
+      "duration_ms": 1550,
+      "speed_down_rate": 16,
+      "raw": [
+        12,
+        1550,
+        16
+      ]
+    },
+    {
+      "level": 13,
+      "duration_ms": 1600,
+      "speed_down_rate": 17,
+      "raw": [
+        13,
+        1600,
+        17
+      ]
+    },
+    {
+      "level": 14,
+      "duration_ms": 1650,
+      "speed_down_rate": 18,
+      "raw": [
+        14,
+        1650,
+        18
+      ]
+    },
+    {
+      "level": 15,
+      "duration_ms": 1700,
+      "speed_down_rate": 19,
+      "raw": [
+        15,
+        1700,
+        19
+      ]
+    },
+    {
+      "level": 16,
+      "duration_ms": 1750,
+      "speed_down_rate": 20,
+      "raw": [
+        16,
+        1750,
+        20
+      ]
+    },
+    {
+      "level": 17,
+      "duration_ms": 1800,
+      "speed_down_rate": 21,
+      "raw": [
+        17,
+        1800,
+        21
+      ]
+    },
+    {
+      "level": 18,
+      "duration_ms": 1850,
+      "speed_down_rate": 22,
+      "raw": [
+        18,
+        1850,
+        22
+      ]
+    },
+    {
+      "level": 19,
+      "duration_ms": 1900,
+      "speed_down_rate": 23,
+      "raw": [
+        19,
+        1900,
+        23
+      ]
+    },
+    {
+      "level": 20,
+      "duration_ms": 1950,
+      "speed_down_rate": 24,
+      "raw": [
+        20,
+        1950,
+        24
+      ]
+    },
+    {
+      "level": 21,
+      "duration_ms": 2000,
+      "speed_down_rate": 25,
+      "raw": [
+        21,
+        2000,
+        25
+      ]
+    },
+    {
+      "level": 22,
+      "duration_ms": 2050,
+      "speed_down_rate": 26,
+      "raw": [
+        22,
+        2050,
+        26
+      ]
+    },
+    {
+      "level": 23,
+      "duration_ms": 2100,
+      "speed_down_rate": 27,
+      "raw": [
+        23,
+        2100,
+        27
+      ]
+    },
+    {
+      "level": 24,
+      "duration_ms": 2150,
+      "speed_down_rate": 28,
+      "raw": [
+        24,
+        2150,
+        28
+      ]
+    },
+    {
+      "level": 25,
+      "duration_ms": 2200,
+      "speed_down_rate": 29,
+      "raw": [
+        25,
+        2200,
+        29
+      ]
+    },
+    {
+      "level": 26,
+      "duration_ms": 2250,
+      "speed_down_rate": 30,
+      "raw": [
+        26,
+        2250,
+        30
+      ]
+    },
+    {
+      "level": 27,
+      "duration_ms": 2300,
+      "speed_down_rate": 31,
+      "raw": [
+        27,
+        2300,
+        31
+      ]
+    },
+    {
+      "level": 28,
+      "duration_ms": 2350,
+      "speed_down_rate": 32,
+      "raw": [
+        28,
+        2350,
+        32
+      ]
+    },
+    {
+      "level": 29,
+      "duration_ms": 2400,
+      "speed_down_rate": 33,
+      "raw": [
+        29,
+        2400,
+        33
+      ]
+    },
+    {
+      "level": 30,
+      "duration_ms": 2450,
+      "speed_down_rate": 34,
+      "raw": [
+        30,
+        2450,
+        34
+      ]
+    },
+    {
+      "level": 31,
+      "duration_ms": 2500,
+      "speed_down_rate": 35,
+      "raw": [
+        31,
+        2500,
+        35
+      ]
+    },
+    {
+      "level": 32,
+      "duration_ms": 2550,
+      "speed_down_rate": 36,
+      "raw": [
+        32,
+        2550,
+        36
+      ]
+    },
+    {
+      "level": 33,
+      "duration_ms": 2600,
+      "speed_down_rate": 37,
+      "raw": [
+        33,
+        2600,
+        37
+      ]
+    },
+    {
+      "level": 34,
+      "duration_ms": 2650,
+      "speed_down_rate": 38,
+      "raw": [
+        34,
+        2650,
+        38
+      ]
+    },
+    {
+      "level": 35,
+      "duration_ms": 2700,
+      "speed_down_rate": 39,
+      "raw": [
+        35,
+        2700,
+        39
+      ]
+    },
+    {
+      "level": 36,
+      "duration_ms": 2750,
+      "speed_down_rate": 40,
+      "raw": [
+        36,
+        2750,
+        40
+      ]
+    },
+    {
+      "level": 37,
+      "duration_ms": 2800,
+      "speed_down_rate": 41,
+      "raw": [
+        37,
+        2800,
+        41
+      ]
+    },
+    {
+      "level": 38,
+      "duration_ms": 2850,
+      "speed_down_rate": 42,
+      "raw": [
+        38,
+        2850,
+        42
+      ]
+    },
+    {
+      "level": 39,
+      "duration_ms": 2900,
+      "speed_down_rate": 43,
+      "raw": [
+        39,
+        2900,
+        43
+      ]
+    },
+    {
+      "level": 40,
+      "duration_ms": 2950,
+      "speed_down_rate": 44,
+      "raw": [
+        40,
+        2950,
+        44
+      ]
+    },
+    {
+      "level": 41,
+      "duration_ms": 3000,
+      "speed_down_rate": 45,
+      "raw": [
+        41,
+        3000,
+        45
+      ]
+    },
+    {
+      "level": 42,
+      "duration_ms": 3050,
+      "speed_down_rate": 46,
+      "raw": [
+        42,
+        3050,
+        46
+      ]
+    },
+    {
+      "level": 43,
+      "duration_ms": 3100,
+      "speed_down_rate": 47,
+      "raw": [
+        43,
+        3100,
+        47
+      ]
+    },
+    {
+      "level": 44,
+      "duration_ms": 3150,
+      "speed_down_rate": 48,
+      "raw": [
+        44,
+        3150,
+        48
+      ]
+    },
+    {
+      "level": 45,
+      "duration_ms": 3200,
+      "speed_down_rate": 49,
+      "raw": [
+        45,
+        3200,
+        49
+      ]
+    },
+    {
+      "level": 46,
+      "duration_ms": 3250,
+      "speed_down_rate": 50,
+      "raw": [
+        46,
+        3250,
+        50
+      ]
+    },
+    {
+      "level": 47,
+      "duration_ms": 3300,
+      "speed_down_rate": 51,
+      "raw": [
+        47,
+        3300,
+        51
+      ]
+    },
+    {
+      "level": 48,
+      "duration_ms": 3350,
+      "speed_down_rate": 52,
+      "raw": [
+        48,
+        3350,
+        52
+      ]
+    },
+    {
+      "level": 49,
+      "duration_ms": 3400,
+      "speed_down_rate": 53,
+      "raw": [
+        49,
+        3400,
+        53
+      ]
+    },
+    {
+      "level": 50,
+      "duration_ms": 3450,
+      "speed_down_rate": 54,
+      "raw": [
+        50,
+        3450,
+        54
+      ]
+    },
+    {
+      "level": 51,
+      "duration_ms": 3500,
+      "speed_down_rate": 55,
+      "raw": [
+        51,
+        3500,
+        55
+      ]
+    },
+    {
+      "level": 52,
+      "duration_ms": 3550,
+      "speed_down_rate": 56,
+      "raw": [
+        52,
+        3550,
+        56
+      ]
+    },
+    {
+      "level": 53,
+      "duration_ms": 3600,
+      "speed_down_rate": 57,
+      "raw": [
+        53,
+        3600,
+        57
+      ]
+    },
+    {
+      "level": 54,
+      "duration_ms": 3650,
+      "speed_down_rate": 58,
+      "raw": [
+        54,
+        3650,
+        58
+      ]
+    },
+    {
+      "level": 55,
+      "duration_ms": 3700,
+      "speed_down_rate": 59,
+      "raw": [
+        55,
+        3700,
+        59
+      ]
+    },
+    {
+      "level": 56,
+      "duration_ms": 3750,
+      "speed_down_rate": 60,
+      "raw": [
+        56,
+        3750,
+        60
+      ]
+    },
+    {
+      "level": 57,
+      "duration_ms": 3800,
+      "speed_down_rate": 61,
+      "raw": [
+        57,
+        3800,
+        61
+      ]
+    },
+    {
+      "level": 58,
+      "duration_ms": 3850,
+      "speed_down_rate": 62,
+      "raw": [
+        58,
+        3850,
+        62
+      ]
+    },
+    {
+      "level": 59,
+      "duration_ms": 3900,
+      "speed_down_rate": 63,
+      "raw": [
+        59,
+        3900,
+        63
+      ]
+    },
+    {
+      "level": 60,
+      "duration_ms": 3950,
+      "speed_down_rate": 64,
+      "raw": [
+        60,
+        3950,
+        64
+      ]
+    },
+    {
+      "level": 61,
+      "duration_ms": 4000,
+      "speed_down_rate": 65,
+      "raw": [
+        61,
+        4000,
+        65
+      ]
+    },
+    {
+      "level": 62,
+      "duration_ms": 4050,
+      "speed_down_rate": 66,
+      "raw": [
+        62,
+        4050,
+        66
+      ]
+    },
+    {
+      "level": 63,
+      "duration_ms": 4100,
+      "speed_down_rate": 67,
+      "raw": [
+        63,
+        4100,
+        67
+      ]
+    },
+    {
+      "level": 64,
+      "duration_ms": 4150,
+      "speed_down_rate": 68,
+      "raw": [
+        64,
+        4150,
+        68
+      ]
+    },
+    {
+      "level": 65,
+      "duration_ms": 4200,
+      "speed_down_rate": 69,
+      "raw": [
+        65,
+        4200,
+        69
+      ]
+    },
+    {
+      "level": 66,
+      "duration_ms": 4250,
+      "speed_down_rate": 70,
+      "raw": [
+        66,
+        4250,
+        70
+      ]
+    },
+    {
+      "level": 67,
+      "duration_ms": 4300,
+      "speed_down_rate": 71,
+      "raw": [
+        67,
+        4300,
+        71
+      ]
+    },
+    {
+      "level": 68,
+      "duration_ms": 4350,
+      "speed_down_rate": 72,
+      "raw": [
+        68,
+        4350,
+        72
+      ]
+    },
+    {
+      "level": 69,
+      "duration_ms": 4400,
+      "speed_down_rate": 73,
+      "raw": [
+        69,
+        4400,
+        73
+      ]
+    },
+    {
+      "level": 70,
+      "duration_ms": 4450,
+      "speed_down_rate": 74,
+      "raw": [
+        70,
+        4450,
+        74
+      ]
+    },
+    {
+      "level": 71,
+      "duration_ms": 4500,
+      "speed_down_rate": 75,
+      "raw": [
+        71,
+        4500,
+        75
+      ]
+    },
+    {
+      "level": 72,
+      "duration_ms": 4550,
+      "speed_down_rate": 76,
+      "raw": [
+        72,
+        4550,
+        76
+      ]
+    },
+    {
+      "level": 73,
+      "duration_ms": 4600,
+      "speed_down_rate": 77,
+      "raw": [
+        73,
+        4600,
+        77
+      ]
+    },
+    {
+      "level": 74,
+      "duration_ms": 4650,
+      "speed_down_rate": 78,
+      "raw": [
+        74,
+        4650,
+        78
+      ]
+    },
+    {
+      "level": 75,
+      "duration_ms": 4700,
+      "speed_down_rate": 79,
+      "raw": [
+        75,
+        4700,
+        79
+      ]
+    },
+    {
+      "level": 76,
+      "duration_ms": 4750,
+      "speed_down_rate": 80,
+      "raw": [
+        76,
+        4750,
+        80
+      ]
+    },
+    {
+      "level": 77,
+      "duration_ms": 4800,
+      "speed_down_rate": 81,
+      "raw": [
+        77,
+        4800,
+        81
+      ]
+    },
+    {
+      "level": 78,
+      "duration_ms": 4850,
+      "speed_down_rate": 82,
+      "raw": [
+        78,
+        4850,
+        82
+      ]
+    },
+    {
+      "level": 79,
+      "duration_ms": 4900,
+      "speed_down_rate": 83,
+      "raw": [
+        79,
+        4900,
+        83
+      ]
+    },
+    {
+      "level": 80,
+      "duration_ms": 4950,
+      "speed_down_rate": 84,
+      "raw": [
+        80,
+        4950,
+        84
+      ]
+    },
+    {
+      "level": 81,
+      "duration_ms": 5000,
+      "speed_down_rate": 85,
+      "raw": [
+        81,
+        5000,
+        85
+      ]
+    },
+    {
+      "level": 82,
+      "duration_ms": 5050,
+      "speed_down_rate": 86,
+      "raw": [
+        82,
+        5050,
+        86
+      ]
+    },
+    {
+      "level": 83,
+      "duration_ms": 5100,
+      "speed_down_rate": 87,
+      "raw": [
+        83,
+        5100,
+        87
+      ]
+    },
+    {
+      "level": 84,
+      "duration_ms": 5150,
+      "speed_down_rate": 88,
+      "raw": [
+        84,
+        5150,
+        88
+      ]
+    },
+    {
+      "level": 85,
+      "duration_ms": 5200,
+      "speed_down_rate": 89,
+      "raw": [
+        85,
+        5200,
+        89
+      ]
+    },
+    {
+      "level": 86,
+      "duration_ms": 5250,
+      "speed_down_rate": 90,
+      "raw": [
+        86,
+        5250,
+        90
+      ]
+    },
+    {
+      "level": 87,
+      "duration_ms": 5300,
+      "speed_down_rate": 91,
+      "raw": [
+        87,
+        5300,
+        91
+      ]
+    },
+    {
+      "level": 88,
+      "duration_ms": 5350,
+      "speed_down_rate": 92,
+      "raw": [
+        88,
+        5350,
+        92
+      ]
+    },
+    {
+      "level": 89,
+      "duration_ms": 5400,
+      "speed_down_rate": 93,
+      "raw": [
+        89,
+        5400,
+        93
+      ]
+    },
+    {
+      "level": 90,
+      "duration_ms": 5450,
+      "speed_down_rate": 94,
+      "raw": [
+        90,
+        5450,
+        94
+      ]
+    },
+    {
+      "level": 91,
+      "duration_ms": 5500,
+      "speed_down_rate": 95,
+      "raw": [
+        91,
+        5500,
+        95
+      ]
+    },
+    {
+      "level": 92,
+      "duration_ms": 5550,
+      "speed_down_rate": 96,
+      "raw": [
+        92,
+        5550,
+        96
+      ]
+    },
+    {
+      "level": 93,
+      "duration_ms": 5600,
+      "speed_down_rate": 97,
+      "raw": [
+        93,
+        5600,
+        97
+      ]
+    },
+    {
+      "level": 94,
+      "duration_ms": 5650,
+      "speed_down_rate": 98,
+      "raw": [
+        94,
+        5650,
+        98
+      ]
+    },
+    {
+      "level": 95,
+      "duration_ms": 5700,
+      "speed_down_rate": 99,
+      "raw": [
+        95,
+        5700,
+        99
+      ]
+    },
+    {
+      "level": 96,
+      "duration_ms": 5750,
+      "speed_down_rate": 100,
+      "raw": [
+        96,
+        5750,
+        100
+      ]
+    },
+    {
+      "level": 97,
+      "duration_ms": 5800,
+      "speed_down_rate": 101,
+      "raw": [
+        97,
+        5800,
+        101
+      ]
+    },
+    {
+      "level": 98,
+      "duration_ms": 5850,
+      "speed_down_rate": 102,
+      "raw": [
+        98,
+        5850,
+        102
+      ]
+    },
+    {
+      "level": 99,
+      "duration_ms": 5900,
+      "speed_down_rate": 103,
+      "raw": [
+        99,
+        5900,
+        103
+      ]
+    },
+    {
+      "level": 100,
+      "duration_ms": 5950,
+      "speed_down_rate": 104,
+      "raw": [
+        100,
+        5950,
+        104
+      ]
+    },
+    {
+      "level": 101,
+      "duration_ms": 6000,
+      "speed_down_rate": 105,
+      "raw": [
+        101,
+        6000,
+        105
+      ]
+    },
+    {
+      "level": 102,
+      "duration_ms": 6050,
+      "speed_down_rate": 106,
+      "raw": [
+        102,
+        6050,
+        106
+      ]
+    },
+    {
+      "level": 103,
+      "duration_ms": 6100,
+      "speed_down_rate": 107,
+      "raw": [
+        103,
+        6100,
+        107
+      ]
+    },
+    {
+      "level": 104,
+      "duration_ms": 6150,
+      "speed_down_rate": 108,
+      "raw": [
+        104,
+        6150,
+        108
+      ]
+    },
+    {
+      "level": 105,
+      "duration_ms": 6200,
+      "speed_down_rate": 109,
+      "raw": [
+        105,
+        6200,
+        109
+      ]
+    },
+    {
+      "level": 106,
+      "duration_ms": 6250,
+      "speed_down_rate": 110,
+      "raw": [
+        106,
+        6250,
+        110
+      ]
+    },
+    {
+      "level": 107,
+      "duration_ms": 6300,
+      "speed_down_rate": 111,
+      "raw": [
+        107,
+        6300,
+        111
+      ]
+    },
+    {
+      "level": 108,
+      "duration_ms": 6350,
+      "speed_down_rate": 112,
+      "raw": [
+        108,
+        6350,
+        112
+      ]
+    },
+    {
+      "level": 109,
+      "duration_ms": 6400,
+      "speed_down_rate": 113,
+      "raw": [
+        109,
+        6400,
+        113
+      ]
+    },
+    {
+      "level": 110,
+      "duration_ms": 6450,
+      "speed_down_rate": 114,
+      "raw": [
+        110,
+        6450,
+        114
+      ]
+    },
+    {
+      "level": 111,
+      "duration_ms": 6500,
+      "speed_down_rate": 115,
+      "raw": [
+        111,
+        6500,
+        115
+      ]
+    },
+    {
+      "level": 112,
+      "duration_ms": 6550,
+      "speed_down_rate": 116,
+      "raw": [
+        112,
+        6550,
+        116
+      ]
+    },
+    {
+      "level": 113,
+      "duration_ms": 6600,
+      "speed_down_rate": 117,
+      "raw": [
+        113,
+        6600,
+        117
+      ]
+    },
+    {
+      "level": 114,
+      "duration_ms": 6650,
+      "speed_down_rate": 118,
+      "raw": [
+        114,
+        6650,
+        118
+      ]
+    },
+    {
+      "level": 115,
+      "duration_ms": 6700,
+      "speed_down_rate": 119,
+      "raw": [
+        115,
+        6700,
+        119
+      ]
+    },
+    {
+      "level": 116,
+      "duration_ms": 6750,
+      "speed_down_rate": 120,
+      "raw": [
+        116,
+        6750,
+        120
+      ]
+    },
+    {
+      "level": 117,
+      "duration_ms": 6800,
+      "speed_down_rate": 121,
+      "raw": [
+        117,
+        6800,
+        121
+      ]
+    },
+    {
+      "level": 118,
+      "duration_ms": 6850,
+      "speed_down_rate": 122,
+      "raw": [
+        118,
+        6850,
+        122
+      ]
+    },
+    {
+      "level": 119,
+      "duration_ms": 6900,
+      "speed_down_rate": 123,
+      "raw": [
+        119,
+        6900,
+        123
+      ]
+    },
+    {
+      "level": 120,
+      "duration_ms": 6950,
+      "speed_down_rate": 124,
+      "raw": [
+        120,
+        6950,
+        124
+      ]
+    },
+    {
+      "level": 121,
+      "duration_ms": 7000,
+      "speed_down_rate": 125,
+      "raw": [
+        121,
+        7000,
+        125
+      ]
+    },
+    {
+      "level": 122,
+      "duration_ms": 7050,
+      "speed_down_rate": 126,
+      "raw": [
+        122,
+        7050,
+        126
+      ]
+    },
+    {
+      "level": 123,
+      "duration_ms": 7100,
+      "speed_down_rate": 127,
+      "raw": [
+        123,
+        7100,
+        127
+      ]
+    },
+    {
+      "level": 124,
+      "duration_ms": 7150,
+      "speed_down_rate": 128,
+      "raw": [
+        124,
+        7150,
+        128
+      ]
+    },
+    {
+      "level": 125,
+      "duration_ms": 7200,
+      "speed_down_rate": 129,
+      "raw": [
+        125,
+        7200,
+        129
+      ]
+    },
+    {
+      "level": 126,
+      "duration_ms": 7250,
+      "speed_down_rate": 130,
+      "raw": [
+        126,
+        7250,
+        130
+      ]
+    },
+    {
+      "level": 127,
+      "duration_ms": 7300,
+      "speed_down_rate": 131,
+      "raw": [
+        127,
+        7300,
+        131
+      ]
+    },
+    {
+      "level": 128,
+      "duration_ms": 7350,
+      "speed_down_rate": 132,
+      "raw": [
+        128,
+        7350,
+        132
+      ]
+    },
+    {
+      "level": 129,
+      "duration_ms": 7400,
+      "speed_down_rate": 133,
+      "raw": [
+        129,
+        7400,
+        133
+      ]
+    },
+    {
+      "level": 130,
+      "duration_ms": 7450,
+      "speed_down_rate": 134,
+      "raw": [
+        130,
+        7450,
+        134
+      ]
+    },
+    {
+      "level": 131,
+      "duration_ms": 7500,
+      "speed_down_rate": 135,
+      "raw": [
+        131,
+        7500,
+        135
+      ]
+    },
+    {
+      "level": 132,
+      "duration_ms": 7550,
+      "speed_down_rate": 136,
+      "raw": [
+        132,
+        7550,
+        136
+      ]
+    },
+    {
+      "level": 133,
+      "duration_ms": 7600,
+      "speed_down_rate": 137,
+      "raw": [
+        133,
+        7600,
+        137
+      ]
+    },
+    {
+      "level": 134,
+      "duration_ms": 7650,
+      "speed_down_rate": 138,
+      "raw": [
+        134,
+        7650,
+        138
+      ]
+    },
+    {
+      "level": 135,
+      "duration_ms": 7700,
+      "speed_down_rate": 139,
+      "raw": [
+        135,
+        7700,
+        139
+      ]
+    },
+    {
+      "level": 136,
+      "duration_ms": 7750,
+      "speed_down_rate": 140,
+      "raw": [
+        136,
+        7750,
+        140
+      ]
+    },
+    {
+      "level": 137,
+      "duration_ms": 7800,
+      "speed_down_rate": 141,
+      "raw": [
+        137,
+        7800,
+        141
+      ]
+    },
+    {
+      "level": 138,
+      "duration_ms": 7850,
+      "speed_down_rate": 142,
+      "raw": [
+        138,
+        7850,
+        142
+      ]
+    },
+    {
+      "level": 139,
+      "duration_ms": 7900,
+      "speed_down_rate": 143,
+      "raw": [
+        139,
+        7900,
+        143
+      ]
+    },
+    {
+      "level": 140,
+      "duration_ms": 7950,
+      "speed_down_rate": 144,
+      "raw": [
+        140,
+        7950,
+        144
+      ]
+    },
+    {
+      "level": 141,
+      "duration_ms": 8000,
+      "speed_down_rate": 145,
+      "raw": [
+        141,
+        8000,
+        145
+      ]
+    },
+    {
+      "level": 142,
+      "duration_ms": 8050,
+      "speed_down_rate": 146,
+      "raw": [
+        142,
+        8050,
+        146
+      ]
+    },
+    {
+      "level": 143,
+      "duration_ms": 8100,
+      "speed_down_rate": 147,
+      "raw": [
+        143,
+        8100,
+        147
+      ]
+    },
+    {
+      "level": 144,
+      "duration_ms": 8150,
+      "speed_down_rate": 148,
+      "raw": [
+        144,
+        8150,
+        148
+      ]
+    },
+    {
+      "level": 145,
+      "duration_ms": 8200,
+      "speed_down_rate": 149,
+      "raw": [
+        145,
+        8200,
+        149
+      ]
+    },
+    {
+      "level": 146,
+      "duration_ms": 8250,
+      "speed_down_rate": 150,
+      "raw": [
+        146,
+        8250,
+        150
+      ]
+    },
+    {
+      "level": 147,
+      "duration_ms": 8300,
+      "speed_down_rate": 151,
+      "raw": [
+        147,
+        8300,
+        151
+      ]
+    },
+    {
+      "level": 148,
+      "duration_ms": 8350,
+      "speed_down_rate": 152,
+      "raw": [
+        148,
+        8350,
+        152
+      ]
+    },
+    {
+      "level": 149,
+      "duration_ms": 8400,
+      "speed_down_rate": 153,
+      "raw": [
+        149,
+        8400,
+        153
+      ]
+    },
+    {
+      "level": 150,
+      "duration_ms": 8450,
+      "speed_down_rate": 154,
+      "raw": [
+        150,
+        8450,
+        154
+      ]
+    }
+  ]
+}

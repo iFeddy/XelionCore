@@ -1,0 +1,98 @@
+{
+  "mob": "LevH_ID_NestBaridon",
+  "sequence": [
+    {
+      "order": 0,
+      "attack": "WaterBariAtkSkill1"
+    },
+    {
+      "order": 1,
+      "attack": "WaterBariAtkSkill1"
+    },
+    {
+      "order": 2,
+      "attack": "WaterBariAtkSkill1"
+    },
+    {
+      "order": 3,
+      "attack": "WaterBariAtkSkill1"
+    },
+    {
+      "order": 4,
+      "attack": "-"
+    },
+    {
+      "order": 5,
+      "attack": "WaterBariAtkSkill1"
+    },
+    {
+      "order": 6,
+      "attack": "WaterBariAtkSkill1"
+    },
+    {
+      "order": 7,
+      "attack": "WaterBariAtkSkill1"
+    },
+    {
+      "order": 8,
+      "attack": "-"
+    },
+    {
+      "order": 9,
+      "attack": "WaterBariAtkSkill1"
+    },
+    {
+      "order": 10,
+      "attack": "WaterBariAtkSkill1"
+    },
+    {
+      "order": 11,
+      "attack": "WaterBariAtkSkill1"
+    },
+    {
+      "order": 12,
+      "attack": "WaterBariAtkSkill1"
+    },
+    {
+      "order": 13,
+      "attack": "-"
+    },
+    {
+      "order": 14,
+      "attack": "WaterBariAtkSkill1"
+    },
+    {
+      "order": 15,
+      "attack": "WaterBariAtkSkill1"
+    },
+    {
+      "order": 16,
+      "attack": "WaterBariAtkSkill1"
+    },
+    {
+      "order": 17,
+      "attack": "-"
+    },
+    {
+      "order": 18,
+      "attack": "WaterBariAtkSkill1"
+    },
+    {
+      "order": 19,
+      "attack": "WaterBariAtkSkill1"
+    },
+    {
+      "order": 20,
+      "attack": "WaterBariAtkSkill1"
+    },
+    {
+      "order": 21,
+      "attack": "WaterBariAtkSkill1"
+    },
+    {
+      "order": 22,
+      "attack": "-"
+    }
+  ],
+  "skill_changes": []
+}

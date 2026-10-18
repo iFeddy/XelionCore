@@ -1,0 +1,54 @@
+{
+  "mob": "Anti_Henis_G_A30",
+  "sequence": [
+    {
+      "order": 0,
+      "attack": "-"
+    },
+    {
+      "order": 1,
+      "attack": "PowerShot01"
+    },
+    {
+      "order": 2,
+      "attack": "PuryImpact01"
+    },
+    {
+      "order": 3,
+      "attack": "BoneArrow01"
+    },
+    {
+      "order": 4,
+      "attack": "-"
+    },
+    {
+      "order": 5,
+      "attack": "PowerShot01"
+    },
+    {
+      "order": 6,
+      "attack": "PuryImpact01"
+    },
+    {
+      "order": 7,
+      "attack": "BoneArrow01"
+    },
+    {
+      "order": 8,
+      "attack": "-"
+    },
+    {
+      "order": 9,
+      "attack": "PowerShot01"
+    },
+    {
+      "order": 10,
+      "attack": "PuryImpact01"
+    },
+    {
+      "order": 11,
+      "attack": "BoneArrow01"
+    }
+  ],
+  "skill_changes": []
+}

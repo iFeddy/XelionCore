@@ -1,0 +1,54 @@
+{
+  "mob": "Anti_Henis_G_F40",
+  "sequence": [
+    {
+      "order": 0,
+      "attack": "-"
+    },
+    {
+      "order": 1,
+      "attack": "PowerHit03"
+    },
+    {
+      "order": 2,
+      "attack": "RedSlash04"
+    },
+    {
+      "order": 3,
+      "attack": "BattleBlow01"
+    },
+    {
+      "order": 4,
+      "attack": "-"
+    },
+    {
+      "order": 5,
+      "attack": "PowerHit03"
+    },
+    {
+      "order": 6,
+      "attack": "RedSlash04"
+    },
+    {
+      "order": 7,
+      "attack": "BattleBlow01"
+    },
+    {
+      "order": 8,
+      "attack": "-"
+    },
+    {
+      "order": 9,
+      "attack": "PowerHit03"
+    },
+    {
+      "order": 10,
+      "attack": "RedSlash04"
+    },
+    {
+      "order": 11,
+      "attack": "BattleBlow01"
+    }
+  ],
+  "skill_changes": []
+}

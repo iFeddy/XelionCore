@@ -1,0 +1,27 @@
+{
+  "merchant": "ItemMctJelluin",
+  "tabs": [
+    {
+      "tab": "Tab00",
+      "title": "아이템 상점(불타는돌)",
+      "rows": [
+        [
+          "FlyStone",
+          "Hobby01",
+          "-",
+          "-",
+          "-",
+          "-"
+        ],
+        [
+          "House_MushRoom01",
+          "House_MushRoom02",
+          "House_MushRoom03",
+          "-",
+          "-",
+          "-"
+        ]
+      ]
+    }
+  ]
+}

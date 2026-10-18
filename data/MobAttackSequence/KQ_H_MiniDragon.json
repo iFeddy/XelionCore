@@ -1,0 +1,94 @@
+{
+  "mob": "KQ_H_MiniDragon",
+  "sequence": [
+    {
+      "order": 0,
+      "attack": "KQ_MD_AtkSkil2_1"
+    },
+    {
+      "order": 1,
+      "attack": "-"
+    },
+    {
+      "order": 2,
+      "attack": "-"
+    },
+    {
+      "order": 3,
+      "attack": "KQ_MD_AtkSkil2_2"
+    },
+    {
+      "order": 4,
+      "attack": "-"
+    },
+    {
+      "order": 5,
+      "attack": "-"
+    },
+    {
+      "order": 6,
+      "attack": "KQ_MD_AtkSkil2_1"
+    },
+    {
+      "order": 7,
+      "attack": "-"
+    },
+    {
+      "order": 8,
+      "attack": "-"
+    },
+    {
+      "order": 9,
+      "attack": "KQ_MD_AtkSkil2_2"
+    },
+    {
+      "order": 10,
+      "attack": "-"
+    },
+    {
+      "order": 11,
+      "attack": "-"
+    },
+    {
+      "order": 12,
+      "attack": "KQ_MD_AtkSkil2_2"
+    },
+    {
+      "order": 13,
+      "attack": "-"
+    },
+    {
+      "order": 14,
+      "attack": "-"
+    },
+    {
+      "order": 15,
+      "attack": "KQ_MD_AtkSkil2_3"
+    },
+    {
+      "order": 16,
+      "attack": "-"
+    },
+    {
+      "order": 17,
+      "attack": "-"
+    },
+    {
+      "order": 18,
+      "attack": "KQ_MD_AtkSkil2_1"
+    },
+    {
+      "order": 19,
+      "attack": "KQ_MD_AtkSkil2_2"
+    },
+    {
+      "order": 20,
+      "attack": "KQ_MD_AtkSkil2_3"
+    },
+    {
+      "order": 21,
+      "attack": "KQ_MD_AtkSkil2_3"
+    }
+  ],
+  "skill_changes": []
+}

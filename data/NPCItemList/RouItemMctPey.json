@@ -1,0 +1,59 @@
+{
+  "merchant": "RouItemMctPey",
+  "tabs": [
+    {
+      "tab": "Tab00",
+      "title": "아이템 상점",
+      "rows": [
+        [
+          "Grade6",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-"
+        ],
+        [
+          "El1",
+          "-",
+          "-",
+          "Pickaxe",
+          "Q_Peg",
+          "Q_Hammer"
+        ],
+        [
+          "FlyStone",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-"
+        ],
+        [
+          "WoodenHorse01",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-"
+        ],
+        [
+          "House_MushRoom01",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-"
+        ],
+        [
+          "Converter1",
+          "Converter2",
+          "Converter3",
+          "Converter4",
+          "Converter5",
+          "-"
+        ]
+      ]
+    }
+  ]
+}

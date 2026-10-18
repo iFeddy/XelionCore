@@ -1,0 +1,54 @@
+{
+  "mob": "Anti_Henis_G_C50",
+  "sequence": [
+    {
+      "order": 0,
+      "attack": "-"
+    },
+    {
+      "order": 1,
+      "attack": "Wield06"
+    },
+    {
+      "order": 2,
+      "attack": "Heal08"
+    },
+    {
+      "order": 3,
+      "attack": "PsychicChop02"
+    },
+    {
+      "order": 4,
+      "attack": "-"
+    },
+    {
+      "order": 5,
+      "attack": "Wield06"
+    },
+    {
+      "order": 6,
+      "attack": "Heal08"
+    },
+    {
+      "order": 7,
+      "attack": "PsychicChop02"
+    },
+    {
+      "order": 8,
+      "attack": "-"
+    },
+    {
+      "order": 9,
+      "attack": "Wield06"
+    },
+    {
+      "order": 10,
+      "attack": "Heal08"
+    },
+    {
+      "order": 11,
+      "attack": "PsychicChop02"
+    }
+  ],
+  "skill_changes": []
+}

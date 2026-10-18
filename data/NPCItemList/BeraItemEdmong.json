@@ -1,0 +1,51 @@
+{
+  "merchant": "BeraItemEdmong",
+  "tabs": [
+    {
+      "tab": "Tab00",
+      "title": "아이템 상점(베라)",
+      "rows": [
+        [
+          "Grade6",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-"
+        ],
+        [
+          "Pickaxe",
+          "El1",
+          "-",
+          "-",
+          "-",
+          "-"
+        ],
+        [
+          "FlyStone",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-"
+        ],
+        [
+          "Hobby01",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-"
+        ],
+        [
+          "House_MushRoom01",
+          "House_MushRoom02",
+          "House_MushRoom03",
+          "House_MushRoom04",
+          "-",
+          "-"
+        ]
+      ]
+    }
+  ]
+}

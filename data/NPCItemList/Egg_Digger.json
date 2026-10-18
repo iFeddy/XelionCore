@@ -1,0 +1,27 @@
+{
+  "merchant": "Egg_Digger",
+  "tabs": [
+    {
+      "tab": "Tab00",
+      "title": "깃발 뺏기 킹퀘 상점",
+      "rows": [
+        [
+          "BallEgg01",
+          "-",
+          "-",
+          "-",
+          "-",
+          "-"
+        ],
+        [
+          "Egg_Melee",
+          "Egg_Range",
+          "-",
+          "-",
+          "-",
+          "-"
+        ]
+      ]
+    }
+  ]
+}

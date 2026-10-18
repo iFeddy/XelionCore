@@ -1,0 +1,54 @@
+{
+  "mob": "Anti_Henis_F64",
+  "sequence": [
+    {
+      "order": 0,
+      "attack": "-"
+    },
+    {
+      "order": 1,
+      "attack": "CrushStrike01"
+    },
+    {
+      "order": 2,
+      "attack": "RedSlash06"
+    },
+    {
+      "order": 3,
+      "attack": "GreatSwing03"
+    },
+    {
+      "order": 4,
+      "attack": "-"
+    },
+    {
+      "order": 5,
+      "attack": "CrushStrike01"
+    },
+    {
+      "order": 6,
+      "attack": "RedSlash06"
+    },
+    {
+      "order": 7,
+      "attack": "GreatSwing03"
+    },
+    {
+      "order": 8,
+      "attack": "-"
+    },
+    {
+      "order": 9,
+      "attack": "CrushStrike01"
+    },
+    {
+      "order": 10,
+      "attack": "RedSlash06"
+    },
+    {
+      "order": 11,
+      "attack": "GreatSwing03"
+    }
+  ],
+  "skill_changes": []
+}

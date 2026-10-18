@@ -1,0 +1,1218 @@
+{
+  "id": 41,
+  "name": "StaVine",
+  "description": "Enredaderas de la naturaleza (Retención)",
+  "max_levels": 151,
+  "record_size_bytes": 8,
+  "meta_hex": "290053746156696e650000000000000000000000000000000000000000000000000000b9d9c0ce0000000000000000000000000000000000000000000000000000000000010000000000000000000000010000000100000001000000000000000000000001000000",
+  "levels": [
+    {
+      "level": 0,
+      "duration_ms": 0,
+      "raw": [
+        0,
+        0
+      ]
+    },
+    {
+      "level": 1,
+      "duration_ms": 2010,
+      "raw": [
+        1,
+        2010
+      ]
+    },
+    {
+      "level": 2,
+      "duration_ms": 2020,
+      "raw": [
+        2,
+        2020
+      ]
+    },
+    {
+      "level": 3,
+      "duration_ms": 2030,
+      "raw": [
+        3,
+        2030
+      ]
+    },
+    {
+      "level": 4,
+      "duration_ms": 2040,
+      "raw": [
+        4,
+        2040
+      ]
+    },
+    {
+      "level": 5,
+      "duration_ms": 2050,
+      "raw": [
+        5,
+        2050
+      ]
+    },
+    {
+      "level": 6,
+      "duration_ms": 2060,
+      "raw": [
+        6,
+        2060
+      ]
+    },
+    {
+      "level": 7,
+      "duration_ms": 2070,
+      "raw": [
+        7,
+        2070
+      ]
+    },
+    {
+      "level": 8,
+      "duration_ms": 2080,
+      "raw": [
+        8,
+        2080
+      ]
+    },
+    {
+      "level": 9,
+      "duration_ms": 2090,
+      "raw": [
+        9,
+        2090
+      ]
+    },
+    {
+      "level": 10,
+      "duration_ms": 2100,
+      "raw": [
+        10,
+        2100
+      ]
+    },
+    {
+      "level": 11,
+      "duration_ms": 2110,
+      "raw": [
+        11,
+        2110
+      ]
+    },
+    {
+      "level": 12,
+      "duration_ms": 2120,
+      "raw": [
+        12,
+        2120
+      ]
+    },
+    {
+      "level": 13,
+      "duration_ms": 2130,
+      "raw": [
+        13,
+        2130
+      ]
+    },
+    {
+      "level": 14,
+      "duration_ms": 2140,
+      "raw": [
+        14,
+        2140
+      ]
+    },
+    {
+      "level": 15,
+      "duration_ms": 2150,
+      "raw": [
+        15,
+        2150
+      ]
+    },
+    {
+      "level": 16,
+      "duration_ms": 2160,
+      "raw": [
+        16,
+        2160
+      ]
+    },
+    {
+      "level": 17,
+      "duration_ms": 2170,
+      "raw": [
+        17,
+        2170
+      ]
+    },
+    {
+      "level": 18,
+      "duration_ms": 2180,
+      "raw": [
+        18,
+        2180
+      ]
+    },
+    {
+      "level": 19,
+      "duration_ms": 2190,
+      "raw": [
+        19,
+        2190
+      ]
+    },
+    {
+      "level": 20,
+      "duration_ms": 2200,
+      "raw": [
+        20,
+        2200
+      ]
+    },
+    {
+      "level": 21,
+      "duration_ms": 2210,
+      "raw": [
+        21,
+        2210
+      ]
+    },
+    {
+      "level": 22,
+      "duration_ms": 2220,
+      "raw": [
+        22,
+        2220
+      ]
+    },
+    {
+      "level": 23,
+      "duration_ms": 2230,
+      "raw": [
+        23,
+        2230
+      ]
+    },
+    {
+      "level": 24,
+      "duration_ms": 2240,
+      "raw": [
+        24,
+        2240
+      ]
+    },
+    {
+      "level": 25,
+      "duration_ms": 2250,
+      "raw": [
+        25,
+        2250
+      ]
+    },
+    {
+      "level": 26,
+      "duration_ms": 2260,
+      "raw": [
+        26,
+        2260
+      ]
+    },
+    {
+      "level": 27,
+      "duration_ms": 2270,
+      "raw": [
+        27,
+        2270
+      ]
+    },
+    {
+      "level": 28,
+      "duration_ms": 2280,
+      "raw": [
+        28,
+        2280
+      ]
+    },
+    {
+      "level": 29,
+      "duration_ms": 2290,
+      "raw": [
+        29,
+        2290
+      ]
+    },
+    {
+      "level": 30,
+      "duration_ms": 2300,
+      "raw": [
+        30,
+        2300
+      ]
+    },
+    {
+      "level": 31,
+      "duration_ms": 2310,
+      "raw": [
+        31,
+        2310
+      ]
+    },
+    {
+      "level": 32,
+      "duration_ms": 2320,
+      "raw": [
+        32,
+        2320
+      ]
+    },
+    {
+      "level": 33,
+      "duration_ms": 2330,
+      "raw": [
+        33,
+        2330
+      ]
+    },
+    {
+      "level": 34,
+      "duration_ms": 2340,
+      "raw": [
+        34,
+        2340
+      ]
+    },
+    {
+      "level": 35,
+      "duration_ms": 2350,
+      "raw": [
+        35,
+        2350
+      ]
+    },
+    {
+      "level": 36,
+      "duration_ms": 2360,
+      "raw": [
+        36,
+        2360
+      ]
+    },
+    {
+      "level": 37,
+      "duration_ms": 2370,
+      "raw": [
+        37,
+        2370
+      ]
+    },
+    {
+      "level": 38,
+      "duration_ms": 2380,
+      "raw": [
+        38,
+        2380
+      ]
+    },
+    {
+      "level": 39,
+      "duration_ms": 2390,
+      "raw": [
+        39,
+        2390
+      ]
+    },
+    {
+      "level": 40,
+      "duration_ms": 2400,
+      "raw": [
+        40,
+        2400
+      ]
+    },
+    {
+      "level": 41,
+      "duration_ms": 2410,
+      "raw": [
+        41,
+        2410
+      ]
+    },
+    {
+      "level": 42,
+      "duration_ms": 2420,
+      "raw": [
+        42,
+        2420
+      ]
+    },
+    {
+      "level": 43,
+      "duration_ms": 2430,
+      "raw": [
+        43,
+        2430
+      ]
+    },
+    {
+      "level": 44,
+      "duration_ms": 2440,
+      "raw": [
+        44,
+        2440
+      ]
+    },
+    {
+      "level": 45,
+      "duration_ms": 2450,
+      "raw": [
+        45,
+        2450
+      ]
+    },
+    {
+      "level": 46,
+      "duration_ms": 2460,
+      "raw": [
+        46,
+        2460
+      ]
+    },
+    {
+      "level": 47,
+      "duration_ms": 2470,
+      "raw": [
+        47,
+        2470
+      ]
+    },
+    {
+      "level": 48,
+      "duration_ms": 2480,
+      "raw": [
+        48,
+        2480
+      ]
+    },
+    {
+      "level": 49,
+      "duration_ms": 2490,
+      "raw": [
+        49,
+        2490
+      ]
+    },
+    {
+      "level": 50,
+      "duration_ms": 2500,
+      "raw": [
+        50,
+        2500
+      ]
+    },
+    {
+      "level": 51,
+      "duration_ms": 2510,
+      "raw": [
+        51,
+        2510
+      ]
+    },
+    {
+      "level": 52,
+      "duration_ms": 2520,
+      "raw": [
+        52,
+        2520
+      ]
+    },
+    {
+      "level": 53,
+      "duration_ms": 2530,
+      "raw": [
+        53,
+        2530
+      ]
+    },
+    {
+      "level": 54,
+      "duration_ms": 2540,
+      "raw": [
+        54,
+        2540
+      ]
+    },
+    {
+      "level": 55,
+      "duration_ms": 2550,
+      "raw": [
+        55,
+        2550
+      ]
+    },
+    {
+      "level": 56,
+      "duration_ms": 2560,
+      "raw": [
+        56,
+        2560
+      ]
+    },
+    {
+      "level": 57,
+      "duration_ms": 2570,
+      "raw": [
+        57,
+        2570
+      ]
+    },
+    {
+      "level": 58,
+      "duration_ms": 2580,
+      "raw": [
+        58,
+        2580
+      ]
+    },
+    {
+      "level": 59,
+      "duration_ms": 2590,
+      "raw": [
+        59,
+        2590
+      ]
+    },
+    {
+      "level": 60,
+      "duration_ms": 2600,
+      "raw": [
+        60,
+        2600
+      ]
+    },
+    {
+      "level": 61,
+      "duration_ms": 2610,
+      "raw": [
+        61,
+        2610
+      ]
+    },
+    {
+      "level": 62,
+      "duration_ms": 2620,
+      "raw": [
+        62,
+        2620
+      ]
+    },
+    {
+      "level": 63,
+      "duration_ms": 2630,
+      "raw": [
+        63,
+        2630
+      ]
+    },
+    {
+      "level": 64,
+      "duration_ms": 2640,
+      "raw": [
+        64,
+        2640
+      ]
+    },
+    {
+      "level": 65,
+      "duration_ms": 2650,
+      "raw": [
+        65,
+        2650
+      ]
+    },
+    {
+      "level": 66,
+      "duration_ms": 2660,
+      "raw": [
+        66,
+        2660
+      ]
+    },
+    {
+      "level": 67,
+      "duration_ms": 2670,
+      "raw": [
+        67,
+        2670
+      ]
+    },
+    {
+      "level": 68,
+      "duration_ms": 2680,
+      "raw": [
+        68,
+        2680
+      ]
+    },
+    {
+      "level": 69,
+      "duration_ms": 2690,
+      "raw": [
+        69,
+        2690
+      ]
+    },
+    {
+      "level": 70,
+      "duration_ms": 2700,
+      "raw": [
+        70,
+        2700
+      ]
+    },
+    {
+      "level": 71,
+      "duration_ms": 2710,
+      "raw": [
+        71,
+        2710
+      ]
+    },
+    {
+      "level": 72,
+      "duration_ms": 2720,
+      "raw": [
+        72,
+        2720
+      ]
+    },
+    {
+      "level": 73,
+      "duration_ms": 2730,
+      "raw": [
+        73,
+        2730
+      ]
+    },
+    {
+      "level": 74,
+      "duration_ms": 2740,
+      "raw": [
+        74,
+        2740
+      ]
+    },
+    {
+      "level": 75,
+      "duration_ms": 2750,
+      "raw": [
+        75,
+        2750
+      ]
+    },
+    {
+      "level": 76,
+      "duration_ms": 2760,
+      "raw": [
+        76,
+        2760
+      ]
+    },
+    {
+      "level": 77,
+      "duration_ms": 2770,
+      "raw": [
+        77,
+        2770
+      ]
+    },
+    {
+      "level": 78,
+      "duration_ms": 2780,
+      "raw": [
+        78,
+        2780
+      ]
+    },
+    {
+      "level": 79,
+      "duration_ms": 2790,
+      "raw": [
+        79,
+        2790
+      ]
+    },
+    {
+      "level": 80,
+      "duration_ms": 2800,
+      "raw": [
+        80,
+        2800
+      ]
+    },
+    {
+      "level": 81,
+      "duration_ms": 2810,
+      "raw": [
+        81,
+        2810
+      ]
+    },
+    {
+      "level": 82,
+      "duration_ms": 2820,
+      "raw": [
+        82,
+        2820
+      ]
+    },
+    {
+      "level": 83,
+      "duration_ms": 2830,
+      "raw": [
+        83,
+        2830
+      ]
+    },
+    {
+      "level": 84,
+      "duration_ms": 2840,
+      "raw": [
+        84,
+        2840
+      ]
+    },
+    {
+      "level": 85,
+      "duration_ms": 2850,
+      "raw": [
+        85,
+        2850
+      ]
+    },
+    {
+      "level": 86,
+      "duration_ms": 2860,
+      "raw": [
+        86,
+        2860
+      ]
+    },
+    {
+      "level": 87,
+      "duration_ms": 2870,
+      "raw": [
+        87,
+        2870
+      ]
+    },
+    {
+      "level": 88,
+      "duration_ms": 2880,
+      "raw": [
+        88,
+        2880
+      ]
+    },
+    {
+      "level": 89,
+      "duration_ms": 2890,
+      "raw": [
+        89,
+        2890
+      ]
+    },
+    {
+      "level": 90,
+      "duration_ms": 2900,
+      "raw": [
+        90,
+        2900
+      ]
+    },
+    {
+      "level": 91,
+      "duration_ms": 2910,
+      "raw": [
+        91,
+        2910
+      ]
+    },
+    {
+      "level": 92,
+      "duration_ms": 2920,
+      "raw": [
+        92,
+        2920
+      ]
+    },
+    {
+      "level": 93,
+      "duration_ms": 2930,
+      "raw": [
+        93,
+        2930
+      ]
+    },
+    {
+      "level": 94,
+      "duration_ms": 2940,
+      "raw": [
+        94,
+        2940
+      ]
+    },
+    {
+      "level": 95,
+      "duration_ms": 2950,
+      "raw": [
+        95,
+        2950
+      ]
+    },
+    {
+      "level": 96,
+      "duration_ms": 2960,
+      "raw": [
+        96,
+        2960
+      ]
+    },
+    {
+      "level": 97,
+      "duration_ms": 2970,
+      "raw": [
+        97,
+        2970
+      ]
+    },
+    {
+      "level": 98,
+      "duration_ms": 2980,
+      "raw": [
+        98,
+        2980
+      ]
+    },
+    {
+      "level": 99,
+      "duration_ms": 2990,
+      "raw": [
+        99,
+        2990
+      ]
+    },
+    {
+      "level": 100,
+      "duration_ms": 3000,
+      "raw": [
+        100,
+        3000
+      ]
+    },
+    {
+      "level": 101,
+      "duration_ms": 3010,
+      "raw": [
+        101,
+        3010
+      ]
+    },
+    {
+      "level": 102,
+      "duration_ms": 3020,
+      "raw": [
+        102,
+        3020
+      ]
+    },
+    {
+      "level": 103,
+      "duration_ms": 3030,
+      "raw": [
+        103,
+        3030
+      ]
+    },
+    {
+      "level": 104,
+      "duration_ms": 3040,
+      "raw": [
+        104,
+        3040
+      ]
+    },
+    {
+      "level": 105,
+      "duration_ms": 3050,
+      "raw": [
+        105,
+        3050
+      ]
+    },
+    {
+      "level": 106,
+      "duration_ms": 3060,
+      "raw": [
+        106,
+        3060
+      ]
+    },
+    {
+      "level": 107,
+      "duration_ms": 3070,
+      "raw": [
+        107,
+        3070
+      ]
+    },
+    {
+      "level": 108,
+      "duration_ms": 3080,
+      "raw": [
+        108,
+        3080
+      ]
+    },
+    {
+      "level": 109,
+      "duration_ms": 3090,
+      "raw": [
+        109,
+        3090
+      ]
+    },
+    {
+      "level": 110,
+      "duration_ms": 3100,
+      "raw": [
+        110,
+        3100
+      ]
+    },
+    {
+      "level": 111,
+      "duration_ms": 3110,
+      "raw": [
+        111,
+        3110
+      ]
+    },
+    {
+      "level": 112,
+      "duration_ms": 3120,
+      "raw": [
+        112,
+        3120
+      ]
+    },
+    {
+      "level": 113,
+      "duration_ms": 3130,
+      "raw": [
+        113,
+        3130
+      ]
+    },
+    {
+      "level": 114,
+      "duration_ms": 3140,
+      "raw": [
+        114,
+        3140
+      ]
+    },
+    {
+      "level": 115,
+      "duration_ms": 3150,
+      "raw": [
+        115,
+        3150
+      ]
+    },
+    {
+      "level": 116,
+      "duration_ms": 3160,
+      "raw": [
+        116,
+        3160
+      ]
+    },
+    {
+      "level": 117,
+      "duration_ms": 3170,
+      "raw": [
+        117,
+        3170
+      ]
+    },
+    {
+      "level": 118,
+      "duration_ms": 3180,
+      "raw": [
+        118,
+        3180
+      ]
+    },
+    {
+      "level": 119,
+      "duration_ms": 3190,
+      "raw": [
+        119,
+        3190
+      ]
+    },
+    {
+      "level": 120,
+      "duration_ms": 3200,
+      "raw": [
+        120,
+        3200
+      ]
+    },
+    {
+      "level": 121,
+      "duration_ms": 3210,
+      "raw": [
+        121,
+        3210
+      ]
+    },
+    {
+      "level": 122,
+      "duration_ms": 3220,
+      "raw": [
+        122,
+        3220
+      ]
+    },
+    {
+      "level": 123,
+      "duration_ms": 3230,
+      "raw": [
+        123,
+        3230
+      ]
+    },
+    {
+      "level": 124,
+      "duration_ms": 3240,
+      "raw": [
+        124,
+        3240
+      ]
+    },
+    {
+      "level": 125,
+      "duration_ms": 3250,
+      "raw": [
+        125,
+        3250
+      ]
+    },
+    {
+      "level": 126,
+      "duration_ms": 3260,
+      "raw": [
+        126,
+        3260
+      ]
+    },
+    {
+      "level": 127,
+      "duration_ms": 3270,
+      "raw": [
+        127,
+        3270
+      ]
+    },
+    {
+      "level": 128,
+      "duration_ms": 3280,
+      "raw": [
+        128,
+        3280
+      ]
+    },
+    {
+      "level": 129,
+      "duration_ms": 3290,
+      "raw": [
+        129,
+        3290
+      ]
+    },
+    {
+      "level": 130,
+      "duration_ms": 3300,
+      "raw": [
+        130,
+        3300
+      ]
+    },
+    {
+      "level": 131,
+      "duration_ms": 3310,
+      "raw": [
+        131,
+        3310
+      ]
+    },
+    {
+      "level": 132,
+      "duration_ms": 3320,
+      "raw": [
+        132,
+        3320
+      ]
+    },
+    {
+      "level": 133,
+      "duration_ms": 3330,
+      "raw": [
+        133,
+        3330
+      ]
+    },
+    {
+      "level": 134,
+      "duration_ms": 3340,
+      "raw": [
+        134,
+        3340
+      ]
+    },
+    {
+      "level": 135,
+      "duration_ms": 3350,
+      "raw": [
+        135,
+        3350
+      ]
+    },
+    {
+      "level": 136,
+      "duration_ms": 3360,
+      "raw": [
+        136,
+        3360
+      ]
+    },
+    {
+      "level": 137,
+      "duration_ms": 3370,
+      "raw": [
+        137,
+        3370
+      ]
+    },
+    {
+      "level": 138,
+      "duration_ms": 3380,
+      "raw": [
+        138,
+        3380
+      ]
+    },
+    {
+      "level": 139,
+      "duration_ms": 3390,
+      "raw": [
+        139,
+        3390
+      ]
+    },
+    {
+      "level": 140,
+      "duration_ms": 3400,
+      "raw": [
+        140,
+        3400
+      ]
+    },
+    {
+      "level": 141,
+      "duration_ms": 3410,
+      "raw": [
+        141,
+        3410
+      ]
+    },
+    {
+      "level": 142,
+      "duration_ms": 3420,
+      "raw": [
+        142,
+        3420
+      ]
+    },
+    {
+      "level": 143,
+      "duration_ms": 3430,
+      "raw": [
+        143,
+        3430
+      ]
+    },
+    {
+      "level": 144,
+      "duration_ms": 3440,
+      "raw": [
+        144,
+        3440
+      ]
+    },
+    {
+      "level": 145,
+      "duration_ms": 3450,
+      "raw": [
+        145,
+        3450
+      ]
+    },
+    {
+      "level": 146,
+      "duration_ms": 3460,
+      "raw": [
+        146,
+        3460
+      ]
+    },
+    {
+      "level": 147,
+      "duration_ms": 3470,
+      "raw": [
+        147,
+        3470
+      ]
+    },
+    {
+      "level": 148,
+      "duration_ms": 3480,
+      "raw": [
+        148,
+        3480
+      ]
+    },
+    {
+      "level": 149,
+      "duration_ms": 3490,
+      "raw": [
+        149,
+        3490
+      ]
+    },
+    {
+      "level": 150,
+      "duration_ms": 3500,
+      "raw": [
+        150,
+        3500
+      ]
+    }
+  ]
+}

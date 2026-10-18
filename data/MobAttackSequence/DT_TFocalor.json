@@ -1,0 +1,22 @@
+{
+  "mob": "DT_TFocalor",
+  "sequence": [
+    {
+      "order": 0,
+      "attack": "DT_TFocalor_Skill01_W"
+    },
+    {
+      "order": 1,
+      "attack": "DT_TFocalor_Skill02_N"
+    },
+    {
+      "order": 2,
+      "attack": "DT_TFocalor_Skill03_W"
+    },
+    {
+      "order": 3,
+      "attack": "DT_TFocalor_Skill04_W"
+    }
+  ],
+  "skill_changes": []
+}

@@ -1,0 +1,403 @@
+{
+  "mob": "SD_Dragon",
+  "sequence": [
+    {
+      "order": 0,
+      "attack": "SD_DragonSkill04_N"
+    },
+    {
+      "order": 1,
+      "attack": "SD_DragonSkill05_W"
+    },
+    {
+      "order": 2,
+      "attack": "SD_DragonSkill04_N"
+    },
+    {
+      "order": 3,
+      "attack": "SD_DragonSkill04_N"
+    },
+    {
+      "order": 4,
+      "attack": "SD_DragonSkill05_W"
+    },
+    {
+      "order": 5,
+      "attack": "SD_DragonSkill04_N"
+    },
+    {
+      "order": 6,
+      "attack": "SD_DragonSkill06_W"
+    },
+    {
+      "order": 7,
+      "attack": "SD_DragonSkill05_W"
+    },
+    {
+      "order": 8,
+      "attack": "SD_DragonSkill04_N"
+    },
+    {
+      "order": 9,
+      "attack": "SD_DragonSkill04_N"
+    },
+    {
+      "order": 10,
+      "attack": "SD_DragonSkill04_N"
+    },
+    {
+      "order": 11,
+      "attack": "SD_DragonSkill05_W"
+    },
+    {
+      "order": 12,
+      "attack": "SD_DragonSkill04_N"
+    },
+    {
+      "order": 13,
+      "attack": "SD_DragonSkill04_N"
+    },
+    {
+      "order": 14,
+      "attack": "SD_DragonSkill05_W"
+    },
+    {
+      "order": 15,
+      "attack": "SD_DragonSkill04_N"
+    },
+    {
+      "order": 16,
+      "attack": "SD_DragonSkill06_W"
+    },
+    {
+      "order": 17,
+      "attack": "SD_DragonSkill05_W"
+    }
+  ],
+  "skill_changes": [
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 300,
+      "from": 0,
+      "to": "SD_DragonSkill13_N"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 300,
+      "from": 1,
+      "to": "SD_DragonSkill07_W"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 300,
+      "from": 2,
+      "to": "SD_DragonSkill04_N"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 300,
+      "from": 3,
+      "to": "SD_DragonSkill06_W"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 300,
+      "from": 4,
+      "to": "SD_DragonSkill05_W"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 300,
+      "from": 5,
+      "to": "SD_DragonSkill12_N"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 300,
+      "from": 6,
+      "to": "SD_DragonSkill05_W"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 300,
+      "from": 7,
+      "to": "SD_DragonSkill06_W"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 300,
+      "from": 8,
+      "to": "SD_DragonSkill13_N"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 300,
+      "from": 9,
+      "to": "SD_DragonSkill07_W"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 300,
+      "from": 10,
+      "to": "SD_DragonSkill05_W"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 300,
+      "from": 11,
+      "to": "SD_DragonSkill04_N"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 300,
+      "from": 12,
+      "to": "SD_DragonSkill06_W"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 300,
+      "from": 13,
+      "to": "SD_DragonSkill07_W"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 300,
+      "from": 14,
+      "to": "SD_DragonSkill13_N"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 300,
+      "from": 15,
+      "to": "SD_DragonSkill06_W"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 300,
+      "from": 16,
+      "to": "SD_DragonSkill05_W"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 300,
+      "from": 17,
+      "to": "SD_DragonSkill04_N"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 500,
+      "from": 0,
+      "to": "SD_DragonSkill04_N"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 500,
+      "from": 1,
+      "to": "SD_DragonSkill08_N"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 500,
+      "from": 2,
+      "to": "SD_DragonSkill06_W"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 500,
+      "from": 3,
+      "to": "SD_DragonSkill05_W"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 500,
+      "from": 4,
+      "to": "SD_DragonSkill04_N"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 500,
+      "from": 5,
+      "to": "SD_DragonSkill12_N"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 500,
+      "from": 6,
+      "to": "SD_DragonSkill04_N"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 500,
+      "from": 7,
+      "to": "SD_DragonSkill06_W"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 500,
+      "from": 8,
+      "to": "SD_DragonSkill05_W"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 500,
+      "from": 9,
+      "to": "SD_DragonSkill04_N"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 500,
+      "from": 10,
+      "to": "SD_DragonSkill08_N"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 500,
+      "from": 11,
+      "to": "SD_DragonSkill06_W"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 500,
+      "from": 12,
+      "to": "SD_DragonSkill05_W"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 500,
+      "from": 13,
+      "to": "SD_DragonSkill04_N"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 500,
+      "from": 14,
+      "to": "SD_DragonSkill12_N"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 500,
+      "from": 15,
+      "to": "SD_DragonSkill04_N"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 500,
+      "from": 16,
+      "to": "SD_DragonSkill06_W"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 500,
+      "from": 17,
+      "to": "SD_DragonSkill05_W"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 800,
+      "from": 0,
+      "to": "SD_DragonSkill05_W"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 800,
+      "from": 1,
+      "to": "SD_DragonSkill04_N"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 800,
+      "from": 2,
+      "to": "SD_DragonSkill06_W"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 800,
+      "from": 3,
+      "to": "SD_DragonSkill05_W"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 800,
+      "from": 4,
+      "to": "SD_DragonSkill04_N"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 800,
+      "from": 5,
+      "to": "SD_DragonSkill07_W"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 800,
+      "from": 6,
+      "to": "SD_DragonSkill05_W"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 800,
+      "from": 7,
+      "to": "SD_DragonSkill06_W"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 800,
+      "from": 8,
+      "to": "SD_DragonSkill04_N"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 800,
+      "from": 9,
+      "to": "SD_DragonSkill05_W"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 800,
+      "from": 10,
+      "to": "SD_DragonSkill04_N"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 800,
+      "from": 11,
+      "to": "SD_DragonSkill06_W"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 800,
+      "from": 12,
+      "to": "SD_DragonSkill07_W"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 800,
+      "from": 13,
+      "to": "SD_DragonSkill04_N"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 800,
+      "from": 14,
+      "to": "SD_DragonSkill04_N"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 800,
+      "from": 15,
+      "to": "SD_DragonSkill05_W"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 800,
+      "from": 16,
+      "to": "SD_DragonSkill06_W"
+    },
+    {
+      "condition": "HPLow_ChangeOrder",
+      "value": 800,
+      "from": 17,
+      "to": "SD_DragonSkill04_N"
+    }
+  ]
+}

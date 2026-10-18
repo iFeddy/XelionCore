@@ -1,0 +1,113 @@
+{
+  "mob": "Psy_Psyken",
+  "sequence": [
+    {
+      "order": 0,
+      "attack": "PsySumSkill01"
+    },
+    {
+      "order": 1,
+      "attack": "*RepeatStart"
+    },
+    {
+      "order": 2,
+      "attack": "PsyAtkSkill01"
+    },
+    {
+      "order": 3,
+      "attack": "PsyAtkSkill03"
+    },
+    {
+      "order": 4,
+      "attack": "PsyAtkSkill02"
+    },
+    {
+      "order": 5,
+      "attack": "-"
+    },
+    {
+      "order": 6,
+      "attack": "PsyAtkSkill03"
+    },
+    {
+      "order": 7,
+      "attack": "PsyAtkSkill02"
+    },
+    {
+      "order": 8,
+      "attack": "PsyAtkSkill01"
+    },
+    {
+      "order": 9,
+      "attack": "-"
+    },
+    {
+      "order": 10,
+      "attack": "Psyken_Skill4"
+    },
+    {
+      "order": 11,
+      "attack": "PsyAtkSkill03"
+    },
+    {
+      "order": 12,
+      "attack": "-"
+    },
+    {
+      "order": 13,
+      "attack": "-"
+    },
+    {
+      "order": 14,
+      "attack": "PsyAtkSkill01"
+    },
+    {
+      "order": 15,
+      "attack": "-"
+    },
+    {
+      "order": 16,
+      "attack": "-"
+    },
+    {
+      "order": 17,
+      "attack": "PsyAtkSkill01"
+    },
+    {
+      "order": 18,
+      "attack": "PsyAtkSkill02"
+    },
+    {
+      "order": 19,
+      "attack": "PsyAtkSkill03"
+    },
+    {
+      "order": 20,
+      "attack": "PsyAtkSkill02"
+    },
+    {
+      "order": 21,
+      "attack": "-"
+    }
+  ],
+  "skill_changes": [
+    {
+      "condition": "OutOfRange",
+      "value": "-",
+      "from": "-",
+      "to": "PsyAtkSkill01"
+    },
+    {
+      "condition": "OutOfRange",
+      "value": "-",
+      "from": "PsyAtkSkill01",
+      "to": "PsyAtkSkill03"
+    },
+    {
+      "condition": "OutOfRange",
+      "value": "-",
+      "from": "PsyAtkSkill02",
+      "to": "PsyAtkSkill01"
+    }
+  ]
+}
