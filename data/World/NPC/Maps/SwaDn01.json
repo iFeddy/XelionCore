@@ -1,0 +1,13 @@
+[
+  {
+    "mobName": "MapLinkGate",
+    "map": "SwaDn01",
+    "x": 6068,
+    "y": 11314,
+    "direct": 0,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "SwaDn011",
+    "enabled": true
+  }
+]

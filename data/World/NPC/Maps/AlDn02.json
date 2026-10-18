@@ -1,0 +1,13 @@
+[
+  {
+    "mobName": "LevelGuard100",
+    "map": "AlDn02",
+    "x": 11303,
+    "y": 1895,
+    "direct": 0,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "AlDn021",
+    "enabled": true
+  }
+]

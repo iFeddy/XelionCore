@@ -1,0 +1,24 @@
+[
+  {
+    "mobName": "MapLinkGate",
+    "map": "EldPriDn01",
+    "x": 3124,
+    "y": 9042,
+    "direct": -2,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "GateEldPriDn011",
+    "enabled": true
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "EldPriDn01",
+    "x": 12540,
+    "y": 8038,
+    "direct": 0,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "GateEldPriDn012",
+    "enabled": true
+  }
+]

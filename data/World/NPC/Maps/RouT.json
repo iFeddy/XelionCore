@@ -1,0 +1,35 @@
+[
+  {
+    "mobName": "RouT_Smith",
+    "map": "RouT",
+    "x": 5606,
+    "y": 8852,
+    "direct": -59,
+    "menu": 1,
+    "role": "Merchant",
+    "roleArg": "Weapon",
+    "enabled": true
+  },
+  {
+    "mobName": "RouT_Soul",
+    "map": "RouT",
+    "x": 7341,
+    "y": 9030,
+    "direct": 96,
+    "menu": 1,
+    "role": "Merchant",
+    "roleArg": "SoulStone",
+    "enabled": true
+  },
+  {
+    "mobName": "RouT_Skill",
+    "map": "RouT",
+    "x": 6311,
+    "y": 7149,
+    "direct": -59,
+    "menu": 1,
+    "role": "Merchant",
+    "roleArg": "Skill",
+    "enabled": true
+  }
+]

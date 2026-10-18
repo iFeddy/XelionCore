@@ -1,0 +1,90 @@
+[
+  {
+    "mobName": "RouDiggerPalmers",
+    "map": "EldCem01",
+    "x": 528,
+    "y": 7598,
+    "direct": -98,
+    "menu": 1,
+    "role": "QuestNpc",
+    "roleArg": "Quest",
+    "enabled": true
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "EldCem01",
+    "x": 11509,
+    "y": 11829,
+    "direct": 12,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "GateEldCem011",
+    "enabled": true
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "EldCem01",
+    "x": 982,
+    "y": 12298,
+    "direct": -58,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "GateEldCem012",
+    "enabled": false
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "EldCem01",
+    "x": 11829,
+    "y": 1135,
+    "direct": -72,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "GateEldCem013",
+    "enabled": true
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "EldCem01",
+    "x": 862,
+    "y": 8528,
+    "direct": -20,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "GateEldCem014",
+    "enabled": true
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "EldCem01",
+    "x": 2557,
+    "y": 2430,
+    "direct": -38,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "GateEldCem015",
+    "enabled": true
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "EldCem01",
+    "x": 4019,
+    "y": 668,
+    "direct": 0,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "GateEldCem016",
+    "enabled": true
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "EldCem01",
+    "x": 982,
+    "y": 12298,
+    "direct": -58,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "GateEldCem017",
+    "enabled": true
+  }
+]

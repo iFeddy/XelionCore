@@ -1,0 +1,101 @@
+[
+  {
+    "mobName": "MapLinkGate",
+    "map": "BerKal01",
+    "x": 21274,
+    "y": 19875,
+    "direct": 52,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "BerKal011",
+    "enabled": true
+  },
+  {
+    "mobName": "KarenGate",
+    "map": "BerKal01",
+    "x": 9398,
+    "y": 2821,
+    "direct": 205,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "BerKal012",
+    "enabled": true
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "BerKal01",
+    "x": 6161,
+    "y": 3884,
+    "direct": 0,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "BerKal013",
+    "enabled": true
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "BerKal01",
+    "x": 4483,
+    "y": 13158,
+    "direct": -80,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "BerKal014",
+    "enabled": true
+  },
+  {
+    "mobName": "Q_Rourke",
+    "map": "BerKal01",
+    "x": 9644,
+    "y": 8992,
+    "direct": -5,
+    "menu": 1,
+    "role": "QuestNpc",
+    "roleArg": "Quest",
+    "enabled": true
+  },
+  {
+    "mobName": "Q_Joanna",
+    "map": "BerKal01",
+    "x": 9332,
+    "y": 9071,
+    "direct": -20,
+    "menu": 1,
+    "role": "QuestNpc",
+    "roleArg": "Quest",
+    "enabled": true
+  },
+  {
+    "mobName": "Q_Huey",
+    "map": "BerKal01",
+    "x": 9800,
+    "y": 8833,
+    "direct": 95,
+    "menu": 1,
+    "role": "QuestNpc",
+    "roleArg": "Quest",
+    "enabled": true
+  },
+  {
+    "mobName": "Q_Dalian",
+    "map": "BerKal01",
+    "x": 10564,
+    "y": 14964,
+    "direct": 160,
+    "menu": 1,
+    "role": "QuestNpc",
+    "roleArg": "Quest",
+    "enabled": true
+  },
+  {
+    "mobName": "Q_Polan",
+    "map": "BerKal01",
+    "x": 9734,
+    "y": 3366,
+    "direct": 171,
+    "menu": 1,
+    "role": "QuestNpc",
+    "roleArg": "Quest",
+    "enabled": true
+  }
+]

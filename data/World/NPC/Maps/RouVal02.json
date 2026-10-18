@@ -1,0 +1,46 @@
+[
+  {
+    "mobName": "MapLinkGate",
+    "map": "RouVal02",
+    "x": 4914,
+    "y": 9319,
+    "direct": 0,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "GateRouVal021",
+    "enabled": true
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "RouVal02",
+    "x": 2195,
+    "y": 3313,
+    "direct": -114,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "GateRouVal022",
+    "enabled": true
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "RouVal02",
+    "x": 2622,
+    "y": 7938,
+    "direct": 98,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "GateRouVal023",
+    "enabled": true
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "RouVal02",
+    "x": 10724,
+    "y": 4318,
+    "direct": -82,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "GateRouVal024",
+    "enabled": true
+  }
+]

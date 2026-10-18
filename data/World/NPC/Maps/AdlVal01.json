@@ -1,0 +1,112 @@
+[
+  {
+    "mobName": "MapLinkGate",
+    "map": "AdlVal01",
+    "x": 29000,
+    "y": 19620,
+    "direct": 170,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "AdlVal010",
+    "enabled": true
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "AdlVal01",
+    "x": 26566,
+    "y": 18105,
+    "direct": -110,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "AdlVal011",
+    "enabled": true
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "AdlVal01",
+    "x": 30058,
+    "y": 13986,
+    "direct": -115,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "AdlVal012",
+    "enabled": true
+  },
+  {
+    "mobName": "AdlLantesUp",
+    "map": "AdlVal01",
+    "x": 28228,
+    "y": 20053,
+    "direct": -30,
+    "menu": 1,
+    "role": "QuestNpc",
+    "roleArg": "Quest",
+    "enabled": true
+  },
+  {
+    "mobName": "Claude",
+    "map": "AdlVal01",
+    "x": 28348,
+    "y": 20085,
+    "direct": 0,
+    "menu": 1,
+    "role": "QuestNpc",
+    "roleArg": "Quest",
+    "enabled": true
+  },
+  {
+    "mobName": "Claude",
+    "map": "AdlVal01",
+    "x": 28142,
+    "y": 19962,
+    "direct": -60,
+    "menu": 1,
+    "role": "QuestNpc",
+    "roleArg": "Quest",
+    "enabled": true
+  },
+  {
+    "mobName": "AdlGuardNell",
+    "map": "AdlVal01",
+    "x": 45076,
+    "y": 14273,
+    "direct": 145,
+    "menu": 1,
+    "role": "QuestNpc",
+    "roleArg": "Quest",
+    "enabled": true
+  },
+  {
+    "mobName": "AdlMarlene",
+    "map": "AdlVal01",
+    "x": 32944,
+    "y": 15660,
+    "direct": 40,
+    "menu": 1,
+    "role": "QuestNpc",
+    "roleArg": "Quest",
+    "enabled": true
+  },
+  {
+    "mobName": "Gate_AdlF",
+    "map": "AdlVal01",
+    "x": 31644,
+    "y": 1984,
+    "direct": -151,
+    "menu": 0,
+    "role": "IDGate",
+    "roleArg": "AdlFGate00",
+    "enabled": true
+  },
+  {
+    "mobName": "AdlFH_Gate",
+    "map": "AdlVal01",
+    "x": 25998,
+    "y": 6182,
+    "direct": -40,
+    "menu": 0,
+    "role": "IDGate",
+    "roleArg": "AdlFHGate00",
+    "enabled": true
+  }
+]

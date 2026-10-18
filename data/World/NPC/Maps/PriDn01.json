@@ -1,0 +1,35 @@
+[
+  {
+    "mobName": "MapLinkGate",
+    "map": "PriDn01",
+    "x": 12384,
+    "y": 4508,
+    "direct": -90,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "PriDn001",
+    "enabled": true
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "PriDn01",
+    "x": 0,
+    "y": 0,
+    "direct": 0,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "PriDn002",
+    "enabled": false
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "PriDn01",
+    "x": 0,
+    "y": 0,
+    "direct": 0,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "ForDn002",
+    "enabled": false
+  }
+]

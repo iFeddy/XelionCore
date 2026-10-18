@@ -1,0 +1,13 @@
+[
+  {
+    "mobName": "Egg_Digger",
+    "map": "KDEgg",
+    "x": 12829,
+    "y": 13464,
+    "direct": 128,
+    "menu": 1,
+    "role": "Merchant",
+    "roleArg": "Item",
+    "enabled": true
+  }
+]

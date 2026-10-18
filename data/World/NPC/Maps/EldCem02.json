@@ -1,0 +1,46 @@
+[
+  {
+    "mobName": "MapLinkGate",
+    "map": "EldCem02",
+    "x": 11896,
+    "y": 12189,
+    "direct": 0,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "GateEldCem021",
+    "enabled": true
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "EldCem02",
+    "x": 958,
+    "y": 674,
+    "direct": 57,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "GateEldCem022",
+    "enabled": false
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "EldCem02",
+    "x": 4474,
+    "y": 11896,
+    "direct": 0,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "GateEldCem023",
+    "enabled": false
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "EldCem02",
+    "x": 958,
+    "y": 674,
+    "direct": 57,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "GateEldCem024",
+    "enabled": true
+  }
+]

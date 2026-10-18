@@ -1,0 +1,13 @@
+[
+  {
+    "mobName": "Chaoming",
+    "map": "Siren",
+    "x": 11348,
+    "y": 11874,
+    "direct": 106,
+    "menu": 1,
+    "role": "Merchant",
+    "roleArg": "Item",
+    "enabled": true
+  }
+]

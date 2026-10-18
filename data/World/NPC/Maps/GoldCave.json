@@ -1,0 +1,46 @@
+[
+  {
+    "mobName": "RouDiggerPalmers",
+    "map": "GoldCave",
+    "x": 2948,
+    "y": 2678,
+    "direct": 154,
+    "menu": 1,
+    "role": "QuestNpc",
+    "roleArg": "Quest",
+    "enabled": true
+  },
+  {
+    "mobName": "EldDiggerRoyquin",
+    "map": "GoldCave",
+    "x": 23063,
+    "y": 22905,
+    "direct": 155,
+    "menu": 1,
+    "role": "QuestNpc",
+    "roleArg": "Quest",
+    "enabled": false
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "GoldCave",
+    "x": 1997,
+    "y": 2501,
+    "direct": -136,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "GoldCave1",
+    "enabled": true
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "GoldCave",
+    "x": 23605,
+    "y": 23768,
+    "direct": 49,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "GoldCave2",
+    "enabled": false
+  }
+]

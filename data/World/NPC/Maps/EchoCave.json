@@ -1,0 +1,68 @@
+[
+  {
+    "mobName": "RouDiggerPalmers",
+    "map": "EchoCave",
+    "x": 2946,
+    "y": 2462,
+    "direct": 166,
+    "menu": 1,
+    "role": "QuestNpc",
+    "roleArg": "Quest",
+    "enabled": true
+  },
+  {
+    "mobName": "EldDiggerRoyquin",
+    "map": "EchoCave",
+    "x": 22252,
+    "y": 24065,
+    "direct": -15,
+    "menu": 1,
+    "role": "QuestNpc",
+    "roleArg": "Quest",
+    "enabled": true
+  },
+  {
+    "mobName": "RouDiggerDolTurn",
+    "map": "EchoCave",
+    "x": 8631,
+    "y": 21171,
+    "direct": -20,
+    "menu": 1,
+    "role": "QuestNpc",
+    "roleArg": "Quest",
+    "enabled": true
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "EchoCave",
+    "x": 1997,
+    "y": 2501,
+    "direct": -136,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "EchoCave1",
+    "enabled": true
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "EchoCave",
+    "x": 23605,
+    "y": 23768,
+    "direct": 49,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "EchoCave2",
+    "enabled": true
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "EchoCave",
+    "x": 9435,
+    "y": 22125,
+    "direct": 41,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "EchoCave3",
+    "enabled": true
+  }
+]

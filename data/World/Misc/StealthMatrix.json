@@ -1,0 +1,102 @@
+{
+  "visibility": {
+    "Base": {
+      "Base": true,
+      "RangerStealth": true,
+      "Observer": true,
+      "AdminHide": true,
+      "GMDoor": false,
+      "GMPlayer": true
+    },
+    "RangerStealth": {
+      "Base": false,
+      "RangerStealth": false,
+      "Observer": false,
+      "AdminHide": true,
+      "GMDoor": false,
+      "GMPlayer": true
+    },
+    "Observer": {
+      "Base": false,
+      "RangerStealth": false,
+      "Observer": false,
+      "AdminHide": true,
+      "GMDoor": true,
+      "GMPlayer": true
+    },
+    "AdminHide": {
+      "Base": false,
+      "RangerStealth": false,
+      "Observer": false,
+      "AdminHide": false,
+      "GMDoor": true,
+      "GMPlayer": true
+    },
+    "GMDoor": {
+      "Base": false,
+      "RangerStealth": false,
+      "Observer": false,
+      "AdminHide": false,
+      "GMDoor": false,
+      "GMPlayer": false
+    },
+    "GMPlayer": {
+      "Base": true,
+      "RangerStealth": false,
+      "Observer": false,
+      "AdminHide": false,
+      "GMDoor": true,
+      "GMPlayer": true
+    }
+  },
+  "canAttack": {
+    "Base": {
+      "Base": true,
+      "RangerStealth": false,
+      "Observer": false,
+      "AdminHide": false,
+      "GMDoor": false,
+      "GMPlayer": true
+    },
+    "RangerStealth": {
+      "Base": true,
+      "RangerStealth": false,
+      "Observer": false,
+      "AdminHide": false,
+      "GMDoor": false,
+      "GMPlayer": true
+    },
+    "Observer": {
+      "Base": false,
+      "RangerStealth": false,
+      "Observer": false,
+      "AdminHide": false,
+      "GMDoor": false,
+      "GMPlayer": false
+    },
+    "AdminHide": {
+      "Base": false,
+      "RangerStealth": false,
+      "Observer": false,
+      "AdminHide": false,
+      "GMDoor": false,
+      "GMPlayer": false
+    },
+    "GMDoor": {
+      "Base": false,
+      "RangerStealth": false,
+      "Observer": false,
+      "AdminHide": false,
+      "GMDoor": false,
+      "GMPlayer": false
+    },
+    "GMPlayer": {
+      "Base": true,
+      "RangerStealth": false,
+      "Observer": false,
+      "AdminHide": false,
+      "GMDoor": false,
+      "GMPlayer": false
+    }
+  }
+}

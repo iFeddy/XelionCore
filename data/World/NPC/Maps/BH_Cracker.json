@@ -1,0 +1,13 @@
+[
+  {
+    "mobName": "MapLinkGate",
+    "map": "BH_Cracker",
+    "x": 2716,
+    "y": 2059,
+    "direct": -167,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "BH_Cracker01",
+    "enabled": true
+  }
+]

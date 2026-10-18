@@ -1,0 +1,57 @@
+[
+  {
+    "mobName": "Nicole",
+    "map": "BerVale01",
+    "x": 3771,
+    "y": 2840,
+    "direct": -160,
+    "menu": 1,
+    "role": "QuestNpc",
+    "roleArg": "Quest",
+    "enabled": true
+  },
+  {
+    "mobName": "Basilone",
+    "map": "BerVale01",
+    "x": 9132,
+    "y": 9600,
+    "direct": 32,
+    "menu": 1,
+    "role": "QuestNpc",
+    "roleArg": "Quest",
+    "enabled": true
+  },
+  {
+    "mobName": "Q_Jey",
+    "map": "BerVale01",
+    "x": 1318,
+    "y": 9745,
+    "direct": -31,
+    "menu": 1,
+    "role": "QuestNpc",
+    "roleArg": "Quest",
+    "enabled": true
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "BerVale01",
+    "x": 1244,
+    "y": 11307,
+    "direct": -10,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "BerVale011",
+    "enabled": true
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "BerVale01",
+    "x": 11257,
+    "y": 1691,
+    "direct": 155,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "BerVale012",
+    "enabled": false
+  }
+]

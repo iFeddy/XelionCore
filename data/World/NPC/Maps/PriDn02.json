@@ -1,0 +1,13 @@
+[
+  {
+    "mobName": "LevelGuard50",
+    "map": "PriDn02",
+    "x": 5243,
+    "y": 5059,
+    "direct": 90,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "PriDn021",
+    "enabled": true
+  }
+]

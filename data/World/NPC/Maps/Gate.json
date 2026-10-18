@@ -1,0 +1,79 @@
+[
+  {
+    "mobName": "MapLinkGate_Rou",
+    "map": "Gate",
+    "x": 1455,
+    "y": 2294,
+    "direct": 179,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "Rou",
+    "enabled": true
+  },
+  {
+    "mobName": "MapLinkGate_Eld",
+    "map": "Gate",
+    "x": 1737,
+    "y": 2082,
+    "direct": 90,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "Eld",
+    "enabled": true
+  },
+  {
+    "mobName": "MapLinkGate_EldGbl02",
+    "map": "Gate",
+    "x": 1745,
+    "y": 1769,
+    "direct": 90,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "EldGbl02",
+    "enabled": true
+  },
+  {
+    "mobName": "MapLinkGate_Urg",
+    "map": "Gate",
+    "x": 1864,
+    "y": 1327,
+    "direct": 90,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "Urg",
+    "enabled": true
+  },
+  {
+    "mobName": "MapLinkGate_Urg_Alruin",
+    "map": "Gate",
+    "x": 1482,
+    "y": 1210,
+    "direct": 179,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "Urg_Alruin",
+    "enabled": true
+  },
+  {
+    "mobName": "MapLinkGate_Adl",
+    "map": "Gate",
+    "x": 1230,
+    "y": 1543,
+    "direct": 90,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "Adl",
+    "enabled": true
+  },
+  {
+    "mobName": "MapLinkGate_Bera",
+    "map": "Gate",
+    "x": 1087,
+    "y": 1846,
+    "direct": 90,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "Bera005",
+    "enabled": true
+  }
+]

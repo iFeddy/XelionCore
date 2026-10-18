@@ -1,0 +1,156 @@
+[
+  {
+    "mobName": "GrandMasterShone",
+    "map": "RouVal01",
+    "x": 12842,
+    "y": 6467,
+    "direct": 134,
+    "menu": 1,
+    "role": "QuestNpc",
+    "roleArg": "Quest",
+    "enabled": true
+  },
+  {
+    "mobName": "EldCastleLordElderiss",
+    "map": "RouVal01",
+    "x": 11842,
+    "y": 6467,
+    "direct": 134,
+    "menu": 1,
+    "role": "Merchant",
+    "roleArg": "SoulStone",
+    "enabled": false
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "RouVal01",
+    "x": 14679,
+    "y": 4327,
+    "direct": -33,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "GateRouVal011",
+    "enabled": true
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "RouVal01",
+    "x": 14679,
+    "y": 4327,
+    "direct": -33,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "GateRouVal012",
+    "enabled": false
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "RouVal01",
+    "x": 15247,
+    "y": 21011,
+    "direct": 25,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "GateRouVal013",
+    "enabled": true
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "RouVal01",
+    "x": 12606,
+    "y": 11850,
+    "direct": 0,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "GateRouVal014",
+    "enabled": true
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "RouVal01",
+    "x": 6293,
+    "y": 3371,
+    "direct": 54,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "GateRouVal015",
+    "enabled": true
+  },
+  {
+    "mobName": "T_Gate01",
+    "map": "RouVal01",
+    "x": 4370,
+    "y": 8180,
+    "direct": -134,
+    "menu": 0,
+    "role": "IDGate",
+    "roleArg": "GateRouVal016",
+    "enabled": true
+  },
+  {
+    "mobName": "EldArcGuard03",
+    "map": "RouVal01",
+    "x": 13429,
+    "y": 7839,
+    "direct": 0,
+    "menu": 1,
+    "role": "Merchant",
+    "roleArg": "Item",
+    "enabled": true
+  },
+  {
+    "mobName": "TempSoul",
+    "map": "RouVal01",
+    "x": 13055,
+    "y": 7862,
+    "direct": 0,
+    "menu": 1,
+    "role": "Merchant",
+    "roleArg": "SoulStone",
+    "enabled": true
+  },
+  {
+    "mobName": "TempSkill",
+    "map": "RouVal01",
+    "x": 12776,
+    "y": 7862,
+    "direct": 0,
+    "menu": 1,
+    "role": "Merchant",
+    "roleArg": "Skill",
+    "enabled": true
+  },
+  {
+    "mobName": "Gate_Town",
+    "map": "RouVal01",
+    "x": 13660,
+    "y": 7862,
+    "direct": 0,
+    "menu": 1,
+    "role": "QuestNpc",
+    "roleArg": "Quest",
+    "enabled": false
+  },
+  {
+    "mobName": "GodEnide",
+    "map": "RouVal01",
+    "x": 5749,
+    "y": 20511,
+    "direct": -116,
+    "menu": 1,
+    "role": "QuestNpc",
+    "roleArg": "Quest",
+    "enabled": true
+  },
+  {
+    "mobName": "Gate_Town",
+    "map": "RouVal01",
+    "x": 13660,
+    "y": 7862,
+    "direct": 0,
+    "menu": 1,
+    "role": "QuestNpc",
+    "roleArg": "Quest",
+    "enabled": true
+  }
+]

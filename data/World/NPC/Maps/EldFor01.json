@@ -1,0 +1,68 @@
+[
+  {
+    "mobName": "MapLinkGate",
+    "map": "EldFor01",
+    "x": 7376,
+    "y": 20092,
+    "direct": -15,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "EldFor011",
+    "enabled": true
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "EldFor01",
+    "x": 16051,
+    "y": 16585,
+    "direct": 21,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "EldFor012",
+    "enabled": true
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "EldFor01",
+    "x": 19331,
+    "y": 8608,
+    "direct": -130,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "EldFor013",
+    "enabled": true
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "EldFor01",
+    "x": 19262,
+    "y": 8558,
+    "direct": 45,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "EldFor012",
+    "enabled": false
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "EldFor01",
+    "x": 7277,
+    "y": 6650,
+    "direct": 0,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "EldFor015",
+    "enabled": true
+  },
+  {
+    "mobName": "DT_EntranceGate",
+    "map": "EldFor01",
+    "x": 15731,
+    "y": 7576,
+    "direct": -120,
+    "menu": 0,
+    "role": "IDGate",
+    "roleArg": "WarN01",
+    "enabled": true
+  }
+]

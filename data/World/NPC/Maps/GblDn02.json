@@ -1,0 +1,13 @@
+[
+  {
+    "mobName": "LevelGuard40",
+    "map": "GblDn02",
+    "x": 5083,
+    "y": 6038,
+    "direct": -179,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "EldGbl001",
+    "enabled": true
+  }
+]

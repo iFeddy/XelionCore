@@ -1,0 +1,24 @@
+[
+  {
+    "mobName": "MapLinkGate",
+    "map": "ElfDn01",
+    "x": 2481,
+    "y": 6894,
+    "direct": 90,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "ElfDn011",
+    "enabled": true
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "ElfDn01",
+    "x": 0,
+    "y": 0,
+    "direct": 0,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "ElfDn013",
+    "enabled": false
+  }
+]

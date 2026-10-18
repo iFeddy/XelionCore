@@ -1,0 +1,13 @@
+[
+  {
+    "mobName": "LevelGuard90",
+    "map": "SwaDn02",
+    "x": 6068,
+    "y": 11314,
+    "direct": 0,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "SwaDn021",
+    "enabled": true
+  }
+]

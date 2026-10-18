@@ -1,0 +1,24 @@
+[
+  {
+    "mobName": "XiaomingR_7th",
+    "map": "KDCake",
+    "x": 7464,
+    "y": 6070,
+    "direct": 160,
+    "menu": 1,
+    "role": "Merchant",
+    "roleArg": "Item",
+    "enabled": false
+  },
+  {
+    "mobName": "XiaomingB_7th",
+    "map": "KDCake",
+    "x": 6339,
+    "y": 7199,
+    "direct": -20,
+    "menu": 1,
+    "role": "Merchant",
+    "roleArg": "Item",
+    "enabled": false
+  }
+]

@@ -1,0 +1,24 @@
+[
+  {
+    "mobName": "EldSpeGuard03",
+    "map": "BFGate03",
+    "x": 1585,
+    "y": 162,
+    "direct": 177,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "BFGate031",
+    "enabled": true
+  },
+  {
+    "mobName": "LevelGuard100",
+    "map": "BFGate03",
+    "x": 1019,
+    "y": 1963,
+    "direct": 0,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "BFGate032",
+    "enabled": true
+  }
+]

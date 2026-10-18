@@ -1,0 +1,13 @@
+[
+  {
+    "mobName": "E_HwinReturn",
+    "map": "E_Hwin",
+    "x": 749,
+    "y": 236,
+    "direct": 272,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "Eld02",
+    "enabled": false
+  }
+]

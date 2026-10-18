@@ -1,0 +1,46 @@
+[
+  {
+    "mobName": "MapLinkGate",
+    "map": "EldSleep01",
+    "x": 8323,
+    "y": 8704,
+    "direct": 54,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "EldSleep011",
+    "enabled": true
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "EldSleep01",
+    "x": 17437,
+    "y": 7144,
+    "direct": 94,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "EldSleep012",
+    "enabled": true
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "EldSleep01",
+    "x": 7226,
+    "y": 11631,
+    "direct": 22,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "EldSleep013",
+    "enabled": true
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "EldSleep01",
+    "x": 11670,
+    "y": 17918,
+    "direct": -134,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "EldSleep014",
+    "enabled": true
+  }
+]

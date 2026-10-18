@@ -1,0 +1,13 @@
+[
+  {
+    "mobName": "MapLinkGate",
+    "map": "OX_field",
+    "x": 7519,
+    "y": 4927,
+    "direct": 0,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "OX_field01",
+    "enabled": true
+  }
+]

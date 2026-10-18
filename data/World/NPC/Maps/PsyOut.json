@@ -1,0 +1,24 @@
+[
+  {
+    "mobName": "MapLinkGate",
+    "map": "PsyOut",
+    "x": 11787,
+    "y": 7461,
+    "direct": 180,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "PsyOut001",
+    "enabled": true
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "PsyOut",
+    "x": 11787,
+    "y": 15417,
+    "direct": 0,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "PsyOut002",
+    "enabled": true
+  }
+]

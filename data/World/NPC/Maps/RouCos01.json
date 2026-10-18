@@ -1,0 +1,57 @@
+[
+  {
+    "mobName": "RouDiggerPalmers",
+    "map": "RouCos01",
+    "x": 12992,
+    "y": 14264,
+    "direct": -80,
+    "menu": 1,
+    "role": "QuestNpc",
+    "roleArg": "Quest",
+    "enabled": true
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "RouCos01",
+    "x": 8989,
+    "y": 13667,
+    "direct": 17,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "GateRouCos011",
+    "enabled": true
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "RouCos01",
+    "x": 16476,
+    "y": 11039,
+    "direct": -27,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "GateRouCos012",
+    "enabled": true
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "RouCos01",
+    "x": 12658,
+    "y": 13373,
+    "direct": -49,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "GateRouCos013",
+    "enabled": true
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "RouCos01",
+    "x": 9520,
+    "y": 19658,
+    "direct": 0,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "GateRouCos022",
+    "enabled": true
+  }
+]

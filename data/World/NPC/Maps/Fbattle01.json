@@ -1,0 +1,24 @@
+[
+  {
+    "mobName": "FbattleGate",
+    "map": "Fbattle01",
+    "x": 783,
+    "y": 3506,
+    "direct": 0,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "Fbattle012",
+    "enabled": true
+  },
+  {
+    "mobName": "FbattleSoul",
+    "map": "Fbattle01",
+    "x": 1104,
+    "y": 1810,
+    "direct": -105,
+    "menu": 1,
+    "role": "Merchant",
+    "roleArg": "SoulStone",
+    "enabled": true
+  }
+]

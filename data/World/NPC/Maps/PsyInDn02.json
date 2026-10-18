@@ -1,0 +1,13 @@
+[
+  {
+    "mobName": "EldSpeGuard03",
+    "map": "PsyInDn02",
+    "x": 11877,
+    "y": 14179,
+    "direct": 180,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "PsyInDn021",
+    "enabled": true
+  }
+]

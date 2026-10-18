@@ -1,0 +1,189 @@
+[
+  {
+    "mobName": "HednisSkillGrunt",
+    "map": "EldGbl02",
+    "x": 9837,
+    "y": 8621,
+    "direct": 131,
+    "menu": 1,
+    "role": "Merchant",
+    "roleArg": "Skill",
+    "enabled": true
+  },
+  {
+    "mobName": "HednisSmithRohan",
+    "map": "EldGbl02",
+    "x": 9491,
+    "y": 8688,
+    "direct": 113,
+    "menu": 1,
+    "role": "Merchant",
+    "roleArg": "Weapon",
+    "enabled": true
+  },
+  {
+    "mobName": "HednisSoulKeroll",
+    "map": "EldGbl02",
+    "x": 9608,
+    "y": 8179,
+    "direct": 54,
+    "menu": 1,
+    "role": "Merchant",
+    "roleArg": "SoulStone",
+    "enabled": true
+  },
+  {
+    "mobName": "HednisStoreDrein",
+    "map": "EldGbl02",
+    "x": 9472,
+    "y": 8355,
+    "direct": 64,
+    "menu": 1,
+    "role": "StoreManager",
+    "roleArg": "-",
+    "enabled": true
+  },
+  {
+    "mobName": "Gate_Town",
+    "map": "EldGbl02",
+    "x": 9039,
+    "y": 9312,
+    "direct": -26,
+    "menu": 1,
+    "role": "QuestNpc",
+    "roleArg": "Quest",
+    "enabled": false
+  },
+  {
+    "mobName": "HednisArcGuard01",
+    "map": "EldGbl02",
+    "x": 8727,
+    "y": 9989,
+    "direct": 147,
+    "menu": 0,
+    "role": "Guard",
+    "roleArg": "Quest",
+    "enabled": true
+  },
+  {
+    "mobName": "HednisFigGuard01",
+    "map": "EldGbl02",
+    "x": 8404,
+    "y": 9761,
+    "direct": 141,
+    "menu": 0,
+    "role": "Guard",
+    "roleArg": "Quest",
+    "enabled": true
+  },
+  {
+    "mobName": "HednisArcGuard01",
+    "map": "EldGbl02",
+    "x": 10140,
+    "y": 6903,
+    "direct": 0,
+    "menu": 0,
+    "role": "Guard",
+    "roleArg": "Quest",
+    "enabled": true
+  },
+  {
+    "mobName": "HednisFigGuard01",
+    "map": "EldGbl02",
+    "x": 10409,
+    "y": 6947,
+    "direct": 0,
+    "menu": 0,
+    "role": "Guard",
+    "roleArg": "Quest",
+    "enabled": true
+  },
+  {
+    "mobName": "HednisMageWoman",
+    "map": "EldGbl02",
+    "x": 10219,
+    "y": 8891,
+    "direct": 0,
+    "menu": 1,
+    "role": "QuestNpc",
+    "roleArg": "Quest",
+    "enabled": true
+  },
+  {
+    "mobName": "HednisClericMan",
+    "map": "EldGbl02",
+    "x": 10226,
+    "y": 8830,
+    "direct": 157,
+    "menu": 1,
+    "role": "QuestNpc",
+    "roleArg": "Quest",
+    "enabled": true
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "EldGbl02",
+    "x": 6484,
+    "y": 11270,
+    "direct": -5,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "EldGbl021",
+    "enabled": true
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "EldGbl02",
+    "x": 1250,
+    "y": 3151,
+    "direct": 69,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "EldGbl022",
+    "enabled": true
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "EldGbl02",
+    "x": 10469,
+    "y": 3612,
+    "direct": 0,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "EldGbl023",
+    "enabled": true
+  },
+  {
+    "mobName": "ChristmasTree",
+    "map": "EldGbl02",
+    "x": 9048,
+    "y": 8280,
+    "direct": 0,
+    "menu": 0,
+    "role": "QuestNpc",
+    "roleArg": "Quest",
+    "enabled": false
+  },
+  {
+    "mobName": "WarL_EntranceGate",
+    "map": "EldGbl02",
+    "x": 9762,
+    "y": 6003,
+    "direct": -180,
+    "menu": 0,
+    "role": "IDGate",
+    "roleArg": "WarL01",
+    "enabled": true
+  },
+  {
+    "mobName": "Gate_Town",
+    "map": "EldGbl02",
+    "x": 9039,
+    "y": 9312,
+    "direct": 0,
+    "menu": 1,
+    "role": "QuestNpc",
+    "roleArg": "Quest",
+    "enabled": true
+  }
+]

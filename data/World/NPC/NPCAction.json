@@ -1,0 +1,576 @@
+{
+  "conditions": [
+    {
+      "id": 1,
+      "conditionA": "Default",
+      "typeA": "-",
+      "ax": 0,
+      "ay": 0,
+      "conditionB": "None",
+      "typeB": "-",
+      "bx": 0,
+      "by": 0
+    },
+    {
+      "id": 2,
+      "conditionA": "LvGap",
+      "typeA": "-",
+      "ax": 10,
+      "ay": 20,
+      "conditionB": "None",
+      "typeB": "-",
+      "bx": 0,
+      "by": 0
+    },
+    {
+      "id": 3,
+      "conditionA": "Class",
+      "typeA": "Fighter",
+      "ax": 0,
+      "ay": 0,
+      "conditionB": "None",
+      "typeB": "-",
+      "bx": 0,
+      "by": 0
+    },
+    {
+      "id": 4,
+      "conditionA": "AbState",
+      "typeA": "StaPoisonShot",
+      "ax": 0,
+      "ay": 0,
+      "conditionB": "None",
+      "typeB": "-",
+      "bx": 0,
+      "by": 0
+    },
+    {
+      "id": 5,
+      "conditionA": "Term",
+      "typeA": "-",
+      "ax": 1000,
+      "ay": 3000,
+      "conditionB": "Skill",
+      "typeB": "MagicBurst01",
+      "bx": 0,
+      "by": 0
+    },
+    {
+      "id": 6,
+      "conditionA": "Term",
+      "typeA": "-",
+      "ax": 3000,
+      "ay": 0,
+      "conditionB": "None",
+      "typeB": "-",
+      "bx": 0,
+      "by": 0
+    },
+    {
+      "id": 7,
+      "conditionA": "Term",
+      "typeA": "-",
+      "ax": 1000,
+      "ay": 0,
+      "conditionB": "Emotion",
+      "typeB": "-",
+      "bx": 17,
+      "by": 1
+    },
+    {
+      "id": 8,
+      "conditionA": "Term",
+      "typeA": "-",
+      "ax": 1000,
+      "ay": 3000,
+      "conditionB": "Emotion",
+      "typeB": "-",
+      "bx": 31,
+      "by": 1
+    },
+    {
+      "id": 9,
+      "conditionA": "Term",
+      "typeA": "-",
+      "ax": 1000,
+      "ay": 3000,
+      "conditionB": "Emotion",
+      "typeB": "-",
+      "bx": 31,
+      "by": 0
+    },
+    {
+      "id": 10,
+      "conditionA": "Die",
+      "typeA": "-",
+      "ax": 0,
+      "ay": 0,
+      "conditionB": "None",
+      "typeB": "-",
+      "bx": 0,
+      "by": 0
+    },
+    {
+      "id": 11,
+      "conditionA": "Emotion",
+      "typeA": "-",
+      "ax": 12,
+      "ay": 1,
+      "conditionB": "None",
+      "typeB": "-",
+      "bx": 0,
+      "by": 0
+    },
+    {
+      "id": 12,
+      "conditionA": "Emotion",
+      "typeA": "-",
+      "ax": 23,
+      "ay": 1,
+      "conditionB": "None",
+      "typeB": "-",
+      "bx": 0,
+      "by": 0
+    },
+    {
+      "id": 13,
+      "conditionA": "Emotion",
+      "typeA": "-",
+      "ax": 24,
+      "ay": 1,
+      "conditionB": "None",
+      "typeB": "-",
+      "bx": 0,
+      "by": 0
+    },
+    {
+      "id": 14,
+      "conditionA": "Emotion",
+      "typeA": "-",
+      "ax": 25,
+      "ay": 1,
+      "conditionB": "None",
+      "typeB": "-",
+      "bx": 0,
+      "by": 0
+    },
+    {
+      "id": 15,
+      "conditionA": "Emotion",
+      "typeA": "-",
+      "ax": 26,
+      "ay": 1,
+      "conditionB": "None",
+      "typeB": "-",
+      "bx": 0,
+      "by": 0
+    },
+    {
+      "id": 16,
+      "conditionA": "GTITeam",
+      "typeA": "-",
+      "ax": 0,
+      "ay": 0,
+      "conditionB": "None",
+      "typeB": "-",
+      "bx": 0,
+      "by": 0
+    },
+    {
+      "id": 17,
+      "conditionA": "GTITeam",
+      "typeA": "-",
+      "ax": 1,
+      "ay": 0,
+      "conditionB": "None",
+      "typeB": "-",
+      "bx": 0,
+      "by": 0
+    },
+    {
+      "id": 18,
+      "conditionA": "DmgAbsorb",
+      "typeA": "-",
+      "ax": 0,
+      "ay": 0,
+      "conditionB": "None",
+      "typeB": "-",
+      "bx": 0,
+      "by": 0
+    },
+    {
+      "id": 19,
+      "conditionA": "CheckCycleParty",
+      "typeA": "-",
+      "ax": 1500,
+      "ay": 0,
+      "conditionB": "None",
+      "typeB": "-",
+      "bx": 0,
+      "by": 0
+    },
+    {
+      "id": 20,
+      "conditionA": "AttackMob",
+      "typeA": "-",
+      "ax": 0,
+      "ay": 0,
+      "conditionB": "None",
+      "typeB": "-",
+      "bx": 0,
+      "by": 0
+    }
+  ],
+  "actions": [
+    {
+      "id": 1,
+      "actionIndex": "Link",
+      "type": "-",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": 2,
+      "actionIndex": "Skill",
+      "type": "MagicBurst01",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": 3,
+      "actionIndex": "AbState",
+      "type": "StaPoisonShot",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": 4,
+      "actionIndex": "Dispell",
+      "type": "StaPoisonShot",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": 5,
+      "actionIndex": "Emotion",
+      "type": "-",
+      "x": 31,
+      "y": 0
+    },
+    {
+      "id": 6,
+      "actionIndex": "Skill",
+      "type": "Revival01",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": 7,
+      "actionIndex": "Notice",
+      "type": "Totem01",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": 8,
+      "actionIndex": "Skill",
+      "type": "Summon01",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": 9,
+      "actionIndex": "AbState",
+      "type": "StaMob6Poison",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": 10,
+      "actionIndex": "AbState",
+      "type": "StaMob6Poison",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": 11,
+      "actionIndex": "AbState",
+      "type": "StaMob6Poison",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": 12,
+      "actionIndex": "AbState",
+      "type": "StaMob6Poison",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": 13,
+      "actionIndex": "Notice",
+      "type": "Totem02",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": 14,
+      "actionIndex": "Notice",
+      "type": "Totem03",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": 15,
+      "actionIndex": "Notice",
+      "type": "Totem04",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": 16,
+      "actionIndex": "Notice",
+      "type": "Boar",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": 17,
+      "actionIndex": "AbState",
+      "type": "StaEventHpUp",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": 18,
+      "actionIndex": "AbState",
+      "type": "StaEventSpUp",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": 19,
+      "actionIndex": "AbState",
+      "type": "StaEventAllStatsUp",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": 20,
+      "actionIndex": "AbState",
+      "type": "StaEventSpeed",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": 21,
+      "actionIndex": "AbState",
+      "type": "StaEventAcUp",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": 22,
+      "actionIndex": "Dispell",
+      "type": "StaEventHpUp",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": 23,
+      "actionIndex": "Dispell",
+      "type": "StaEventSpUp",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": 24,
+      "actionIndex": "Dispell",
+      "type": "StaEventAllStatsUp",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": 25,
+      "actionIndex": "Dispell",
+      "type": "StaEventSpeed",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": 26,
+      "actionIndex": "Dispell",
+      "type": "StaEventAcUp",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": 27,
+      "actionIndex": "GTIEffect",
+      "type": "-",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": 28,
+      "actionIndex": "Die",
+      "type": "-",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": 29,
+      "actionIndex": "DmgAbsorb",
+      "type": "-",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": 30,
+      "actionIndex": "AbState",
+      "type": "StaMultiHeal",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": 31,
+      "actionIndex": "AbState",
+      "type": "StaRadionBuff",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": 32,
+      "actionIndex": "RestoreRate",
+      "type": "HP",
+      "x": 1000,
+      "y": 0
+    },
+    {
+      "id": 33,
+      "actionIndex": "RestoreRate",
+      "type": "SP",
+      "x": 1000,
+      "y": 0
+    },
+    {
+      "id": 34,
+      "actionIndex": "AbState",
+      "type": "StaOrbAtkRateUp",
+      "x": 4,
+      "y": 0
+    },
+    {
+      "id": 35,
+      "actionIndex": "AbState",
+      "type": "StaOrbAtkRateUp",
+      "x": 5,
+      "y": 0
+    },
+    {
+      "id": 36,
+      "actionIndex": "AbState",
+      "type": "StaOrbAtkRateUp",
+      "x": 6,
+      "y": 0
+    },
+    {
+      "id": 37,
+      "actionIndex": "AbState",
+      "type": "StaOrbAtkRateUp",
+      "x": 7,
+      "y": 0
+    },
+    {
+      "id": 38,
+      "actionIndex": "AbState",
+      "type": "StaOrbAtkRateUp",
+      "x": 8,
+      "y": 0
+    },
+    {
+      "id": 39,
+      "actionIndex": "AbState",
+      "type": "StaKQSpringSlow",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": 40,
+      "actionIndex": "AbState",
+      "type": "StaKQSpUpBuff",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": 41,
+      "actionIndex": "AbState",
+      "type": "StaKQSpImBuff",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": 42,
+      "actionIndex": "AbState",
+      "type": "StaMultiHeal",
+      "x": 2,
+      "y": 0
+    },
+    {
+      "id": 43,
+      "actionIndex": "AbState",
+      "type": "StaMultiHeal",
+      "x": 3,
+      "y": 0
+    },
+    {
+      "id": 44,
+      "actionIndex": "AbState",
+      "type": "StaOrbAtkRateUp",
+      "x": 9,
+      "y": 0
+    },
+    {
+      "id": 45,
+      "actionIndex": "AbState",
+      "type": "StaOrbAtkRateUp",
+      "x": 10,
+      "y": 0
+    },
+    {
+      "id": 46,
+      "actionIndex": "AbState",
+      "type": "StaOrbAtkRateUp",
+      "x": 11,
+      "y": 0
+    },
+    {
+      "id": 47,
+      "actionIndex": "AbState",
+      "type": "StaOrbAtkRateUp",
+      "x": 12,
+      "y": 0
+    },
+    {
+      "id": 48,
+      "actionIndex": "AbState",
+      "type": "StaOrbAtkRateUp",
+      "x": 13,
+      "y": 0
+    },
+    {
+      "id": 49,
+      "actionIndex": "CallLua",
+      "type": "-",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": 50,
+      "actionIndex": "Ball",
+      "type": "-",
+      "x": 0,
+      "y": 0
+    }
+  ]
+}

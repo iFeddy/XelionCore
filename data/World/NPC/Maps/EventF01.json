@@ -1,0 +1,13 @@
+[
+  {
+    "mobName": "MapLinkGate",
+    "map": "EventF01",
+    "x": 10254,
+    "y": 7414,
+    "direct": 88,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "Event002",
+    "enabled": true
+  }
+]

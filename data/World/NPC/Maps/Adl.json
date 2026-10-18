@@ -1,0 +1,222 @@
+[
+  {
+    "mobName": "AdlSoulAngela",
+    "map": "Adl",
+    "x": 13017,
+    "y": 12176,
+    "direct": 162,
+    "menu": 1,
+    "role": "Merchant",
+    "roleArg": "SoulStone",
+    "enabled": true
+  },
+  {
+    "mobName": "AdlSkillEdwina",
+    "map": "Adl",
+    "x": 10492,
+    "y": 13263,
+    "direct": -113,
+    "menu": 1,
+    "role": "Merchant",
+    "roleArg": "Skill",
+    "enabled": true
+  },
+  {
+    "mobName": "AdlSmithAlexia",
+    "map": "Adl",
+    "x": 12000,
+    "y": 11866,
+    "direct": 165,
+    "menu": 1,
+    "role": "Merchant",
+    "roleArg": "Weapon",
+    "enabled": true
+  },
+  {
+    "mobName": "AdlStoreKaruha",
+    "map": "Adl",
+    "x": 13062,
+    "y": 14645,
+    "direct": 70,
+    "menu": 1,
+    "role": "StoreManager",
+    "roleArg": "-",
+    "enabled": true
+  },
+  {
+    "mobName": "QM_Bunis",
+    "map": "Adl",
+    "x": 12883,
+    "y": 13940,
+    "direct": 88,
+    "menu": 1,
+    "role": "NPCMenu",
+    "roleArg": "Guild",
+    "enabled": true
+  },
+  {
+    "mobName": "AdlSpeGuiltian",
+    "map": "Adl",
+    "x": 12433,
+    "y": 13137,
+    "direct": 282,
+    "menu": 1,
+    "role": "QuestNpc",
+    "roleArg": "Quest",
+    "enabled": true
+  },
+  {
+    "mobName": "AdlLoussier",
+    "map": "Adl",
+    "x": 12762,
+    "y": 12221,
+    "direct": 187,
+    "menu": 1,
+    "role": "Merchant",
+    "roleArg": "Item",
+    "enabled": true
+  },
+  {
+    "mobName": "AdlAertsina",
+    "map": "Adl",
+    "x": 12167,
+    "y": 12124,
+    "direct": 0,
+    "menu": 1,
+    "role": "Merchant",
+    "roleArg": "WeaponTitle",
+    "enabled": true
+  },
+  {
+    "mobName": "AdlLantesDown",
+    "map": "Adl",
+    "x": 15400,
+    "y": 12030,
+    "direct": 115,
+    "menu": 1,
+    "role": "QuestNpc",
+    "roleArg": "Quest",
+    "enabled": true
+  },
+  {
+    "mobName": "Claude",
+    "map": "Adl",
+    "x": 15296,
+    "y": 11903,
+    "direct": 140,
+    "menu": 1,
+    "role": "QuestNpc",
+    "roleArg": "Quest",
+    "enabled": true
+  },
+  {
+    "mobName": "Claude",
+    "map": "Adl",
+    "x": 15425,
+    "y": 12186,
+    "direct": 80,
+    "menu": 1,
+    "role": "QuestNpc",
+    "roleArg": "Quest",
+    "enabled": true
+  },
+  {
+    "mobName": "QM_Brown",
+    "map": "Adl",
+    "x": 10544,
+    "y": 13918,
+    "direct": 275,
+    "menu": 1,
+    "role": "Merchant",
+    "roleArg": "Item",
+    "enabled": false
+  },
+  {
+    "mobName": "GB_Touter",
+    "map": "Adl",
+    "x": 10889,
+    "y": 14372,
+    "direct": -7,
+    "menu": 0,
+    "role": "RandomGate",
+    "roleArg": "GBHouse05",
+    "enabled": true
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "Adl",
+    "x": 15033,
+    "y": 11724,
+    "direct": -170,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "Adl001",
+    "enabled": true
+  },
+  {
+    "mobName": "EldSpeGuard03",
+    "map": "Adl",
+    "x": 12431,
+    "y": 14870,
+    "direct": 15,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "Adl002",
+    "enabled": true
+  },
+  {
+    "mobName": "ChristmasTree",
+    "map": "Adl",
+    "x": 15243,
+    "y": 12485,
+    "direct": 38,
+    "menu": 1,
+    "role": "QuestNpc",
+    "roleArg": "Quest",
+    "enabled": false
+  },
+  {
+    "mobName": "Anvil",
+    "map": "Adl",
+    "x": 12082,
+    "y": 11899,
+    "direct": 170,
+    "menu": 0,
+    "role": "NPCMenu",
+    "roleArg": "RandomOption",
+    "enabled": true
+  },
+  {
+    "mobName": "ClassChangeMaster02",
+    "map": "Adl",
+    "x": 9834,
+    "y": 10626,
+    "direct": -91,
+    "menu": 1,
+    "role": "QuestNpc",
+    "roleArg": "Quest",
+    "enabled": true
+  },
+  {
+    "mobName": "Gate_Town",
+    "map": "Adl",
+    "x": 11688,
+    "y": 9379,
+    "direct": 0,
+    "menu": 1,
+    "role": "QuestNpc",
+    "roleArg": "Quest",
+    "enabled": true
+  },
+  {
+    "mobName": "Ayollar",
+    "map": "Adl",
+    "x": 10934,
+    "y": 12460,
+    "direct": 204,
+    "menu": 1,
+    "role": "QuestNpc",
+    "roleArg": "Quest",
+    "enabled": true
+  }
+]

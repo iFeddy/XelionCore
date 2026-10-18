@@ -1,0 +1,24 @@
+[
+  {
+    "mobName": "MapLinkGate",
+    "map": "RouTemDn02",
+    "x": 5206,
+    "y": 483,
+    "direct": 0,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "GateRouTemDn021",
+    "enabled": true
+  },
+  {
+    "mobName": "EldSpeGuard03",
+    "map": "RouTemDn02",
+    "x": 5211,
+    "y": 8555,
+    "direct": 180,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "GateRouTemDn022",
+    "enabled": false
+  }
+]

@@ -1,0 +1,13 @@
+[
+  {
+    "mobName": "MapLinkGate",
+    "map": "FireDn01",
+    "x": 6358,
+    "y": 6854,
+    "direct": 0,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "FireDn001",
+    "enabled": true
+  }
+]

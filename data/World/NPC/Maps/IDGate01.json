@@ -1,0 +1,35 @@
+[
+  {
+    "mobName": "IDMapLinkGate03",
+    "map": "IDGate01",
+    "x": 1027,
+    "y": 1412,
+    "direct": 0,
+    "menu": 0,
+    "role": "ModeIDGate",
+    "roleArg": "IDGate011",
+    "enabled": true
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "IDGate01",
+    "x": 389,
+    "y": 1420,
+    "direct": 0,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "IDGate012",
+    "enabled": true
+  },
+  {
+    "mobName": "Raphael",
+    "map": "IDGate01",
+    "x": 1066,
+    "y": 198,
+    "direct": 135,
+    "menu": 1,
+    "role": "QuestNpc",
+    "roleArg": "Quest",
+    "enabled": true
+  }
+]

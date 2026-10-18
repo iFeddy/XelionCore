@@ -1,0 +1,13 @@
+[
+  {
+    "mobName": "LevelGuard20",
+    "map": "ValDn02",
+    "x": 1479,
+    "y": 11336,
+    "direct": 0,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "ValDn021",
+    "enabled": true
+  }
+]

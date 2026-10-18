@@ -1,0 +1,178 @@
+[
+  {
+    "mobName": "MctMasterMaxUtter",
+    "map": "UrgFire01",
+    "x": 23408,
+    "y": 2215,
+    "direct": 101,
+    "menu": 1,
+    "role": "Guard",
+    "roleArg": "Quest",
+    "enabled": true
+  },
+  {
+    "mobName": "ItemMctJelluin",
+    "map": "UrgFire01",
+    "x": 23558,
+    "y": 2454,
+    "direct": 114,
+    "menu": 1,
+    "role": "Merchant",
+    "roleArg": "Item",
+    "enabled": true
+  },
+  {
+    "mobName": "StoneMctTomson",
+    "map": "UrgFire01",
+    "x": 23630,
+    "y": 2625,
+    "direct": 109,
+    "menu": 1,
+    "role": "Merchant",
+    "roleArg": "SoulStone",
+    "enabled": true
+  },
+  {
+    "mobName": "mercenary01",
+    "map": "UrgFire01",
+    "x": 23260,
+    "y": 2190,
+    "direct": 132,
+    "menu": 0,
+    "role": "Guard",
+    "roleArg": "Quest",
+    "enabled": false
+  },
+  {
+    "mobName": "mercenary02",
+    "map": "UrgFire01",
+    "x": 23225,
+    "y": 2169,
+    "direct": 155,
+    "menu": 0,
+    "role": "Guard",
+    "roleArg": "Quest",
+    "enabled": false
+  },
+  {
+    "mobName": "EldStoreFranz",
+    "map": "UrgFire01",
+    "x": 23205,
+    "y": 2022,
+    "direct": 155,
+    "menu": 1,
+    "role": "StoreManager",
+    "roleArg": "-",
+    "enabled": true
+  },
+  {
+    "mobName": "PillarofLight",
+    "map": "UrgFire01",
+    "x": 2602,
+    "y": 12731,
+    "direct": 0,
+    "menu": 1,
+    "role": "Guard",
+    "roleArg": "Quest",
+    "enabled": true
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "UrgFire01",
+    "x": 2030,
+    "y": 24767,
+    "direct": -76,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "UrgFire011",
+    "enabled": true
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "UrgFire01",
+    "x": 23800,
+    "y": 8367,
+    "direct": -13,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "UrgFire012",
+    "enabled": true
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "UrgFire01",
+    "x": 2138,
+    "y": 3161,
+    "direct": 54,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "UrgFire013",
+    "enabled": true
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "UrgFire01",
+    "x": 18683,
+    "y": 24578,
+    "direct": 45,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "UrgFire014",
+    "enabled": true
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "UrgFire01",
+    "x": 15323,
+    "y": 1802,
+    "direct": 22,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "UrgFire015",
+    "enabled": false
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "UrgFire01",
+    "x": 10958,
+    "y": 23670,
+    "direct": 19,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "UrgFire016",
+    "enabled": true
+  },
+  {
+    "mobName": "IDMapLinkGate01",
+    "map": "UrgFire01",
+    "x": 22281,
+    "y": 22973,
+    "direct": 81,
+    "menu": 0,
+    "role": "ModeIDGate",
+    "roleArg": "UrgFire017",
+    "enabled": true
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "UrgFire01",
+    "x": 1431,
+    "y": 17092,
+    "direct": 30,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "UrgFire018",
+    "enabled": true
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "UrgFire01",
+    "x": 23170,
+    "y": 20400,
+    "direct": 75,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "UrgFire019",
+    "enabled": true
+  }
+]

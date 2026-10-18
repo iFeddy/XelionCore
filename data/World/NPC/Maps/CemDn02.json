@@ -1,0 +1,24 @@
+[
+  {
+    "mobName": "LevelGuard30",
+    "map": "CemDn02",
+    "x": 5606,
+    "y": 15618,
+    "direct": -88,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "CemDn021",
+    "enabled": true
+  },
+  {
+    "mobName": "EldSpeGuard03",
+    "map": "CemDn02",
+    "x": 9781,
+    "y": 6813,
+    "direct": -176,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "CemDn022",
+    "enabled": false
+  }
+]

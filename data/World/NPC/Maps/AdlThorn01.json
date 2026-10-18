@@ -1,0 +1,13 @@
+[
+  {
+    "mobName": "KarenGate",
+    "map": "AdlThorn01",
+    "x": 11459,
+    "y": 11393,
+    "direct": 225,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "Karen001",
+    "enabled": true
+  }
+]

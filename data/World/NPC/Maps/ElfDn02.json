@@ -1,0 +1,13 @@
+[
+  {
+    "mobName": "LevelGuard60",
+    "map": "ElfDn02",
+    "x": 5230,
+    "y": 3846,
+    "direct": 0,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "ElfDn021",
+    "enabled": true
+  }
+]

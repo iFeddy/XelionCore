@@ -1,0 +1,13 @@
+[
+  {
+    "mobName": "MapLinkGate",
+    "map": "R_Helga01",
+    "x": 3279,
+    "y": 1131,
+    "direct": 0,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "R_Helga011",
+    "enabled": true
+  }
+]

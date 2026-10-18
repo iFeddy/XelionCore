@@ -1,0 +1,13 @@
+[
+  {
+    "mobName": "MapLinkGate",
+    "map": "B_Albi",
+    "x": 1602,
+    "y": 143,
+    "direct": 180,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "B_Albi011",
+    "enabled": true
+  }
+]

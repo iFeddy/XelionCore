@@ -1,0 +1,13 @@
+[
+  {
+    "mobName": "MapLinkGate",
+    "map": "QField03",
+    "x": 1384,
+    "y": 1293,
+    "direct": 15,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "GateQField03",
+    "enabled": true
+  }
+]

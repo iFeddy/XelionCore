@@ -1,0 +1,35 @@
+[
+  {
+    "mobName": "MapLinkGate",
+    "map": "Linkfield01",
+    "x": 3815,
+    "y": 2897,
+    "direct": 3,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "Linkfield011",
+    "enabled": true
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "Linkfield01",
+    "x": 9831,
+    "y": 11256,
+    "direct": 0,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "Linkfield012",
+    "enabled": true
+  },
+  {
+    "mobName": "WarBL_EntranceGate",
+    "map": "Linkfield01",
+    "x": 2054,
+    "y": 9928,
+    "direct": -73,
+    "menu": 0,
+    "role": "IDGate",
+    "roleArg": "WarBL01",
+    "enabled": true
+  }
+]

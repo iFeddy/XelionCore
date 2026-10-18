@@ -1,0 +1,112 @@
+[
+  {
+    "mobName": "EldDiggerRoyquin",
+    "map": "EldGbl01",
+    "x": 11095,
+    "y": 6327,
+    "direct": 39,
+    "menu": 1,
+    "role": "QuestNpc",
+    "roleArg": "Quest",
+    "enabled": true
+  },
+  {
+    "mobName": "VegetarianGoblin",
+    "map": "EldGbl01",
+    "x": 6918,
+    "y": 3076,
+    "direct": 0,
+    "menu": 1,
+    "role": "Guard",
+    "roleArg": "Quest",
+    "enabled": true
+  },
+  {
+    "mobName": "SpyGoblin",
+    "map": "EldGbl01",
+    "x": 8117,
+    "y": 1347,
+    "direct": 0,
+    "menu": 1,
+    "role": "Guard",
+    "roleArg": "Quest",
+    "enabled": true
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "EldGbl01",
+    "x": 6015,
+    "y": 7004,
+    "direct": 51,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "GateEldGbl011",
+    "enabled": true
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "EldGbl01",
+    "x": 6752,
+    "y": 7642,
+    "direct": 56,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "GateEldGbl012",
+    "enabled": true
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "EldGbl01",
+    "x": 11514,
+    "y": 5792,
+    "direct": 84,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "GateEldGbl013",
+    "enabled": true
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "EldGbl01",
+    "x": 684,
+    "y": 6867,
+    "direct": 86,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "GateEldGbl014",
+    "enabled": true
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "EldGbl01",
+    "x": 4334,
+    "y": 1092,
+    "direct": -140,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "GateEldGbl015",
+    "enabled": false
+  },
+  {
+    "mobName": "Q_W_Chapman",
+    "map": "EldGbl01",
+    "x": 6224,
+    "y": 7796,
+    "direct": 20,
+    "menu": 1,
+    "role": "QuestNpc",
+    "roleArg": "Quest",
+    "enabled": true
+  },
+  {
+    "mobName": "Q_W_Jacks",
+    "map": "EldGbl01",
+    "x": 6290,
+    "y": 7836,
+    "direct": 19,
+    "menu": 1,
+    "role": "QuestNpc",
+    "roleArg": "Quest",
+    "enabled": true
+  }
+]

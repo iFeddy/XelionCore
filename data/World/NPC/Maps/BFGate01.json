@@ -1,0 +1,57 @@
+[
+  {
+    "mobName": "EldSpeGuard03",
+    "map": "BFGate01",
+    "x": 1585,
+    "y": 162,
+    "direct": 177,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "BFGate011",
+    "enabled": true
+  },
+  {
+    "mobName": "LevelGuard20",
+    "map": "BFGate01",
+    "x": 1799,
+    "y": 1622,
+    "direct": 96,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "BFGate012",
+    "enabled": true
+  },
+  {
+    "mobName": "LevelGuard30",
+    "map": "BFGate01",
+    "x": 1709,
+    "y": 2159,
+    "direct": 0,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "BFGate013",
+    "enabled": true
+  },
+  {
+    "mobName": "LevelGuard40",
+    "map": "BFGate01",
+    "x": 1274,
+    "y": 2250,
+    "direct": 0,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "BFGate014",
+    "enabled": true
+  },
+  {
+    "mobName": "LevelGuard50",
+    "map": "BFGate01",
+    "x": 1019,
+    "y": 1963,
+    "direct": 0,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "BFGate015",
+    "enabled": true
+  }
+]

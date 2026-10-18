@@ -1,0 +1,101 @@
+[
+  {
+    "mobName": "Nagro",
+    "map": "BerFrz01",
+    "x": 4891,
+    "y": 18706,
+    "direct": 45,
+    "menu": 1,
+    "role": "QuestNpc",
+    "roleArg": "Quest",
+    "enabled": true
+  },
+  {
+    "mobName": "Hilda",
+    "map": "BerFrz01",
+    "x": 10458,
+    "y": 12807,
+    "direct": 270,
+    "menu": 1,
+    "role": "QuestNpc",
+    "roleArg": "Quest",
+    "enabled": true
+  },
+  {
+    "mobName": "Akisha",
+    "map": "BerFrz01",
+    "x": 17931,
+    "y": 18524,
+    "direct": 270,
+    "menu": 1,
+    "role": "QuestNpc",
+    "roleArg": "Quest",
+    "enabled": true
+  },
+  {
+    "mobName": "SirenStatue",
+    "map": "BerFrz01",
+    "x": 16680,
+    "y": 17999,
+    "direct": 30,
+    "menu": 1,
+    "role": "QuestNpc",
+    "roleArg": "Quest",
+    "enabled": true
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "BerFrz01",
+    "x": 6287,
+    "y": 23262,
+    "direct": 45,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "BerFrz011",
+    "enabled": true
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "BerFrz01",
+    "x": 11211,
+    "y": 1843,
+    "direct": 75,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "BerFrz012",
+    "enabled": true
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "BerFrz01",
+    "x": 25310,
+    "y": 510,
+    "direct": 130,
+    "menu": 0,
+    "role": "ModeIDGate",
+    "roleArg": "BerFrz013",
+    "enabled": true
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "BerFrz01",
+    "x": 17544,
+    "y": 4382,
+    "direct": 8,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "BerFrz014",
+    "enabled": true
+  },
+  {
+    "mobName": "Cuero",
+    "map": "BerFrz01",
+    "x": 7220,
+    "y": 3106,
+    "direct": -90,
+    "menu": 1,
+    "role": "QuestNpc",
+    "roleArg": "Quest",
+    "enabled": true
+  }
+]

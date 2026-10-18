@@ -1,0 +1,2682 @@
+[
+  {
+    "argument": "GateRou1",
+    "mapServer": "RouCos02",
+    "mapClient": "RouCos02",
+    "x": 17418,
+    "y": 13832,
+    "direct": 80,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "GateRou2",
+    "mapServer": "RouCos01",
+    "mapClient": "RouCos01",
+    "x": 8927,
+    "y": 13504,
+    "direct": 17,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "GateRou4",
+    "mapServer": "RouCos03",
+    "mapClient": "RouCos03",
+    "x": 7514,
+    "y": 15412,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "GateRou5",
+    "mapServer": "IDGate01",
+    "mapClient": "IDGate01",
+    "x": 389,
+    "y": 1370,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "GateRou6",
+    "mapServer": "EventF",
+    "mapClient": "EventF",
+    "x": 12450,
+    "y": 7485,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "GateRou7",
+    "mapServer": "EventF01",
+    "mapClient": "EventF01",
+    "x": 10289,
+    "y": 7178,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "GateRouCos011",
+    "mapServer": "RouN",
+    "mapClient": "RouN",
+    "x": 5983,
+    "y": 4622,
+    "direct": -75,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "GateRouCos012",
+    "mapServer": "RouCos02",
+    "mapClient": "RouCos02",
+    "x": 8423,
+    "y": 10635,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "GateRouCos013",
+    "mapServer": "EchoCave",
+    "mapClient": "EchoCave",
+    "x": 2182,
+    "y": 2703,
+    "direct": -133,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "GateRouCos022",
+    "mapServer": "RouVal01",
+    "mapClient": "RouVal01",
+    "x": 14571,
+    "y": 4442,
+    "direct": 139,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "GateRouCos021",
+    "mapServer": "RouN",
+    "mapClient": "RouN",
+    "x": 6477,
+    "y": 10435,
+    "direct": -51,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "GateRouCos022",
+    "mapServer": "RouVal01",
+    "mapClient": "RouVal01",
+    "x": 14571,
+    "y": 4442,
+    "direct": 139,
+    "party": 1,
+    "enabled": false
+  },
+  {
+    "argument": "GateRouCos023",
+    "mapServer": "EchoCave",
+    "mapClient": "EchoCave",
+    "x": 23343,
+    "y": 23541,
+    "direct": 47,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "GateRouCos024",
+    "mapServer": "RouCos01",
+    "mapClient": "RouCos01",
+    "x": 16371,
+    "y": 11133,
+    "direct": -37,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "GateRouVal011",
+    "mapServer": "RouCos01",
+    "mapClient": "RouCos01",
+    "x": 9522,
+    "y": 19589,
+    "direct": 57,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "GateRouVal012",
+    "mapServer": "RouCos02",
+    "mapClient": "RouCos02",
+    "x": 15555,
+    "y": 20332,
+    "direct": 67,
+    "party": 1,
+    "enabled": false
+  },
+  {
+    "argument": "GateRouVal013",
+    "mapServer": "Eld",
+    "mapClient": "Eld",
+    "x": 18309,
+    "y": 13407,
+    "direct": 89,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "GateRouVal014",
+    "mapServer": "RouTemDn01",
+    "mapClient": "RouTemDn01",
+    "x": 6252,
+    "y": 1156,
+    "direct": -178,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "GateRouVal015",
+    "mapServer": "RouCos03",
+    "mapClient": "RouCos03",
+    "x": 19815,
+    "y": 7323,
+    "direct": -178,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "GateRouVal016",
+    "mapServer": "Tower01",
+    "mapClient": "Tower01",
+    "x": 1182,
+    "y": 7218,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "GateRouCos031",
+    "mapServer": "Eld",
+    "mapClient": "Eld",
+    "x": 16609,
+    "y": 9334,
+    "direct": -179,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "GateRouCos032",
+    "mapServer": "RouVal02",
+    "mapClient": "RouVal02",
+    "x": 2435,
+    "y": 3359,
+    "direct": -103,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "GateRouCos033",
+    "mapServer": "RouN",
+    "mapClient": "RouN",
+    "x": 7222,
+    "y": 4610,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "GateRouCos034",
+    "mapServer": "EchoCave",
+    "mapClient": "EchoCave",
+    "x": 9240,
+    "y": 21838,
+    "direct": 34,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "GateRouCos035",
+    "mapServer": "EldGbl02",
+    "mapClient": "EldGbl02",
+    "x": 1366,
+    "y": 3195,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "GateRouCos036",
+    "mapServer": "RouVal01",
+    "mapClient": "RouVal01",
+    "x": 6366,
+    "y": 3444,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "GateRouVal021",
+    "mapServer": "EldCem01",
+    "mapClient": "EldCem01",
+    "x": 11478,
+    "y": 11478,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "GateRouVal022",
+    "mapServer": "RouCos03",
+    "mapClient": "RouCos03",
+    "x": 15570,
+    "y": 16925,
+    "direct": 49,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "GateRouVal023",
+    "mapServer": "ValDn01",
+    "mapClient": "ValDn01",
+    "x": 1159,
+    "y": 11349,
+    "direct": -25,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "GateRouVal024",
+    "mapServer": "EldGbl02",
+    "mapClient": "EldGbl02",
+    "x": 6486,
+    "y": 11164,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "GateRouTemDn011",
+    "mapServer": "RouVal01",
+    "mapClient": "RouVal01",
+    "x": 12605,
+    "y": 11495,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "GateRouTemDn012",
+    "mapServer": "RouTemDn02",
+    "mapClient": "RouTemDn02",
+    "x": 5203,
+    "y": 828,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "GateRouTemDn013",
+    "mapServer": "ElfDn02",
+    "mapClient": "ElfDn02",
+    "x": 5230,
+    "y": 3846,
+    "direct": 0,
+    "party": 0,
+    "enabled": false
+  },
+  {
+    "argument": "GateRouTemDn014",
+    "mapServer": "PriDn02",
+    "mapClient": "PriDn02",
+    "x": 5154,
+    "y": 5059,
+    "direct": 0,
+    "party": 0,
+    "enabled": false
+  },
+  {
+    "argument": "GateRouTemDn021",
+    "mapServer": "RouTemDn01",
+    "mapClient": "RouTemDn01",
+    "x": 8961,
+    "y": 5389,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "GateRouTemDn022",
+    "mapServer": "CemDn02",
+    "mapClient": "CemDn02",
+    "x": 9791,
+    "y": 6907,
+    "direct": 0,
+    "party": 1,
+    "enabled": false
+  },
+  {
+    "argument": "GateEld1",
+    "mapServer": "RouVal01",
+    "mapClient": "RouVal01",
+    "x": 15247,
+    "y": 20843,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "GateEld2",
+    "mapServer": "EldPri01",
+    "mapClient": "EldPri01",
+    "x": 1463,
+    "y": 2561,
+    "direct": -150,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "GateEld3",
+    "mapServer": "RouCos03",
+    "mapClient": "RouCos03",
+    "x": 13361,
+    "y": 2378,
+    "direct": 172,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "GateEld4",
+    "mapServer": "EldCem01",
+    "mapClient": "EldCem01",
+    "x": 11468,
+    "y": 1229,
+    "direct": 123,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "GateEld5",
+    "mapServer": "BFGate01",
+    "mapClient": "BFGate01",
+    "x": 1589,
+    "y": 301,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "GateEld6",
+    "mapServer": "OX_field",
+    "mapClient": "OX_field",
+    "x": 6467,
+    "y": 4771,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "GateEldCem011",
+    "mapServer": "RouVal02",
+    "mapClient": "RouVal02",
+    "x": 4918,
+    "y": 9043,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "GateEldCem012",
+    "mapServer": "EldCem02",
+    "mapClient": "EldCem02",
+    "x": 1218,
+    "y": 855,
+    "direct": -128,
+    "party": 1,
+    "enabled": false
+  },
+  {
+    "argument": "GateEldCem013",
+    "mapServer": "Eld",
+    "mapClient": "Eld",
+    "x": 13560,
+    "y": 16571,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "GateEldCem014",
+    "mapServer": "WindyCave",
+    "mapClient": "WindyCave",
+    "x": 2182,
+    "y": 2703,
+    "direct": -133,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "GateEldCem015",
+    "mapServer": "CemDn01",
+    "mapClient": "CemDn01",
+    "x": 8029,
+    "y": 1765,
+    "direct": 33,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "GateEldCem016",
+    "mapServer": "EldGbl02",
+    "mapClient": "EldGbl02",
+    "x": 10461,
+    "y": 3429,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "GateEldCem017",
+    "mapServer": "Linkfield01",
+    "mapClient": "Linkfield01",
+    "x": 3823,
+    "y": 3087,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "GateEldCem021",
+    "mapServer": "EldGbl01",
+    "mapClient": "EldGbl01",
+    "x": 6580,
+    "y": 7467,
+    "direct": 41,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "GateEldCem022",
+    "mapServer": "EldCem01",
+    "mapClient": "EldCem01",
+    "x": 1249,
+    "y": 12145,
+    "direct": -67,
+    "party": 1,
+    "enabled": false
+  },
+  {
+    "argument": "GateEldCem023",
+    "mapServer": "CemDn02",
+    "mapClient": "CemDn02",
+    "x": 5678,
+    "y": 15617,
+    "direct": 0,
+    "party": 1,
+    "enabled": false
+  },
+  {
+    "argument": "GateEldCem024",
+    "mapServer": "Linkfield01",
+    "mapClient": "Linkfield01",
+    "x": 9817,
+    "y": 10895,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "GateEldGbl011",
+    "mapServer": "EldPri01",
+    "mapClient": "EldPri01",
+    "x": 2575,
+    "y": 1686,
+    "direct": 152,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "GateEldGbl012",
+    "mapServer": "EldCem02",
+    "mapClient": "EldCem02",
+    "x": 11984,
+    "y": 11883,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "GateEldGbl013",
+    "mapServer": "WindyCave",
+    "mapClient": "WindyCave",
+    "x": 23343,
+    "y": 23541,
+    "direct": 47,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "GateEldGbl014",
+    "mapServer": "GblDn01",
+    "mapClient": "GblDn01",
+    "x": 5091,
+    "y": 548,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "GateEldGbl015",
+    "mapServer": "GblDn02",
+    "mapClient": "GblDn02",
+    "x": 5081,
+    "y": 6146,
+    "direct": 0,
+    "party": 1,
+    "enabled": false
+  },
+  {
+    "argument": "EldPri011",
+    "mapServer": "Eld",
+    "mapClient": "Eld",
+    "x": 13221,
+    "y": 9175,
+    "direct": 178,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "EldPri012",
+    "mapServer": "EldPriDn01",
+    "mapClient": "EldPriDn01",
+    "x": 3127,
+    "y": 8715,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "EldPri013",
+    "mapServer": "EldGbl01",
+    "mapClient": "EldGbl01",
+    "x": 6157,
+    "y": 7131,
+    "direct": -131,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "EldPri014",
+    "mapServer": "Urg",
+    "mapClient": "Urg",
+    "x": 1807,
+    "y": 11270,
+    "direct": -57,
+    "party": 1,
+    "enabled": false
+  },
+  {
+    "argument": "EldPri015",
+    "mapServer": "PriDn01",
+    "mapClient": "PriDn01",
+    "x": 12208,
+    "y": 4514,
+    "direct": -90,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "EldPri016",
+    "mapServer": "EldPri02",
+    "mapClient": "EldPri02",
+    "x": 1663,
+    "y": 3602,
+    "direct": -57,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "EldPri017",
+    "mapServer": "Linkfield02",
+    "mapClient": "Linkfield02",
+    "x": 2763,
+    "y": 6479,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "GateEldPriDn011",
+    "mapServer": "EldPri01",
+    "mapClient": "EldPri01",
+    "x": 9935,
+    "y": 10604,
+    "direct": -134,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "GateEldPriDn012",
+    "mapServer": "EldPriDn02",
+    "mapClient": "EldPriDn02",
+    "x": 370,
+    "y": 5055,
+    "direct": 87,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "GateEldPriDn021",
+    "mapServer": "EldPriDn01",
+    "mapClient": "EldPriDn01",
+    "x": 12535,
+    "y": 7808,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "GateEldPriDn022",
+    "mapServer": "°í´ë¿¤ÇÁ½£",
+    "mapClient": "°í´ë¿¤ÇÁ½£",
+    "x": 0,
+    "y": 0,
+    "direct": 0,
+    "party": 1,
+    "enabled": false
+  },
+  {
+    "argument": "UrgFireDn001",
+    "mapServer": "UrgFire01",
+    "mapClient": "UrgFire01",
+    "x": 2253,
+    "y": 3215,
+    "direct": -134,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "UrgFireDn001",
+    "mapServer": "EldPri01",
+    "mapClient": "EldPri01",
+    "x": 9935,
+    "y": 10604,
+    "direct": -134,
+    "party": 1,
+    "enabled": false
+  },
+  {
+    "argument": "Urg01",
+    "mapServer": "EldPri01",
+    "mapClient": "EldPri01",
+    "x": 1133,
+    "y": 10955,
+    "direct": -13,
+    "party": 1,
+    "enabled": false
+  },
+  {
+    "argument": "Urg02",
+    "mapServer": "GoldCave",
+    "mapClient": "GoldCave",
+    "x": 2182,
+    "y": 2703,
+    "direct": -133,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "Urg03",
+    "mapServer": "EldFor01",
+    "mapClient": "EldFor01",
+    "x": 7448,
+    "y": 19822,
+    "direct": -19,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "Urg04",
+    "mapServer": "ElfDn01",
+    "mapClient": "ElfDn01",
+    "x": 2660,
+    "y": 6901,
+    "direct": -89,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "Urg05",
+    "mapServer": "EldPri02",
+    "mapClient": "EldPri02",
+    "x": 9942,
+    "y": 2893,
+    "direct": -13,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "Urg06",
+    "mapServer": "BFGate02",
+    "mapClient": "BFGate02",
+    "x": 1589,
+    "y": 301,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "Urg07",
+    "mapServer": "Linkfield02",
+    "mapClient": "Linkfield02",
+    "x": 2400,
+    "y": 9241,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "Urg09",
+    "mapServer": "EldSleep01",
+    "mapClient": "EldSleep01",
+    "x": 11620,
+    "y": 17868,
+    "direct": 48,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "Urg10",
+    "mapServer": "UrgFire01",
+    "mapClient": "UrgFire01",
+    "x": 15373,
+    "y": 1851,
+    "direct": 48,
+    "party": 1,
+    "enabled": false
+  },
+  {
+    "argument": "Urg12",
+    "mapServer": "Tower02",
+    "mapClient": "Tower02",
+    "x": 1182,
+    "y": 7218,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "EldFor011",
+    "mapServer": "Urg",
+    "mapClient": "Urg",
+    "x": 11355,
+    "y": 2770,
+    "direct": -67,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "EldFor012",
+    "mapServer": "EldSleep01",
+    "mapClient": "EldSleep01",
+    "x": 8590,
+    "y": 8806,
+    "direct": 52,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "EldFor013",
+    "mapServer": "ForDn01",
+    "mapClient": "ForDn01",
+    "x": 5825,
+    "y": 6128,
+    "direct": -90,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "EldFor012",
+    "mapServer": "¼­±¤ÀÇ ´Ë",
+    "mapClient": "¼­±¤ÀÇ ´Ë",
+    "x": 0,
+    "y": 0,
+    "direct": 0,
+    "party": 1,
+    "enabled": false
+  },
+  {
+    "argument": "EldFor015",
+    "mapServer": "UrgFire01",
+    "mapClient": "UrgFire01",
+    "x": 10908,
+    "y": 23620,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "EldSleep011",
+    "mapServer": "EldFor01",
+    "mapClient": "EldFor01",
+    "x": 16035,
+    "y": 16333,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "EldSleep012",
+    "mapServer": "UrgFire01",
+    "mapClient": "UrgFire01",
+    "x": 2411,
+    "y": 24635,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "EldSleep013",
+    "mapServer": "R_Helga01",
+    "mapClient": "R_Helga01",
+    "x": 3279,
+    "y": 1201,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "EldSleep014",
+    "mapServer": "Urg",
+    "mapClient": "Urg",
+    "x": 2054,
+    "y": 4962,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "EchoCave1",
+    "mapServer": "RouCos01",
+    "mapClient": "RouCos01",
+    "x": 12707,
+    "y": 13200,
+    "direct": -63,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "EchoCave2",
+    "mapServer": "RouCos02",
+    "mapClient": "RouCos02",
+    "x": 20404,
+    "y": 9873,
+    "direct": 48,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "EchoCave3",
+    "mapServer": "RouCos03",
+    "mapClient": "RouCos03",
+    "x": 20422,
+    "y": 3877,
+    "direct": 101,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "WindyCave1",
+    "mapServer": "EldCem01",
+    "mapClient": "EldCem01",
+    "x": 753,
+    "y": 8310,
+    "direct": -63,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "WindyCave2",
+    "mapServer": "EldGbl01",
+    "mapClient": "EldGbl01",
+    "x": 11382,
+    "y": 5758,
+    "direct": 83,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "GoldCave1",
+    "mapServer": "Urg",
+    "mapClient": "Urg",
+    "x": 1255,
+    "y": 2371,
+    "direct": -114,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "GoldCave2",
+    "mapServer": "EldGbl01",
+    "mapClient": "EldGbl01",
+    "x": 11382,
+    "y": 5758,
+    "direct": 83,
+    "party": 1,
+    "enabled": false
+  },
+  {
+    "argument": "GblDn011",
+    "mapServer": "EldGbl01",
+    "mapClient": "EldGbl01",
+    "x": 895,
+    "y": 6882,
+    "direct": 82,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "CemDn011",
+    "mapServer": "EldCem01",
+    "mapClient": "EldCem01",
+    "x": 2408,
+    "y": 2623,
+    "direct": -41,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "CemDn012",
+    "mapServer": "¼û°ÜÁø ºÀ¿ì¸® 2Ãþ",
+    "mapClient": "¼û°ÜÁø ºÀ¿ì¸® 2Ãþ",
+    "x": 0,
+    "y": 0,
+    "direct": 0,
+    "party": 0,
+    "enabled": false
+  },
+  {
+    "argument": "ElfDn011",
+    "mapServer": "Urg",
+    "mapClient": "Urg",
+    "x": 10842,
+    "y": 11948,
+    "direct": -33,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "ElfDn013",
+    "mapServer": "¼û°ÜÁø ºÀ¿ì¸® 2Ãþ",
+    "mapClient": "¼û°ÜÁø ºÀ¿ì¸® 2Ãþ",
+    "x": 0,
+    "y": 0,
+    "direct": 0,
+    "party": 1,
+    "enabled": false
+  },
+  {
+    "argument": "ValDn011",
+    "mapServer": "RouVal02",
+    "mapClient": "RouVal02",
+    "x": 2440,
+    "y": 7947,
+    "direct": 68,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "ValDn012",
+    "mapServer": "¼û°ÜÁø ºÀ¿ì¸® 2Ãþ",
+    "mapClient": "¼û°ÜÁø ºÀ¿ì¸® 2Ãþ",
+    "x": 0,
+    "y": 0,
+    "direct": 0,
+    "party": 1,
+    "enabled": false
+  },
+  {
+    "argument": "PriDn001",
+    "mapServer": "EldPri01",
+    "mapClient": "EldPri01",
+    "x": 5654,
+    "y": 1253,
+    "direct": -87,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "PriDn002",
+    "mapServer": "¼û°ÜÁø ºÀ¿ì¸® 2Ãþ",
+    "mapClient": "¼û°ÜÁø ºÀ¿ì¸® 2Ãþ",
+    "x": 0,
+    "y": 0,
+    "direct": 0,
+    "party": 1,
+    "enabled": false
+  },
+  {
+    "argument": "ForDn001",
+    "mapServer": "EldFor01",
+    "mapClient": "EldFor01",
+    "x": 19223,
+    "y": 8503,
+    "direct": 46,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "ForDn002",
+    "mapServer": "¼û°ÜÁø ºÀ¿ì¸® 2Ãþ",
+    "mapClient": "¼û°ÜÁø ºÀ¿ì¸® 2Ãþ",
+    "x": 0,
+    "y": 0,
+    "direct": 0,
+    "party": 1,
+    "enabled": false
+  },
+  {
+    "argument": "FireDn001",
+    "mapServer": "UrgFire01",
+    "mapClient": "UrgFire01",
+    "x": 23716,
+    "y": 8574,
+    "direct": 158,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "SwaDn011",
+    "mapServer": "UrgSwa01",
+    "mapClient": "UrgSwa01",
+    "x": 9177,
+    "y": 12881,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "EldGbl001",
+    "mapServer": "BFGate01",
+    "mapClient": "BFGate01",
+    "x": 1272,
+    "y": 2114,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "ElfDn021",
+    "mapServer": "BFGate02",
+    "mapClient": "BFGate02",
+    "x": 1650,
+    "y": 1630,
+    "direct": 133,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "PriDn021",
+    "mapServer": "BFGate01",
+    "mapClient": "BFGate01",
+    "x": 1002,
+    "y": 1817,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "UrgFire011",
+    "mapServer": "EldSleep01",
+    "mapClient": "EldSleep01",
+    "x": 17152,
+    "y": 7152,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "UrgFire012",
+    "mapServer": "FireDn01",
+    "mapClient": "FireDn01",
+    "x": 6372,
+    "y": 6659,
+    "direct": 176,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "UrgFire013",
+    "mapServer": "UrgFireDn01",
+    "mapClient": "UrgFireDn01",
+    "x": 2625,
+    "y": 11402,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "UrgFire014",
+    "mapServer": "UrgSwa01",
+    "mapClient": "UrgSwa01",
+    "x": 5733,
+    "y": 4075,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "UrgFire015",
+    "mapServer": "Urg",
+    "mapClient": "Urg",
+    "x": 7911,
+    "y": 11085,
+    "direct": 0,
+    "party": 1,
+    "enabled": false
+  },
+  {
+    "argument": "UrgFire016",
+    "mapServer": "EldFor01",
+    "mapClient": "EldFor01",
+    "x": 7277,
+    "y": 6700,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "UrgFire017",
+    "mapServer": "UrgDragon",
+    "mapClient": "UrgDragon",
+    "x": 1040,
+    "y": 5882,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "Fbattle011",
+    "mapServer": "Fbattle01",
+    "mapClient": "Fbattle01",
+    "x": 923,
+    "y": 3305,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "Fbattle021",
+    "mapServer": "Fbattle02",
+    "mapClient": "Fbattle02",
+    "x": 3666,
+    "y": 4363,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "Fbattle031",
+    "mapServer": "Fbattle03",
+    "mapClient": "Fbattle03",
+    "x": 2744,
+    "y": 3085,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "Fbattle041",
+    "mapServer": "Fbattle04",
+    "mapClient": "Fbattle04",
+    "x": 1768,
+    "y": 2391,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "Fbattle012",
+    "mapServer": "RouN",
+    "mapClient": "RouN",
+    "x": 7538,
+    "y": 5610,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "Fbattle022",
+    "mapServer": "Eld",
+    "mapClient": "Eld",
+    "x": 17214,
+    "y": 13445,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "Fbattle032",
+    "mapServer": "Urg",
+    "mapClient": "Urg",
+    "x": 6293,
+    "y": 5477,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "Fbattle042",
+    "mapServer": "Bera",
+    "mapClient": "Bera",
+    "x": 6969,
+    "y": 4626,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "EldGbl021",
+    "mapServer": "RouVal02",
+    "mapClient": "RouVal02",
+    "x": 10546,
+    "y": 4329,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "EldGbl022",
+    "mapServer": "RouCos03",
+    "mapClient": "RouCos03",
+    "x": 4450,
+    "y": 5230,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "EldGbl023",
+    "mapServer": "EldCem01",
+    "mapClient": "EldCem01",
+    "x": 4013,
+    "y": 818,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "CemDn021",
+    "mapServer": "BFGate01",
+    "mapClient": "BFGate01",
+    "x": 1648,
+    "y": 2039,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "CemDn022",
+    "mapServer": "RouTemDn02",
+    "mapClient": "RouTemDn02",
+    "x": 5211,
+    "y": 8617,
+    "direct": 0,
+    "party": 1,
+    "enabled": false
+  },
+  {
+    "argument": "EldPri021",
+    "mapServer": "EldPri01",
+    "mapClient": "EldPri01",
+    "x": 595,
+    "y": 2949,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "EldPri022",
+    "mapServer": "Urg",
+    "mapClient": "Urg",
+    "x": 1675,
+    "y": 9291,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "OX_field01",
+    "mapServer": "Eld",
+    "mapClient": "Eld",
+    "x": 15937,
+    "y": 11905,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "UrgSwa011",
+    "mapServer": "UrgFire01",
+    "mapClient": "UrgFire01",
+    "x": 18535,
+    "y": 24470,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "UrgSwa012",
+    "mapServer": "UrgSwaDn01",
+    "mapClient": "UrgSwaDn01",
+    "x": 5655,
+    "y": 11439,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "UrgSwa013",
+    "mapServer": "SwaDn01",
+    "mapClient": "SwaDn01",
+    "x": 6067,
+    "y": 11124,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "UrgSwa015",
+    "mapServer": "Urg_Alruin",
+    "mapClient": "Urg_Alruin",
+    "x": 16479,
+    "y": 3515,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "UrgSwa016",
+    "mapServer": "QField01",
+    "mapClient": "QField01",
+    "x": 1521,
+    "y": 2067,
+    "direct": 180,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "UrgSwa017",
+    "mapServer": "QField02",
+    "mapClient": "QField02",
+    "x": 589,
+    "y": 665,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "UrgSwa018",
+    "mapServer": "BH_Helga",
+    "mapClient": "BH_Helga",
+    "x": 1593,
+    "y": 2913,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "UrgSwa014",
+    "mapServer": "R_Helga01",
+    "mapClient": "R_Helga01",
+    "x": 2318,
+    "y": 2675,
+    "direct": 0,
+    "party": 1,
+    "enabled": false
+  },
+  {
+    "argument": "UrgSwa015",
+    "mapServer": "Urg_Alruin",
+    "mapClient": "Urg_Alruin",
+    "x": 16479,
+    "y": 3515,
+    "direct": 0,
+    "party": 1,
+    "enabled": false
+  },
+  {
+    "argument": "UrgSwaDn011",
+    "mapServer": "UrgSwa01",
+    "mapClient": "UrgSwa01",
+    "x": 20290,
+    "y": 22302,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "BFGate011",
+    "mapServer": "Eld",
+    "mapClient": "Eld",
+    "x": 17511,
+    "y": 11551,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "BFGate012",
+    "mapServer": "ValDn02",
+    "mapClient": "ValDn02",
+    "x": 1592,
+    "y": 11159,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "BFGate013",
+    "mapServer": "CemDn02",
+    "mapClient": "CemDn02",
+    "x": 5678,
+    "y": 15617,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "BFGate014",
+    "mapServer": "GblDn02",
+    "mapClient": "GblDn02",
+    "x": 5081,
+    "y": 6146,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "BFGate015",
+    "mapServer": "PriDn02",
+    "mapClient": "PriDn02",
+    "x": 5154,
+    "y": 5059,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "BFGate021",
+    "mapServer": "Urg",
+    "mapClient": "Urg",
+    "x": 8339,
+    "y": 6738,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "BFGate022",
+    "mapServer": "ElfDn02",
+    "mapClient": "ElfDn02",
+    "x": 5230,
+    "y": 3728,
+    "direct": 89,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "BFGate023",
+    "mapServer": "ForDn02",
+    "mapClient": "ForDn02",
+    "x": 5825,
+    "y": 6128,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "BFGate024",
+    "mapServer": "FireDn02",
+    "mapClient": "FireDn02",
+    "x": 6351,
+    "y": 6712,
+    "direct": 90,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "BFGate025",
+    "mapServer": "SwaDn02",
+    "mapClient": "SwaDn02",
+    "x": 6067,
+    "y": 11124,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "BFGate031",
+    "mapServer": "Urg_Alruin",
+    "mapClient": "Urg_Alruin",
+    "x": 6375,
+    "y": 9986,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "BFGate032",
+    "mapServer": "AlDn02",
+    "mapClient": "AlDn02",
+    "x": 11353,
+    "y": 1855,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "Urg_Alruin1",
+    "mapServer": "UrgSwa01",
+    "mapClient": "UrgSwa01",
+    "x": 6865,
+    "y": 22000,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "BerKal012",
+    "mapServer": "AdlThorn01",
+    "mapClient": "AdlThorn01",
+    "x": 11602,
+    "y": 11719,
+    "direct": 0,
+    "party": 1,
+    "enabled": false
+  },
+  {
+    "argument": "Urg_Alruin2",
+    "mapServer": "UrgDark01",
+    "mapClient": "UrgDark01",
+    "x": 2436,
+    "y": 11999,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "Urg_Alruin3",
+    "mapServer": "AlDn01",
+    "mapClient": "AlDn01",
+    "x": 11356,
+    "y": 1898,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "Urg_Alruin4",
+    "mapServer": "BFGate03",
+    "mapClient": "BFGate03",
+    "x": 1589,
+    "y": 301,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "ForDn021",
+    "mapServer": "BFGate02",
+    "mapClient": "BFGate02",
+    "x": 1801,
+    "y": 2083,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "FireDn021",
+    "mapServer": "BFGate02",
+    "mapClient": "BFGate02",
+    "x": 1264,
+    "y": 2056,
+    "direct": 91,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "SwaDn021",
+    "mapServer": "BFGate02",
+    "mapClient": "BFGate02",
+    "x": 1023,
+    "y": 1791,
+    "direct": 90,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "ValDn021",
+    "mapServer": "BFGate01",
+    "mapClient": "BFGate01",
+    "x": 1665,
+    "y": 1600,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "AlDn021",
+    "mapServer": "BFGate03",
+    "mapClient": "BFGate03",
+    "x": 1059,
+    "y": 1913,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "Linkfield011",
+    "mapServer": "EldCem01",
+    "mapClient": "EldCem01",
+    "x": 1249,
+    "y": 12145,
+    "direct": -67,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "Linkfield012",
+    "mapServer": "EldCem02",
+    "mapClient": "EldCem02",
+    "x": 1218,
+    "y": 855,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "Linkfield021",
+    "mapServer": "EldPri01",
+    "mapClient": "EldPri01",
+    "x": 1133,
+    "y": 10955,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "Linkfield022",
+    "mapServer": "Urg",
+    "mapClient": "Urg",
+    "x": 1807,
+    "y": 11270,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "R_Helga011",
+    "mapServer": "EldSleep01",
+    "mapClient": "EldSleep01",
+    "x": 7274,
+    "y": 11721,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "IDGate011",
+    "mapServer": "Leviathan",
+    "mapClient": "Leviathan",
+    "x": 3006,
+    "y": 5422,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "IDGate012",
+    "mapServer": "RouCos02",
+    "mapClient": "RouCos02",
+    "x": 8230,
+    "y": 6510,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "Karen001",
+    "mapServer": "BerKal01",
+    "mapClient": "BerKal01",
+    "x": 9541,
+    "y": 3097,
+    "direct": -121,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "QField011",
+    "mapServer": "UrgSwa01",
+    "mapClient": "UrgSwa01",
+    "x": 3549,
+    "y": 10271,
+    "direct": 135,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "QField022",
+    "mapServer": "UrgSwa01",
+    "mapClient": "UrgSwa01",
+    "x": 14482,
+    "y": 22115,
+    "direct": 90,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "LabGate00",
+    "mapServer": "Tower03",
+    "mapClient": "Tower03",
+    "x": 8765,
+    "y": 11255,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "Bera001",
+    "mapServer": "UrgDark01",
+    "mapClient": "UrgDark01",
+    "x": 23655,
+    "y": 13163,
+    "direct": 0,
+    "party": 1,
+    "enabled": false
+  },
+  {
+    "argument": "Bera002",
+    "mapServer": "BerKal01",
+    "mapClient": "BerKal01",
+    "x": 21113,
+    "y": 19637,
+    "direct": -55,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "Bera003",
+    "mapServer": "BerFrz01",
+    "mapClient": "BerFrz01",
+    "x": 6063,
+    "y": 23011,
+    "direct": 180,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "Bera004",
+    "mapServer": "BFGate04",
+    "mapClient": "BFGate04",
+    "x": 1589,
+    "y": 301,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "BerKal011",
+    "mapServer": "Bera",
+    "mapClient": "Bera",
+    "x": 638,
+    "y": 5930,
+    "direct": -55,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "BerKal012",
+    "mapServer": "AdlThorn01",
+    "mapClient": "AdlThorn01",
+    "x": 11602,
+    "y": 11719,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "BerKal013",
+    "mapServer": "AdlVal01",
+    "mapClient": "AdlVal01",
+    "x": 30169,
+    "y": 14036,
+    "direct": -90,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "BerKal014",
+    "mapServer": "PsyOut",
+    "mapClient": "PsyOut",
+    "x": 11787,
+    "y": 7993,
+    "direct": 180,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "UrgDark011",
+    "mapServer": "Urg_Alruin",
+    "mapClient": "Urg_Alruin",
+    "x": 11357,
+    "y": 21862,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "UrgDark012",
+    "mapServer": "UrgDragon",
+    "mapClient": "UrgDragon",
+    "x": 700,
+    "y": 5795,
+    "direct": 0,
+    "party": 1,
+    "enabled": false
+  },
+  {
+    "argument": "UrgDark013",
+    "mapServer": "Bera",
+    "mapClient": "Bera",
+    "x": 8993,
+    "y": 478,
+    "direct": 0,
+    "party": 1,
+    "enabled": false
+  },
+  {
+    "argument": "UrgDark015",
+    "mapServer": "AdlVal01",
+    "mapClient": "AdlVal01",
+    "x": 26689,
+    "y": 18161,
+    "direct": -110,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "AlDn001",
+    "mapServer": "Urg_Alruin",
+    "mapClient": "Urg_Alruin",
+    "x": 16991,
+    "y": 15130,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "B_Cracker01",
+    "mapServer": "UrgDark01",
+    "mapClient": "UrgDark01",
+    "x": 21438,
+    "y": 1995,
+    "direct": 65,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "UrgDark014",
+    "mapServer": "B_Cracker",
+    "mapClient": "B_Cracker",
+    "x": 2470,
+    "y": 1434,
+    "direct": 45,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "UrgDark014",
+    "mapServer": "BH_Cracker",
+    "mapClient": "BH_Cracker",
+    "x": 2744,
+    "y": 2172,
+    "direct": -167,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "UrgFire018",
+    "mapServer": "QField03",
+    "mapClient": "QField03",
+    "x": 1294,
+    "y": 1221,
+    "direct": 15,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "UrgFire019",
+    "mapServer": "QField04",
+    "mapClient": "QField04",
+    "x": 610,
+    "y": 1355,
+    "direct": 60,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "GateQField03",
+    "mapServer": "UrgFire01",
+    "mapClient": "UrgFire01",
+    "x": 1612,
+    "y": 16654,
+    "direct": 30,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "GateQField04",
+    "mapServer": "UrgFire01",
+    "mapClient": "UrgFire01",
+    "x": 23111,
+    "y": 20301,
+    "direct": 90,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "GBHouse01",
+    "mapServer": "GBHouse",
+    "mapClient": "GBHouse",
+    "x": 2319,
+    "y": 886,
+    "direct": 134,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "GBHouse01",
+    "mapServer": "GBHouse",
+    "mapClient": "GBHouse",
+    "x": 2301,
+    "y": 2301,
+    "direct": 42,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "GBHouse01",
+    "mapServer": "GBHouse",
+    "mapClient": "GBHouse",
+    "x": 893,
+    "y": 2305,
+    "direct": -48,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "GBHouse01",
+    "mapServer": "GBHouse",
+    "mapClient": "GBHouse",
+    "x": 898,
+    "y": 896,
+    "direct": -136,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "GBHouse02",
+    "mapServer": "GBHouse",
+    "mapClient": "GBHouse",
+    "x": 2319,
+    "y": 886,
+    "direct": 134,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "GBHouse02",
+    "mapServer": "GBHouse",
+    "mapClient": "GBHouse",
+    "x": 2301,
+    "y": 2301,
+    "direct": 42,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "GBHouse02",
+    "mapServer": "GBHouse",
+    "mapClient": "GBHouse",
+    "x": 893,
+    "y": 2305,
+    "direct": -48,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "GBHouse02",
+    "mapServer": "GBHouse",
+    "mapClient": "GBHouse",
+    "x": 898,
+    "y": 896,
+    "direct": -136,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "GBHouse03",
+    "mapServer": "GBHouse",
+    "mapClient": "GBHouse",
+    "x": 2319,
+    "y": 886,
+    "direct": 134,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "GBHouse03",
+    "mapServer": "GBHouse",
+    "mapClient": "GBHouse",
+    "x": 2301,
+    "y": 2301,
+    "direct": 42,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "GBHouse03",
+    "mapServer": "GBHouse",
+    "mapClient": "GBHouse",
+    "x": 893,
+    "y": 2305,
+    "direct": -48,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "GBHouse03",
+    "mapServer": "GBHouse",
+    "mapClient": "GBHouse",
+    "x": 898,
+    "y": 896,
+    "direct": -136,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "GBHouse04",
+    "mapServer": "GBHouse",
+    "mapClient": "GBHouse",
+    "x": 2319,
+    "y": 886,
+    "direct": 134,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "GBHouse04",
+    "mapServer": "GBHouse",
+    "mapClient": "GBHouse",
+    "x": 2301,
+    "y": 2301,
+    "direct": 42,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "GBHouse04",
+    "mapServer": "GBHouse",
+    "mapClient": "GBHouse",
+    "x": 893,
+    "y": 2305,
+    "direct": -48,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "GBHouse04",
+    "mapServer": "GBHouse",
+    "mapClient": "GBHouse",
+    "x": 898,
+    "y": 896,
+    "direct": -136,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "BH_Helga01",
+    "mapServer": "UrgSwa01",
+    "mapClient": "UrgSwa01",
+    "x": 22163,
+    "y": 21293,
+    "direct": 88,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "BH_Cracker01",
+    "mapServer": "UrgDark01",
+    "mapClient": "UrgDark01",
+    "x": 21438,
+    "y": 1995,
+    "direct": 65,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "PsyOut001",
+    "mapServer": "BerKal01",
+    "mapClient": "BerKal01",
+    "x": 4784,
+    "y": 12824,
+    "direct": -80,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "PsyOut002",
+    "mapServer": "PsyIn",
+    "mapClient": "PsyIn",
+    "x": 11877,
+    "y": 14307,
+    "direct": 180,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "PsyIn001",
+    "mapServer": "PsyOut",
+    "mapClient": "PsyOut",
+    "x": 11787,
+    "y": 15299,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "AdlVal010",
+    "mapServer": "Adl",
+    "mapClient": "Adl",
+    "x": 15030,
+    "y": 12170,
+    "direct": 135,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "AdlVal011",
+    "mapServer": "UrgDark01",
+    "mapClient": "UrgDark01",
+    "x": 22720,
+    "y": 3859,
+    "direct": 80,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "AdlVal012",
+    "mapServer": "BerKal01",
+    "mapClient": "BerKal01",
+    "x": 6163,
+    "y": 3973,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "GBHouse05",
+    "mapServer": "GBHouse",
+    "mapClient": "GBHouse",
+    "x": 2319,
+    "y": 886,
+    "direct": 134,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "GBHouse05",
+    "mapServer": "GBHouse",
+    "mapClient": "GBHouse",
+    "x": 2301,
+    "y": 2301,
+    "direct": 42,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "GBHouse05",
+    "mapServer": "GBHouse",
+    "mapClient": "GBHouse",
+    "x": 893,
+    "y": 2305,
+    "direct": -48,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "GBHouse05",
+    "mapServer": "GBHouse",
+    "mapClient": "GBHouse",
+    "x": 898,
+    "y": 896,
+    "direct": -136,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "Event001",
+    "mapServer": "RouN",
+    "mapClient": "RouN",
+    "x": 6445,
+    "y": 8630,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "Event002",
+    "mapServer": "RouN",
+    "mapClient": "RouN",
+    "x": 6445,
+    "y": 8630,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "Adl001",
+    "mapServer": "AdlVal01",
+    "mapClient": "AdlVal01",
+    "x": 29003,
+    "y": 19397,
+    "direct": 20,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "Adl002",
+    "mapServer": "BFGate04",
+    "mapClient": "BFGate04",
+    "x": 1589,
+    "y": 301,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "BFGate041",
+    "mapServer": "Adl",
+    "mapClient": "Adl",
+    "x": 12337,
+    "y": 14800,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "BFGate042",
+    "mapServer": "PsyInDn02",
+    "mapClient": "PsyInDn02",
+    "x": 11877,
+    "y": 14307,
+    "direct": 180,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "BFGate043",
+    "mapServer": "ArkDn02",
+    "mapClient": "ArkDn02",
+    "x": 2482,
+    "y": 6861,
+    "direct": 90,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "BFGate044",
+    "mapServer": "Bera",
+    "mapClient": "Bera",
+    "x": 7966,
+    "y": 2742,
+    "direct": 90,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "PsyInDn021",
+    "mapServer": "BFGate04",
+    "mapClient": "BFGate04",
+    "x": 1234,
+    "y": 1959,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "AdlFGate00",
+    "mapServer": "AdlF",
+    "mapClient": "AdlF",
+    "x": 2312,
+    "y": 9961,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "AdlFHGate00",
+    "mapServer": "AdlFH",
+    "mapClient": "AdlFH",
+    "x": 2312,
+    "y": 9961,
+    "direct": 0,
+    "party": 0,
+    "enabled": true
+  },
+  {
+    "argument": "WarN01",
+    "mapServer": "WarN",
+    "mapClient": "WarN",
+    "x": 4102,
+    "y": 1159,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "WarBL01",
+    "mapServer": "WarBL",
+    "mapClient": "WarBL",
+    "x": 1314,
+    "y": 1366,
+    "direct": 179,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "WarL01",
+    "mapServer": "WarL",
+    "mapClient": "WarL",
+    "x": 2769,
+    "y": 6919,
+    "direct": -90,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "Rou",
+    "mapServer": "RouN",
+    "mapClient": "RouN",
+    "x": 5604,
+    "y": 6519,
+    "direct": 90,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "Eld",
+    "mapServer": "Eld",
+    "mapClient": "Eld",
+    "x": 17214,
+    "y": 1344,
+    "direct": 90,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "EldGbl02",
+    "mapServer": "EldGbl02",
+    "mapClient": "EldGbl02",
+    "x": 9129,
+    "y": 8213,
+    "direct": 90,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "Urg",
+    "mapServer": "Urg",
+    "mapClient": "Urg",
+    "x": 6293,
+    "y": 5477,
+    "direct": 90,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "Urg_Alruin",
+    "mapServer": "Urg_Alruin",
+    "mapClient": "Urg_Alruin",
+    "x": 6721,
+    "y": 12036,
+    "direct": 90,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "Adl",
+    "mapServer": "Adl",
+    "mapClient": "Adl",
+    "x": 15181,
+    "y": 12132,
+    "direct": 90,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "Bera005",
+    "mapServer": "Bera",
+    "mapClient": "Bera",
+    "x": 6532,
+    "y": 1529,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "WarH01",
+    "mapServer": "WarH",
+    "mapClient": "WarH",
+    "x": 1269,
+    "y": 12325,
+    "direct": -90,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "Eld02",
+    "mapServer": "Eld",
+    "mapClient": "Eld",
+    "x": 13059,
+    "y": 13815,
+    "direct": 8,
+    "party": 1,
+    "enabled": false
+  },
+  {
+    "argument": "Eld03",
+    "mapServer": "E_Hwin",
+    "mapClient": "E_Hwin",
+    "x": 914,
+    "y": 238,
+    "direct": 152,
+    "party": 1,
+    "enabled": false
+  },
+  {
+    "argument": "Eld03",
+    "mapServer": "E_Olympic",
+    "mapClient": "E_Olympic",
+    "x": 5463,
+    "y": 22711,
+    "direct": 45,
+    "party": 1,
+    "enabled": false
+  },
+  {
+    "argument": "E_Olympic01",
+    "mapServer": "Eld",
+    "mapClient": "Eld",
+    "x": 13068,
+    "y": 13907,
+    "direct": 10,
+    "party": 1,
+    "enabled": false
+  },
+  {
+    "argument": "E_Olympic02",
+    "mapServer": "Eld",
+    "mapClient": "Eld",
+    "x": 13068,
+    "y": 13907,
+    "direct": 10,
+    "party": 1,
+    "enabled": false
+  },
+  {
+    "argument": "BerFrz011",
+    "mapServer": "Bera",
+    "mapClient": "Bera",
+    "x": 12113,
+    "y": 3137,
+    "direct": 90,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "BerFrz012",
+    "mapServer": "ArkDn01",
+    "mapClient": "ArkDn01",
+    "x": 2482,
+    "y": 6861,
+    "direct": 90,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "BerFrz013",
+    "mapServer": "Siren",
+    "mapClient": "Siren",
+    "x": 521,
+    "y": 10793,
+    "direct": 90,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "BerFrz014",
+    "mapServer": "BerVale01",
+    "mapClient": "BerVale01",
+    "x": 1286,
+    "y": 11171,
+    "direct": 180,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "ArkDn011",
+    "mapServer": "BerFrz01",
+    "mapClient": "BerFrz01",
+    "x": 11044,
+    "y": 1760,
+    "direct": 90,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "ArkDn012",
+    "mapServer": "B_Albi",
+    "mapClient": "B_Albi",
+    "x": 1600,
+    "y": 264,
+    "direct": 180,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "ArkDn013",
+    "mapServer": "BH_Albi",
+    "mapClient": "BH_Albi",
+    "x": 1600,
+    "y": 264,
+    "direct": 180,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "ArkDn021",
+    "mapServer": "BFGate04",
+    "mapClient": "BFGate04",
+    "x": 1234,
+    "y": 1959,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "BerVale011",
+    "mapServer": "BerFrz01",
+    "mapClient": "BerFrz01",
+    "x": 17567,
+    "y": 4492,
+    "direct": 180,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "BerVale012",
+    "mapServer": "BerFrz01",
+    "mapClient": "BerFrz01",
+    "x": 17567,
+    "y": 4492,
+    "direct": 180,
+    "party": 1,
+    "enabled": false
+  },
+  {
+    "argument": "B_Albi011",
+    "mapServer": "ArkDn01",
+    "mapClient": "ArkDn01",
+    "x": 5519,
+    "y": 5407,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "BH_Albi011",
+    "mapServer": "ArkDn01",
+    "mapClient": "ArkDn01",
+    "x": 7153,
+    "y": 6927,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "Rou",
+    "mapServer": "RouN",
+    "mapClient": "RouN",
+    "x": 5604,
+    "y": 6519,
+    "direct": 90,
+    "party": 1,
+    "enabled": true
+  },
+  {
+    "argument": "SD_Vale011",
+    "mapServer": "SD_Vale01",
+    "mapClient": "SD_Vale01",
+    "x": 5556,
+    "y": 5802,
+    "direct": 0,
+    "party": 1,
+    "enabled": true
+  }
+]

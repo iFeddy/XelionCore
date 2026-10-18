@@ -1,0 +1,46 @@
+[
+  {
+    "mobName": "Gerta",
+    "map": "ArkDn01",
+    "x": 5367,
+    "y": 6127,
+    "direct": 286,
+    "menu": 1,
+    "role": "QuestNpc",
+    "roleArg": "Quest",
+    "enabled": true
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "ArkDn01",
+    "x": 2419,
+    "y": 7213,
+    "direct": 0,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "ArkDn011",
+    "enabled": true
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "ArkDn01",
+    "x": 5440,
+    "y": 5259,
+    "direct": 0,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "ArkDn012",
+    "enabled": true
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "ArkDn01",
+    "x": 7247,
+    "y": 6998,
+    "direct": 0,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "ArkDn013",
+    "enabled": true
+  }
+]

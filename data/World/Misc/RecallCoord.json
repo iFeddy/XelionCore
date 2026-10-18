@@ -1,0 +1,387 @@
+[
+  {
+    "itemIndex": "StageRouRecallScroll",
+    "itemIdent": 0,
+    "mapName": "RouN",
+    "x": 6445,
+    "y": 8630
+  },
+  {
+    "itemIndex": "StageEldRecallScroll",
+    "itemIdent": 0,
+    "mapName": "Eld",
+    "x": 17214,
+    "y": 13445
+  },
+  {
+    "itemIndex": "StageUrgRecallScroll",
+    "itemIdent": 0,
+    "mapName": "Urg",
+    "x": 6293,
+    "y": 5477
+  },
+  {
+    "itemIndex": "Cos01Scroll",
+    "itemIdent": 0,
+    "mapName": "RouCos01",
+    "x": 10443,
+    "y": 7049
+  },
+  {
+    "itemIndex": "Cos02Scroll",
+    "itemIdent": 0,
+    "mapName": "RouCos02",
+    "x": 16373,
+    "y": 5849
+  },
+  {
+    "itemIndex": "Cos03Scroll",
+    "itemIdent": 0,
+    "mapName": "RouCos03",
+    "x": 12969,
+    "y": 8475
+  },
+  {
+    "itemIndex": "TemDn01Scroll",
+    "itemIdent": 0,
+    "mapName": "RouTemDn01",
+    "x": 6270,
+    "y": 389
+  },
+  {
+    "itemIndex": "TemDn02Scroll",
+    "itemIdent": 0,
+    "mapName": "RouTemDn02",
+    "x": 5217,
+    "y": 927
+  },
+  {
+    "itemIndex": "Val01Scroll",
+    "itemIdent": 0,
+    "mapName": "RouVal01",
+    "x": 12879,
+    "y": 3852
+  },
+  {
+    "itemIndex": "Val02Scroll",
+    "itemIdent": 0,
+    "mapName": "RouVal02",
+    "x": 6097,
+    "y": 4582
+  },
+  {
+    "itemIndex": "Cem01Scroll",
+    "itemIdent": 0,
+    "mapName": "EldCem01",
+    "x": 11166,
+    "y": 1388
+  },
+  {
+    "itemIndex": "Cem02Scroll",
+    "itemIdent": 0,
+    "mapName": "EldCem02",
+    "x": 2063,
+    "y": 2540
+  },
+  {
+    "itemIndex": "Gbl01Scroll",
+    "itemIdent": 0,
+    "mapName": "EldGbl01",
+    "x": 6358,
+    "y": 6976
+  },
+  {
+    "itemIndex": "Pri01Scroll",
+    "itemIdent": 0,
+    "mapName": "EldPri01",
+    "x": 9935,
+    "y": 10604
+  },
+  {
+    "itemIndex": "PriDn01Scroll",
+    "itemIdent": 0,
+    "mapName": "EldPriDn01",
+    "x": 2816,
+    "y": 8117
+  },
+  {
+    "itemIndex": "PriDn02Scroll",
+    "itemIdent": 0,
+    "mapName": "EldPriDn02",
+    "x": 441,
+    "y": 5018
+  },
+  {
+    "itemIndex": "EchoScroll",
+    "itemIdent": 0,
+    "mapName": "EchoCave",
+    "x": 22810,
+    "y": 22724
+  },
+  {
+    "itemIndex": "WindyScroll",
+    "itemIdent": 0,
+    "mapName": "WindyCave",
+    "x": 20654,
+    "y": 21673
+  },
+  {
+    "itemIndex": "For01Scroll",
+    "itemIdent": 0,
+    "mapName": "EldFor01",
+    "x": 7591,
+    "y": 19060
+  },
+  {
+    "itemIndex": "Sleep01Scroll",
+    "itemIdent": 0,
+    "mapName": "EldSleep01",
+    "x": 8809,
+    "y": 8736
+  },
+  {
+    "itemIndex": "GblDn01Scroll",
+    "itemIdent": 0,
+    "mapName": "EldGbl01",
+    "x": 895,
+    "y": 6882
+  },
+  {
+    "itemIndex": "GoldScroll",
+    "itemIdent": 0,
+    "mapName": "GoldCave",
+    "x": 20291,
+    "y": 21507
+  },
+  {
+    "itemIndex": "CemDn01Scroll",
+    "itemIdent": 0,
+    "mapName": "EldCem01",
+    "x": 2221,
+    "y": 2954
+  },
+  {
+    "itemIndex": "ElfDn01Scroll",
+    "itemIdent": 0,
+    "mapName": "Urg",
+    "x": 10842,
+    "y": 11948
+  },
+  {
+    "itemIndex": "ValDn01Scroll",
+    "itemIdent": 0,
+    "mapName": "RouVal02",
+    "x": 2465,
+    "y": 7947
+  },
+  {
+    "itemIndex": "StageEldGbl02RecallScroll",
+    "itemIdent": 0,
+    "mapName": "EldGbl02",
+    "x": 10119,
+    "y": 8609
+  },
+  {
+    "itemIndex": "Urg_AlruinRecallScroll",
+    "itemIdent": 0,
+    "mapName": "Urg_Alruin",
+    "x": 8003,
+    "y": 10596
+  },
+  {
+    "itemIndex": "D_PriDn01Scroll",
+    "itemIdent": 0,
+    "mapName": "EldPri01",
+    "x": 5793,
+    "y": 1220
+  },
+  {
+    "itemIndex": "PriDn01Scroll",
+    "itemIdent": 0,
+    "mapName": "EldPriDn01",
+    "x": 2816,
+    "y": 8117
+  },
+  {
+    "itemIndex": "PriDn02Scroll",
+    "itemIdent": 0,
+    "mapName": "EldPriDn02",
+    "x": 441,
+    "y": 5018
+  },
+  {
+    "itemIndex": "EchoScroll",
+    "itemIdent": 0,
+    "mapName": "EchoCave",
+    "x": 22810,
+    "y": 22724
+  },
+  {
+    "itemIndex": "WindyScroll",
+    "itemIdent": 0,
+    "mapName": "WindyCave",
+    "x": 20654,
+    "y": 21673
+  },
+  {
+    "itemIndex": "For01Scroll",
+    "itemIdent": 0,
+    "mapName": "EldFor01",
+    "x": 7591,
+    "y": 19060
+  },
+  {
+    "itemIndex": "Sleep01Scroll",
+    "itemIdent": 0,
+    "mapName": "EldSleep01",
+    "x": 8809,
+    "y": 8736
+  },
+  {
+    "itemIndex": "GblDn01Scroll",
+    "itemIdent": 0,
+    "mapName": "GblDn01",
+    "x": 5094,
+    "y": 533
+  },
+  {
+    "itemIndex": "GoldScroll",
+    "itemIdent": 0,
+    "mapName": "GoldCave",
+    "x": 20291,
+    "y": 21507
+  },
+  {
+    "itemIndex": "CemDn01Scroll",
+    "itemIdent": 0,
+    "mapName": "CemDn01",
+    "x": 8029,
+    "y": 1765
+  },
+  {
+    "itemIndex": "ElfDn01Scroll",
+    "itemIdent": 0,
+    "mapName": "ElfDn01",
+    "x": 2660,
+    "y": 6901
+  },
+  {
+    "itemIndex": "ValDn01Scroll",
+    "itemIdent": 0,
+    "mapName": "ValDn01",
+    "x": 1159,
+    "y": 11349
+  },
+  {
+    "itemIndex": "StageEldGbl02RecallScroll",
+    "itemIdent": 0,
+    "mapName": "EldGbl02",
+    "x": 10119,
+    "y": 8609
+  },
+  {
+    "itemIndex": "Urg_AlruinRecallScroll",
+    "itemIdent": 0,
+    "mapName": "Urg_Alruin",
+    "x": 8003,
+    "y": 10596
+  },
+  {
+    "itemIndex": "Fire01Scroll",
+    "itemIdent": 0,
+    "mapName": "UrgFire01",
+    "x": 2474,
+    "y": 24613
+  },
+  {
+    "itemIndex": "FireDn01Scroll",
+    "itemIdent": 0,
+    "mapName": "UrgFire01",
+    "x": 2415,
+    "y": 3396
+  },
+  {
+    "itemIndex": "FireDn02Scroll",
+    "itemIdent": 0,
+    "mapName": "UrgFire01",
+    "x": 24451,
+    "y": 8986
+  },
+  {
+    "itemIndex": "Swa01Scroll",
+    "itemIdent": 0,
+    "mapName": "UrgSwa01",
+    "x": 5789,
+    "y": 4352
+  },
+  {
+    "itemIndex": "SwaDn01Scroll",
+    "itemIdent": 0,
+    "mapName": "UrgSwa01",
+    "x": 20177,
+    "y": 21824
+  },
+  {
+    "itemIndex": "SwaDn02Scroll",
+    "itemIdent": 0,
+    "mapName": "UrgSwa01",
+    "x": 9255,
+    "y": 12892
+  },
+  {
+    "itemIndex": "Pri02Scroll",
+    "itemIdent": 0,
+    "mapName": "EldPri02",
+    "x": 1673,
+    "y": 3914
+  },
+  {
+    "itemIndex": "BeraRecallScroll",
+    "itemIdent": 0,
+    "mapName": "Bera",
+    "x": 6487,
+    "y": 1789
+  },
+  {
+    "itemIndex": "StageEldRecallScroll01",
+    "itemIdent": 0,
+    "mapName": "Eld",
+    "x": 17214,
+    "y": 13445
+  },
+  {
+    "itemIndex": "StageUrgRecallScroll01",
+    "itemIdent": 0,
+    "mapName": "Urg",
+    "x": 6293,
+    "y": 5477
+  },
+  {
+    "itemIndex": "D_PriDn01Scroll",
+    "itemIdent": 0,
+    "mapName": "PriDn01",
+    "x": 12208,
+    "y": 4514
+  },
+  {
+    "itemIndex": "StageAdlRecallScroll",
+    "itemIdent": 0,
+    "mapName": "Adl",
+    "x": 12000,
+    "y": 11866
+  },
+  {
+    "itemIndex": "SenUrgRecallScroll",
+    "itemIdent": 0,
+    "mapName": "Urg",
+    "x": 6293,
+    "y": 5477
+  },
+  {
+    "itemIndex": "StageBeraRecallScroll",
+    "itemIdent": 0,
+    "mapName": "Bera",
+    "x": 6532,
+    "y": 1529
+  }
+]

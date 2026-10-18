@@ -1,0 +1,13 @@
+[
+  {
+    "mobName": "EldSpeGuard03",
+    "map": "ArkDn02",
+    "x": 2419,
+    "y": 7213,
+    "direct": 0,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "ArkDn021",
+    "enabled": true
+  }
+]

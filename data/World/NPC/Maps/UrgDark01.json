@@ -1,0 +1,90 @@
+[
+  {
+    "mobName": "MapLinkGate",
+    "map": "UrgDark01",
+    "x": 2259,
+    "y": 11995,
+    "direct": -84,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "UrgDark011",
+    "enabled": true
+  },
+  {
+    "mobName": "IDMapLinkGate01",
+    "map": "UrgDark01",
+    "x": 21515,
+    "y": 1851,
+    "direct": 169,
+    "menu": 0,
+    "role": "IDGate",
+    "roleArg": "UrgDark012",
+    "enabled": false
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "UrgDark01",
+    "x": 23715,
+    "y": 13172,
+    "direct": 88,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "UrgDark013",
+    "enabled": false
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "UrgDark01",
+    "x": 22890,
+    "y": 3895,
+    "direct": 80,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "UrgDark015",
+    "enabled": true
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "UrgDark01",
+    "x": 21486,
+    "y": 1926,
+    "direct": -8,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "UrgDark014",
+    "enabled": true
+  },
+  {
+    "mobName": "DigChavez",
+    "map": "UrgDark01",
+    "x": 16546,
+    "y": 13623,
+    "direct": 354,
+    "menu": 1,
+    "role": "QuestNpc",
+    "roleArg": "Quest",
+    "enabled": true
+  },
+  {
+    "mobName": "DigKupers",
+    "map": "UrgDark01",
+    "x": 16791,
+    "y": 13544,
+    "direct": 286,
+    "menu": 1,
+    "role": "QuestNpc",
+    "roleArg": "Quest",
+    "enabled": true
+  },
+  {
+    "mobName": "DigRoss",
+    "map": "UrgDark01",
+    "x": 16534,
+    "y": 13452,
+    "direct": 188,
+    "menu": 1,
+    "role": "QuestNpc",
+    "roleArg": "Quest",
+    "enabled": true
+  }
+]

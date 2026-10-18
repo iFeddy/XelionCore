@@ -1,0 +1,173 @@
+[
+  {
+    "mapId": "GuildT04",
+    "gtMapNo": 0,
+    "stone": {
+      "x": 1808,
+      "y": 3532,
+      "dir": 394
+    },
+    "guildARegion": {
+      "x": 765,
+      "y": 3588
+    },
+    "guildBRegion": {
+      "x": 516,
+      "y": 500
+    },
+    "doorsA": [
+      {
+        "x": 1001,
+        "y": 3277,
+        "dir": 119,
+        "block": "door2"
+      },
+      {
+        "x": 3100,
+        "y": 1100,
+        "dir": 0,
+        "block": "door5"
+      },
+      {
+        "x": 3400,
+        "y": 1100,
+        "dir": 0,
+        "block": "door6"
+      }
+    ],
+    "doorsB": [
+      {
+        "x": 1026,
+        "y": 765,
+        "dir": 50,
+        "block": "door1"
+      },
+      {
+        "x": 1800,
+        "y": 662,
+        "dir": 0,
+        "block": "door3"
+      },
+      {
+        "x": 2200,
+        "y": 662,
+        "dir": 0,
+        "block": "door4"
+      }
+    ]
+  },
+  {
+    "mapId": "GuildT02",
+    "gtMapNo": 1,
+    "stone": {
+      "x": 3283,
+      "y": 4466,
+      "dir": 25
+    },
+    "guildARegion": {
+      "x": 3289,
+      "y": 4551
+    },
+    "guildBRegion": {
+      "x": 3172,
+      "y": 1666
+    },
+    "doorsA": [
+      {
+        "x": 2250,
+        "y": 4308,
+        "dir": 36,
+        "block": "door4"
+      },
+      {
+        "x": 3210,
+        "y": 4124,
+        "dir": 0,
+        "block": "door5"
+      },
+      {
+        "x": 4122,
+        "y": 4185,
+        "dir": 170,
+        "block": "door6"
+      }
+    ],
+    "doorsB": [
+      {
+        "x": 2761,
+        "y": 1989,
+        "dir": 144,
+        "block": "door1"
+      },
+      {
+        "x": 3204,
+        "y": 2078,
+        "dir": 0,
+        "block": "door2"
+      },
+      {
+        "x": 3716,
+        "y": 2049,
+        "dir": 17,
+        "block": "door3"
+      }
+    ]
+  },
+  {
+    "mapId": "GuildT03",
+    "gtMapNo": 2,
+    "stone": {
+      "x": 2327,
+      "y": 2201,
+      "dir": 86
+    },
+    "guildARegion": {
+      "x": 3084,
+      "y": 3069
+    },
+    "guildBRegion": {
+      "x": 202,
+      "y": 184
+    },
+    "doorsA": [
+      {
+        "x": 3104,
+        "y": 2722,
+        "dir": 0,
+        "block": "door2"
+      },
+      {
+        "x": 2819,
+        "y": 2971,
+        "dir": 86,
+        "block": "door3"
+      },
+      {
+        "x": 2835,
+        "y": 620,
+        "dir": 0,
+        "block": "door4"
+      }
+    ],
+    "doorsB": [
+      {
+        "x": 404,
+        "y": 382,
+        "dir": 39,
+        "block": "door1"
+      },
+      {
+        "x": 1259,
+        "y": 627,
+        "dir": 0,
+        "block": "door5"
+      },
+      {
+        "x": 1618,
+        "y": 631,
+        "dir": 0,
+        "block": "door6"
+      }
+    ]
+  }
+]

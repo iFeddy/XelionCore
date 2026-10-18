@@ -1,0 +1,13 @@
+[
+  {
+    "mobName": "LevelGuard70",
+    "map": "ForDn02",
+    "x": 5960,
+    "y": 6127,
+    "direct": 90,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "ForDn021",
+    "enabled": true
+  }
+]

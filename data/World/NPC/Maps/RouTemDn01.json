@@ -1,0 +1,46 @@
+[
+  {
+    "mobName": "MapLinkGate",
+    "map": "RouTemDn01",
+    "x": 6260,
+    "y": 732,
+    "direct": 179,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "GateRouTemDn011",
+    "enabled": true
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "RouTemDn01",
+    "x": 8999,
+    "y": 4936,
+    "direct": 0,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "GateRouTemDn012",
+    "enabled": true
+  },
+  {
+    "mobName": "EldSpeGuard03",
+    "map": "RouTemDn01",
+    "x": 5446,
+    "y": 6642,
+    "direct": 0,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "GateRouTemDn013",
+    "enabled": false
+  },
+  {
+    "mobName": "EldSpeGuard03",
+    "map": "RouTemDn01",
+    "x": 1146,
+    "y": 4319,
+    "direct": 0,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "GateRouTemDn014",
+    "enabled": false
+  }
+]

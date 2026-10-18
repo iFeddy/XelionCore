@@ -1,0 +1,123 @@
+[
+  {
+    "mobName": "EldGaianBjurin",
+    "map": "RouCos03",
+    "x": 6819,
+    "y": 14834,
+    "direct": -119,
+    "menu": 1,
+    "role": "QuestNpc",
+    "roleArg": "Quest",
+    "enabled": true
+  },
+  {
+    "mobName": "RouDiggerDolTurn",
+    "map": "RouCos03",
+    "x": 19282,
+    "y": 3388,
+    "direct": -165,
+    "menu": 1,
+    "role": "QuestNpc",
+    "roleArg": "Quest",
+    "enabled": true
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "RouCos03",
+    "x": 13388,
+    "y": 2070,
+    "direct": -7,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "GateRouCos031",
+    "enabled": true
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "RouCos03",
+    "x": 16182,
+    "y": 17461,
+    "direct": 48,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "GateRouCos032",
+    "enabled": true
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "RouCos03",
+    "x": 7494,
+    "y": 15671,
+    "direct": 0,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "GateRouCos033",
+    "enabled": true
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "RouCos03",
+    "x": 20640,
+    "y": 3833,
+    "direct": 98,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "GateRouCos034",
+    "enabled": true
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "RouCos03",
+    "x": 4301,
+    "y": 5192,
+    "direct": -59,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "GateRouCos035",
+    "enabled": true
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "RouCos03",
+    "x": 19909,
+    "y": 7325,
+    "direct": -85,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "GateRouCos036",
+    "enabled": true
+  },
+  {
+    "mobName": "EldArcGuard03",
+    "map": "RouCos03",
+    "x": 7010,
+    "y": 15732,
+    "direct": -41,
+    "menu": 1,
+    "role": "Merchant",
+    "roleArg": "Item",
+    "enabled": false
+  },
+  {
+    "mobName": "TempSoul",
+    "map": "RouCos03",
+    "x": 7088,
+    "y": 16054,
+    "direct": -41,
+    "menu": 1,
+    "role": "Merchant",
+    "roleArg": "SoulStone",
+    "enabled": false
+  },
+  {
+    "mobName": "TempSkill",
+    "map": "RouCos03",
+    "x": 7574,
+    "y": 16040,
+    "direct": -41,
+    "menu": 1,
+    "role": "Merchant",
+    "roleArg": "Skill",
+    "enabled": false
+  }
+]

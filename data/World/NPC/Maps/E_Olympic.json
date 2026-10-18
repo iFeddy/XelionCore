@@ -1,0 +1,46 @@
+[
+  {
+    "mobName": "E_Ski_GateOut",
+    "map": "E_Olympic",
+    "x": 5663,
+    "y": 22811,
+    "direct": 45,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "E_Olympic01",
+    "enabled": false
+  },
+  {
+    "mobName": "E_Ski_GateOut",
+    "map": "E_Olympic",
+    "x": 12064,
+    "y": 7894,
+    "direct": 45,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "E_Olympic02",
+    "enabled": false
+  },
+  {
+    "mobName": "E_Ski_QuestNPC",
+    "map": "E_Olympic",
+    "x": 11866,
+    "y": 7966,
+    "direct": 45,
+    "menu": 1,
+    "role": "QuestNpc",
+    "roleArg": "Quest",
+    "enabled": false
+  },
+  {
+    "mobName": "E_Ski_RentMachine",
+    "map": "E_Olympic",
+    "x": 4920,
+    "y": 22492,
+    "direct": 132,
+    "menu": 1,
+    "role": "Merchant",
+    "roleArg": "Item",
+    "enabled": false
+  }
+]

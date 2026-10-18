@@ -1,0 +1,24 @@
+[
+  {
+    "mobName": "MapLinkGate",
+    "map": "Linkfield02",
+    "x": 2677,
+    "y": 6620,
+    "direct": -27,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "Linkfield021",
+    "enabled": true
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "Linkfield02",
+    "x": 2227,
+    "y": 9310,
+    "direct": -83,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "Linkfield022",
+    "enabled": true
+  }
+]

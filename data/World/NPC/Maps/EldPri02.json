@@ -1,0 +1,35 @@
+[
+  {
+    "mobName": "PatrolGuardianPolmon",
+    "map": "EldPri02",
+    "x": 2868,
+    "y": 6142,
+    "direct": 49,
+    "menu": 1,
+    "role": "Guard",
+    "roleArg": "Quest",
+    "enabled": true
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "EldPri02",
+    "x": 1524,
+    "y": 3565,
+    "direct": 78,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "EldPri021",
+    "enabled": true
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "EldPri02",
+    "x": 10005,
+    "y": 2808,
+    "direct": -28,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "EldPri022",
+    "enabled": true
+  }
+]

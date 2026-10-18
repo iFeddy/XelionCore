@@ -1,0 +1,79 @@
+[
+  {
+    "mobName": "MapLinkGate",
+    "map": "EldPri01",
+    "x": 1280,
+    "y": 2198,
+    "direct": 24,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "EldPri011",
+    "enabled": true
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "EldPri01",
+    "x": 9428,
+    "y": 10076,
+    "direct": 46,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "EldPri012",
+    "enabled": true
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "EldPri01",
+    "x": 2662,
+    "y": 1415,
+    "direct": -23,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "EldPri013",
+    "enabled": true
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "EldPri01",
+    "x": 1078,
+    "y": 11129,
+    "direct": -10,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "EldPri014",
+    "enabled": false
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "EldPri01",
+    "x": 5504,
+    "y": 1259,
+    "direct": 93,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "EldPri015",
+    "enabled": true
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "EldPri01",
+    "x": 480,
+    "y": 2800,
+    "direct": -10,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "EldPri016",
+    "enabled": true
+  },
+  {
+    "mobName": "MapLinkGate",
+    "map": "EldPri01",
+    "x": 1078,
+    "y": 11129,
+    "direct": -10,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "EldPri017",
+    "enabled": true
+  }
+]

@@ -1,0 +1,13 @@
+[
+  {
+    "mobName": "LevelGuard80",
+    "map": "FireDn02",
+    "x": 6358,
+    "y": 6854,
+    "direct": 0,
+    "menu": 0,
+    "role": "Gate",
+    "roleArg": "FireDn021",
+    "enabled": true
+  }
+]
