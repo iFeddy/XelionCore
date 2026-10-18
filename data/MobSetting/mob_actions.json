@@ -1,0 +1,538 @@
+{
+  "B_Slime": [
+    {
+      "condition_id": 18,
+      "action_id": 29
+    }
+  ],
+  "BallCake01": [
+    {
+      "condition_id": 1,
+      "action_id": 49
+    }
+  ],
+  "BallWater": [
+    {
+      "condition_id": 1,
+      "action_id": 49
+    }
+  ],
+  "C_Gate01": [
+    {
+      "condition_id": 1,
+      "action_id": 1
+    }
+  ],
+  "ChristmasTree": [
+    {
+      "condition_id": 12,
+      "action_id": 26
+    },
+    {
+      "condition_id": 12,
+      "action_id": 25
+    },
+    {
+      "condition_id": 12,
+      "action_id": 24
+    },
+    {
+      "condition_id": 12,
+      "action_id": 22
+    },
+    {
+      "condition_id": 12,
+      "action_id": 18
+    },
+    {
+      "condition_id": 13,
+      "action_id": 26
+    },
+    {
+      "condition_id": 13,
+      "action_id": 24
+    },
+    {
+      "condition_id": 13,
+      "action_id": 23
+    },
+    {
+      "condition_id": 13,
+      "action_id": 22
+    },
+    {
+      "condition_id": 13,
+      "action_id": 20
+    },
+    {
+      "condition_id": 14,
+      "action_id": 26
+    },
+    {
+      "condition_id": 14,
+      "action_id": 25
+    },
+    {
+      "condition_id": 14,
+      "action_id": 24
+    },
+    {
+      "condition_id": 14,
+      "action_id": 23
+    },
+    {
+      "condition_id": 14,
+      "action_id": 17
+    },
+    {
+      "condition_id": 15,
+      "action_id": 22
+    },
+    {
+      "condition_id": 15,
+      "action_id": 23
+    },
+    {
+      "condition_id": 15,
+      "action_id": 24
+    },
+    {
+      "condition_id": 15,
+      "action_id": 25
+    },
+    {
+      "condition_id": 15,
+      "action_id": 21
+    }
+  ],
+  "DT_EntranceGate": [
+    {
+      "condition_id": 1,
+      "action_id": 1
+    }
+  ],
+  "DT_ExitGate": [
+    {
+      "condition_id": 1,
+      "action_id": 1
+    }
+  ],
+  "DT_RadionOre": [
+    {
+      "condition_id": 20,
+      "action_id": 31
+    },
+    {
+      "condition_id": 20,
+      "action_id": 32
+    },
+    {
+      "condition_id": 20,
+      "action_id": 33
+    }
+  ],
+  "E_SixYear_Dance": [
+    {
+      "condition_id": 12,
+      "action_id": 26
+    },
+    {
+      "condition_id": 12,
+      "action_id": 25
+    },
+    {
+      "condition_id": 12,
+      "action_id": 24
+    },
+    {
+      "condition_id": 12,
+      "action_id": 22
+    },
+    {
+      "condition_id": 12,
+      "action_id": 18
+    },
+    {
+      "condition_id": 13,
+      "action_id": 26
+    },
+    {
+      "condition_id": 13,
+      "action_id": 24
+    },
+    {
+      "condition_id": 13,
+      "action_id": 23
+    },
+    {
+      "condition_id": 13,
+      "action_id": 22
+    },
+    {
+      "condition_id": 13,
+      "action_id": 20
+    },
+    {
+      "condition_id": 14,
+      "action_id": 26
+    },
+    {
+      "condition_id": 14,
+      "action_id": 25
+    },
+    {
+      "condition_id": 14,
+      "action_id": 24
+    },
+    {
+      "condition_id": 14,
+      "action_id": 23
+    },
+    {
+      "condition_id": 14,
+      "action_id": 17
+    },
+    {
+      "condition_id": 15,
+      "action_id": 22
+    },
+    {
+      "condition_id": 15,
+      "action_id": 23
+    },
+    {
+      "condition_id": 15,
+      "action_id": 24
+    },
+    {
+      "condition_id": 15,
+      "action_id": 25
+    },
+    {
+      "condition_id": 15,
+      "action_id": 21
+    }
+  ],
+  "E_SkiFlag_Blue": [
+    {
+      "condition_id": 1,
+      "action_id": 49
+    }
+  ],
+  "E_SkiFlag_Gold": [
+    {
+      "condition_id": 1,
+      "action_id": 49
+    }
+  ],
+  "E_SkiFlag_Red": [
+    {
+      "condition_id": 1,
+      "action_id": 49
+    }
+  ],
+  "E_Ski_IDHoneying": [
+    {
+      "condition_id": 1,
+      "action_id": 50
+    }
+  ],
+  "E_Ski_Snowman": [
+    {
+      "condition_id": 1,
+      "action_id": 49
+    }
+  ],
+  "Egg2014_BigEgg": [
+    {
+      "condition_id": 1,
+      "action_id": 49
+    }
+  ],
+  "GTI_BoxAll": [
+    {
+      "condition_id": 1,
+      "action_id": 27
+    },
+    {
+      "condition_id": 1,
+      "action_id": 28
+    }
+  ],
+  "GTI_BoxTeamA": [
+    {
+      "condition_id": 16,
+      "action_id": 27
+    },
+    {
+      "condition_id": 16,
+      "action_id": 28
+    }
+  ],
+  "GTI_BoxTeamB": [
+    {
+      "condition_id": 17,
+      "action_id": 27
+    },
+    {
+      "condition_id": 17,
+      "action_id": 28
+    }
+  ],
+  "Gate_AdlF": [
+    {
+      "condition_id": 1,
+      "action_id": 1
+    }
+  ],
+  "Gate_Lab": [
+    {
+      "condition_id": 1,
+      "action_id": 1
+    }
+  ],
+  "IDLeviathanGate01": [
+    {
+      "condition_id": 1,
+      "action_id": 1
+    }
+  ],
+  "IDMapLinkGate00": [
+    {
+      "condition_id": 1,
+      "action_id": 1
+    }
+  ],
+  "IDMapLinkGate01": [
+    {
+      "condition_id": 1,
+      "action_id": 1
+    }
+  ],
+  "IDMapLinkGate02": [
+    {
+      "condition_id": 1,
+      "action_id": 1
+    }
+  ],
+  "IDMapLinkGate03": [
+    {
+      "condition_id": 1,
+      "action_id": 1
+    }
+  ],
+  "KDSoccer_Ball": [
+    {
+      "condition_id": 1,
+      "action_id": 49
+    }
+  ],
+  "KDSoccer_Ball_14": [
+    {
+      "condition_id": 1,
+      "action_id": 49
+    }
+  ],
+  "KDSoccer_Invincible": [
+    {
+      "condition_id": 1,
+      "action_id": 49
+    },
+    {
+      "condition_id": 1,
+      "action_id": 28
+    }
+  ],
+  "KDSoccer_SpeedUp": [
+    {
+      "condition_id": 1,
+      "action_id": 49
+    },
+    {
+      "condition_id": 1,
+      "action_id": 28
+    }
+  ],
+  "KarenGate": [
+    {
+      "condition_id": 1,
+      "action_id": 1
+    }
+  ],
+  "LightField01": [
+    {
+      "condition_id": 18,
+      "action_id": 29
+    }
+  ],
+  "LightField02": [
+    {
+      "condition_id": 18,
+      "action_id": 29
+    }
+  ],
+  "LightField03": [
+    {
+      "condition_id": 18,
+      "action_id": 29
+    }
+  ],
+  "LightField04": [
+    {
+      "condition_id": 18,
+      "action_id": 29
+    }
+  ],
+  "LightField05": [
+    {
+      "condition_id": 18,
+      "action_id": 29
+    }
+  ],
+  "LightOrb01": [
+    {
+      "condition_id": 19,
+      "action_id": 34
+    }
+  ],
+  "LightOrb02": [
+    {
+      "condition_id": 19,
+      "action_id": 35
+    }
+  ],
+  "LightOrb03": [
+    {
+      "condition_id": 19,
+      "action_id": 36
+    }
+  ],
+  "LightOrb04": [
+    {
+      "condition_id": 19,
+      "action_id": 37
+    }
+  ],
+  "LightOrb05": [
+    {
+      "condition_id": 19,
+      "action_id": 38
+    }
+  ],
+  "LightOrb06": [
+    {
+      "condition_id": 19,
+      "action_id": 44
+    }
+  ],
+  "LightOrb07": [
+    {
+      "condition_id": 19,
+      "action_id": 45
+    }
+  ],
+  "LightOrb08": [
+    {
+      "condition_id": 19,
+      "action_id": 46
+    }
+  ],
+  "LightOrb09": [
+    {
+      "condition_id": 19,
+      "action_id": 47
+    }
+  ],
+  "LightOrb10": [
+    {
+      "condition_id": 19,
+      "action_id": 48
+    }
+  ],
+  "MapLinkGate": [
+    {
+      "condition_id": 1,
+      "action_id": 1
+    }
+  ],
+  "MapLinkGate01": [
+    {
+      "condition_id": 1,
+      "action_id": 1
+    }
+  ],
+  "MultiProtect": [
+    {
+      "condition_id": 18,
+      "action_id": 29
+    },
+    {
+      "condition_id": 19,
+      "action_id": 30
+    }
+  ],
+  "MultiProtect02": [
+    {
+      "condition_id": 18,
+      "action_id": 29
+    },
+    {
+      "condition_id": 19,
+      "action_id": 42
+    }
+  ],
+  "MultiProtect03": [
+    {
+      "condition_id": 18,
+      "action_id": 29
+    },
+    {
+      "condition_id": 19,
+      "action_id": 43
+    }
+  ],
+  "SpImShield": [
+    {
+      "condition_id": 1,
+      "action_id": 36
+    },
+    {
+      "condition_id": 1,
+      "action_id": 28
+    }
+  ],
+  "SpUpShoes": [
+    {
+      "condition_id": 1,
+      "action_id": 35
+    },
+    {
+      "condition_id": 1,
+      "action_id": 28
+    }
+  ],
+  "T_Gate01": [
+    {
+      "condition_id": 1,
+      "action_id": 1
+    }
+  ],
+  "T_Gate02": [
+    {
+      "condition_id": 1,
+      "action_id": 1
+    }
+  ],
+  "WarBL_EntranceGate": [
+    {
+      "condition_id": 1,
+      "action_id": 1
+    }
+  ],
+  "WarH_EntranceGate": [
+    {
+      "condition_id": 1,
+      "action_id": 1
+    }
+  ]
+}
