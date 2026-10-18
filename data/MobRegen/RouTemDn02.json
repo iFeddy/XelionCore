@@ -1,0 +1,3269 @@
+{
+  "RouTemDn02Area01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5213,
+    "center_y": 1871,
+    "width": 575,
+    "height": 403,
+    "range_degree": -1,
+    "mobs": [
+      {
+        "mob": "Bat",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "SkelArcher",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouTemDn02Area02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7110,
+    "center_y": 2859,
+    "width": 0,
+    "height": 0,
+    "range_degree": 281,
+    "mobs": [
+      {
+        "mob": "Bat",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "SkelArcher",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Spider",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouTemDn02Area03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3318,
+    "center_y": 2861,
+    "width": 0,
+    "height": 0,
+    "range_degree": 260,
+    "mobs": [
+      {
+        "mob": "Bat",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "SkelArcher",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Spider",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouTemDn02Area04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5227,
+    "center_y": 3755,
+    "width": 595,
+    "height": 312,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "Bat",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "SkelArcher",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "SkelWarrior",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "SkelSoldier",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouTemDn02Area05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4171,
+    "center_y": 2805,
+    "width": 175,
+    "height": 773,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "Bat",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "SkelArcher",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouTemDn02Area06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6228,
+    "center_y": 2829,
+    "width": 150,
+    "height": 789,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "Bat",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "SkelArcher",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouTemDn02Area07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5206,
+    "center_y": 4725,
+    "width": 0,
+    "height": 0,
+    "range_degree": 274,
+    "mobs": [
+      {
+        "mob": "ArchMageBook",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Spider",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouTemDn02Area08": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3781,
+    "center_y": 4484,
+    "width": 137,
+    "height": 422,
+    "range_degree": -10,
+    "mobs": [
+      {
+        "mob": "Bat",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "SkelArcher",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "SkelWarrior",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "SkelSoldier",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouTemDn02Area09": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6638,
+    "center_y": 4777,
+    "width": 75,
+    "height": 490,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "Bat",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "SkelArcher",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "SkelWarrior",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouTemDn02Area10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3014,
+    "center_y": 5871,
+    "width": 1433,
+    "height": 154,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "ArchMageBook",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Bat",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "SkelWarrior",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouTemDn02Area11": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7236,
+    "center_y": 5874,
+    "width": 1116,
+    "height": 126,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "ArchMageBook",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Bat",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "SkelWarrior",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "SkelSoldier",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouTemDn02Area12": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4989,
+    "center_y": 7265,
+    "width": 113,
+    "height": 274,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "ArchMageBook",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "SkelWarrior",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Spider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouTemDn02Area13": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6103,
+    "center_y": 7284,
+    "width": 143,
+    "height": 319,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "ArchMageBook",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "SkelWarrior",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "SkelSoldier",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouTemDn02Area14": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5200,
+    "center_y": 9158,
+    "width": 0,
+    "height": 0,
+    "range_degree": 366,
+    "mobs": [
+      {
+        "mob": "ArchMageBook",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "FlyingStaff",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MasicStaff",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Spider",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouTemDn02Area15": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5673,
+    "center_y": 9851,
+    "width": 244,
+    "height": 136,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "ArchMageBook",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "FlyingStaff",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Spider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouTemDn02Area16": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4675,
+    "center_y": 9763,
+    "width": 153,
+    "height": 202,
+    "range_degree": -1,
+    "mobs": [
+      {
+        "mob": "ArchMageBook",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Spider",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MasicStaff",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouTemDn02Area17": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9002,
+    "center_y": 4786,
+    "width": 293,
+    "height": 105,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "ArchMageBook",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Bat",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouTemDn02Area18": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4558,
+    "center_y": 8372,
+    "width": 96,
+    "height": 218,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "ArchMageBook",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "FlyingStaff",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MasicStaff",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouTemDn02Area19": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5857,
+    "center_y": 8445,
+    "width": 80,
+    "height": 246,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "ArchMageBook",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Spider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouTemDn02Area20": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 653,
+    "center_y": 5076,
+    "width": 336,
+    "height": 135,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "ArchMageBook",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Bat",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "SkelWarrior",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouTemDn02Area21": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1314,
+    "center_y": 4645,
+    "width": 353,
+    "height": 127,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "ArchMageBook",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "SkelSoldier",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Spider",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouTemDn02Area22": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 669,
+    "center_y": 4211,
+    "width": 335,
+    "height": 111,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "ArchMageBook",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Spider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MasicStaff",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouTemDn02Area23": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1188,
+    "center_y": 2170,
+    "width": 507,
+    "height": 166,
+    "range_degree": -44,
+    "mobs": [
+      {
+        "mob": "ArchMageBook",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "FlyingStaff",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Spider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MasicStaff",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouTemDn02Area24": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 388,
+    "center_y": 2485,
+    "width": 136,
+    "height": 706,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "FlyingStaff",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Spider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MasicStaff",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouTemDn02Area25": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1255,
+    "center_y": 3111,
+    "width": 477,
+    "height": 87,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "ArchMageBook",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "FlyingStaff",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MasicStaff",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouTemDn02Area26": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1810,
+    "center_y": 2800,
+    "width": 0,
+    "height": 0,
+    "range_degree": 261,
+    "mobs": [
+      {
+        "mob": "FlyingStaff",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Spider",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MasicStaff",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouTemDn02Area27": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8795,
+    "center_y": 4149,
+    "width": 312,
+    "height": 140,
+    "range_degree": 89,
+    "mobs": [
+      {
+        "mob": "ArchMageBook",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "SkelWarrior",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "SkelSoldier",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Spider",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouTemDn02Area28": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9479,
+    "center_y": 2846,
+    "width": 325,
+    "height": 153,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "ArchMageBook",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Spider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouTemDn02Area29": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8257,
+    "center_y": 2738,
+    "width": 0,
+    "height": 0,
+    "range_degree": 303,
+    "mobs": [
+      {
+        "mob": "ArchMageBook",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "FlyingStaff",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Spider",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MasicStaff",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouTemDn02Area30": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9550,
+    "center_y": 1401,
+    "width": 694,
+    "height": 76,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "FlyingStaff",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Spider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MasicStaff",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouTemDn02Area31": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8186,
+    "center_y": 1508,
+    "width": 128,
+    "height": 171,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "FlyingStaff",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MasicStaff",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouTemDn02Area32": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9476,
+    "center_y": 2286,
+    "width": 196,
+    "height": 213,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "ArchMageBook",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "FlyingStaff",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Spider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouTemDn02Area33": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8673,
+    "center_y": 1962,
+    "width": 148,
+    "height": 219,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "ArchMageBook",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MasicStaff",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouTemDn02Area34": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9747,
+    "center_y": 2407,
+    "width": 0,
+    "height": 0,
+    "range_degree": 121,
+    "mobs": [
+      {
+        "mob": "FlyingStaff",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MasicStaff",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouTemDn02Area35": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9795,
+    "center_y": 1796,
+    "width": 107,
+    "height": 132,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "ArchMageBook",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouTemDn02Area36": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11032,
+    "center_y": 1746,
+    "width": 315,
+    "height": 335,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "ArchMageBook",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "FlyingStaff",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Spider",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MasicStaff",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouTemDn02Area37": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10975,
+    "center_y": 1789,
+    "width": 333,
+    "height": 333,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "SkelKnight",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 345,
+        "reg_max": 375,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouTemDn02Area38": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6179,
+    "center_y": 8478,
+    "width": 0,
+    "height": 0,
+    "range_degree": 121,
+    "mobs": [
+      {
+        "mob": "ArchMageBook",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouTemDn02Area39": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4216,
+    "center_y": 8449,
+    "width": 0,
+    "height": 0,
+    "range_degree": 114,
+    "mobs": [
+      {
+        "mob": "ArchMageBook",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "FlyingStaff",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouTemDn02Area40": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4259,
+    "center_y": 10061,
+    "width": 0,
+    "height": 0,
+    "range_degree": 128,
+    "mobs": [
+      {
+        "mob": "ArchMageBook",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Spider",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouTemDn02Area41": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6137,
+    "center_y": 10086,
+    "width": 0,
+    "height": 0,
+    "range_degree": 128,
+    "mobs": [
+      {
+        "mob": "ArchMageBook",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MasicStaff",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 10,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouTemDn02MINE02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5213,
+    "center_y": 4982,
+    "width": 331,
+    "height": 51,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "MINE4",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 150,
+        "reg_min": 135,
+        "reg_max": 165,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouTemDn02MINE01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3058,
+    "center_y": 5807,
+    "width": 52,
+    "height": 461,
+    "range_degree": 90,
+    "mobs": [
+      {
+        "mob": "MINE5",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 150,
+        "reg_min": 135,
+        "reg_max": 165,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouTemDn02MINE03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8455,
+    "center_y": 5817,
+    "width": 52,
+    "height": 522,
+    "range_degree": -89,
+    "mobs": [
+      {
+        "mob": "MINE6",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 150,
+        "reg_min": 135,
+        "reg_max": 165,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouTemDn02MINE04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4142,
+    "center_y": 7225,
+    "width": 50,
+    "height": 319,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "MINE4",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 150,
+        "reg_min": 135,
+        "reg_max": 165,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE5",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 150,
+        "reg_min": 135,
+        "reg_max": 165,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouTemDn02MINE05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5892,
+    "center_y": 9455,
+    "width": 51,
+    "height": 594,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "MINE6",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 150,
+        "reg_min": 135,
+        "reg_max": 165,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE4",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 150,
+        "reg_min": 135,
+        "reg_max": 165,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouTemDn02MINE06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1478,
+    "center_y": 2346,
+    "width": 51,
+    "height": 750,
+    "range_degree": 46,
+    "mobs": [
+      {
+        "mob": "MINE5",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 150,
+        "reg_min": 135,
+        "reg_max": 165,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE6",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 150,
+        "reg_min": 135,
+        "reg_max": 165,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouTemDn02MINE07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9214,
+    "center_y": 2308,
+    "width": 371,
+    "height": 121,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "MINE4",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 150,
+        "reg_min": 135,
+        "reg_max": 165,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE5",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 150,
+        "reg_min": 135,
+        "reg_max": 165,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouTemDn02AreaPbox01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5951,
+    "center_y": 5900,
+    "width": 4225,
+    "height": 5715,
+    "range_degree": 90,
+    "mobs": [
+      {
+        "mob": "PresentBox5",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 14400,
+        "reg_min": 14390,
+        "reg_max": 14410,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,2873 @@
+{
+  "UrgSwaDn01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9556,
+    "center_y": 11289,
+    "width": 0,
+    "height": 0,
+    "range_degree": 90,
+    "mobs": [
+      {
+        "mob": "SlugB",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 34,
+        "reg_max": 36,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UrgSwaDn02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9934,
+    "center_y": 10927,
+    "width": 0,
+    "height": 0,
+    "range_degree": 90,
+    "mobs": [
+      {
+        "mob": "SlugB",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 34,
+        "reg_max": 36,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UrgSwaDn03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9573,
+    "center_y": 10525,
+    "width": 0,
+    "height": 0,
+    "range_degree": 90,
+    "mobs": [
+      {
+        "mob": "SlugB",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 34,
+        "reg_max": 36,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UrgSwaDn04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7622,
+    "center_y": 11522,
+    "width": 0,
+    "height": 0,
+    "range_degree": 90,
+    "mobs": [
+      {
+        "mob": "SlugB",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 34,
+        "reg_max": 36,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UrgSwaDn05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6917,
+    "center_y": 11515,
+    "width": 0,
+    "height": 0,
+    "range_degree": 90,
+    "mobs": [
+      {
+        "mob": "SlugB",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 34,
+        "reg_max": 36,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UrgSwaDn06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9242,
+    "center_y": 11422,
+    "width": 0,
+    "height": 0,
+    "range_degree": 90,
+    "mobs": [
+      {
+        "mob": "SlugB",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 34,
+        "reg_max": 36,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UrgSwaDn07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8322,
+    "center_y": 11523,
+    "width": 0,
+    "height": 0,
+    "range_degree": 90,
+    "mobs": [
+      {
+        "mob": "SlugB",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 34,
+        "reg_max": 36,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UrgSwaDn08": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10091,
+    "center_y": 9843,
+    "width": 0,
+    "height": 0,
+    "range_degree": 90,
+    "mobs": [
+      {
+        "mob": "MadSlugB",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 34,
+        "reg_max": 36,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UrgSwaDn09": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9586,
+    "center_y": 9733,
+    "width": 0,
+    "height": 0,
+    "range_degree": 90,
+    "mobs": [
+      {
+        "mob": "MadSlugB",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 34,
+        "reg_max": 36,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UrgSwaDn10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9996,
+    "center_y": 10511,
+    "width": 0,
+    "height": 0,
+    "range_degree": 90,
+    "mobs": [
+      {
+        "mob": "MadSlugB",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 34,
+        "reg_max": 36,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UrgSwaDn11": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9772,
+    "center_y": 10087,
+    "width": 0,
+    "height": 0,
+    "range_degree": 90,
+    "mobs": [
+      {
+        "mob": "MadSlugB",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 34,
+        "reg_max": 36,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UrgSwaDn12": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9054,
+    "center_y": 10471,
+    "width": 0,
+    "height": 0,
+    "range_degree": 90,
+    "mobs": [
+      {
+        "mob": "MadSlugB",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 34,
+        "reg_max": 36,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UrgSwaDn13": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9359,
+    "center_y": 10863,
+    "width": 0,
+    "height": 0,
+    "range_degree": 90,
+    "mobs": [
+      {
+        "mob": "MadSlugB",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 34,
+        "reg_max": 36,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UrgSwaDn14": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9275,
+    "center_y": 10072,
+    "width": 0,
+    "height": 0,
+    "range_degree": 90,
+    "mobs": [
+      {
+        "mob": "MadSlugB",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 34,
+        "reg_max": 36,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UrgSwaDn15": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4566,
+    "center_y": 11525,
+    "width": 0,
+    "height": 0,
+    "range_degree": 90,
+    "mobs": [
+      {
+        "mob": "ShadowB",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 34,
+        "reg_max": 36,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UrgSwaDn16": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2997,
+    "center_y": 11527,
+    "width": 0,
+    "height": 0,
+    "range_degree": 90,
+    "mobs": [
+      {
+        "mob": "ShadowB",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 34,
+        "reg_max": 36,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UrgSwaDn17": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1323,
+    "center_y": 10871,
+    "width": 0,
+    "height": 0,
+    "range_degree": 90,
+    "mobs": [
+      {
+        "mob": "ShadowB",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 34,
+        "reg_max": 36,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UrgSwaDn18": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3811,
+    "center_y": 11511,
+    "width": 0,
+    "height": 0,
+    "range_degree": 90,
+    "mobs": [
+      {
+        "mob": "ShadowB",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 34,
+        "reg_max": 36,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UrgSwaDn19": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1701,
+    "center_y": 10529,
+    "width": 0,
+    "height": 0,
+    "range_degree": 90,
+    "mobs": [
+      {
+        "mob": "ShadowB",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 34,
+        "reg_max": 36,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UrgSwaDn20": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2099,
+    "center_y": 10843,
+    "width": 0,
+    "height": 0,
+    "range_degree": 90,
+    "mobs": [
+      {
+        "mob": "ShadowB",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 34,
+        "reg_max": 36,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UrgSwaDn21": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2819,
+    "center_y": 8936,
+    "width": 0,
+    "height": 0,
+    "range_degree": 90,
+    "mobs": [
+      {
+        "mob": "RedShadowB",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 34,
+        "reg_max": 36,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UrgSwaDn22": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1794,
+    "center_y": 8944,
+    "width": 0,
+    "height": 0,
+    "range_degree": 90,
+    "mobs": [
+      {
+        "mob": "RedShadowB",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 34,
+        "reg_max": 36,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UrgSwaDn23": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4218,
+    "center_y": 8940,
+    "width": 0,
+    "height": 0,
+    "range_degree": 90,
+    "mobs": [
+      {
+        "mob": "RedShadowB",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 34,
+        "reg_max": 36,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UrgSwaDn24": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1993,
+    "center_y": 10039,
+    "width": 0,
+    "height": 0,
+    "range_degree": 90,
+    "mobs": [
+      {
+        "mob": "RedShadowB",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 34,
+        "reg_max": 36,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UrgSwaDn25": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1313,
+    "center_y": 9753,
+    "width": 0,
+    "height": 0,
+    "range_degree": 90,
+    "mobs": [
+      {
+        "mob": "RedShadowB",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 34,
+        "reg_max": 36,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UrgSwaDn26": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1247,
+    "center_y": 10372,
+    "width": 0,
+    "height": 0,
+    "range_degree": 90,
+    "mobs": [
+      {
+        "mob": "RedShadowB",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 34,
+        "reg_max": 36,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UrgSwaDn27": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8140,
+    "center_y": 8150,
+    "width": 0,
+    "height": 0,
+    "range_degree": 90,
+    "mobs": [
+      {
+        "mob": "BigMudManB",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 34,
+        "reg_max": 36,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UrgSwaDn28": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6251,
+    "center_y": 8674,
+    "width": 0,
+    "height": 0,
+    "range_degree": 90,
+    "mobs": [
+      {
+        "mob": "BigMudManB",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 34,
+        "reg_max": 36,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UrgSwaDn29": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7647,
+    "center_y": 8683,
+    "width": 0,
+    "height": 0,
+    "range_degree": 90,
+    "mobs": [
+      {
+        "mob": "BigMudManB",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 34,
+        "reg_max": 36,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UrgSwaDn30": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5668,
+    "center_y": 8864,
+    "width": 0,
+    "height": 0,
+    "range_degree": 90,
+    "mobs": [
+      {
+        "mob": "BigMudManB",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 34,
+        "reg_max": 36,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UrgSwaDn31": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7120,
+    "center_y": 8907,
+    "width": 0,
+    "height": 0,
+    "range_degree": 90,
+    "mobs": [
+      {
+        "mob": "BigMudManB",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 34,
+        "reg_max": 36,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UrgSwaDn32": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8475,
+    "center_y": 8580,
+    "width": 0,
+    "height": 0,
+    "range_degree": 90,
+    "mobs": [
+      {
+        "mob": "BigMudManB",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 34,
+        "reg_max": 36,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UrgSwaDn33": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8666,
+    "center_y": 7940,
+    "width": 0,
+    "height": 0,
+    "range_degree": 90,
+    "mobs": [
+      {
+        "mob": "LivingStatueB",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 34,
+        "reg_max": 36,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UrgSwaDn34": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6046,
+    "center_y": 5978,
+    "width": 0,
+    "height": 0,
+    "range_degree": 90,
+    "mobs": [
+      {
+        "mob": "LivingStatueB",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 34,
+        "reg_max": 36,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UrgSwaDn35": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4826,
+    "center_y": 7307,
+    "width": 0,
+    "height": 0,
+    "range_degree": 90,
+    "mobs": [
+      {
+        "mob": "LivingStoneB",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 34,
+        "reg_max": 36,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UrgSwaDn36": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4751,
+    "center_y": 6431,
+    "width": 0,
+    "height": 0,
+    "range_degree": 90,
+    "mobs": [
+      {
+        "mob": "LivingStoneB",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 34,
+        "reg_max": 36,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UrgSwaDn37": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5197,
+    "center_y": 5957,
+    "width": 0,
+    "height": 0,
+    "range_degree": 90,
+    "mobs": [
+      {
+        "mob": "LivingStoneB",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 34,
+        "reg_max": 36,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UrgSwaDn38": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7609,
+    "center_y": 5645,
+    "width": 0,
+    "height": 0,
+    "range_degree": 90,
+    "mobs": [
+      {
+        "mob": "RhinoceHunterB",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 34,
+        "reg_max": 36,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UrgSwaDn39": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4543,
+    "center_y": 4391,
+    "width": 0,
+    "height": 0,
+    "range_degree": 90,
+    "mobs": [
+      {
+        "mob": "RhinoceHunterB",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 34,
+        "reg_max": 36,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UrgSwaDn40": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6626,
+    "center_y": 4346,
+    "width": 0,
+    "height": 0,
+    "range_degree": 90,
+    "mobs": [
+      {
+        "mob": "RhinoceHunterB",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 34,
+        "reg_max": 36,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UrgSwaDn41": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7971,
+    "center_y": 5968,
+    "width": 0,
+    "height": 0,
+    "range_degree": 90,
+    "mobs": [
+      {
+        "mob": "RhinoceHunterB",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 34,
+        "reg_max": 36,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UrgSwaDn42": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7261,
+    "center_y": 5987,
+    "width": 0,
+    "height": 0,
+    "range_degree": 90,
+    "mobs": [
+      {
+        "mob": "RhinoceHunterB",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 34,
+        "reg_max": 36,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UrgSwaDn43": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8044,
+    "center_y": 4627,
+    "width": 0,
+    "height": 0,
+    "range_degree": 90,
+    "mobs": [
+      {
+        "mob": "RhinoceHunterB",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 34,
+        "reg_max": 36,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UrgSwaDn44": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5644,
+    "center_y": 4372,
+    "width": 0,
+    "height": 0,
+    "range_degree": 90,
+    "mobs": [
+      {
+        "mob": "RhinoceHunterB",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 34,
+        "reg_max": 36,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UrgSwaDn45": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8078,
+    "center_y": 3276,
+    "width": 0,
+    "height": 0,
+    "range_degree": 90,
+    "mobs": [
+      {
+        "mob": "RhinoceHunterB",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 34,
+        "reg_max": 36,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UrgSwaDn46": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8442,
+    "center_y": 8240,
+    "width": 0,
+    "height": 0,
+    "range_degree": 1,
+    "mobs": [
+      {
+        "mob": "StoneMaster",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1700,
+        "reg_max": 1900,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UrgSwaDn47": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6073,
+    "center_y": 1790,
+    "width": 0,
+    "height": 0,
+    "range_degree": 90,
+    "mobs": [
+      {
+        "mob": "BlackShadow",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 34,
+        "reg_max": 36,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UrgSwaDn48": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6301,
+    "center_y": 2230,
+    "width": 0,
+    "height": 0,
+    "range_degree": 90,
+    "mobs": [
+      {
+        "mob": "BlackShadow",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 34,
+        "reg_max": 36,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UrgSwaDn49": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5243,
+    "center_y": 2659,
+    "width": 0,
+    "height": 0,
+    "range_degree": 90,
+    "mobs": [
+      {
+        "mob": "BlackShadow",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 34,
+        "reg_max": 36,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UrgSwaDn50": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6184,
+    "center_y": 2666,
+    "width": 0,
+    "height": 0,
+    "range_degree": 90,
+    "mobs": [
+      {
+        "mob": "BlackShadow",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 34,
+        "reg_max": 36,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UrgSwaDn51": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5313,
+    "center_y": 1777,
+    "width": 0,
+    "height": 0,
+    "range_degree": 90,
+    "mobs": [
+      {
+        "mob": "BlackShadow",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 34,
+        "reg_max": 36,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UrgSwaDn52": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5077,
+    "center_y": 2268,
+    "width": 0,
+    "height": 0,
+    "range_degree": 90,
+    "mobs": [
+      {
+        "mob": "BlackShadow",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 34,
+        "reg_max": 36,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UrgSwaDn53": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5697,
+    "center_y": 3128,
+    "width": 0,
+    "height": 0,
+    "range_degree": 90,
+    "mobs": [
+      {
+        "mob": "BlackShadow",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 34,
+        "reg_max": 36,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UrgSwaDn54": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5696,
+    "center_y": 2710,
+    "width": 0,
+    "height": 0,
+    "range_degree": 90,
+    "mobs": [
+      {
+        "mob": "BlackShadow",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 34,
+        "reg_max": 36,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UrgSwaDn55": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5662,
+    "center_y": 2275,
+    "width": 0,
+    "height": 0,
+    "range_degree": 1,
+    "mobs": [
+      {
+        "mob": "ShadowMaster",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1700,
+        "reg_max": 1900,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UrgSwaDn56": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2539,
+    "center_y": 2602,
+    "width": 0,
+    "height": 0,
+    "range_degree": 90,
+    "mobs": [
+      {
+        "mob": "FireShella",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 34,
+        "reg_max": 36,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UrgSwaDn57": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1864,
+    "center_y": 1516,
+    "width": 0,
+    "height": 0,
+    "range_degree": 90,
+    "mobs": [
+      {
+        "mob": "FireShella",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 34,
+        "reg_max": 36,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UrgSwaDn58": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2550,
+    "center_y": 1578,
+    "width": 0,
+    "height": 0,
+    "range_degree": 90,
+    "mobs": [
+      {
+        "mob": "FireShella",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 34,
+        "reg_max": 36,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UrgSwaDn59": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1179,
+    "center_y": 1492,
+    "width": 0,
+    "height": 0,
+    "range_degree": 90,
+    "mobs": [
+      {
+        "mob": "FireShella",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 34,
+        "reg_max": 36,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UrgSwaDn60": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3298,
+    "center_y": 735,
+    "width": 0,
+    "height": 0,
+    "range_degree": 90,
+    "mobs": [
+      {
+        "mob": "FireShella",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 34,
+        "reg_max": 36,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UrgSwaDn61": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1411,
+    "center_y": 2137,
+    "width": 0,
+    "height": 0,
+    "range_degree": 90,
+    "mobs": [
+      {
+        "mob": "FireShella",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 34,
+        "reg_max": 36,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UrgSwaDn62": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1532,
+    "center_y": 1706,
+    "width": 0,
+    "height": 0,
+    "range_degree": 1,
+    "mobs": [
+      {
+        "mob": "FlameMaster",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1700,
+        "reg_max": 1900,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UrgSwaDn63": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6521,
+    "center_y": 6471,
+    "width": 0,
+    "height": 0,
+    "range_degree": 90,
+    "mobs": [
+      {
+        "mob": "LivingStatueB",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 34,
+        "reg_max": 36,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UrgSwaDn64": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5764,
+    "center_y": 6479,
+    "width": 0,
+    "height": 0,
+    "range_degree": 90,
+    "mobs": [
+      {
+        "mob": "LivingStatueB",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 34,
+        "reg_max": 36,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UrgSwaDn65": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5309,
+    "center_y": 6915,
+    "width": 0,
+    "height": 0,
+    "range_degree": 90,
+    "mobs": [
+      {
+        "mob": "LivingStatueB",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 34,
+        "reg_max": 36,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UrgSwaDn66": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5288,
+    "center_y": 7587,
+    "width": 0,
+    "height": 0,
+    "range_degree": 90,
+    "mobs": [
+      {
+        "mob": "LivingStatueB",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 34,
+        "reg_max": 36,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UrgSwaDn67": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5975,
+    "center_y": 7685,
+    "width": 0,
+    "height": 0,
+    "range_degree": 90,
+    "mobs": [
+      {
+        "mob": "LivingStoneB",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 34,
+        "reg_max": 36,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UrgSwaDn68": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6094,
+    "center_y": 7074,
+    "width": 0,
+    "height": 0,
+    "range_degree": 90,
+    "mobs": [
+      {
+        "mob": "LivingStoneB",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 34,
+        "reg_max": 36,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UrgSwaDn69": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6506,
+    "center_y": 7570,
+    "width": 0,
+    "height": 0,
+    "range_degree": 90,
+    "mobs": [
+      {
+        "mob": "LivingStoneB",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 34,
+        "reg_max": 36,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Waypoint01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3389,
+    "center_y": 8962,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "RedShadowA",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 34,
+        "reg_max": 36,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Waypoint02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2235,
+    "center_y": 8943,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "RedShadowA",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 34,
+        "reg_max": 36,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Waypoint03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1944,
+    "center_y": 11441,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "RedShadowA",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 34,
+        "reg_max": 36,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Waypoint04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4978,
+    "center_y": 11549,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "SlugA",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 34,
+        "reg_max": 36,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Waypoint05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4413,
+    "center_y": 11560,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "SlugA",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 34,
+        "reg_max": 36,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Waypoint06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3714,
+    "center_y": 11534,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "SlugA",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 34,
+        "reg_max": 36,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Waypoint07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4678,
+    "center_y": 4300,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "ShadowMaster",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1700,
+        "reg_max": 1900,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Waypoint08": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7612,
+    "center_y": 6010,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "ShadowMaster",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1700,
+        "reg_max": 1900,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Waypoint09": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6057,
+    "center_y": 6752,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "LivingStoneA",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 34,
+        "reg_max": 36,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Waypoint10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6615,
+    "center_y": 7137,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "LivingStoneA",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 34,
+        "reg_max": 36,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Waypoint11": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4842,
+    "center_y": 7736,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "LivingStatueA",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 34,
+        "reg_max": 36,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Waypoint12": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6057,
+    "center_y": 6752,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "LivingStatueA",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 34,
+        "reg_max": 36,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Waypoint13": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5085,
+    "center_y": 4279,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "BlackShadow",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 34,
+        "reg_max": 36,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Waypoint14": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4595,
+    "center_y": 4609,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "BlackShadow",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 34,
+        "reg_max": 36,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Waypoint15": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5057,
+    "center_y": 4612,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "BlackShadow",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 34,
+        "reg_max": 36,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Waypoint16": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7863,
+    "center_y": 5969,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "BlackShadow",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 34,
+        "reg_max": 36,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Waypoint17": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7336,
+    "center_y": 5968,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "BlackShadow",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 34,
+        "reg_max": 36,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Waypoint18": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7597,
+    "center_y": 5574,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "BlackShadow",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 34,
+        "reg_max": 36,
+        "deltas": [
+          5,
+          2,
+          3,
+          4,
+          5
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  }
+}

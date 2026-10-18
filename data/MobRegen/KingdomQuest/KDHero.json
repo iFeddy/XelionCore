@@ -1,0 +1,266 @@
+{
+  "HERO10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2408,
+    "center_y": 2768,
+    "width": 0,
+    "height": 0,
+    "range_degree": 1192,
+    "mobs": [
+      {
+        "mob": "KQ_HEROMINE10",
+        "count": 10,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "HERO20": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2408,
+    "center_y": 2768,
+    "width": 0,
+    "height": 0,
+    "range_degree": 1192,
+    "mobs": [
+      {
+        "mob": "KQ_HEROMINE20",
+        "count": 10,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "HERO30": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2408,
+    "center_y": 2768,
+    "width": 0,
+    "height": 0,
+    "range_degree": 1192,
+    "mobs": [
+      {
+        "mob": "KQ_HEROMINE30",
+        "count": 10,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "HERO40": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2408,
+    "center_y": 2768,
+    "width": 0,
+    "height": 0,
+    "range_degree": 1192,
+    "mobs": [
+      {
+        "mob": "KQ_HEROMINE40",
+        "count": 10,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "HERO50": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2408,
+    "center_y": 2768,
+    "width": 0,
+    "height": 0,
+    "range_degree": 1192,
+    "mobs": [
+      {
+        "mob": "KQ_HEROMINE50",
+        "count": 10,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "HERO60": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2408,
+    "center_y": 2768,
+    "width": 0,
+    "height": 0,
+    "range_degree": 1192,
+    "mobs": [
+      {
+        "mob": "KQ_HEROMINE60",
+        "count": 10,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "HERO70": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2408,
+    "center_y": 2768,
+    "width": 0,
+    "height": 0,
+    "range_degree": 1192,
+    "mobs": [
+      {
+        "mob": "KQ_HEROMINE70",
+        "count": 10,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "HERO80": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2408,
+    "center_y": 2768,
+    "width": 0,
+    "height": 0,
+    "range_degree": 1192,
+    "mobs": [
+      {
+        "mob": "KQ_HEROMINE80",
+        "count": 10,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  }
+}

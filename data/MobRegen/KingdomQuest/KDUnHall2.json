@@ -1,0 +1,1784 @@
+{
+  "KDUnderArea1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2210,
+    "center_y": 949,
+    "width": 0,
+    "height": 0,
+    "range_degree": 79,
+    "mobs": [
+      {
+        "mob": "KQ_U_Spider01",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDUnderArea2": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 602,
+    "center_y": 2861,
+    "width": 0,
+    "height": 0,
+    "range_degree": 93,
+    "mobs": [
+      {
+        "mob": "KQ_U_Spider01",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDUnderArea3": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2500,
+    "center_y": 4465,
+    "width": 0,
+    "height": 0,
+    "range_degree": 65,
+    "mobs": [
+      {
+        "mob": "KQ_U_Spider01",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDUnderArea4": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4174,
+    "center_y": 2668,
+    "width": 0,
+    "height": 0,
+    "range_degree": 79,
+    "mobs": [
+      {
+        "mob": "KQ_U_Spider01",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDUnderArea5": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2426,
+    "center_y": 981,
+    "width": 0,
+    "height": 0,
+    "range_degree": 79,
+    "mobs": [
+      {
+        "mob": "KQ_U_Spider02",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDUnderArea6": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 684,
+    "center_y": 2617,
+    "width": 0,
+    "height": 0,
+    "range_degree": 100,
+    "mobs": [
+      {
+        "mob": "KQ_U_Spider02",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDUnderArea7": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2404,
+    "center_y": 4486,
+    "width": 0,
+    "height": 0,
+    "range_degree": 65,
+    "mobs": [
+      {
+        "mob": "KQ_U_Spider02",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDUnderArea8": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4157,
+    "center_y": 2885,
+    "width": 0,
+    "height": 0,
+    "range_degree": 107,
+    "mobs": [
+      {
+        "mob": "KQ_U_Spider02",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDUnderArea9": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2208,
+    "center_y": 790,
+    "width": 0,
+    "height": 0,
+    "range_degree": 163,
+    "mobs": [
+      {
+        "mob": "KQ_U_Spider03",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDUnderArea10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 457,
+    "center_y": 2815,
+    "width": 0,
+    "height": 0,
+    "range_degree": 128,
+    "mobs": [
+      {
+        "mob": "KQ_U_Spider03",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDUnderArea11": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2343,
+    "center_y": 4420,
+    "width": 0,
+    "height": 0,
+    "range_degree": 107,
+    "mobs": [
+      {
+        "mob": "KQ_U_Spider03",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDUnderArea12": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4115,
+    "center_y": 2619,
+    "width": 0,
+    "height": 0,
+    "range_degree": 79,
+    "mobs": [
+      {
+        "mob": "KQ_U_Spider03",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDUnderArea13": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2141,
+    "center_y": 1041,
+    "width": 0,
+    "height": 0,
+    "range_degree": 51,
+    "mobs": [
+      {
+        "mob": "KQ_U_AMageBook",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDUnderArea14": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 728,
+    "center_y": 2945,
+    "width": 0,
+    "height": 0,
+    "range_degree": 51,
+    "mobs": [
+      {
+        "mob": "KQ_U_AMageBook",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDUnderArea15": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2151,
+    "center_y": 4405,
+    "width": 0,
+    "height": 0,
+    "range_degree": 51,
+    "mobs": [
+      {
+        "mob": "KQ_U_AMageBook",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDUnderArea16": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4035,
+    "center_y": 2499,
+    "width": 0,
+    "height": 0,
+    "range_degree": 51,
+    "mobs": [
+      {
+        "mob": "KQ_U_AMageBook",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDUnderArea17": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2556,
+    "center_y": 1033,
+    "width": 0,
+    "height": 0,
+    "range_degree": 51,
+    "mobs": [
+      {
+        "mob": "KQ_U_Spider05",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDUnderArea18": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 746,
+    "center_y": 2496,
+    "width": 0,
+    "height": 0,
+    "range_degree": 51,
+    "mobs": [
+      {
+        "mob": "KQ_U_Spider05",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDUnderArea19": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2602,
+    "center_y": 4400,
+    "width": 0,
+    "height": 0,
+    "range_degree": 51,
+    "mobs": [
+      {
+        "mob": "KQ_U_Spider05",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDUnderArea20": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4051,
+    "center_y": 2931,
+    "width": 0,
+    "height": 0,
+    "range_degree": 51,
+    "mobs": [
+      {
+        "mob": "KQ_U_Spider05",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDUnderArea21": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2332,
+    "center_y": 1009,
+    "width": 0,
+    "height": 0,
+    "range_degree": 58,
+    "mobs": [
+      {
+        "mob": "KQ_U_Lvivi",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDUnderArea22": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 669,
+    "center_y": 2721,
+    "width": 0,
+    "height": 0,
+    "range_degree": 58,
+    "mobs": [
+      {
+        "mob": "KQ_U_Lvivi",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDUnderArea23": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2275,
+    "center_y": 4423,
+    "width": 0,
+    "height": 0,
+    "range_degree": 65,
+    "mobs": [
+      {
+        "mob": "KQ_U_Lvivi",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDUnderArea24": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4105,
+    "center_y": 2733,
+    "width": 0,
+    "height": 0,
+    "range_degree": 65,
+    "mobs": [
+      {
+        "mob": "KQ_U_Lvivi",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDUnderArea25": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2528,
+    "center_y": 870,
+    "width": 0,
+    "height": 0,
+    "range_degree": 51,
+    "mobs": [
+      {
+        "mob": "KQ_U_Greenky",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDUnderArea26": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 543,
+    "center_y": 2552,
+    "width": 0,
+    "height": 0,
+    "range_degree": 51,
+    "mobs": [
+      {
+        "mob": "KQ_U_Greenky",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDUnderArea27": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2143,
+    "center_y": 4617,
+    "width": 0,
+    "height": 0,
+    "range_degree": 51,
+    "mobs": [
+      {
+        "mob": "KQ_U_Greenky",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDUnderArea28": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4228,
+    "center_y": 2967,
+    "width": 0,
+    "height": 0,
+    "range_degree": 51,
+    "mobs": [
+      {
+        "mob": "KQ_U_Greenky",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDUnderArea29": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2139,
+    "center_y": 848,
+    "width": 0,
+    "height": 0,
+    "range_degree": 51,
+    "mobs": [
+      {
+        "mob": "KQ_U_Spider04",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDUnderArea30": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 511,
+    "center_y": 2949,
+    "width": 0,
+    "height": 0,
+    "range_degree": 51,
+    "mobs": [
+      {
+        "mob": "KQ_U_Spider04",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDUnderArea31": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2554,
+    "center_y": 4625,
+    "width": 0,
+    "height": 0,
+    "range_degree": 51,
+    "mobs": [
+      {
+        "mob": "KQ_U_Spider04",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDUnderArea32": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4226,
+    "center_y": 2517,
+    "width": 0,
+    "height": 0,
+    "range_degree": 51,
+    "mobs": [
+      {
+        "mob": "KQ_U_Spider04",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDUnderArea33": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2372,
+    "center_y": 810,
+    "width": 0,
+    "height": 0,
+    "range_degree": 51,
+    "mobs": [
+      {
+        "mob": "KQ_U_Ivivi",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDUnderArea34": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 513,
+    "center_y": 2736,
+    "width": 0,
+    "height": 0,
+    "range_degree": 51,
+    "mobs": [
+      {
+        "mob": "KQ_U_Ivivi",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDUnderArea35": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2372,
+    "center_y": 4647,
+    "width": 0,
+    "height": 0,
+    "range_degree": 51,
+    "mobs": [
+      {
+        "mob": "KQ_U_Ivivi",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDUnderArea36": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4283,
+    "center_y": 2788,
+    "width": 0,
+    "height": 0,
+    "range_degree": 65,
+    "mobs": [
+      {
+        "mob": "KQ_U_Ivivi",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDUnderArea37": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2479,
+    "center_y": 798,
+    "width": 0,
+    "height": 0,
+    "range_degree": 51,
+    "mobs": [
+      {
+        "mob": "KQ_U_TombRaider",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDUnderArea38": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 470,
+    "center_y": 2650,
+    "width": 0,
+    "height": 0,
+    "range_degree": 51,
+    "mobs": [
+      {
+        "mob": "KQ_U_TombRaider",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDUnderArea39": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2254,
+    "center_y": 4615,
+    "width": 0,
+    "height": 0,
+    "range_degree": 58,
+    "mobs": [
+      {
+        "mob": "KQ_U_TombRaider",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDUnderArea40": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4349,
+    "center_y": 2648,
+    "width": 0,
+    "height": 0,
+    "range_degree": 51,
+    "mobs": [
+      {
+        "mob": "KQ_U_TombRaider",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDUnderArea41": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2683,
+    "center_y": 1775,
+    "width": 0,
+    "height": 0,
+    "range_degree": 128,
+    "mobs": [
+      {
+        "mob": "KQ_U_AMageBook",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDUnderArea42": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2164,
+    "center_y": 1790,
+    "width": 0,
+    "height": 0,
+    "range_degree": 149,
+    "mobs": [
+      {
+        "mob": "KQ_U_Spider05",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDUnderArea43": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2729,
+    "center_y": 3708,
+    "width": 0,
+    "height": 0,
+    "range_degree": 121,
+    "mobs": [
+      {
+        "mob": "KQ_U_Spider05",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDUnderArea44": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1818,
+    "center_y": 3631,
+    "width": 0,
+    "height": 0,
+    "range_degree": 128,
+    "mobs": [
+      {
+        "mob": "KQ_U_AMageBook",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDUnderArea45": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3239,
+    "center_y": 2765,
+    "width": 0,
+    "height": 0,
+    "range_degree": 149,
+    "mobs": [
+      {
+        "mob": "KQ_U_Greenky",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDUnderArea46": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1373,
+    "center_y": 2862,
+    "width": 0,
+    "height": 0,
+    "range_degree": 142,
+    "mobs": [
+      {
+        "mob": "KQ_U_Greenky",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDUnderArea47": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3115,
+    "center_y": 2182,
+    "width": 0,
+    "height": 0,
+    "range_degree": 128,
+    "mobs": [
+      {
+        "mob": "KQ_U_Spider04",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDUnderArea48": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1667,
+    "center_y": 1988,
+    "width": 0,
+    "height": 0,
+    "range_degree": 149,
+    "mobs": [
+      {
+        "mob": "KQ_U_Lvivi",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDUnderArea49": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3041,
+    "center_y": 3343,
+    "width": 0,
+    "height": 0,
+    "range_degree": 128,
+    "mobs": [
+      {
+        "mob": "KQ_U_Lvivi",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDUnderArea50": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1462,
+    "center_y": 3300,
+    "width": 0,
+    "height": 0,
+    "range_degree": 121,
+    "mobs": [
+      {
+        "mob": "KQ_U_Greenky",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDUnderArea51": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2241,
+    "center_y": 3807,
+    "width": 0,
+    "height": 0,
+    "range_degree": 121,
+    "mobs": [
+      {
+        "mob": "KQ_U_Uspider",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDUnderArea52": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1381,
+    "center_y": 2411,
+    "width": 0,
+    "height": 0,
+    "range_degree": 135,
+    "mobs": [
+      {
+        "mob": "KQ_U_Uspider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDUnderArea53": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2397,
+    "center_y": 2555,
+    "width": 0,
+    "height": 0,
+    "range_degree": 51,
+    "mobs": [
+      {
+        "mob": "KQ_U_BabyDragon",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDUnderArea54": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2400,
+    "center_y": 2700,
+    "width": 0,
+    "height": 0,
+    "range_degree": 1150,
+    "mobs": [
+      {
+        "mob": "KQ_MINE1",
+        "count": 150,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "KQArea01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7907,
+    "center_y": 8572,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "Slime",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQArea02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7907,
+    "center_y": 8572,
+    "width": 0,
+    "height": 0,
+    "range_degree": 100,
+    "mobs": [
+      {
+        "mob": "Honeying",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQArea03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7907,
+    "center_y": 8572,
+    "width": 0,
+    "height": 0,
+    "range_degree": 100,
+    "mobs": [
+      {
+        "mob": "Kebing",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  }
+}

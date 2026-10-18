@@ -1,0 +1,662 @@
+{
+  "Regen00": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5190,
+    "center_y": 3894,
+    "width": 0,
+    "height": 0,
+    "range_degree": 650,
+    "mobs": [
+      {
+        "mob": "KQ_SK_Sudder",
+        "count": 7,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Regen01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5190,
+    "center_y": 3894,
+    "width": 0,
+    "height": 0,
+    "range_degree": 650,
+    "mobs": [
+      {
+        "mob": "KQ_SK_Sudder2",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Regen02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5190,
+    "center_y": 5530,
+    "width": 0,
+    "height": 0,
+    "range_degree": 650,
+    "mobs": [
+      {
+        "mob": "KQ_SK_Sudder",
+        "count": 7,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Regen03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5190,
+    "center_y": 5530,
+    "width": 0,
+    "height": 0,
+    "range_degree": 650,
+    "mobs": [
+      {
+        "mob": "KQ_SK_Sudder2",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Regen04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7205,
+    "center_y": 5530,
+    "width": 0,
+    "height": 0,
+    "range_degree": 650,
+    "mobs": [
+      {
+        "mob": "KQ_SK_Sudder",
+        "count": 7,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Regen05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7205,
+    "center_y": 5530,
+    "width": 0,
+    "height": 0,
+    "range_degree": 650,
+    "mobs": [
+      {
+        "mob": "KQ_SK_Sudder2",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Regen06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7030,
+    "center_y": 3983,
+    "width": 0,
+    "height": 0,
+    "range_degree": 650,
+    "mobs": [
+      {
+        "mob": "KQ_SK_Sudder",
+        "count": 7,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Regen07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7030,
+    "center_y": 3983,
+    "width": 0,
+    "height": 0,
+    "range_degree": 650,
+    "mobs": [
+      {
+        "mob": "KQ_SK_Sudder2",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Regen08": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6107,
+    "center_y": 5234,
+    "width": 0,
+    "height": 0,
+    "range_degree": 650,
+    "mobs": [
+      {
+        "mob": "KQ_SK_Sudder",
+        "count": 7,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Regen09": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6107,
+    "center_y": 5234,
+    "width": 0,
+    "height": 0,
+    "range_degree": 650,
+    "mobs": [
+      {
+        "mob": "KQ_SK_Sudder2",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Regen10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4892,
+    "center_y": 9297,
+    "width": 0,
+    "height": 0,
+    "range_degree": 650,
+    "mobs": [
+      {
+        "mob": "KQ_SK_Elec",
+        "count": 7,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Regen11": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4892,
+    "center_y": 9297,
+    "width": 0,
+    "height": 0,
+    "range_degree": 650,
+    "mobs": [
+      {
+        "mob": "KQ_SK_Elec2",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Regen12": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4892,
+    "center_y": 11097,
+    "width": 0,
+    "height": 0,
+    "range_degree": 650,
+    "mobs": [
+      {
+        "mob": "KQ_SK_Elec",
+        "count": 7,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Regen13": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4892,
+    "center_y": 11097,
+    "width": 0,
+    "height": 0,
+    "range_degree": 650,
+    "mobs": [
+      {
+        "mob": "KQ_SK_Elec2",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Regen14": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7522,
+    "center_y": 11097,
+    "width": 0,
+    "height": 0,
+    "range_degree": 650,
+    "mobs": [
+      {
+        "mob": "KQ_SK_Elec",
+        "count": 7,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Regen15": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7522,
+    "center_y": 11097,
+    "width": 0,
+    "height": 0,
+    "range_degree": 650,
+    "mobs": [
+      {
+        "mob": "KQ_SK_Elec2",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Regen16": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7522,
+    "center_y": 9270,
+    "width": 0,
+    "height": 0,
+    "range_degree": 650,
+    "mobs": [
+      {
+        "mob": "KQ_SK_Elec",
+        "count": 7,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Regen17": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7522,
+    "center_y": 9270,
+    "width": 0,
+    "height": 0,
+    "range_degree": 650,
+    "mobs": [
+      {
+        "mob": "KQ_SK_Elec2",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Regen100": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6118,
+    "center_y": 4758,
+    "width": 0,
+    "height": 0,
+    "range_degree": 1249,
+    "mobs": [
+      {
+        "mob": "KQ_SK_Sudder3",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Regen101": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6118,
+    "center_y": 10408,
+    "width": 0,
+    "height": 0,
+    "range_degree": 1249,
+    "mobs": [
+      {
+        "mob": "KQ_SK_Elec3",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  }
+}

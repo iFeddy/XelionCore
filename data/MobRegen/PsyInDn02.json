@@ -1,0 +1,2851 @@
+{
+  "P_PsyIn_001": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11230,
+    "center_y": 15727,
+    "width": 0,
+    "height": 0,
+    "range_degree": 206,
+    "mobs": [
+      {
+        "mob": "P_Psy_Statue1",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "P_PsyIn_002": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10350,
+    "center_y": 15839,
+    "width": 0,
+    "height": 0,
+    "range_degree": 45,
+    "mobs": [
+      {
+        "mob": "P_Psy_Statue1",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "P_PsyIn_003": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9894,
+    "center_y": 16157,
+    "width": 0,
+    "height": 0,
+    "range_degree": 31,
+    "mobs": [
+      {
+        "mob": "P_Psy_Statue1",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "P_PsyIn_004": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 12530,
+    "center_y": 15747,
+    "width": 0,
+    "height": 0,
+    "range_degree": 213,
+    "mobs": [
+      {
+        "mob": "P_Psy_Statue1",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "P_PsyIn_005": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13361,
+    "center_y": 15833,
+    "width": 0,
+    "height": 0,
+    "range_degree": 52,
+    "mobs": [
+      {
+        "mob": "P_Psy_Statue1",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "P_PsyIn_006": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13872,
+    "center_y": 16155,
+    "width": 0,
+    "height": 0,
+    "range_degree": 38,
+    "mobs": [
+      {
+        "mob": "P_Psy_Statue1",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "P_PsyIn_007": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 12075,
+    "center_y": 16447,
+    "width": 0,
+    "height": 0,
+    "range_degree": 94,
+    "mobs": [
+      {
+        "mob": "P_Psy_Statue1",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "P_PsyIn_008": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11678,
+    "center_y": 16850,
+    "width": 0,
+    "height": 0,
+    "range_degree": 115,
+    "mobs": [
+      {
+        "mob": "P_Psy_Statue1",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "P_PsyIn_009": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 12389,
+    "center_y": 16854,
+    "width": 303,
+    "height": 40,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "P_Psy_Statue1",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "P_PsyIn_010": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10681,
+    "center_y": 13874,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "P_Psy_Statue2",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "P_PsyIn_012": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11108,
+    "center_y": 13869,
+    "width": 0,
+    "height": 0,
+    "range_degree": 143,
+    "mobs": [
+      {
+        "mob": "P_Psy_Statue2",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "P_PsyIn_013": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 12747,
+    "center_y": 13901,
+    "width": 0,
+    "height": 0,
+    "range_degree": 157,
+    "mobs": [
+      {
+        "mob": "P_Psy_Statue2",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "P_PsyIn_015": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13108,
+    "center_y": 13891,
+    "width": 0,
+    "height": 0,
+    "range_degree": 143,
+    "mobs": [
+      {
+        "mob": "P_Psy_Statue2",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "P_PsyIn_016": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10099,
+    "center_y": 15133,
+    "width": 0,
+    "height": 0,
+    "range_degree": 220,
+    "mobs": [
+      {
+        "mob": "P_Psy_Statue2",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "P_PsyIn_017": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10498,
+    "center_y": 14907,
+    "width": 0,
+    "height": 0,
+    "range_degree": 220,
+    "mobs": [
+      {
+        "mob": "P_Psy_Statue2",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "P_PsyIn_018": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10222,
+    "center_y": 14620,
+    "width": 0,
+    "height": 0,
+    "range_degree": 220,
+    "mobs": [
+      {
+        "mob": "P_Psy_Statue2",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "P_PsyIn_020": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10020,
+    "center_y": 13777,
+    "width": 0,
+    "height": 0,
+    "range_degree": 122,
+    "mobs": [
+      {
+        "mob": "P_Psy_Statue2",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "P_PsyIn_022": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10025,
+    "center_y": 13326,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "P_Psy_Statue2",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "P_PsyIn_023": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13584,
+    "center_y": 15125,
+    "width": 0,
+    "height": 0,
+    "range_degree": 220,
+    "mobs": [
+      {
+        "mob": "P_Psy_Statue2",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "P_PsyIn_025": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13237,
+    "center_y": 14826,
+    "width": 0,
+    "height": 0,
+    "range_degree": 220,
+    "mobs": [
+      {
+        "mob": "P_Psy_Statue2",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "P_PsyIn_026": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13625,
+    "center_y": 14648,
+    "width": 0,
+    "height": 0,
+    "range_degree": 241,
+    "mobs": [
+      {
+        "mob": "P_Psy_Statue2",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "P_PsyIn_027": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13691,
+    "center_y": 13829,
+    "width": 0,
+    "height": 0,
+    "range_degree": 129,
+    "mobs": [
+      {
+        "mob": "P_Psy_Statue2",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "P_PsyIn_029": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13701,
+    "center_y": 13336,
+    "width": 0,
+    "height": 0,
+    "range_degree": 171,
+    "mobs": [
+      {
+        "mob": "P_Psy_Statue2",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "P_PsyIn_030": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10166,
+    "center_y": 16887,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "P_Psy_Statue2",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "P_PsyIn_031": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10604,
+    "center_y": 16892,
+    "width": 0,
+    "height": 0,
+    "range_degree": 192,
+    "mobs": [
+      {
+        "mob": "P_Psy_Statue2",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "P_PsyIn_032": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10346,
+    "center_y": 16592,
+    "width": 0,
+    "height": 0,
+    "range_degree": 242,
+    "mobs": [
+      {
+        "mob": "P_Psy_Statue2",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "P_PsyIn_033": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13160,
+    "center_y": 16944,
+    "width": 0,
+    "height": 0,
+    "range_degree": 192,
+    "mobs": [
+      {
+        "mob": "P_Psy_Statue2",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "P_PsyIn_034": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13593,
+    "center_y": 16951,
+    "width": 0,
+    "height": 0,
+    "range_degree": 199,
+    "mobs": [
+      {
+        "mob": "P_Psy_Statue2",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "P_PsyIn_035": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13375,
+    "center_y": 16640,
+    "width": 0,
+    "height": 0,
+    "range_degree": 256,
+    "mobs": [
+      {
+        "mob": "P_Psy_Statue2",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "P_PsyIn_036": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11876,
+    "center_y": 17621,
+    "width": 0,
+    "height": 0,
+    "range_degree": 256,
+    "mobs": [
+      {
+        "mob": "P_Psy_Mist1",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "P_PsyIn_038": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 12651,
+    "center_y": 17918,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "P_Psy_Mist1",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "P_PsyIn_039": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13252,
+    "center_y": 17900,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "P_Psy_Mist1",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "P_PsyIn_040": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13400,
+    "center_y": 18451,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "P_Psy_Mist1",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "P_PsyIn_041": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13145,
+    "center_y": 18937,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "P_Psy_Mist1",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "P_PsyIn_043": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11131,
+    "center_y": 17913,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "P_Psy_Mist1",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "P_PsyIn_044": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10572,
+    "center_y": 17905,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "P_Psy_Mist1",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "P_PsyIn_045": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10372,
+    "center_y": 18422,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "P_Psy_Mist1",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "P_PsyIn_046": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10611,
+    "center_y": 18933,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "P_Psy_Mist1",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "P_PsyIn_047": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11167,
+    "center_y": 18948,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "P_Psy_Mist1",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "P_PsyIn_050": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 12562,
+    "center_y": 18979,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "P_Psy_Mist1",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "P_PsyIn_051": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11877,
+    "center_y": 19163,
+    "width": 0,
+    "height": 0,
+    "range_degree": 192,
+    "mobs": [
+      {
+        "mob": "P_Psy_Mist1",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "P_PsyIn_052": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 12394,
+    "center_y": 19954,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "P_Fighter10M",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Psy_Mist2",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "P_PsyIn_054": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13071,
+    "center_y": 19941,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "P_Fighter10M",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Psy_Mist2",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "P_PsyIn_055": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13690,
+    "center_y": 19925,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "P_Fighter10M",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Psy_Mist2",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "P_PsyIn_056": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14349,
+    "center_y": 19824,
+    "width": 0,
+    "height": 0,
+    "range_degree": 270,
+    "mobs": [
+      {
+        "mob": "P_Fighter10M",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Psy_Mist2",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "P_PsyIn_057": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14374,
+    "center_y": 19125,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "P_Fighter10M",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Psy_Mist2",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "P_PsyIn_058": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14380,
+    "center_y": 18577,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "P_Fighter10M",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Psy_Mist2",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "P_PsyIn_059": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14386,
+    "center_y": 17833,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "P_Fighter10M",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "P_PsyIn_060": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14392,
+    "center_y": 17274,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "P_Fighter10M",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "P_PsyIn_062": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14414,
+    "center_y": 16767,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "P_Fighter10M",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "P_PsyIn_063": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14437,
+    "center_y": 16259,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "P_Fighter10M",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "P_PsyIn_064": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11350,
+    "center_y": 19923,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "P_Cleric10F",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Psy_Mist2",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "P_PsyIn_066": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10721,
+    "center_y": 19916,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "P_Cleric10F",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Psy_Mist2",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "P_PsyIn_067": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10146,
+    "center_y": 19882,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "P_Cleric10F",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Psy_Mist2",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "P_PsyIn_068": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9437,
+    "center_y": 19796,
+    "width": 0,
+    "height": 0,
+    "range_degree": 284,
+    "mobs": [
+      {
+        "mob": "P_Cleric10F",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Psy_Mist2",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "P_PsyIn_069": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9407,
+    "center_y": 19162,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "P_Cleric10F",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Psy_Mist2",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "P_PsyIn_070": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9413,
+    "center_y": 18647,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "P_Cleric10F",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Psy_Mist2",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "P_PsyIn_071": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9390,
+    "center_y": 17765,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "P_Cleric10F",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "P_PsyIn_072": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9401,
+    "center_y": 17269,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "P_Cleric10F",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "P_PsyIn_074": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9413,
+    "center_y": 16757,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "P_Cleric10F",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "P_PsyIn_075": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9401,
+    "center_y": 16250,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "P_Cleric10F",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "P_PsyIn_076": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15768,
+    "center_y": 18459,
+    "width": 0,
+    "height": 0,
+    "range_degree": 192,
+    "mobs": [
+      {
+        "mob": "P_Archer10F",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Psy_Mist3",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "P_PsyIn_077": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15227,
+    "center_y": 18869,
+    "width": 0,
+    "height": 0,
+    "range_degree": 291,
+    "mobs": [
+      {
+        "mob": "P_Archer10F",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Psy_Mist3",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "P_PsyIn_078": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 16774,
+    "center_y": 18467,
+    "width": 0,
+    "height": 0,
+    "range_degree": 305,
+    "mobs": [
+      {
+        "mob": "P_Archer10F",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Psy_Mist3",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "P_PsyIn_080": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 17783,
+    "center_y": 18498,
+    "width": 0,
+    "height": 0,
+    "range_degree": 305,
+    "mobs": [
+      {
+        "mob": "P_Archer10F",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Psy_Mist3",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "P_PsyIn_081": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8543,
+    "center_y": 19091,
+    "width": 0,
+    "height": 0,
+    "range_degree": 283,
+    "mobs": [
+      {
+        "mob": "P_Mage10M",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Psy_Mist3",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "P_PsyIn_082": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7948,
+    "center_y": 18501,
+    "width": 0,
+    "height": 0,
+    "range_degree": 248,
+    "mobs": [
+      {
+        "mob": "P_Mage10M",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Psy_Mist3",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "P_PsyIn_083": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6797,
+    "center_y": 18469,
+    "width": 0,
+    "height": 0,
+    "range_degree": 277,
+    "mobs": [
+      {
+        "mob": "P_Mage10M",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Psy_Mist3",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "P_PsyIn_085": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5801,
+    "center_y": 18471,
+    "width": 0,
+    "height": 0,
+    "range_degree": 256,
+    "mobs": [
+      {
+        "mob": "P_Mage10M",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Psy_Mist3",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "P_PsyIn_086": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 20106,
+    "center_y": 18466,
+    "width": 0,
+    "height": 0,
+    "range_degree": 863,
+    "mobs": [
+      {
+        "mob": "P_Mage10M",
+        "count": 8,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "P_PsyIn_087": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3671,
+    "center_y": 18475,
+    "width": 0,
+    "height": 0,
+    "range_degree": 856,
+    "mobs": [
+      {
+        "mob": "P_Archer10F",
+        "count": 8,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "P_PsyIn_088": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 22374,
+    "center_y": 20516,
+    "width": 0,
+    "height": 0,
+    "range_degree": 605,
+    "mobs": [
+      {
+        "mob": "P_Mage10M",
+        "count": 8,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "P_PsyIn_089": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 731,
+    "center_y": 19753,
+    "width": 0,
+    "height": 0,
+    "range_degree": 619,
+    "mobs": [
+      {
+        "mob": "P_Archer10F",
+        "count": 8,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,7394 @@
+{
+  "PsyOut_001": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9392,
+    "center_y": 13763,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "VehimothUndeath",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_002": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10324,
+    "center_y": 14666,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_LeoPard",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_003": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9619,
+    "center_y": 14449,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_LeoPard",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_004": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8921,
+    "center_y": 15059,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_LeoPard",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_005": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8240,
+    "center_y": 14486,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_LeoPard",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_006": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7400,
+    "center_y": 14489,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_LeoPard",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_007": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7836,
+    "center_y": 13849,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_LeoPard",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_008": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8893,
+    "center_y": 15774,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_LeoPard",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_009": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8195,
+    "center_y": 15251,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_LeoPard",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_010": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7452,
+    "center_y": 15299,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_LeoPard",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_011": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8177,
+    "center_y": 15986,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_LeoPard",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_012": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7792,
+    "center_y": 16636,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_LeoPard",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_013": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7471,
+    "center_y": 16003,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_LeoPard",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_014": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10108,
+    "center_y": 13946,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "VehimothUndeath",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_015": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10821,
+    "center_y": 14046,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_LeoPard",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_016": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8962,
+    "center_y": 14355,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_LeoPard",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_017": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8571,
+    "center_y": 13790,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_LeoPard",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_018": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8317,
+    "center_y": 13155,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_LeoPard",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_019": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9021,
+    "center_y": 13189,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "VehimothUndeath",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_020": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9859,
+    "center_y": 13246,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "VehimothUndeath",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_021": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10570,
+    "center_y": 13320,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_LeoPard",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_022": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8780,
+    "center_y": 12524,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_LeoPard",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_023": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9406,
+    "center_y": 12573,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "VehimothUndeath",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_024": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10151,
+    "center_y": 12598,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "VehimothUndeath",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_025": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10864,
+    "center_y": 12655,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_LeoPard",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_026": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10598,
+    "center_y": 11969,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_LeoPard",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_027": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9861,
+    "center_y": 11943,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_LeoPard",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_028": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9182,
+    "center_y": 11868,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_LeoPard",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_029": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10072,
+    "center_y": 11329,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_LeoPard",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_030": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10740,
+    "center_y": 11230,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_LeoPard",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_031": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6449,
+    "center_y": 14650,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Spider",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_032": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5480,
+    "center_y": 14574,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Spider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_033": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7230,
+    "center_y": 12815,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Spider",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_034": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6503,
+    "center_y": 12273,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Spider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_035": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8491,
+    "center_y": 11139,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Spider",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_036": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7823,
+    "center_y": 10392,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Spider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_037": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10194,
+    "center_y": 10154,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Spider",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_038": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10209,
+    "center_y": 9224,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Spider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_039": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4707,
+    "center_y": 14441,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Spider",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_040": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4630,
+    "center_y": 13729,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Spider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_041": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4830,
+    "center_y": 13021,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Spider",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_042": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5094,
+    "center_y": 12374,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Spider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_043": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5541,
+    "center_y": 11704,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Spider",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_044": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5867,
+    "center_y": 11068,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Spider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_045": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6327,
+    "center_y": 10526,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Spider",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_046": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6821,
+    "center_y": 9988,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Spider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_047": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7259,
+    "center_y": 9451,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Spider",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_048": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7909,
+    "center_y": 9055,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Spider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_049": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8646,
+    "center_y": 8752,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Spider",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_050": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9303,
+    "center_y": 8506,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Spider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_051": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9981,
+    "center_y": 8286,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Spider",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_052": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7952,
+    "center_y": 7917,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Wraith",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_053": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8692,
+    "center_y": 7620,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Wraith",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_054": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8440,
+    "center_y": 6936,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Wraith",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_055": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7711,
+    "center_y": 7220,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Wraith",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_056": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5717,
+    "center_y": 9562,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Wraith",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_057": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5169,
+    "center_y": 9047,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Wraith",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_058": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5200,
+    "center_y": 10123,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Wraith",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_059": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4698,
+    "center_y": 9674,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Wraith",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_060": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3654,
+    "center_y": 13138,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Wraith",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_061": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3902,
+    "center_y": 12423,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Wraith",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_062": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2997,
+    "center_y": 12956,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Wraith",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_063": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3211,
+    "center_y": 12209,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Wraith",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_064": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2736,
+    "center_y": 13766,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_LeoPard",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_065": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3449,
+    "center_y": 13974,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_LeoPard",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_066": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3456,
+    "center_y": 11362,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_LeoPard",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_067": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4148,
+    "center_y": 11620,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_LeoPard",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_068": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4180,
+    "center_y": 10366,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_LeoPard",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_069": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4772,
+    "center_y": 10824,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_LeoPard",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_070": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5702,
+    "center_y": 8509,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_LeoPard",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_071": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6261,
+    "center_y": 8944,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_LeoPard",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_072": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9392,
+    "center_y": 7334,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_LeoPard",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_073": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9106,
+    "center_y": 6618,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_LeoPard",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_074": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7226,
+    "center_y": 8114,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_LeoPard",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_075": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6853,
+    "center_y": 7464,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_LeoPard",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_076": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6982,
+    "center_y": 8812,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Spider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_077": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6464,
+    "center_y": 8245,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Spider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_078": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6006,
+    "center_y": 7691,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Spider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_079": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10094,
+    "center_y": 7491,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Spider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_080": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9979,
+    "center_y": 6788,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Spider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_081": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9807,
+    "center_y": 6214,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Spider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_082": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4882,
+    "center_y": 11483,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Spider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_083": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4165,
+    "center_y": 10993,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Spider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_084": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3568,
+    "center_y": 10691,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Spider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_085": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3931,
+    "center_y": 14445,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Spider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_086": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2959,
+    "center_y": 14331,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Spider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_087": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2052,
+    "center_y": 13879,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Spider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_088": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13355,
+    "center_y": 10119,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Spider",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_089": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13355,
+    "center_y": 9158,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Spider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_090": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15071,
+    "center_y": 11032,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Spider",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_091": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15754,
+    "center_y": 10349,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Spider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_092": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 16467,
+    "center_y": 12747,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Spider",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_093": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 17234,
+    "center_y": 12182,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Spider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_094": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 17153,
+    "center_y": 14671,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Spider",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_095": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 18186,
+    "center_y": 14604,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Spider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_096": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 18982,
+    "center_y": 14530,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Spider",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_097": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 18946,
+    "center_y": 13838,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Spider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_098": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 18773,
+    "center_y": 13092,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Spider",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_099": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 18495,
+    "center_y": 12432,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Spider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_100": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 18126,
+    "center_y": 11837,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Spider",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_101": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 17689,
+    "center_y": 11261,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Spider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_102": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 17253,
+    "center_y": 10659,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Spider",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_103": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 16825,
+    "center_y": 10096,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Spider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_104": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 16335,
+    "center_y": 9551,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Spider",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_105": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15757,
+    "center_y": 9102,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Spider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_106": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15073,
+    "center_y": 8833,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Spider",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_107": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14361,
+    "center_y": 8585,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Spider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_108": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13610,
+    "center_y": 8382,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Spider",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_109": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14900,
+    "center_y": 7657,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Wraith",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_110": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15625,
+    "center_y": 7871,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Wraith",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_111": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15176,
+    "center_y": 6989,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Wraith",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_112": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15958,
+    "center_y": 7226,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Wraith",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_113": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 17827,
+    "center_y": 9572,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Wraith",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_114": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 18403,
+    "center_y": 10154,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Wraith",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_115": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 18443,
+    "center_y": 9062,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Wraith",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_116": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 18903,
+    "center_y": 9661,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Wraith",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_117": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 19738,
+    "center_y": 12384,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Wraith",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_118": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 19954,
+    "center_y": 13178,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Wraith",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_119": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 20674,
+    "center_y": 13044,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Wraith",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_120": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 20435,
+    "center_y": 12234,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Wraith",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_121": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 20113,
+    "center_y": 13909,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Pergy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_122": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 20847,
+    "center_y": 13755,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Pergy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_123": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 19551,
+    "center_y": 11644,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Pergy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_124": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 20210,
+    "center_y": 11480,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Pergy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_125": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 18919,
+    "center_y": 10670,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Pergy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_126": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 19426,
+    "center_y": 10262,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Pergy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_127": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 17354,
+    "center_y": 8965,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Pergy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_128": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 17897,
+    "center_y": 8509,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Pergy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_129": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 16407,
+    "center_y": 8138,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Pergy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_130": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 16628,
+    "center_y": 7487,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Pergy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_131": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14262,
+    "center_y": 7440,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Pergy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_132": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14512,
+    "center_y": 6642,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Pergy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_133": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13662,
+    "center_y": 7516,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Spider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_134": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13847,
+    "center_y": 6727,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Spider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_135": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14013,
+    "center_y": 5873,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Spider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_136": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 16602,
+    "center_y": 8838,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Spider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_137": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 17136,
+    "center_y": 8179,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Spider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_138": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 17558,
+    "center_y": 7594,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Spider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_139": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 18778,
+    "center_y": 11482,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Spider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_140": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 19509,
+    "center_y": 11014,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Spider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_141": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 20082,
+    "center_y": 10666,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Spider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_142": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 19704,
+    "center_y": 14430,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Spider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_143": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 20526,
+    "center_y": 14355,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Spider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_144": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 21515,
+    "center_y": 13822,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Spider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_145": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15833,
+    "center_y": 16462,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Pergy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_146": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 16193,
+    "center_y": 15834,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Pergy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_147": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15422,
+    "center_y": 15881,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Pergy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_148": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14746,
+    "center_y": 15839,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Pergy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_149": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14706,
+    "center_y": 15075,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Pergy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_150": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15488,
+    "center_y": 15111,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Pergy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_151": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 16271,
+    "center_y": 15079,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Pergy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_152": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13328,
+    "center_y": 14616,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Pergy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_153": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14155,
+    "center_y": 14384,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Pergy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_154": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14883,
+    "center_y": 14377,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Pergy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_155": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15502,
+    "center_y": 14339,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Pergy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_156": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 16292,
+    "center_y": 14330,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Pergy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_157": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15784,
+    "center_y": 13611,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Pergy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_158": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14995,
+    "center_y": 13652,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Pergy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_159": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14317,
+    "center_y": 13666,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "VehimothUndeath",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_160": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13555,
+    "center_y": 13885,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "VehimothUndeath",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_161": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 12808,
+    "center_y": 13894,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Pergy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_162": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 12973,
+    "center_y": 13153,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Pergy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_163": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13770,
+    "center_y": 13144,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "VehimothUndeath",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_164": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14613,
+    "center_y": 13000,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "VehimothUndeath",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_165": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15410,
+    "center_y": 13004,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Pergy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_166": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14861,
+    "center_y": 12427,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Pergy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_167": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14154,
+    "center_y": 12460,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "VehimothUndeath",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_168": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13446,
+    "center_y": 12494,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "VehimothUndeath",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_169": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 12740,
+    "center_y": 12478,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Pergy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_170": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14513,
+    "center_y": 11737,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Pergy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_171": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13760,
+    "center_y": 11766,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Pergy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_172": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 12996,
+    "center_y": 11797,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Pergy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_173": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13388,
+    "center_y": 11148,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Pergy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PsyOut_174": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 12683,
+    "center_y": 11157,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Psy_Pergy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WOOD1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3010,
+    "center_y": 11806,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Q_Garden_Wood",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WOOD2": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3237,
+    "center_y": 13417,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Q_Garden_Wood",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WOOD3": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2576,
+    "center_y": 13253,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Q_Garden_Wood",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WOOD4": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4119,
+    "center_y": 12889,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Q_Garden_Wood",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WOOD5": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3509,
+    "center_y": 12623,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Q_Garden_Wood",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WOOD6": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2834,
+    "center_y": 12497,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Q_Garden_Wood",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WOOD7": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4296,
+    "center_y": 12151,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Q_Garden_Wood",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WOOD8": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3723,
+    "center_y": 11917,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Q_Garden_Wood",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WOOD9": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5209,
+    "center_y": 10616,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Q_Garden_Wood",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WOOD10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5184,
+    "center_y": 8548,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Q_Garden_Wood",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WOOD11": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5754,
+    "center_y": 10052,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Q_Garden_Wood",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WOOD12": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6315,
+    "center_y": 9514,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Q_Garden_Wood",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WOOD13": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4745,
+    "center_y": 10238,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Q_Garden_Wood",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WOOD14": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5283,
+    "center_y": 9591,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Q_Garden_Wood",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WOOD15": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5722,
+    "center_y": 9020,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Q_Garden_Wood",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WOOD16": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4163,
+    "center_y": 9722,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Q_Garden_Wood",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WOOD17": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4690,
+    "center_y": 9173,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Q_Garden_Wood",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WOOD18": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7731,
+    "center_y": 8295,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Q_Garden_Wood",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WOOD19": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8456,
+    "center_y": 8042,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Q_Garden_Wood",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WOOD20": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8630,
+    "center_y": 6421,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Q_Garden_Wood",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WOOD21": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7423,
+    "center_y": 7659,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Q_Garden_Wood",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WOOD22": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8147,
+    "center_y": 7429,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Q_Garden_Wood",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WOOD23": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8883,
+    "center_y": 7166,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Q_Garden_Wood",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WOOD24": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7237,
+    "center_y": 7000,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Q_Garden_Wood",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WOOD25": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7983,
+    "center_y": 6704,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Q_Garden_Wood",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WOOD26": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15368,
+    "center_y": 7428,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Q_Garden_Wood",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WOOD27": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15896,
+    "center_y": 8315,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Q_Garden_Wood",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WOOD28": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 16210,
+    "center_y": 7734,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Q_Garden_Wood",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WOOD29": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15161,
+    "center_y": 8085,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Q_Garden_Wood",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WOOD30": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14629,
+    "center_y": 7144,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Q_Garden_Wood",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WOOD31": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14989,
+    "center_y": 6480,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Q_Garden_Wood",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WOOD32": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15691,
+    "center_y": 6765,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Q_Garden_Wood",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WOOD33": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 16506,
+    "center_y": 7011,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Q_Garden_Wood",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WOOD34": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 17327,
+    "center_y": 9486,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Q_Garden_Wood",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WOOD35": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 17843,
+    "center_y": 10078,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Q_Garden_Wood",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WOOD36": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 18366,
+    "center_y": 10658,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Q_Garden_Wood",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WOOD37": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 17863,
+    "center_y": 9046,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Q_Garden_Wood",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WOOD38": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 18383,
+    "center_y": 9601,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Q_Garden_Wood",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WOOD39": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 18906,
+    "center_y": 10179,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Q_Garden_Wood",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WOOD40": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 18366,
+    "center_y": 8613,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Q_Garden_Wood",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WOOD41": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 18979,
+    "center_y": 9129,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Q_Garden_Wood",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WOOD42": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 19468,
+    "center_y": 9818,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Q_Garden_Wood",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WOOD43": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 19332,
+    "center_y": 12122,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Q_Garden_Wood",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WOOD44": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 19542,
+    "center_y": 12929,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Q_Garden_Wood",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WOOD45": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 19957,
+    "center_y": 11947,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Q_Garden_Wood",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WOOD46": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 20207,
+    "center_y": 12694,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Q_Garden_Wood",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WOOD47": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 20364,
+    "center_y": 13465,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Q_Garden_Wood",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WOOD48": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 20995,
+    "center_y": 13311,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Q_Garden_Wood",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WOOD49": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 20858,
+    "center_y": 12542,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Q_Garden_Wood",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WOOD50": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 20701,
+    "center_y": 11777,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Q_Garden_Wood",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  }
+}

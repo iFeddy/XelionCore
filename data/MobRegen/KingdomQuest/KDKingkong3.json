@@ -1,0 +1,2279 @@
+{
+  "KQ_Kingkong_01_01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11240,
+    "center_y": 8047,
+    "width": 0,
+    "height": 0,
+    "range_degree": 352,
+    "mobs": [
+      {
+        "mob": "Slime",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_Kingkong_01_02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10879,
+    "center_y": 8044,
+    "width": 701,
+    "height": 195,
+    "range_degree": 11,
+    "mobs": [
+      {
+        "mob": "MushRoom",
+        "count": 8,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_Kingkong_01_03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10164,
+    "center_y": 8493,
+    "width": 211,
+    "height": 495,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "Slime",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_Kingkong_01_04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10320,
+    "center_y": 8791,
+    "width": 520,
+    "height": 258,
+    "range_degree": -49,
+    "mobs": [
+      {
+        "mob": "MushRoom",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_Kingkong_01_05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10963,
+    "center_y": 9156,
+    "width": 978,
+    "height": 177,
+    "range_degree": -28,
+    "mobs": [
+      {
+        "mob": "Imp",
+        "count": 15,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_Kingkong_01_06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11921,
+    "center_y": 10072,
+    "width": 0,
+    "height": 0,
+    "range_degree": 436,
+    "mobs": [
+      {
+        "mob": "MushRoom",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_Kingkong_01_07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11396,
+    "center_y": 11221,
+    "width": 957,
+    "height": 343,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "Imp",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_Kingkong_01_08": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9643,
+    "center_y": 11383,
+    "width": 1151,
+    "height": 453,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "MushRoom",
+        "count": 12,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_Kingkong_01_09": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9223,
+    "center_y": 11289,
+    "width": 0,
+    "height": 0,
+    "range_degree": 500,
+    "mobs": [
+      {
+        "mob": "Imp",
+        "count": 7,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_Kingkong_01_10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8946,
+    "center_y": 10970,
+    "width": 0,
+    "height": 0,
+    "range_degree": 500,
+    "mobs": [
+      {
+        "mob": "Crab",
+        "count": 7,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_Kingkong_01_Boss": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8877,
+    "center_y": 10999,
+    "width": 0,
+    "height": 0,
+    "range_degree": 500,
+    "mobs": [
+      {
+        "mob": "Mara",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_Kingkong_02_01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7309,
+    "center_y": 8879,
+    "width": 780,
+    "height": 231,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "MushRoom",
+        "count": 8,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_Kingkong_02_02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7318,
+    "center_y": 9023,
+    "width": 0,
+    "height": 0,
+    "range_degree": 338,
+    "mobs": [
+      {
+        "mob": "Imp",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_Kingkong_02_03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6840,
+    "center_y": 9140,
+    "width": 769,
+    "height": 351,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "Crab",
+        "count": 12,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_Kingkong_02_04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6012,
+    "center_y": 8329,
+    "width": 249,
+    "height": 1038,
+    "range_degree": 35,
+    "mobs": [
+      {
+        "mob": "HungryWolf",
+        "count": 13,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_Kingkong_02_05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4612,
+    "center_y": 7624,
+    "width": 0,
+    "height": 0,
+    "range_degree": 253,
+    "mobs": [
+      {
+        "mob": "HungryWolf",
+        "count": 9,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_Kingkong_02_06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5181,
+    "center_y": 7850,
+    "width": 1097,
+    "height": 243,
+    "range_degree": -23,
+    "mobs": [
+      {
+        "mob": "Crab",
+        "count": 15,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_Kingkong_02_07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4425,
+    "center_y": 7311,
+    "width": 0,
+    "height": 0,
+    "range_degree": 240,
+    "mobs": [
+      {
+        "mob": "Phino",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_Kingkong_02_08": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4385,
+    "center_y": 7568,
+    "width": 0,
+    "height": 0,
+    "range_degree": 163,
+    "mobs": [
+      {
+        "mob": "PhinoFlie",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_Kingkong_02_Boss": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4299,
+    "center_y": 7556,
+    "width": 0,
+    "height": 0,
+    "range_degree": 65,
+    "mobs": [
+      {
+        "mob": "Marlone",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_Kingkong_03_01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6410,
+    "center_y": 4554,
+    "width": 0,
+    "height": 0,
+    "range_degree": 289,
+    "mobs": [
+      {
+        "mob": "Imp",
+        "count": 9,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_Kingkong_03_02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6262,
+    "center_y": 3893,
+    "width": 0,
+    "height": 0,
+    "range_degree": 450,
+    "mobs": [
+      {
+        "mob": "Crab",
+        "count": 8,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_Kingkong_03_03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6831,
+    "center_y": 3702,
+    "width": 574,
+    "height": 122,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "HungryWolf",
+        "count": 7,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_Kingkong_03_04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7569,
+    "center_y": 3886,
+    "width": 135,
+    "height": 339,
+    "range_degree": 36,
+    "mobs": [
+      {
+        "mob": "Crab",
+        "count": 11,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_Kingkong_03_05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7734,
+    "center_y": 4148,
+    "width": 0,
+    "height": 0,
+    "range_degree": 205,
+    "mobs": [
+      {
+        "mob": "HungryWolf",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 11,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_Kingkong_03_06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9703,
+    "center_y": 2915,
+    "width": 0,
+    "height": 0,
+    "range_degree": 373,
+    "mobs": [
+      {
+        "mob": "Phino",
+        "count": 8,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_Kingkong_03_07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10096,
+    "center_y": 2839,
+    "width": 0,
+    "height": 0,
+    "range_degree": 436,
+    "mobs": [
+      {
+        "mob": "PhinoFlie",
+        "count": 12,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_Kingkong_03_08": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10477,
+    "center_y": 2531,
+    "width": 0,
+    "height": 0,
+    "range_degree": 500,
+    "mobs": [
+      {
+        "mob": "Ratman",
+        "count": 8,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_Kingkong_03_09": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10097,
+    "center_y": 2396,
+    "width": 238,
+    "height": 729,
+    "range_degree": 128,
+    "mobs": [
+      {
+        "mob": "HungryWolf",
+        "count": 15,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_Kingkong_03_10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10411,
+    "center_y": 2004,
+    "width": 0,
+    "height": 0,
+    "range_degree": 500,
+    "mobs": [
+      {
+        "mob": "Ratman",
+        "count": 8,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_Kingkong_03_11": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10148,
+    "center_y": 2136,
+    "width": 0,
+    "height": 0,
+    "range_degree": 500,
+    "mobs": [
+      {
+        "mob": "Phino",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_Kingkong_03_Boss": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10635,
+    "center_y": 2210,
+    "width": 0,
+    "height": 0,
+    "range_degree": 65,
+    "mobs": [
+      {
+        "mob": "Zombie",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_Kingkong_04_01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6993,
+    "center_y": 2129,
+    "width": 0,
+    "height": 0,
+    "range_degree": 296,
+    "mobs": [
+      {
+        "mob": "HungryWolf",
+        "count": 9,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_Kingkong_04_02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6963,
+    "center_y": 1846,
+    "width": 0,
+    "height": 0,
+    "range_degree": 317,
+    "mobs": [
+      {
+        "mob": "Phino",
+        "count": 8,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_Kingkong_04_03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6830,
+    "center_y": 1133,
+    "width": 0,
+    "height": 0,
+    "range_degree": 500,
+    "mobs": [
+      {
+        "mob": "PhinoFlie",
+        "count": 12,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_Kingkong_04_04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6356,
+    "center_y": 825,
+    "width": 0,
+    "height": 0,
+    "range_degree": 366,
+    "mobs": [
+      {
+        "mob": "Ratman",
+        "count": 9,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_Kingkong_04_05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5250,
+    "center_y": 2853,
+    "width": 0,
+    "height": 0,
+    "range_degree": 289,
+    "mobs": [
+      {
+        "mob": "Imp",
+        "count": 10,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_Kingkong_04_06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5250,
+    "center_y": 2853,
+    "width": 0,
+    "height": 0,
+    "range_degree": 289,
+    "mobs": [
+      {
+        "mob": "Imp",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_Kingkong_04_07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4773,
+    "center_y": 2797,
+    "width": 0,
+    "height": 0,
+    "range_degree": 500,
+    "mobs": [
+      {
+        "mob": "Crab",
+        "count": 8,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_Kingkong_04_08": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4574,
+    "center_y": 2377,
+    "width": 0,
+    "height": 0,
+    "range_degree": 500,
+    "mobs": [
+      {
+        "mob": "HungryWolf",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_Kingkong_04_09": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4295,
+    "center_y": 1687,
+    "width": 0,
+    "height": 0,
+    "range_degree": 500,
+    "mobs": [
+      {
+        "mob": "Phino",
+        "count": 9,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_Kingkong_04_10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3507,
+    "center_y": 1800,
+    "width": 0,
+    "height": 0,
+    "range_degree": 500,
+    "mobs": [
+      {
+        "mob": "PhinoFlie",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_Kingkong_04_11": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2276,
+    "center_y": 1952,
+    "width": 0,
+    "height": 0,
+    "range_degree": 1039,
+    "mobs": [
+      {
+        "mob": "Ratman",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_Kingkong_04_12": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2398,
+    "center_y": 2215,
+    "width": 0,
+    "height": 0,
+    "range_degree": 500,
+    "mobs": [
+      {
+        "mob": "Boar",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_Kingkong_04_13": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2414,
+    "center_y": 2534,
+    "width": 0,
+    "height": 0,
+    "range_degree": 500,
+    "mobs": [
+      {
+        "mob": "Boogy",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_Kingkong_04_14": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2030,
+    "center_y": 1868,
+    "width": 0,
+    "height": 0,
+    "range_degree": 500,
+    "mobs": [
+      {
+        "mob": "MaraCrew",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_Kingkong_04_Boss": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2052,
+    "center_y": 2086,
+    "width": 0,
+    "height": 0,
+    "range_degree": 51,
+    "mobs": [
+      {
+        "mob": "Robo",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_Kingkong_05_01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1149,
+    "center_y": 4583,
+    "width": 0,
+    "height": 0,
+    "range_degree": 387,
+    "mobs": [
+      {
+        "mob": "HungryWolf",
+        "count": 7,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_Kingkong_05_02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 929,
+    "center_y": 5340,
+    "width": 0,
+    "height": 0,
+    "range_degree": 500,
+    "mobs": [
+      {
+        "mob": "Phino",
+        "count": 11,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_Kingkong_05_03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1567,
+    "center_y": 6267,
+    "width": 0,
+    "height": 0,
+    "range_degree": 500,
+    "mobs": [
+      {
+        "mob": "PhinoFlie",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_Kingkong_05_04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1817,
+    "center_y": 6793,
+    "width": 0,
+    "height": 0,
+    "range_degree": 500,
+    "mobs": [
+      {
+        "mob": "Boogy",
+        "count": 8,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_Kingkong_05_05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1019,
+    "center_y": 8143,
+    "width": 0,
+    "height": 0,
+    "range_degree": 331,
+    "mobs": [
+      {
+        "mob": "Boar",
+        "count": 9,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_Kingkong_05_06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1004,
+    "center_y": 8690,
+    "width": 0,
+    "height": 0,
+    "range_degree": 500,
+    "mobs": [
+      {
+        "mob": "MaraCrew",
+        "count": 12,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_Kingkong_05_07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1429,
+    "center_y": 9071,
+    "width": 0,
+    "height": 0,
+    "range_degree": 394,
+    "mobs": [
+      {
+        "mob": "Boogy",
+        "count": 8,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_Kingkong_05_08": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2473,
+    "center_y": 10687,
+    "width": 0,
+    "height": 0,
+    "range_degree": 1235,
+    "mobs": [
+      {
+        "mob": "Boogy",
+        "count": 17,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_Kingkong_05_09": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2516,
+    "center_y": 10723,
+    "width": 0,
+    "height": 0,
+    "range_degree": 1214,
+    "mobs": [
+      {
+        "mob": "HungryWolf",
+        "count": 18,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_Kingkong_05_10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2581,
+    "center_y": 10631,
+    "width": 0,
+    "height": 0,
+    "range_degree": 1025,
+    "mobs": [
+      {
+        "mob": "Phino",
+        "count": 9,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_Kingkong_05_11": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2475,
+    "center_y": 10711,
+    "width": 0,
+    "height": 0,
+    "range_degree": 500,
+    "mobs": [
+      {
+        "mob": "PhinoFlie",
+        "count": 7,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_Kingkong_05_12": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2809,
+    "center_y": 10051,
+    "width": 0,
+    "height": 0,
+    "range_degree": 500,
+    "mobs": [
+      {
+        "mob": "Ratman",
+        "count": 10,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_Kingkong_05_13": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2164,
+    "center_y": 10074,
+    "width": 0,
+    "height": 0,
+    "range_degree": 500,
+    "mobs": [
+      {
+        "mob": "Boar",
+        "count": 8,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_Kingkong_05_14": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2715,
+    "center_y": 10263,
+    "width": 0,
+    "height": 0,
+    "range_degree": 500,
+    "mobs": [
+      {
+        "mob": "Boogy",
+        "count": 9,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_Kingkong_05_15": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5155,
+    "center_y": 10921,
+    "width": 0,
+    "height": 0,
+    "range_degree": 513,
+    "mobs": [
+      {
+        "mob": "MaraCrew",
+        "count": 10,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_Kingkong_05_16": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3442,
+    "center_y": 10559,
+    "width": 0,
+    "height": 0,
+    "range_degree": 500,
+    "mobs": [
+      {
+        "mob": "MaraElite",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_Kingkong_05_17": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4958,
+    "center_y": 11182,
+    "width": 0,
+    "height": 0,
+    "range_degree": 500,
+    "mobs": [
+      {
+        "mob": "Boar",
+        "count": 10,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_Kingkong_05_18": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5307,
+    "center_y": 11281,
+    "width": 0,
+    "height": 0,
+    "range_degree": 500,
+    "mobs": [
+      {
+        "mob": "Boogy",
+        "count": 15,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_Kingkong_05_19": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4997,
+    "center_y": 10884,
+    "width": 0,
+    "height": 0,
+    "range_degree": 507,
+    "mobs": [
+      {
+        "mob": "MaraCrew",
+        "count": 12,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_Kingkong_05_20": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5117,
+    "center_y": 11319,
+    "width": 0,
+    "height": 0,
+    "range_degree": 500,
+    "mobs": [
+      {
+        "mob": "MaraElite",
+        "count": 12,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_Kingkong_05_SubBoss": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5521,
+    "center_y": 11532,
+    "width": 0,
+    "height": 0,
+    "range_degree": 58,
+    "mobs": [
+      {
+        "mob": "Ghost",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_Kingkong_05_Boss": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5521,
+    "center_y": 11534,
+    "width": 0,
+    "height": 0,
+    "range_degree": 51,
+    "mobs": [
+      {
+        "mob": "KQ_K_BossPhino",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  }
+}

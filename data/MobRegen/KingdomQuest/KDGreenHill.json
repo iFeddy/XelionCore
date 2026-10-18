@@ -1,0 +1,1322 @@
+{
+  "KDGreenHillArea03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6296,
+    "center_y": 4793,
+    "width": 0,
+    "height": 0,
+    "range_degree": 253,
+    "mobs": [
+      {
+        "mob": "Emp_Ratman",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDGreenHillArea04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5368,
+    "center_y": 6512,
+    "width": 126,
+    "height": 409,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "Emp_Ratman",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDGreenHillArea05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4211,
+    "center_y": 8779,
+    "width": 325,
+    "height": 124,
+    "range_degree": 28,
+    "mobs": [
+      {
+        "mob": "Emp_Imp",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDGreenHillArea06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4180,
+    "center_y": 8339,
+    "width": 0,
+    "height": 0,
+    "range_degree": 255,
+    "mobs": [
+      {
+        "mob": "Emp_MushRoom",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDGreenHillArea07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3303,
+    "center_y": 9567,
+    "width": 195,
+    "height": 390,
+    "range_degree": 127,
+    "mobs": [
+      {
+        "mob": "Emp_Slime",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDGreenHillArea08": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3730,
+    "center_y": 9166,
+    "width": 0,
+    "height": 0,
+    "range_degree": 289,
+    "mobs": [
+      {
+        "mob": "Emp_FireSlime",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDGreenHillArea09": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8310,
+    "center_y": 9074,
+    "width": 180,
+    "height": 950,
+    "range_degree": -77,
+    "mobs": [
+      {
+        "mob": "Emp_Honeying",
+        "count": 8,
+        "kill_num": 0,
+        "reg_standard": 3,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDGreenHillArea10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8973,
+    "center_y": 8930,
+    "width": 0,
+    "height": 0,
+    "range_degree": 277,
+    "mobs": [
+      {
+        "mob": "Emp_FireSlime",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDGreenHillArea11": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10491,
+    "center_y": 5527,
+    "width": 0,
+    "height": 0,
+    "range_degree": 394,
+    "mobs": [
+      {
+        "mob": "Emp_Ratman",
+        "count": 7,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDGreenHillArea12": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6303,
+    "center_y": 9171,
+    "width": 1022,
+    "height": 211,
+    "range_degree": -3,
+    "mobs": [
+      {
+        "mob": "Emp_FireSlime",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDGreenHillArea13": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9933,
+    "center_y": 8064,
+    "width": 208,
+    "height": 1036,
+    "range_degree": -33,
+    "mobs": [
+      {
+        "mob": "Emp_Imp",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDGreenHillArea14": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10114,
+    "center_y": 7217,
+    "width": 226,
+    "height": 670,
+    "range_degree": -1,
+    "mobs": [
+      {
+        "mob": "Emp_IronSlime",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDGreenHillArea15": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7982,
+    "center_y": 9093,
+    "width": 0,
+    "height": 0,
+    "range_degree": 381,
+    "mobs": [
+      {
+        "mob": "Emp_IronSlime",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDGreenHillArea16": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9586,
+    "center_y": 8304,
+    "width": 0,
+    "height": 0,
+    "range_degree": 274,
+    "mobs": [
+      {
+        "mob": "Emp_Honeying",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDGreenHillArea17": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8808,
+    "center_y": 6100,
+    "width": 0,
+    "height": 0,
+    "range_degree": 210,
+    "mobs": [
+      {
+        "mob": "Emp_Honeying",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDGreenHillArea18": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8293,
+    "center_y": 4312,
+    "width": 837,
+    "height": 152,
+    "range_degree": -44,
+    "mobs": [
+      {
+        "mob": "Emp_FireSlime",
+        "count": 8,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDGreenHillArea19": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8638,
+    "center_y": 7451,
+    "width": 155,
+    "height": 641,
+    "range_degree": -27,
+    "mobs": [
+      {
+        "mob": "Emp_FireSlime",
+        "count": 8,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDGreenHillArea20": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4639,
+    "center_y": 6141,
+    "width": 136,
+    "height": 1031,
+    "range_degree": 1,
+    "mobs": [
+      {
+        "mob": "Emp_IronSlime",
+        "count": 10,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDGreenHillArea21": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4858,
+    "center_y": 4746,
+    "width": 691,
+    "height": 147,
+    "range_degree": 60,
+    "mobs": [
+      {
+        "mob": "Emp_IronSlime",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDGreenHillArea22": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6671,
+    "center_y": 4617,
+    "width": 0,
+    "height": 0,
+    "range_degree": 190,
+    "mobs": [
+      {
+        "mob": "Emp_SilverSlime",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDGreenHillArea23": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7185,
+    "center_y": 7330,
+    "width": 468,
+    "height": 120,
+    "range_degree": 13,
+    "mobs": [
+      {
+        "mob": "Emp_GoldSlime",
+        "count": 8,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDGreenHillArea24": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4701,
+    "center_y": 8686,
+    "width": 400,
+    "height": 160,
+    "range_degree": -37,
+    "mobs": [
+      {
+        "mob": "Emp_IronSlime",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDGreenHillArea25": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5457,
+    "center_y": 5447,
+    "width": 97,
+    "height": 417,
+    "range_degree": -16,
+    "mobs": [
+      {
+        "mob": "Emp_GoldSlime",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDGreenHillArea26": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7995,
+    "center_y": 5955,
+    "width": 99,
+    "height": 637,
+    "range_degree": 4,
+    "mobs": [
+      {
+        "mob": "Emp_SilverSlime",
+        "count": 7,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDGreenHillArea27": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6267,
+    "center_y": 7372,
+    "width": 332,
+    "height": 107,
+    "range_degree": -9,
+    "mobs": [
+      {
+        "mob": "Emp_SilverSlime",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDGreenHillArea28": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7510,
+    "center_y": 3918,
+    "width": 506,
+    "height": 222,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "Emp_Honeying",
+        "count": 10,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDGreenHillArea29": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7973,
+    "center_y": 6734,
+    "width": 401,
+    "height": 105,
+    "range_degree": 82,
+    "mobs": [
+      {
+        "mob": "Emp_Boar",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDGreenHillArea30": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7102,
+    "center_y": 4831,
+    "width": 0,
+    "height": 0,
+    "range_degree": 303,
+    "mobs": [
+      {
+        "mob": "Emp_Boar",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDGreenHillArea44": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5578,
+    "center_y": 6989,
+    "width": 355,
+    "height": 143,
+    "range_degree": -41,
+    "mobs": [
+      {
+        "mob": "Emp_PrinceSlime",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDGreenHillArea45": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5890,
+    "center_y": 4918,
+    "width": 0,
+    "height": 0,
+    "range_degree": 239,
+    "mobs": [
+      {
+        "mob": "Emp_PrinceSlime",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDGreenHillArea46": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7615,
+    "center_y": 5021,
+    "width": 0,
+    "height": 0,
+    "range_degree": 303,
+    "mobs": [
+      {
+        "mob": "Emp_PrinceSlime",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDGreenHillArea47": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7799,
+    "center_y": 7011,
+    "width": 306,
+    "height": 118,
+    "range_degree": 38,
+    "mobs": [
+      {
+        "mob": "Emp_PrinceSlime",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDGreenHillArea48": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5810,
+    "center_y": 3883,
+    "width": 518,
+    "height": 186,
+    "range_degree": 10,
+    "mobs": [
+      {
+        "mob": "Emp_Honeying",
+        "count": 8,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDGreenHillArea49": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7911,
+    "center_y": 8027,
+    "width": 559,
+    "height": 156,
+    "range_degree": 13,
+    "mobs": [
+      {
+        "mob": "Emp_Honeying",
+        "count": 10,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDGreenHillArea50": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5022,
+    "center_y": 7601,
+    "width": 139,
+    "height": 570,
+    "range_degree": 41,
+    "mobs": [
+      {
+        "mob": "Emp_Honeying",
+        "count": 7,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDGreenHillArea51": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6744,
+    "center_y": 8178,
+    "width": 875,
+    "height": 151,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "Emp_FireSlime",
+        "count": 7,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDGreenHillArea52": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7662,
+    "center_y": 8086,
+    "width": 582,
+    "height": 114,
+    "range_degree": 4,
+    "mobs": [
+      {
+        "mob": "Emp_IronSlime",
+        "count": 8,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDGreenHillArea53": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5687,
+    "center_y": 8115,
+    "width": 482,
+    "height": 145,
+    "range_degree": -8,
+    "mobs": [
+      {
+        "mob": "Emp_Honeying",
+        "count": 10,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDGreenHillArea56": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8863,
+    "center_y": 6754,
+    "width": 0,
+    "height": 0,
+    "range_degree": 211,
+    "mobs": [
+      {
+        "mob": "Emp_SilverSlime",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDGreenHillArea57": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8935,
+    "center_y": 5171,
+    "width": 0,
+    "height": 0,
+    "range_degree": 302,
+    "mobs": [
+      {
+        "mob": "Emp_GoldSlime",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "XTree": {
+    "enabled": false,
+    "is_family": false,
+    "center_x": 11364,
+    "center_y": 10719,
+    "width": 52,
+    "height": 251,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "ChristmasTree",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": false
+      }
+    ]
+  }
+}

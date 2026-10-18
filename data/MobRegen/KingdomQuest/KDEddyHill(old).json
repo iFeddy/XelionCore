@@ -1,0 +1,1883 @@
+{
+  "KDEddyHillArea01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7254,
+    "center_y": 6179,
+    "width": 0,
+    "height": 0,
+    "range_degree": 64,
+    "mobs": [
+      {
+        "mob": "KQ_KingSlime",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEddyHillArea02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7259,
+    "center_y": 5984,
+    "width": 0,
+    "height": 0,
+    "range_degree": 63,
+    "mobs": [
+      {
+        "mob": "KQ_QueenSlime",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEddyHillArea03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6296,
+    "center_y": 4793,
+    "width": 0,
+    "height": 0,
+    "range_degree": 253,
+    "mobs": [
+      {
+        "mob": "KQ_Ratman",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEddyHillArea04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5368,
+    "center_y": 6512,
+    "width": 126,
+    "height": 409,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "KQ_Ratman",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEddyHillArea05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6494,
+    "center_y": 9225,
+    "width": 902,
+    "height": 246,
+    "range_degree": -14,
+    "mobs": [
+      {
+        "mob": "KQ_Slime",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEddyHillArea06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5169,
+    "center_y": 8835,
+    "width": 0,
+    "height": 0,
+    "range_degree": 368,
+    "mobs": [
+      {
+        "mob": "KQ_MushRoom",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEddyHillArea07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4348,
+    "center_y": 8597,
+    "width": 218,
+    "height": 779,
+    "range_degree": 49,
+    "mobs": [
+      {
+        "mob": "KQ_Slime",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEddyHillArea08": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6539,
+    "center_y": 9245,
+    "width": 0,
+    "height": 0,
+    "range_degree": 339,
+    "mobs": [
+      {
+        "mob": "KQ_FireSlime",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEddyHillArea09": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9951,
+    "center_y": 7393,
+    "width": 332,
+    "height": 1047,
+    "range_degree": -15,
+    "mobs": [
+      {
+        "mob": "KQ_Honeying",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 3,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEddyHillArea10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9802,
+    "center_y": 7779,
+    "width": 0,
+    "height": 0,
+    "range_degree": 277,
+    "mobs": [
+      {
+        "mob": "KQ_FireSlime",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEddyHillArea11": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9203,
+    "center_y": 8777,
+    "width": 0,
+    "height": 0,
+    "range_degree": 394,
+    "mobs": [
+      {
+        "mob": "KQ_MushRoom",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEddyHillArea12": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8189,
+    "center_y": 9031,
+    "width": 1235,
+    "height": 252,
+    "range_degree": 9,
+    "mobs": [
+      {
+        "mob": "KQ_Imp",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEddyHillArea13": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9622,
+    "center_y": 7773,
+    "width": 166,
+    "height": 1353,
+    "range_degree": -27,
+    "mobs": [
+      {
+        "mob": "KQ_Imp",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEddyHillArea14": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10167,
+    "center_y": 6562,
+    "width": 225,
+    "height": 709,
+    "range_degree": -1,
+    "mobs": [
+      {
+        "mob": "KQ_MushRoom",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEddyHillArea15": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8449,
+    "center_y": 9119,
+    "width": 0,
+    "height": 0,
+    "range_degree": 227,
+    "mobs": [
+      {
+        "mob": "KQ_IronSlime",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEddyHillArea16": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10573,
+    "center_y": 6388,
+    "width": 0,
+    "height": 0,
+    "range_degree": 274,
+    "mobs": [
+      {
+        "mob": "KQ_Honeying",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEddyHillArea17": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9132,
+    "center_y": 6019,
+    "width": 0,
+    "height": 0,
+    "range_degree": 330,
+    "mobs": [
+      {
+        "mob": "KQ_Honeying",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEddyHillArea18": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8342,
+    "center_y": 4452,
+    "width": 945,
+    "height": 156,
+    "range_degree": -44,
+    "mobs": [
+      {
+        "mob": "KQ_FireSlime",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEddyHillArea19": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8543,
+    "center_y": 7449,
+    "width": 155,
+    "height": 641,
+    "range_degree": -27,
+    "mobs": [
+      {
+        "mob": "KQ_FireSlime",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEddyHillArea20": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4670,
+    "center_y": 6090,
+    "width": 226,
+    "height": 1018,
+    "range_degree": 2,
+    "mobs": [
+      {
+        "mob": "KQ_IronSlime",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEddyHillArea21": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4858,
+    "center_y": 4746,
+    "width": 691,
+    "height": 147,
+    "range_degree": 60,
+    "mobs": [
+      {
+        "mob": "KQ_IronSlime",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEddyHillArea22": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6671,
+    "center_y": 4617,
+    "width": 0,
+    "height": 0,
+    "range_degree": 190,
+    "mobs": [
+      {
+        "mob": "KQ_SilverSlime",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEddyHillArea23": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7465,
+    "center_y": 7240,
+    "width": 456,
+    "height": 160,
+    "range_degree": 13,
+    "mobs": [
+      {
+        "mob": "KQ_GoldSlime",
+        "count": 7,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEddyHillArea24": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8067,
+    "center_y": 9205,
+    "width": 728,
+    "height": 213,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "KQ_IronSlime",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEddyHillArea25": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5457,
+    "center_y": 5447,
+    "width": 97,
+    "height": 417,
+    "range_degree": -16,
+    "mobs": [
+      {
+        "mob": "KQ_GoldSlime",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEddyHillArea26": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8033,
+    "center_y": 5868,
+    "width": 164,
+    "height": 624,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "KQ_SilverSlime",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEddyHillArea27": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5869,
+    "center_y": 7221,
+    "width": 355,
+    "height": 181,
+    "range_degree": -29,
+    "mobs": [
+      {
+        "mob": "KQ_SilverSlime",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEddyHillArea28": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7452,
+    "center_y": 3969,
+    "width": 600,
+    "height": 236,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "KQ_Honeying",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEddyHillArea29": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8004,
+    "center_y": 6749,
+    "width": 398,
+    "height": 131,
+    "range_degree": 82,
+    "mobs": [
+      {
+        "mob": "KQ_Boar",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEddyHillArea30": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7102,
+    "center_y": 4831,
+    "width": 0,
+    "height": 0,
+    "range_degree": 303,
+    "mobs": [
+      {
+        "mob": "KQ_Boar",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEddyHillArea31": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7245,
+    "center_y": 6453,
+    "width": 0,
+    "height": 0,
+    "range_degree": 65,
+    "mobs": [
+      {
+        "mob": "KQ_PrinceSlime",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEddyHillArea32": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7001,
+    "center_y": 6073,
+    "width": 0,
+    "height": 0,
+    "range_degree": 79,
+    "mobs": [
+      {
+        "mob": "KQ_GoldSlime",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEddyHillArea33": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7035,
+    "center_y": 6447,
+    "width": 0,
+    "height": 0,
+    "range_degree": 65,
+    "mobs": [
+      {
+        "mob": "KQ_SilverSlime",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEddyHillArea34": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7209,
+    "center_y": 5729,
+    "width": 0,
+    "height": 0,
+    "range_degree": 86,
+    "mobs": [
+      {
+        "mob": "KQ_IronSlime",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEddyHillArea35": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6976,
+    "center_y": 5702,
+    "width": 0,
+    "height": 0,
+    "range_degree": 79,
+    "mobs": [
+      {
+        "mob": "KQ_FireSlime",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEddyHillArea36": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6819,
+    "center_y": 6441,
+    "width": 0,
+    "height": 0,
+    "range_degree": 86,
+    "mobs": [
+      {
+        "mob": "KQ_Slime",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEddyHillArea37": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6785,
+    "center_y": 5708,
+    "width": 0,
+    "height": 0,
+    "range_degree": 79,
+    "mobs": [
+      {
+        "mob": "KQ_Slime",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEddyHillArea38": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6826,
+    "center_y": 6117,
+    "width": 0,
+    "height": 0,
+    "range_degree": 55,
+    "mobs": [
+      {
+        "mob": "KQ_Slime",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEddyHillArea39": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6169,
+    "center_y": 6076,
+    "width": 0,
+    "height": 0,
+    "range_degree": 268,
+    "mobs": [
+      {
+        "mob": "KQ_Boar",
+        "count": 7,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEddyHillArea40": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6579,
+    "center_y": 6613,
+    "width": 0,
+    "height": 0,
+    "range_degree": 275,
+    "mobs": [
+      {
+        "mob": "KQ_Ratman",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEddyHillArea41": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6444,
+    "center_y": 5583,
+    "width": 0,
+    "height": 0,
+    "range_degree": 303,
+    "mobs": [
+      {
+        "mob": "KQ_Ratman",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEddyHillArea42": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6447,
+    "center_y": 6267,
+    "width": 0,
+    "height": 0,
+    "range_degree": 177,
+    "mobs": [
+      {
+        "mob": "KQ_PrinceSlime",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEddyHillArea43": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6472,
+    "center_y": 5983,
+    "width": 0,
+    "height": 0,
+    "range_degree": 240,
+    "mobs": [
+      {
+        "mob": "KQ_PrinceSlime",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEddyHillArea44": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5607,
+    "center_y": 6883,
+    "width": 355,
+    "height": 143,
+    "range_degree": -41,
+    "mobs": [
+      {
+        "mob": "KQ_PrinceSlime",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEddyHillArea45": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5864,
+    "center_y": 4936,
+    "width": 0,
+    "height": 0,
+    "range_degree": 317,
+    "mobs": [
+      {
+        "mob": "KQ_PrinceSlime",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEddyHillArea46": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7615,
+    "center_y": 5021,
+    "width": 0,
+    "height": 0,
+    "range_degree": 303,
+    "mobs": [
+      {
+        "mob": "KQ_PrinceSlime",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEddyHillArea47": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7640,
+    "center_y": 6976,
+    "width": 371,
+    "height": 176,
+    "range_degree": 38,
+    "mobs": [
+      {
+        "mob": "KQ_PrinceSlime",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEddyHillArea48": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5698,
+    "center_y": 4065,
+    "width": 728,
+    "height": 256,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "KQ_Honeying",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEddyHillArea49": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7911,
+    "center_y": 8027,
+    "width": 538,
+    "height": 162,
+    "range_degree": 13,
+    "mobs": [
+      {
+        "mob": "KQ_Honeying",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEddyHillArea50": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5022,
+    "center_y": 7601,
+    "width": 139,
+    "height": 570,
+    "range_degree": 41,
+    "mobs": [
+      {
+        "mob": "KQ_Honeying",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEddyHillArea51": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6653,
+    "center_y": 8114,
+    "width": 872,
+    "height": 218,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "KQ_FireSlime",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEddyHillArea52": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7526,
+    "center_y": 8100,
+    "width": 569,
+    "height": 219,
+    "range_degree": 5,
+    "mobs": [
+      {
+        "mob": "KQ_IronSlime",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEddyHillArea53": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5687,
+    "center_y": 8115,
+    "width": 482,
+    "height": 145,
+    "range_degree": -8,
+    "mobs": [
+      {
+        "mob": "KQ_Honeying",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEddyHillArea54": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6659,
+    "center_y": 6093,
+    "width": 0,
+    "height": 0,
+    "range_degree": 86,
+    "mobs": [
+      {
+        "mob": "KQ_QueenSlime",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEddyHillArea55": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7443,
+    "center_y": 9183,
+    "width": 0,
+    "height": 0,
+    "range_degree": 511,
+    "mobs": [
+      {
+        "mob": "KQ_Slime",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEddyHillArea56": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8972,
+    "center_y": 6666,
+    "width": 0,
+    "height": 0,
+    "range_degree": 317,
+    "mobs": [
+      {
+        "mob": "KQ_SilverSlime",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEddyHillArea57": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8907,
+    "center_y": 5380,
+    "width": 0,
+    "height": 0,
+    "range_degree": 352,
+    "mobs": [
+      {
+        "mob": "KQ_GoldSlime",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  }
+}

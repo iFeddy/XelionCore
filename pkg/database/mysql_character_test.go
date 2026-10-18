@@ -47,7 +47,7 @@ func TestMySQLCharacterRepository_Lifecycle(t *testing.T) {
 	ch := &database.Character{
 		AccountID: testUserNo,
 		Name:      testCharName,
-		Slot:      0,
+		Slot:      4,
 		Job:       1, // Fighter
 		Level:     1,
 		Male:      true,
@@ -80,7 +80,7 @@ func TestMySQLCharacterRepository_Lifecycle(t *testing.T) {
 	chDupSlot := &database.Character{
 		AccountID: testUserNo,
 		Name:      "AnotherKnight",
-		Slot:      0, // Mismo slot
+		Slot:      ch.Slot, // Mismo slot
 		Job:       2,
 	}
 	err = repo.CreateCharacter(chDupSlot)
@@ -142,7 +142,7 @@ func TestMySQLCharacterRepository_Lifecycle(t *testing.T) {
 	}
 
 	// 7. Borrado suave oficial (soft delete)
-	err = repo.DeleteCharacter(testUserNo, 0)
+	err = repo.DeleteCharacter(testUserNo, ch.Slot)
 	if err != nil {
 		t.Fatalf("Failed to soft delete character: %v", err)
 	}
@@ -176,7 +176,7 @@ func TestMySQLCharacterRepository_Lifecycle(t *testing.T) {
 	chRecreate := &database.Character{
 		AccountID: testUserNo,
 		Name:      testCharName,
-		Slot:      0,
+		Slot:      ch.Slot,
 		Job:       1,
 		Level:     1,
 		Male:      false,

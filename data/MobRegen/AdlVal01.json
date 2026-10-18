@@ -1,0 +1,8329 @@
+{
+  "Adl_001": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 32986,
+    "center_y": 13517,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "DApe",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_008": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 35391,
+    "center_y": 12900,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "DApe",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_009": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 35433,
+    "center_y": 11957,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "DApe",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_011": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 33955,
+    "center_y": 13019,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "DApe",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_012": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 34431,
+    "center_y": 12201,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "DApe",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_013": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 34452,
+    "center_y": 11165,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "DApe",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_014": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 34551,
+    "center_y": 10178,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "DApe",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_018": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 28004,
+    "center_y": 9979,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "BSpikeHorn",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_019": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 33374,
+    "center_y": 9840,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "DApe",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_020": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 32668,
+    "center_y": 10410,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "DApe",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_022": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 31874,
+    "center_y": 10481,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "BSpikeHorn",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_023": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 30390,
+    "center_y": 9657,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "BSpikeHorn",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_024": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 30313,
+    "center_y": 10593,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "BSpikeHorn",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_026": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 29607,
+    "center_y": 11160,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "BSpikeHorn",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_027": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 29368,
+    "center_y": 10298,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "BSpikeHorn",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_029": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 28211,
+    "center_y": 11352,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "BSpikeHorn",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_030": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 27352,
+    "center_y": 10997,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "BSpikeHorn",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_031": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 31091,
+    "center_y": 10521,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "BSpikeHorn",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_032": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 26515,
+    "center_y": 10699,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FSpearman",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_035": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 27285,
+    "center_y": 8994,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FSpearman",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_036": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 27082,
+    "center_y": 10048,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FSpearman",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_038": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 26130,
+    "center_y": 9513,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FSpearman",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_039": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 26349,
+    "center_y": 8743,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FSpearman",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_041": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 26851,
+    "center_y": 8042,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FSpearman",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_042": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 27767,
+    "center_y": 8093,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FSpearman",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_044": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 28384,
+    "center_y": 7473,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FSpearman",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_046": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 27165,
+    "center_y": 7256,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FSpearman",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_047": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 27931,
+    "center_y": 6737,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FSpearman",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_049": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 29372,
+    "center_y": 7498,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FSpearman",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_050": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 29131,
+    "center_y": 6706,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FSpearman",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_052": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 30378,
+    "center_y": 8704,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FRanger",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_056": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 31266,
+    "center_y": 9564,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FRanger",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_057": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 31832,
+    "center_y": 8680,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FRanger",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_058": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 32517,
+    "center_y": 8179,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FRanger",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_060": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 32818,
+    "center_y": 7492,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FRanger",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_061": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 31996,
+    "center_y": 7255,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FRanger",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_062": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 31248,
+    "center_y": 6788,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FRanger",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_064": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 30256,
+    "center_y": 6652,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FRanger",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_065": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 30150,
+    "center_y": 7646,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FRanger",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_068": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 30708,
+    "center_y": 5762,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FRanger",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_072": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 29639,
+    "center_y": 6034,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FRanger",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_073": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 29192,
+    "center_y": 5101,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FKnuckleman",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_074": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 28455,
+    "center_y": 4918,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FKnuckleman",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_075": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 27553,
+    "center_y": 5213,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FKnuckleman",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_077": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 27565,
+    "center_y": 6018,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "FKnuckleman",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_078": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 26925,
+    "center_y": 5798,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "FKnuckleman",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_079": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 25907,
+    "center_y": 5091,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FKnuckleman",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_082": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 26884,
+    "center_y": 4826,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FKnuckleman",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_084": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 26320,
+    "center_y": 4409,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FKnuckleman",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_086": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 26136,
+    "center_y": 3682,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FKnuckleman",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_088": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 26771,
+    "center_y": 3140,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FKnuckleman",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_089": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 26337,
+    "center_y": 2473,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FKnuckleman",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_091": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 27252,
+    "center_y": 2316,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FKnuckleman",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_092": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 27764,
+    "center_y": 3089,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FKnuckleman",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_094": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 27955,
+    "center_y": 4176,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FKnuckleman",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_096": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 28448,
+    "center_y": 3089,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FKnuckleman",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_098": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 29404,
+    "center_y": 3531,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FKnuckleman",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_099": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 29214,
+    "center_y": 2722,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FKnuckleman",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_100": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 29782,
+    "center_y": 4375,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FKnuckleman",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_102": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 30132,
+    "center_y": 5219,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FKnuckleman",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_104": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 31620,
+    "center_y": 5536,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FSpearman",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_106": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 32493,
+    "center_y": 5119,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FSpearman",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "FRanger",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_108": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 31188,
+    "center_y": 4283,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FSpearman",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "FRanger",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_109": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 31940,
+    "center_y": 3781,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FSpearman",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "FKnuckleman",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_110": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 31857,
+    "center_y": 4650,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FSpearman",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "FKnuckleman",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_111": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 32627,
+    "center_y": 4199,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FSpearman",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "FKnuckleman",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_113": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 33528,
+    "center_y": 4674,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FKnuckleman",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "FRanger",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_117": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 31224,
+    "center_y": 3209,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FKnuckleman",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "FRanger",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_118": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 33761,
+    "center_y": 4084,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FRanger",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_119": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 33249,
+    "center_y": 3717,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FRanger",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_120": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 32463,
+    "center_y": 3126,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FRanger",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_121": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 31751,
+    "center_y": 2762,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FRanger",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_122": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 36720,
+    "center_y": 14009,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "Tornado",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_123": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 36316,
+    "center_y": 12671,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "Tornado",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_125": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 37643,
+    "center_y": 12725,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "Tornado",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_127": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 37563,
+    "center_y": 14722,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "Tornado",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_130": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 38601,
+    "center_y": 15069,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "Tornado",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_131": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 39720,
+    "center_y": 15136,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "Tornado",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_132": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 40769,
+    "center_y": 15152,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "Tornado",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_135": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 38837,
+    "center_y": 12785,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "Tornado",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_136": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 40072,
+    "center_y": 12863,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "Tornado",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_138": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 41005,
+    "center_y": 13070,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "Tornado",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_140": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 41812,
+    "center_y": 13854,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "Tornado",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_141": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 41651,
+    "center_y": 14821,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "Tornado",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_144": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 42453,
+    "center_y": 15288,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "GTornado",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_147": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 43132,
+    "center_y": 15962,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "GTornado",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_148": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 44116,
+    "center_y": 15827,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "GTornado",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_150": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 45276,
+    "center_y": 17142,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "SElfFig",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_151": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 42614,
+    "center_y": 14334,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "GTornado",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_152": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 43319,
+    "center_y": 14949,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "GTornado",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_153": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 45025,
+    "center_y": 15558,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "GTornado",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_156": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 43858,
+    "center_y": 13739,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "GTornado",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_158": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 42883,
+    "center_y": 13382,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "GTornado",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_161": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 44284,
+    "center_y": 14794,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "GTornado",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_162": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 41598,
+    "center_y": 16316,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "SElfFig",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_163": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 41937,
+    "center_y": 17115,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "SElfFig",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_164": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 42576,
+    "center_y": 17752,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "SElfFig",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_166": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 43432,
+    "center_y": 19147,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "SElfFig",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_167": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 43359,
+    "center_y": 18282,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "SElfMag",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_169": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 42944,
+    "center_y": 19869,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "SElfFig",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_170": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 42074,
+    "center_y": 20001,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "SElfFig",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "SElfMag",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_173": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 41206,
+    "center_y": 19892,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "SElfMag",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "SElfFig",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_174": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 40396,
+    "center_y": 19353,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "SElfFig",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_175": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 39751,
+    "center_y": 18567,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "SElfMag",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_177": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 39225,
+    "center_y": 17764,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "SElfMag",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_179": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 38387,
+    "center_y": 17247,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "SElfMag",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_180": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 37528,
+    "center_y": 17123,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "SElfMag",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_181": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 38478,
+    "center_y": 18141,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "SElfMag",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "SElfFig",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_182": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 37483,
+    "center_y": 18120,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "SElfMag",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_184": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 37982,
+    "center_y": 18911,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "SElfMag",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_185": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 38045,
+    "center_y": 19829,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "SElfMag",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_186": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 37062,
+    "center_y": 19015,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "SElfMag",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "SElfFig",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_187": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 37096,
+    "center_y": 20093,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "SElfMag",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_189": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 37319,
+    "center_y": 21007,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "SElfMag",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_190": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 38131,
+    "center_y": 20782,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "SElfMag",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "SElfFig",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_191": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 38837,
+    "center_y": 21491,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "SElfFig",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "SElfMag",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_192": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 39876,
+    "center_y": 21675,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "SElfFig",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_194": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 40986,
+    "center_y": 21772,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "SElfFig",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_196": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 41943,
+    "center_y": 21819,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "SElfFig",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_198": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 42939,
+    "center_y": 21715,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "SElfFig",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "SElfMag",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_199": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 43977,
+    "center_y": 21506,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "SElfFig",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_200": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 44853,
+    "center_y": 21020,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "SElfFig",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_202": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 45162,
+    "center_y": 20052,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "SElfFig",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_203": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 45220,
+    "center_y": 19069,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "SElfFig",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_205": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 45318,
+    "center_y": 18097,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "SElfFig",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_206": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 41923,
+    "center_y": 12875,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "GTornado",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_207": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 43060,
+    "center_y": 12500,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "GTornado",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_208": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 44030,
+    "center_y": 12825,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "GTornado",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_210": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 42154,
+    "center_y": 11332,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "IceLich",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_212": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 41829,
+    "center_y": 10465,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "IceLich",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_213": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 40923,
+    "center_y": 10006,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "IceLich",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_215": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 39998,
+    "center_y": 9865,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "IceLich",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_216": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 39136,
+    "center_y": 9663,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "IceLich",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_217": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 38293,
+    "center_y": 9274,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "IceLich",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_219": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 37590,
+    "center_y": 8492,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "IceLich",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_221": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 37086,
+    "center_y": 7736,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "IceLich",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_223": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 41599,
+    "center_y": 9533,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "IceLich",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_224": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 41262,
+    "center_y": 8740,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FireLich",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "IceLich",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_226": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 40611,
+    "center_y": 8019,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FireLich",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "IceLich",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_227": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 41586,
+    "center_y": 7914,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FireLich",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "IceLich",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_229": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 39780,
+    "center_y": 7651,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FireLich",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "IceLich",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_230": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 41672,
+    "center_y": 7073,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FireLich",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "IceLich",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_232": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 41626,
+    "center_y": 6245,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FireLich",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "IceLich",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_233": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 41461,
+    "center_y": 5492,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FireLich",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "IceLich",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_235": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 42461,
+    "center_y": 6011,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FireLich",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "IceLich",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_236": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 42461,
+    "center_y": 5370,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FireLich",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "IceLich",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_238": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 41846,
+    "center_y": 4796,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FireLich",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "IceLich",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_239": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 42462,
+    "center_y": 4363,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FireLich",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "IceLich",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_240": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 42939,
+    "center_y": 3555,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FireLich",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "IceLich",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_242": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 43045,
+    "center_y": 2792,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FireLich",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "IceLich",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_243": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 42345,
+    "center_y": 2414,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FireLich",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "IceLich",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_245": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 41046,
+    "center_y": 2371,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FireLich",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "IceLich",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_246": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 41356,
+    "center_y": 2918,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FireLich",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "IceLich",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_249": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 39838,
+    "center_y": 2384,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FireLich",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "IceLich",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_250": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 39586,
+    "center_y": 3186,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FireLich",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "IceLich",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_251": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 39251,
+    "center_y": 3907,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FireLich",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "IceLich",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_253": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 38809,
+    "center_y": 2525,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FireLich",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "IceLich",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_255": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 40508,
+    "center_y": 2946,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FireLich",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "IceLich",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_256": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 38291,
+    "center_y": 1956,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FireLich",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "IceLich",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_257": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 38413,
+    "center_y": 3593,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FireLich",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "IceLich",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_259": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 38807,
+    "center_y": 4649,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FireLich",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "IceLich",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_260": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 37856,
+    "center_y": 2863,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FireLich",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "IceLich",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_261": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 37879,
+    "center_y": 4364,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FireLich",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "IceLich",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_263": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 38696,
+    "center_y": 5649,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FireLich",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "IceLich",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_264": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 37001,
+    "center_y": 2575,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FireLich",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "IceLich",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_265": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 36686,
+    "center_y": 3193,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FireLich",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "IceLich",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_267": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 37878,
+    "center_y": 5250,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FireLich",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "IceLich",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_268": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 36928,
+    "center_y": 4337,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FireLich",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "IceLich",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_269": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 36886,
+    "center_y": 5159,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FireLich",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "IceLich",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_270": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 36776,
+    "center_y": 6788,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FireLich",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "IceLich",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_271": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 44973,
+    "center_y": 11410,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FireLich",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_272": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 45141,
+    "center_y": 10533,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FireLich",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_274": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 45200,
+    "center_y": 9670,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FireLich",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_276": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 44937,
+    "center_y": 8750,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FireLich",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_277": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 44709,
+    "center_y": 7889,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FireLich",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_278": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 44172,
+    "center_y": 7150,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FireLich",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_280": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 43527,
+    "center_y": 6599,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FireLich",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_281": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 44225,
+    "center_y": 6130,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FireLich",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_282": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 43319,
+    "center_y": 5765,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FireLich",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_284": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 43156,
+    "center_y": 4991,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "FireLich",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_DNepilim01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 43647,
+    "center_y": 14375,
+    "width": 0,
+    "height": 0,
+    "range_degree": 90,
+    "mobs": [
+      {
+        "mob": "DNepilim",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_DNepilim02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 45346,
+    "center_y": 16282,
+    "width": 0,
+    "height": 0,
+    "range_degree": 75,
+    "mobs": [
+      {
+        "mob": "DNepilim",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_DNepilim03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 42118,
+    "center_y": 14355,
+    "width": 0,
+    "height": 0,
+    "range_degree": 90,
+    "mobs": [
+      {
+        "mob": "DNepilim",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_DNepilim04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 42185,
+    "center_y": 12126,
+    "width": 0,
+    "height": 0,
+    "range_degree": 82,
+    "mobs": [
+      {
+        "mob": "DNepilim",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_DNepilim05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 41402,
+    "center_y": 15629,
+    "width": 0,
+    "height": 0,
+    "range_degree": 90,
+    "mobs": [
+      {
+        "mob": "DNepilim",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_hero01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 26428,
+    "center_y": 5145,
+    "width": 0,
+    "height": 0,
+    "range_degree": 54,
+    "mobs": [
+      {
+        "mob": "FKnight",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_hero02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 32996,
+    "center_y": 3306,
+    "width": 0,
+    "height": 0,
+    "range_degree": 82,
+    "mobs": [
+      {
+        "mob": "FKnight",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_hero03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 43706,
+    "center_y": 2295,
+    "width": 0,
+    "height": 0,
+    "range_degree": 496,
+    "mobs": [
+      {
+        "mob": "DLich",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_hero04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 41926,
+    "center_y": 8352,
+    "width": 0,
+    "height": 0,
+    "range_degree": 496,
+    "mobs": [
+      {
+        "mob": "DLich",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_hero05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 37479,
+    "center_y": 3594,
+    "width": 0,
+    "height": 0,
+    "range_degree": 398,
+    "mobs": [
+      {
+        "mob": "DLich",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_FlowerWoodHerb": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 27642,
+    "center_y": 17566,
+    "width": 203,
+    "height": 1058,
+    "range_degree": -66,
+    "mobs": [
+      {
+        "mob": "FLOWER10",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 201,
+        "reg_max": 199,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB10",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 201,
+        "reg_max": 199,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM10",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 201,
+        "reg_max": 199,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD10",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 201,
+        "reg_max": 199,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_FlowerWoodHerb1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 29983,
+    "center_y": 6741,
+    "width": 0,
+    "height": 0,
+    "range_degree": 4443,
+    "mobs": [
+      {
+        "mob": "FLOWER10",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 201,
+        "reg_max": 199,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB10",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 201,
+        "reg_max": 199,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM10",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 201,
+        "reg_max": 199,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD10",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 201,
+        "reg_max": 199,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Q_Qura_Herb",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 201,
+        "reg_max": 199,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Q_Qura_Herb",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 201,
+        "reg_max": 199,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Q_Qura_Herb",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 201,
+        "reg_max": 199,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Q_Qura_Herb",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 201,
+        "reg_max": 199,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Q_Qura_Herb",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 201,
+        "reg_max": 199,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Q_Qura_Herb",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 201,
+        "reg_max": 199,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_FlowerWoodHerb2": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 41048,
+    "center_y": 5790,
+    "width": 0,
+    "height": 0,
+    "range_degree": 3905,
+    "mobs": [
+      {
+        "mob": "FLOWER10",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 201,
+        "reg_max": 199,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB10",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 201,
+        "reg_max": 199,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM10",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 201,
+        "reg_max": 199,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD10",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 201,
+        "reg_max": 199,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_FlowerWoodHerb3": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 41155,
+    "center_y": 17921,
+    "width": 0,
+    "height": 0,
+    "range_degree": 3876,
+    "mobs": [
+      {
+        "mob": "FLOWER10",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 201,
+        "reg_max": 199,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB10",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 201,
+        "reg_max": 199,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM10",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 201,
+        "reg_max": 199,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD10",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 201,
+        "reg_max": 199,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_FlowerWoodHerb4": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 34806,
+    "center_y": 12186,
+    "width": 0,
+    "height": 0,
+    "range_degree": 2370,
+    "mobs": [
+      {
+        "mob": "FLOWER10",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 201,
+        "reg_max": 199,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB10",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 201,
+        "reg_max": 199,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM10",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 201,
+        "reg_max": 199,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD10",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 201,
+        "reg_max": 199,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_FlowerWoodHerb5": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 29848,
+    "center_y": 20803,
+    "width": 1206,
+    "height": 265,
+    "range_degree": 30,
+    "mobs": [
+      {
+        "mob": "FLOWER10",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 201,
+        "reg_max": 199,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB10",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 201,
+        "reg_max": 199,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM10",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 201,
+        "reg_max": 199,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD10",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 201,
+        "reg_max": 199,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Adl_FlowerWoodHerb6": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 26972,
+    "center_y": 20473,
+    "width": 251,
+    "height": 1076,
+    "range_degree": 29,
+    "mobs": [
+      {
+        "mob": "FLOWER10",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 201,
+        "reg_max": 199,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB10",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 201,
+        "reg_max": 199,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM10",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 201,
+        "reg_max": 199,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD10",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 201,
+        "reg_max": 199,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Waypoint01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 41544,
+    "center_y": 13336,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "DNepilim",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Waypoint02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 44245,
+    "center_y": 15238,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "DNepilim",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Waypoint03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 42820,
+    "center_y": 14783,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "DNepilim",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 17,
+        "reg_max": 34,
+        "deltas": [
+          -8,
+          -4,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          17,
+          22,
+          29,
+          34
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Waypoint04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 28530,
+    "center_y": 17441,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "HERB10",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 201,
+        "reg_max": 199,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Waypoint05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 30944,
+    "center_y": 19089,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "HERB10",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 201,
+        "reg_max": 199,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Waypoint06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 28256,
+    "center_y": 21280,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "HERB10",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 201,
+        "reg_max": 199,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,200 @@
+{
+  "QField02_01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 957,
+    "center_y": 1088,
+    "width": 0,
+    "height": 0,
+    "range_degree": 80,
+    "mobs": [
+      {
+        "mob": "RaplanA",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 3,
+        "reg_max": 0,
+        "deltas": [
+          4,
+          5,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "QField02_02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 694,
+    "center_y": 1111,
+    "width": 0,
+    "height": 0,
+    "range_degree": 80,
+    "mobs": [
+      {
+        "mob": "RaplanA",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 3,
+        "reg_max": 0,
+        "deltas": [
+          4,
+          5,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "QField02_03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 658,
+    "center_y": 526,
+    "width": 0,
+    "height": 0,
+    "range_degree": 80,
+    "mobs": [
+      {
+        "mob": "RaplanA",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 3,
+        "reg_max": 0,
+        "deltas": [
+          4,
+          5,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "QField02_04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 936,
+    "center_y": 590,
+    "width": 0,
+    "height": 0,
+    "range_degree": 80,
+    "mobs": [
+      {
+        "mob": "RaplanA",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 3,
+        "reg_max": 0,
+        "deltas": [
+          4,
+          5,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "QField02_05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 811,
+    "center_y": 470,
+    "width": 0,
+    "height": 0,
+    "range_degree": 25,
+    "mobs": [
+      {
+        "mob": "PrinceRaplan",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 50,
+        "reg_min": 75,
+        "reg_max": 60,
+        "deltas": [
+          10,
+          15,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          120,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "QField02_06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1049,
+    "center_y": 953,
+    "width": 0,
+    "height": 0,
+    "range_degree": 25,
+    "mobs": [
+      {
+        "mob": "PrincessRaplan",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 50,
+        "reg_min": 75,
+        "reg_max": 60,
+        "deltas": [
+          10,
+          15,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          120,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  }
+}

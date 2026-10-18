@@ -1,0 +1,1861 @@
+{
+  "1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5586,
+    "center_y": 7064,
+    "width": 0,
+    "height": 0,
+    "range_degree": 997,
+    "mobs": [
+      {
+        "mob": "P_Ghost2",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Ghost3",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "2": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7840,
+    "center_y": 7684,
+    "width": 0,
+    "height": 0,
+    "range_degree": 815,
+    "mobs": [
+      {
+        "mob": "P_Ghost1",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Ghost2",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "3": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9838,
+    "center_y": 7887,
+    "width": 966,
+    "height": 390,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "P_Ghost1",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Ghost2",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "4": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11703,
+    "center_y": 6971,
+    "width": 0,
+    "height": 0,
+    "range_degree": 787,
+    "mobs": [
+      {
+        "mob": "P_Ghost2",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Ghost3",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "5": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8501,
+    "center_y": 13703,
+    "width": 0,
+    "height": 0,
+    "range_degree": 822,
+    "mobs": [
+      {
+        "mob": "P_Ghost1",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Ghost2",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "6": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7997,
+    "center_y": 16305,
+    "width": 1203,
+    "height": 414,
+    "range_degree": 11,
+    "mobs": [
+      {
+        "mob": "P_Ghost1",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Ghost2",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "7": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11305,
+    "center_y": 13755,
+    "width": 0,
+    "height": 0,
+    "range_degree": 983,
+    "mobs": [
+      {
+        "mob": "P_Ghost2",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Ghost3",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "8": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11464,
+    "center_y": 9629,
+    "width": 963,
+    "height": 598,
+    "range_degree": 20,
+    "mobs": [
+      {
+        "mob": "P_Ghost2",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Ghost3",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "9": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10848,
+    "center_y": 11575,
+    "width": 423,
+    "height": 743,
+    "range_degree": -15,
+    "mobs": [
+      {
+        "mob": "P_Ghost3",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Ghost4",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13379,
+    "center_y": 10551,
+    "width": 981,
+    "height": 645,
+    "range_degree": 32,
+    "mobs": [
+      {
+        "mob": "P_Ghost4",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Ghost3",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "11": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14149,
+    "center_y": 13074,
+    "width": 808,
+    "height": 1382,
+    "range_degree": 61,
+    "mobs": [
+      {
+        "mob": "P_Ghost4",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Ghost3",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "12": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11823,
+    "center_y": 15765,
+    "width": 2586,
+    "height": 224,
+    "range_degree": 13,
+    "mobs": [
+      {
+        "mob": "P_Ghost2",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Ghost3",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Prock",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "13": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5764,
+    "center_y": 10221,
+    "width": 673,
+    "height": 1393,
+    "range_degree": -8,
+    "mobs": [
+      {
+        "mob": "P_Ghost3",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Ghost4",
+        "count": 7,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "14": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5617,
+    "center_y": 13519,
+    "width": 0,
+    "height": 0,
+    "range_degree": 254,
+    "mobs": [
+      {
+        "mob": "P_Prock",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "15": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5648,
+    "center_y": 13477,
+    "width": 658,
+    "height": 1125,
+    "range_degree": 46,
+    "mobs": [
+      {
+        "mob": "P_Ghost4",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Ghost3",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "16": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7794,
+    "center_y": 7608,
+    "width": 0,
+    "height": 0,
+    "range_degree": 527,
+    "mobs": [
+      {
+        "mob": "P_Prock",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "17": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5904,
+    "center_y": 7277,
+    "width": 0,
+    "height": 0,
+    "range_degree": 688,
+    "mobs": [
+      {
+        "mob": "P_Prock",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "18": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11759,
+    "center_y": 6971,
+    "width": 0,
+    "height": 0,
+    "range_degree": 590,
+    "mobs": [
+      {
+        "mob": "P_Prock",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "19": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8366,
+    "center_y": 13592,
+    "width": 0,
+    "height": 0,
+    "range_degree": 800,
+    "mobs": [
+      {
+        "mob": "P_Prock",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "20": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5709,
+    "center_y": 10186,
+    "width": 0,
+    "height": 0,
+    "range_degree": 310,
+    "mobs": [
+      {
+        "mob": "P_Prock",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "21": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11696,
+    "center_y": 9670,
+    "width": 0,
+    "height": 0,
+    "range_degree": 261,
+    "mobs": [
+      {
+        "mob": "P_Prock",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "22": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11399,
+    "center_y": 13755,
+    "width": 0,
+    "height": 0,
+    "range_degree": 842,
+    "mobs": [
+      {
+        "mob": "P_Prock",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "23": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13142,
+    "center_y": 10490,
+    "width": 0,
+    "height": 0,
+    "range_degree": 569,
+    "mobs": [
+      {
+        "mob": "P_Prock",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "24": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14354,
+    "center_y": 13234,
+    "width": 0,
+    "height": 0,
+    "range_degree": 835,
+    "mobs": [
+      {
+        "mob": "P_Prock",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "c_001": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6654,
+    "center_y": 7379,
+    "width": 1834,
+    "height": 536,
+    "range_degree": -15,
+    "mobs": [
+      {
+        "mob": "P_Fighter4M",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Cleric4F",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Archer4F",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Mage4F",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "c_002": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10986,
+    "center_y": 11549,
+    "width": 238,
+    "height": 2155,
+    "range_degree": -6,
+    "mobs": [
+      {
+        "mob": "P_Fighter4M",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Cleric4F",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Archer4F",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Mage4F",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "c_003": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13674,
+    "center_y": 12224,
+    "width": 253,
+    "height": 2359,
+    "range_degree": 22,
+    "mobs": [
+      {
+        "mob": "P_Fighter4M",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Cleric4F",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Archer4F",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Mage4F",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "c_004": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5536,
+    "center_y": 11107,
+    "width": 139,
+    "height": 2677,
+    "range_degree": -9,
+    "mobs": [
+      {
+        "mob": "P_Fighter4M",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Cleric4F",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Archer4F",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Mage4F",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "c_005": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10727,
+    "center_y": 16003,
+    "width": 3448,
+    "height": 53,
+    "range_degree": 11,
+    "mobs": [
+      {
+        "mob": "P_Fighter4M",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Cleric4F",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Archer4F",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Mage4F",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "m_001": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5796,
+    "center_y": 10749,
+    "width": 482,
+    "height": 4611,
+    "range_degree": 1,
+    "mobs": [
+      {
+        "mob": "MINE4",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 160,
+        "reg_min": 150,
+        "reg_max": 170,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE5",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 160,
+        "reg_min": 150,
+        "reg_max": 170,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE6",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 160,
+        "reg_min": 150,
+        "reg_max": 170,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "m_002": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 12686,
+    "center_y": 12469,
+    "width": 2123,
+    "height": 2083,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "MINE4",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 160,
+        "reg_min": 150,
+        "reg_max": 170,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE5",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 160,
+        "reg_min": 150,
+        "reg_max": 170,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE6",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 160,
+        "reg_min": 150,
+        "reg_max": 170,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "25": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7417,
+    "center_y": 10406,
+    "width": 0,
+    "height": 0,
+    "range_degree": 317,
+    "mobs": [
+      {
+        "mob": "P_Ghost3",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "26": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7889,
+    "center_y": 10586,
+    "width": 0,
+    "height": 0,
+    "range_degree": 1179,
+    "mobs": [
+      {
+        "mob": "P_Prock",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Ghost4",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  }
+}

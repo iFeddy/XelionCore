@@ -1,0 +1,35 @@
+{
+  "XmasWP": {
+    "enabled": false,
+    "is_family": false,
+    "center_x": 15717,
+    "center_y": 13405,
+    "width": 369,
+    "height": 264,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "ChristmasTree",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": false
+      }
+    ]
+  }
+}

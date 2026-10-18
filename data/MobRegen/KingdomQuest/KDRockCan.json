@@ -1,0 +1,3401 @@
+{
+  "KDRockCanArea01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4026,
+    "center_y": 3810,
+    "width": 0,
+    "height": 0,
+    "range_degree": 268,
+    "mobs": [
+      {
+        "mob": "KQ_SandRatman",
+        "count": 10,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7128,
+    "center_y": 5331,
+    "width": 0,
+    "height": 0,
+    "range_degree": 422,
+    "mobs": [
+      {
+        "mob": "KQ_SmallProck",
+        "count": 15,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4305,
+    "center_y": 4495,
+    "width": 0,
+    "height": 0,
+    "range_degree": 135,
+    "mobs": [
+      {
+        "mob": "KQ_GiantMushRoom",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6193,
+    "center_y": 5586,
+    "width": 0,
+    "height": 0,
+    "range_degree": 142,
+    "mobs": [
+      {
+        "mob": "KQ_GiantMushRoom",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4143,
+    "center_y": 4119,
+    "width": 0,
+    "height": 0,
+    "range_degree": 107,
+    "mobs": [
+      {
+        "mob": "KQ_WildKebing",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7206,
+    "center_y": 5737,
+    "width": 0,
+    "height": 0,
+    "range_degree": 128,
+    "mobs": [
+      {
+        "mob": "KQ_GiantMushRoom",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 12603,
+    "center_y": 5121,
+    "width": 0,
+    "height": 0,
+    "range_degree": 99,
+    "mobs": [
+      {
+        "mob": "KQ_WildKebing",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea08": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13779,
+    "center_y": 5586,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "KQ_StoneImp",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea09": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15351,
+    "center_y": 5991,
+    "width": 0,
+    "height": 0,
+    "range_degree": 219,
+    "mobs": [
+      {
+        "mob": "KQ_GiantMushRoom",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 18317,
+    "center_y": 5623,
+    "width": 0,
+    "height": 0,
+    "range_degree": 261,
+    "mobs": [
+      {
+        "mob": "KQ_StoneImp",
+        "count": 15,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea11": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 12512,
+    "center_y": 5078,
+    "width": 0,
+    "height": 0,
+    "range_degree": 107,
+    "mobs": [
+      {
+        "mob": "KQ_DesertWolf",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea12": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 17485,
+    "center_y": 17380,
+    "width": 0,
+    "height": 0,
+    "range_degree": 149,
+    "mobs": [
+      {
+        "mob": "KQ_RapidBoar",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea13": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15886,
+    "center_y": 10963,
+    "width": 0,
+    "height": 0,
+    "range_degree": 149,
+    "mobs": [
+      {
+        "mob": "KQ_SmallProck",
+        "count": 10,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea14": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 12770,
+    "center_y": 5197,
+    "width": 0,
+    "height": 0,
+    "range_degree": 107,
+    "mobs": [
+      {
+        "mob": "KQ_GiantMushRoom",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea15": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8134,
+    "center_y": 5080,
+    "width": 0,
+    "height": 0,
+    "range_degree": 128,
+    "mobs": [
+      {
+        "mob": "KQ_StoneImp",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea16": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6519,
+    "center_y": 5585,
+    "width": 0,
+    "height": 0,
+    "range_degree": 156,
+    "mobs": [
+      {
+        "mob": "KQ_StoneImp",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea17": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15435,
+    "center_y": 6685,
+    "width": 0,
+    "height": 0,
+    "range_degree": 247,
+    "mobs": [
+      {
+        "mob": "KQ_StoneImp",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea18": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10542,
+    "center_y": 12106,
+    "width": 0,
+    "height": 0,
+    "range_degree": 268,
+    "mobs": [
+      {
+        "mob": "KQ_StoneImp",
+        "count": 15,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea19": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5695,
+    "center_y": 5530,
+    "width": 0,
+    "height": 0,
+    "range_degree": 92,
+    "mobs": [
+      {
+        "mob": "KQ_SmallProck",
+        "count": 8,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea20": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9724,
+    "center_y": 4901,
+    "width": 0,
+    "height": 0,
+    "range_degree": 149,
+    "mobs": [
+      {
+        "mob": "KQ_GiantMushRoom",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea21": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7243,
+    "center_y": 4932,
+    "width": 0,
+    "height": 0,
+    "range_degree": 170,
+    "mobs": [
+      {
+        "mob": "KQ_GiantMushRoom",
+        "count": 7,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea22": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8951,
+    "center_y": 5066,
+    "width": 0,
+    "height": 0,
+    "range_degree": 498,
+    "mobs": [
+      {
+        "mob": "KQ_StoneImp",
+        "count": 15,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea23": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13901,
+    "center_y": 19230,
+    "width": 0,
+    "height": 0,
+    "range_degree": 233,
+    "mobs": [
+      {
+        "mob": "KQ_WildKebing",
+        "count": 10,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea24": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15601,
+    "center_y": 5380,
+    "width": 0,
+    "height": 0,
+    "range_degree": 338,
+    "mobs": [
+      {
+        "mob": "KQ_StoneImp",
+        "count": 10,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea25": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 18344,
+    "center_y": 21739,
+    "width": 0,
+    "height": 0,
+    "range_degree": 191,
+    "mobs": [
+      {
+        "mob": "KQ_WildKebing",
+        "count": 7,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea26": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11548,
+    "center_y": 5099,
+    "width": 0,
+    "height": 0,
+    "range_degree": 107,
+    "mobs": [
+      {
+        "mob": "KQ_WildKebing",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea27": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13931,
+    "center_y": 16526,
+    "width": 0,
+    "height": 0,
+    "range_degree": 107,
+    "mobs": [
+      {
+        "mob": "KQ_RapidBoar",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea28": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11595,
+    "center_y": 4915,
+    "width": 0,
+    "height": 0,
+    "range_degree": 148,
+    "mobs": [
+      {
+        "mob": "KQ_DesertWolf",
+        "count": 8,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea29": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14983,
+    "center_y": 12114,
+    "width": 0,
+    "height": 0,
+    "range_degree": 149,
+    "mobs": [
+      {
+        "mob": "KQ_GiantMushRoom",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea30": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 12414,
+    "center_y": 11692,
+    "width": 0,
+    "height": 0,
+    "range_degree": 240,
+    "mobs": [
+      {
+        "mob": "KQ_StoneImp",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea31": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11125,
+    "center_y": 15970,
+    "width": 0,
+    "height": 0,
+    "range_degree": 56,
+    "mobs": [
+      {
+        "mob": "KQ_RapidBoar",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea32": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11590,
+    "center_y": 16147,
+    "width": 0,
+    "height": 0,
+    "range_degree": 191,
+    "mobs": [
+      {
+        "mob": "KQ_SandRatman",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea33": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 16355,
+    "center_y": 6143,
+    "width": 0,
+    "height": 0,
+    "range_degree": 940,
+    "mobs": [
+      {
+        "mob": "KQ_SandRatman",
+        "count": 20,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea34": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11117,
+    "center_y": 16246,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "KQ_RapidBoar",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea35": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 16707,
+    "center_y": 6972,
+    "width": 0,
+    "height": 0,
+    "range_degree": 751,
+    "mobs": [
+      {
+        "mob": "KQ_SandRatman",
+        "count": 15,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea36": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4868,
+    "center_y": 16357,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "KQ_BossRobo",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea37": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5833,
+    "center_y": 15359,
+    "width": 0,
+    "height": 0,
+    "range_degree": 695,
+    "mobs": [
+      {
+        "mob": "KQ_WildKebing",
+        "count": 15,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea38": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14104,
+    "center_y": 16668,
+    "width": 0,
+    "height": 0,
+    "range_degree": 177,
+    "mobs": [
+      {
+        "mob": "KQ_WildKebing",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea39": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15075,
+    "center_y": 6035,
+    "width": 0,
+    "height": 0,
+    "range_degree": 401,
+    "mobs": [
+      {
+        "mob": "KQ_RapidBoar",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea40": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13212,
+    "center_y": 5333,
+    "width": 0,
+    "height": 0,
+    "range_degree": 107,
+    "mobs": [
+      {
+        "mob": "KQ_RapidBoar",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea41": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 16186,
+    "center_y": 8029,
+    "width": 0,
+    "height": 0,
+    "range_degree": 107,
+    "mobs": [
+      {
+        "mob": "KQ_RapidBoar",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea42": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 22941,
+    "center_y": 21852,
+    "width": 0,
+    "height": 0,
+    "range_degree": 737,
+    "mobs": [
+      {
+        "mob": "KQ_WildKebing",
+        "count": 10,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea43": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5072,
+    "center_y": 16119,
+    "width": 0,
+    "height": 0,
+    "range_degree": 170,
+    "mobs": [
+      {
+        "mob": "KQ_RapidBoar",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea44": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11526,
+    "center_y": 11794,
+    "width": 0,
+    "height": 0,
+    "range_degree": 184,
+    "mobs": [
+      {
+        "mob": "KQ_SmallProck",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea45": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11210,
+    "center_y": 11795,
+    "width": 0,
+    "height": 0,
+    "range_degree": 205,
+    "mobs": [
+      {
+        "mob": "KQ_WildKebing",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea46": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13575,
+    "center_y": 11565,
+    "width": 0,
+    "height": 0,
+    "range_degree": 218,
+    "mobs": [
+      {
+        "mob": "KQ_WildKebing",
+        "count": 8,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea47": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14164,
+    "center_y": 11788,
+    "width": 0,
+    "height": 0,
+    "range_degree": 218,
+    "mobs": [
+      {
+        "mob": "KQ_SandRatman",
+        "count": 10,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea48": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15629,
+    "center_y": 11780,
+    "width": 0,
+    "height": 0,
+    "range_degree": 232,
+    "mobs": [
+      {
+        "mob": "KQ_SmallProck",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea49": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15614,
+    "center_y": 9879,
+    "width": 0,
+    "height": 0,
+    "range_degree": 106,
+    "mobs": [
+      {
+        "mob": "KQ_SmallProck",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea50": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13861,
+    "center_y": 11621,
+    "width": 0,
+    "height": 0,
+    "range_degree": 239,
+    "mobs": [
+      {
+        "mob": "KQ_StoneImp",
+        "count": 10,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea51": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15727,
+    "center_y": 11584,
+    "width": 0,
+    "height": 0,
+    "range_degree": 177,
+    "mobs": [
+      {
+        "mob": "KQ_SandRatman",
+        "count": 10,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea52": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 16136,
+    "center_y": 8198,
+    "width": 0,
+    "height": 0,
+    "range_degree": 198,
+    "mobs": [
+      {
+        "mob": "KQ_WildKebing",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea53": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15627,
+    "center_y": 9690,
+    "width": 0,
+    "height": 0,
+    "range_degree": 128,
+    "mobs": [
+      {
+        "mob": "KQ_SandRatman",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea54": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11176,
+    "center_y": 16333,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "KQ_SmallProck",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea55": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10724,
+    "center_y": 12252,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "KQ_SmallProck",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea56": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10411,
+    "center_y": 12136,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "KQ_SmallProck",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea57": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10018,
+    "center_y": 15197,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "KQ_SmallProck",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea58": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10607,
+    "center_y": 11909,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "KQ_SmallProck",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea59": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15464,
+    "center_y": 16700,
+    "width": 0,
+    "height": 0,
+    "range_degree": 141,
+    "mobs": [
+      {
+        "mob": "KQ_SmallProck",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea60": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11228,
+    "center_y": 15938,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "KQ_SmallProck",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea61": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6160,
+    "center_y": 13385,
+    "width": 0,
+    "height": 0,
+    "range_degree": 688,
+    "mobs": [
+      {
+        "mob": "KQ_RapidBoar",
+        "count": 10,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea62": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8479,
+    "center_y": 14970,
+    "width": 0,
+    "height": 0,
+    "range_degree": 737,
+    "mobs": [
+      {
+        "mob": "KQ_RapidBoar",
+        "count": 15,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea63": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9468,
+    "center_y": 12576,
+    "width": 0,
+    "height": 0,
+    "range_degree": 730,
+    "mobs": [
+      {
+        "mob": "KQ_RapidBoar",
+        "count": 10,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea64": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9769,
+    "center_y": 12305,
+    "width": 0,
+    "height": 0,
+    "range_degree": 415,
+    "mobs": [
+      {
+        "mob": "KQ_RapidBoar",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea65": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11026,
+    "center_y": 4716,
+    "width": 0,
+    "height": 0,
+    "range_degree": 191,
+    "mobs": [
+      {
+        "mob": "KQ_WildKebing",
+        "count": 10,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea66": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 16111,
+    "center_y": 21608,
+    "width": 0,
+    "height": 0,
+    "range_degree": 289,
+    "mobs": [
+      {
+        "mob": "KQ_SmallProck",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea67": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 17470,
+    "center_y": 18810,
+    "width": 0,
+    "height": 0,
+    "range_degree": 247,
+    "mobs": [
+      {
+        "mob": "KQ_SmallProck",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea68": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9605,
+    "center_y": 15479,
+    "width": 0,
+    "height": 0,
+    "range_degree": 324,
+    "mobs": [
+      {
+        "mob": "KQ_RapidBoar",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea70": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13496,
+    "center_y": 21563,
+    "width": 0,
+    "height": 0,
+    "range_degree": 317,
+    "mobs": [
+      {
+        "mob": "KQ_SmallProck",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea71": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 17446,
+    "center_y": 17335,
+    "width": 0,
+    "height": 0,
+    "range_degree": 310,
+    "mobs": [
+      {
+        "mob": "KQ_SmallProck",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea72": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15853,
+    "center_y": 21620,
+    "width": 0,
+    "height": 0,
+    "range_degree": 331,
+    "mobs": [
+      {
+        "mob": "KQ_RapidBoar",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea73": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14294,
+    "center_y": 16793,
+    "width": 0,
+    "height": 0,
+    "range_degree": 247,
+    "mobs": [
+      {
+        "mob": "KQ_KissLips",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea74": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 21626,
+    "center_y": 22453,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "KQ_SmallProck",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea75": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 21874,
+    "center_y": 22540,
+    "width": 0,
+    "height": 0,
+    "range_degree": 64,
+    "mobs": [
+      {
+        "mob": "KQ_SmallProck",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea76": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 21866,
+    "center_y": 22211,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "KQ_SmallProck",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea77": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 21742,
+    "center_y": 22865,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "KQ_SmallProck",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea78": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15639,
+    "center_y": 16654,
+    "width": 0,
+    "height": 0,
+    "range_degree": 204,
+    "mobs": [
+      {
+        "mob": "KQ_KissLips",
+        "count": 8,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea79": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 21600,
+    "center_y": 22113,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "KQ_SmallProck",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea80": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 21408,
+    "center_y": 22683,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "KQ_SmallProck",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea81": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 23553,
+    "center_y": 23662,
+    "width": 0,
+    "height": 0,
+    "range_degree": 407,
+    "mobs": [
+      {
+        "mob": "KQ_SandRatman",
+        "count": 15,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea82": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 23940,
+    "center_y": 23980,
+    "width": 0,
+    "height": 0,
+    "range_degree": 205,
+    "mobs": [
+      {
+        "mob": "KQ_SmallProck",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea83": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 24079,
+    "center_y": 24099,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "KQ_BossRobo",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea84": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 23200,
+    "center_y": 23409,
+    "width": 0,
+    "height": 0,
+    "range_degree": 275,
+    "mobs": [
+      {
+        "mob": "KQ_SmallProck",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea85": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 22118,
+    "center_y": 22625,
+    "width": 0,
+    "height": 0,
+    "range_degree": 646,
+    "mobs": [
+      {
+        "mob": "KQ_KissLips",
+        "count": 20,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea86": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 23515,
+    "center_y": 23559,
+    "width": 0,
+    "height": 0,
+    "range_degree": 807,
+    "mobs": [
+      {
+        "mob": "KQ_RapidBoar",
+        "count": 40,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea87": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14261,
+    "center_y": 19171,
+    "width": 0,
+    "height": 0,
+    "range_degree": 414,
+    "mobs": [
+      {
+        "mob": "KQ_KissLips",
+        "count": 15,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea88": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8973,
+    "center_y": 4995,
+    "width": 0,
+    "height": 0,
+    "range_degree": 173,
+    "mobs": [
+      {
+        "mob": "KQ_SmallProck",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea89": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6016,
+    "center_y": 5582,
+    "width": 0,
+    "height": 0,
+    "range_degree": 159,
+    "mobs": [
+      {
+        "mob": "KQ_SmallProck",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea90": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 20558,
+    "center_y": 22085,
+    "width": 0,
+    "height": 0,
+    "range_degree": 243,
+    "mobs": [
+      {
+        "mob": "KQ_RapidBoar",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea91": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7222,
+    "center_y": 14141,
+    "width": 0,
+    "height": 0,
+    "range_degree": 264,
+    "mobs": [
+      {
+        "mob": "KQ_WildKebing",
+        "count": 10,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea92": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15303,
+    "center_y": 21599,
+    "width": 0,
+    "height": 0,
+    "range_degree": 250,
+    "mobs": [
+      {
+        "mob": "KQ_SandRatman",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea93": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 17784,
+    "center_y": 18346,
+    "width": 0,
+    "height": 0,
+    "range_degree": 524,
+    "mobs": [
+      {
+        "mob": "KQ_KissLips",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea94": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 16259,
+    "center_y": 5918,
+    "width": 0,
+    "height": 0,
+    "range_degree": 328,
+    "mobs": [
+      {
+        "mob": "KQ_SmallProck",
+        "count": 8,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea95": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 17496,
+    "center_y": 7585,
+    "width": 0,
+    "height": 0,
+    "range_degree": 257,
+    "mobs": [
+      {
+        "mob": "KQ_SandRatman",
+        "count": 9,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea96": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5077,
+    "center_y": 16176,
+    "width": 0,
+    "height": 0,
+    "range_degree": 278,
+    "mobs": [
+      {
+        "mob": "KQ_SmallProck",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea97": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 12975,
+    "center_y": 21112,
+    "width": 0,
+    "height": 0,
+    "range_degree": 482,
+    "mobs": [
+      {
+        "mob": "KQ_KissLips",
+        "count": 8,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea98": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10711,
+    "center_y": 4678,
+    "width": 0,
+    "height": 0,
+    "range_degree": 229,
+    "mobs": [
+      {
+        "mob": "KQ_SandRatman",
+        "count": 7,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea99": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9210,
+    "center_y": 14890,
+    "width": 0,
+    "height": 0,
+    "range_degree": 1203,
+    "mobs": [
+      {
+        "mob": "KQ_SandRatman",
+        "count": 25,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea100": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8992,
+    "center_y": 5069,
+    "width": 0,
+    "height": 0,
+    "range_degree": 916,
+    "mobs": [
+      {
+        "mob": "KQ_SandRatman",
+        "count": 14,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea101": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 12194,
+    "center_y": 11676,
+    "width": 0,
+    "height": 0,
+    "range_degree": 285,
+    "mobs": [
+      {
+        "mob": "KQ_KissLips",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea102": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 12937,
+    "center_y": 19653,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "KQ_SmallProck",
+        "count": 8,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea103": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 16665,
+    "center_y": 4245,
+    "width": 0,
+    "height": 0,
+    "range_degree": 240,
+    "mobs": [
+      {
+        "mob": "KQ_DesertWolf",
+        "count": 8,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDRockCanArea104": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 18058,
+    "center_y": 21751,
+    "width": 0,
+    "height": 0,
+    "range_degree": 170,
+    "mobs": [
+      {
+        "mob": "KQ_SmallProck",
+        "count": 10,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  }
+}

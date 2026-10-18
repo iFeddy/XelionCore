@@ -1,0 +1,3962 @@
+{
+  "S_01_CW_01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1832,
+    "center_y": 10436,
+    "width": 0,
+    "height": 0,
+    "range_degree": 86,
+    "mobs": [
+      {
+        "mob": "S_CyrusWave",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "S_01_CW_02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2650,
+    "center_y": 10218,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "S_CyrusWave",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "S_01_CW_03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3431,
+    "center_y": 9705,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "S_CyrusWave",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "S_01_CW_04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2696,
+    "center_y": 9782,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "S_CyrusWave",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "S_01_CW_05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2939,
+    "center_y": 10572,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "S_CyrusWave",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "S_01_SW_01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3375,
+    "center_y": 10101,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "S_SirenWave",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "S_01_SW_02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3091,
+    "center_y": 9582,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "S_SirenWave",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "S_01_SW_03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3359,
+    "center_y": 10516,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "S_SirenWave",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "S_02_CW_01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5538,
+    "center_y": 10902,
+    "width": 0,
+    "height": 0,
+    "range_degree": 164,
+    "mobs": [
+      {
+        "mob": "S_CyrusWave",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "S_02_CW_02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5891,
+    "center_y": 11022,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "S_CyrusWave",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "S_02_CW_03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6748,
+    "center_y": 11088,
+    "width": 0,
+    "height": 0,
+    "range_degree": 101,
+    "mobs": [
+      {
+        "mob": "S_CyrusWave",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "S_02_CW_04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7711,
+    "center_y": 10723,
+    "width": 0,
+    "height": 0,
+    "range_degree": 164,
+    "mobs": [
+      {
+        "mob": "S_CyrusWave",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "S_02_SW_01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4553,
+    "center_y": 10694,
+    "width": 0,
+    "height": 0,
+    "range_degree": 79,
+    "mobs": [
+      {
+        "mob": "S_SirenWave",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "S_02_SW_02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5570,
+    "center_y": 11327,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "S_SirenWave",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "S_02_SW_03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7378,
+    "center_y": 10334,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "S_SirenWave",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "S_03_CW_01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8746,
+    "center_y": 11510,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "S_CyrusWave",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "S_03_CW_02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9625,
+    "center_y": 11679,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "S_CyrusWave",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "S_03_SW_01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8853,
+    "center_y": 11920,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "S_SirenWave",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "S_03_SW_02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9289,
+    "center_y": 12081,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "S_SirenWave",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "S_03_SW_03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9432,
+    "center_y": 11268,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "S_SirenWave",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "S_03_SW_04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8926,
+    "center_y": 11157,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "S_SirenWave",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "S_04_CW_01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7079,
+    "center_y": 9154,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "S_CyrusWave",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "S_04_CW_02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6727,
+    "center_y": 8925,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "S_CyrusWave",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "S_04_CW_03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7728,
+    "center_y": 8713,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "S_CyrusWave",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "S_04_CW_04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7371,
+    "center_y": 8860,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "S_CyrusWave",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "S_04_CW_05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6678,
+    "center_y": 8485,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "S_CyrusWave",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "S_04_SW_01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6802,
+    "center_y": 8138,
+    "width": 0,
+    "height": 0,
+    "range_degree": 143,
+    "mobs": [
+      {
+        "mob": "S_SirenWave",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "S_04_SW_02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7205,
+    "center_y": 8124,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "S_SirenWave",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "S_04_SW_03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7587,
+    "center_y": 8307,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "S_SirenWave",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "S_04_SW_04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4830,
+    "center_y": 8946,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "S_SirenWave",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "S_04_SW_05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4911,
+    "center_y": 8458,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "S_SirenWave",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "S_05_CW_01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8872,
+    "center_y": 9566,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "S_CyrusWave",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "S_05_CW_02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9195,
+    "center_y": 8845,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "S_CyrusWave",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "S_05_CW_03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9298,
+    "center_y": 9787,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "S_CyrusWave",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "S_05_SW_01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8821,
+    "center_y": 9114,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "S_SirenWave",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "S_05_SW_02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9589,
+    "center_y": 9082,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "S_SirenWave",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "S_05_SW_03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9656,
+    "center_y": 9584,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "S_SirenWave",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "S_05_CT_01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9285,
+    "center_y": 9313,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "S_CyrusTyphoon",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "S_05_CT_02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11035,
+    "center_y": 9576,
+    "width": 0,
+    "height": 0,
+    "range_degree": 107,
+    "mobs": [
+      {
+        "mob": "S_CyrusTyphoon",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "S_05_CT_03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10643,
+    "center_y": 8915,
+    "width": 0,
+    "height": 0,
+    "range_degree": 115,
+    "mobs": [
+      {
+        "mob": "S_CyrusTyphoon",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "S_05_CT_04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9308,
+    "center_y": 7806,
+    "width": 0,
+    "height": 0,
+    "range_degree": 107,
+    "mobs": [
+      {
+        "mob": "S_CyrusTyphoon",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "S_05_CT_05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11129,
+    "center_y": 8031,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "S_CyrusTyphoon",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "S_05_CT_06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11035,
+    "center_y": 7600,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "S_CyrusTyphoon",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "S_05_CT_07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11756,
+    "center_y": 7858,
+    "width": 0,
+    "height": 0,
+    "range_degree": 115,
+    "mobs": [
+      {
+        "mob": "S_CyrusTyphoon",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "S_05_CT_08": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9682,
+    "center_y": 5856,
+    "width": 0,
+    "height": 0,
+    "range_degree": 122,
+    "mobs": [
+      {
+        "mob": "S_CyrusTyphoon",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "S_05_CT_09": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9496,
+    "center_y": 6332,
+    "width": 0,
+    "height": 0,
+    "range_degree": 115,
+    "mobs": [
+      {
+        "mob": "S_CyrusTyphoon",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "S_05_CT_10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10607,
+    "center_y": 6595,
+    "width": 0,
+    "height": 0,
+    "range_degree": 93,
+    "mobs": [
+      {
+        "mob": "S_CyrusTyphoon",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "S_05_CT_11": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8904,
+    "center_y": 6313,
+    "width": 0,
+    "height": 0,
+    "range_degree": 93,
+    "mobs": [
+      {
+        "mob": "S_CyrusTyphoon",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "S_05_CT_12": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8090,
+    "center_y": 6349,
+    "width": 0,
+    "height": 0,
+    "range_degree": 100,
+    "mobs": [
+      {
+        "mob": "S_CyrusTyphoon",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "S_05_CT_13": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7535,
+    "center_y": 6335,
+    "width": 0,
+    "height": 0,
+    "range_degree": 143,
+    "mobs": [
+      {
+        "mob": "S_CyrusTyphoon",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "S_05_ST_01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11398,
+    "center_y": 7423,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "S_SirenTyphoon",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "S_05_ST_02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11795,
+    "center_y": 7314,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "S_SirenTyphoon",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "S_05_ST_03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11480,
+    "center_y": 8239,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "S_SirenTyphoon",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "S_05_ST_04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 12083,
+    "center_y": 7669,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "S_SirenTyphoon",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "S_05_ST_05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11855,
+    "center_y": 8147,
+    "width": 0,
+    "height": 0,
+    "range_degree": 143,
+    "mobs": [
+      {
+        "mob": "S_SirenTyphoon",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "S_05_ST_06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9909,
+    "center_y": 6007,
+    "width": 0,
+    "height": 0,
+    "range_degree": 101,
+    "mobs": [
+      {
+        "mob": "S_SirenTyphoon",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "S_05_ST_07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9436,
+    "center_y": 6046,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "S_SirenTyphoon",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "S_05_ST_08": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9832,
+    "center_y": 6316,
+    "width": 0,
+    "height": 0,
+    "range_degree": 143,
+    "mobs": [
+      {
+        "mob": "S_SirenTyphoon",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "S_05_ST_09": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7267,
+    "center_y": 6605,
+    "width": 0,
+    "height": 0,
+    "range_degree": 136,
+    "mobs": [
+      {
+        "mob": "S_SirenTyphoon",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "S_05_ST_10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7234,
+    "center_y": 6112,
+    "width": 0,
+    "height": 0,
+    "range_degree": 129,
+    "mobs": [
+      {
+        "mob": "S_SirenTyphoon",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "SH_01_CW_01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1832,
+    "center_y": 10436,
+    "width": 0,
+    "height": 0,
+    "range_degree": 86,
+    "mobs": [
+      {
+        "mob": "SH_CyrusWave",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "SH_01_CW_02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2650,
+    "center_y": 10218,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "SH_CyrusWave",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "SH_01_CW_03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3431,
+    "center_y": 9705,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "SH_CyrusWave",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "SH_01_CW_04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2696,
+    "center_y": 9782,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "SH_CyrusWave",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "SH_01_CW_05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2939,
+    "center_y": 10572,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "SH_CyrusWave",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "SH_01_SW_01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3375,
+    "center_y": 10101,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "SH_SirenWave",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "SH_01_SW_02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3091,
+    "center_y": 9582,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "SH_SirenWave",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "SH_01_SW_03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3359,
+    "center_y": 10516,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "SH_SirenWave",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "SH_02_CW_01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5538,
+    "center_y": 10902,
+    "width": 0,
+    "height": 0,
+    "range_degree": 164,
+    "mobs": [
+      {
+        "mob": "SH_CyrusWave",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "SH_02_CW_02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5891,
+    "center_y": 11022,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "SH_CyrusWave",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "SH_02_CW_03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6748,
+    "center_y": 11088,
+    "width": 0,
+    "height": 0,
+    "range_degree": 101,
+    "mobs": [
+      {
+        "mob": "SH_CyrusWave",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "SH_02_CW_04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7711,
+    "center_y": 10723,
+    "width": 0,
+    "height": 0,
+    "range_degree": 164,
+    "mobs": [
+      {
+        "mob": "SH_CyrusWave",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "SH_02_SW_01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4553,
+    "center_y": 10694,
+    "width": 0,
+    "height": 0,
+    "range_degree": 79,
+    "mobs": [
+      {
+        "mob": "SH_SirenWave",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "SH_02_SW_02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5570,
+    "center_y": 11327,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "SH_SirenWave",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "SH_02_SW_03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7378,
+    "center_y": 10334,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "SH_SirenWave",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "SH_03_CW_01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8746,
+    "center_y": 11510,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "SH_CyrusWave",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "SH_03_CW_02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9625,
+    "center_y": 11679,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "SH_CyrusWave",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "SH_03_SW_01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8853,
+    "center_y": 11920,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "SH_SirenWave",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "SH_03_SW_02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9289,
+    "center_y": 12081,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "SH_SirenWave",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "SH_03_SW_03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9432,
+    "center_y": 11268,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "SH_SirenWave",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "SH_03_SW_04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8926,
+    "center_y": 11157,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "SH_SirenWave",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "SH_04_CW_01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7079,
+    "center_y": 9154,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "SH_CyrusWave",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "SH_04_CW_02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6727,
+    "center_y": 8925,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "SH_CyrusWave",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "SH_04_CW_03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7728,
+    "center_y": 8713,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "SH_CyrusWave",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "SH_04_CW_04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7371,
+    "center_y": 8860,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "SH_CyrusWave",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "SH_04_CW_05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6678,
+    "center_y": 8485,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "SH_CyrusWave",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "SH_04_SW_01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6802,
+    "center_y": 8138,
+    "width": 0,
+    "height": 0,
+    "range_degree": 143,
+    "mobs": [
+      {
+        "mob": "SH_SirenWave",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "SH_04_SW_02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7205,
+    "center_y": 8124,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "SH_SirenWave",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "SH_04_SW_03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7587,
+    "center_y": 8307,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "SH_SirenWave",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "SH_04_SW_04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4830,
+    "center_y": 8946,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "SH_SirenWave",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "SH_04_SW_05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4911,
+    "center_y": 8458,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "SH_SirenWave",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "SH_05_CW_01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8872,
+    "center_y": 9566,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "SH_CyrusWave",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "SH_05_CW_02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9195,
+    "center_y": 8845,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "SH_CyrusWave",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "SH_05_CW_03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9298,
+    "center_y": 9787,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "SH_CyrusWave",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "SH_05_SW_01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8821,
+    "center_y": 9114,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "SH_SirenWave",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "SH_05_SW_02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9589,
+    "center_y": 9082,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "SH_SirenWave",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "SH_05_SW_03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9656,
+    "center_y": 9584,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "SH_SirenWave",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "SH_05_CT_01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9285,
+    "center_y": 9313,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "SH_CyrusTyphoon",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "SH_05_CT_02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11035,
+    "center_y": 9576,
+    "width": 0,
+    "height": 0,
+    "range_degree": 107,
+    "mobs": [
+      {
+        "mob": "SH_CyrusTyphoon",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "SH_05_CT_03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10643,
+    "center_y": 8915,
+    "width": 0,
+    "height": 0,
+    "range_degree": 115,
+    "mobs": [
+      {
+        "mob": "SH_CyrusTyphoon",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "SH_05_CT_04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9308,
+    "center_y": 7806,
+    "width": 0,
+    "height": 0,
+    "range_degree": 107,
+    "mobs": [
+      {
+        "mob": "SH_CyrusTyphoon",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "SH_05_CT_05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11129,
+    "center_y": 8031,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "SH_CyrusTyphoon",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "SH_05_CT_06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11035,
+    "center_y": 7600,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "SH_CyrusTyphoon",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "SH_05_CT_07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11756,
+    "center_y": 7858,
+    "width": 0,
+    "height": 0,
+    "range_degree": 115,
+    "mobs": [
+      {
+        "mob": "SH_CyrusTyphoon",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "SH_05_CT_08": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9682,
+    "center_y": 5856,
+    "width": 0,
+    "height": 0,
+    "range_degree": 122,
+    "mobs": [
+      {
+        "mob": "SH_CyrusTyphoon",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "SH_05_CT_09": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9496,
+    "center_y": 6332,
+    "width": 0,
+    "height": 0,
+    "range_degree": 115,
+    "mobs": [
+      {
+        "mob": "SH_CyrusTyphoon",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "SH_05_CT_10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10607,
+    "center_y": 6595,
+    "width": 0,
+    "height": 0,
+    "range_degree": 93,
+    "mobs": [
+      {
+        "mob": "SH_CyrusTyphoon",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "SH_05_CT_11": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8904,
+    "center_y": 6313,
+    "width": 0,
+    "height": 0,
+    "range_degree": 93,
+    "mobs": [
+      {
+        "mob": "SH_CyrusTyphoon",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "SH_05_CT_12": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8090,
+    "center_y": 6349,
+    "width": 0,
+    "height": 0,
+    "range_degree": 100,
+    "mobs": [
+      {
+        "mob": "SH_CyrusTyphoon",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "SH_05_CT_13": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7535,
+    "center_y": 6335,
+    "width": 0,
+    "height": 0,
+    "range_degree": 143,
+    "mobs": [
+      {
+        "mob": "SH_CyrusTyphoon",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "SH_05_ST_01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11398,
+    "center_y": 7423,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "SH_SirenTyphoon",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "SH_05_ST_02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11795,
+    "center_y": 7314,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "SH_SirenTyphoon",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "SH_05_ST_03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11480,
+    "center_y": 8239,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "SH_SirenTyphoon",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "SH_05_ST_04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 12083,
+    "center_y": 7669,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "SH_SirenTyphoon",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "SH_05_ST_05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11855,
+    "center_y": 8147,
+    "width": 0,
+    "height": 0,
+    "range_degree": 143,
+    "mobs": [
+      {
+        "mob": "SH_SirenTyphoon",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "SH_05_ST_06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9909,
+    "center_y": 6007,
+    "width": 0,
+    "height": 0,
+    "range_degree": 101,
+    "mobs": [
+      {
+        "mob": "SH_SirenTyphoon",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "SH_05_ST_07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9436,
+    "center_y": 6046,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "SH_SirenTyphoon",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "SH_05_ST_08": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9832,
+    "center_y": 6316,
+    "width": 0,
+    "height": 0,
+    "range_degree": 143,
+    "mobs": [
+      {
+        "mob": "SH_SirenTyphoon",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "SH_05_ST_09": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7267,
+    "center_y": 6605,
+    "width": 0,
+    "height": 0,
+    "range_degree": 136,
+    "mobs": [
+      {
+        "mob": "SH_SirenTyphoon",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "SH_05_ST_10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7234,
+    "center_y": 6112,
+    "width": 0,
+    "height": 0,
+    "range_degree": 129,
+    "mobs": [
+      {
+        "mob": "SH_SirenTyphoon",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  }
+}

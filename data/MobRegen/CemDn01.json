@@ -1,0 +1,5106 @@
+{
+  "CemDnM01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9326,
+    "center_y": 1958,
+    "width": 876,
+    "height": 230,
+    "range_degree": -110,
+    "mobs": [
+      {
+        "mob": "D_ArchMageBook",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_Spider",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDnM02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9710,
+    "center_y": 4502,
+    "width": 0,
+    "height": 0,
+    "range_degree": 672,
+    "mobs": [
+      {
+        "mob": "D_ArchMageBook",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_Spider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDnM03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8211,
+    "center_y": 3649,
+    "width": 710,
+    "height": 349,
+    "range_degree": -1,
+    "mobs": [
+      {
+        "mob": "D_ArchMageBook",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_Spider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDnM04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7459,
+    "center_y": 4546,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "D_ArchMageBook",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_Spider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDnM05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9722,
+    "center_y": 6841,
+    "width": 438,
+    "height": 128,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "D_Spider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_ArchMageBook",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDnM06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7363,
+    "center_y": 6871,
+    "width": 272,
+    "height": 472,
+    "range_degree": -21,
+    "mobs": [
+      {
+        "mob": "D_Spider",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_ArchMageBook",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDnM07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5143,
+    "center_y": 7125,
+    "width": 0,
+    "height": 0,
+    "range_degree": 659,
+    "mobs": [
+      {
+        "mob": "D_Spider",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_ArchMageBook",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDnM09": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5497,
+    "center_y": 10230,
+    "width": 766,
+    "height": 875,
+    "range_degree": -1,
+    "mobs": [
+      {
+        "mob": "D_FlyingStaff",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_Spider",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDnM10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2172,
+    "center_y": 9597,
+    "width": 0,
+    "height": 0,
+    "range_degree": 624,
+    "mobs": [
+      {
+        "mob": "D_FlyingStaff",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_Spider",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDnM11": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 12035,
+    "center_y": 10331,
+    "width": 1493,
+    "height": 998,
+    "range_degree": 21,
+    "mobs": [
+      {
+        "mob": "D_FlyingStaff",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_Spider",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDnM14": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11959,
+    "center_y": 7041,
+    "width": 0,
+    "height": 0,
+    "range_degree": 555,
+    "mobs": [
+      {
+        "mob": "D_FlyingStaff",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDnM17": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8481,
+    "center_y": 13645,
+    "width": 612,
+    "height": 555,
+    "range_degree": -15,
+    "mobs": [
+      {
+        "mob": "D_Zombie",
+        "count": 10,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDnM21": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11449,
+    "center_y": 15957,
+    "width": 3343,
+    "height": 237,
+    "range_degree": 13,
+    "mobs": [
+      {
+        "mob": "D_OldFox",
+        "count": 10,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDnM22": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6501,
+    "center_y": 16103,
+    "width": 1737,
+    "height": 407,
+    "range_degree": -20,
+    "mobs": [
+      {
+        "mob": "D_OldFox",
+        "count": 7,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDnM27": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5110,
+    "center_y": 7413,
+    "width": 4590,
+    "height": 4337,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "PresentBox7",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 14400,
+        "reg_min": 14396,
+        "reg_max": 14404,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDnM28": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5377,
+    "center_y": 15936,
+    "width": 4337,
+    "height": 4529,
+    "range_degree": 89,
+    "mobs": [
+      {
+        "mob": "PresentBox7",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 14400,
+        "reg_min": 14396,
+        "reg_max": 14404,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDnM29": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14488,
+    "center_y": 10355,
+    "width": 6881,
+    "height": 4576,
+    "range_degree": 91,
+    "mobs": [
+      {
+        "mob": "PresentBox7",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 14400,
+        "reg_min": 14396,
+        "reg_max": 14404,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDnM35": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8174,
+    "center_y": 4497,
+    "width": 0,
+    "height": 0,
+    "range_degree": 380,
+    "mobs": [
+      {
+        "mob": "D_ArchMageBook",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_Spider",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDn_Boss01": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 1922,
+    "center_y": 6975,
+    "width": 0,
+    "height": 0,
+    "range_degree": 561,
+    "mobs": [
+      {
+        "mob": "D_Zombie",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 540,
+        "reg_max": 600,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_Zombieking",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 540,
+        "reg_max": 600,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDn_Boss02": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 2434,
+    "center_y": 13698,
+    "width": 0,
+    "height": 0,
+    "range_degree": 449,
+    "mobs": [
+      {
+        "mob": "D_Zombie",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 540,
+        "reg_max": 600,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_Zombieking",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 540,
+        "reg_max": 600,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDn_Boss03": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 4769,
+    "center_y": 17690,
+    "width": 0,
+    "height": 0,
+    "range_degree": 421,
+    "mobs": [
+      {
+        "mob": "D_Zombie",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 540,
+        "reg_max": 600,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_Zombieking",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 540,
+        "reg_max": 600,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDn_Boss04": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 2874,
+    "center_y": 18157,
+    "width": 0,
+    "height": 0,
+    "range_degree": 435,
+    "mobs": [
+      {
+        "mob": "D_Zombie",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 540,
+        "reg_max": 600,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_Zombieking",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 540,
+        "reg_max": 600,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDn_Boss05": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 5721,
+    "center_y": 13680,
+    "width": 0,
+    "height": 0,
+    "range_degree": 379,
+    "mobs": [
+      {
+        "mob": "D_Zombie",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 540,
+        "reg_max": 600,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_Zombieking",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 540,
+        "reg_max": 600,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDn_Boss06": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 17712,
+    "center_y": 10829,
+    "width": 0,
+    "height": 0,
+    "range_degree": 428,
+    "mobs": [
+      {
+        "mob": "D_Zombie",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 540,
+        "reg_max": 600,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_Zombieking",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 540,
+        "reg_max": 600,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDn_Boss07": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 11358,
+    "center_y": 13859,
+    "width": 0,
+    "height": 0,
+    "range_degree": 393,
+    "mobs": [
+      {
+        "mob": "D_Zombie",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 540,
+        "reg_max": 600,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_Zombieking",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 540,
+        "reg_max": 600,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDn_Boss08": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 7936,
+    "center_y": 10497,
+    "width": 0,
+    "height": 0,
+    "range_degree": 428,
+    "mobs": [
+      {
+        "mob": "D_Zombie",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 540,
+        "reg_max": 600,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_Zombieking",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 540,
+        "reg_max": 600,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDn_Boss09": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 14731,
+    "center_y": 13109,
+    "width": 0,
+    "height": 0,
+    "range_degree": 393,
+    "mobs": [
+      {
+        "mob": "D_Zombie",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 540,
+        "reg_max": 600,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_Zombieking",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 540,
+        "reg_max": 600,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDn_F01": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 3123,
+    "center_y": 7604,
+    "width": 0,
+    "height": 0,
+    "range_degree": 491,
+    "mobs": [
+      {
+        "mob": "D_OldFox",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 356,
+        "reg_max": 364,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_Zombie",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 356,
+        "reg_max": 364,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDn_F02": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 2043,
+    "center_y": 7786,
+    "width": 0,
+    "height": 0,
+    "range_degree": 498,
+    "mobs": [
+      {
+        "mob": "D_OldFox",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 356,
+        "reg_max": 364,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_Zombie",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 356,
+        "reg_max": 364,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDn_F03": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 2730,
+    "center_y": 6704,
+    "width": 0,
+    "height": 0,
+    "range_degree": 463,
+    "mobs": [
+      {
+        "mob": "D_OldFox",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 356,
+        "reg_max": 364,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_Zombie",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 356,
+        "reg_max": 364,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDn_F04": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 1708,
+    "center_y": 13377,
+    "width": 0,
+    "height": 0,
+    "range_degree": 470,
+    "mobs": [
+      {
+        "mob": "D_OldFox",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 356,
+        "reg_max": 364,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_Zombie",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 356,
+        "reg_max": 364,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDn_F05": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 5267,
+    "center_y": 9457,
+    "width": 0,
+    "height": 0,
+    "range_degree": 505,
+    "mobs": [
+      {
+        "mob": "D_OldFox",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 356,
+        "reg_max": 364,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_Zombie",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 356,
+        "reg_max": 364,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDn_F06": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 5596,
+    "center_y": 10842,
+    "width": 0,
+    "height": 0,
+    "range_degree": 498,
+    "mobs": [
+      {
+        "mob": "D_OldFox",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 356,
+        "reg_max": 364,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_Zombie",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 356,
+        "reg_max": 364,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDn_F07": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 3653,
+    "center_y": 9492,
+    "width": 0,
+    "height": 0,
+    "range_degree": 575,
+    "mobs": [
+      {
+        "mob": "D_OldFox",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 356,
+        "reg_max": 364,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_Zombie",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 356,
+        "reg_max": 364,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDn_F08": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 2411,
+    "center_y": 10928,
+    "width": 0,
+    "height": 0,
+    "range_degree": 582,
+    "mobs": [
+      {
+        "mob": "D_OldFox",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 356,
+        "reg_max": 364,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_Zombie",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 356,
+        "reg_max": 364,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDn_F09": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 2673,
+    "center_y": 12908,
+    "width": 0,
+    "height": 0,
+    "range_degree": 442,
+    "mobs": [
+      {
+        "mob": "D_OldFox",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 356,
+        "reg_max": 364,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_Zombie",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 356,
+        "reg_max": 364,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDn_F10": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 3216,
+    "center_y": 13591,
+    "width": 0,
+    "height": 0,
+    "range_degree": 393,
+    "mobs": [
+      {
+        "mob": "D_OldFox",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 356,
+        "reg_max": 364,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_Zombie",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 356,
+        "reg_max": 364,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDn_F11": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 2771,
+    "center_y": 15730,
+    "width": 0,
+    "height": 0,
+    "range_degree": 351,
+    "mobs": [
+      {
+        "mob": "D_OldFox",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 356,
+        "reg_max": 364,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_Zombie",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 356,
+        "reg_max": 364,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDn_F12": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 4035,
+    "center_y": 10461,
+    "width": 0,
+    "height": 0,
+    "range_degree": 302,
+    "mobs": [
+      {
+        "mob": "D_OldFox",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 356,
+        "reg_max": 364,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_Zombie",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 356,
+        "reg_max": 364,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDn_F13": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 4292,
+    "center_y": 17342,
+    "width": 0,
+    "height": 0,
+    "range_degree": 400,
+    "mobs": [
+      {
+        "mob": "D_OldFox",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 356,
+        "reg_max": 364,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_Zombie",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 356,
+        "reg_max": 364,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDn_F14": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 3614,
+    "center_y": 18320,
+    "width": 0,
+    "height": 0,
+    "range_degree": 407,
+    "mobs": [
+      {
+        "mob": "D_OldFox",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 356,
+        "reg_max": 364,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_Zombie",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 356,
+        "reg_max": 364,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDn_F15": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 3593,
+    "center_y": 17533,
+    "width": 0,
+    "height": 0,
+    "range_degree": 442,
+    "mobs": [
+      {
+        "mob": "D_OldFox",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 356,
+        "reg_max": 364,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_Zombie",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 356,
+        "reg_max": 364,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDn_F16": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 4391,
+    "center_y": 18075,
+    "width": 0,
+    "height": 0,
+    "range_degree": 407,
+    "mobs": [
+      {
+        "mob": "D_OldFox",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 356,
+        "reg_max": 364,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_Zombie",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 356,
+        "reg_max": 364,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDn_F17": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 5164,
+    "center_y": 15752,
+    "width": 0,
+    "height": 0,
+    "range_degree": 414,
+    "mobs": [
+      {
+        "mob": "D_OldFox",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 356,
+        "reg_max": 364,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_Zombie",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 356,
+        "reg_max": 364,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDn_F18": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 5201,
+    "center_y": 13358,
+    "width": 0,
+    "height": 0,
+    "range_degree": 337,
+    "mobs": [
+      {
+        "mob": "D_OldFox",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 356,
+        "reg_max": 364,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_Zombie",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 356,
+        "reg_max": 364,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDn_F19": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 6089,
+    "center_y": 13284,
+    "width": 0,
+    "height": 0,
+    "range_degree": 358,
+    "mobs": [
+      {
+        "mob": "D_OldFox",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 356,
+        "reg_max": 364,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_Zombie",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 356,
+        "reg_max": 364,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDn_F20": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 5947,
+    "center_y": 14229,
+    "width": 0,
+    "height": 0,
+    "range_degree": 365,
+    "mobs": [
+      {
+        "mob": "D_OldFox",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 356,
+        "reg_max": 364,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_Zombie",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 356,
+        "reg_max": 364,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDn_F21": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 10115,
+    "center_y": 16354,
+    "width": 0,
+    "height": 0,
+    "range_degree": 421,
+    "mobs": [
+      {
+        "mob": "D_OldFox",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 356,
+        "reg_max": 364,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_Zombie",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 356,
+        "reg_max": 364,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDn_F22": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 11450,
+    "center_y": 14369,
+    "width": 0,
+    "height": 0,
+    "range_degree": 400,
+    "mobs": [
+      {
+        "mob": "D_OldFox",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 356,
+        "reg_max": 364,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_Zombie",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 356,
+        "reg_max": 364,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDn_F23": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 11907,
+    "center_y": 13566,
+    "width": 0,
+    "height": 0,
+    "range_degree": 379,
+    "mobs": [
+      {
+        "mob": "D_OldFox",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 356,
+        "reg_max": 364,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_Zombie",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 356,
+        "reg_max": 364,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDn_F24": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 10846,
+    "center_y": 13505,
+    "width": 0,
+    "height": 0,
+    "range_degree": 358,
+    "mobs": [
+      {
+        "mob": "D_OldFox",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 356,
+        "reg_max": 364,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_Zombie",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 356,
+        "reg_max": 364,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDn_F25": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 14806,
+    "center_y": 13883,
+    "width": 0,
+    "height": 0,
+    "range_degree": 435,
+    "mobs": [
+      {
+        "mob": "D_OldFox",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 356,
+        "reg_max": 364,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_Zombie",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 356,
+        "reg_max": 364,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDn_F26": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 13999,
+    "center_y": 13416,
+    "width": 0,
+    "height": 0,
+    "range_degree": 407,
+    "mobs": [
+      {
+        "mob": "D_OldFox",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 356,
+        "reg_max": 364,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_Zombie",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 356,
+        "reg_max": 364,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDn_F27": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 14080,
+    "center_y": 12549,
+    "width": 0,
+    "height": 0,
+    "range_degree": 428,
+    "mobs": [
+      {
+        "mob": "D_OldFox",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 356,
+        "reg_max": 364,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_Zombie",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 356,
+        "reg_max": 364,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDn_F28": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 7428,
+    "center_y": 16463,
+    "width": 0,
+    "height": 0,
+    "range_degree": 463,
+    "mobs": [
+      {
+        "mob": "D_OldFox",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 356,
+        "reg_max": 364,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_Zombie",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 356,
+        "reg_max": 364,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDn_F29": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 13376,
+    "center_y": 15462,
+    "width": 0,
+    "height": 0,
+    "range_degree": 498,
+    "mobs": [
+      {
+        "mob": "D_OldFox",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 356,
+        "reg_max": 364,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_Zombie",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 356,
+        "reg_max": 364,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDn_F30": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 7937,
+    "center_y": 13424,
+    "width": 0,
+    "height": 0,
+    "range_degree": 379,
+    "mobs": [
+      {
+        "mob": "D_OldFox",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 356,
+        "reg_max": 364,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_Zombie",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 356,
+        "reg_max": 364,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDn_F31": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 8653,
+    "center_y": 13945,
+    "width": 0,
+    "height": 0,
+    "range_degree": 386,
+    "mobs": [
+      {
+        "mob": "D_OldFox",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 356,
+        "reg_max": 364,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_Zombie",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 356,
+        "reg_max": 364,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDn_F32": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 11721,
+    "center_y": 11264,
+    "width": 0,
+    "height": 0,
+    "range_degree": 463,
+    "mobs": [
+      {
+        "mob": "D_OldFox",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 356,
+        "reg_max": 364,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_Zombie",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 356,
+        "reg_max": 364,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDn_F33": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 12436,
+    "center_y": 9626,
+    "width": 0,
+    "height": 0,
+    "range_degree": 358,
+    "mobs": [
+      {
+        "mob": "D_OldFox",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 356,
+        "reg_max": 364,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_Zombie",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 356,
+        "reg_max": 364,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDn_F34": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 15660,
+    "center_y": 7839,
+    "width": 0,
+    "height": 0,
+    "range_degree": 491,
+    "mobs": [
+      {
+        "mob": "D_OldFox",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 356,
+        "reg_max": 364,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_Zombie",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 356,
+        "reg_max": 364,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDn_F35": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 16423,
+    "center_y": 6336,
+    "width": 0,
+    "height": 0,
+    "range_degree": 463,
+    "mobs": [
+      {
+        "mob": "D_OldFox",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 356,
+        "reg_max": 364,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_Zombie",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 356,
+        "reg_max": 364,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDn_F36": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 17539,
+    "center_y": 11495,
+    "width": 0,
+    "height": 0,
+    "range_degree": 379,
+    "mobs": [
+      {
+        "mob": "D_OldFox",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 356,
+        "reg_max": 364,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_Zombie",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 356,
+        "reg_max": 364,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDn_F38": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 17190,
+    "center_y": 10410,
+    "width": 0,
+    "height": 0,
+    "range_degree": 449,
+    "mobs": [
+      {
+        "mob": "D_OldFox",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 356,
+        "reg_max": 364,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_Zombie",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 356,
+        "reg_max": 364,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDn_F40": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 18307,
+    "center_y": 10859,
+    "width": 0,
+    "height": 0,
+    "range_degree": 393,
+    "mobs": [
+      {
+        "mob": "D_OldFox",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 356,
+        "reg_max": 364,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_Zombie",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 356,
+        "reg_max": 364,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDn_F41": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 10933,
+    "center_y": 10596,
+    "width": 0,
+    "height": 0,
+    "range_degree": 491,
+    "mobs": [
+      {
+        "mob": "D_OldFox",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 356,
+        "reg_max": 364,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_Zombie",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 356,
+        "reg_max": 364,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDn_F42": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7046,
+    "center_y": 8022,
+    "width": 0,
+    "height": 0,
+    "range_degree": 490,
+    "mobs": [
+      {
+        "mob": "D_OldFox",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 356,
+        "reg_max": 364,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_Zombie",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 356,
+        "reg_max": 364,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDn_F43": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 8403,
+    "center_y": 10194,
+    "width": 0,
+    "height": 0,
+    "range_degree": 435,
+    "mobs": [
+      {
+        "mob": "D_OldFox",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 356,
+        "reg_max": 364,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_Zombie",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 356,
+        "reg_max": 364,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDn_F44": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 7932,
+    "center_y": 11148,
+    "width": 0,
+    "height": 0,
+    "range_degree": 449,
+    "mobs": [
+      {
+        "mob": "D_OldFox",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 356,
+        "reg_max": 364,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_Zombie",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 356,
+        "reg_max": 364,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDn_Mine1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8355,
+    "center_y": 7542,
+    "width": 3961,
+    "height": 486,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "MINE4",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 304,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE5",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 304,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE6",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 596,
+        "reg_max": 604,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CenDn_Mine2": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3790,
+    "center_y": 10276,
+    "width": 2669,
+    "height": 982,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "MINE4",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 304,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE5",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 304,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE6",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 596,
+        "reg_max": 604,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CenDn_Mine3": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11970,
+    "center_y": 10568,
+    "width": 2256,
+    "height": 935,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "MINE4",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 304,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE5",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 304,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE6",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 596,
+        "reg_max": 604,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CenDn_Herb1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6351,
+    "center_y": 16084,
+    "width": 2249,
+    "height": 417,
+    "range_degree": -13,
+    "mobs": [
+      {
+        "mob": "HERB4",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 304,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB5",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 304,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB6",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 304,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CenDn_Herb2": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 12102,
+    "center_y": 15758,
+    "width": 2081,
+    "height": 239,
+    "range_degree": 11,
+    "mobs": [
+      {
+        "mob": "HERB4",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 304,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB5",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 304,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB6",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 304,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDn_N01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8128,
+    "center_y": 10671,
+    "width": 0,
+    "height": 0,
+    "range_degree": 885,
+    "mobs": [
+      {
+        "mob": "D_Zombie",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 304,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDn_N02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9213,
+    "center_y": 7783,
+    "width": 0,
+    "height": 0,
+    "range_degree": 443,
+    "mobs": [
+      {
+        "mob": "D_Zombie",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 304,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDn_N03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2469,
+    "center_y": 7213,
+    "width": 0,
+    "height": 0,
+    "range_degree": 976,
+    "mobs": [
+      {
+        "mob": "D_Zombie",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 304,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDn_N04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15885,
+    "center_y": 6952,
+    "width": 0,
+    "height": 0,
+    "range_degree": 934,
+    "mobs": [
+      {
+        "mob": "D_Zombie",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 304,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDn_N05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11690,
+    "center_y": 10354,
+    "width": 0,
+    "height": 0,
+    "range_degree": 1102,
+    "mobs": [
+      {
+        "mob": "D_Zombie",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 304,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDn_N06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3684,
+    "center_y": 10383,
+    "width": 0,
+    "height": 0,
+    "range_degree": 954,
+    "mobs": [
+      {
+        "mob": "D_Zombie",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 304,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDn_N07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2413,
+    "center_y": 13331,
+    "width": 0,
+    "height": 0,
+    "range_degree": 1053,
+    "mobs": [
+      {
+        "mob": "D_Zombie",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 304,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDn_N08": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5742,
+    "center_y": 13615,
+    "width": 0,
+    "height": 0,
+    "range_degree": 689,
+    "mobs": [
+      {
+        "mob": "D_Zombie",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 304,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDn_N09": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8328,
+    "center_y": 13598,
+    "width": 0,
+    "height": 0,
+    "range_degree": 710,
+    "mobs": [
+      {
+        "mob": "D_Zombie",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 304,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDn_N10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5851,
+    "center_y": 7167,
+    "width": 95,
+    "height": 705,
+    "range_degree": -9,
+    "mobs": [
+      {
+        "mob": "D_Zombie",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 304,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDn_N11": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10193,
+    "center_y": 7637,
+    "width": 0,
+    "height": 0,
+    "range_degree": 681,
+    "mobs": [
+      {
+        "mob": "D_Zombie",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 304,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDn_N12": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3827,
+    "center_y": 17899,
+    "width": 0,
+    "height": 0,
+    "range_degree": 941,
+    "mobs": [
+      {
+        "mob": "D_Zombie",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 304,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDn_N13": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11305,
+    "center_y": 13826,
+    "width": 0,
+    "height": 0,
+    "range_degree": 871,
+    "mobs": [
+      {
+        "mob": "D_Zombie",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 304,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDn_N14": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14265,
+    "center_y": 13217,
+    "width": 0,
+    "height": 0,
+    "range_degree": 934,
+    "mobs": [
+      {
+        "mob": "D_Zombie",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 304,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDn_N15": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 17592,
+    "center_y": 10896,
+    "width": 0,
+    "height": 0,
+    "range_degree": 871,
+    "mobs": [
+      {
+        "mob": "D_Zombie",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 304,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDn_N16": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13207,
+    "center_y": 10135,
+    "width": 0,
+    "height": 0,
+    "range_degree": 997,
+    "mobs": [
+      {
+        "mob": "D_Zombie",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 304,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDn_N17": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8115,
+    "center_y": 7885,
+    "width": 0,
+    "height": 0,
+    "range_degree": 660,
+    "mobs": [
+      {
+        "mob": "D_OldFox",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 304,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDn_N18": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7753,
+    "center_y": 5384,
+    "width": 0,
+    "height": 0,
+    "range_degree": 541,
+    "mobs": [
+      {
+        "mob": "D_OldFox",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 150,
+        "reg_min": 146,
+        "reg_max": 154,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDn_N19": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9928,
+    "center_y": 5426,
+    "width": 0,
+    "height": 0,
+    "range_degree": 625,
+    "mobs": [
+      {
+        "mob": "D_OldFox",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 150,
+        "reg_min": 146,
+        "reg_max": 154,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDn_N20": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6287,
+    "center_y": 7316,
+    "width": 0,
+    "height": 0,
+    "range_degree": 520,
+    "mobs": [
+      {
+        "mob": "D_OldFox",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 304,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_Zombie",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDn_N21": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8744,
+    "center_y": 7335,
+    "width": 0,
+    "height": 0,
+    "range_degree": 359,
+    "mobs": [
+      {
+        "mob": "D_OldFox",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 304,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDn_N22": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7989,
+    "center_y": 10094,
+    "width": 0,
+    "height": 0,
+    "range_degree": 843,
+    "mobs": [
+      {
+        "mob": "D_OldFox",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 304,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDn_N23": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 12236,
+    "center_y": 10290,
+    "width": 0,
+    "height": 0,
+    "range_degree": 899,
+    "mobs": [
+      {
+        "mob": "D_OldFox",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 304,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDn_N24": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5131,
+    "center_y": 10182,
+    "width": 0,
+    "height": 0,
+    "range_degree": 864,
+    "mobs": [
+      {
+        "mob": "D_OldFox",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 304,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDn_N25": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1920,
+    "center_y": 10620,
+    "width": 0,
+    "height": 0,
+    "range_degree": 829,
+    "mobs": [
+      {
+        "mob": "D_OldFox",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 304,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDn_N26": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1911,
+    "center_y": 13775,
+    "width": 0,
+    "height": 0,
+    "range_degree": 829,
+    "mobs": [
+      {
+        "mob": "D_OldFox",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 304,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDn_N27": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3839,
+    "center_y": 17438,
+    "width": 0,
+    "height": 0,
+    "range_degree": 738,
+    "mobs": [
+      {
+        "mob": "D_OldFox",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 304,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDn_N28": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 17235,
+    "center_y": 10966,
+    "width": 0,
+    "height": 0,
+    "range_degree": 703,
+    "mobs": [
+      {
+        "mob": "D_OldFox",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 304,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDn_N29": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15246,
+    "center_y": 6439,
+    "width": 0,
+    "height": 0,
+    "range_degree": 808,
+    "mobs": [
+      {
+        "mob": "D_OldFox",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 304,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDn_N30": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8772,
+    "center_y": 5020,
+    "width": 0,
+    "height": 0,
+    "range_degree": 590,
+    "mobs": [
+      {
+        "mob": "D_OldFox",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 150,
+        "reg_min": 146,
+        "reg_max": 154,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDn_N31": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10707,
+    "center_y": 11191,
+    "width": 0,
+    "height": 0,
+    "range_degree": 829,
+    "mobs": [
+      {
+        "mob": "D_OldFox",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 304,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "CemDn_N32": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8315,
+    "center_y": 13619,
+    "width": 0,
+    "height": 0,
+    "range_degree": 815,
+    "mobs": [
+      {
+        "mob": "D_OldFox",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 304,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  }
+}

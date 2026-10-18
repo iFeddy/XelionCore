@@ -1,0 +1,1728 @@
+{
+  "KDEchoCaveArea01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2781,
+    "center_y": 3034,
+    "width": 0,
+    "height": 0,
+    "range_degree": 219,
+    "mobs": [
+      {
+        "mob": "KQ_GorDonMaster",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEchoCaveArea02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 19271,
+    "center_y": 17742,
+    "width": 0,
+    "height": 0,
+    "range_degree": 660,
+    "mobs": [
+      {
+        "mob": "KQ_Skeleton",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEchoCaveArea03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 16216,
+    "center_y": 21052,
+    "width": 0,
+    "height": 0,
+    "range_degree": 429,
+    "mobs": [
+      {
+        "mob": "KQ_Skeleton",
+        "count": 7,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEchoCaveArea04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 16569,
+    "center_y": 20788,
+    "width": 0,
+    "height": 0,
+    "range_degree": 324,
+    "mobs": [
+      {
+        "mob": "KQ_SkelArcher",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEchoCaveArea05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14602,
+    "center_y": 15019,
+    "width": 0,
+    "height": 0,
+    "range_degree": 1095,
+    "mobs": [
+      {
+        "mob": "KQ_SkelWarrior",
+        "count": 8,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEchoCaveArea06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14125,
+    "center_y": 15249,
+    "width": 0,
+    "height": 0,
+    "range_degree": 1060,
+    "mobs": [
+      {
+        "mob": "KQ_Zombie",
+        "count": 8,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEchoCaveArea07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8911,
+    "center_y": 21245,
+    "width": 456,
+    "height": 683,
+    "range_degree": 51,
+    "mobs": [
+      {
+        "mob": "KQ_Bat",
+        "count": 8,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEchoCaveArea08": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5541,
+    "center_y": 17441,
+    "width": 0,
+    "height": 0,
+    "range_degree": 878,
+    "mobs": [
+      {
+        "mob": "KQ_Bat",
+        "count": 7,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEchoCaveArea09": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5106,
+    "center_y": 16823,
+    "width": 0,
+    "height": 0,
+    "range_degree": 1382,
+    "mobs": [
+      {
+        "mob": "KQ_SkelArcher",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEchoCaveArea10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5048,
+    "center_y": 16472,
+    "width": 0,
+    "height": 0,
+    "range_degree": 1333,
+    "mobs": [
+      {
+        "mob": "KQ_FireViVi",
+        "count": 9,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEchoCaveArea11": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 19208,
+    "center_y": 12190,
+    "width": 1487,
+    "height": 140,
+    "range_degree": 78,
+    "mobs": [
+      {
+        "mob": "KQ_Bat",
+        "count": 12,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEchoCaveArea12": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 17082,
+    "center_y": 5812,
+    "width": 0,
+    "height": 0,
+    "range_degree": 723,
+    "mobs": [
+      {
+        "mob": "KQ_FireViVi",
+        "count": 10,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEchoCaveArea13": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 17304,
+    "center_y": 4534,
+    "width": 0,
+    "height": 0,
+    "range_degree": 773,
+    "mobs": [
+      {
+        "mob": "KQ_Spider",
+        "count": 12,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEchoCaveArea14": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 17152,
+    "center_y": 5365,
+    "width": 0,
+    "height": 0,
+    "range_degree": 1592,
+    "mobs": [
+      {
+        "mob": "KQ_SkelKnight",
+        "count": 10,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEchoCaveArea15": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 17132,
+    "center_y": 5404,
+    "width": 0,
+    "height": 0,
+    "range_degree": 1880,
+    "mobs": [
+      {
+        "mob": "KQ_SkelKnight",
+        "count": 11,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEchoCaveArea16": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7084,
+    "center_y": 7381,
+    "width": 0,
+    "height": 0,
+    "range_degree": 1347,
+    "mobs": [
+      {
+        "mob": "KQ_GorDon",
+        "count": 10,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEchoCaveArea17": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7743,
+    "center_y": 8133,
+    "width": 0,
+    "height": 0,
+    "range_degree": 2076,
+    "mobs": [
+      {
+        "mob": "KQ_Spider",
+        "count": 12,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEchoCaveArea18": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 12140,
+    "center_y": 10619,
+    "width": 891,
+    "height": 166,
+    "range_degree": 36,
+    "mobs": [
+      {
+        "mob": "KQ_SkelArcher",
+        "count": 8,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEchoCaveArea19": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6977,
+    "center_y": 8578,
+    "width": 0,
+    "height": 0,
+    "range_degree": 1543,
+    "mobs": [
+      {
+        "mob": "KQ_SkelArcher",
+        "count": 8,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEchoCaveArea20": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4109,
+    "center_y": 3443,
+    "width": 0,
+    "height": 0,
+    "range_degree": 429,
+    "mobs": [
+      {
+        "mob": "KQ_SkelKnight",
+        "count": 9,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEchoCaveArea21": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2937,
+    "center_y": 3247,
+    "width": 0,
+    "height": 0,
+    "range_degree": 1424,
+    "mobs": [
+      {
+        "mob": "KQ_SkelArcher",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEchoCaveArea22": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2409,
+    "center_y": 4124,
+    "width": 0,
+    "height": 0,
+    "range_degree": 1424,
+    "mobs": [
+      {
+        "mob": "KQ_GorDon",
+        "count": 12,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEchoCaveArea23": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14960,
+    "center_y": 17396,
+    "width": 0,
+    "height": 0,
+    "range_degree": 787,
+    "mobs": [
+      {
+        "mob": "KQ_SkelWarrior",
+        "count": 11,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEchoCaveArea24": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 12069,
+    "center_y": 16723,
+    "width": 930,
+    "height": 100,
+    "range_degree": -46,
+    "mobs": [
+      {
+        "mob": "KQ_Bat",
+        "count": 9,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEchoCaveArea25": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9247,
+    "center_y": 19148,
+    "width": 0,
+    "height": 0,
+    "range_degree": 542,
+    "mobs": [
+      {
+        "mob": "KQ_SkelKnight",
+        "count": 12,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEchoCaveArea26": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5134,
+    "center_y": 16675,
+    "width": 0,
+    "height": 0,
+    "range_degree": 1893,
+    "mobs": [
+      {
+        "mob": "KQ_SkelKnight",
+        "count": 8,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEchoCaveArea27": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 16012,
+    "center_y": 12432,
+    "width": 112,
+    "height": 1872,
+    "range_degree": 27,
+    "mobs": [
+      {
+        "mob": "KQ_SkelWarrior",
+        "count": 11,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEchoCaveArea28": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11230,
+    "center_y": 18871,
+    "width": 2197,
+    "height": 180,
+    "range_degree": 6,
+    "mobs": [
+      {
+        "mob": "KQ_SkelArcher",
+        "count": 8,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEchoCaveArea29": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 17628,
+    "center_y": 19501,
+    "width": 0,
+    "height": 0,
+    "range_degree": 471,
+    "mobs": [
+      {
+        "mob": "KQ_Zombie",
+        "count": 8,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEchoCaveArea30": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 18488,
+    "center_y": 14201,
+    "width": 1310,
+    "height": 144,
+    "range_degree": 64,
+    "mobs": [
+      {
+        "mob": "KQ_SkelArcher",
+        "count": 8,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEchoCaveArea31": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 17989,
+    "center_y": 19303,
+    "width": 0,
+    "height": 0,
+    "range_degree": 443,
+    "mobs": [
+      {
+        "mob": "KQ_Skeleton",
+        "count": 8,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEchoCaveArea32": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 19337,
+    "center_y": 9437,
+    "width": 184,
+    "height": 1275,
+    "range_degree": 9,
+    "mobs": [
+      {
+        "mob": "KQ_SkelWarrior",
+        "count": 11,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEchoCaveArea33": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 18831,
+    "center_y": 18150,
+    "width": 0,
+    "height": 0,
+    "range_degree": 590,
+    "mobs": [
+      {
+        "mob": "KQ_SkelArcher",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEchoCaveArea34": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10739,
+    "center_y": 13311,
+    "width": 142,
+    "height": 1054,
+    "range_degree": -13,
+    "mobs": []
+  },
+  "KDEchoCaveArea35": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14261,
+    "center_y": 17968,
+    "width": 1141,
+    "height": 217,
+    "range_degree": 24,
+    "mobs": [
+      {
+        "mob": "KQ_Skeleton",
+        "count": 8,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEchoCaveArea36": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 17307,
+    "center_y": 15618,
+    "width": 1366,
+    "height": 236,
+    "range_degree": 52,
+    "mobs": [
+      {
+        "mob": "KQ_Skeleton",
+        "count": 8,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEchoCaveArea37": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8245,
+    "center_y": 21013,
+    "width": 0,
+    "height": 0,
+    "range_degree": 500,
+    "mobs": [
+      {
+        "mob": "KQ_SkelArcher",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEchoCaveArea38": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8899,
+    "center_y": 15701,
+    "width": 1360,
+    "height": 162,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "KQ_Spider",
+        "count": 10,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEchoCaveArea39": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2243,
+    "center_y": 3009,
+    "width": 0,
+    "height": 0,
+    "range_degree": 1053,
+    "mobs": [
+      {
+        "mob": "KQ_FireViVi",
+        "count": 9,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEchoCaveArea40": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11648,
+    "center_y": 5972,
+    "width": 0,
+    "height": 0,
+    "range_degree": 500,
+    "mobs": [
+      {
+        "mob": "KQ_FireViVi",
+        "count": 8,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEchoCaveArea41": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5028,
+    "center_y": 12756,
+    "width": 0,
+    "height": 0,
+    "range_degree": 500,
+    "mobs": [
+      {
+        "mob": "KQ_FireViVi",
+        "count": 7,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEchoCaveArea42": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 19039,
+    "center_y": 20754,
+    "width": 0,
+    "height": 0,
+    "range_degree": 500,
+    "mobs": [
+      {
+        "mob": "KQ_Skeleton",
+        "count": 8,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEchoCaveArea43": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 18339,
+    "center_y": 20247,
+    "width": 0,
+    "height": 0,
+    "range_degree": 500,
+    "mobs": [
+      {
+        "mob": "KQ_FireViVi",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEchoCaveArea44": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 12979,
+    "center_y": 17918,
+    "width": 0,
+    "height": 0,
+    "range_degree": 500,
+    "mobs": [
+      {
+        "mob": "KQ_FireViVi",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEchoCaveArea45": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 17197,
+    "center_y": 15025,
+    "width": 0,
+    "height": 0,
+    "range_degree": 500,
+    "mobs": [
+      {
+        "mob": "KQ_FireViVi",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEchoCaveArea46": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10900,
+    "center_y": 10780,
+    "width": 0,
+    "height": 0,
+    "range_degree": 500,
+    "mobs": [
+      {
+        "mob": "KQ_GorDon",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEchoCaveArea47": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15145,
+    "center_y": 10867,
+    "width": 0,
+    "height": 0,
+    "range_degree": 500,
+    "mobs": [
+      {
+        "mob": "KQ_GorDon",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEchoCaveArea48": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7342,
+    "center_y": 16144,
+    "width": 0,
+    "height": 0,
+    "range_degree": 500,
+    "mobs": [
+      {
+        "mob": "KQ_FireViVi",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEchoCaveArea49": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14426,
+    "center_y": 5710,
+    "width": 0,
+    "height": 0,
+    "range_degree": 500,
+    "mobs": [
+      {
+        "mob": "KQ_Zombie",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEchoCaveArea50": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10486,
+    "center_y": 15117,
+    "width": 0,
+    "height": 0,
+    "range_degree": 528,
+    "mobs": [
+      {
+        "mob": "KQ_GorDon",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEchoCaveArea51": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15820,
+    "center_y": 16760,
+    "width": 0,
+    "height": 0,
+    "range_degree": 696,
+    "mobs": [
+      {
+        "mob": "KQ_GorDon",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEchoCaveArea52": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9759,
+    "center_y": 10182,
+    "width": 0,
+    "height": 0,
+    "range_degree": 885,
+    "mobs": [
+      {
+        "mob": "KQ_Spider",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDEchoCaveArea53": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15600,
+    "center_y": 9229,
+    "width": 284,
+    "height": 1247,
+    "range_degree": -17,
+    "mobs": [
+      {
+        "mob": "KQ_SkelArcher",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  }
+}

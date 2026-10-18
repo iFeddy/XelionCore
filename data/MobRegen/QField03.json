@@ -1,0 +1,200 @@
+{
+  "QField03_01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 579,
+    "center_y": 1062,
+    "width": 0,
+    "height": 0,
+    "range_degree": 67,
+    "mobs": [
+      {
+        "mob": "MagmaTon",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 10,
+        "reg_min": 7,
+        "reg_max": 15,
+        "deltas": [
+          0,
+          5,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          5,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "QField03_02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 709,
+    "center_y": 728,
+    "width": 0,
+    "height": 0,
+    "range_degree": 67,
+    "mobs": [
+      {
+        "mob": "MagmaTon",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 10,
+        "reg_min": 7,
+        "reg_max": 15,
+        "deltas": [
+          0,
+          5,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          5,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "QField03_03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 727,
+    "center_y": 354,
+    "width": 0,
+    "height": 0,
+    "range_degree": 67,
+    "mobs": [
+      {
+        "mob": "MagmaTon",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 10,
+        "reg_min": 7,
+        "reg_max": 15,
+        "deltas": [
+          0,
+          5,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          5,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "QField03_04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 977,
+    "center_y": 636,
+    "width": 0,
+    "height": 0,
+    "range_degree": 67,
+    "mobs": [
+      {
+        "mob": "MagmaTon",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 10,
+        "reg_min": 7,
+        "reg_max": 15,
+        "deltas": [
+          0,
+          5,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          5,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "QField03_05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 386,
+    "center_y": 733,
+    "width": 0,
+    "height": 0,
+    "range_degree": 67,
+    "mobs": [
+      {
+        "mob": "MagmaTon",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 75,
+        "reg_min": 60,
+        "reg_max": 90,
+        "deltas": [
+          120,
+          15,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          15,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "QField03_06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 466,
+    "center_y": 458,
+    "width": 0,
+    "height": 0,
+    "range_degree": 15,
+    "mobs": [
+      {
+        "mob": "FireGolem",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 75,
+        "reg_min": 60,
+        "reg_max": 90,
+        "deltas": [
+          120,
+          15,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          15,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  }
+}

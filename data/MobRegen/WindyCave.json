@@ -1,0 +1,4875 @@
+{
+  "WindyCaveMINE01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2327,
+    "center_y": 4297,
+    "width": 163,
+    "height": 775,
+    "range_degree": 11,
+    "mobs": [
+      {
+        "mob": "MINE4",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE5",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Ec_ArchMageBook",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3644,
+    "center_y": 4397,
+    "width": 0,
+    "height": 0,
+    "range_degree": 603,
+    "mobs": [
+      {
+        "mob": "MINE4",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE4",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Ec_ArchMageBook",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2902,
+    "center_y": 3373,
+    "width": 0,
+    "height": 0,
+    "range_degree": 625,
+    "mobs": [
+      {
+        "mob": "MINE4",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4336,
+    "center_y": 3754,
+    "width": 410,
+    "height": 244,
+    "range_degree": 55,
+    "mobs": [
+      {
+        "mob": "MINE4",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Ec_ArchMageBook",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1550,
+    "center_y": 2997,
+    "width": 163,
+    "height": 903,
+    "range_degree": 7,
+    "mobs": [
+      {
+        "mob": "MINE4",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE5",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Ec_ArchMageBook",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4500,
+    "center_y": 2340,
+    "width": 382,
+    "height": 68,
+    "range_degree": -32,
+    "mobs": [
+      {
+        "mob": "MINE4",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE4",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Ec_ArchMageBook",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 22827,
+    "center_y": 22946,
+    "width": 0,
+    "height": 0,
+    "range_degree": 582,
+    "mobs": [
+      {
+        "mob": "MINE4",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE4",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Ec_ArchMageBook",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE08": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 23027,
+    "center_y": 21294,
+    "width": 0,
+    "height": 0,
+    "range_degree": 652,
+    "mobs": [
+      {
+        "mob": "MINE4",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE5",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Ec_ArchMageBook",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE09": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 21417,
+    "center_y": 22408,
+    "width": 425,
+    "height": 943,
+    "range_degree": 10,
+    "mobs": [
+      {
+        "mob": "MINE4",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE6",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Ec_ArchMageBook",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 23030,
+    "center_y": 24097,
+    "width": 399,
+    "height": 153,
+    "range_degree": 158,
+    "mobs": [
+      {
+        "mob": "MINE4",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE5",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Ec_ArchMageBook",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE11": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 22366,
+    "center_y": 22402,
+    "width": 459,
+    "height": 1263,
+    "range_degree": -36,
+    "mobs": [
+      {
+        "mob": "MINE4",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE6",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE12": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 19294,
+    "center_y": 20747,
+    "width": 51,
+    "height": 921,
+    "range_degree": 57,
+    "mobs": [
+      {
+        "mob": "MINE4",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE5",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE6",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE13": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2856,
+    "center_y": 2090,
+    "width": 626,
+    "height": 130,
+    "range_degree": -25,
+    "mobs": [
+      {
+        "mob": "MINE4",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Ec_ArchMageBook",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE14": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9389,
+    "center_y": 8952,
+    "width": 212,
+    "height": 1027,
+    "range_degree": -27,
+    "mobs": [
+      {
+        "mob": "MINE4",
+        "count": 8,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE5",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE5",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Ec_ArchMageBook",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE15": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6787,
+    "center_y": 7339,
+    "width": 853,
+    "height": 373,
+    "range_degree": -23,
+    "mobs": [
+      {
+        "mob": "MINE4",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE4",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE5",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Ec_ArchMageBook",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE16": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8631,
+    "center_y": 7513,
+    "width": 877,
+    "height": 420,
+    "range_degree": 6,
+    "mobs": [
+      {
+        "mob": "MINE4",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE5",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE5",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Ec_ArchMageBook",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE17": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9662,
+    "center_y": 10205,
+    "width": 0,
+    "height": 0,
+    "range_degree": 617,
+    "mobs": [
+      {
+        "mob": "MINE4",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE5",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE18": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7447,
+    "center_y": 10053,
+    "width": 1238,
+    "height": 262,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "MINE4",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE5",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE5",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Ec_ArchMageBook",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE19": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 17689,
+    "center_y": 19785,
+    "width": 0,
+    "height": 0,
+    "range_degree": 395,
+    "mobs": [
+      {
+        "mob": "MINE4",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE5",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE5",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Ec_ArchMageBook",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE20": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 19090,
+    "center_y": 17842,
+    "width": 0,
+    "height": 0,
+    "range_degree": 449,
+    "mobs": [
+      {
+        "mob": "MINE4",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE5",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE5",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Ec_ArchMageBook",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE21": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 16437,
+    "center_y": 21015,
+    "width": 0,
+    "height": 0,
+    "range_degree": 372,
+    "mobs": [
+      {
+        "mob": "MINE4",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE5",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE5",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE22": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 16564,
+    "center_y": 18336,
+    "width": 150,
+    "height": 1196,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "MINE5",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE5",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE6",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Ec_ArchMageBook",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE23": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13870,
+    "center_y": 14679,
+    "width": 951,
+    "height": 493,
+    "range_degree": -14,
+    "mobs": [
+      {
+        "mob": "MINE5",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE6",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE6",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Ec_ArchMageBook",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE24": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 16971,
+    "center_y": 5716,
+    "width": 1670,
+    "height": 185,
+    "range_degree": 5,
+    "mobs": [
+      {
+        "mob": "MINE6",
+        "count": 7,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Ec_ArchMageBook",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE25": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4896,
+    "center_y": 16877,
+    "width": 981,
+    "height": 333,
+    "range_degree": 56,
+    "mobs": [
+      {
+        "mob": "MINE6",
+        "count": 8,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE26": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13876,
+    "center_y": 18108,
+    "width": 203,
+    "height": 1220,
+    "range_degree": -67,
+    "mobs": [
+      {
+        "mob": "MINE5",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE5",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE27": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11074,
+    "center_y": 18912,
+    "width": 1208,
+    "height": 109,
+    "range_degree": 2,
+    "mobs": [
+      {
+        "mob": "MINE5",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE5",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE28": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8334,
+    "center_y": 18815,
+    "width": 1384,
+    "height": 155,
+    "range_degree": -8,
+    "mobs": [
+      {
+        "mob": "MINE5",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE6",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE29": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 17119,
+    "center_y": 15804,
+    "width": 147,
+    "height": 1795,
+    "range_degree": -42,
+    "mobs": [
+      {
+        "mob": "MINE5",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE5",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE30": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 18952,
+    "center_y": 12911,
+    "width": 50,
+    "height": 1554,
+    "range_degree": -14,
+    "mobs": [
+      {
+        "mob": "MINE5",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE5",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE31": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 18981,
+    "center_y": 7891,
+    "width": 99,
+    "height": 1031,
+    "range_degree": 24,
+    "mobs": [
+      {
+        "mob": "MINE5",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE6",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE32": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14313,
+    "center_y": 5626,
+    "width": 877,
+    "height": 108,
+    "range_degree": 3,
+    "mobs": [
+      {
+        "mob": "MINE5",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE6",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE33": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 12024,
+    "center_y": 6038,
+    "width": 59,
+    "height": 1411,
+    "range_degree": -86,
+    "mobs": [
+      {
+        "mob": "MINE5",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE5",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE34": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4822,
+    "center_y": 13956,
+    "width": 109,
+    "height": 1145,
+    "range_degree": -6,
+    "mobs": [
+      {
+        "mob": "MINE5",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE6",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE35": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5561,
+    "center_y": 11967,
+    "width": 71,
+    "height": 909,
+    "range_degree": -31,
+    "mobs": [
+      {
+        "mob": "MINE5",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE5",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE36": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8191,
+    "center_y": 15890,
+    "width": 72,
+    "height": 1662,
+    "range_degree": 109,
+    "mobs": [
+      {
+        "mob": "MINE6",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE6",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE37": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15868,
+    "center_y": 8896,
+    "width": 93,
+    "height": 1422,
+    "range_degree": -16,
+    "mobs": [
+      {
+        "mob": "MINE6",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE6",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE38": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10550,
+    "center_y": 14315,
+    "width": 140,
+    "height": 887,
+    "range_degree": -10,
+    "mobs": [
+      {
+        "mob": "MINE6",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE6",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE39": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11005,
+    "center_y": 15689,
+    "width": 93,
+    "height": 775,
+    "range_degree": 48,
+    "mobs": [
+      {
+        "mob": "MINE6",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE6",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE40": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15778,
+    "center_y": 11661,
+    "width": 88,
+    "height": 922,
+    "range_degree": 35,
+    "mobs": [
+      {
+        "mob": "MINE6",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE6",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE41": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14088,
+    "center_y": 10402,
+    "width": 919,
+    "height": 60,
+    "range_degree": -14,
+    "mobs": [
+      {
+        "mob": "MINE6",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE6",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE42": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10869,
+    "center_y": 12234,
+    "width": 105,
+    "height": 954,
+    "range_degree": -16,
+    "mobs": [
+      {
+        "mob": "MINE5",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE6",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE43": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11898,
+    "center_y": 10760,
+    "width": 77,
+    "height": 970,
+    "range_degree": -54,
+    "mobs": [
+      {
+        "mob": "MINE5",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE6",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE44": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15116,
+    "center_y": 16562,
+    "width": 84,
+    "height": 879,
+    "range_degree": 27,
+    "mobs": [
+      {
+        "mob": "MINE5",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE6",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE45": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 12236,
+    "center_y": 16969,
+    "width": 70,
+    "height": 863,
+    "range_degree": 34,
+    "mobs": [
+      {
+        "mob": "MINE5",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE6",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE46": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 16719,
+    "center_y": 14031,
+    "width": 52,
+    "height": 1266,
+    "range_degree": 13,
+    "mobs": [
+      {
+        "mob": "MINE6",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE6",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE47": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8970,
+    "center_y": 20701,
+    "width": 202,
+    "height": 1104,
+    "range_degree": -14,
+    "mobs": [
+      {
+        "mob": "MINE5",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE6",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE6",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE48": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4328,
+    "center_y": 5064,
+    "width": 367,
+    "height": 252,
+    "range_degree": -42,
+    "mobs": [
+      {
+        "mob": "MINE4",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE5",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Ec_ArchMageBook",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE49": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13983,
+    "center_y": 13879,
+    "width": 285,
+    "height": 765,
+    "range_degree": 27,
+    "mobs": [
+      {
+        "mob": "MINE6",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE6",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE6",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE50": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3010,
+    "center_y": 3781,
+    "width": 0,
+    "height": 0,
+    "range_degree": 848,
+    "mobs": [
+      {
+        "mob": "Ec_ArchMageBook",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE51": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2002,
+    "center_y": 2117,
+    "width": 757,
+    "height": 95,
+    "range_degree": 20,
+    "mobs": [
+      {
+        "mob": "Ec_ArchMageBook",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE52": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4675,
+    "center_y": 5459,
+    "width": 1298,
+    "height": 100,
+    "range_degree": -46,
+    "mobs": [
+      {
+        "mob": "Ec_ArchMageBook",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE53": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8570,
+    "center_y": 8788,
+    "width": 0,
+    "height": 0,
+    "range_degree": 512,
+    "mobs": [
+      {
+        "mob": "Ec_ArchMageBook",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE54": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7883,
+    "center_y": 8602,
+    "width": 445,
+    "height": 1619,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "Ec_ArchMageBook",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE5",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE4",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE55": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5667,
+    "center_y": 11767,
+    "width": 50,
+    "height": 1637,
+    "range_degree": -32,
+    "mobs": [
+      {
+        "mob": "Ec_ArchMageBook",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE56": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 22171,
+    "center_y": 22280,
+    "width": 1608,
+    "height": 394,
+    "range_degree": 41,
+    "mobs": [
+      {
+        "mob": "Ec_ArchMageBook",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE57": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 23799,
+    "center_y": 23828,
+    "width": 441,
+    "height": 136,
+    "range_degree": 46,
+    "mobs": [
+      {
+        "mob": "Ec_ArchMageBook",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE58": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 22113,
+    "center_y": 22430,
+    "width": 250,
+    "height": 1233,
+    "range_degree": 41,
+    "mobs": [
+      {
+        "mob": "Ec_ArchMageBook",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE59": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 18957,
+    "center_y": 20461,
+    "width": 684,
+    "height": 58,
+    "range_degree": -35,
+    "mobs": [
+      {
+        "mob": "Ec_ArchMageBook",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE60": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 18673,
+    "center_y": 18493,
+    "width": 1422,
+    "height": 50,
+    "range_degree": 42,
+    "mobs": [
+      {
+        "mob": "Ec_ArchMageBook",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE61": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 16869,
+    "center_y": 20380,
+    "width": 84,
+    "height": 1225,
+    "range_degree": -53,
+    "mobs": [
+      {
+        "mob": "Ec_ArchMageBook",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE62": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15555,
+    "center_y": 17381,
+    "width": 0,
+    "height": 0,
+    "range_degree": 445,
+    "mobs": [
+      {
+        "mob": "Ec_ArchMageBook",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE63": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13848,
+    "center_y": 14395,
+    "width": 0,
+    "height": 0,
+    "range_degree": 779,
+    "mobs": [
+      {
+        "mob": "Wd_Prock",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE64": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14542,
+    "center_y": 13449,
+    "width": 514,
+    "height": 194,
+    "range_degree": -12,
+    "mobs": [
+      {
+        "mob": "Wd_Prock",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE65": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13275,
+    "center_y": 18334,
+    "width": 1455,
+    "height": 110,
+    "range_degree": 21,
+    "mobs": [
+      {
+        "mob": "Ec_ArchMageBook",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE66": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 16999,
+    "center_y": 15896,
+    "width": 1434,
+    "height": 84,
+    "range_degree": 48,
+    "mobs": [
+      {
+        "mob": "Ec_ArchMageBook",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE67": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10599,
+    "center_y": 6475,
+    "width": 145,
+    "height": 1165,
+    "range_degree": -52,
+    "mobs": [
+      {
+        "mob": "Ec_ArchMageBook",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE68": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 19179,
+    "center_y": 11501,
+    "width": 51,
+    "height": 1008,
+    "range_degree": -3,
+    "mobs": [
+      {
+        "mob": "Wd_Prock",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE69": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9002,
+    "center_y": 20482,
+    "width": 1064,
+    "height": 162,
+    "range_degree": 75,
+    "mobs": [
+      {
+        "mob": "Wd_Prock",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE70": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11723,
+    "center_y": 16401,
+    "width": 1540,
+    "height": 55,
+    "range_degree": -50,
+    "mobs": [
+      {
+        "mob": "Wd_Prock",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE71": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 16607,
+    "center_y": 13477,
+    "width": 1252,
+    "height": 50,
+    "range_degree": -74,
+    "mobs": [
+      {
+        "mob": "Wd_Prock",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE72": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13240,
+    "center_y": 5853,
+    "width": 1316,
+    "height": 50,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Wd_Prock",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE73": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5068,
+    "center_y": 14553,
+    "width": 58,
+    "height": 1393,
+    "range_degree": 14,
+    "mobs": [
+      {
+        "mob": "Wd_Prock",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE74": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5117,
+    "center_y": 17586,
+    "width": 360,
+    "height": 1081,
+    "range_degree": 59,
+    "mobs": [
+      {
+        "mob": "Wd_Prock",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE6",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE75": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 16067,
+    "center_y": 4814,
+    "width": 1315,
+    "height": 157,
+    "range_degree": 26,
+    "mobs": [
+      {
+        "mob": "Wd_Prock",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE6",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE76": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10867,
+    "center_y": 10845,
+    "width": 141,
+    "height": 711,
+    "range_degree": 58,
+    "mobs": [
+      {
+        "mob": "Wd_Prock",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE77": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10619,
+    "center_y": 13497,
+    "width": 56,
+    "height": 1650,
+    "range_degree": -7,
+    "mobs": [
+      {
+        "mob": "Wd_Prock",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE78": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 12163,
+    "center_y": 10551,
+    "width": 884,
+    "height": 58,
+    "range_degree": 30,
+    "mobs": [
+      {
+        "mob": "Wd_Prock",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE79": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14112,
+    "center_y": 10420,
+    "width": 50,
+    "height": 991,
+    "range_degree": 74,
+    "mobs": [
+      {
+        "mob": "Wd_Prock",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE80": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15641,
+    "center_y": 11393,
+    "width": 974,
+    "height": 60,
+    "range_degree": -52,
+    "mobs": [
+      {
+        "mob": "Wd_Prock",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE81": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15849,
+    "center_y": 8785,
+    "width": 55,
+    "height": 1370,
+    "range_degree": -13,
+    "mobs": [
+      {
+        "mob": "Wd_Prock",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE82": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8284,
+    "center_y": 15875,
+    "width": 53,
+    "height": 1261,
+    "range_degree": -72,
+    "mobs": [
+      {
+        "mob": "Wd_Prock",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE83": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10090,
+    "center_y": 15097,
+    "width": 0,
+    "height": 0,
+    "range_degree": 218,
+    "mobs": [
+      {
+        "mob": "Wd_Prock",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE84": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15224,
+    "center_y": 10472,
+    "width": 0,
+    "height": 0,
+    "range_degree": 162,
+    "mobs": [
+      {
+        "mob": "Wd_Prock",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE85": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9531,
+    "center_y": 10126,
+    "width": 0,
+    "height": 0,
+    "range_degree": 387,
+    "mobs": [
+      {
+        "mob": "Ec_ArchMageBook",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE88": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10612,
+    "center_y": 6420,
+    "width": 1012,
+    "height": 132,
+    "range_degree": 37,
+    "mobs": [
+      {
+        "mob": "MINE5",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE89": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6541,
+    "center_y": 18530,
+    "width": 436,
+    "height": 100,
+    "range_degree": -12,
+    "mobs": [
+      {
+        "mob": "Wd_Prock",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE90": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9672,
+    "center_y": 18940,
+    "width": 1226,
+    "height": 63,
+    "range_degree": -3,
+    "mobs": [
+      {
+        "mob": "Wd_Prock",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE91": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 19165,
+    "center_y": 8558,
+    "width": 52,
+    "height": 1346,
+    "range_degree": 20,
+    "mobs": [
+      {
+        "mob": "Wd_Prock",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE93": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 16411,
+    "center_y": 6562,
+    "width": 783,
+    "height": 321,
+    "range_degree": -56,
+    "mobs": [
+      {
+        "mob": "MINE6",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Wd_Prock",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE94": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 17926,
+    "center_y": 6054,
+    "width": 521,
+    "height": 789,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "MINE6",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE95": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 17906,
+    "center_y": 6309,
+    "width": 0,
+    "height": 0,
+    "range_degree": 661,
+    "mobs": [
+      {
+        "mob": "Ec_ArchMageBook",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "WindyCaveMINE96": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5254,
+    "center_y": 16249,
+    "width": 336,
+    "height": 1062,
+    "range_degree": 59,
+    "mobs": [
+      {
+        "mob": "MINE6",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Wd_Prock",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  }
+}

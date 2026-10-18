@@ -1,0 +1,3940 @@
+{
+  "Normal_01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5254,
+    "center_y": 6113,
+    "width": 79,
+    "height": 699,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "D_CloverTrumpy",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7007,
+    "center_y": 6060,
+    "width": 80,
+    "height": 698,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "D_CloverTrumpy",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6137,
+    "center_y": 5226,
+    "width": 664,
+    "height": 69,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "D_CloverTrumpy",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6142,
+    "center_y": 7047,
+    "width": 722,
+    "height": 80,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "D_CloverTrumpy",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_09": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 5463,
+    "center_y": 3863,
+    "width": 0,
+    "height": 0,
+    "range_degree": 181,
+    "mobs": [
+      {
+        "mob": "D_BlueCloverTrumpy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_10": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 6810,
+    "center_y": 3849,
+    "width": 0,
+    "height": 0,
+    "range_degree": 177,
+    "mobs": [
+      {
+        "mob": "D_BlueCloverTrumpy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_11": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 5459,
+    "center_y": 8465,
+    "width": 0,
+    "height": 0,
+    "range_degree": 177,
+    "mobs": [
+      {
+        "mob": "D_BlueCloverTrumpy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_12": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 6812,
+    "center_y": 8447,
+    "width": 0,
+    "height": 0,
+    "range_degree": 184,
+    "mobs": [
+      {
+        "mob": "D_BlueCloverTrumpy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_13": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 3837,
+    "center_y": 6814,
+    "width": 0,
+    "height": 0,
+    "range_degree": 177,
+    "mobs": [
+      {
+        "mob": "D_BlueCloverTrumpy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_14": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 3856,
+    "center_y": 5511,
+    "width": 0,
+    "height": 0,
+    "range_degree": 184,
+    "mobs": [
+      {
+        "mob": "D_BlueCloverTrumpy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_15": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 8477,
+    "center_y": 5454,
+    "width": 0,
+    "height": 0,
+    "range_degree": 177,
+    "mobs": [
+      {
+        "mob": "D_BlueCloverTrumpy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_16": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 8465,
+    "center_y": 6771,
+    "width": 0,
+    "height": 0,
+    "range_degree": 198,
+    "mobs": [
+      {
+        "mob": "D_BlueCloverTrumpy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_17": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4855,
+    "center_y": 3837,
+    "width": 1190,
+    "height": 139,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "D_HeartTrumpy",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_18": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7385,
+    "center_y": 3841,
+    "width": 1165,
+    "height": 127,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "D_HeartTrumpy",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_19": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3848,
+    "center_y": 5039,
+    "width": 137,
+    "height": 987,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "D_HeartTrumpy",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_20": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3809,
+    "center_y": 7174,
+    "width": 151,
+    "height": 969,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "D_HeartTrumpy",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_21": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8432,
+    "center_y": 5003,
+    "width": 139,
+    "height": 987,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "D_HeartTrumpy",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_22": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8462,
+    "center_y": 7221,
+    "width": 146,
+    "height": 1027,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "D_HeartTrumpy",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_23": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4847,
+    "center_y": 8445,
+    "width": 1167,
+    "height": 157,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "D_HeartTrumpy",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_24": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7411,
+    "center_y": 8464,
+    "width": 1182,
+    "height": 150,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "D_HeartTrumpy",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_09-1": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 4783,
+    "center_y": 3858,
+    "width": 0,
+    "height": 0,
+    "range_degree": 177,
+    "mobs": [
+      {
+        "mob": "D_BlueCloverTrumpy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_10-1": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 7512,
+    "center_y": 3843,
+    "width": 0,
+    "height": 0,
+    "range_degree": 177,
+    "mobs": [
+      {
+        "mob": "D_BlueCloverTrumpy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_15-1": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 8462,
+    "center_y": 4769,
+    "width": 0,
+    "height": 0,
+    "range_degree": 191,
+    "mobs": [
+      {
+        "mob": "D_BlueCloverTrumpy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_16-1": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 8447,
+    "center_y": 7541,
+    "width": 0,
+    "height": 0,
+    "range_degree": 198,
+    "mobs": [
+      {
+        "mob": "D_BlueCloverTrumpy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_12-1": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 7506,
+    "center_y": 8463,
+    "width": 0,
+    "height": 0,
+    "range_degree": 191,
+    "mobs": [
+      {
+        "mob": "D_BlueCloverTrumpy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_11-1": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 4706,
+    "center_y": 8455,
+    "width": 0,
+    "height": 0,
+    "range_degree": 184,
+    "mobs": [
+      {
+        "mob": "D_BlueCloverTrumpy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_13-1": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 3845,
+    "center_y": 7618,
+    "width": 0,
+    "height": 0,
+    "range_degree": 177,
+    "mobs": [
+      {
+        "mob": "D_BlueCloverTrumpy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_14-1": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 3865,
+    "center_y": 4730,
+    "width": 0,
+    "height": 0,
+    "range_degree": 184,
+    "mobs": [
+      {
+        "mob": "D_BlueCloverTrumpy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_25-1": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 3343,
+    "center_y": 2222,
+    "width": 0,
+    "height": 0,
+    "range_degree": 107,
+    "mobs": [
+      {
+        "mob": "D_SpadeTrumpy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_25-3": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 3333,
+    "center_y": 1614,
+    "width": 0,
+    "height": 0,
+    "range_degree": 114,
+    "mobs": [
+      {
+        "mob": "D_SpadeTrumpy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_25-4": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3814,
+    "center_y": 1863,
+    "width": 143,
+    "height": 467,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "D_SpadeGuardTrumpy",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_26": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1855,
+    "center_y": 3794,
+    "width": 434,
+    "height": 165,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "D_SpadeGuardTrumpy",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_26-2": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 2134,
+    "center_y": 3351,
+    "width": 0,
+    "height": 0,
+    "range_degree": 114,
+    "mobs": [
+      {
+        "mob": "D_SpadeTrumpy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_26-3": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 1616,
+    "center_y": 3341,
+    "width": 0,
+    "height": 0,
+    "range_degree": 114,
+    "mobs": [
+      {
+        "mob": "D_SpadeTrumpy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_27": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1894,
+    "center_y": 8511,
+    "width": 404,
+    "height": 200,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "D_SpadeGuardTrumpy",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_27-1": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 2142,
+    "center_y": 8922,
+    "width": 0,
+    "height": 0,
+    "range_degree": 114,
+    "mobs": [
+      {
+        "mob": "D_SpadeTrumpy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_27-2": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 1640,
+    "center_y": 8927,
+    "width": 0,
+    "height": 0,
+    "range_degree": 114,
+    "mobs": [
+      {
+        "mob": "D_SpadeTrumpy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_28": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3764,
+    "center_y": 10353,
+    "width": 191,
+    "height": 431,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "D_SpadeGuardTrumpy",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_28-3": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 3358,
+    "center_y": 10623,
+    "width": 0,
+    "height": 0,
+    "range_degree": 114,
+    "mobs": [
+      {
+        "mob": "D_SpadeTrumpy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_28-4": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 3372,
+    "center_y": 10121,
+    "width": 0,
+    "height": 0,
+    "range_degree": 121,
+    "mobs": [
+      {
+        "mob": "D_SpadeTrumpy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_29": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8517,
+    "center_y": 10336,
+    "width": 170,
+    "height": 413,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "D_SpadeGuardTrumpy",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_29-2": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 8920,
+    "center_y": 10629,
+    "width": 0,
+    "height": 0,
+    "range_degree": 114,
+    "mobs": [
+      {
+        "mob": "D_SpadeTrumpy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_29-4": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 8926,
+    "center_y": 10134,
+    "width": 0,
+    "height": 0,
+    "range_degree": 114,
+    "mobs": [
+      {
+        "mob": "D_SpadeTrumpy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_30": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10394,
+    "center_y": 8524,
+    "width": 419,
+    "height": 213,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "D_SpadeGuardTrumpy",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_30-1": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 10140,
+    "center_y": 8925,
+    "width": 0,
+    "height": 0,
+    "range_degree": 121,
+    "mobs": [
+      {
+        "mob": "D_SpadeTrumpy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_30-2": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 10640,
+    "center_y": 8929,
+    "width": 0,
+    "height": 0,
+    "range_degree": 114,
+    "mobs": [
+      {
+        "mob": "D_SpadeTrumpy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_31": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10370,
+    "center_y": 3755,
+    "width": 423,
+    "height": 215,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "D_SpadeGuardTrumpy",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_31-3": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 10129,
+    "center_y": 3347,
+    "width": 0,
+    "height": 0,
+    "range_degree": 100,
+    "mobs": [
+      {
+        "mob": "D_SpadeTrumpy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_31-4": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 10628,
+    "center_y": 3333,
+    "width": 0,
+    "height": 0,
+    "range_degree": 100,
+    "mobs": [
+      {
+        "mob": "D_SpadeTrumpy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_32": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8459,
+    "center_y": 1886,
+    "width": 178,
+    "height": 399,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "D_SpadeGuardTrumpy",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_32-1": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 8931,
+    "center_y": 2134,
+    "width": 0,
+    "height": 0,
+    "range_degree": 107,
+    "mobs": [
+      {
+        "mob": "D_SpadeTrumpy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_32-3": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 8931,
+    "center_y": 1637,
+    "width": 0,
+    "height": 0,
+    "range_degree": 107,
+    "mobs": [
+      {
+        "mob": "D_SpadeTrumpy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_33": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5065,
+    "center_y": 3128,
+    "width": 51,
+    "height": 220,
+    "range_degree": 13,
+    "mobs": [
+      {
+        "mob": "D_SpadeGuardTrumpy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_34": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4612,
+    "center_y": 2388,
+    "width": 356,
+    "height": 50,
+    "range_degree": -25,
+    "mobs": [
+      {
+        "mob": "D_SpadeGuardTrumpy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_35": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4822,
+    "center_y": 2697,
+    "width": 0,
+    "height": 0,
+    "range_degree": 633,
+    "mobs": [
+      {
+        "mob": "D_HeartTrumpy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_38": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3187,
+    "center_y": 5071,
+    "width": 51,
+    "height": 220,
+    "range_degree": 77,
+    "mobs": [
+      {
+        "mob": "D_SpadeGuardTrumpy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_39": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2502,
+    "center_y": 4725,
+    "width": 356,
+    "height": 50,
+    "range_degree": -49,
+    "mobs": [
+      {
+        "mob": "D_SpadeGuardTrumpy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_40": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2802,
+    "center_y": 4951,
+    "width": 0,
+    "height": 0,
+    "range_degree": 633,
+    "mobs": [
+      {
+        "mob": "D_HeartTrumpy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_41": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3130,
+    "center_y": 7185,
+    "width": 51,
+    "height": 220,
+    "range_degree": 103,
+    "mobs": [
+      {
+        "mob": "D_SpadeGuardTrumpy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_42": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2459,
+    "center_y": 7565,
+    "width": 356,
+    "height": 50,
+    "range_degree": 51,
+    "mobs": [
+      {
+        "mob": "D_SpadeGuardTrumpy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_43": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2782,
+    "center_y": 7294,
+    "width": 0,
+    "height": 0,
+    "range_degree": 633,
+    "mobs": [
+      {
+        "mob": "D_HeartTrumpy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_46": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5027,
+    "center_y": 9164,
+    "width": 51,
+    "height": 220,
+    "range_degree": -10,
+    "mobs": [
+      {
+        "mob": "D_SpadeGuardTrumpy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_47": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4652,
+    "center_y": 9798,
+    "width": 356,
+    "height": 50,
+    "range_degree": 31,
+    "mobs": [
+      {
+        "mob": "D_SpadeGuardTrumpy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_48": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4877,
+    "center_y": 9509,
+    "width": 0,
+    "height": 0,
+    "range_degree": 633,
+    "mobs": [
+      {
+        "mob": "D_HeartTrumpy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_49": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7147,
+    "center_y": 9088,
+    "width": 51,
+    "height": 220,
+    "range_degree": 12,
+    "mobs": [
+      {
+        "mob": "D_SpadeGuardTrumpy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_50": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7608,
+    "center_y": 9798,
+    "width": 356,
+    "height": 50,
+    "range_degree": -30,
+    "mobs": [
+      {
+        "mob": "D_SpadeGuardTrumpy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_51": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7370,
+    "center_y": 9557,
+    "width": 0,
+    "height": 0,
+    "range_degree": 633,
+    "mobs": [
+      {
+        "mob": "D_HeartTrumpy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_54": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9154,
+    "center_y": 7177,
+    "width": 51,
+    "height": 220,
+    "range_degree": 78,
+    "mobs": [
+      {
+        "mob": "D_SpadeGuardTrumpy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_55": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9812,
+    "center_y": 7630,
+    "width": 356,
+    "height": 50,
+    "range_degree": -54,
+    "mobs": [
+      {
+        "mob": "D_SpadeGuardTrumpy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_56": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9577,
+    "center_y": 7396,
+    "width": 0,
+    "height": 0,
+    "range_degree": 633,
+    "mobs": [
+      {
+        "mob": "D_HeartTrumpy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_57": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9142,
+    "center_y": 5057,
+    "width": 51,
+    "height": 220,
+    "range_degree": 103,
+    "mobs": [
+      {
+        "mob": "D_SpadeGuardTrumpy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_58": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9835,
+    "center_y": 4581,
+    "width": 356,
+    "height": 50,
+    "range_degree": -117,
+    "mobs": [
+      {
+        "mob": "D_SpadeGuardTrumpy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_59": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9572,
+    "center_y": 4861,
+    "width": 0,
+    "height": 0,
+    "range_degree": 633,
+    "mobs": [
+      {
+        "mob": "D_HeartTrumpy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_62": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7201,
+    "center_y": 3062,
+    "width": 51,
+    "height": 220,
+    "range_degree": -19,
+    "mobs": [
+      {
+        "mob": "D_SpadeGuardTrumpy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_63": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7621,
+    "center_y": 2436,
+    "width": 356,
+    "height": 50,
+    "range_degree": 32,
+    "mobs": [
+      {
+        "mob": "D_SpadeGuardTrumpy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_64": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7370,
+    "center_y": 2652,
+    "width": 0,
+    "height": 0,
+    "range_degree": 633,
+    "mobs": [
+      {
+        "mob": "D_HeartTrumpy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Chief_01": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 6136,
+    "center_y": 527,
+    "width": 0,
+    "height": 0,
+    "range_degree": 54,
+    "mobs": [
+      {
+        "mob": "D_Harpy",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 540,
+        "reg_max": 600,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_SpadeTrumpy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 540,
+        "reg_max": 600,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Chief_01-1": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 6134,
+    "center_y": 1621,
+    "width": 0,
+    "height": 0,
+    "range_degree": 134,
+    "mobs": [
+      {
+        "mob": "D_SpadeTrumpy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 150,
+        "reg_min": 146,
+        "reg_max": 154,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Chief_01-2": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 5578,
+    "center_y": 1037,
+    "width": 0,
+    "height": 0,
+    "range_degree": 163,
+    "mobs": [
+      {
+        "mob": "D_SpadeTrumpy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 150,
+        "reg_min": 146,
+        "reg_max": 154,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_DiaTrumpy",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 150,
+        "reg_min": 146,
+        "reg_max": 154,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Chief_01-3": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 6694,
+    "center_y": 1044,
+    "width": 0,
+    "height": 0,
+    "range_degree": 170,
+    "mobs": [
+      {
+        "mob": "D_SpadeTrumpy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 150,
+        "reg_min": 146,
+        "reg_max": 154,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_DiaTrumpy",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 150,
+        "reg_min": 146,
+        "reg_max": 154,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Chief_01-5": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 5567,
+    "center_y": 365,
+    "width": 0,
+    "height": 0,
+    "range_degree": 226,
+    "mobs": [
+      {
+        "mob": "D_SpadeTrumpy",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 150,
+        "reg_min": 146,
+        "reg_max": 154,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Chief_01-6": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 6715,
+    "center_y": 344,
+    "width": 0,
+    "height": 0,
+    "range_degree": 233,
+    "mobs": [
+      {
+        "mob": "D_SpadeTrumpy",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 150,
+        "reg_min": 146,
+        "reg_max": 154,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Chief_01-7": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6154,
+    "center_y": 311,
+    "width": 732,
+    "height": 52,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "D_DiaTrumpy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 150,
+        "reg_min": 146,
+        "reg_max": 154,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Chief_02": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 11736,
+    "center_y": 6122,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "D_SpadeTrumpy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 540,
+        "reg_max": 600,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_Harpy",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 540,
+        "reg_max": 600,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Chief_02-1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10627,
+    "center_y": 6095,
+    "width": 51,
+    "height": 724,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "D_SpadeGuardTrumpy",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 150,
+        "reg_min": 146,
+        "reg_max": 154,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Chief_02-2": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 11042,
+    "center_y": 6515,
+    "width": 0,
+    "height": 0,
+    "range_degree": 149,
+    "mobs": [
+      {
+        "mob": "D_SpadeTrumpy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 150,
+        "reg_min": 146,
+        "reg_max": 154,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Chief_02-3": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 11047,
+    "center_y": 5744,
+    "width": 0,
+    "height": 0,
+    "range_degree": 149,
+    "mobs": [
+      {
+        "mob": "D_SpadeTrumpy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 150,
+        "reg_min": 146,
+        "reg_max": 154,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Chief_02-4": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 12058,
+    "center_y": 6093,
+    "width": 52,
+    "height": 745,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "D_DiaTrumpy",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 150,
+        "reg_min": 146,
+        "reg_max": 154,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Chief_02-5": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 11700,
+    "center_y": 6724,
+    "width": 0,
+    "height": 0,
+    "range_degree": 142,
+    "mobs": [
+      {
+        "mob": "D_SpadeTrumpy",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 150,
+        "reg_min": 146,
+        "reg_max": 154,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Chief_02-6": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 11724,
+    "center_y": 5510,
+    "width": 0,
+    "height": 0,
+    "range_degree": 142,
+    "mobs": [
+      {
+        "mob": "D_SpadeTrumpy",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 150,
+        "reg_min": 146,
+        "reg_max": 154,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Chief_03": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 6126,
+    "center_y": 11710,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "D_Harpy",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 540,
+        "reg_max": 600,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_SpadeTrumpy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 540,
+        "reg_max": 600,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Chief_03-1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6123,
+    "center_y": 10626,
+    "width": 725,
+    "height": 54,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "D_HeartTrumpy",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 150,
+        "reg_min": 146,
+        "reg_max": 154,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Chief_03-2": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 6473,
+    "center_y": 11077,
+    "width": 0,
+    "height": 0,
+    "range_degree": 135,
+    "mobs": [
+      {
+        "mob": "D_SpadeTrumpy",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 150,
+        "reg_min": 146,
+        "reg_max": 154,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_HeartTrumpy",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 150,
+        "reg_min": 146,
+        "reg_max": 154,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Chief_03-3": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 5778,
+    "center_y": 11083,
+    "width": 0,
+    "height": 0,
+    "range_degree": 142,
+    "mobs": [
+      {
+        "mob": "D_SpadeTrumpy",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 150,
+        "reg_min": 146,
+        "reg_max": 154,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_HeartTrumpy",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 150,
+        "reg_min": 146,
+        "reg_max": 154,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Chief_03-4": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6123,
+    "center_y": 12066,
+    "width": 744,
+    "height": 52,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "D_HeartTrumpy",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 150,
+        "reg_min": 146,
+        "reg_max": 154,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Chief_03-5": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 5531,
+    "center_y": 11668,
+    "width": 0,
+    "height": 0,
+    "range_degree": 128,
+    "mobs": [
+      {
+        "mob": "D_SpadeTrumpy",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 150,
+        "reg_min": 146,
+        "reg_max": 154,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Chief_03-6": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 6715,
+    "center_y": 11669,
+    "width": 0,
+    "height": 0,
+    "range_degree": 128,
+    "mobs": [
+      {
+        "mob": "D_SpadeTrumpy",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 150,
+        "reg_min": 146,
+        "reg_max": 154,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Chief_04": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 542,
+    "center_y": 6138,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "D_Harpy",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 540,
+        "reg_max": 600,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_SpadeTrumpy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 540,
+        "reg_max": 600,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Chief_04-1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1646,
+    "center_y": 6120,
+    "width": 52,
+    "height": 740,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "D_BlueCloverTrumpy",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 150,
+        "reg_min": 146,
+        "reg_max": 154,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Chief_04-3": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 1244,
+    "center_y": 6639,
+    "width": 0,
+    "height": 0,
+    "range_degree": 100,
+    "mobs": [
+      {
+        "mob": "D_SpadeTrumpy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 150,
+        "reg_min": 146,
+        "reg_max": 154,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_BlueCloverTrumpy",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 150,
+        "reg_min": 146,
+        "reg_max": 154,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Chief_04-4": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 1260,
+    "center_y": 5627,
+    "width": 0,
+    "height": 0,
+    "range_degree": 107,
+    "mobs": [
+      {
+        "mob": "D_SpadeTrumpy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 150,
+        "reg_min": 146,
+        "reg_max": 154,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_BlueCloverTrumpy",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 150,
+        "reg_min": 146,
+        "reg_max": 154,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Chief_04-5": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 207,
+    "center_y": 6126,
+    "width": 51,
+    "height": 703,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "D_HeartTrumpy",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 150,
+        "reg_min": 146,
+        "reg_max": 154,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Chief_04-6": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 888,
+    "center_y": 6097,
+    "width": 62,
+    "height": 788,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "D_BlueCloverTrumpy",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 150,
+        "reg_min": 146,
+        "reg_max": 154,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_65": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6141,
+    "center_y": 2710,
+    "width": 103,
+    "height": 735,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "D_DiaTrumpy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_SpadeGuardTrumpy",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_66": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9570,
+    "center_y": 6143,
+    "width": 752,
+    "height": 101,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "D_SpadeGuardTrumpy",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_DiaTrumpy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_67": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6116,
+    "center_y": 9557,
+    "width": 97,
+    "height": 742,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "D_HeartTrumpy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_BlueCloverTrumpy",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_68": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2669,
+    "center_y": 6147,
+    "width": 770,
+    "height": 83,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "D_HeartTrumpy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_BlueCloverTrumpy",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 116,
+        "reg_max": 124,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Pbox01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6064,
+    "center_y": 2289,
+    "width": 5194,
+    "height": 2058,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "PresentBox15",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Pbox02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6073,
+    "center_y": 6171,
+    "width": 6082,
+    "height": 1771,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "PresentBox15",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Pbox03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6182,
+    "center_y": 6788,
+    "width": 4892,
+    "height": 2147,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "PresentBox15",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  }
+}

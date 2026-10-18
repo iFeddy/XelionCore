@@ -1,0 +1,200 @@
+{
+  "QField01_01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1766,
+    "center_y": 1109,
+    "width": 0,
+    "height": 0,
+    "range_degree": 60,
+    "mobs": [
+      {
+        "mob": "MemoryKeeper01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 62,
+        "reg_min": 50,
+        "reg_max": 75,
+        "deltas": [
+          60,
+          120,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          10,
+          15,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "QField01_02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1566,
+    "center_y": 965,
+    "width": 0,
+    "height": 0,
+    "range_degree": 60,
+    "mobs": [
+      {
+        "mob": "MemoryKeeper02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 62,
+        "reg_min": 50,
+        "reg_max": 75,
+        "deltas": [
+          60,
+          120,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          10,
+          15,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "QField01_03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1344,
+    "center_y": 1074,
+    "width": 0,
+    "height": 0,
+    "range_degree": 60,
+    "mobs": [
+      {
+        "mob": "MemoryKeeper03",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 62,
+        "reg_min": 50,
+        "reg_max": 75,
+        "deltas": [
+          60,
+          120,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          10,
+          15,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Waypoint01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1930,
+    "center_y": 1624,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "MadSlugB",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 2,
+        "reg_min": 0,
+        "reg_max": 3,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          5,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Waypoint02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1161,
+    "center_y": 1521,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "MadSlugB",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 2,
+        "reg_min": 0,
+        "reg_max": 3,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          5,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Waypoint03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1555,
+    "center_y": 1442,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "MadSlugB",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 2,
+        "reg_min": 0,
+        "reg_max": 3,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          5,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  }
+}

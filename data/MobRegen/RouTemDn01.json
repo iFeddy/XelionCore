@@ -1,0 +1,2015 @@
+{
+  "RouTemDn01Area01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5967,
+    "center_y": 2621,
+    "width": 105,
+    "height": 303,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "Kebing",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 40,
+        "reg_min": 25,
+        "reg_max": 55,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "JokeKebing",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 40,
+        "reg_min": 25,
+        "reg_max": 55,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouTemDn01Area02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5070,
+    "center_y": 2644,
+    "width": 108,
+    "height": 302,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "Kebing",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 40,
+        "reg_min": 25,
+        "reg_max": 55,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "JokeKebing",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 40,
+        "reg_min": 25,
+        "reg_max": 55,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouTemDn01Area03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5568,
+    "center_y": 3290,
+    "width": 493,
+    "height": 95,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "Kebing",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 40,
+        "reg_min": 25,
+        "reg_max": 55,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MageBook",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 40,
+        "reg_min": 25,
+        "reg_max": 55,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "TombRaider",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 40,
+        "reg_min": 25,
+        "reg_max": 55,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "JokeKebing",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 40,
+        "reg_min": 25,
+        "reg_max": 55,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouTemDn01Area04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5634,
+    "center_y": 3784,
+    "width": 216,
+    "height": 126,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "Kebing",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 40,
+        "reg_min": 25,
+        "reg_max": 55,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "TombRaider",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 40,
+        "reg_min": 25,
+        "reg_max": 55,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouTemDn01Area05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5114,
+    "center_y": 3786,
+    "width": 201,
+    "height": 131,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "Kebing",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 40,
+        "reg_min": 25,
+        "reg_max": 55,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "TombRaider",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 40,
+        "reg_min": 25,
+        "reg_max": 55,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "JokeKebing",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 40,
+        "reg_min": 25,
+        "reg_max": 55,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouTemDn01Area06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5956,
+    "center_y": 4285,
+    "width": 57,
+    "height": 154,
+    "range_degree": -23,
+    "mobs": [
+      {
+        "mob": "MageBook",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 40,
+        "reg_min": 25,
+        "reg_max": 55,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouTemDn01Area07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4654,
+    "center_y": 3862,
+    "width": 56,
+    "height": 156,
+    "range_degree": 40,
+    "mobs": [
+      {
+        "mob": "PunchMageBook",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 40,
+        "reg_min": 25,
+        "reg_max": 55,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouTemDn01Area08": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4772,
+    "center_y": 2424,
+    "width": 0,
+    "height": 0,
+    "range_degree": 120,
+    "mobs": [
+      {
+        "mob": "TombRaider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 40,
+        "reg_min": 25,
+        "reg_max": 55,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "KebingSpeeder",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 185,
+        "reg_max": 215,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouTemDn01Area09": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4648,
+    "center_y": 2550,
+    "width": 197,
+    "height": 98,
+    "range_degree": -50,
+    "mobs": [
+      {
+        "mob": "MageBook",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 40,
+        "reg_min": 25,
+        "reg_max": 55,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "TombRaider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 40,
+        "reg_min": 25,
+        "reg_max": 55,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouTemDn01Area10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4512,
+    "center_y": 2887,
+    "width": 272,
+    "height": 64,
+    "range_degree": 1,
+    "mobs": [
+      {
+        "mob": "MageBook",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 40,
+        "reg_min": 25,
+        "reg_max": 55,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "TombRaider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 40,
+        "reg_min": 25,
+        "reg_max": 55,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouTemDn01Area12": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5450,
+    "center_y": 6070,
+    "width": 168,
+    "height": 338,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "Skeleton",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 40,
+        "reg_min": 25,
+        "reg_max": 55,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "PunchMageBook",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 40,
+        "reg_min": 25,
+        "reg_max": 55,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouTemDn01Area13": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5443,
+    "center_y": 6603,
+    "width": 158,
+    "height": 158,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "Skeleton",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 40,
+        "reg_min": 25,
+        "reg_max": 55,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "SkelWarrior",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 40,
+        "reg_min": 25,
+        "reg_max": 55,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouTemDn01Area14": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5715,
+    "center_y": 6466,
+    "width": 0,
+    "height": 0,
+    "range_degree": 107,
+    "mobs": [
+      {
+        "mob": "MageBook",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 40,
+        "reg_min": 25,
+        "reg_max": 55,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouTemDn01Area15": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5114,
+    "center_y": 6439,
+    "width": 0,
+    "height": 0,
+    "range_degree": 107,
+    "mobs": [
+      {
+        "mob": "MageBook",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 40,
+        "reg_min": 25,
+        "reg_max": 55,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouTemDn01Area16": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6307,
+    "center_y": 5049,
+    "width": 242,
+    "height": 83,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "MageBook",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 40,
+        "reg_min": 25,
+        "reg_max": 55,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Skeleton",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 40,
+        "reg_min": 25,
+        "reg_max": 55,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouTemDn01Area17": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6673,
+    "center_y": 5636,
+    "width": 101,
+    "height": 292,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "MageBook",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 40,
+        "reg_min": 25,
+        "reg_max": 55,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Skeleton",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 40,
+        "reg_min": 25,
+        "reg_max": 55,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "SkelWarrior",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 40,
+        "reg_min": 25,
+        "reg_max": 55,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "PunchMageBook",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 40,
+        "reg_min": 25,
+        "reg_max": 55,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "SkelSoldier",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 40,
+        "reg_min": 25,
+        "reg_max": 55,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouTemDn01Area18": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8056,
+    "center_y": 5847,
+    "width": 433,
+    "height": 120,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "SkelWarrior",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 40,
+        "reg_min": 25,
+        "reg_max": 55,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "SkelSoldier",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 40,
+        "reg_min": 25,
+        "reg_max": 55,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouTemDn01Area19": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8755,
+    "center_y": 4365,
+    "width": 456,
+    "height": 323,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "SkelArcher",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 40,
+        "reg_min": 25,
+        "reg_max": 55,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "SkelWarrior",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 40,
+        "reg_min": 25,
+        "reg_max": 55,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "SkelSoldier",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 40,
+        "reg_min": 25,
+        "reg_max": 55,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouTemDn01Area20": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9520,
+    "center_y": 5381,
+    "width": 279,
+    "height": 402,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "SkelArcher",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 40,
+        "reg_min": 25,
+        "reg_max": 55,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "SkelWarrior",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 40,
+        "reg_min": 25,
+        "reg_max": 55,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "SkelSoldier",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 40,
+        "reg_min": 25,
+        "reg_max": 55,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouTemDn01Area21": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8963,
+    "center_y": 5524,
+    "width": 160,
+    "height": 171,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "SkelArcher",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 40,
+        "reg_min": 25,
+        "reg_max": 55,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouTemDn01Area22": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4037,
+    "center_y": 4130,
+    "width": 407,
+    "height": 75,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "Kebing",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 40,
+        "reg_min": 25,
+        "reg_max": 55,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MageBook",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 40,
+        "reg_min": 25,
+        "reg_max": 55,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "TombRaider",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 40,
+        "reg_min": 25,
+        "reg_max": 55,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "JokeKebing",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 40,
+        "reg_min": 25,
+        "reg_max": 55,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouTemDn01Area23": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3062,
+    "center_y": 4654,
+    "width": 110,
+    "height": 366,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "Skeleton",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 40,
+        "reg_min": 25,
+        "reg_max": 55,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "SkelWarrior",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 40,
+        "reg_min": 25,
+        "reg_max": 55,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "PunchMageBook",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 40,
+        "reg_min": 25,
+        "reg_max": 55,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouTemDn01Area24": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2034,
+    "center_y": 5221,
+    "width": 384,
+    "height": 135,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "SkelArcher",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 40,
+        "reg_min": 25,
+        "reg_max": 55,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Skeleton",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 40,
+        "reg_min": 25,
+        "reg_max": 55,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "SkelWarrior",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 40,
+        "reg_min": 25,
+        "reg_max": 55,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouTemDn01Area25": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 675,
+    "center_y": 4542,
+    "width": 481,
+    "height": 155,
+    "range_degree": 137,
+    "mobs": [
+      {
+        "mob": "SkelArcher",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 40,
+        "reg_min": 25,
+        "reg_max": 55,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Skeleton",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 40,
+        "reg_min": 25,
+        "reg_max": 55,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "SkelWarrior",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 40,
+        "reg_min": 25,
+        "reg_max": 55,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "SkelSoldier",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 40,
+        "reg_min": 25,
+        "reg_max": 55,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouTemDn01Area26": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1244,
+    "center_y": 3631,
+    "width": 319,
+    "height": 539,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "SkelArcher",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 40,
+        "reg_min": 25,
+        "reg_max": 55,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "SkelWarrior",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 40,
+        "reg_min": 25,
+        "reg_max": 55,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "SkelSoldier",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 40,
+        "reg_min": 25,
+        "reg_max": 55,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouTemQst01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3072,
+    "center_y": 5273,
+    "width": 0,
+    "height": 0,
+    "range_degree": 107,
+    "mobs": [
+      {
+        "mob": "CaveKebing",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 80,
+        "reg_min": 65,
+        "reg_max": 95,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "JewelTombRaider",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 80,
+        "reg_min": 65,
+        "reg_max": 95,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouTemQst02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4675,
+    "center_y": 3160,
+    "width": 0,
+    "height": 0,
+    "range_degree": 142,
+    "mobs": [
+      {
+        "mob": "JewelTombRaider",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 80,
+        "reg_min": 65,
+        "reg_max": 95,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouTemQst03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4300,
+    "center_y": 2461,
+    "width": 0,
+    "height": 0,
+    "range_degree": 100,
+    "mobs": [
+      {
+        "mob": "CaveKebing",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 80,
+        "reg_min": 65,
+        "reg_max": 95,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouTemQst04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5404,
+    "center_y": 3983,
+    "width": 352,
+    "height": 50,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "JewelTombRaider",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 80,
+        "reg_min": 65,
+        "reg_max": 95,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouTemQst05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5438,
+    "center_y": 4660,
+    "width": 152,
+    "height": 229,
+    "range_degree": -1,
+    "mobs": [
+      {
+        "mob": "CaveKebing",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 80,
+        "reg_min": 65,
+        "reg_max": 95,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouTemDn01AreaPbox01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5223,
+    "center_y": 4620,
+    "width": 4912,
+    "height": 2343,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "PresentBox4",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 14400,
+        "reg_min": 14390,
+        "reg_max": 14410,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouTemDnArea27": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 991,
+    "center_y": 5267,
+    "width": 0,
+    "height": 0,
+    "range_degree": 114,
+    "mobs": [
+      {
+        "mob": "SilverySlime",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 40,
+        "reg_min": 25,
+        "reg_max": 55,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouTemDnArea28": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1500,
+    "center_y": 4611,
+    "width": 0,
+    "height": 0,
+    "range_degree": 107,
+    "mobs": [
+      {
+        "mob": "SilverySlime",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 40,
+        "reg_min": 25,
+        "reg_max": 55,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouTemDnArea29": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9750,
+    "center_y": 4156,
+    "width": 0,
+    "height": 0,
+    "range_degree": 114,
+    "mobs": [
+      {
+        "mob": "SilverySlime",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 40,
+        "reg_min": 25,
+        "reg_max": 55,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouTemDnArea30": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8378,
+    "center_y": 4127,
+    "width": 0,
+    "height": 0,
+    "range_degree": 114,
+    "mobs": [
+      {
+        "mob": "SilverySlime",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 40,
+        "reg_min": 25,
+        "reg_max": 55,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouTemDnArea31": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8459,
+    "center_y": 5290,
+    "width": 0,
+    "height": 0,
+    "range_degree": 107,
+    "mobs": [
+      {
+        "mob": "SilverySlime",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 40,
+        "reg_min": 25,
+        "reg_max": 55,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouTemDnArea32": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 369,
+    "center_y": 3764,
+    "width": 0,
+    "height": 0,
+    "range_degree": 114,
+    "mobs": [
+      {
+        "mob": "SilverySlime",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 40,
+        "reg_min": 25,
+        "reg_max": 55,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  }
+}

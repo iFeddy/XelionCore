@@ -1,0 +1,3544 @@
+{
+  "Normal_01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10634,
+    "center_y": 6324,
+    "width": 0,
+    "height": 0,
+    "range_degree": 324,
+    "mobs": [
+      {
+        "mob": "D_WeakenedOgre",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11769,
+    "center_y": 7390,
+    "width": 0,
+    "height": 0,
+    "range_degree": 331,
+    "mobs": [
+      {
+        "mob": "D_WeakenedOgre",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11199,
+    "center_y": 6799,
+    "width": 0,
+    "height": 0,
+    "range_degree": 858,
+    "mobs": [
+      {
+        "mob": "D_KingCall",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10627,
+    "center_y": 7399,
+    "width": 0,
+    "height": 0,
+    "range_degree": 324,
+    "mobs": [
+      {
+        "mob": "D_WeakenedOgre",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9678,
+    "center_y": 3294,
+    "width": 0,
+    "height": 0,
+    "range_degree": 857,
+    "mobs": [
+      {
+        "mob": "D_KingCall",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9125,
+    "center_y": 3833,
+    "width": 0,
+    "height": 0,
+    "range_degree": 359,
+    "mobs": [
+      {
+        "mob": "D_WeakenedOgre",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10335,
+    "center_y": 3155,
+    "width": 0,
+    "height": 0,
+    "range_degree": 295,
+    "mobs": [
+      {
+        "mob": "D_WeakenedOgre",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_08": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9138,
+    "center_y": 2766,
+    "width": 0,
+    "height": 0,
+    "range_degree": 380,
+    "mobs": [
+      {
+        "mob": "D_WeakenedOgre",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_09": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9585,
+    "center_y": 5075,
+    "width": 398,
+    "height": 103,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "D_KingCall",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8432,
+    "center_y": 5058,
+    "width": 153,
+    "height": 473,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "D_Harkan",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_11": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7605,
+    "center_y": 5059,
+    "width": 139,
+    "height": 470,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "D_Harkan",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_12": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8043,
+    "center_y": 5055,
+    "width": 0,
+    "height": 0,
+    "range_degree": 500,
+    "mobs": [
+      {
+        "mob": "D_KingCall",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_13": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 6704,
+    "center_y": 5023,
+    "width": 102,
+    "height": 122,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "D_Harkan",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_14": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 6080,
+    "center_y": 5026,
+    "width": 109,
+    "height": 125,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "D_Harkan",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_15": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6351,
+    "center_y": 5038,
+    "width": 584,
+    "height": 52,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "D_KingCall",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_16": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5281,
+    "center_y": 5050,
+    "width": 0,
+    "height": 0,
+    "range_degree": 324,
+    "mobs": [
+      {
+        "mob": "D_Harkan",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_17": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 3758,
+    "center_y": 5059,
+    "width": 0,
+    "height": 0,
+    "range_degree": 163,
+    "mobs": [
+      {
+        "mob": "D_Prisoner",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_18": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 4144,
+    "center_y": 5610,
+    "width": 0,
+    "height": 0,
+    "range_degree": 156,
+    "mobs": [
+      {
+        "mob": "D_Prisoner",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_19": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 4139,
+    "center_y": 4472,
+    "width": 0,
+    "height": 0,
+    "range_degree": 170,
+    "mobs": [
+      {
+        "mob": "D_Prisoner",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_20": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 3426,
+    "center_y": 5725,
+    "width": 54,
+    "height": 213,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "D_VampireBat",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_21": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 3405,
+    "center_y": 4407,
+    "width": 51,
+    "height": 213,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "D_VampireBat",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_22": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4132,
+    "center_y": 5040,
+    "width": 372,
+    "height": 966,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "D_VampireBat",
+        "count": 8,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_23": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 4471,
+    "center_y": 3046,
+    "width": 53,
+    "height": 253,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "D_Prisoner",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_Torturer",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_24": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 3814,
+    "center_y": 3051,
+    "width": 54,
+    "height": 247,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "D_Torturer",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_25": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 4181,
+    "center_y": 1954,
+    "width": 236,
+    "height": 51,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "D_Torturer",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_26": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 4181,
+    "center_y": 1385,
+    "width": 239,
+    "height": 57,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "D_Torturer",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_27": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 4658,
+    "center_y": 389,
+    "width": 0,
+    "height": 0,
+    "range_degree": 226,
+    "mobs": [
+      {
+        "mob": "D_Prisoner",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_Torturer",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_28": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 3715,
+    "center_y": 397,
+    "width": 0,
+    "height": 0,
+    "range_degree": 226,
+    "mobs": [
+      {
+        "mob": "D_Prisoner",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_Torturer",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_29": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3685,
+    "center_y": 1014,
+    "width": 157,
+    "height": 52,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "D_VampireBat",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_30": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4660,
+    "center_y": 1013,
+    "width": 149,
+    "height": 50,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "D_VampireBat",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_31": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 4177,
+    "center_y": 878,
+    "width": 0,
+    "height": 0,
+    "range_degree": 79,
+    "mobs": [
+      {
+        "mob": "D_Torturer",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_32": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 4481,
+    "center_y": 7020,
+    "width": 51,
+    "height": 254,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "D_Prisoner",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_33": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 3840,
+    "center_y": 7007,
+    "width": 54,
+    "height": 256,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "D_Torturer",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_34": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 4189,
+    "center_y": 8148,
+    "width": 231,
+    "height": 53,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "D_Prisoner",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_35": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 4189,
+    "center_y": 8729,
+    "width": 231,
+    "height": 51,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "D_Prisoner",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_36": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 4651,
+    "center_y": 9716,
+    "width": 0,
+    "height": 0,
+    "range_degree": 177,
+    "mobs": [
+      {
+        "mob": "D_Torturer",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_37": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 3658,
+    "center_y": 9710,
+    "width": 0,
+    "height": 0,
+    "range_degree": 184,
+    "mobs": [
+      {
+        "mob": "D_Torturer",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_38": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 4743,
+    "center_y": 9108,
+    "width": 0,
+    "height": 0,
+    "range_degree": 114,
+    "mobs": [
+      {
+        "mob": "D_VampireBat",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_39": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 3601,
+    "center_y": 9085,
+    "width": 0,
+    "height": 0,
+    "range_degree": 121,
+    "mobs": [
+      {
+        "mob": "D_VampireBat",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_40": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4168,
+    "center_y": 9302,
+    "width": 0,
+    "height": 0,
+    "range_degree": 373,
+    "mobs": [
+      {
+        "mob": "D_Prisoner",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_41": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 5188,
+    "center_y": 6334,
+    "width": 0,
+    "height": 0,
+    "range_degree": 184,
+    "mobs": [
+      {
+        "mob": "D_Prisoner",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_Torturer",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_42": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 5204,
+    "center_y": 3684,
+    "width": 0,
+    "height": 0,
+    "range_degree": 170,
+    "mobs": [
+      {
+        "mob": "D_Torturer",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_Prisoner",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_43": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 5180,
+    "center_y": 2882,
+    "width": 0,
+    "height": 0,
+    "range_degree": 107,
+    "mobs": [
+      {
+        "mob": "D_Torturer",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_Prisoner",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_44": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 5181,
+    "center_y": 7242,
+    "width": 0,
+    "height": 0,
+    "range_degree": 107,
+    "mobs": [
+      {
+        "mob": "D_Prisoner",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_Torturer",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_45": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 5992,
+    "center_y": 4055,
+    "width": 0,
+    "height": 0,
+    "range_degree": 177,
+    "mobs": [
+      {
+        "mob": "D_Prisoner",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_46": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 6650,
+    "center_y": 4001,
+    "width": 230,
+    "height": 161,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "D_Prisoner",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_Torturer",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_47": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 6575,
+    "center_y": 3277,
+    "width": 0,
+    "height": 0,
+    "range_degree": 79,
+    "mobs": [
+      {
+        "mob": "D_VampireBat",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_48": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 6579,
+    "center_y": 2843,
+    "width": 0,
+    "height": 0,
+    "range_degree": 79,
+    "mobs": [
+      {
+        "mob": "D_VampireBat",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_49": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 5889,
+    "center_y": 3086,
+    "width": 0,
+    "height": 0,
+    "range_degree": 114,
+    "mobs": [
+      {
+        "mob": "D_Torturer",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_50": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 6175,
+    "center_y": 1879,
+    "width": 0,
+    "height": 0,
+    "range_degree": 128,
+    "mobs": [
+      {
+        "mob": "D_Torturer",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_51": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6277,
+    "center_y": 2289,
+    "width": 0,
+    "height": 0,
+    "range_degree": 56,
+    "mobs": [
+      {
+        "mob": "D_VampireBat",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_52": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 6176,
+    "center_y": 1328,
+    "width": 0,
+    "height": 0,
+    "range_degree": 135,
+    "mobs": [
+      {
+        "mob": "D_Torturer",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Chief_01": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 6200,
+    "center_y": 268,
+    "width": 0,
+    "height": 0,
+    "range_degree": 128,
+    "mobs": [
+      {
+        "mob": "D_Torturerking",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 540,
+        "reg_max": 600,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_Torturer",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 540,
+        "reg_max": 600,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_53": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 5816,
+    "center_y": 861,
+    "width": 0,
+    "height": 0,
+    "range_degree": 163,
+    "mobs": [
+      {
+        "mob": "D_Torturer",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_54": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 6612,
+    "center_y": 876,
+    "width": 0,
+    "height": 0,
+    "range_degree": 135,
+    "mobs": [
+      {
+        "mob": "D_Torturer",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_55": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 5619,
+    "center_y": 325,
+    "width": 0,
+    "height": 0,
+    "range_degree": 67,
+    "mobs": [
+      {
+        "mob": "D_Torturer",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_56": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 6766,
+    "center_y": 326,
+    "width": 0,
+    "height": 0,
+    "range_degree": 68,
+    "mobs": [
+      {
+        "mob": "D_Torturer",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_57": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6216,
+    "center_y": 624,
+    "width": 615,
+    "height": 389,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "D_VampireBat",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_58": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 5898,
+    "center_y": 5998,
+    "width": 0,
+    "height": 0,
+    "range_degree": 163,
+    "mobs": [
+      {
+        "mob": "D_Prisoner",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_59": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 6503,
+    "center_y": 6076,
+    "width": 204,
+    "height": 140,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "D_Prisoner",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_60": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 5878,
+    "center_y": 6988,
+    "width": 0,
+    "height": 0,
+    "range_degree": 121,
+    "mobs": [
+      {
+        "mob": "D_Prisoner",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_Torturer",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_61": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 6506,
+    "center_y": 7004,
+    "width": 0,
+    "height": 0,
+    "range_degree": 114,
+    "mobs": [
+      {
+        "mob": "D_Prisoner",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_Torturer",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_62": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 6181,
+    "center_y": 7827,
+    "width": 0,
+    "height": 0,
+    "range_degree": 121,
+    "mobs": [
+      {
+        "mob": "D_VampireBat",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_63": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 6184,
+    "center_y": 8424,
+    "width": 0,
+    "height": 0,
+    "range_degree": 128,
+    "mobs": [
+      {
+        "mob": "D_Torturer",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_VampireBat",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_64": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 6184,
+    "center_y": 9072,
+    "width": 0,
+    "height": 0,
+    "range_degree": 135,
+    "mobs": [
+      {
+        "mob": "D_Torturer",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Chief_02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6193,
+    "center_y": 9783,
+    "width": 0,
+    "height": 0,
+    "range_degree": 128,
+    "mobs": [
+      {
+        "mob": "D_Torturerking",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 540,
+        "reg_max": 600,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_Torturer",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 540,
+        "reg_max": 600,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_VampireBat",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 540,
+        "reg_max": 600,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_65": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 6627,
+    "center_y": 9430,
+    "width": 0,
+    "height": 0,
+    "range_degree": 128,
+    "mobs": [
+      {
+        "mob": "D_Torturer",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_66": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 5740,
+    "center_y": 9426,
+    "width": 0,
+    "height": 0,
+    "range_degree": 142,
+    "mobs": [
+      {
+        "mob": "D_Torturer",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_67": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6177,
+    "center_y": 9424,
+    "width": 589,
+    "height": 336,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "D_VampireBat",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_68": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 2662,
+    "center_y": 5051,
+    "width": 0,
+    "height": 0,
+    "range_degree": 121,
+    "mobs": [
+      {
+        "mob": "D_Prisoner",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_69": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 2005,
+    "center_y": 5049,
+    "width": 0,
+    "height": 0,
+    "range_degree": 121,
+    "mobs": [
+      {
+        "mob": "D_Prisoner",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_70": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 1247,
+    "center_y": 5041,
+    "width": 0,
+    "height": 0,
+    "range_degree": 135,
+    "mobs": [
+      {
+        "mob": "D_Prisoner",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_Torturer",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_71": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 524,
+    "center_y": 5030,
+    "width": 50,
+    "height": 156,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "D_VampireBat",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_72": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1967,
+    "center_y": 5073,
+    "width": 828,
+    "height": 87,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "D_VampireBat",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_73": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 826,
+    "center_y": 5648,
+    "width": 0,
+    "height": 0,
+    "range_degree": 135,
+    "mobs": [
+      {
+        "mob": "D_Prisoner",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_Torturer",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_74": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 828,
+    "center_y": 6589,
+    "width": 0,
+    "height": 0,
+    "range_degree": 128,
+    "mobs": [
+      {
+        "mob": "D_Torturer",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_75": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 832,
+    "center_y": 4178,
+    "width": 0,
+    "height": 0,
+    "range_degree": 149,
+    "mobs": [
+      {
+        "mob": "D_Torturer",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_76": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 827,
+    "center_y": 3111,
+    "width": 0,
+    "height": 0,
+    "range_degree": 156,
+    "mobs": [
+      {
+        "mob": "D_Torturer",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Chief_03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 814,
+    "center_y": 1347,
+    "width": 53,
+    "height": 88,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "D_Torturerking",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 540,
+        "reg_max": 600,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_Torturer",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 540,
+        "reg_max": 600,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_77": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 1113,
+    "center_y": 2245,
+    "width": 0,
+    "height": 0,
+    "range_degree": 135,
+    "mobs": [
+      {
+        "mob": "D_Torturer",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_78": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 430,
+    "center_y": 2234,
+    "width": 0,
+    "height": 0,
+    "range_degree": 142,
+    "mobs": [
+      {
+        "mob": "D_Torturer",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_79": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 301,
+    "center_y": 1602,
+    "width": 0,
+    "height": 0,
+    "range_degree": 128,
+    "mobs": [
+      {
+        "mob": "D_Torturer",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_80": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 1298,
+    "center_y": 1624,
+    "width": 0,
+    "height": 0,
+    "range_degree": 135,
+    "mobs": [
+      {
+        "mob": "D_Torturer",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_81": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 855,
+    "center_y": 2034,
+    "width": 630,
+    "height": 479,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "D_Prisoner",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Chief_04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 807,
+    "center_y": 8443,
+    "width": 50,
+    "height": 62,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "D_Torturerking",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 540,
+        "reg_max": 600,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_Torturer",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 540,
+        "reg_max": 600,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_Prisoner",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 540,
+        "reg_max": 600,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_82": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 449,
+    "center_y": 7538,
+    "width": 0,
+    "height": 0,
+    "range_degree": 135,
+    "mobs": [
+      {
+        "mob": "D_Prisoner",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_Torturer",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_83": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 1207,
+    "center_y": 7558,
+    "width": 0,
+    "height": 0,
+    "range_degree": 142,
+    "mobs": [
+      {
+        "mob": "D_Torturer",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_84": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 1220,
+    "center_y": 8126,
+    "width": 0,
+    "height": 0,
+    "range_degree": 114,
+    "mobs": [
+      {
+        "mob": "D_Torturer",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_85": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 391,
+    "center_y": 8113,
+    "width": 0,
+    "height": 0,
+    "range_degree": 114,
+    "mobs": [
+      {
+        "mob": "D_Torturer",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_86": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 860,
+    "center_y": 7705,
+    "width": 579,
+    "height": 458,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "D_Prisoner",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_87": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 829,
+    "center_y": 6239,
+    "width": 52,
+    "height": 704,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "D_VampireBat",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_88": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 849,
+    "center_y": 3685,
+    "width": 50,
+    "height": 677,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "D_VampireBat",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Pbox_01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2705,
+    "center_y": 5168,
+    "width": 2602,
+    "height": 4923,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "PresentBox10",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 14400,
+        "reg_min": 14396,
+        "reg_max": 14404,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Pbox_02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7806,
+    "center_y": 5121,
+    "width": 2427,
+    "height": 5032,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "PresentBox10",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 14400,
+        "reg_min": 14396,
+        "reg_max": 14404,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,6008 @@
+{
+  "RouCos03Area01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11472,
+    "center_y": 3049,
+    "width": 1081,
+    "height": 84,
+    "range_degree": 6,
+    "mobs": [
+      {
+        "mob": "SmartPhino",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03Area02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9342,
+    "center_y": 3848,
+    "width": 0,
+    "height": 0,
+    "range_degree": 595,
+    "mobs": [
+      {
+        "mob": "TombRaider",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "ProckZone",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03Area04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7004,
+    "center_y": 4628,
+    "width": 554,
+    "height": 442,
+    "range_degree": 18,
+    "mobs": [
+      {
+        "mob": "Kebing",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "LittleLizardMan",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03Area05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7009,
+    "center_y": 5871,
+    "width": 0,
+    "height": 0,
+    "range_degree": 743,
+    "mobs": [
+      {
+        "mob": "SmartPhino",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "JokeKebing",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "LittleLizardMan",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03Area06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6742,
+    "center_y": 3864,
+    "width": 894,
+    "height": 277,
+    "range_degree": 31,
+    "mobs": [
+      {
+        "mob": "LittleLizardMan",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "ProckZone",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03Area07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6499,
+    "center_y": 7461,
+    "width": 794,
+    "height": 235,
+    "range_degree": 66,
+    "mobs": [
+      {
+        "mob": "SmartPhino",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "JokeKebing",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03Area08": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10417,
+    "center_y": 5873,
+    "width": 0,
+    "height": 0,
+    "range_degree": 749,
+    "mobs": [
+      {
+        "mob": "SmartPhino",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "JokeKebing",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03Area11": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6888,
+    "center_y": 10204,
+    "width": 307,
+    "height": 384,
+    "range_degree": 23,
+    "mobs": [
+      {
+        "mob": "MaraSailor",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "SpeedyBoogy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03Area12": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9095,
+    "center_y": 10511,
+    "width": 579,
+    "height": 315,
+    "range_degree": 7,
+    "mobs": [
+      {
+        "mob": "MaraCrew",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MaraElite",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03Area13": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10292,
+    "center_y": 11165,
+    "width": 623,
+    "height": 874,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "MaraCrew",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MiniPinky",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03Area14": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9137,
+    "center_y": 11520,
+    "width": 536,
+    "height": 430,
+    "range_degree": 2,
+    "mobs": [
+      {
+        "mob": "MaraElite",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MaraCrew",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "SpeedyBoogy",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03Area15": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6498,
+    "center_y": 11905,
+    "width": 0,
+    "height": 0,
+    "range_degree": 400,
+    "mobs": [
+      {
+        "mob": "MaraElite",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MaraCrew",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03Area16": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8154,
+    "center_y": 11502,
+    "width": 0,
+    "height": 0,
+    "range_degree": 456,
+    "mobs": [
+      {
+        "mob": "MaraCrew",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MaraElite",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03Area17": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7928,
+    "center_y": 10600,
+    "width": 0,
+    "height": 0,
+    "range_degree": 455,
+    "mobs": [
+      {
+        "mob": "MaraCrew",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MaraElite",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03Area18": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11834,
+    "center_y": 12282,
+    "width": 0,
+    "height": 0,
+    "range_degree": 667,
+    "mobs": [
+      {
+        "mob": "MaraCrew",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MaraElite",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03Area19": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 12852,
+    "center_y": 10072,
+    "width": 0,
+    "height": 0,
+    "range_degree": 716,
+    "mobs": [
+      {
+        "mob": "MaraSailor",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "SpeedyBoogy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03Area20": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13009,
+    "center_y": 13043,
+    "width": 0,
+    "height": 0,
+    "range_degree": 716,
+    "mobs": [
+      {
+        "mob": "MaraSailor",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MaraElite",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "SpeedyBoogy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03Area21": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14081,
+    "center_y": 12077,
+    "width": 0,
+    "height": 0,
+    "range_degree": 688,
+    "mobs": [
+      {
+        "mob": "MaraElite",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MaraSailor",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03Area22": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14336,
+    "center_y": 10238,
+    "width": 673,
+    "height": 303,
+    "range_degree": -6,
+    "mobs": [
+      {
+        "mob": "MaraElite",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MaraSailor",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03Area23": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13385,
+    "center_y": 15275,
+    "width": 331,
+    "height": 609,
+    "range_degree": 1,
+    "mobs": [
+      {
+        "mob": "MaraElite",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MaraSailor",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "SpeedyBoogy",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03Area24": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8382,
+    "center_y": 14231,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "MaraCrew",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Boogy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MiniPinky",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03Area25": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8912,
+    "center_y": 15833,
+    "width": 161,
+    "height": 554,
+    "range_degree": -49,
+    "mobs": [
+      {
+        "mob": "MaraCrew",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Boogy",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03Area26": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9210,
+    "center_y": 14761,
+    "width": 0,
+    "height": 0,
+    "range_degree": 421,
+    "mobs": [
+      {
+        "mob": "Boogy",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MiniPinky",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03Area27": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9948,
+    "center_y": 15358,
+    "width": 623,
+    "height": 222,
+    "range_degree": 55,
+    "mobs": [
+      {
+        "mob": "MaraElite",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03Area28": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11925,
+    "center_y": 16770,
+    "width": 387,
+    "height": 440,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "MaraSailor",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MaraElite",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03Area29": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 12181,
+    "center_y": 17988,
+    "width": 0,
+    "height": 0,
+    "range_degree": 681,
+    "mobs": [
+      {
+        "mob": "MaraSailor",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MaraElite",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03Area31": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13665,
+    "center_y": 17725,
+    "width": 0,
+    "height": 0,
+    "range_degree": 485,
+    "mobs": [
+      {
+        "mob": "MaraSailor",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MaraElite",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03Area33": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13775,
+    "center_y": 18419,
+    "width": 967,
+    "height": 261,
+    "range_degree": 14,
+    "mobs": [
+      {
+        "mob": "MaraSailor",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MaraElite",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "SpeedyBoogy",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03Area34": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13465,
+    "center_y": 16549,
+    "width": 677,
+    "height": 188,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "MaraSailor",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03Area35": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 12528,
+    "center_y": 15971,
+    "width": 0,
+    "height": 0,
+    "range_degree": 554,
+    "mobs": [
+      {
+        "mob": "MaraSailor",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MaraElite",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03Area36": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14942,
+    "center_y": 16587,
+    "width": 0,
+    "height": 0,
+    "range_degree": 456,
+    "mobs": [
+      {
+        "mob": "MaraSailor",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03Area37": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13742,
+    "center_y": 16676,
+    "width": 0,
+    "height": 0,
+    "range_degree": 925,
+    "mobs": [
+      {
+        "mob": "Mara",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 345,
+        "reg_max": 375,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          3,
+          10,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MaraSailor",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03Area38": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9535,
+    "center_y": 14351,
+    "width": 236,
+    "height": 817,
+    "range_degree": 62,
+    "mobs": [
+      {
+        "mob": "Boogy",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03Area39": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7592,
+    "center_y": 14093,
+    "width": 586,
+    "height": 287,
+    "range_degree": 53,
+    "mobs": [
+      {
+        "mob": "MaraCrew",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Boogy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MiniPinky",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03Area40": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15520,
+    "center_y": 11140,
+    "width": 502,
+    "height": 246,
+    "range_degree": 28,
+    "mobs": [
+      {
+        "mob": "MaraElite",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MaraSailor",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "SpeedyBoogy",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03Area41": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 17610,
+    "center_y": 10525,
+    "width": 0,
+    "height": 0,
+    "range_degree": 582,
+    "mobs": [
+      {
+        "mob": "MaraSailor",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03Area42": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 17960,
+    "center_y": 12021,
+    "width": 0,
+    "height": 0,
+    "range_degree": 667,
+    "mobs": [
+      {
+        "mob": "MaraElite",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "SpeedyBoogy",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03Area43": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 17098,
+    "center_y": 11401,
+    "width": 0,
+    "height": 0,
+    "range_degree": 498,
+    "mobs": [
+      {
+        "mob": "MaraElite",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "SpeedyBoogy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03Area44": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 19314,
+    "center_y": 11720,
+    "width": 0,
+    "height": 0,
+    "range_degree": 686,
+    "mobs": [
+      {
+        "mob": "MaraSailor",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "SpeedyBoogy",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03Area45": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 18779,
+    "center_y": 10561,
+    "width": 0,
+    "height": 0,
+    "range_degree": 519,
+    "mobs": [
+      {
+        "mob": "MaraSailor",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03Area46": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 19436,
+    "center_y": 7012,
+    "width": 250,
+    "height": 584,
+    "range_degree": 25,
+    "mobs": [
+      {
+        "mob": "Kebing",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "JokeKebing",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "SmartPhino",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03Area47": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 18581,
+    "center_y": 5839,
+    "width": 0,
+    "height": 0,
+    "range_degree": 491,
+    "mobs": [
+      {
+        "mob": "Kebing",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "LittleLizardMan",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03Area48": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 16972,
+    "center_y": 6419,
+    "width": 744,
+    "height": 309,
+    "range_degree": 37,
+    "mobs": [
+      {
+        "mob": "Kebing",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "TombRaider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "KebingSpeeder",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 165,
+        "reg_max": 195,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          3,
+          10,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "JokeKebing",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03Area49": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 19583,
+    "center_y": 4294,
+    "width": 576,
+    "height": 513,
+    "range_degree": 20,
+    "mobs": [
+      {
+        "mob": "TombRaider",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "ProckZone",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "KebingSpeeder",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 165,
+        "reg_max": 195,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          3,
+          10,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03Area50": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 16587,
+    "center_y": 3956,
+    "width": 801,
+    "height": 392,
+    "range_degree": 15,
+    "mobs": [
+      {
+        "mob": "TombRaider",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "LittleLizardMan",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Kebing",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos04Area51": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 16506,
+    "center_y": 5409,
+    "width": 0,
+    "height": 0,
+    "range_degree": 597,
+    "mobs": [
+      {
+        "mob": "Kebing",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "LittleLizardMan",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "ProckZone",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03Area52": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 17766,
+    "center_y": 4906,
+    "width": 0,
+    "height": 0,
+    "range_degree": 841,
+    "mobs": [
+      {
+        "mob": "LittleLizardMan",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Kebing",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "ProckZone",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "TombRaider",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03Area53": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15562,
+    "center_y": 6642,
+    "width": 603,
+    "height": 282,
+    "range_degree": -14,
+    "mobs": [
+      {
+        "mob": "JokeKebing",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "SmartPhino",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03Area54": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15622,
+    "center_y": 5874,
+    "width": 511,
+    "height": 383,
+    "range_degree": -15,
+    "mobs": [
+      {
+        "mob": "Kebing",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "JokeKebing",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "SmartPhino",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03Area55": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14715,
+    "center_y": 3667,
+    "width": 670,
+    "height": 75,
+    "range_degree": -12,
+    "mobs": [
+      {
+        "mob": "SmartPhino",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03Area56": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 17653,
+    "center_y": 9719,
+    "width": 708,
+    "height": 143,
+    "range_degree": 8,
+    "mobs": [
+      {
+        "mob": "MaraSailor",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "SmartPhino",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03Area58": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7154,
+    "center_y": 11297,
+    "width": 0,
+    "height": 0,
+    "range_degree": 593,
+    "mobs": [
+      {
+        "mob": "MaraCrew",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MiniPinky",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03Area59": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11722,
+    "center_y": 10790,
+    "width": 0,
+    "height": 0,
+    "range_degree": 793,
+    "mobs": [
+      {
+        "mob": "MaraElite",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MaraCrew",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03Area60": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15822,
+    "center_y": 10065,
+    "width": 528,
+    "height": 191,
+    "range_degree": 4,
+    "mobs": [
+      {
+        "mob": "MaraElite",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MaraSailor",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03Area61": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9614,
+    "center_y": 4940,
+    "width": 0,
+    "height": 0,
+    "range_degree": 544,
+    "mobs": [
+      {
+        "mob": "SmartPhino",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "JokeKebing",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Kebing",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03Area62": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5903,
+    "center_y": 4858,
+    "width": 513,
+    "height": 443,
+    "range_degree": 10,
+    "mobs": [
+      {
+        "mob": "SmartPhino",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "JokeKebing",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03Area63": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14936,
+    "center_y": 15853,
+    "width": 271,
+    "height": 1175,
+    "range_degree": 81,
+    "mobs": [
+      {
+        "mob": "MaraElite",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MaraSailor",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "SpeedyBoogy",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03Area64": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14279,
+    "center_y": 10995,
+    "width": 0,
+    "height": 0,
+    "range_degree": 512,
+    "mobs": [
+      {
+        "mob": "MaraElite",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "SpeedyBoogy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03Area68": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 16542,
+    "center_y": 10593,
+    "width": 0,
+    "height": 0,
+    "range_degree": 477,
+    "mobs": [
+      {
+        "mob": "MaraSailor",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MaraElite",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03Area69": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 19312,
+    "center_y": 8711,
+    "width": 120,
+    "height": 834,
+    "range_degree": -27,
+    "mobs": [
+      {
+        "mob": "JokeKebing",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "SmartPhino",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03Area70": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 12931,
+    "center_y": 11509,
+    "width": 0,
+    "height": 0,
+    "range_degree": 748,
+    "mobs": [
+      {
+        "mob": "MaraElite",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "SpeedyBoogy",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03Area71": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11370,
+    "center_y": 17301,
+    "width": 0,
+    "height": 0,
+    "range_degree": 442,
+    "mobs": [
+      {
+        "mob": "MaraElite",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MaraSailor",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "SpeedyBoogy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03AreaW1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 17392,
+    "center_y": 4202,
+    "width": 1567,
+    "height": 363,
+    "range_degree": -7,
+    "mobs": [
+      {
+        "mob": "FLOWER1",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          10,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB1",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          10,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB2",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          10,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM1",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          10,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD1",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          10,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD2",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          10,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB3",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          10,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM3",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          10,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM2",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          10,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "FLOWER1",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          10,
+          150,
+          300
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03AreaW2": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 18250,
+    "center_y": 5347,
+    "width": 327,
+    "height": 2310,
+    "range_degree": -60,
+    "mobs": [
+      {
+        "mob": "HERB1",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          10,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB2",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          10,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB3",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          10,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM1",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          10,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM2",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          10,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM3",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          10,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "FLOWER1",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          10,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "FLOWER1",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          10,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD2",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          10,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD1",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          10,
+          150,
+          300
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03AreaW3": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10783,
+    "center_y": 6418,
+    "width": 901,
+    "height": 340,
+    "range_degree": 19,
+    "mobs": [
+      {
+        "mob": "HERB2",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          10,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB3",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          10,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM2",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          10,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM3",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          10,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "FLOWER1",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          10,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "FLOWER1",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          10,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD2",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          10,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD1",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          10,
+          150,
+          300
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03AreaW4": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7984,
+    "center_y": 3937,
+    "width": 1911,
+    "height": 460,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "HERB1",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          10,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB3",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          10,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM3",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          10,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM1",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          10,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "FLOWER1",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          10,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "FLOWER1",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          10,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD2",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          10,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD1",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          10,
+          150,
+          300
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03AreaW5": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6762,
+    "center_y": 4852,
+    "width": 1773,
+    "height": 372,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "HERB2",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          10,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB3",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          10,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM2",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          10,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM3",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          10,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "FLOWER1",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          10,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "FLOWER1",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          10,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD2",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          10,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD1",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          10,
+          150,
+          300
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03AreaW6": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14592,
+    "center_y": 12496,
+    "width": 1122,
+    "height": 117,
+    "range_degree": 44,
+    "mobs": [
+      {
+        "mob": "CLAM1",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          10,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "STARFISH1",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          10,
+          150,
+          300
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03AreaW7": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 19410,
+    "center_y": 12607,
+    "width": 656,
+    "height": 99,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "STARFISH1",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          10,
+          150,
+          300
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03AreaW8": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10127,
+    "center_y": 11982,
+    "width": 1330,
+    "height": 148,
+    "range_degree": -25,
+    "mobs": [
+      {
+        "mob": "CLAM1",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          10,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "STARFISH1",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          10,
+          150,
+          300
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03AreaW9": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9745,
+    "center_y": 14033,
+    "width": 974,
+    "height": 113,
+    "range_degree": -36,
+    "mobs": [
+      {
+        "mob": "CLAM1",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          10,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "STARFISH1",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          10,
+          150,
+          300
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03AreaW10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 12783,
+    "center_y": 15725,
+    "width": 1507,
+    "height": 116,
+    "range_degree": 19,
+    "mobs": [
+      {
+        "mob": "CLAM1",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          10,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "STARFISH1",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          10,
+          150,
+          300
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03AreaW11": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 17270,
+    "center_y": 12119,
+    "width": 1012,
+    "height": 73,
+    "range_degree": -41,
+    "mobs": [
+      {
+        "mob": "CLAM1",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          10,
+          150,
+          300
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03Area72": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8127,
+    "center_y": 15143,
+    "width": 769,
+    "height": 543,
+    "range_degree": -40,
+    "mobs": [
+      {
+        "mob": "Boogy",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03AreaG1": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 20195,
+    "center_y": 12251,
+    "width": 0,
+    "height": 0,
+    "range_degree": 190,
+    "mobs": [
+      {
+        "mob": "S_Boogy",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 21600,
+        "reg_min": 21590,
+        "reg_max": 21610,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          10,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Boogy",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 21600,
+        "reg_min": 21590,
+        "reg_max": 21610,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          10,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03Area73": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9870,
+    "center_y": 13988,
+    "width": 0,
+    "height": 0,
+    "range_degree": 225,
+    "mobs": [
+      {
+        "mob": "BoogyKnight",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 165,
+        "reg_max": 195,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          3,
+          10,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03AreaPbox01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13112,
+    "center_y": 11528,
+    "width": 0,
+    "height": 0,
+    "range_degree": 1725,
+    "mobs": [
+      {
+        "mob": "PresentBox3",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 14400,
+        "reg_min": 14390,
+        "reg_max": 14410,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          10,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03Area74": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 16866,
+    "center_y": 4480,
+    "width": 0,
+    "height": 0,
+    "range_degree": 373,
+    "mobs": [
+      {
+        "mob": "ProckZone",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "LittleLizardMan",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03Area75": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 18799,
+    "center_y": 4931,
+    "width": 0,
+    "height": 0,
+    "range_degree": 372,
+    "mobs": [
+      {
+        "mob": "ProckZone",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03Area77": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 17267,
+    "center_y": 5494,
+    "width": 0,
+    "height": 0,
+    "range_degree": 373,
+    "mobs": [
+      {
+        "mob": "ProckZone",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "LittleLizardMan",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03Area80": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7806,
+    "center_y": 4561,
+    "width": 0,
+    "height": 0,
+    "range_degree": 345,
+    "mobs": [
+      {
+        "mob": "ProckZone",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03Area81": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 17992,
+    "center_y": 3984,
+    "width": 794,
+    "height": 261,
+    "range_degree": -22,
+    "mobs": [
+      {
+        "mob": "TombRaider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "LittleLizardMan",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03Area84": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14250,
+    "center_y": 6196,
+    "width": 562,
+    "height": 327,
+    "range_degree": 15,
+    "mobs": [
+      {
+        "mob": "SmartPhino",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03Area85": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11414,
+    "center_y": 6236,
+    "width": 0,
+    "height": 0,
+    "range_degree": 457,
+    "mobs": [
+      {
+        "mob": "SmartPhino",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "JokeKebing",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03Area86": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 12119,
+    "center_y": 6648,
+    "width": 0,
+    "height": 0,
+    "range_degree": 527,
+    "mobs": [
+      {
+        "mob": "SmartPhino",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "JokeKebing",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03Area87": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7986,
+    "center_y": 3865,
+    "width": 0,
+    "height": 0,
+    "range_degree": 772,
+    "mobs": [
+      {
+        "mob": "LittleLizardMan",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "TombRaider",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03Area88": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8329,
+    "center_y": 5041,
+    "width": 705,
+    "height": 465,
+    "range_degree": 24,
+    "mobs": [
+      {
+        "mob": "Kebing",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "LittleLizardMan",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "KebingSpeeder",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 165,
+        "reg_max": 195,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          3,
+          10,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouCos03Area89": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11380,
+    "center_y": 6788,
+    "width": 584,
+    "height": 307,
+    "range_degree": 4,
+    "mobs": [
+      {
+        "mob": "SmartPhino",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "JokeKebing",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Cos03Mush01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13284,
+    "center_y": 6573,
+    "width": 0,
+    "height": 0,
+    "range_degree": 422,
+    "mobs": [
+      {
+        "mob": "MUSHROOM1",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 165,
+        "reg_max": 195,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          3,
+          10,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM2",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 165,
+        "reg_max": 195,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          3,
+          10,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM3",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 165,
+        "reg_max": 195,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          3,
+          10,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Cos03Mush02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 12965,
+    "center_y": 7164,
+    "width": 0,
+    "height": 0,
+    "range_degree": 492,
+    "mobs": [
+      {
+        "mob": "MUSHROOM1",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 165,
+        "reg_max": 195,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          3,
+          10,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM2",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 165,
+        "reg_max": 195,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          3,
+          10,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM3",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 165,
+        "reg_max": 195,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          3,
+          10,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Cos03Mush03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8981,
+    "center_y": 3807,
+    "width": 0,
+    "height": 0,
+    "range_degree": 500,
+    "mobs": [
+      {
+        "mob": "MUSHROOM1",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 165,
+        "reg_max": 195,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          3,
+          10,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM2",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 165,
+        "reg_max": 195,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          3,
+          10,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM3",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 165,
+        "reg_max": 195,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          3,
+          10,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Cos03Mush04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8257,
+    "center_y": 3818,
+    "width": 0,
+    "height": 0,
+    "range_degree": 478,
+    "mobs": [
+      {
+        "mob": "MUSHROOM1",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 165,
+        "reg_max": 195,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          3,
+          10,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM2",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 165,
+        "reg_max": 195,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          3,
+          10,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM3",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 165,
+        "reg_max": 195,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          3,
+          10,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,5491 @@
+{
+  "Alruin01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15557,
+    "center_y": 4810,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "Phouch",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15377,
+    "center_y": 5307,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "Phouch",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14952,
+    "center_y": 5661,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "Phouch",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 16633,
+    "center_y": 6132,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "Phouch",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 17038,
+    "center_y": 4653,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "Phouch",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 17177,
+    "center_y": 4974,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "Phouch",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15014,
+    "center_y": 5985,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "PhouchA",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin08": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 17551,
+    "center_y": 4787,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "PhouchA",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin09": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 16776,
+    "center_y": 6522,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "PhouchA",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 17531,
+    "center_y": 5290,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "PhouchA",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin11": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 12471,
+    "center_y": 4639,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "PhouchA",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin12": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14587,
+    "center_y": 6101,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "PhouchA",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin13": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 16002,
+    "center_y": 7193,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "PhouchB",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin14": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15912,
+    "center_y": 7560,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "PhouchB",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin15": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15750,
+    "center_y": 7929,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "PhouchB",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin16": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15679,
+    "center_y": 8415,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "PhouchB",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin17": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15653,
+    "center_y": 8833,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "PhouchB",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin18": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14149,
+    "center_y": 7299,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "PhouchB",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin19": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14586,
+    "center_y": 7776,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "PhouchB",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin20": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14627,
+    "center_y": 8449,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "PhouchB",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin21": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14483,
+    "center_y": 8924,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "PhouchB",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin22": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14257,
+    "center_y": 9506,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "PhouchB",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin23": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10875,
+    "center_y": 9659,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "BlackBear",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin24": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11366,
+    "center_y": 9591,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "BlackBear",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin25": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11088,
+    "center_y": 9267,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "BlackBear",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin26": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11532,
+    "center_y": 9222,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "BlackBear",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin27": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13468,
+    "center_y": 10569,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "BlackBear",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin28": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13307,
+    "center_y": 9882,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "BlackBear",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin29": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13427,
+    "center_y": 9310,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "BlackBear",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin30": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13556,
+    "center_y": 7901,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "BlackBear",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin31": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11285,
+    "center_y": 8323,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "BlackBear",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin32": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11724,
+    "center_y": 8257,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "BlackBear",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin33": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11565,
+    "center_y": 7842,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "BlackBear",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin34": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13710,
+    "center_y": 8638,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "BlackBear",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin35": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13122,
+    "center_y": 7314,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "BlackBear",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin36": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11458,
+    "center_y": 5359,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "BlackBear",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin37": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15376,
+    "center_y": 10268,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "BlackBearA",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin38": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15506,
+    "center_y": 9420,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "BlackBearA",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin39": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10772,
+    "center_y": 4943,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "BlackBearA",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin40": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10181,
+    "center_y": 4411,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "BlackBearA",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin41": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6286,
+    "center_y": 4327,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "BlackBearA",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin42": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5552,
+    "center_y": 4324,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "BlackBearA",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin43": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4785,
+    "center_y": 5945,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "BlackBearA",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin44": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11568,
+    "center_y": 11775,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "RedBear",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin45": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13388,
+    "center_y": 11818,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "RedBear",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin46": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 12010,
+    "center_y": 12948,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "RedBear",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin47": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 12191,
+    "center_y": 14042,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "RedBear",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin48": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10385,
+    "center_y": 14976,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "RedBear",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin49": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10099,
+    "center_y": 16679,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "RedBear",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin50": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8948,
+    "center_y": 16478,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "RedBear",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin51": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15046,
+    "center_y": 11207,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "BlackBearB",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin52": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14418,
+    "center_y": 13049,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "BlackBearB",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin53": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14477,
+    "center_y": 13977,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "BlackBearB",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin54": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15331,
+    "center_y": 14712,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "BlackBearB",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin55": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14768,
+    "center_y": 15573,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "BlackBearB",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin56": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 16081,
+    "center_y": 15562,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "BlackBearB",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin57": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 20239,
+    "center_y": 8785,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "FireShella",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin58": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 21253,
+    "center_y": 12134,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "FireShella",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin59": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 20830,
+    "center_y": 9884,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "FireShella",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin60": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 20850,
+    "center_y": 13466,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "FireShella",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin61": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 20224,
+    "center_y": 14439,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "FireShella",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin62": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9038,
+    "center_y": 14687,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "RedBearA",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin63": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7969,
+    "center_y": 14450,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "RedBearA",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin64": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6954,
+    "center_y": 13926,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "RedBearA",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin65": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5963,
+    "center_y": 13847,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "RedBearA",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin66": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5251,
+    "center_y": 14642,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "RedBearA",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin67": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 20039,
+    "center_y": 9616,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "FireShellaA",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin68": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 19058,
+    "center_y": 7034,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "FireShellaA",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin69": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 19501,
+    "center_y": 7779,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "FireShellaA",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin70": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 20409,
+    "center_y": 7457,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "FireShellaA",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin71": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 18133,
+    "center_y": 13142,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "FireShellaA",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin72": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 17015,
+    "center_y": 13987,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "FireShellaA",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin73": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 21447,
+    "center_y": 18398,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "FireTaitan",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin74": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 21567,
+    "center_y": 17743,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "FireTaitan",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin75": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 21386,
+    "center_y": 16909,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "FireTaitan",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin76": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4740,
+    "center_y": 15594,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "RedBearB",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin77": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5676,
+    "center_y": 17620,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "RedBearB",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin78": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7182,
+    "center_y": 17713,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "RedBearB",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin79": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8023,
+    "center_y": 18311,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "RedBearB",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin80": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9121,
+    "center_y": 18385,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "RedBearB",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin81": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14887,
+    "center_y": 17028,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "WaterAlca",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin82": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14076,
+    "center_y": 18573,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "WaterAlca",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin83": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11501,
+    "center_y": 18076,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "WaterAlca",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin84": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 12091,
+    "center_y": 16571,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "WaterAlca",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin85": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13629,
+    "center_y": 17640,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "WaterAlca",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin86": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 21429,
+    "center_y": 19713,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "FireShellaA",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin87": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 20682,
+    "center_y": 20680,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "FireShellaA",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin88": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 19594,
+    "center_y": 21312,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "FireShellaA",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin89": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 18275,
+    "center_y": 21139,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "FireShellaA",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin90": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 16981,
+    "center_y": 20675,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "FireShellaA",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin91": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 16045,
+    "center_y": 19731,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "FireShellaA",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin92": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15966,
+    "center_y": 18562,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "FireShellaA",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin93": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 17156,
+    "center_y": 17793,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "FireShellaA",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin94": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 19421,
+    "center_y": 16718,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "FireTaitanA",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin95": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 20076,
+    "center_y": 16095,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "FireTaitanA",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin96": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 20973,
+    "center_y": 16216,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "FireTaitanA",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin97": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11279,
+    "center_y": 21551,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "WaterAlcaA",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin98": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9955,
+    "center_y": 20852,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "WaterAlcaA",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin99": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8728,
+    "center_y": 21127,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "WaterAlcaA",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin100": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7733,
+    "center_y": 21000,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "WaterAlcaA",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin101": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6660,
+    "center_y": 20532,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "WaterAlcaA",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin102": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5370,
+    "center_y": 19904,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "WaterAlcaA",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin103": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6154,
+    "center_y": 18920,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "WaterAlcaA",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin104": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15857,
+    "center_y": 21615,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "WaterBaridon",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin105": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13911,
+    "center_y": 20177,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "WaterBaridon",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin106": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13570,
+    "center_y": 21288,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "WaterBaridon",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AlruinH01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15577,
+    "center_y": 15404,
+    "width": 0,
+    "height": 0,
+    "range_degree": 1059,
+    "mobs": [
+      {
+        "mob": "HERB7",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 298,
+        "reg_min": 302,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB8",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 298,
+        "reg_min": 302,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB9",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 298,
+        "reg_min": 302,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AlruinH02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14814,
+    "center_y": 9620,
+    "width": 0,
+    "height": 0,
+    "range_degree": 996,
+    "mobs": [
+      {
+        "mob": "HERB7",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 298,
+        "reg_min": 302,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB8",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 298,
+        "reg_min": 302,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB9",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 298,
+        "reg_min": 302,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AlruinH03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9758,
+    "center_y": 20228,
+    "width": 0,
+    "height": 0,
+    "range_degree": 1087,
+    "mobs": [
+      {
+        "mob": "HERB7",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 298,
+        "reg_min": 302,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB8",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 298,
+        "reg_min": 302,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB9",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 298,
+        "reg_min": 302,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AlruinH04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 17865,
+    "center_y": 13834,
+    "width": 0,
+    "height": 0,
+    "range_degree": 1129,
+    "mobs": [
+      {
+        "mob": "HERB7",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 298,
+        "reg_min": 302,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB8",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 298,
+        "reg_min": 302,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB9",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 298,
+        "reg_min": 302,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AlruinH05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 20489,
+    "center_y": 9387,
+    "width": 0,
+    "height": 0,
+    "range_degree": 1101,
+    "mobs": [
+      {
+        "mob": "HERB7",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 298,
+        "reg_min": 302,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB8",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 298,
+        "reg_min": 302,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB9",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 298,
+        "reg_min": 302,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AlruinM01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13832,
+    "center_y": 17683,
+    "width": 0,
+    "height": 0,
+    "range_degree": 982,
+    "mobs": [
+      {
+        "mob": "MUSHROOM7",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 298,
+        "reg_min": 302,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM8",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 298,
+        "reg_min": 302,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM9",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 298,
+        "reg_min": 302,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AlruinM02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 16600,
+    "center_y": 18743,
+    "width": 0,
+    "height": 0,
+    "range_degree": 1024,
+    "mobs": [
+      {
+        "mob": "MUSHROOM7",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 298,
+        "reg_min": 302,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM8",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 298,
+        "reg_min": 302,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM9",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 298,
+        "reg_min": 302,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AlruinM03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 20611,
+    "center_y": 16967,
+    "width": 0,
+    "height": 0,
+    "range_degree": 1606,
+    "mobs": [
+      {
+        "mob": "MUSHROOM7",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 298,
+        "reg_min": 302,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM8",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 298,
+        "reg_min": 302,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM9",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 298,
+        "reg_min": 302,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AlruinM04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 12494,
+    "center_y": 8531,
+    "width": 0,
+    "height": 0,
+    "range_degree": 1598,
+    "mobs": [
+      {
+        "mob": "MUSHROOM7",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 298,
+        "reg_min": 302,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM8",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 298,
+        "reg_min": 302,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM9",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 298,
+        "reg_min": 302,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AlruinW01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6218,
+    "center_y": 14843,
+    "width": 0,
+    "height": 0,
+    "range_degree": 1330,
+    "mobs": [
+      {
+        "mob": "WOOD7",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 298,
+        "reg_min": 302,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD8",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 298,
+        "reg_min": 302,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD9",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 298,
+        "reg_min": 302,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AlruinW02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 16311,
+    "center_y": 5613,
+    "width": 0,
+    "height": 0,
+    "range_degree": 1312,
+    "mobs": [
+      {
+        "mob": "WOOD7",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 298,
+        "reg_min": 302,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD8",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 298,
+        "reg_min": 302,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD9",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 298,
+        "reg_min": 302,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AlruinW03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 12401,
+    "center_y": 10853,
+    "width": 0,
+    "height": 0,
+    "range_degree": 1431,
+    "mobs": [
+      {
+        "mob": "WOOD7",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 298,
+        "reg_min": 302,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD8",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 298,
+        "reg_min": 302,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD9",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 298,
+        "reg_min": 302,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AlruinW04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6233,
+    "center_y": 19622,
+    "width": 0,
+    "height": 0,
+    "range_degree": 1022,
+    "mobs": [
+      {
+        "mob": "WOOD7",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 298,
+        "reg_min": 302,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD8",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 298,
+        "reg_min": 302,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD9",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 298,
+        "reg_min": 302,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin107": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 20793,
+    "center_y": 5900,
+    "width": 0,
+    "height": 0,
+    "range_degree": 359,
+    "mobs": [
+      {
+        "mob": "Lab_Snake_Out",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin108": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 18978,
+    "center_y": 6223,
+    "width": 0,
+    "height": 0,
+    "range_degree": 345,
+    "mobs": [
+      {
+        "mob": "Lab_Unfinished",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin109": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 19959,
+    "center_y": 6590,
+    "width": 0,
+    "height": 0,
+    "range_degree": 331,
+    "mobs": [
+      {
+        "mob": "Lab_Snake_Out",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin110": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 18970,
+    "center_y": 5291,
+    "width": 0,
+    "height": 0,
+    "range_degree": 331,
+    "mobs": [
+      {
+        "mob": "Lab_Unfinished",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin111": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 21119,
+    "center_y": 6877,
+    "width": 0,
+    "height": 0,
+    "range_degree": 331,
+    "mobs": [
+      {
+        "mob": "Lab_Snake_Out",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin112": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 19774,
+    "center_y": 4561,
+    "width": 0,
+    "height": 0,
+    "range_degree": 331,
+    "mobs": [
+      {
+        "mob": "Lab_Unfinished",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin113": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 19818,
+    "center_y": 5582,
+    "width": 0,
+    "height": 0,
+    "range_degree": 324,
+    "mobs": [
+      {
+        "mob": "Lab_Unfinished",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Alruin114": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 20521,
+    "center_y": 4910,
+    "width": 0,
+    "height": 0,
+    "range_degree": 317,
+    "mobs": [
+      {
+        "mob": "Lab_Snake_Out",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Waypoint01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10841,
+    "center_y": 11172,
+    "width": 0,
+    "height": 0,
+    "range_degree": 400,
+    "mobs": [
+      {
+        "mob": "BlackBear",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Waypoint02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11285,
+    "center_y": 11721,
+    "width": 0,
+    "height": 0,
+    "range_degree": 400,
+    "mobs": [
+      {
+        "mob": "BlackBear",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Waypoint03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11624,
+    "center_y": 11715,
+    "width": 0,
+    "height": 0,
+    "range_degree": 400,
+    "mobs": [
+      {
+        "mob": "BlackBear",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Waypoint04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 12849,
+    "center_y": 13101,
+    "width": 0,
+    "height": 0,
+    "range_degree": 400,
+    "mobs": [
+      {
+        "mob": "BlackBear",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Waypoint05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 12984,
+    "center_y": 12606,
+    "width": 0,
+    "height": 0,
+    "range_degree": 400,
+    "mobs": [
+      {
+        "mob": "BlackBear",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Waypoint06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13112,
+    "center_y": 12011,
+    "width": 0,
+    "height": 0,
+    "range_degree": 400,
+    "mobs": [
+      {
+        "mob": "BlackBear",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Waypoint07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 20899,
+    "center_y": 14368,
+    "width": 0,
+    "height": 0,
+    "range_degree": 400,
+    "mobs": [
+      {
+        "mob": "Lab_Unfinished",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Waypoint08": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 20903,
+    "center_y": 13913,
+    "width": 0,
+    "height": 0,
+    "range_degree": 400,
+    "mobs": [
+      {
+        "mob": "Lab_Unfinished",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Waypoint09": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 20246,
+    "center_y": 14257,
+    "width": 0,
+    "height": 0,
+    "range_degree": 400,
+    "mobs": [
+      {
+        "mob": "Lab_Unfinished",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Waypoint10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13890,
+    "center_y": 16756,
+    "width": 0,
+    "height": 0,
+    "range_degree": 400,
+    "mobs": [
+      {
+        "mob": "Lab_Unfinished",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Waypoint11": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13028,
+    "center_y": 16837,
+    "width": 0,
+    "height": 0,
+    "range_degree": 400,
+    "mobs": [
+      {
+        "mob": "Lab_Unfinished",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Waypoint12": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 12913,
+    "center_y": 16355,
+    "width": 0,
+    "height": 0,
+    "range_degree": 400,
+    "mobs": [
+      {
+        "mob": "Lab_Unfinished",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Waypoint13": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6418,
+    "center_y": 17643,
+    "width": 0,
+    "height": 0,
+    "range_degree": 400,
+    "mobs": [
+      {
+        "mob": "Lab_Unfinished",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Waypoint14": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6912,
+    "center_y": 17571,
+    "width": 0,
+    "height": 0,
+    "range_degree": 400,
+    "mobs": [
+      {
+        "mob": "Lab_Unfinished",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Waypoint15": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6870,
+    "center_y": 17059,
+    "width": 0,
+    "height": 0,
+    "range_degree": 400,
+    "mobs": [
+      {
+        "mob": "Lab_Unfinished",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Waypoint16": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14748,
+    "center_y": 20752,
+    "width": 0,
+    "height": 0,
+    "range_degree": 400,
+    "mobs": [
+      {
+        "mob": "FireShellaB",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Waypoint17": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14639,
+    "center_y": 21236,
+    "width": 0,
+    "height": 0,
+    "range_degree": 400,
+    "mobs": [
+      {
+        "mob": "FireShellaB",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Waypoint18": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13899,
+    "center_y": 20983,
+    "width": 0,
+    "height": 0,
+    "range_degree": 400,
+    "mobs": [
+      {
+        "mob": "FireShellaB",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Waypoint19": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8734,
+    "center_y": 20094,
+    "width": 0,
+    "height": 0,
+    "range_degree": 400,
+    "mobs": [
+      {
+        "mob": "FireShellaB",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Waypoint20": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8196,
+    "center_y": 20161,
+    "width": 0,
+    "height": 0,
+    "range_degree": 400,
+    "mobs": [
+      {
+        "mob": "FireShellaB",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Waypoint21": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8080,
+    "center_y": 19538,
+    "width": 0,
+    "height": 0,
+    "range_degree": 400,
+    "mobs": [
+      {
+        "mob": "FireShellaB",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "XmasWaypoint": {
+    "enabled": false,
+    "is_family": false,
+    "center_x": 6774,
+    "center_y": 11527,
+    "width": 0,
+    "height": 0,
+    "range_degree": 1,
+    "mobs": [
+      {
+        "mob": "ChristmasTree",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 5,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": false
+      }
+    ]
+  }
+}

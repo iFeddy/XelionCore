@@ -1,0 +1,135 @@
+{
+  "Fbattle02C01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3293,
+    "center_y": 2938,
+    "width": 73,
+    "height": 158,
+    "range_degree": 175,
+    "mobs": [
+      {
+        "mob": "SnowSlime02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 60,
+        "reg_min": 30,
+        "reg_max": 90,
+        "deltas": [
+          -40,
+          -20,
+          20,
+          40,
+          0
+        ],
+        "delta_secs": [
+          30,
+          42,
+          78,
+          90
+        ],
+        "enabled": false
+      }
+    ]
+  },
+  "Fbattle02C02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3233,
+    "center_y": 2476,
+    "width": 66,
+    "height": 87,
+    "range_degree": 178,
+    "mobs": []
+  },
+  "Fbattle02C03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4438,
+    "center_y": 3363,
+    "width": 66,
+    "height": 87,
+    "range_degree": 178,
+    "mobs": []
+  },
+  "Fbattle02C04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4158,
+    "center_y": 3768,
+    "width": 66,
+    "height": 87,
+    "range_degree": 178,
+    "mobs": []
+  },
+  "Fbattle02C05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3406,
+    "center_y": 3214,
+    "width": 66,
+    "height": 87,
+    "range_degree": 178,
+    "mobs": []
+  },
+  "Fbattle02C06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2188,
+    "center_y": 2935,
+    "width": 66,
+    "height": 87,
+    "range_degree": 178,
+    "mobs": []
+  },
+  "Fbattle02C07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2608,
+    "center_y": 2400,
+    "width": 66,
+    "height": 87,
+    "range_degree": 178,
+    "mobs": []
+  },
+  "Fbattle02C08": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2321,
+    "center_y": 3301,
+    "width": 66,
+    "height": 87,
+    "range_degree": 178,
+    "mobs": []
+  },
+  "Fbattle02C09": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4154,
+    "center_y": 2789,
+    "width": 66,
+    "height": 87,
+    "range_degree": 178,
+    "mobs": []
+  },
+  "Fbattle02C10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3216,
+    "center_y": 3423,
+    "width": 66,
+    "height": 87,
+    "range_degree": 178,
+    "mobs": []
+  },
+  "Fbattle02C11": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3244,
+    "center_y": 2655,
+    "width": 66,
+    "height": 87,
+    "range_degree": 178,
+    "mobs": []
+  }
+}

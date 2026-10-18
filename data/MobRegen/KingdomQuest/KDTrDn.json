@@ -1,0 +1,1633 @@
+{
+  "KDTravelerDnArea01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1031,
+    "center_y": 1195,
+    "width": 0,
+    "height": 0,
+    "range_degree": 54,
+    "mobs": [
+      {
+        "mob": "KQ_Slime",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDTravelerDnArea02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 849,
+    "center_y": 1503,
+    "width": 0,
+    "height": 0,
+    "range_degree": 54,
+    "mobs": [
+      {
+        "mob": "KQ_Slime",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDTravelerDnArea03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1195,
+    "center_y": 1503,
+    "width": 0,
+    "height": 0,
+    "range_degree": 54,
+    "mobs": [
+      {
+        "mob": "KQ_Slime",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDTravelerDnArea04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 851,
+    "center_y": 1741,
+    "width": 0,
+    "height": 0,
+    "range_degree": 54,
+    "mobs": [
+      {
+        "mob": "KQ_Slime",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDTravelerDnArea05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1196,
+    "center_y": 1753,
+    "width": 0,
+    "height": 0,
+    "range_degree": 54,
+    "mobs": [
+      {
+        "mob": "KQ_Slime",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDTravelerDnArea06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1027,
+    "center_y": 2278,
+    "width": 0,
+    "height": 0,
+    "range_degree": 53,
+    "mobs": [
+      {
+        "mob": "KQ_Slime",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDTravelerDnArea07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1051,
+    "center_y": 2701,
+    "width": 0,
+    "height": 0,
+    "range_degree": 54,
+    "mobs": [
+      {
+        "mob": "KQ_Slime",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDTravelerDnArea10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1410,
+    "center_y": 3300,
+    "width": 0,
+    "height": 0,
+    "range_degree": 54,
+    "mobs": [
+      {
+        "mob": "KQ_Slime",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDTravelerDnArea11": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1078,
+    "center_y": 3349,
+    "width": 0,
+    "height": 0,
+    "range_degree": 54,
+    "mobs": [
+      {
+        "mob": "KQ_Slime",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDTravelerDnArea12": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1410,
+    "center_y": 3040,
+    "width": 0,
+    "height": 0,
+    "range_degree": 54,
+    "mobs": [
+      {
+        "mob": "KQ_Slime",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDTravelerDnArea13": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3137,
+    "center_y": 3309,
+    "width": 0,
+    "height": 0,
+    "range_degree": 54,
+    "mobs": [
+      {
+        "mob": "KQ_MushRoom",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDTravelerDnArea14": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2872,
+    "center_y": 3816,
+    "width": 0,
+    "height": 0,
+    "range_degree": 53,
+    "mobs": [
+      {
+        "mob": "KQ_Slime",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDTravelerDnArea16": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2997,
+    "center_y": 3814,
+    "width": 0,
+    "height": 0,
+    "range_degree": 54,
+    "mobs": [
+      {
+        "mob": "KQ_Slime",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDTravelerDnArea17": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3125,
+    "center_y": 3804,
+    "width": 0,
+    "height": 0,
+    "range_degree": 54,
+    "mobs": [
+      {
+        "mob": "KQ_Slime",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDTravelerDnArea19": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2856,
+    "center_y": 2847,
+    "width": 0,
+    "height": 0,
+    "range_degree": 54,
+    "mobs": [
+      {
+        "mob": "KQ_Slime",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDTravelerDnArea20": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2981,
+    "center_y": 2842,
+    "width": 0,
+    "height": 0,
+    "range_degree": 54,
+    "mobs": [
+      {
+        "mob": "KQ_Slime",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDTravelerDnArea21": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3097,
+    "center_y": 2849,
+    "width": 0,
+    "height": 0,
+    "range_degree": 54,
+    "mobs": [
+      {
+        "mob": "KQ_Slime",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDTravelerDnArea24": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3782,
+    "center_y": 3259,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "KQ_Imp",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDTravelerDnArea25": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4669,
+    "center_y": 3274,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "KQ_MushRoom",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDTravelerDnArea26": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4916,
+    "center_y": 3664,
+    "width": 0,
+    "height": 0,
+    "range_degree": 56,
+    "mobs": [
+      {
+        "mob": "KQ_MushRoom",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDTravelerDnArea27": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5208,
+    "center_y": 3360,
+    "width": 0,
+    "height": 0,
+    "range_degree": 54,
+    "mobs": [
+      {
+        "mob": "KQ_MushRoom",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDTravelerDnArea28": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5155,
+    "center_y": 4575,
+    "width": 0,
+    "height": 0,
+    "range_degree": 54,
+    "mobs": [
+      {
+        "mob": "KQ_Imp",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDTravelerDnArea29": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5083,
+    "center_y": 5466,
+    "width": 0,
+    "height": 0,
+    "range_degree": 54,
+    "mobs": [
+      {
+        "mob": "KQ_Slime",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDTravelerDnArea30": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5076,
+    "center_y": 5919,
+    "width": 0,
+    "height": 0,
+    "range_degree": 54,
+    "mobs": [
+      {
+        "mob": "KQ_MushRoom",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDTravelerDnArea31": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4584,
+    "center_y": 5423,
+    "width": 0,
+    "height": 0,
+    "range_degree": 54,
+    "mobs": [
+      {
+        "mob": "KQ_MushRoom",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDTravelerDnArea32": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5140,
+    "center_y": 4976,
+    "width": 0,
+    "height": 0,
+    "range_degree": 54,
+    "mobs": [
+      {
+        "mob": "KQ_MushRoom",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDTravelerDnArea33": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5649,
+    "center_y": 5411,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "KQ_MushRoom",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDTravelerDnArea34": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4794,
+    "center_y": 5130,
+    "width": 0,
+    "height": 0,
+    "range_degree": 54,
+    "mobs": [
+      {
+        "mob": "KQ_Imp",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDTravelerDnArea35": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5462,
+    "center_y": 5147,
+    "width": 0,
+    "height": 0,
+    "range_degree": 54,
+    "mobs": [
+      {
+        "mob": "KQ_Imp",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDTravelerDnArea36": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5492,
+    "center_y": 5774,
+    "width": 0,
+    "height": 0,
+    "range_degree": 54,
+    "mobs": [
+      {
+        "mob": "KQ_Imp",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDTravelerDnArea37": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4785,
+    "center_y": 5710,
+    "width": 0,
+    "height": 0,
+    "range_degree": 54,
+    "mobs": [
+      {
+        "mob": "KQ_Imp",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDTravelerDnArea39": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3878,
+    "center_y": 5461,
+    "width": 0,
+    "height": 0,
+    "range_degree": 54,
+    "mobs": [
+      {
+        "mob": "KQ_Imp",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDTravelerDnArea40": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3419,
+    "center_y": 5458,
+    "width": 0,
+    "height": 0,
+    "range_degree": 51,
+    "mobs": [
+      {
+        "mob": "KQ_Imp",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDTravelerDnArea41": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3019,
+    "center_y": 5407,
+    "width": 0,
+    "height": 0,
+    "range_degree": 54,
+    "mobs": [
+      {
+        "mob": "KQ_Imp",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDTravelerDnArea42": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3279,
+    "center_y": 5149,
+    "width": 0,
+    "height": 0,
+    "range_degree": 54,
+    "mobs": [
+      {
+        "mob": "KQ_Imp",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDTravelerDnArea43": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2611,
+    "center_y": 4701,
+    "width": 0,
+    "height": 0,
+    "range_degree": 54,
+    "mobs": [
+      {
+        "mob": "KQ_Imp",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDTravelerDnArea44": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2082,
+    "center_y": 4530,
+    "width": 0,
+    "height": 0,
+    "range_degree": 54,
+    "mobs": [
+      {
+        "mob": "KQ_Imp",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDTravelerDnArea45": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1445,
+    "center_y": 4539,
+    "width": 0,
+    "height": 0,
+    "range_degree": 53,
+    "mobs": [
+      {
+        "mob": "KQ_Slime",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDTravelerDnArea47": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 903,
+    "center_y": 5007,
+    "width": 0,
+    "height": 0,
+    "range_degree": 54,
+    "mobs": [
+      {
+        "mob": "KQ_Slime",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDTravelerDnArea49": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 418,
+    "center_y": 4535,
+    "width": 0,
+    "height": 0,
+    "range_degree": 54,
+    "mobs": [
+      {
+        "mob": "KQ_Slime",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDTravelerDnArea51": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 911,
+    "center_y": 3989,
+    "width": 0,
+    "height": 0,
+    "range_degree": 54,
+    "mobs": [
+      {
+        "mob": "KQ_Slime",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDTravelerDnArea53": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1384,
+    "center_y": 4539,
+    "width": 0,
+    "height": 0,
+    "range_degree": 54,
+    "mobs": [
+      {
+        "mob": "KQ_Imp",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDTravelerDnArea54": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 462,
+    "center_y": 4679,
+    "width": 0,
+    "height": 0,
+    "range_degree": 54,
+    "mobs": [
+      {
+        "mob": "KQ_Slime",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDTravelerDnArea55": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 256,
+    "center_y": 4518,
+    "width": 0,
+    "height": 0,
+    "range_degree": 54,
+    "mobs": [
+      {
+        "mob": "KQ_Slime",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDTravelerDnArea56": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 487,
+    "center_y": 4376,
+    "width": 0,
+    "height": 0,
+    "range_degree": 54,
+    "mobs": [
+      {
+        "mob": "KQ_Slime",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDTravelerDnArea57": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 389,
+    "center_y": 4538,
+    "width": 0,
+    "height": 0,
+    "range_degree": 54,
+    "mobs": [
+      {
+        "mob": "KQ_FireSlime",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDTravelerDnArea58": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1267,
+    "center_y": 4531,
+    "width": 0,
+    "height": 0,
+    "range_degree": 54,
+    "mobs": [
+      {
+        "mob": "KQ_RookieSkeleton",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDTravelerDnArea59": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1078,
+    "center_y": 1006,
+    "width": 0,
+    "height": 0,
+    "range_degree": 54,
+    "mobs": []
+  },
+  "KDTravelerDnArea60": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1078,
+    "center_y": 1006,
+    "width": 0,
+    "height": 0,
+    "range_degree": 54,
+    "mobs": []
+  },
+  "KDTravelerDnArea61": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1078,
+    "center_y": 1006,
+    "width": 0,
+    "height": 0,
+    "range_degree": 54,
+    "mobs": []
+  },
+  "KDTravelerDnArea62": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1078,
+    "center_y": 1006,
+    "width": 0,
+    "height": 0,
+    "range_degree": 54,
+    "mobs": []
+  },
+  "KDTravelerDnArea63": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1078,
+    "center_y": 1006,
+    "width": 0,
+    "height": 0,
+    "range_degree": 54,
+    "mobs": []
+  },
+  "KDTravelerDnArea64": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1078,
+    "center_y": 1006,
+    "width": 0,
+    "height": 0,
+    "range_degree": 54,
+    "mobs": []
+  },
+  "KDTravelerDnArea65": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1078,
+    "center_y": 1006,
+    "width": 0,
+    "height": 0,
+    "range_degree": 54,
+    "mobs": []
+  },
+  "KDTravelerDnArea66": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1078,
+    "center_y": 1006,
+    "width": 0,
+    "height": 0,
+    "range_degree": 54,
+    "mobs": []
+  }
+}

@@ -1,0 +1,1333 @@
+{
+  "Link01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6369,
+    "center_y": 2751,
+    "width": 0,
+    "height": 0,
+    "range_degree": 289,
+    "mobs": [
+      {
+        "mob": "CemWolf",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 5,
+        "reg_max": 13,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Link02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6971,
+    "center_y": 2899,
+    "width": 0,
+    "height": 0,
+    "range_degree": 289,
+    "mobs": [
+      {
+        "mob": "CemWolf",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 5,
+        "reg_max": 13,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Link03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7599,
+    "center_y": 3249,
+    "width": 0,
+    "height": 0,
+    "range_degree": 289,
+    "mobs": [
+      {
+        "mob": "CemWolf",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 5,
+        "reg_max": 13,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Link04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5905,
+    "center_y": 3839,
+    "width": 0,
+    "height": 0,
+    "range_degree": 324,
+    "mobs": [
+      {
+        "mob": "CemWolf",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 5,
+        "reg_max": 13,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Link05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7249,
+    "center_y": 4252,
+    "width": 0,
+    "height": 0,
+    "range_degree": 226,
+    "mobs": [
+      {
+        "mob": "CemWolf",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 5,
+        "reg_max": 13,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Link06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6583,
+    "center_y": 3999,
+    "width": 0,
+    "height": 0,
+    "range_degree": 254,
+    "mobs": [
+      {
+        "mob": "CemWolf",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 5,
+        "reg_max": 13,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Link07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8172,
+    "center_y": 3783,
+    "width": 0,
+    "height": 0,
+    "range_degree": 121,
+    "mobs": [
+      {
+        "mob": "CemWolf",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 5,
+        "reg_max": 13,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Link08": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8657,
+    "center_y": 4260,
+    "width": 0,
+    "height": 0,
+    "range_degree": 142,
+    "mobs": [
+      {
+        "mob": "CemWolf",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 5,
+        "reg_max": 13,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Link09": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9708,
+    "center_y": 4810,
+    "width": 0,
+    "height": 0,
+    "range_degree": 373,
+    "mobs": [
+      {
+        "mob": "CemWolf",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 5,
+        "reg_max": 13,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "FireViVi",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 5,
+        "reg_max": 13,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Link10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5703,
+    "center_y": 6356,
+    "width": 0,
+    "height": 0,
+    "range_degree": 114,
+    "mobs": [
+      {
+        "mob": "BabyWereBear",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 5,
+        "reg_max": 13,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "FireViVi",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 5,
+        "reg_max": 13,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Link11": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6458,
+    "center_y": 7050,
+    "width": 0,
+    "height": 0,
+    "range_degree": 121,
+    "mobs": [
+      {
+        "mob": "BabyWereBear",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 5,
+        "reg_max": 13,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Link12": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5946,
+    "center_y": 7341,
+    "width": 0,
+    "height": 0,
+    "range_degree": 100,
+    "mobs": [
+      {
+        "mob": "BabyWereBear",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 5,
+        "reg_max": 13,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Link13": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6610,
+    "center_y": 9933,
+    "width": 0,
+    "height": 0,
+    "range_degree": 163,
+    "mobs": [
+      {
+        "mob": "BabyWereBear",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 5,
+        "reg_max": 13,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "FireViVi",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 5,
+        "reg_max": 13,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Link14": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6773,
+    "center_y": 9332,
+    "width": 0,
+    "height": 0,
+    "range_degree": 324,
+    "mobs": [
+      {
+        "mob": "BabyWereBear",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 5,
+        "reg_max": 13,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "FireViVi",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 5,
+        "reg_max": 13,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Link15": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2372,
+    "center_y": 9875,
+    "width": 0,
+    "height": 0,
+    "range_degree": 443,
+    "mobs": [
+      {
+        "mob": "BabyWereBear",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 5,
+        "reg_max": 13,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "FireViVi",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 5,
+        "reg_max": 13,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Link16": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3034,
+    "center_y": 9362,
+    "width": 0,
+    "height": 0,
+    "range_degree": 289,
+    "mobs": [
+      {
+        "mob": "BabyWereBear",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 5,
+        "reg_max": 13,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Link17": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4652,
+    "center_y": 9285,
+    "width": 0,
+    "height": 0,
+    "range_degree": 331,
+    "mobs": [
+      {
+        "mob": "BabyWereBear",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 5,
+        "reg_max": 13,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "FireViVi",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 5,
+        "reg_max": 13,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Link18": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4415,
+    "center_y": 8261,
+    "width": 0,
+    "height": 0,
+    "range_degree": 268,
+    "mobs": [
+      {
+        "mob": "BabyWereBear",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 5,
+        "reg_max": 13,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Link19": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2557,
+    "center_y": 7089,
+    "width": 0,
+    "height": 0,
+    "range_degree": 352,
+    "mobs": [
+      {
+        "mob": "BabyWereBear",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 5,
+        "reg_max": 13,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Link20": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2072,
+    "center_y": 5355,
+    "width": 0,
+    "height": 0,
+    "range_degree": 240,
+    "mobs": [
+      {
+        "mob": "BabyWereBear",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 5,
+        "reg_max": 13,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Link22": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9281,
+    "center_y": 5424,
+    "width": 0,
+    "height": 0,
+    "range_degree": 205,
+    "mobs": [
+      {
+        "mob": "CemWolf",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 5,
+        "reg_max": 13,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Link23": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9197,
+    "center_y": 6061,
+    "width": 0,
+    "height": 0,
+    "range_degree": 170,
+    "mobs": [
+      {
+        "mob": "CemWolf",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 5,
+        "reg_max": 13,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Link24": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7615,
+    "center_y": 8175,
+    "width": 0,
+    "height": 0,
+    "range_degree": 275,
+    "mobs": [
+      {
+        "mob": "BabyWereBear",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 5,
+        "reg_max": 13,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Link25": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8463,
+    "center_y": 9501,
+    "width": 0,
+    "height": 0,
+    "range_degree": 240,
+    "mobs": [
+      {
+        "mob": "BabyWereBear",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 5,
+        "reg_max": 13,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Link26": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8520,
+    "center_y": 8575,
+    "width": 0,
+    "height": 0,
+    "range_degree": 233,
+    "mobs": [
+      {
+        "mob": "BabyWereBear",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 5,
+        "reg_max": 13,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Link274": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4988,
+    "center_y": 8501,
+    "width": 0,
+    "height": 0,
+    "range_degree": 170,
+    "mobs": [
+      {
+        "mob": "BabyWereBear",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 5,
+        "reg_max": 13,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Link28": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4883,
+    "center_y": 2741,
+    "width": 0,
+    "height": 0,
+    "range_degree": 170,
+    "mobs": [
+      {
+        "mob": "CemWolf",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 5,
+        "reg_max": 13,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Link29": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4626,
+    "center_y": 3355,
+    "width": 0,
+    "height": 0,
+    "range_degree": 177,
+    "mobs": [
+      {
+        "mob": "CemWolf",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 5,
+        "reg_max": 13,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Link30": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5217,
+    "center_y": 3567,
+    "width": 0,
+    "height": 0,
+    "range_degree": 240,
+    "mobs": [
+      {
+        "mob": "CemWolf",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 5,
+        "reg_max": 13,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Link31": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5394,
+    "center_y": 2790,
+    "width": 0,
+    "height": 0,
+    "range_degree": 163,
+    "mobs": [
+      {
+        "mob": "CemWolf",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 5,
+        "reg_max": 13,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Link32": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7606,
+    "center_y": 4883,
+    "width": 0,
+    "height": 0,
+    "range_degree": 247,
+    "mobs": [
+      {
+        "mob": "CemWolf",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 5,
+        "reg_max": 13,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Link33": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9197,
+    "center_y": 9880,
+    "width": 0,
+    "height": 0,
+    "range_degree": 274,
+    "mobs": [
+      {
+        "mob": "BabyWereBear",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 5,
+        "reg_max": 13,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "FireViVi",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 5,
+        "reg_max": 13,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Secret_001": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3438,
+    "center_y": 5024,
+    "width": 0,
+    "height": 0,
+    "range_degree": 109,
+    "mobs": [
+      {
+        "mob": "SecretChiefSub",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 15,
+        "reg_min": 13,
+        "reg_max": 17,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Secret_002": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3878,
+    "center_y": 6120,
+    "width": 0,
+    "height": 0,
+    "range_degree": 116,
+    "mobs": [
+      {
+        "mob": "SecretChiefSub",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 15,
+        "reg_min": 13,
+        "reg_max": 17,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Secret_003": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3652,
+    "center_y": 5521,
+    "width": 0,
+    "height": 0,
+    "range_degree": 116,
+    "mobs": [
+      {
+        "mob": "SecretChiefSub",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 15,
+        "reg_min": 13,
+        "reg_max": 17,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "SecretChief",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 60,
+        "reg_min": 58,
+        "reg_max": 62,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  }
+}

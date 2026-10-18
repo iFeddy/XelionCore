@@ -1,0 +1,3632 @@
+{
+  "Leviathan001": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 3003,
+    "center_y": 4470,
+    "width": 0,
+    "height": 0,
+    "range_degree": 132,
+    "mobs": [
+      {
+        "mob": "ID_NestBat",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan002": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 3011,
+    "center_y": 3728,
+    "width": 0,
+    "height": 0,
+    "range_degree": 167,
+    "mobs": [
+      {
+        "mob": "ID_NestBat",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan003": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 2213,
+    "center_y": 3267,
+    "width": 0,
+    "height": 0,
+    "range_degree": 160,
+    "mobs": [
+      {
+        "mob": "ID_NestBat",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan004": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 3001,
+    "center_y": 4419,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "ID_NestCaimanJunior",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan005": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 3009,
+    "center_y": 3627,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "ID_NestCaimanJunior",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan006": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 2217,
+    "center_y": 3248,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "ID_NestCaimanJunior",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan007": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 1922,
+    "center_y": 4687,
+    "width": 0,
+    "height": 0,
+    "range_degree": 188,
+    "mobs": [
+      {
+        "mob": "ID_NestBoogy",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan008": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 822,
+    "center_y": 4800,
+    "width": 0,
+    "height": 0,
+    "range_degree": 188,
+    "mobs": [
+      {
+        "mob": "ID_NestBoogy",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan009": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 508,
+    "center_y": 3464,
+    "width": 110,
+    "height": 373,
+    "range_degree": -26,
+    "mobs": [
+      {
+        "mob": "ID_NestBoogy",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan010": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 1161,
+    "center_y": 3448,
+    "width": 128,
+    "height": 60,
+    "range_degree": -62,
+    "mobs": [
+      {
+        "mob": "ID_NestAlca",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan011": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 1092,
+    "center_y": 3461,
+    "width": 121,
+    "height": 376,
+    "range_degree": 23,
+    "mobs": [
+      {
+        "mob": "ID_NestBoogy",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan012": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 477,
+    "center_y": 3423,
+    "width": 143,
+    "height": 56,
+    "range_degree": 64,
+    "mobs": [
+      {
+        "mob": "ID_NestAlca",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan013": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 1532,
+    "center_y": 2016,
+    "width": 0,
+    "height": 0,
+    "range_degree": 55,
+    "mobs": [
+      {
+        "mob": "ID_NestAlca",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan014": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 3373,
+    "center_y": 1854,
+    "width": 0,
+    "height": 0,
+    "range_degree": 83,
+    "mobs": [
+      {
+        "mob": "ID_NestAlca",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan015": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 2622,
+    "center_y": 1866,
+    "width": 141,
+    "height": 50,
+    "range_degree": 31,
+    "mobs": [
+      {
+        "mob": "ID_NestAlca",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan016": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 1507,
+    "center_y": 2023,
+    "width": 0,
+    "height": 0,
+    "range_degree": 167,
+    "mobs": [
+      {
+        "mob": "ID_NestCaimanGiant",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan017": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 2634,
+    "center_y": 1864,
+    "width": 254,
+    "height": 103,
+    "range_degree": 28,
+    "mobs": [
+      {
+        "mob": "ID_NestCaimanGiant",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan018": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 3233,
+    "center_y": 1850,
+    "width": 193,
+    "height": 82,
+    "range_degree": -14,
+    "mobs": [
+      {
+        "mob": "ID_NestCaimanGiant",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan019": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 3398,
+    "center_y": 840,
+    "width": 342,
+    "height": 109,
+    "range_degree": 29,
+    "mobs": [
+      {
+        "mob": "ID_NestMadSlug",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan020": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 5111,
+    "center_y": 1613,
+    "width": 0,
+    "height": 0,
+    "range_degree": 164,
+    "mobs": [
+      {
+        "mob": "ID_NestBaridon",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan021": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 4687,
+    "center_y": 1220,
+    "width": 0,
+    "height": 0,
+    "range_degree": 227,
+    "mobs": [
+      {
+        "mob": "ID_NestAlca",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan022": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 4764,
+    "center_y": 877,
+    "width": 0,
+    "height": 0,
+    "range_degree": 237,
+    "mobs": [
+      {
+        "mob": "ID_NestCrab",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan023": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 4324,
+    "center_y": 1248,
+    "width": 0,
+    "height": 0,
+    "range_degree": 244,
+    "mobs": [
+      {
+        "mob": "ID_NestCrab",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan024": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 4956,
+    "center_y": 1454,
+    "width": 0,
+    "height": 0,
+    "range_degree": 265,
+    "mobs": [
+      {
+        "mob": "ID_NestCrab",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan025": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 5796,
+    "center_y": 2741,
+    "width": 0,
+    "height": 0,
+    "range_degree": 78,
+    "mobs": [
+      {
+        "mob": "ID_NestBaridon",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan026": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 4901,
+    "center_y": 3351,
+    "width": 0,
+    "height": 0,
+    "range_degree": 92,
+    "mobs": [
+      {
+        "mob": "ID_NestBaridon",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan027": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 3958,
+    "center_y": 2786,
+    "width": 0,
+    "height": 0,
+    "range_degree": 92,
+    "mobs": [
+      {
+        "mob": "ID_NestBaridon",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan028": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 5783,
+    "center_y": 2736,
+    "width": 0,
+    "height": 0,
+    "range_degree": 209,
+    "mobs": [
+      {
+        "mob": "ID_NestWeasel",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan029": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 4912,
+    "center_y": 3367,
+    "width": 0,
+    "height": 0,
+    "range_degree": 195,
+    "mobs": [
+      {
+        "mob": "ID_NestWeasel",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan030": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 3938,
+    "center_y": 2871,
+    "width": 50,
+    "height": 162,
+    "range_degree": -12,
+    "mobs": [
+      {
+        "mob": "ID_NestWeasel",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan031": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 5352,
+    "center_y": 4844,
+    "width": 330,
+    "height": 50,
+    "range_degree": -47,
+    "mobs": [
+      {
+        "mob": "ID_NestGagoyle",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan032": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 5043,
+    "center_y": 5949,
+    "width": 50,
+    "height": 326,
+    "range_degree": -65,
+    "mobs": [
+      {
+        "mob": "ID_NestGagoyle",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan033": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 4223,
+    "center_y": 5300,
+    "width": 53,
+    "height": 292,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "ID_NestGagoyle",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan034": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 4221,
+    "center_y": 5237,
+    "width": 50,
+    "height": 229,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "ID_NestBaridon",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan035": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 3012,
+    "center_y": 2696,
+    "width": 0,
+    "height": 0,
+    "range_degree": 500,
+    "mobs": [
+      {
+        "mob": "ID_NestGuardianEgg",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 175,
+        "reg_max": 185,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan036": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 3012,
+    "center_y": 2703,
+    "width": 0,
+    "height": 0,
+    "range_degree": 500,
+    "mobs": [
+      {
+        "mob": "ID_NestGuardEgg",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 175,
+        "reg_max": 185,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan037": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 3012,
+    "center_y": 2703,
+    "width": 0,
+    "height": 0,
+    "range_degree": 500,
+    "mobs": [
+      {
+        "mob": "ID_NestBuffEgg",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 175,
+        "reg_max": 185,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan_H001": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2616,
+    "center_y": 3602,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "LevH_ID_NestBat",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan_H002": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3017,
+    "center_y": 4132,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "LevH_ID_NestBat",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan_H003": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3140,
+    "center_y": 3668,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "LevH_ID_NestBat",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan_H004": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2286,
+    "center_y": 3381,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "LevH_ID_NestBat",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan_H005": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2265,
+    "center_y": 3268,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "LevH_ID_NestBat",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan_H006": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3035,
+    "center_y": 3665,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "LevH_ID_NestCaimanJunior",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan_H007": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1967,
+    "center_y": 4163,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "LevH_ID_NestCaimanJunior",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan_H008": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1761,
+    "center_y": 5002,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "LevH_ID_NestCaimanJunior",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan_H009": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2003,
+    "center_y": 4607,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "LevH_ID_NestCaimanJunior",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan_H010": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1919,
+    "center_y": 4523,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "LevH_ID_NestBoogy",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan_H011": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2028,
+    "center_y": 3672,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "LevH_ID_NestBoogy",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan_H012": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 862,
+    "center_y": 3505,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "LevH_ID_NestBoogy",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan_H013": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 458,
+    "center_y": 4342,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "LevH_ID_NestBoogy",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan_H014": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 753,
+    "center_y": 3568,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "LevH_ID_NestBoogy",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan_H015": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1190,
+    "center_y": 3666,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "LevH_ID_NestBoogy",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan_H016": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 717,
+    "center_y": 4100,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "LevH_ID_NestBoogy",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan_H017": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 404,
+    "center_y": 3467,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "LevH_ID_NestBoogy",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan_H018": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1662,
+    "center_y": 1921,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "LevH_ID_NestCaimanGiant",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan_H019": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1762,
+    "center_y": 1995,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "LevH_ID_NestCaimanGiant",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan_H020": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3313,
+    "center_y": 1837,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "LevH_ID_NestCaimanGiant",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan_H021": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2669,
+    "center_y": 1807,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "LevH_ID_NestCaimanGiant",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan_H022": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4938,
+    "center_y": 1276,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "LevH_ID_NestAlca",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan_H023": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3333,
+    "center_y": 1322,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "LevH_ID_NestMadSlug",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan_H024": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3389,
+    "center_y": 686,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "LevH_ID_NestMadSlug",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan_H025": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3414,
+    "center_y": 816,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "LevH_ID_NestMadSlug",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan_H026": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3288,
+    "center_y": 808,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "LevH_ID_NestMadSlug",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan_H027": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4727,
+    "center_y": 629,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "LevH_ID_NestCrab",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan_H028": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4292,
+    "center_y": 1326,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "LevH_ID_NestCrab",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan_H029": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4788,
+    "center_y": 719,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "LevH_ID_NestCrab",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan_H030": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5060,
+    "center_y": 990,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "LevH_ID_NestCrab",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan_H031": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5143,
+    "center_y": 1506,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "LevH_ID_NestCrab",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan_H032": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5096,
+    "center_y": 1629,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "LevH_ID_NestCrab",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan_H033": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5146,
+    "center_y": 1097,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "LevH_ID_NestCrab",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan_H034": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4619,
+    "center_y": 1652,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "LevH_ID_NestCrab",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan_H035": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 3012,
+    "center_y": 2696,
+    "width": 0,
+    "height": 0,
+    "range_degree": 500,
+    "mobs": [
+      {
+        "mob": "LevH_ID_NestGuardianEgg",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 175,
+        "reg_min": 185,
+        "reg_max": 0,
+        "deltas": [
+          2,
+          3,
+          4,
+          5,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan_H036": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 3012,
+    "center_y": 2703,
+    "width": 0,
+    "height": 0,
+    "range_degree": 500,
+    "mobs": [
+      {
+        "mob": "LevH_ID_NestGuardEgg",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 175,
+        "reg_min": 185,
+        "reg_max": 0,
+        "deltas": [
+          2,
+          3,
+          4,
+          5,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan_H037": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 3012,
+    "center_y": 2703,
+    "width": 0,
+    "height": 0,
+    "range_degree": 500,
+    "mobs": [
+      {
+        "mob": "LevH_ID_NestBuffEgg",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 175,
+        "reg_min": 185,
+        "reg_max": 0,
+        "deltas": [
+          2,
+          3,
+          4,
+          5,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan_H038": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 409,
+    "center_y": 3815,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "LevH_ID_NestAlca",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan_H039": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 870,
+    "center_y": 3920,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "LevH_ID_NestAlca",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan_H040": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2226,
+    "center_y": 2207,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "LevH_ID_NestAlca",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan_H041": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4706,
+    "center_y": 1171,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "LevH_ID_NestAlca",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan_H042": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2568,
+    "center_y": 1900,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "LevH_ID_NestAlca",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan_H043": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4782,
+    "center_y": 1442,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "LevH_ID_NestAlca",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan_H044": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3937,
+    "center_y": 422,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "LevH_ID_NestAlca",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan_H045": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3427,
+    "center_y": 1883,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "LevH_ID_NestAlca",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan_H046": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3906,
+    "center_y": 3062,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "LevH_ID_NestWeasel",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan_H047": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4852,
+    "center_y": 3980,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "LevH_ID_NestWeasel",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan_H048": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3766,
+    "center_y": 3331,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "LevH_ID_NestWeasel",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan_H049": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4656,
+    "center_y": 3116,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "LevH_ID_NestWeasel",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan_H050": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4097,
+    "center_y": 3476,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "LevH_ID_NestWeasel",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan_H051": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5057,
+    "center_y": 3394,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "LevH_ID_NestWeasel",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan_H052": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4864,
+    "center_y": 3343,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "LevH_ID_NestWeasel",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan_H053": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4562,
+    "center_y": 3742,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "LevH_ID_NestWeasel",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan_H054": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5097,
+    "center_y": 3547,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "LevH_ID_NestWeasel",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan_H055": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4444,
+    "center_y": 5996,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "LevH_ID_NestGagoyle",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan_H056": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4209,
+    "center_y": 5332,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "LevH_ID_NestGagoyle",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan_H057": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5526,
+    "center_y": 5581,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "LevH_ID_NestGagoyle",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan_H058": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5158,
+    "center_y": 4617,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "LevH_ID_NestGagoyle",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan_H059": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5482,
+    "center_y": 5455,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "LevH_ID_NestGagoyle",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan_H060": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4555,
+    "center_y": 6034,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "LevH_ID_NestGagoyle",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan_H061": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4335,
+    "center_y": 5651,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "LevH_ID_NestGagoyle",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan_H062": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5033,
+    "center_y": 4602,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "LevH_ID_NestGagoyle",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan_H063": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3959,
+    "center_y": 2780,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "LevH_ID_NestBaridon",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan_H064": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4452,
+    "center_y": 2756,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "LevH_ID_NestBaridon",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan_H065": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5810,
+    "center_y": 2885,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "LevH_ID_NestBaridon",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan_H066": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4568,
+    "center_y": 2678,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "LevH_ID_NestBaridon",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan_H067": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4330,
+    "center_y": 4990,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "LevH_ID_NestBaridon",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan_H068": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5423,
+    "center_y": 5649,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "LevH_ID_NestBaridon",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan_H069": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5772,
+    "center_y": 2560,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "LevH_ID_NestBaridon",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan_H070": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5735,
+    "center_y": 2783,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "LevH_ID_NestBaridon",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan_H071": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4870,
+    "center_y": 1933,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "LevH_ID_NestCrab",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan_H072": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4817,
+    "center_y": 1829,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "LevH_ID_NestCrab",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Leviathan_H073": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1177,
+    "center_y": 4039,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "LevH_ID_NestAlca",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1800,
+        "reg_min": 1795,
+        "reg_max": 1805,
+        "deltas": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  }
+}

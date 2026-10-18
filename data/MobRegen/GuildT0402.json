@@ -1,0 +1,992 @@
+{
+  "itembox": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2064,
+    "center_y": 9696,
+    "width": 0,
+    "height": 0,
+    "range_degree": 661,
+    "mobs": [
+      {
+        "mob": "GTI_BoxAll",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 20,
+        "reg_max": 20,
+        "deltas": [
+          -3,
+          -2,
+          5,
+          6,
+          0
+        ],
+        "delta_secs": [
+          7,
+          9,
+          15,
+          17
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "itembox2": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3032,
+    "center_y": 10736,
+    "width": 0,
+    "height": 0,
+    "range_degree": 500,
+    "mobs": [
+      {
+        "mob": "GTI_BoxAll",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 20,
+        "reg_max": 20,
+        "deltas": [
+          -3,
+          -2,
+          5,
+          6,
+          0
+        ],
+        "delta_secs": [
+          7,
+          9,
+          15,
+          17
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "itembox3": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6594,
+    "center_y": 10498,
+    "width": 0,
+    "height": 0,
+    "range_degree": 682,
+    "mobs": [
+      {
+        "mob": "GTI_BoxAll",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 20,
+        "reg_max": 20,
+        "deltas": [
+          -3,
+          -2,
+          5,
+          6,
+          0
+        ],
+        "delta_secs": [
+          7,
+          9,
+          15,
+          17
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "itembox4": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9046,
+    "center_y": 10259,
+    "width": 0,
+    "height": 0,
+    "range_degree": 542,
+    "mobs": [
+      {
+        "mob": "GTI_BoxAll",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 20,
+        "reg_max": 20,
+        "deltas": [
+          -3,
+          -2,
+          5,
+          6,
+          0
+        ],
+        "delta_secs": [
+          7,
+          9,
+          15,
+          17
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "itembox5": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10313,
+    "center_y": 9269,
+    "width": 0,
+    "height": 0,
+    "range_degree": 556,
+    "mobs": [
+      {
+        "mob": "GTI_BoxAll",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 20,
+        "reg_max": 20,
+        "deltas": [
+          -3,
+          -2,
+          5,
+          6,
+          0
+        ],
+        "delta_secs": [
+          7,
+          9,
+          15,
+          17
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "itembox6": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4461,
+    "center_y": 8681,
+    "width": 229,
+    "height": 693,
+    "range_degree": 52,
+    "mobs": [
+      {
+        "mob": "GTI_BoxAll",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 20,
+        "reg_max": 20,
+        "deltas": [
+          -3,
+          -2,
+          5,
+          6,
+          0
+        ],
+        "delta_secs": [
+          7,
+          9,
+          15,
+          17
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "itembox7": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6498,
+    "center_y": 8774,
+    "width": 766,
+    "height": 178,
+    "range_degree": 6,
+    "mobs": [
+      {
+        "mob": "GTI_BoxAll",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 20,
+        "reg_max": 20,
+        "deltas": [
+          -3,
+          -2,
+          5,
+          6,
+          0
+        ],
+        "delta_secs": [
+          7,
+          9,
+          15,
+          17
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "itembox8": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8686,
+    "center_y": 8072,
+    "width": 0,
+    "height": 0,
+    "range_degree": 598,
+    "mobs": [
+      {
+        "mob": "GTI_BoxAll",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 20,
+        "reg_max": 20,
+        "deltas": [
+          -3,
+          -2,
+          5,
+          6,
+          0
+        ],
+        "delta_secs": [
+          7,
+          9,
+          15,
+          17
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "itembox9": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2217,
+    "center_y": 6579,
+    "width": 514,
+    "height": 766,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "GTI_BoxAll",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 20,
+        "reg_max": 20,
+        "deltas": [
+          -3,
+          -2,
+          5,
+          6,
+          0
+        ],
+        "delta_secs": [
+          7,
+          9,
+          15,
+          17
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "itembox10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5613,
+    "center_y": 6454,
+    "width": 0,
+    "height": 0,
+    "range_degree": 640,
+    "mobs": [
+      {
+        "mob": "GTI_BoxAll",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 20,
+        "reg_max": 20,
+        "deltas": [
+          -3,
+          -2,
+          5,
+          6,
+          0
+        ],
+        "delta_secs": [
+          7,
+          9,
+          15,
+          17
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "itembox11": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7275,
+    "center_y": 6290,
+    "width": 0,
+    "height": 0,
+    "range_degree": 577,
+    "mobs": [
+      {
+        "mob": "GTI_BoxAll",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 20,
+        "reg_max": 20,
+        "deltas": [
+          -3,
+          -2,
+          5,
+          6,
+          0
+        ],
+        "delta_secs": [
+          7,
+          9,
+          15,
+          17
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "itembox12": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10383,
+    "center_y": 6234,
+    "width": 790,
+    "height": 429,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "GTI_BoxAll",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 20,
+        "reg_max": 20,
+        "deltas": [
+          -3,
+          -2,
+          5,
+          6,
+          0
+        ],
+        "delta_secs": [
+          7,
+          9,
+          15,
+          17
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "itembox13": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4375,
+    "center_y": 4546,
+    "width": 500,
+    "height": 164,
+    "range_degree": 48,
+    "mobs": [
+      {
+        "mob": "GTI_BoxAll",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 20,
+        "reg_max": 20,
+        "deltas": [
+          -3,
+          -2,
+          5,
+          6,
+          0
+        ],
+        "delta_secs": [
+          7,
+          9,
+          15,
+          17
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "itembox14": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6709,
+    "center_y": 3920,
+    "width": 557,
+    "height": 135,
+    "range_degree": 14,
+    "mobs": [
+      {
+        "mob": "GTI_BoxAll",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 20,
+        "reg_max": 20,
+        "deltas": [
+          -3,
+          -2,
+          5,
+          6,
+          0
+        ],
+        "delta_secs": [
+          7,
+          9,
+          15,
+          17
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "itembox15": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9414,
+    "center_y": 4355,
+    "width": 137,
+    "height": 491,
+    "range_degree": 35,
+    "mobs": [
+      {
+        "mob": "GTI_BoxAll",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 20,
+        "reg_max": 20,
+        "deltas": [
+          -3,
+          -2,
+          5,
+          6,
+          0
+        ],
+        "delta_secs": [
+          7,
+          9,
+          15,
+          17
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "itembox16": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11147,
+    "center_y": 3034,
+    "width": 84,
+    "height": 831,
+    "range_degree": 20,
+    "mobs": [
+      {
+        "mob": "GTI_BoxAll",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 20,
+        "reg_max": 20,
+        "deltas": [
+          -3,
+          -2,
+          5,
+          6,
+          0
+        ],
+        "delta_secs": [
+          7,
+          9,
+          15,
+          17
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "itembox17": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2423,
+    "center_y": 3540,
+    "width": 0,
+    "height": 0,
+    "range_degree": 584,
+    "mobs": [
+      {
+        "mob": "GTI_BoxAll",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 20,
+        "reg_max": 20,
+        "deltas": [
+          -3,
+          -2,
+          5,
+          6,
+          0
+        ],
+        "delta_secs": [
+          7,
+          9,
+          15,
+          17
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "itembox18": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3202,
+    "center_y": 2497,
+    "width": 0,
+    "height": 0,
+    "range_degree": 359,
+    "mobs": [
+      {
+        "mob": "GTI_BoxAll",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 20,
+        "reg_max": 20,
+        "deltas": [
+          -3,
+          -2,
+          5,
+          6,
+          0
+        ],
+        "delta_secs": [
+          7,
+          9,
+          15,
+          17
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "itembox19": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6232,
+    "center_y": 1709,
+    "width": 661,
+    "height": 293,
+    "range_degree": -2,
+    "mobs": [
+      {
+        "mob": "GTI_BoxAll",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 20,
+        "reg_max": 20,
+        "deltas": [
+          -3,
+          -2,
+          5,
+          6,
+          0
+        ],
+        "delta_secs": [
+          7,
+          9,
+          15,
+          17
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "itembox20": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9413,
+    "center_y": 1982,
+    "width": 0,
+    "height": 0,
+    "range_degree": 478,
+    "mobs": [
+      {
+        "mob": "GTI_BoxAll",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 20,
+        "reg_max": 20,
+        "deltas": [
+          -3,
+          -2,
+          5,
+          6,
+          0
+        ],
+        "delta_secs": [
+          7,
+          9,
+          15,
+          17
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "lose_Itembox_a1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1388,
+    "center_y": 1853,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "GTI_BoxTeamA",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 20,
+        "reg_max": 20,
+        "deltas": [
+          -3,
+          -2,
+          5,
+          6,
+          0
+        ],
+        "delta_secs": [
+          7,
+          9,
+          15,
+          17
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "lose_Itembox_a2": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1388,
+    "center_y": 1699,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "GTI_BoxTeamA",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 20,
+        "reg_max": 20,
+        "deltas": [
+          -3,
+          -2,
+          5,
+          6,
+          0
+        ],
+        "delta_secs": [
+          7,
+          9,
+          15,
+          17
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "lose_Itembox_a3": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1389,
+    "center_y": 1544,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "GTI_BoxTeamA",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 20,
+        "reg_max": 20,
+        "deltas": [
+          -3,
+          -2,
+          5,
+          6,
+          0
+        ],
+        "delta_secs": [
+          7,
+          9,
+          15,
+          17
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "lose_Itembox_a4": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1397,
+    "center_y": 1389,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "GTI_BoxTeamA",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 30,
+        "reg_max": 30,
+        "deltas": [
+          -3,
+          -2,
+          5,
+          6,
+          0
+        ],
+        "delta_secs": [
+          7,
+          9,
+          15,
+          17
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "lose_Itembox_a5": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1399,
+    "center_y": 1232,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "GTI_BoxTeamA",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 30,
+        "reg_max": 30,
+        "deltas": [
+          -3,
+          -2,
+          5,
+          6,
+          0
+        ],
+        "delta_secs": [
+          7,
+          9,
+          15,
+          17
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "lose_Itembox_b1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10974,
+    "center_y": 11555,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "GTI_BoxTeamB",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 30,
+        "reg_max": 30,
+        "deltas": [
+          -3,
+          -2,
+          5,
+          6,
+          0
+        ],
+        "delta_secs": [
+          7,
+          9,
+          15,
+          17
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "lose_Itembox_b2": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11059,
+    "center_y": 11433,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "GTI_BoxTeamB",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 30,
+        "reg_max": 30,
+        "deltas": [
+          -3,
+          -2,
+          5,
+          6,
+          0
+        ],
+        "delta_secs": [
+          7,
+          9,
+          15,
+          17
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "lose_Itembox_b3": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11147,
+    "center_y": 11312,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "GTI_BoxTeamB",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 30,
+        "reg_max": 30,
+        "deltas": [
+          -3,
+          -2,
+          5,
+          6,
+          0
+        ],
+        "delta_secs": [
+          7,
+          9,
+          15,
+          17
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "lose_Itembox_b4": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11227,
+    "center_y": 11185,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "GTI_BoxTeamB",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 30,
+        "reg_max": 30,
+        "deltas": [
+          -3,
+          -2,
+          5,
+          6,
+          0
+        ],
+        "delta_secs": [
+          7,
+          9,
+          15,
+          17
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "lose_Itembox_b5": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11313,
+    "center_y": 11053,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "GTI_BoxTeamB",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 30,
+        "reg_max": 30,
+        "deltas": [
+          -3,
+          -2,
+          5,
+          6,
+          0
+        ],
+        "delta_secs": [
+          7,
+          9,
+          15,
+          17
+        ],
+        "enabled": true
+      }
+    ]
+  }
+}

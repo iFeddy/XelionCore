@@ -1,0 +1,860 @@
+{
+  "Rou01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3250,
+    "center_y": 7138,
+    "width": 369,
+    "height": 264,
+    "range_degree": 49,
+    "mobs": [
+      {
+        "mob": "Slime",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rou02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3106,
+    "center_y": 8171,
+    "width": 0,
+    "height": 0,
+    "range_degree": 507,
+    "mobs": [
+      {
+        "mob": "Slime",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rou03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3780,
+    "center_y": 8725,
+    "width": 453,
+    "height": 289,
+    "range_degree": -38,
+    "mobs": [
+      {
+        "mob": "Slime",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rou04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4602,
+    "center_y": 9407,
+    "width": 0,
+    "height": 0,
+    "range_degree": 548,
+    "mobs": [
+      {
+        "mob": "Slime",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MushRoom",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rou05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5788,
+    "center_y": 9613,
+    "width": 587,
+    "height": 325,
+    "range_degree": -13,
+    "mobs": [
+      {
+        "mob": "Slime",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MushRoom",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rou06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6949,
+    "center_y": 9762,
+    "width": 583,
+    "height": 319,
+    "range_degree": 4,
+    "mobs": [
+      {
+        "mob": "Slime",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MushRoom",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rou07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7998,
+    "center_y": 9636,
+    "width": 512,
+    "height": 320,
+    "range_degree": 4,
+    "mobs": [
+      {
+        "mob": "Slime",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MushRoom",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rou08": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9228,
+    "center_y": 9392,
+    "width": 0,
+    "height": 0,
+    "range_degree": 675,
+    "mobs": [
+      {
+        "mob": "Slime",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MushRoom",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouP01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6725,
+    "center_y": 9968,
+    "width": 287,
+    "height": 50,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "FLOWER1",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RouP02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6728,
+    "center_y": 9505,
+    "width": 278,
+    "height": 52,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "FLOWER1",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rou09": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3544,
+    "center_y": 9723,
+    "width": 556,
+    "height": 146,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Slime",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MushRoom",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EventSnow01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5058,
+    "center_y": 4170,
+    "width": 0,
+    "height": 0,
+    "range_degree": 86,
+    "mobs": [
+      {
+        "mob": "BH_SnowBall",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 10,
+        "reg_min": 5,
+        "reg_max": 15,
+        "deltas": [
+          -3,
+          -2,
+          5,
+          6,
+          0
+        ],
+        "delta_secs": [
+          7,
+          9,
+          15,
+          17
+        ],
+        "enabled": false
+      }
+    ]
+  },
+  "EventSnow02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5406,
+    "center_y": 4031,
+    "width": 0,
+    "height": 0,
+    "range_degree": 93,
+    "mobs": [
+      {
+        "mob": "BH_SnowBall",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 10,
+        "reg_min": 5,
+        "reg_max": 15,
+        "deltas": [
+          -3,
+          -2,
+          5,
+          6,
+          0
+        ],
+        "delta_secs": [
+          7,
+          9,
+          15,
+          17
+        ],
+        "enabled": false
+      }
+    ]
+  },
+  "EventSnow03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5924,
+    "center_y": 3897,
+    "width": 0,
+    "height": 0,
+    "range_degree": 93,
+    "mobs": [
+      {
+        "mob": "BH_SnowBall",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 10,
+        "reg_min": 5,
+        "reg_max": 15,
+        "deltas": [
+          -3,
+          -2,
+          5,
+          6,
+          0
+        ],
+        "delta_secs": [
+          7,
+          9,
+          15,
+          17
+        ],
+        "enabled": false
+      }
+    ]
+  },
+  "EventSnow04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6426,
+    "center_y": 3942,
+    "width": 0,
+    "height": 0,
+    "range_degree": 93,
+    "mobs": [
+      {
+        "mob": "BH_SnowBall",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 10,
+        "reg_min": 5,
+        "reg_max": 15,
+        "deltas": [
+          -3,
+          -2,
+          5,
+          6,
+          0
+        ],
+        "delta_secs": [
+          7,
+          9,
+          15,
+          17
+        ],
+        "enabled": false
+      }
+    ]
+  },
+  "EventSnow05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7122,
+    "center_y": 4252,
+    "width": 0,
+    "height": 0,
+    "range_degree": 100,
+    "mobs": [
+      {
+        "mob": "BH_SnowBall",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 10,
+        "reg_min": 5,
+        "reg_max": 15,
+        "deltas": [
+          -3,
+          -2,
+          5,
+          6,
+          0
+        ],
+        "delta_secs": [
+          7,
+          9,
+          15,
+          17
+        ],
+        "enabled": false
+      }
+    ]
+  },
+  "EventSnow06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7606,
+    "center_y": 4418,
+    "width": 0,
+    "height": 0,
+    "range_degree": 114,
+    "mobs": [
+      {
+        "mob": "BH_SnowBall",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 10,
+        "reg_min": 5,
+        "reg_max": 15,
+        "deltas": [
+          -3,
+          -2,
+          5,
+          6,
+          0
+        ],
+        "delta_secs": [
+          7,
+          9,
+          15,
+          17
+        ],
+        "enabled": false
+      }
+    ]
+  },
+  "EventSnow07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8179,
+    "center_y": 4882,
+    "width": 0,
+    "height": 0,
+    "range_degree": 107,
+    "mobs": [
+      {
+        "mob": "BH_SnowBall",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 10,
+        "reg_min": 5,
+        "reg_max": 15,
+        "deltas": [
+          -3,
+          -2,
+          5,
+          6,
+          0
+        ],
+        "delta_secs": [
+          7,
+          9,
+          15,
+          17
+        ],
+        "enabled": false
+      }
+    ]
+  },
+  "EventSnow08": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8761,
+    "center_y": 5045,
+    "width": 0,
+    "height": 0,
+    "range_degree": 107,
+    "mobs": [
+      {
+        "mob": "BH_SnowBall",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 10,
+        "reg_min": 5,
+        "reg_max": 15,
+        "deltas": [
+          -3,
+          -2,
+          5,
+          6,
+          0
+        ],
+        "delta_secs": [
+          7,
+          9,
+          15,
+          17
+        ],
+        "enabled": false
+      }
+    ]
+  },
+  "EventSnow09": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9276,
+    "center_y": 5177,
+    "width": 0,
+    "height": 0,
+    "range_degree": 93,
+    "mobs": [
+      {
+        "mob": "BH_SnowBall",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 10,
+        "reg_min": 5,
+        "reg_max": 15,
+        "deltas": [
+          -3,
+          -2,
+          5,
+          6,
+          0
+        ],
+        "delta_secs": [
+          7,
+          9,
+          15,
+          17
+        ],
+        "enabled": false
+      }
+    ]
+  },
+  "EventSnow10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10309,
+    "center_y": 5340,
+    "width": 0,
+    "height": 0,
+    "range_degree": 100,
+    "mobs": [
+      {
+        "mob": "BH_SnowBall",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 10,
+        "reg_min": 5,
+        "reg_max": 15,
+        "deltas": [
+          -3,
+          -2,
+          5,
+          6,
+          0
+        ],
+        "delta_secs": [
+          7,
+          9,
+          15,
+          17
+        ],
+        "enabled": false
+      }
+    ]
+  },
+  "EventSnow11": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9993,
+    "center_y": 5485,
+    "width": 0,
+    "height": 0,
+    "range_degree": 100,
+    "mobs": [
+      {
+        "mob": "BH_SnowBall",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 10,
+        "reg_min": 5,
+        "reg_max": 15,
+        "deltas": [
+          -3,
+          -2,
+          5,
+          6,
+          0
+        ],
+        "delta_secs": [
+          7,
+          9,
+          15,
+          17
+        ],
+        "enabled": false
+      }
+    ]
+  }
+}

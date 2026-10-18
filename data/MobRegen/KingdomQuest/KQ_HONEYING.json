@@ -1,0 +1,1784 @@
+{
+  "HONY_F1_AREA01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4371,
+    "center_y": 8815,
+    "width": 206,
+    "height": 526,
+    "range_degree": -44,
+    "mobs": [
+      {
+        "mob": "KQ_H_Kebing",
+        "count": 8,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "HONY_F1_AREA02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3880,
+    "center_y": 9084,
+    "width": 916,
+    "height": 181,
+    "range_degree": 47,
+    "mobs": [
+      {
+        "mob": "KQ_H_Mushroom",
+        "count": 7,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "HONY_F1_AREA03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5024,
+    "center_y": 8965,
+    "width": 1183,
+    "height": 78,
+    "range_degree": -3,
+    "mobs": [
+      {
+        "mob": "KQ_H_Boogy",
+        "count": 8,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "HONY_F1_AREA04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5428,
+    "center_y": 9100,
+    "width": 818,
+    "height": 90,
+    "range_degree": -8,
+    "mobs": [
+      {
+        "mob": "KQ_H_Mushroom",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "HONY_F1_AREA05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7612,
+    "center_y": 9179,
+    "width": 0,
+    "height": 0,
+    "range_degree": 267,
+    "mobs": [
+      {
+        "mob": "KQ_H_Boogy",
+        "count": 7,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "HONY_F1_AREA07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8098,
+    "center_y": 9118,
+    "width": 490,
+    "height": 199,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "KQ_H_Kebing",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "HONY_F1_AREA08": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8415,
+    "center_y": 8993,
+    "width": 594,
+    "height": 105,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "KQ_H_Mushroom",
+        "count": 8,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "HONY_F1_AREA10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8415,
+    "center_y": 8925,
+    "width": 598,
+    "height": 108,
+    "range_degree": 10,
+    "mobs": [
+      {
+        "mob": "KQ_H_Fox",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "HONY_F1_AREA11": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10231,
+    "center_y": 6993,
+    "width": 0,
+    "height": 0,
+    "range_degree": 408,
+    "mobs": [
+      {
+        "mob": "KQ_H_Boogy",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "HONY_F1_AREA12": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10093,
+    "center_y": 7582,
+    "width": 0,
+    "height": 0,
+    "range_degree": 372,
+    "mobs": [
+      {
+        "mob": "KQ_H_Fox",
+        "count": 7,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "HONY_F1_AREA13": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10028,
+    "center_y": 7541,
+    "width": 100,
+    "height": 617,
+    "range_degree": -16,
+    "mobs": [
+      {
+        "mob": "KQ_H_Boogy",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "HONY_F1_AREA14": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10287,
+    "center_y": 6903,
+    "width": 178,
+    "height": 1032,
+    "range_degree": -10,
+    "mobs": [
+      {
+        "mob": "KQ_H_Ratman",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "HONY_F1_AREA15": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10388,
+    "center_y": 6311,
+    "width": 0,
+    "height": 0,
+    "range_degree": 380,
+    "mobs": [
+      {
+        "mob": "KQ_H_Fox",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "HONY_F1_AREA17": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10470,
+    "center_y": 6135,
+    "width": 182,
+    "height": 524,
+    "range_degree": -7,
+    "mobs": [
+      {
+        "mob": "KQ_H_Ratman",
+        "count": 7,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "HONY_F2_AREA01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8657,
+    "center_y": 7558,
+    "width": 177,
+    "height": 548,
+    "range_degree": -38,
+    "mobs": [
+      {
+        "mob": "KQ_H_Boogy",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "HONY_F2_AREA02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8863,
+    "center_y": 6603,
+    "width": 110,
+    "height": 777,
+    "range_degree": -2,
+    "mobs": [
+      {
+        "mob": "KQ_H_Mushroom",
+        "count": 7,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "HONY_F2_AREA03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8926,
+    "center_y": 6983,
+    "width": 577,
+    "height": 154,
+    "range_degree": 74,
+    "mobs": [
+      {
+        "mob": "KQ_H_Ratman",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "HONY_F2_AREA04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8697,
+    "center_y": 7520,
+    "width": 0,
+    "height": 0,
+    "range_degree": 232,
+    "mobs": [
+      {
+        "mob": "KQ_H_Fox",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "HONY_F2_AREA05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8954,
+    "center_y": 6637,
+    "width": 0,
+    "height": 0,
+    "range_degree": 281,
+    "mobs": [
+      {
+        "mob": "KQ_H_BoneImp",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "HONY_F2_AREA06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6722,
+    "center_y": 8271,
+    "width": 420,
+    "height": 104,
+    "range_degree": -4,
+    "mobs": [
+      {
+        "mob": "KQ_H_Mushroom",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "HONY_F2_AREA07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6212,
+    "center_y": 8252,
+    "width": 647,
+    "height": 56,
+    "range_degree": -11,
+    "mobs": [
+      {
+        "mob": "KQ_H_Boogy",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "HONY_F2_AREA08": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5763,
+    "center_y": 8124,
+    "width": 476,
+    "height": 101,
+    "range_degree": -19,
+    "mobs": [
+      {
+        "mob": "KQ_H_Ratman",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "HONY_F2_AREA09": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5984,
+    "center_y": 8162,
+    "width": 66,
+    "height": 619,
+    "range_degree": 75,
+    "mobs": [
+      {
+        "mob": "KQ_H_BoneImp",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "HONY_F2_AREA10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5419,
+    "center_y": 7934,
+    "width": 325,
+    "height": 70,
+    "range_degree": -32,
+    "mobs": [
+      {
+        "mob": "KQ_H_Prock",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "HONY_F2_AREA11": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4635,
+    "center_y": 6242,
+    "width": 113,
+    "height": 862,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "KQ_H_Boogy",
+        "count": 8,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "HONY_F2_AREA12": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4635,
+    "center_y": 5752,
+    "width": 114,
+    "height": 949,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "KQ_H_Ratman",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "HONY_F2_AREA13": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4635,
+    "center_y": 5960,
+    "width": 156,
+    "height": 838,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "KQ_H_Fox",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "HONY_F2_AREA14": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4642,
+    "center_y": 5943,
+    "width": 133,
+    "height": 860,
+    "range_degree": -1,
+    "mobs": [
+      {
+        "mob": "KQ_H_BoneImp",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "HONY_F2_AREA15": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6325,
+    "center_y": 3851,
+    "width": 916,
+    "height": 102,
+    "range_degree": 5,
+    "mobs": [
+      {
+        "mob": "KQ_H_Fox",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "HONY_F2_AREA16": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5377,
+    "center_y": 4107,
+    "width": 0,
+    "height": 0,
+    "range_degree": 337,
+    "mobs": [
+      {
+        "mob": "KQ_H_BoneImp",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "HONY_F2_AREA17": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6040,
+    "center_y": 3885,
+    "width": 293,
+    "height": 143,
+    "range_degree": 7,
+    "mobs": [
+      {
+        "mob": "KQ_H_Ratman",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "HONY_F2_AREA18": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6649,
+    "center_y": 3721,
+    "width": 0,
+    "height": 0,
+    "range_degree": 190,
+    "mobs": [
+      {
+        "mob": "KQ_H_Prock",
+        "count": 8,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "HONY_F2_AREA19": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6007,
+    "center_y": 3869,
+    "width": 0,
+    "height": 0,
+    "range_degree": 331,
+    "mobs": [
+      {
+        "mob": "KQ_H_Bat",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "HONY_F3_AREA01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7185,
+    "center_y": 4757,
+    "width": 0,
+    "height": 0,
+    "range_degree": 183,
+    "mobs": [
+      {
+        "mob": "KQ_H_Prock",
+        "count": 7,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "HONY_F3_AREA02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7476,
+    "center_y": 4845,
+    "width": 0,
+    "height": 0,
+    "range_degree": 148,
+    "mobs": [
+      {
+        "mob": "KQ_H_BoneImp",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "HONY_F3_AREA03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7768,
+    "center_y": 5025,
+    "width": 0,
+    "height": 0,
+    "range_degree": 169,
+    "mobs": [
+      {
+        "mob": "KQ_H_Prock",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "HONY_F3_AREA04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7978,
+    "center_y": 5287,
+    "width": 0,
+    "height": 0,
+    "range_degree": 190,
+    "mobs": [
+      {
+        "mob": "KQ_H_Bat",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "HONY_F3_AREA05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8088,
+    "center_y": 6490,
+    "width": 0,
+    "height": 0,
+    "range_degree": 204,
+    "mobs": [
+      {
+        "mob": "KQ_H_Fox",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "HONY_F3_AREA06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7901,
+    "center_y": 6844,
+    "width": 0,
+    "height": 0,
+    "range_degree": 176,
+    "mobs": [
+      {
+        "mob": "KQ_H_BoneImp",
+        "count": 8,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "HONY_F3_AREA07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7723,
+    "center_y": 7208,
+    "width": 0,
+    "height": 0,
+    "range_degree": 183,
+    "mobs": [
+      {
+        "mob": "KQ_H_Prock",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "HONY_F3_AREA08": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7308,
+    "center_y": 7376,
+    "width": 0,
+    "height": 0,
+    "range_degree": 204,
+    "mobs": [
+      {
+        "mob": "KQ_H_Bat",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "HONY_F3_AREA09": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7604,
+    "center_y": 7109,
+    "width": 404,
+    "height": 100,
+    "range_degree": 42,
+    "mobs": [
+      {
+        "mob": "KQ_H_Wolf",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "HONY_F3_AREA10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5984,
+    "center_y": 7274,
+    "width": 410,
+    "height": 76,
+    "range_degree": -20,
+    "mobs": [
+      {
+        "mob": "KQ_H_Wolf",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "HONY_F3_AREA11": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5879,
+    "center_y": 7267,
+    "width": 291,
+    "height": 82,
+    "range_degree": -41,
+    "mobs": [
+      {
+        "mob": "KQ_H_Ratman",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "HONY_F3_AREA12": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5892,
+    "center_y": 7283,
+    "width": 0,
+    "height": 0,
+    "range_degree": 212,
+    "mobs": [
+      {
+        "mob": "KQ_H_Fox",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "HONY_F3_AREA13": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5623,
+    "center_y": 7081,
+    "width": 117,
+    "height": 56,
+    "range_degree": -27,
+    "mobs": [
+      {
+        "mob": "KQ_H_BoneImp",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "HONY_F3_AREA14": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5641,
+    "center_y": 6847,
+    "width": 93,
+    "height": 367,
+    "range_degree": 28,
+    "mobs": [
+      {
+        "mob": "KQ_H_Prock",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "HONY_F3_AREA15": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5504,
+    "center_y": 6815,
+    "width": 0,
+    "height": 0,
+    "range_degree": 240,
+    "mobs": [
+      {
+        "mob": "KQ_H_Bat",
+        "count": 7,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "HONY_F3_AREA16": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5245,
+    "center_y": 6442,
+    "width": 0,
+    "height": 0,
+    "range_degree": 113,
+    "mobs": [
+      {
+        "mob": "KQ_H_Wolf",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "HONY_F4_AREA01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6502,
+    "center_y": 6468,
+    "width": 0,
+    "height": 0,
+    "range_degree": 128,
+    "mobs": [
+      {
+        "mob": "KQ_H_Honeying",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "HONY_F4_AREA02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6452,
+    "center_y": 5682,
+    "width": 0,
+    "height": 0,
+    "range_degree": 114,
+    "mobs": [
+      {
+        "mob": "KQ_H_Honeying",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "HONY_F4_AREA03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6920,
+    "center_y": 6519,
+    "width": 0,
+    "height": 0,
+    "range_degree": 128,
+    "mobs": [
+      {
+        "mob": "KQ_H_Honeying",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "HONY_F4_AREA04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6796,
+    "center_y": 5638,
+    "width": 0,
+    "height": 0,
+    "range_degree": 163,
+    "mobs": [
+      {
+        "mob": "KQ_H_Honeying",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "HONY_F4_BOSS": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7207,
+    "center_y": 6087,
+    "width": 0,
+    "height": 0,
+    "range_degree": 100,
+    "mobs": [
+      {
+        "mob": "KQ_H_GHoneying",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  }
+}

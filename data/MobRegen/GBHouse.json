@@ -1,0 +1,332 @@
+{
+  "GB_Waitress01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2399,
+    "center_y": 2298,
+    "width": 0,
+    "height": 0,
+    "range_degree": 10,
+    "mobs": [
+      {
+        "mob": "GB_Waitress",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 15,
+        "reg_min": 11,
+        "reg_max": 20,
+        "deltas": [
+          -6,
+          -3,
+          6,
+          8,
+          0
+        ],
+        "delta_secs": [
+          11,
+          14,
+          17,
+          20
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "GB_Waitress02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1592,
+    "center_y": 522,
+    "width": 0,
+    "height": 0,
+    "range_degree": 10,
+    "mobs": [
+      {
+        "mob": "GB_Waitress",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 15,
+        "reg_min": 11,
+        "reg_max": 20,
+        "deltas": [
+          -6,
+          -3,
+          6,
+          8,
+          0
+        ],
+        "delta_secs": [
+          11,
+          14,
+          17,
+          20
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "GB_Waitress03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2257,
+    "center_y": 2257,
+    "width": 0,
+    "height": 0,
+    "range_degree": 10,
+    "mobs": [
+      {
+        "mob": "GB_Waitress",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 15,
+        "reg_min": 11,
+        "reg_max": 20,
+        "deltas": [
+          -6,
+          -3,
+          6,
+          8,
+          0
+        ],
+        "delta_secs": [
+          11,
+          14,
+          17,
+          20
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "GB_Waitress04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1769,
+    "center_y": 1435,
+    "width": 0,
+    "height": 0,
+    "range_degree": 10,
+    "mobs": [
+      {
+        "mob": "GB_Waitress",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 15,
+        "reg_min": 11,
+        "reg_max": 20,
+        "deltas": [
+          -6,
+          -3,
+          6,
+          8,
+          0
+        ],
+        "delta_secs": [
+          11,
+          14,
+          17,
+          20
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "GB_Waitress05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 966,
+    "center_y": 968,
+    "width": 0,
+    "height": 0,
+    "range_degree": 10,
+    "mobs": [
+      {
+        "mob": "GB_Waitress",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 15,
+        "reg_min": 11,
+        "reg_max": 20,
+        "deltas": [
+          -6,
+          -3,
+          6,
+          8,
+          0
+        ],
+        "delta_secs": [
+          11,
+          14,
+          17,
+          20
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "GB_Waitress06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1435,
+    "center_y": 1751,
+    "width": 0,
+    "height": 0,
+    "range_degree": 10,
+    "mobs": [
+      {
+        "mob": "GB_Waitress",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 15,
+        "reg_min": 11,
+        "reg_max": 20,
+        "deltas": [
+          -6,
+          -3,
+          6,
+          8,
+          0
+        ],
+        "delta_secs": [
+          11,
+          14,
+          17,
+          20
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "GB_Waitress07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1644,
+    "center_y": 2239,
+    "width": 0,
+    "height": 0,
+    "range_degree": 10,
+    "mobs": [
+      {
+        "mob": "GB_Waitress",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 15,
+        "reg_min": 11,
+        "reg_max": 20,
+        "deltas": [
+          -6,
+          -3,
+          6,
+          8,
+          0
+        ],
+        "delta_secs": [
+          11,
+          14,
+          17,
+          20
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "GB_Waitress08": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2330,
+    "center_y": 1752,
+    "width": 0,
+    "height": 0,
+    "range_degree": 10,
+    "mobs": [
+      {
+        "mob": "GB_Waitress",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 15,
+        "reg_min": 11,
+        "reg_max": 20,
+        "deltas": [
+          -6,
+          -3,
+          6,
+          8,
+          0
+        ],
+        "delta_secs": [
+          11,
+          14,
+          17,
+          20
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "GB_Waitress09": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1797,
+    "center_y": 858,
+    "width": 0,
+    "height": 0,
+    "range_degree": 10,
+    "mobs": [
+      {
+        "mob": "GB_Waitress",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 15,
+        "reg_min": 11,
+        "reg_max": 20,
+        "deltas": [
+          -6,
+          -3,
+          6,
+          8,
+          0
+        ],
+        "delta_secs": [
+          11,
+          14,
+          17,
+          20
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "GB_Waitress10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 862,
+    "center_y": 1447,
+    "width": 0,
+    "height": 0,
+    "range_degree": 10,
+    "mobs": [
+      {
+        "mob": "GB_Waitress",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 15,
+        "reg_min": 11,
+        "reg_max": 20,
+        "deltas": [
+          -6,
+          -3,
+          6,
+          8,
+          0
+        ],
+        "delta_secs": [
+          11,
+          14,
+          17,
+          20
+        ],
+        "enabled": true
+      }
+    ]
+  }
+}

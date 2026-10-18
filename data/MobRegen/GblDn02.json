@@ -1,0 +1,1234 @@
+{
+  "1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5087,
+    "center_y": 3773,
+    "width": 0,
+    "height": 0,
+    "range_degree": 752,
+    "mobs": [
+      {
+        "mob": "P_Goblin1",
+        "count": 10,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "2": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5084,
+    "center_y": 1282,
+    "width": 925,
+    "height": 529,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "P_Goblin3",
+        "count": 10,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Goblin4",
+        "count": 17,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Goblinmage1",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "3": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8994,
+    "center_y": 5067,
+    "width": 540,
+    "height": 914,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "P_Goblin4",
+        "count": 17,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Goblin3",
+        "count": 10,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Goblinmage1",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "4": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1177,
+    "center_y": 5086,
+    "width": 502,
+    "height": 980,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "P_Goblin4",
+        "count": 17,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Goblin3",
+        "count": 10,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Goblinmage1",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "5": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5052,
+    "center_y": 8961,
+    "width": 965,
+    "height": 510,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "P_Goblin4",
+        "count": 17,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Goblin3",
+        "count": 10,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Goblinmage1",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "6": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 5410,
+    "center_y": 7462,
+    "width": 0,
+    "height": 0,
+    "range_degree": 163,
+    "mobs": [
+      {
+        "mob": "P_Goblin4",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "7": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 4784,
+    "center_y": 7453,
+    "width": 0,
+    "height": 0,
+    "range_degree": 163,
+    "mobs": [
+      {
+        "mob": "P_Goblin4",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "8": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5100,
+    "center_y": 7425,
+    "width": 0,
+    "height": 0,
+    "range_degree": 422,
+    "mobs": [
+      {
+        "mob": "P_Goblin3",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "9": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8479,
+    "center_y": 7343,
+    "width": 0,
+    "height": 0,
+    "range_degree": 612,
+    "mobs": [
+      {
+        "mob": "P_Goblin3",
+        "count": 13,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Goblin2",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8469,
+    "center_y": 2816,
+    "width": 0,
+    "height": 0,
+    "range_degree": 647,
+    "mobs": [
+      {
+        "mob": "P_Goblin3",
+        "count": 8,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Goblin2",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "11": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1713,
+    "center_y": 7351,
+    "width": 0,
+    "height": 0,
+    "range_degree": 633,
+    "mobs": [
+      {
+        "mob": "P_Goblin3",
+        "count": 10,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Goblin2",
+        "count": 8,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "12": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1688,
+    "center_y": 2834,
+    "width": 0,
+    "height": 0,
+    "range_degree": 626,
+    "mobs": [
+      {
+        "mob": "P_Goblin3",
+        "count": 10,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Goblin2",
+        "count": 10,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "13": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3261,
+    "center_y": 5083,
+    "width": 162,
+    "height": 1907,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "P_Goblinmage1",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Goblin2",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Goblin1",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "14": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6882,
+    "center_y": 5113,
+    "width": 195,
+    "height": 1906,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "P_Goblin1",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Goblin2",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Goblinmage1",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "15": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7329,
+    "center_y": 8942,
+    "width": 1123,
+    "height": 154,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "P_Goblin3",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "16": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2918,
+    "center_y": 8952,
+    "width": 978,
+    "height": 169,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "P_Goblin3",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "C_1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5013,
+    "center_y": 5100,
+    "width": 4232,
+    "height": 186,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "P_Fighter3F",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Cleric3F",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Archer3M",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "C_2": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5145,
+    "center_y": 8982,
+    "width": 0,
+    "height": 0,
+    "range_degree": 372,
+    "mobs": [
+      {
+        "mob": "P_Cleric3F",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "C_3": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5098,
+    "center_y": 3025,
+    "width": 130,
+    "height": 930,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "P_Archer3M",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Fighter3F",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "C_4": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5107,
+    "center_y": 1257,
+    "width": 0,
+    "height": 0,
+    "range_degree": 535,
+    "mobs": [
+      {
+        "mob": "P_Mage3F",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "C_5": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1123,
+    "center_y": 5100,
+    "width": 0,
+    "height": 0,
+    "range_degree": 471,
+    "mobs": [
+      {
+        "mob": "P_Archer3M",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "C_6": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9092,
+    "center_y": 5083,
+    "width": 0,
+    "height": 0,
+    "range_degree": 500,
+    "mobs": [
+      {
+        "mob": "P_Fighter3F",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "C_7": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6927,
+    "center_y": 5093,
+    "width": 132,
+    "height": 2264,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "P_Fighter3F",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "C_8": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3245,
+    "center_y": 5050,
+    "width": 139,
+    "height": 2209,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "P_Cleric3F",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Mage3F",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  }
+}

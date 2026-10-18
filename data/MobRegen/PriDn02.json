@@ -1,0 +1,1762 @@
+{
+  "1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4161,
+    "center_y": 2552,
+    "width": 199,
+    "height": 1208,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "P_KaraSolider1",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "2": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4189,
+    "center_y": 655,
+    "width": 687,
+    "height": 512,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "P_KaraSolider1",
+        "count": 10,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_LightingViVi",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_KaraSolider2",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "3": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6167,
+    "center_y": 2569,
+    "width": 217,
+    "height": 1167,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "P_KaraSolider2",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "4": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6195,
+    "center_y": 638,
+    "width": 711,
+    "height": 507,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "P_LightingViVi",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_KaraSolider1",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_KaraSolider2",
+        "count": 15,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "5": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5139,
+    "center_y": 3290,
+    "width": 1784,
+    "height": 947,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "P_LightingViVi",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_KaraSolider1",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "6": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4184,
+    "center_y": 7485,
+    "width": 232,
+    "height": 1173,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "P_LightingViVi",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_KaraSolider1",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "7": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4175,
+    "center_y": 9412,
+    "width": 713,
+    "height": 469,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "P_LightingViVi",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_KaraSolider1",
+        "count": 12,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_KaraSolider2",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "8": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6165,
+    "center_y": 7458,
+    "width": 245,
+    "height": 1185,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "P_KaraSolider2",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_LightingViVi",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "9": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6191,
+    "center_y": 9390,
+    "width": 711,
+    "height": 470,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "P_LightingViVi",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_KaraSolider1",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_KaraSolider2",
+        "count": 15,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5134,
+    "center_y": 6854,
+    "width": 1811,
+    "height": 918,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "P_LightingViVi",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_KaraSolider2",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "11": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2264,
+    "center_y": 5044,
+    "width": 1453,
+    "height": 148,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "P_KaraSolider2",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_KaraSolider3",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "12": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 844,
+    "center_y": 4962,
+    "width": 245,
+    "height": 2167,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "P_KaraSolider3",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_KaraSolider4",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "13": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 851,
+    "center_y": 7895,
+    "width": 674,
+    "height": 689,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "P_KaraSolider3",
+        "count": 12,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_KaraSolider4",
+        "count": 12,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_LightingViVi",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "14": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 826,
+    "center_y": 1940,
+    "width": 663,
+    "height": 701,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "P_KaraSolider3",
+        "count": 12,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_KaraSolider4",
+        "count": 12,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_LightingViVi",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "15": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8918,
+    "center_y": 5067,
+    "width": 1575,
+    "height": 187,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "P_KaraSolider2",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_KaraSolider3",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_LightingViVi",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "16": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9705,
+    "center_y": 3286,
+    "width": 970,
+    "height": 972,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "P_KaraSolider3",
+        "count": 15,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_KaraSolider4",
+        "count": 25,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_LightingViVi",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "17": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11195,
+    "center_y": 6817,
+    "width": 969,
+    "height": 948,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "P_LightingViVi",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_KaraSolider3",
+        "count": 15,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_KaraSolider4",
+        "count": 25,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "18": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11810,
+    "center_y": 4566,
+    "width": 612,
+    "height": 407,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "P_KaraSolider4",
+        "count": 10,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_LightingViVi",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "M_1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5148,
+    "center_y": 3426,
+    "width": 1729,
+    "height": 909,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "MINE4",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 160,
+        "reg_min": 150,
+        "reg_max": 170,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE5",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 160,
+        "reg_min": 150,
+        "reg_max": 170,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE6",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 160,
+        "reg_min": 150,
+        "reg_max": 170,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "M_2": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5104,
+    "center_y": 6774,
+    "width": 1826,
+    "height": 942,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "MINE4",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 160,
+        "reg_min": 150,
+        "reg_max": 170,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE5",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 160,
+        "reg_min": 150,
+        "reg_max": 170,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE6",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 160,
+        "reg_min": 150,
+        "reg_max": 170,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "M_3": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11171,
+    "center_y": 6785,
+    "width": 993,
+    "height": 952,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "MINE6",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 160,
+        "reg_min": 150,
+        "reg_max": 170,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE5",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 160,
+        "reg_min": 150,
+        "reg_max": 170,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "M_4": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9724,
+    "center_y": 3349,
+    "width": 889,
+    "height": 880,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "MINE5",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 160,
+        "reg_min": 150,
+        "reg_max": 170,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE6",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 160,
+        "reg_min": 150,
+        "reg_max": 170,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "C_1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3879,
+    "center_y": 5101,
+    "width": 0,
+    "height": 0,
+    "range_degree": 643,
+    "mobs": [
+      {
+        "mob": "P_Fighter2F",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Archer2F",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "C_2": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9740,
+    "center_y": 3278,
+    "width": 0,
+    "height": 0,
+    "range_degree": 1046,
+    "mobs": [
+      {
+        "mob": "P_Cleric2M",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "C_3": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11276,
+    "center_y": 6857,
+    "width": 0,
+    "height": 0,
+    "range_degree": 1011,
+    "mobs": [
+      {
+        "mob": "P_Archer2F",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Fighter2F",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "C_4": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 856,
+    "center_y": 5040,
+    "width": 130,
+    "height": 1126,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "P_Mage2M",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Cleric2M",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "C_5": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5166,
+    "center_y": 7855,
+    "width": 1222,
+    "height": 1628,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "P_Cleric2M",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Fighter2F",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Archer2F",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "C_6": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5229,
+    "center_y": 2244,
+    "width": 1083,
+    "height": 1557,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "P_Mage2M",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Cleric2M",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Fighter2F",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  }
+}

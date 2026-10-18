@@ -1,0 +1,1300 @@
+{
+  "UFireDn01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4694,
+    "center_y": 11481,
+    "width": 0,
+    "height": 0,
+    "range_degree": 654,
+    "mobs": [
+      {
+        "mob": "LavaVivi",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 20,
+        "reg_max": 50,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "FlameMinemole",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 20,
+        "reg_max": 50,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UFireDn02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3649,
+    "center_y": 11310,
+    "width": 485,
+    "height": 86,
+    "range_degree": -2,
+    "mobs": [
+      {
+        "mob": "FlameMinemole",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 20,
+        "reg_max": 50,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UFireDn03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4741,
+    "center_y": 9048,
+    "width": 0,
+    "height": 0,
+    "range_degree": 794,
+    "mobs": [
+      {
+        "mob": "FlameMinemole",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 20,
+        "reg_max": 50,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "LavaVivi",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 20,
+        "reg_max": 50,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UFireDn04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6425,
+    "center_y": 11838,
+    "width": 0,
+    "height": 0,
+    "range_degree": 605,
+    "mobs": [
+      {
+        "mob": "FlameMinemole",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 20,
+        "reg_max": 50,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "LavaVivi",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 20,
+        "reg_max": 50,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UFireDn05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6277,
+    "center_y": 10186,
+    "width": 561,
+    "height": 1028,
+    "range_degree": 29,
+    "mobs": [
+      {
+        "mob": "FlameMinemole",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 20,
+        "reg_max": 50,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "RedNix",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 20,
+        "reg_max": 50,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UFireDn06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7535,
+    "center_y": 9896,
+    "width": 795,
+    "height": 151,
+    "range_degree": 32,
+    "mobs": [
+      {
+        "mob": "RedNix",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 20,
+        "reg_max": 50,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UFireDn07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7701,
+    "center_y": 10993,
+    "width": 615,
+    "height": 137,
+    "range_degree": -3,
+    "mobs": [
+      {
+        "mob": "RedNix",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 20,
+        "reg_max": 50,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "LavaVivi",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 20,
+        "reg_max": 50,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UFireDn08": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8819,
+    "center_y": 10642,
+    "width": 501,
+    "height": 150,
+    "range_degree": 27,
+    "mobs": [
+      {
+        "mob": "RedNix",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 20,
+        "reg_max": 50,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UFireDn09": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6398,
+    "center_y": 7437,
+    "width": 0,
+    "height": 0,
+    "range_degree": 773,
+    "mobs": [
+      {
+        "mob": "LavaVivi",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 20,
+        "reg_max": 50,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "FlameMinemole",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 20,
+        "reg_max": 50,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UFireDn10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7248,
+    "center_y": 9075,
+    "width": 628,
+    "height": 220,
+    "range_degree": 37,
+    "mobs": [
+      {
+        "mob": "FlameMinemole",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 20,
+        "reg_max": 50,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "LavaVivi",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 20,
+        "reg_max": 50,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UFireDn11": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7529,
+    "center_y": 7989,
+    "width": 103,
+    "height": 610,
+    "range_degree": 23,
+    "mobs": [
+      {
+        "mob": "FlameMinemole",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 20,
+        "reg_max": 50,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UFireDn12": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10042,
+    "center_y": 11862,
+    "width": 0,
+    "height": 0,
+    "range_degree": 934,
+    "mobs": [
+      {
+        "mob": "RedNix",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 20,
+        "reg_max": 50,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "LavaVivi",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 20,
+        "reg_max": 50,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UFireDn13": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9874,
+    "center_y": 9955,
+    "width": 614,
+    "height": 170,
+    "range_degree": 39,
+    "mobs": [
+      {
+        "mob": "RedNix",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 20,
+        "reg_max": 50,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UFireDn14": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10431,
+    "center_y": 9129,
+    "width": 173,
+    "height": 562,
+    "range_degree": -21,
+    "mobs": [
+      {
+        "mob": "LavaMagmaton",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 20,
+        "reg_max": 50,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UFireDn15": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10425,
+    "center_y": 8252,
+    "width": 91,
+    "height": 387,
+    "range_degree": 31,
+    "mobs": [
+      {
+        "mob": "LavaMagmaton",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 20,
+        "reg_max": 50,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UFireDn16": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9614,
+    "center_y": 7680,
+    "width": 535,
+    "height": 94,
+    "range_degree": -22,
+    "mobs": [
+      {
+        "mob": "LavaMagmaton",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 20,
+        "reg_max": 50,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UFireDn17": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9059,
+    "center_y": 7184,
+    "width": 99,
+    "height": 347,
+    "range_degree": 8,
+    "mobs": [
+      {
+        "mob": "LavaMagmaton",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 20,
+        "reg_max": 50,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UFireDn18": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9364,
+    "center_y": 6531,
+    "width": 90,
+    "height": 458,
+    "range_degree": -42,
+    "mobs": [
+      {
+        "mob": "LavaMagmaton",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 20,
+        "reg_max": 50,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UFireDn19": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9851,
+    "center_y": 5458,
+    "width": 70,
+    "height": 797,
+    "range_degree": -18,
+    "mobs": [
+      {
+        "mob": "LavaMagmaton",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 20,
+        "reg_max": 50,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UFireDn20": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10005,
+    "center_y": 4195,
+    "width": 0,
+    "height": 0,
+    "range_degree": 682,
+    "mobs": [
+      {
+        "mob": "LavaMagmaton",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 20,
+        "reg_max": 50,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UFireDn21": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9233,
+    "center_y": 3788,
+    "width": 0,
+    "height": 0,
+    "range_degree": 787,
+    "mobs": [
+      {
+        "mob": "LavaMagmaton",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 20,
+        "reg_max": 50,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UFireDn22": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8570,
+    "center_y": 5407,
+    "width": 1208,
+    "height": 117,
+    "range_degree": -15,
+    "mobs": [
+      {
+        "mob": "BellowKnight",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 20,
+        "reg_max": 50,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UFireDn23": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6414,
+    "center_y": 4586,
+    "width": 910,
+    "height": 804,
+    "range_degree": 1,
+    "mobs": [
+      {
+        "mob": "BellowKnight",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 20,
+        "reg_max": 50,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "BellowKnight-S",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 20,
+        "reg_max": 50,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UFireDn24": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4841,
+    "center_y": 4579,
+    "width": 638,
+    "height": 217,
+    "range_degree": 1,
+    "mobs": [
+      {
+        "mob": "BellowKnight-S",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 20,
+        "reg_max": 50,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "BellowKnight",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 20,
+        "reg_max": 50,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UFireDn25": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3024,
+    "center_y": 3972,
+    "width": 0,
+    "height": 0,
+    "range_degree": 815,
+    "mobs": [
+      {
+        "mob": "BellowKnight-S",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 20,
+        "reg_max": 50,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "BellowKnight-G",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 20,
+        "reg_max": 50,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UFireDn26": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2977,
+    "center_y": 5898,
+    "width": 0,
+    "height": 0,
+    "range_degree": 913,
+    "mobs": [
+      {
+        "mob": "BellowKnight-G",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 20,
+        "reg_max": 50,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "BellowKnight-S",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 20,
+        "reg_max": 50,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UFireDn27": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2448,
+    "center_y": 4915,
+    "width": 0,
+    "height": 0,
+    "range_degree": 500,
+    "mobs": [
+      {
+        "mob": "BellowknightRord",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 585,
+        "reg_max": 615,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "BellowKnight-G",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 20,
+        "reg_max": 50,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UFireDn28": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3653,
+    "center_y": 4840,
+    "width": 0,
+    "height": 0,
+    "range_degree": 500,
+    "mobs": [
+      {
+        "mob": "BellowKnight-G",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 20,
+        "reg_max": 50,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "BellowKnight-S",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 20,
+        "reg_max": 50,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UFireDn29": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3096,
+    "center_y": 11107,
+    "width": 126,
+    "height": 420,
+    "range_degree": 36,
+    "mobs": [
+      {
+        "mob": "FlameMinemole",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 20,
+        "reg_max": 50,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "UFireDn30": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4389,
+    "center_y": 10269,
+    "width": 81,
+    "height": 536,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "LavaVivi",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 20,
+        "reg_max": 50,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  }
+}

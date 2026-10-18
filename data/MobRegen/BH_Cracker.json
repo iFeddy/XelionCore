@@ -1,0 +1,156 @@
+{
+  "B_CrackerHumar": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3274,
+    "center_y": 3771,
+    "width": 0,
+    "height": 0,
+    "range_degree": 23,
+    "mobs": [
+      {
+        "mob": "BH_Humar",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 43200,
+        "reg_min": 43150,
+        "reg_max": 43250,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "BH_HumarBox": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3060,
+    "center_y": 3126,
+    "width": 303,
+    "height": 494,
+    "range_degree": 4,
+    "mobs": [
+      {
+        "mob": "BH_Humar_O",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 60,
+        "reg_min": 59,
+        "reg_max": 61,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": false
+      },
+      {
+        "mob": "BH_Humar_O_02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 60,
+        "reg_min": 59,
+        "reg_max": 61,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": false
+      },
+      {
+        "mob": "BH_Humar_O_03",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 60,
+        "reg_min": 59,
+        "reg_max": 61,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": false
+      },
+      {
+        "mob": "BH_Humar_O_04",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 60,
+        "reg_min": 59,
+        "reg_max": 61,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": false
+      },
+      {
+        "mob": "BH_Humar_X",
+        "count": 46,
+        "kill_num": 0,
+        "reg_standard": 60,
+        "reg_min": 59,
+        "reg_max": 61,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  }
+}

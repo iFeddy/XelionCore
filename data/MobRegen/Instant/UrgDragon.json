@@ -1,0 +1,5348 @@
+{
+  "ID_DragonNomal01": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 1852,
+    "center_y": 6186,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "ID_Gagoyle",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ID_DragonNomal02": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 2424,
+    "center_y": 7945,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "ID_Gagoyle",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ID_DragonNomal03": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 2664,
+    "center_y": 9686,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "ID_Gagoyle",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ID_DragonNomal04": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 3857,
+    "center_y": 10043,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "ID_Gagoyle",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ID_DragonNomal05": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 3843,
+    "center_y": 8304,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "ID_Gagoyle",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ID_DragonNomal06": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 5059,
+    "center_y": 8456,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "ID_Gagoyle",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ID_DragonNomal07": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 3968,
+    "center_y": 6004,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "ID_Gagoyle",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ID_DragonNomal08": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 6480,
+    "center_y": 7552,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "ID_Gagoyle",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ID_DragonNomal09": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 8923,
+    "center_y": 6227,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "ID_Gagoyle",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ID_DragonNomal10": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 9667,
+    "center_y": 6076,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "ID_Gagoyle",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ID_DragonNomal11": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 5554,
+    "center_y": 4746,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "ID_Gagoyle",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ID_DragonNomal12": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 5591,
+    "center_y": 3946,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "ID_Gagoyle",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ID_DragonNomal13": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 5334,
+    "center_y": 3032,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "ID_Gagoyle",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ID_DragonNomal14": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 5255,
+    "center_y": 2035,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "ID_Gagoyle",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ID_DragonNomal15": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 4296,
+    "center_y": 1987,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "ID_Gagoyle",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ID_DragonNomal16": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 6789,
+    "center_y": 4116,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "ID_Gagoyle",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ID_DragonNomal17": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 8998,
+    "center_y": 2218,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "ID_Gagoyle",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ID_DragonNomal18": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 8443,
+    "center_y": 3903,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "ID_Gagoyle",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ID_DragonNomal19": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 9090,
+    "center_y": 3243,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "ID_Gagoyle",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ID_DragonNomal20": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 9041,
+    "center_y": 5069,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "ID_Gagoyle",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ID_Dragon01": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 2863,
+    "center_y": 6639,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "ID_FlameSpirit",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ID_Dragon02": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 2738,
+    "center_y": 8247,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "ID_FlameSpirit",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ID_Dragon03": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 2723,
+    "center_y": 10301,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "ID_FlameSpirit",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ID_Dragon04": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 4028,
+    "center_y": 5757,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "ID_FlameSpirit",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ID_Dragon05": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 3736,
+    "center_y": 3074,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "ID_FlameSpirit",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ID_Dragon06": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 5525,
+    "center_y": 5501,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "ID_FlameSpirit",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ID_Dragon07": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 6283,
+    "center_y": 5944,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "ID_FlameSpirit",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ID_Dragon08": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 7061,
+    "center_y": 6242,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "ID_FlameSpirit",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ID_Dragon09": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 8935,
+    "center_y": 5903,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "ID_FlameSpirit",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ID_Dragon10": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 11333,
+    "center_y": 4054,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "ID_FlameSpirit",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ID_Dragon11": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 2721,
+    "center_y": 6804,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "ID_Kruge",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ID_Dragon12": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 2974,
+    "center_y": 8453,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "ID_Kruge",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ID_Dragon13": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 2858,
+    "center_y": 10102,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "ID_Kruge",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ID_Dragon14": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 8148,
+    "center_y": 9257,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "ID_Kruge",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ID_Dragon15": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 6434,
+    "center_y": 8543,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "ID_Kruge",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ID_Dragon16": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 5719,
+    "center_y": 6369,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "ID_Kruge",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ID_Dragon17": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 5329,
+    "center_y": 5645,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "ID_Kruge",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ID_Dragon18": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 6472,
+    "center_y": 5975,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "ID_Kruge",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ID_Dragon19": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 6838,
+    "center_y": 6657,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "ID_Kruge",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ID_Dragon20": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 7056,
+    "center_y": 2015,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "ID_Kruge",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ID_Dragon21": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 2878,
+    "center_y": 6408,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "ID_EarthNerpa",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ID_Dragon22": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 2721,
+    "center_y": 8506,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "ID_EarthNerpa",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ID_Dragon23": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 2950,
+    "center_y": 10286,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "ID_EarthNerpa",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ID_Dragon24": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 5179,
+    "center_y": 10431,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "ID_EarthNerpa",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ID_Dragon25": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 6637,
+    "center_y": 10311,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "ID_EarthNerpa",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ID_Dragon26": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 6287,
+    "center_y": 6522,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "ID_EarthNerpa",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ID_Dragon27": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 9766,
+    "center_y": 5713,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "ID_EarthNerpa",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ID_Dragon28": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 9061,
+    "center_y": 6501,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "ID_EarthNerpa",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ID_Dragon29": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 5480,
+    "center_y": 4179,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "ID_EarthNerpa",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ID_Dragon30": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 5414,
+    "center_y": 2047,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "ID_EarthNerpa",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ID_Dragon31": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 6776,
+    "center_y": 10196,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "ID_EarthCalerben",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ID_Dragon32": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 6546,
+    "center_y": 8425,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "ID_EarthCalerben",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ID_Dragon33": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 5847,
+    "center_y": 5908,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "ID_EarthCalerben",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ID_Dragon34": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 6619,
+    "center_y": 6338,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "ID_EarthCalerben",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ID_Dragon35": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 8359,
+    "center_y": 9348,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "ID_EarthCalerben",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ID_Dragon36": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 9793,
+    "center_y": 6376,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "ID_EarthCalerben",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ID_Dragon37": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 9139,
+    "center_y": 5903,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "ID_EarthCalerben",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ID_Dragon38": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 3844,
+    "center_y": 3134,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "ID_EarthCalerben",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ID_Dragon39": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 6808,
+    "center_y": 2135,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "ID_EarthCalerben",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ID_Dragon40": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 11411,
+    "center_y": 4179,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "ID_EarthCalerben",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ID_Dragon41": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 5023,
+    "center_y": 10348,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "ID_FireShella",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ID_Dragon42": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 6470,
+    "center_y": 9975,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "ID_FireShella",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ID_Dragon43": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 7083,
+    "center_y": 6000,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "ID_FireShella",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ID_Dragon44": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 9630,
+    "center_y": 6426,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "ID_FireShella",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ID_Dragon45": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 9921,
+    "center_y": 5662,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "ID_FireShella",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ID_Dragon46": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 6837,
+    "center_y": 1881,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "ID_FireShella",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ID_Dragon47": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 11185,
+    "center_y": 4204,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "ID_FireShella",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ID_Dragon48": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 5354,
+    "center_y": 2174,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "ID_FireShella",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ID_Dragon49": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 9239,
+    "center_y": 4143,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "ID_FireShella",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ID_Dragon50": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 8013,
+    "center_y": 2048,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "ID_FireShella",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ID_PresentBox01": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 2924,
+    "center_y": 6674,
+    "width": 0,
+    "height": 0,
+    "range_degree": 10,
+    "mobs": [
+      {
+        "mob": "IDPresentBox01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 596,
+        "reg_max": 604,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ID_PresentBox02": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 2682,
+    "center_y": 10375,
+    "width": 0,
+    "height": 0,
+    "range_degree": 10,
+    "mobs": [
+      {
+        "mob": "IDPresentBox01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 596,
+        "reg_max": 604,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ID_PresentBox03": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 6697,
+    "center_y": 10356,
+    "width": 0,
+    "height": 0,
+    "range_degree": 10,
+    "mobs": [
+      {
+        "mob": "IDPresentBox01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 596,
+        "reg_max": 604,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ID_PresentBox04": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 9872,
+    "center_y": 6453,
+    "width": 0,
+    "height": 0,
+    "range_degree": 10,
+    "mobs": [
+      {
+        "mob": "IDPresentBox02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 596,
+        "reg_max": 604,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ID_PresentBox05": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 5384,
+    "center_y": 1994,
+    "width": 0,
+    "height": 0,
+    "range_degree": 10,
+    "mobs": [
+      {
+        "mob": "IDPresentBox01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 596,
+        "reg_max": 604,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ID_MINE01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7589,
+    "center_y": 6057,
+    "width": 522,
+    "height": 2398,
+    "range_degree": -87,
+    "mobs": [
+      {
+        "mob": "IDMINE01",
+        "count": 25,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 596,
+        "reg_max": 604,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ID_Boss1": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 5034,
+    "center_y": 10483,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "ID_GiantMagmaton",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ID_Boss2": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 8321,
+    "center_y": 9168,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "ID_BigMudMan",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ID_Boss3": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 3858,
+    "center_y": 3017,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "ID_FireTaitan",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ID_Boss4": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 6900,
+    "center_y": 2021,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "ID_Weasel",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ID_Boss5": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 11363,
+    "center_y": 4241,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "ID_FandomCornelius",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "IDH_DragonNomal01": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 1852,
+    "center_y": 6186,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "UrgDTH_ID_Gagoyle",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "IDH_DragonNomal02": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 2424,
+    "center_y": 7945,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "UrgDTH_ID_Gagoyle",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "IDH_DragonNomal03": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 2664,
+    "center_y": 9686,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "UrgDTH_ID_Gagoyle",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "IDH_DragonNomal04": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 3857,
+    "center_y": 10043,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "UrgDTH_ID_Gagoyle",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "IDH_DragonNomal05": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 3843,
+    "center_y": 8304,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "UrgDTH_ID_Gagoyle",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "IDH_DragonNomal06": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 5059,
+    "center_y": 8456,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "UrgDTH_ID_Gagoyle",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "IDH_DragonNomal07": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 3968,
+    "center_y": 6004,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "UrgDTH_ID_Gagoyle",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "IDH_DragonNomal08": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 6480,
+    "center_y": 7552,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "UrgDTH_ID_Gagoyle",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "IDH_DragonNomal09": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 8923,
+    "center_y": 6227,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "UrgDTH_ID_Gagoyle",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "IDH_DragonNomal10": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 9667,
+    "center_y": 6076,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "UrgDTH_ID_Gagoyle",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "IDH_DragonNomal11": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 5554,
+    "center_y": 4746,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "UrgDTH_ID_Gagoyle",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "IDH_DragonNomal12": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 5591,
+    "center_y": 3946,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "UrgDTH_ID_Gagoyle",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "IDH_DragonNomal13": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 5334,
+    "center_y": 3032,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "UrgDTH_ID_Gagoyle",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "IDH_DragonNomal14": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 5255,
+    "center_y": 2035,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "UrgDTH_ID_Gagoyle",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "IDH_DragonNomal15": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 4296,
+    "center_y": 1987,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "UrgDTH_ID_Gagoyle",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "IDH_DragonNomal16": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 6789,
+    "center_y": 4116,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "UrgDTH_ID_Gagoyle",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "IDH_DragonNomal17": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 8998,
+    "center_y": 2218,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "UrgDTH_ID_Gagoyle",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "IDH_DragonNomal18": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 8443,
+    "center_y": 3903,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "UrgDTH_ID_Gagoyle",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "IDH_DragonNomal19": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 9090,
+    "center_y": 3243,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "UrgDTH_ID_Gagoyle",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "IDH_DragonNomal20": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 9041,
+    "center_y": 5069,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "UrgDTH_ID_Gagoyle",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "IDH_Dragon01": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 2863,
+    "center_y": 6639,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "UrgDTH_ID_FlameSpirit",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "IDH_Dragon02": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 2738,
+    "center_y": 8247,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "UrgDTH_ID_FlameSpirit",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "IDH_Dragon03": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 2723,
+    "center_y": 10301,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "UrgDTH_ID_FlameSpirit",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "IDH_Dragon04": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 4028,
+    "center_y": 5757,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "UrgDTH_ID_FlameSpirit",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "IDH_Dragon05": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 3736,
+    "center_y": 3074,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "UrgDTH_ID_FlameSpirit",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "IDH_Dragon06": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 5525,
+    "center_y": 5501,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "UrgDTH_ID_FlameSpirit",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "IDH_Dragon07": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 6283,
+    "center_y": 5944,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "UrgDTH_ID_FlameSpirit",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "IDH_Dragon08": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 7061,
+    "center_y": 6242,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "UrgDTH_ID_FlameSpirit",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "IDH_Dragon09": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 8935,
+    "center_y": 5903,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "UrgDTH_ID_FlameSpirit",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "IDH_Dragon10": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 11333,
+    "center_y": 4054,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "UrgDTH_ID_FlameSpirit",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "IDH_Dragon11": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 2721,
+    "center_y": 6804,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "UrgDTH_ID_Kruge",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "IDH_Dragon12": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 2974,
+    "center_y": 8453,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "UrgDTH_ID_Kruge",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "IDH_Dragon13": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 2858,
+    "center_y": 10102,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "UrgDTH_ID_Kruge",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "IDH_Dragon14": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 8148,
+    "center_y": 9257,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "UrgDTH_ID_Kruge",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "IDH_Dragon15": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 6434,
+    "center_y": 8543,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "UrgDTH_ID_Kruge",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "IDH_Dragon16": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 5719,
+    "center_y": 6369,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "UrgDTH_ID_Kruge",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "IDH_Dragon17": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 5329,
+    "center_y": 5645,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "UrgDTH_ID_Kruge",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "IDH_Dragon18": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 6472,
+    "center_y": 5975,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "UrgDTH_ID_Kruge",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "IDH_Dragon19": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 6838,
+    "center_y": 6657,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "UrgDTH_ID_Kruge",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "IDH_Dragon20": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 7056,
+    "center_y": 2015,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "UrgDTH_ID_Kruge",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "IDH_Dragon21": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 2878,
+    "center_y": 6408,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "UrgDTH_ID_EarthNerpa",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "IDH_Dragon22": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 2721,
+    "center_y": 8506,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "UrgDTH_ID_EarthNerpa",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "IDH_Dragon23": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 2950,
+    "center_y": 10286,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "UrgDTH_ID_EarthNerpa",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "IDH_Dragon24": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 5179,
+    "center_y": 10431,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "UrgDTH_ID_EarthNerpa",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "IDH_Dragon25": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 6637,
+    "center_y": 10311,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "UrgDTH_ID_EarthNerpa",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "IDH_Dragon26": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 6287,
+    "center_y": 6522,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "UrgDTH_ID_EarthNerpa",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "IDH_Dragon27": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 9766,
+    "center_y": 5713,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "UrgDTH_ID_EarthNerpa",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "IDH_Dragon28": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 9061,
+    "center_y": 6501,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "UrgDTH_ID_EarthNerpa",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "IDH_Dragon29": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 5480,
+    "center_y": 4179,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "UrgDTH_ID_EarthNerpa",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "IDH_Dragon30": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 5414,
+    "center_y": 2047,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "UrgDTH_ID_EarthNerpa",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "IDH_Dragon31": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 6776,
+    "center_y": 10196,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "UrgDTH_ID_EarthCalerben",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "IDH_Dragon32": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 6546,
+    "center_y": 8425,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "UrgDTH_ID_EarthCalerben",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "IDH_Dragon33": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 5847,
+    "center_y": 5908,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "UrgDTH_ID_EarthCalerben",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "IDH_Dragon34": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 6619,
+    "center_y": 6338,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "UrgDTH_ID_EarthCalerben",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "IDH_Dragon35": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 8359,
+    "center_y": 9348,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "UrgDTH_ID_EarthCalerben",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "IDH_Dragon36": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 9793,
+    "center_y": 6376,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "UrgDTH_ID_EarthCalerben",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "IDH_Dragon37": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 9139,
+    "center_y": 5903,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "UrgDTH_ID_EarthCalerben",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "IDH_Dragon38": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 3844,
+    "center_y": 3134,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "UrgDTH_ID_EarthCalerben",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "IDH_Dragon39": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 6808,
+    "center_y": 2135,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "UrgDTH_ID_EarthCalerben",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "IDH_Dragon40": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 11411,
+    "center_y": 4179,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "UrgDTH_ID_EarthCalerben",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "IDH_Dragon41": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 5023,
+    "center_y": 10348,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "UrgDTH_ID_FireShella",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "IDH_Dragon42": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 6470,
+    "center_y": 9975,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "UrgDTH_ID_FireShella",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "IDH_Dragon43": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 7083,
+    "center_y": 6000,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "UrgDTH_ID_FireShella",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "IDH_Dragon44": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 9630,
+    "center_y": 6426,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "UrgDTH_ID_FireShella",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "IDH_Dragon45": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 9921,
+    "center_y": 5662,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "UrgDTH_ID_FireShella",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "IDH_Dragon46": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 6837,
+    "center_y": 1881,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "UrgDTH_ID_FireShella",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "IDH_Dragon47": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 11185,
+    "center_y": 4204,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "UrgDTH_ID_FireShella",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "IDH_Dragon48": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 5354,
+    "center_y": 2174,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "UrgDTH_ID_FireShella",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "IDH_Dragon49": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 9239,
+    "center_y": 4143,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "UrgDTH_ID_FireShella",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "IDH_Dragon50": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 8013,
+    "center_y": 2048,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "UrgDTH_ID_FireShella",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "IDH_PresentBox01": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 2924,
+    "center_y": 6674,
+    "width": 0,
+    "height": 0,
+    "range_degree": 10,
+    "mobs": [
+      {
+        "mob": "UrgDTH_IDPresentBox01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 596,
+        "reg_max": 604,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "IDH_PresentBox02": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 2682,
+    "center_y": 10375,
+    "width": 0,
+    "height": 0,
+    "range_degree": 10,
+    "mobs": [
+      {
+        "mob": "UrgDTH_IDPresentBox01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 596,
+        "reg_max": 604,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "IDH_PresentBox03": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 6697,
+    "center_y": 10356,
+    "width": 0,
+    "height": 0,
+    "range_degree": 10,
+    "mobs": [
+      {
+        "mob": "UrgDTH_IDPresentBox01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 596,
+        "reg_max": 604,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "IDH_PresentBox04": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 9872,
+    "center_y": 6453,
+    "width": 0,
+    "height": 0,
+    "range_degree": 10,
+    "mobs": [
+      {
+        "mob": "UrgDTH_IDPresentBox02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 596,
+        "reg_max": 604,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "IDH_PresentBox05": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 5384,
+    "center_y": 1994,
+    "width": 0,
+    "height": 0,
+    "range_degree": 10,
+    "mobs": [
+      {
+        "mob": "UrgDTH_IDPresentBox01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 596,
+        "reg_max": 604,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "IDH_MINE01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7589,
+    "center_y": 6057,
+    "width": 522,
+    "height": 2398,
+    "range_degree": -87,
+    "mobs": [
+      {
+        "mob": "UrgDTH_IDMINE01",
+        "count": 25,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 596,
+        "reg_max": 604,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "IDH_Boss1": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 5034,
+    "center_y": 10483,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "UrgDTH_ID_GiantMagmaton",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "IDH_Boss2": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 8321,
+    "center_y": 9168,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "UrgDTH_ID_BigMudMan",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "IDH_Boss3": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 3858,
+    "center_y": 3017,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "UrgDTH_ID_FireTaitan",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "IDH_Boss4": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 6900,
+    "center_y": 2021,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "UrgDTH_ID_Weasel",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "IDH_Boss5": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 11363,
+    "center_y": 4241,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "UrgDTH_ID_FandomCornelius",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  }
+}

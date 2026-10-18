@@ -1,0 +1,3159 @@
+{
+  "Normal_01": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 6312,
+    "center_y": 9551,
+    "width": 0,
+    "height": 0,
+    "range_degree": 148,
+    "mobs": [
+      {
+        "mob": "D_Rhinoce",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6196,
+    "center_y": 8427,
+    "width": 0,
+    "height": 0,
+    "range_degree": 191,
+    "mobs": [
+      {
+        "mob": "D_CaimanJunier",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_03": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 6548,
+    "center_y": 8907,
+    "width": 0,
+    "height": 0,
+    "range_degree": 176,
+    "mobs": [
+      {
+        "mob": "D_Rhinoce",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_04": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 6959,
+    "center_y": 8378,
+    "width": 0,
+    "height": 0,
+    "range_degree": 170,
+    "mobs": [
+      {
+        "mob": "D_Rhinoce",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_05": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 8639,
+    "center_y": 9640,
+    "width": 0,
+    "height": 0,
+    "range_degree": 198,
+    "mobs": [
+      {
+        "mob": "D_Rhinoce",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_06": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 5273,
+    "center_y": 9084,
+    "width": 0,
+    "height": 0,
+    "range_degree": 162,
+    "mobs": [
+      {
+        "mob": "D_Rhinoce",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4311,
+    "center_y": 9236,
+    "width": 0,
+    "height": 0,
+    "range_degree": 556,
+    "mobs": [
+      {
+        "mob": "D_CaimanJunier",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_08": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5971,
+    "center_y": 6324,
+    "width": 0,
+    "height": 0,
+    "range_degree": 223,
+    "mobs": [
+      {
+        "mob": "D_CaimanJunier",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_09": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5185,
+    "center_y": 4793,
+    "width": 0,
+    "height": 0,
+    "range_degree": 230,
+    "mobs": [
+      {
+        "mob": "D_CaimanJunier",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6827,
+    "center_y": 6784,
+    "width": 0,
+    "height": 0,
+    "range_degree": 202,
+    "mobs": [
+      {
+        "mob": "D_CaimanJunier",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_11": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6960,
+    "center_y": 6128,
+    "width": 0,
+    "height": 0,
+    "range_degree": 209,
+    "mobs": [
+      {
+        "mob": "D_CaimanJunier",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_12": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7328,
+    "center_y": 9184,
+    "width": 0,
+    "height": 0,
+    "range_degree": 223,
+    "mobs": [
+      {
+        "mob": "D_CaimanJunier",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_13": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9669,
+    "center_y": 7284,
+    "width": 0,
+    "height": 0,
+    "range_degree": 237,
+    "mobs": [
+      {
+        "mob": "D_CaimanJunier",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_14": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7438,
+    "center_y": 7034,
+    "width": 0,
+    "height": 0,
+    "range_degree": 188,
+    "mobs": [
+      {
+        "mob": "D_CaimanJunier",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_15": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9056,
+    "center_y": 7463,
+    "width": 0,
+    "height": 0,
+    "range_degree": 230,
+    "mobs": [
+      {
+        "mob": "D_CaimanJunier",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_16": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11281,
+    "center_y": 6336,
+    "width": 0,
+    "height": 0,
+    "range_degree": 244,
+    "mobs": [
+      {
+        "mob": "D_CaimanJunier",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_17": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7619,
+    "center_y": 6427,
+    "width": 0,
+    "height": 0,
+    "range_degree": 202,
+    "mobs": [
+      {
+        "mob": "D_CaimanJunier",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_18": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7982,
+    "center_y": 9385,
+    "width": 0,
+    "height": 0,
+    "range_degree": 209,
+    "mobs": [
+      {
+        "mob": "D_CaimanJunier",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_19": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10416,
+    "center_y": 6875,
+    "width": 0,
+    "height": 0,
+    "range_degree": 230,
+    "mobs": [
+      {
+        "mob": "D_CaimanJunier",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_20": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8985,
+    "center_y": 9314,
+    "width": 322,
+    "height": 481,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "D_CaimanJunier",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_21": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 4365,
+    "center_y": 8485,
+    "width": 0,
+    "height": 0,
+    "range_degree": 141,
+    "mobs": [
+      {
+        "mob": "D_Rhinoce",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_22": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 4110,
+    "center_y": 9299,
+    "width": 0,
+    "height": 0,
+    "range_degree": 170,
+    "mobs": [
+      {
+        "mob": "D_Rhinoce",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_23": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 9011,
+    "center_y": 8746,
+    "width": 0,
+    "height": 0,
+    "range_degree": 198,
+    "mobs": [
+      {
+        "mob": "D_Rhinoce",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_24": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 8774,
+    "center_y": 9121,
+    "width": 0,
+    "height": 0,
+    "range_degree": 51,
+    "mobs": [
+      {
+        "mob": "D_Rhinoce",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_25": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 3687,
+    "center_y": 7821,
+    "width": 0,
+    "height": 0,
+    "range_degree": 51,
+    "mobs": [
+      {
+        "mob": "D_Rhinoce",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_26": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 2516,
+    "center_y": 6576,
+    "width": 0,
+    "height": 0,
+    "range_degree": 51,
+    "mobs": [
+      {
+        "mob": "D_Rhinoce",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_27": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 2083,
+    "center_y": 6429,
+    "width": 0,
+    "height": 0,
+    "range_degree": 51,
+    "mobs": [
+      {
+        "mob": "D_Rhinoce",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_28": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 2033,
+    "center_y": 5711,
+    "width": 0,
+    "height": 0,
+    "range_degree": 51,
+    "mobs": [
+      {
+        "mob": "D_Rhinoce",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_29": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 2756,
+    "center_y": 6100,
+    "width": 0,
+    "height": 0,
+    "range_degree": 51,
+    "mobs": [
+      {
+        "mob": "D_Rhinoce",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_30": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 4299,
+    "center_y": 7742,
+    "width": 0,
+    "height": 0,
+    "range_degree": 51,
+    "mobs": [
+      {
+        "mob": "D_Rhinoce",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_31": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 3501,
+    "center_y": 7279,
+    "width": 0,
+    "height": 0,
+    "range_degree": 51,
+    "mobs": [
+      {
+        "mob": "D_Rhinoce",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_32": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 9430,
+    "center_y": 7705,
+    "width": 0,
+    "height": 0,
+    "range_degree": 51,
+    "mobs": [
+      {
+        "mob": "D_Rhinoce",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_33": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 4770,
+    "center_y": 6972,
+    "width": 0,
+    "height": 0,
+    "range_degree": 51,
+    "mobs": [
+      {
+        "mob": "D_Rhinoce",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_34": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 4240,
+    "center_y": 6715,
+    "width": 0,
+    "height": 0,
+    "range_degree": 51,
+    "mobs": [
+      {
+        "mob": "D_Rhinoce",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_35": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 9122,
+    "center_y": 9391,
+    "width": 0,
+    "height": 0,
+    "range_degree": 51,
+    "mobs": [
+      {
+        "mob": "D_Rhinoce",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_36": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 3137,
+    "center_y": 7566,
+    "width": 0,
+    "height": 0,
+    "range_degree": 198,
+    "mobs": [
+      {
+        "mob": "D_Kaiman",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_37": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 3801,
+    "center_y": 6985,
+    "width": 0,
+    "height": 0,
+    "range_degree": 198,
+    "mobs": [
+      {
+        "mob": "D_Kaiman",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_38": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 6188,
+    "center_y": 7013,
+    "width": 0,
+    "height": 0,
+    "range_degree": 212,
+    "mobs": [
+      {
+        "mob": "D_Kaiman",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_39": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 7441,
+    "center_y": 5860,
+    "width": 0,
+    "height": 0,
+    "range_degree": 219,
+    "mobs": [
+      {
+        "mob": "D_Kaiman",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_40": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 6404,
+    "center_y": 5840,
+    "width": 0,
+    "height": 0,
+    "range_degree": 226,
+    "mobs": [
+      {
+        "mob": "D_Kaiman",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_41": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 6763,
+    "center_y": 5273,
+    "width": 0,
+    "height": 0,
+    "range_degree": 254,
+    "mobs": [
+      {
+        "mob": "D_Kaiman",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_42": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 4706,
+    "center_y": 4535,
+    "width": 0,
+    "height": 0,
+    "range_degree": 205,
+    "mobs": [
+      {
+        "mob": "D_Kaiman",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_43": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 4599,
+    "center_y": 5120,
+    "width": 0,
+    "height": 0,
+    "range_degree": 212,
+    "mobs": [
+      {
+        "mob": "D_Kaiman",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_44": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 5328,
+    "center_y": 6755,
+    "width": 0,
+    "height": 0,
+    "range_degree": 212,
+    "mobs": [
+      {
+        "mob": "D_Kaiman",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_45": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 4321,
+    "center_y": 7273,
+    "width": 0,
+    "height": 0,
+    "range_degree": 191,
+    "mobs": [
+      {
+        "mob": "D_Kaiman",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_46": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 8431,
+    "center_y": 7269,
+    "width": 0,
+    "height": 0,
+    "range_degree": 184,
+    "mobs": [
+      {
+        "mob": "D_Kaiman",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_47": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 5667,
+    "center_y": 5629,
+    "width": 0,
+    "height": 0,
+    "range_degree": 198,
+    "mobs": [
+      {
+        "mob": "D_Kaiman",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_48": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 9006,
+    "center_y": 8062,
+    "width": 0,
+    "height": 0,
+    "range_degree": 205,
+    "mobs": [
+      {
+        "mob": "D_Kaiman",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_49": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 8459,
+    "center_y": 7766,
+    "width": 0,
+    "height": 0,
+    "range_degree": 205,
+    "mobs": [
+      {
+        "mob": "D_Kaiman",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_50": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 9103,
+    "center_y": 6913,
+    "width": 0,
+    "height": 0,
+    "range_degree": 205,
+    "mobs": [
+      {
+        "mob": "D_Kaiman",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_51": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 10396,
+    "center_y": 5823,
+    "width": 0,
+    "height": 0,
+    "range_degree": 212,
+    "mobs": [
+      {
+        "mob": "D_RhinoceLoad",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_52": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 9101,
+    "center_y": 5442,
+    "width": 0,
+    "height": 0,
+    "range_degree": 212,
+    "mobs": [
+      {
+        "mob": "D_RhinoceLoad",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_53": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 8211,
+    "center_y": 5529,
+    "width": 0,
+    "height": 0,
+    "range_degree": 162,
+    "mobs": [
+      {
+        "mob": "D_RhinoceLoad",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_54": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 8909,
+    "center_y": 4134,
+    "width": 0,
+    "height": 0,
+    "range_degree": 162,
+    "mobs": [
+      {
+        "mob": "D_RhinoceLoad",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_55": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 4132,
+    "center_y": 4713,
+    "width": 0,
+    "height": 0,
+    "range_degree": 212,
+    "mobs": [
+      {
+        "mob": "D_RhinoceLoad",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_56": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 4500,
+    "center_y": 4073,
+    "width": 0,
+    "height": 0,
+    "range_degree": 212,
+    "mobs": [
+      {
+        "mob": "D_RhinoceLoad",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_57": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 2176,
+    "center_y": 7008,
+    "width": 0,
+    "height": 0,
+    "range_degree": 184,
+    "mobs": [
+      {
+        "mob": "D_RhinoceLoad",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_58": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 2538,
+    "center_y": 5638,
+    "width": 0,
+    "height": 0,
+    "range_degree": 191,
+    "mobs": [
+      {
+        "mob": "D_RhinoceLoad",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_59": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 1686,
+    "center_y": 6105,
+    "width": 0,
+    "height": 0,
+    "range_degree": 191,
+    "mobs": [
+      {
+        "mob": "D_RhinoceLoad",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Boss01": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 1650,
+    "center_y": 3528,
+    "width": 0,
+    "height": 0,
+    "range_degree": 212,
+    "mobs": [
+      {
+        "mob": "D_CaimanGiant",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 540,
+        "reg_max": 600,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_RhinoceLoad",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 540,
+        "reg_max": 600,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Boss02": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 4784,
+    "center_y": 1516,
+    "width": 0,
+    "height": 0,
+    "range_degree": 268,
+    "mobs": [
+      {
+        "mob": "D_CaimanGiant",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 540,
+        "reg_max": 600,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_RhinoceLoad",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 540,
+        "reg_max": 600,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Boss03": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 7169,
+    "center_y": 981,
+    "width": 0,
+    "height": 0,
+    "range_degree": 205,
+    "mobs": [
+      {
+        "mob": "D_CaimanGiant",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 540,
+        "reg_max": 600,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_RhinoceLoad",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 540,
+        "reg_max": 600,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Boss04": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 9785,
+    "center_y": 1578,
+    "width": 0,
+    "height": 0,
+    "range_degree": 254,
+    "mobs": [
+      {
+        "mob": "D_CaimanGiant",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 540,
+        "reg_max": 600,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_Raplan",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 540,
+        "reg_max": 600,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_RhinoceLoad",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 540,
+        "reg_max": 600,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Boss05": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 11427,
+    "center_y": 3632,
+    "width": 0,
+    "height": 0,
+    "range_degree": 219,
+    "mobs": [
+      {
+        "mob": "D_CaimanGiant",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 540,
+        "reg_max": 600,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_Raplan",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 540,
+        "reg_max": 600,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_RhinoceLoad",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 540,
+        "reg_max": 600,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_60": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 1499,
+    "center_y": 4341,
+    "width": 0,
+    "height": 0,
+    "range_degree": 190,
+    "mobs": [
+      {
+        "mob": "D_Raplan",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_61": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 2414,
+    "center_y": 3476,
+    "width": 0,
+    "height": 0,
+    "range_degree": 183,
+    "mobs": [
+      {
+        "mob": "D_Raplan",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_62": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1372,
+    "center_y": 3040,
+    "width": 0,
+    "height": 0,
+    "range_degree": 58,
+    "mobs": [
+      {
+        "mob": "D_RhinoceLoad",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_63": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1183,
+    "center_y": 3693,
+    "width": 0,
+    "height": 0,
+    "range_degree": 51,
+    "mobs": [
+      {
+        "mob": "D_RhinoceLoad",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_64": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1927,
+    "center_y": 3020,
+    "width": 0,
+    "height": 0,
+    "range_degree": 51,
+    "mobs": [
+      {
+        "mob": "D_RhinoceLoad",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_65": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 4488,
+    "center_y": 3106,
+    "width": 0,
+    "height": 0,
+    "range_degree": 184,
+    "mobs": [
+      {
+        "mob": "D_Raplan",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_66": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 3908,
+    "center_y": 2079,
+    "width": 0,
+    "height": 0,
+    "range_degree": 246,
+    "mobs": [
+      {
+        "mob": "D_Raplan",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_67": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 5079,
+    "center_y": 2316,
+    "width": 0,
+    "height": 0,
+    "range_degree": 225,
+    "mobs": [
+      {
+        "mob": "D_Raplan",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_68": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4595,
+    "center_y": 959,
+    "width": 0,
+    "height": 0,
+    "range_degree": 51,
+    "mobs": [
+      {
+        "mob": "D_RhinoceLoad",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_69": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5281,
+    "center_y": 1498,
+    "width": 0,
+    "height": 0,
+    "range_degree": 51,
+    "mobs": [
+      {
+        "mob": "D_RhinoceLoad",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_70": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6826,
+    "center_y": 3443,
+    "width": 51,
+    "height": 1014,
+    "range_degree": -3,
+    "mobs": [
+      {
+        "mob": "D_Raplan",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_71": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 6884,
+    "center_y": 2112,
+    "width": 0,
+    "height": 0,
+    "range_degree": 184,
+    "mobs": [
+      {
+        "mob": "D_Raplan",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_72": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 7443,
+    "center_y": 1584,
+    "width": 0,
+    "height": 0,
+    "range_degree": 177,
+    "mobs": [
+      {
+        "mob": "D_Raplan",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_73": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 6712,
+    "center_y": 1457,
+    "width": 0,
+    "height": 0,
+    "range_degree": 184,
+    "mobs": [
+      {
+        "mob": "D_Raplan",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_74": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 9272,
+    "center_y": 3191,
+    "width": 0,
+    "height": 0,
+    "range_degree": 148,
+    "mobs": [
+      {
+        "mob": "D_Raplan",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_75": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 9048,
+    "center_y": 2080,
+    "width": 0,
+    "height": 0,
+    "range_degree": 218,
+    "mobs": [
+      {
+        "mob": "D_Raplan",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_76": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 9978,
+    "center_y": 2335,
+    "width": 0,
+    "height": 0,
+    "range_degree": 225,
+    "mobs": [
+      {
+        "mob": "D_Raplan",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_77": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 11317,
+    "center_y": 4984,
+    "width": 0,
+    "height": 0,
+    "range_degree": 198,
+    "mobs": [
+      {
+        "mob": "D_Raplan",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_78": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 11887,
+    "center_y": 4361,
+    "width": 0,
+    "height": 0,
+    "range_degree": 197,
+    "mobs": [
+      {
+        "mob": "D_Raplan",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_79": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 10701,
+    "center_y": 4359,
+    "width": 0,
+    "height": 0,
+    "range_degree": 190,
+    "mobs": [
+      {
+        "mob": "D_Raplan",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_80": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11987,
+    "center_y": 3582,
+    "width": 0,
+    "height": 0,
+    "range_degree": 51,
+    "mobs": [
+      {
+        "mob": "D_RhinoceLoad",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_81": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10871,
+    "center_y": 3606,
+    "width": 0,
+    "height": 0,
+    "range_degree": 51,
+    "mobs": [
+      {
+        "mob": "D_RhinoceLoad",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_82": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4546,
+    "center_y": 2153,
+    "width": 0,
+    "height": 0,
+    "range_degree": 500,
+    "mobs": [
+      {
+        "mob": "D_Raplan",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_83": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8679,
+    "center_y": 4888,
+    "width": 0,
+    "height": 0,
+    "range_degree": 492,
+    "mobs": [
+      {
+        "mob": "D_RhinoceLoad",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_84": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9511,
+    "center_y": 2141,
+    "width": 0,
+    "height": 0,
+    "range_degree": 850,
+    "mobs": [
+      {
+        "mob": "D_RhinoceLoad",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_85": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10606,
+    "center_y": 6266,
+    "width": 0,
+    "height": 0,
+    "range_degree": 500,
+    "mobs": [
+      {
+        "mob": "D_RhinoceLoad",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_86": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11323,
+    "center_y": 4308,
+    "width": 0,
+    "height": 0,
+    "range_degree": 500,
+    "mobs": [
+      {
+        "mob": "D_RhinoceLoad",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  }
+}

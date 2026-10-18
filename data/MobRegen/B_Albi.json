@@ -1,0 +1,497 @@
+{
+  "BossAlbireo": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1597,
+    "center_y": 2868,
+    "width": 0,
+    "height": 0,
+    "range_degree": 10,
+    "mobs": [
+      {
+        "mob": "B_Albireo",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 43200,
+        "reg_min": 43150,
+        "reg_max": 43250,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "MineKN01": {
+    "enabled": false,
+    "is_family": false,
+    "center_x": 2096,
+    "center_y": 1886,
+    "width": 366,
+    "height": 281,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "ArkMine_Kn",
+        "count": 10,
+        "kill_num": 0,
+        "reg_standard": 10,
+        "reg_min": 9,
+        "reg_max": 11,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": false
+      }
+    ]
+  },
+  "MineKN02": {
+    "enabled": false,
+    "is_family": false,
+    "center_x": 1096,
+    "center_y": 1886,
+    "width": 366,
+    "height": 281,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "ArkMine_Kn",
+        "count": 12,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 11,
+        "reg_max": 13,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": false
+      }
+    ]
+  },
+  "MineKN03": {
+    "enabled": false,
+    "is_family": false,
+    "center_x": 1096,
+    "center_y": 781,
+    "width": 366,
+    "height": 549,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "ArkMine_Kn",
+        "count": 8,
+        "kill_num": 0,
+        "reg_standard": 8,
+        "reg_min": 7,
+        "reg_max": 9,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": false
+      }
+    ]
+  },
+  "MineKN04": {
+    "enabled": false,
+    "is_family": false,
+    "center_x": 2096,
+    "center_y": 781,
+    "width": 366,
+    "height": 549,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "ArkMine_Kn",
+        "count": 16,
+        "kill_num": 0,
+        "reg_standard": 16,
+        "reg_min": 15,
+        "reg_max": 17,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": false
+      }
+    ]
+  },
+  "MineKN05": {
+    "enabled": false,
+    "is_family": false,
+    "center_x": 1613,
+    "center_y": 1973,
+    "width": 0,
+    "height": 0,
+    "range_degree": 666,
+    "mobs": [
+      {
+        "mob": "ArkMine_Kn",
+        "count": 15,
+        "kill_num": 0,
+        "reg_standard": 15,
+        "reg_min": 14,
+        "reg_max": 16,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": false
+      }
+    ]
+  },
+  "MineKN06": {
+    "enabled": false,
+    "is_family": false,
+    "center_x": 1600,
+    "center_y": 796,
+    "width": 0,
+    "height": 0,
+    "range_degree": 533,
+    "mobs": [
+      {
+        "mob": "ArkMine_Kn",
+        "count": 10,
+        "kill_num": 0,
+        "reg_standard": 10,
+        "reg_min": 9,
+        "reg_max": 11,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": false
+      }
+    ]
+  },
+  "MineKN07": {
+    "enabled": false,
+    "is_family": false,
+    "center_x": 1160,
+    "center_y": 1463,
+    "width": 0,
+    "height": 0,
+    "range_degree": 400,
+    "mobs": [
+      {
+        "mob": "ArkMine_Kn",
+        "count": 20,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 19,
+        "reg_max": 21,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": false
+      }
+    ]
+  },
+  "MineKN08": {
+    "enabled": false,
+    "is_family": false,
+    "center_x": 2102,
+    "center_y": 1487,
+    "width": 0,
+    "height": 0,
+    "range_degree": 400,
+    "mobs": [
+      {
+        "mob": "ArkMine_Kn",
+        "count": 25,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 24,
+        "reg_max": 26,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": false
+      }
+    ]
+  },
+  "MineF01": {
+    "enabled": false,
+    "is_family": false,
+    "center_x": 2694,
+    "center_y": 1468,
+    "width": 0,
+    "height": 0,
+    "range_degree": 10,
+    "mobs": [
+      {
+        "mob": "ArkMine_F",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 60,
+        "reg_min": 59,
+        "reg_max": 61,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": false
+      }
+    ]
+  },
+  "MineF02": {
+    "enabled": false,
+    "is_family": false,
+    "center_x": 502,
+    "center_y": 1464,
+    "width": 0,
+    "height": 0,
+    "range_degree": 10,
+    "mobs": [
+      {
+        "mob": "ArkMine_F",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 60,
+        "reg_min": 59,
+        "reg_max": 61,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": false
+      }
+    ]
+  },
+  "MineF03": {
+    "enabled": false,
+    "is_family": false,
+    "center_x": 2694,
+    "center_y": 1468,
+    "width": 0,
+    "height": 0,
+    "range_degree": 10,
+    "mobs": [
+      {
+        "mob": "ArkMine_F",
+        "count": 10,
+        "kill_num": 0,
+        "reg_standard": 60,
+        "reg_min": 59,
+        "reg_max": 61,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": false
+      }
+    ]
+  },
+  "MineF04": {
+    "enabled": false,
+    "is_family": false,
+    "center_x": 502,
+    "center_y": 1464,
+    "width": 0,
+    "height": 0,
+    "range_degree": 10,
+    "mobs": [
+      {
+        "mob": "ArkMine_F",
+        "count": 10,
+        "kill_num": 0,
+        "reg_standard": 60,
+        "reg_min": 59,
+        "reg_max": 61,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": false
+      }
+    ]
+  },
+  "MineF05": {
+    "enabled": false,
+    "is_family": false,
+    "center_x": 2694,
+    "center_y": 1468,
+    "width": 0,
+    "height": 0,
+    "range_degree": 10,
+    "mobs": [
+      {
+        "mob": "ArkMine_F",
+        "count": 20,
+        "kill_num": 0,
+        "reg_standard": 60,
+        "reg_min": 59,
+        "reg_max": 61,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": false
+      }
+    ]
+  },
+  "MineF06": {
+    "enabled": false,
+    "is_family": false,
+    "center_x": 502,
+    "center_y": 1464,
+    "width": 0,
+    "height": 0,
+    "range_degree": 10,
+    "mobs": [
+      {
+        "mob": "ArkMine_F",
+        "count": 20,
+        "kill_num": 0,
+        "reg_standard": 60,
+        "reg_min": 59,
+        "reg_max": 61,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": false
+      }
+    ]
+  }
+}

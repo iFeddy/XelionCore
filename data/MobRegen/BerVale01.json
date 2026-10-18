@@ -1,0 +1,4182 @@
+{
+  "FrzPu01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3184,
+    "center_y": 10490,
+    "width": 0,
+    "height": 0,
+    "range_degree": 231,
+    "mobs": [
+      {
+        "mob": "ValeSnowyPuggy",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "FrzPu02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3706,
+    "center_y": 10236,
+    "width": 0,
+    "height": 0,
+    "range_degree": 280,
+    "mobs": [
+      {
+        "mob": "ValeSnowyPuggy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "FrzPu03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3977,
+    "center_y": 9818,
+    "width": 0,
+    "height": 0,
+    "range_degree": 196,
+    "mobs": [
+      {
+        "mob": "ValeSnowyPuggy",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "FrzPu04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4096,
+    "center_y": 9316,
+    "width": 0,
+    "height": 0,
+    "range_degree": 280,
+    "mobs": [
+      {
+        "mob": "ValeSnowyPuggy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "FrzPu05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2974,
+    "center_y": 9452,
+    "width": 0,
+    "height": 0,
+    "range_degree": 266,
+    "mobs": [
+      {
+        "mob": "ValeSnowyPuggy",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "FrzPu06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3402,
+    "center_y": 8992,
+    "width": 0,
+    "height": 0,
+    "range_degree": 280,
+    "mobs": [
+      {
+        "mob": "ValeSnowyPuggy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "FrzPu07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2770,
+    "center_y": 10190,
+    "width": 0,
+    "height": 0,
+    "range_degree": 217,
+    "mobs": [
+      {
+        "mob": "ValeSnowyPuggy",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "FrzPu08": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3543,
+    "center_y": 9551,
+    "width": 0,
+    "height": 0,
+    "range_degree": 280,
+    "mobs": [
+      {
+        "mob": "ValeSnowyPuggy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "FrzPu09": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3200,
+    "center_y": 9970,
+    "width": 0,
+    "height": 0,
+    "range_degree": 252,
+    "mobs": [
+      {
+        "mob": "ValeSnowyPuggy",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "FrzPu10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4047,
+    "center_y": 8705,
+    "width": 0,
+    "height": 0,
+    "range_degree": 252,
+    "mobs": [
+      {
+        "mob": "ValeSnowyPuggy",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "FrzMa01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3821,
+    "center_y": 6882,
+    "width": 0,
+    "height": 0,
+    "range_degree": 203,
+    "mobs": [
+      {
+        "mob": "ValeMastodons",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "FrzMa02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2680,
+    "center_y": 7633,
+    "width": 0,
+    "height": 0,
+    "range_degree": 188,
+    "mobs": [
+      {
+        "mob": "ValeMastodons",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "FrzMa03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2940,
+    "center_y": 7041,
+    "width": 0,
+    "height": 0,
+    "range_degree": 217,
+    "mobs": [
+      {
+        "mob": "ValeMastodons",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "FrzMa04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3096,
+    "center_y": 5436,
+    "width": 0,
+    "height": 0,
+    "range_degree": 187,
+    "mobs": [
+      {
+        "mob": "ValeMastodons",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "FrzMa05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2635,
+    "center_y": 5985,
+    "width": 0,
+    "height": 0,
+    "range_degree": 210,
+    "mobs": [
+      {
+        "mob": "ValeMastodons",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "FrzMa06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4034,
+    "center_y": 5147,
+    "width": 0,
+    "height": 0,
+    "range_degree": 208,
+    "mobs": [
+      {
+        "mob": "ValeMastodons",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "FrzMa07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2955,
+    "center_y": 6513,
+    "width": 0,
+    "height": 0,
+    "range_degree": 203,
+    "mobs": [
+      {
+        "mob": "ValeMastodons",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "FrzMa08": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3356,
+    "center_y": 6850,
+    "width": 0,
+    "height": 0,
+    "range_degree": 216,
+    "mobs": [
+      {
+        "mob": "ValeMastodons",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "FrzMa09": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3088,
+    "center_y": 4966,
+    "width": 0,
+    "height": 0,
+    "range_degree": 203,
+    "mobs": [
+      {
+        "mob": "ValeMastodons",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "FrzMa10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3578,
+    "center_y": 4952,
+    "width": 0,
+    "height": 0,
+    "range_degree": 203,
+    "mobs": [
+      {
+        "mob": "ValeMastodons",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "FrzMa11": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3312,
+    "center_y": 7307,
+    "width": 0,
+    "height": 0,
+    "range_degree": 203,
+    "mobs": [
+      {
+        "mob": "ValeMastodons",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "FrzWo01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1235,
+    "center_y": 7427,
+    "width": 0,
+    "height": 0,
+    "range_degree": 140,
+    "mobs": [
+      {
+        "mob": "ValeSnowyWolf",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "FrzWo02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1205,
+    "center_y": 7945,
+    "width": 0,
+    "height": 0,
+    "range_degree": 166,
+    "mobs": [
+      {
+        "mob": "ValeSnowyWolf",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "FrzWo03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3251,
+    "center_y": 4318,
+    "width": 0,
+    "height": 0,
+    "range_degree": 140,
+    "mobs": [
+      {
+        "mob": "ValeSnowyWolf",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "FrzWo04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1468,
+    "center_y": 7094,
+    "width": 0,
+    "height": 0,
+    "range_degree": 173,
+    "mobs": [
+      {
+        "mob": "ValeSnowyWolf",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "FrzWo05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2670,
+    "center_y": 4851,
+    "width": 0,
+    "height": 0,
+    "range_degree": 140,
+    "mobs": [
+      {
+        "mob": "ValeSnowyWolf",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "FrzWo06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1322,
+    "center_y": 5346,
+    "width": 0,
+    "height": 0,
+    "range_degree": 159,
+    "mobs": [
+      {
+        "mob": "ValeSnowyWolf",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "FrzWo07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3733,
+    "center_y": 4454,
+    "width": 0,
+    "height": 0,
+    "range_degree": 140,
+    "mobs": [
+      {
+        "mob": "ValeSnowyWolf",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "FrzWo08": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1432,
+    "center_y": 4429,
+    "width": 0,
+    "height": 0,
+    "range_degree": 130,
+    "mobs": [
+      {
+        "mob": "ValeSnowyWolf",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "FrzWo09": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1190,
+    "center_y": 8456,
+    "width": 0,
+    "height": 0,
+    "range_degree": 140,
+    "mobs": [
+      {
+        "mob": "ValeSnowyWolf",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "FrzMe01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2170,
+    "center_y": 3078,
+    "width": 0,
+    "height": 0,
+    "range_degree": 140,
+    "mobs": [
+      {
+        "mob": "ValeMegan",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "FrzMe02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1565,
+    "center_y": 4008,
+    "width": 0,
+    "height": 0,
+    "range_degree": 173,
+    "mobs": [
+      {
+        "mob": "ValeMegan",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "FrzMe03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2736,
+    "center_y": 2963,
+    "width": 0,
+    "height": 0,
+    "range_degree": 140,
+    "mobs": [
+      {
+        "mob": "ValeMegan",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "FrzMe04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1909,
+    "center_y": 3349,
+    "width": 0,
+    "height": 0,
+    "range_degree": 174,
+    "mobs": [
+      {
+        "mob": "ValeMegan",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "FrzMe05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2985,
+    "center_y": 2728,
+    "width": 0,
+    "height": 0,
+    "range_degree": 140,
+    "mobs": [
+      {
+        "mob": "ValeMegan",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "FrzMe06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2619,
+    "center_y": 2590,
+    "width": 0,
+    "height": 0,
+    "range_degree": 188,
+    "mobs": [
+      {
+        "mob": "ValeMegan",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "FrzMe07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2389,
+    "center_y": 2857,
+    "width": 0,
+    "height": 0,
+    "range_degree": 140,
+    "mobs": [
+      {
+        "mob": "ValeMegan",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "FrzMe08": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2912,
+    "center_y": 2338,
+    "width": 0,
+    "height": 0,
+    "range_degree": 159,
+    "mobs": [
+      {
+        "mob": "ValeMegan",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "FrzMe09": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1634,
+    "center_y": 3639,
+    "width": 0,
+    "height": 0,
+    "range_degree": 140,
+    "mobs": [
+      {
+        "mob": "ValeMegan",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PlnBe01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9188,
+    "center_y": 6655,
+    "width": 0,
+    "height": 0,
+    "range_degree": 265,
+    "mobs": [
+      {
+        "mob": "ValeBattleBeak",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PlnBe02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8575,
+    "center_y": 6663,
+    "width": 0,
+    "height": 0,
+    "range_degree": 285,
+    "mobs": [
+      {
+        "mob": "ValeBattleBeak",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PlnBe03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9890,
+    "center_y": 6120,
+    "width": 0,
+    "height": 0,
+    "range_degree": 294,
+    "mobs": [
+      {
+        "mob": "ValeBattleBeak",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PlnBe04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10426,
+    "center_y": 5782,
+    "width": 0,
+    "height": 0,
+    "range_degree": 280,
+    "mobs": [
+      {
+        "mob": "ValeBattleBeak",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PlnBe05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9877,
+    "center_y": 5482,
+    "width": 0,
+    "height": 0,
+    "range_degree": 294,
+    "mobs": [
+      {
+        "mob": "ValeBattleBeak",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PlnBe06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8066,
+    "center_y": 6382,
+    "width": 0,
+    "height": 0,
+    "range_degree": 264,
+    "mobs": [
+      {
+        "mob": "ValeBattleBeak",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PlnBe07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7601,
+    "center_y": 5170,
+    "width": 0,
+    "height": 0,
+    "range_degree": 231,
+    "mobs": [
+      {
+        "mob": "ValeBattleBeak",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PlnBe08": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7719,
+    "center_y": 5715,
+    "width": 0,
+    "height": 0,
+    "range_degree": 244,
+    "mobs": [
+      {
+        "mob": "ValeBattleBeak",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PlnBe09": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8390,
+    "center_y": 4984,
+    "width": 0,
+    "height": 0,
+    "range_degree": 230,
+    "mobs": [
+      {
+        "mob": "ValeBattleBeak",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PlnBe10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9330,
+    "center_y": 6156,
+    "width": 0,
+    "height": 0,
+    "range_degree": 209,
+    "mobs": [
+      {
+        "mob": "ValeBattleBeak",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PlnBe11": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9374,
+    "center_y": 5704,
+    "width": 0,
+    "height": 0,
+    "range_degree": 209,
+    "mobs": [
+      {
+        "mob": "ValeBattleBeak",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PlnBe12": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9312,
+    "center_y": 5176,
+    "width": 0,
+    "height": 0,
+    "range_degree": 294,
+    "mobs": [
+      {
+        "mob": "ValeBattleBeak",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PlnSh01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10921,
+    "center_y": 8972,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "ValeShella",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PlnSh02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11094,
+    "center_y": 8581,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "ValeShella",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PlnSh03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11070,
+    "center_y": 7983,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "ValeShella",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PlnSh04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11018,
+    "center_y": 7535,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "ValeShella",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PlnSh05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10638,
+    "center_y": 7858,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "ValeShella",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PlnSh06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9854,
+    "center_y": 9105,
+    "width": 0,
+    "height": 0,
+    "range_degree": 100,
+    "mobs": [
+      {
+        "mob": "ValeShella",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PlnSh07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9694,
+    "center_y": 8641,
+    "width": 0,
+    "height": 0,
+    "range_degree": 100,
+    "mobs": [
+      {
+        "mob": "ValeShella",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PlnSh08": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10729,
+    "center_y": 8284,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "ValeShella",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PlnSh09": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9712,
+    "center_y": 8877,
+    "width": 0,
+    "height": 0,
+    "range_degree": 100,
+    "mobs": [
+      {
+        "mob": "ValeShella",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PlnSh10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10974,
+    "center_y": 7066,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "ValeShella",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PlnSp01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8325,
+    "center_y": 4009,
+    "width": 0,
+    "height": 0,
+    "range_degree": 237,
+    "mobs": [
+      {
+        "mob": "ValeBSpikeHorn",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PlnSp02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8852,
+    "center_y": 3938,
+    "width": 0,
+    "height": 0,
+    "range_degree": 257,
+    "mobs": [
+      {
+        "mob": "ValeBSpikeHorn",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PlnSp03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9376,
+    "center_y": 4011,
+    "width": 0,
+    "height": 0,
+    "range_degree": 230,
+    "mobs": [
+      {
+        "mob": "ValeBSpikeHorn",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PlnSp04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11022,
+    "center_y": 3811,
+    "width": 0,
+    "height": 0,
+    "range_degree": 279,
+    "mobs": [
+      {
+        "mob": "ValeBSpikeHorn",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PlnSp05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11043,
+    "center_y": 4367,
+    "width": 0,
+    "height": 0,
+    "range_degree": 196,
+    "mobs": [
+      {
+        "mob": "ValeBSpikeHorn",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PlnSp06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10910,
+    "center_y": 3291,
+    "width": 0,
+    "height": 0,
+    "range_degree": 236,
+    "mobs": [
+      {
+        "mob": "ValeBSpikeHorn",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PlnSp07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7584,
+    "center_y": 2971,
+    "width": 0,
+    "height": 0,
+    "range_degree": 264,
+    "mobs": [
+      {
+        "mob": "ValeBSpikeHorn",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PlnSp08": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7585,
+    "center_y": 2392,
+    "width": 0,
+    "height": 0,
+    "range_degree": 264,
+    "mobs": [
+      {
+        "mob": "ValeBSpikeHorn",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PlnSp09": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8108,
+    "center_y": 2760,
+    "width": 0,
+    "height": 0,
+    "range_degree": 259,
+    "mobs": [
+      {
+        "mob": "ValeBSpikeHorn",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PlnSp10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8120,
+    "center_y": 2200,
+    "width": 0,
+    "height": 0,
+    "range_degree": 252,
+    "mobs": [
+      {
+        "mob": "ValeBSpikeHorn",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PlnSp11": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8750,
+    "center_y": 2129,
+    "width": 0,
+    "height": 0,
+    "range_degree": 252,
+    "mobs": [
+      {
+        "mob": "ValeBSpikeHorn",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PlnSp12": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8659,
+    "center_y": 2638,
+    "width": 0,
+    "height": 0,
+    "range_degree": 238,
+    "mobs": [
+      {
+        "mob": "ValeBSpikeHorn",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PlnSp13": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9257,
+    "center_y": 2678,
+    "width": 0,
+    "height": 0,
+    "range_degree": 238,
+    "mobs": [
+      {
+        "mob": "ValeBSpikeHorn",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PlnSp14": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9342,
+    "center_y": 2124,
+    "width": 0,
+    "height": 0,
+    "range_degree": 273,
+    "mobs": [
+      {
+        "mob": "ValeBSpikeHorn",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PlnSp15": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9716,
+    "center_y": 2776,
+    "width": 0,
+    "height": 0,
+    "range_degree": 210,
+    "mobs": [
+      {
+        "mob": "ValeBSpikeHorn",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PlnSp16": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9849,
+    "center_y": 2286,
+    "width": 0,
+    "height": 0,
+    "range_degree": 252,
+    "mobs": [
+      {
+        "mob": "ValeBSpikeHorn",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PlnAp01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9049,
+    "center_y": 10517,
+    "width": 0,
+    "height": 0,
+    "range_degree": 231,
+    "mobs": [
+      {
+        "mob": "ValeApe",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PlnAp02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9535,
+    "center_y": 10685,
+    "width": 0,
+    "height": 0,
+    "range_degree": 251,
+    "mobs": [
+      {
+        "mob": "ValeApe",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PlnAp03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10031,
+    "center_y": 10853,
+    "width": 0,
+    "height": 0,
+    "range_degree": 203,
+    "mobs": [
+      {
+        "mob": "ValeApe",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PlnAp04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11617,
+    "center_y": 10334,
+    "width": 0,
+    "height": 0,
+    "range_degree": 202,
+    "mobs": [
+      {
+        "mob": "ValeApe",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PlnAp05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11459,
+    "center_y": 9969,
+    "width": 0,
+    "height": 0,
+    "range_degree": 168,
+    "mobs": [
+      {
+        "mob": "ValeApe",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PlnAp06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11299,
+    "center_y": 9582,
+    "width": 0,
+    "height": 0,
+    "range_degree": 209,
+    "mobs": [
+      {
+        "mob": "ValeApe",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PlnAp07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9834,
+    "center_y": 10295,
+    "width": 0,
+    "height": 0,
+    "range_degree": 210,
+    "mobs": [
+      {
+        "mob": "ValeApe",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PlnAp08": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10309,
+    "center_y": 10354,
+    "width": 0,
+    "height": 0,
+    "range_degree": 195,
+    "mobs": [
+      {
+        "mob": "ValeApe",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PlnAp09": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10077,
+    "center_y": 9886,
+    "width": 0,
+    "height": 0,
+    "range_degree": 188,
+    "mobs": [
+      {
+        "mob": "ValeApe",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "BerValeDw01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7413,
+    "center_y": 3700,
+    "width": 0,
+    "height": 0,
+    "range_degree": 104,
+    "mobs": [
+      {
+        "mob": "ValeArkGuard",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "BerValeDw02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4320,
+    "center_y": 3690,
+    "width": 0,
+    "height": 0,
+    "range_degree": 109,
+    "mobs": [
+      {
+        "mob": "ValeArkGuard",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "BerValeDw03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7696,
+    "center_y": 7644,
+    "width": 0,
+    "height": 0,
+    "range_degree": 111,
+    "mobs": [
+      {
+        "mob": "ValeArkGuard",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "BerValeDw04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4452,
+    "center_y": 7634,
+    "width": 0,
+    "height": 0,
+    "range_degree": 116,
+    "mobs": [
+      {
+        "mob": "ValeArkGuard",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "BerValeGaruda": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3184,
+    "center_y": 6001,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "Garuda",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 480,
+        "reg_max": 720,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "GatherZ101": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4255,
+    "center_y": 6725,
+    "width": 0,
+    "height": 0,
+    "range_degree": 234,
+    "mobs": [
+      {
+        "mob": "Wood7_Snow",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 201,
+        "reg_max": 199,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Mushroom1_Snow",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 201,
+        "reg_max": 199,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Herb1_Snow",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 201,
+        "reg_max": 199,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "GatherZ102": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3899,
+    "center_y": 5714,
+    "width": 85,
+    "height": 251,
+    "range_degree": -13,
+    "mobs": [
+      {
+        "mob": "Mushroom1_Snow",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 201,
+        "reg_max": 199,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Wood7_Snow",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 201,
+        "reg_max": 199,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "GatherZ103": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4134,
+    "center_y": 4572,
+    "width": 148,
+    "height": 153,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "Flower7_Snow",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 201,
+        "reg_max": 199,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Wood7_Snow",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 201,
+        "reg_max": 199,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "GatherZ104": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4148,
+    "center_y": 8279,
+    "width": 206,
+    "height": 124,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "Herb1_Snow",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 201,
+        "reg_max": 199,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Flower7_Snow",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 201,
+        "reg_max": 199,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Wood7_Snow",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 201,
+        "reg_max": 199,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "GatherZ105": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4474,
+    "center_y": 9038,
+    "width": 87,
+    "height": 99,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "Herb1_Snow",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 201,
+        "reg_max": 199,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "GatherZ106": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1453,
+    "center_y": 5928,
+    "width": 97,
+    "height": 254,
+    "range_degree": 23,
+    "mobs": [
+      {
+        "mob": "Flower7_Snow",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 201,
+        "reg_max": 199,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "GatherZ107": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3118,
+    "center_y": 10590,
+    "width": 115,
+    "height": 119,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "Wood7_Snow",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 201,
+        "reg_max": 199,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "GatherZ108": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2714,
+    "center_y": 9797,
+    "width": 94,
+    "height": 96,
+    "range_degree": 39,
+    "mobs": [
+      {
+        "mob": "Mushroom1_Snow",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 201,
+        "reg_max": 199,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "GatherZ109": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2707,
+    "center_y": 5521,
+    "width": 106,
+    "height": 107,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "Herb1_Snow",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 201,
+        "reg_max": 199,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Wood7_Snow",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 201,
+        "reg_max": 199,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "GatherZ201": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10176,
+    "center_y": 3808,
+    "width": 222,
+    "height": 497,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "Wood7_Snow",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 201,
+        "reg_max": 199,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "GatherZ202": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9775,
+    "center_y": 7699,
+    "width": 127,
+    "height": 171,
+    "range_degree": -65,
+    "mobs": [
+      {
+        "mob": "Herb1_Snow",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 201,
+        "reg_max": 199,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "GatherZ203": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8757,
+    "center_y": 7747,
+    "width": 214,
+    "height": 306,
+    "range_degree": 90,
+    "mobs": [
+      {
+        "mob": "Flower7_Snow",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 201,
+        "reg_max": 199,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "GatherZ204": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8504,
+    "center_y": 8654,
+    "width": 98,
+    "height": 215,
+    "range_degree": 37,
+    "mobs": [
+      {
+        "mob": "Herb1_Snow",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 201,
+        "reg_max": 199,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "GatherZ205": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11255,
+    "center_y": 8240,
+    "width": 62,
+    "height": 190,
+    "range_degree": 10,
+    "mobs": [
+      {
+        "mob": "Flower7_Snow",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 201,
+        "reg_max": 199,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "GatherZ206": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11340,
+    "center_y": 4163,
+    "width": 138,
+    "height": 138,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "Mushroom1_Snow",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 201,
+        "reg_max": 199,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "GatherZ207": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7829,
+    "center_y": 4085,
+    "width": 211,
+    "height": 121,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "Wood7_Snow",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 201,
+        "reg_max": 199,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "GatherZ208": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8122,
+    "center_y": 1959,
+    "width": 367,
+    "height": 109,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "Mushroom1_Snow",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 201,
+        "reg_max": 199,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "GatherZ209": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8957,
+    "center_y": 1817,
+    "width": 376,
+    "height": 81,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "Flower7_Snow",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 201,
+        "reg_max": 199,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "P01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11209,
+    "center_y": 10642,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "PresentBox_Snow",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 14400,
+        "reg_min": 14396,
+        "reg_max": 14404,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "P02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4168,
+    "center_y": 2677,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "PresentBox_Snow",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 14400,
+        "reg_min": 14396,
+        "reg_max": 14404,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Waypoint01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1805,
+    "center_y": 7909,
+    "width": 0,
+    "height": 0,
+    "range_degree": 450,
+    "mobs": [
+      {
+        "mob": "ValeSnowyPuggy",
+        "count": 10,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Waypoint02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3719,
+    "center_y": 7460,
+    "width": 0,
+    "height": 0,
+    "range_degree": 450,
+    "mobs": [
+      {
+        "mob": "ValeSnowyPuggy",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Waypoint03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1722,
+    "center_y": 5781,
+    "width": 0,
+    "height": 0,
+    "range_degree": 450,
+    "mobs": [
+      {
+        "mob": "ValeSnowyPuggy",
+        "count": 10,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Waypoint04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10965,
+    "center_y": 10369,
+    "width": 0,
+    "height": 0,
+    "range_degree": 450,
+    "mobs": [
+      {
+        "mob": "ValeShella",
+        "count": 10,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Waypoint05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9247,
+    "center_y": 7523,
+    "width": 0,
+    "height": 0,
+    "range_degree": 450,
+    "mobs": [
+      {
+        "mob": "ValeShella",
+        "count": 10,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Waypoint06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7643,
+    "center_y": 4123,
+    "width": 0,
+    "height": 0,
+    "range_degree": 450,
+    "mobs": [
+      {
+        "mob": "Wood7_Snow",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 201,
+        "reg_max": 199,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Waypoint07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4150,
+    "center_y": 4595,
+    "width": 0,
+    "height": 0,
+    "range_degree": 450,
+    "mobs": [
+      {
+        "mob": "Wood7_Snow",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 201,
+        "reg_max": 199,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Waypoint08": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4168,
+    "center_y": 8220,
+    "width": 0,
+    "height": 0,
+    "range_degree": 450,
+    "mobs": [
+      {
+        "mob": "Wood7_Snow",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 201,
+        "reg_max": 199,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Waypoint09": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11248,
+    "center_y": 1719,
+    "width": 0,
+    "height": 0,
+    "range_degree": 450,
+    "mobs": [
+      {
+        "mob": "Wood7_Snow",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 201,
+        "reg_max": 199,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Waypoint10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2487,
+    "center_y": 4155,
+    "width": 0,
+    "height": 0,
+    "range_degree": 450,
+    "mobs": [
+      {
+        "mob": "ValeMegan",
+        "count": 10,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Waypoint11": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4171,
+    "center_y": 2671,
+    "width": 0,
+    "height": 0,
+    "range_degree": 450,
+    "mobs": [
+      {
+        "mob": "ValeMegan",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 12,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,662 @@
+{
+  "Dn02_Mob1-1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9120,
+    "center_y": 10038,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "job2_ElfKnight",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 3,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Dn02_Mob1-2": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9410,
+    "center_y": 9993,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "Job2_LIzardK",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 3,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Dn02_Mob2-1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9799,
+    "center_y": 9319,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "job2_ElfKnight",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 3,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Dn02_Mob2-2": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8781,
+    "center_y": 9626,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "Job2_LIzardK",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 3,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Dn02_Mob3-1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8792,
+    "center_y": 9314,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "job2_ElfKnight",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 3,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Dn02_Mob3-2": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9618,
+    "center_y": 9802,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "Job2_LIzardK",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 3,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Dn02_Mob4-1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9464,
+    "center_y": 8989,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "job2_ElfKnight",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 3,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Dn02_Mob4-2": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8934,
+    "center_y": 9946,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "Job2_LIzardK",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 3,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Dn02_Mob5-1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9013,
+    "center_y": 9025,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "job2_ElfKnight",
+        "count": 7,
+        "kill_num": 0,
+        "reg_standard": 3,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Dn02_Mob5-2": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8690,
+    "center_y": 9063,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "Job2_LIzardK",
+        "count": 7,
+        "kill_num": 0,
+        "reg_standard": 3,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Dn02_Mob6-1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9837,
+    "center_y": 9684,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "job2_ElfKnight",
+        "count": 8,
+        "kill_num": 0,
+        "reg_standard": 3,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Dn02_Mob6-2": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8578,
+    "center_y": 9860,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "Job2_LIzardK",
+        "count": 8,
+        "kill_num": 0,
+        "reg_standard": 3,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Dn02_Mob7-1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9328,
+    "center_y": 9547,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "job2_ElfKnight",
+        "count": 9,
+        "kill_num": 0,
+        "reg_standard": 3,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Dn02_Mob7-2": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9078,
+    "center_y": 9550,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "Job2_LIzardK",
+        "count": 9,
+        "kill_num": 0,
+        "reg_standard": 3,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Dn02_Mob8-1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8916,
+    "center_y": 9190,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "job2_ElfKnight",
+        "count": 10,
+        "kill_num": 0,
+        "reg_standard": 3,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Dn02_Mob8-2": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9686,
+    "center_y": 9977,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "Job2_LIzardK",
+        "count": 10,
+        "kill_num": 0,
+        "reg_standard": 3,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Dn02_Mob9-1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9379,
+    "center_y": 9097,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "job2_ElfKnight",
+        "count": 10,
+        "kill_num": 0,
+        "reg_standard": 3,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Dn02_Mob9-2": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9332,
+    "center_y": 10129,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "Job2_LIzardK",
+        "count": 10,
+        "kill_num": 0,
+        "reg_standard": 3,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Dn02_Mob10-1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9606,
+    "center_y": 9277,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "job2_ElfKnight",
+        "count": 12,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Dn02_Mob10-2": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8931,
+    "center_y": 10146,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "Job2_LIzardK",
+        "count": 12,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  }
+}

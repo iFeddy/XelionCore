@@ -1,0 +1,893 @@
+{
+  "KQ_MiniDragon_Boss1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4270,
+    "center_y": 1926,
+    "width": 0,
+    "height": 0,
+    "range_degree": 51,
+    "mobs": [
+      {
+        "mob": "KQ_Werebear",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_MiniDragon_1_1": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 3881,
+    "center_y": 2466,
+    "width": 147,
+    "height": 533,
+    "range_degree": 28,
+    "mobs": [
+      {
+        "mob": "KQ_SmallProck",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_MiniDragon_1_2": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3385,
+    "center_y": 2624,
+    "width": 0,
+    "height": 0,
+    "range_degree": 268,
+    "mobs": [
+      {
+        "mob": "KQ_Bat",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_MiniDragon_1_3": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3597,
+    "center_y": 2817,
+    "width": 0,
+    "height": 0,
+    "range_degree": 281,
+    "mobs": [
+      {
+        "mob": "KQ_KissLips",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_MiniDragon_1_4": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3491,
+    "center_y": 2329,
+    "width": 0,
+    "height": 0,
+    "range_degree": 274,
+    "mobs": [
+      {
+        "mob": "KQ_Spider",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_MiniDragon_1_5": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 4060,
+    "center_y": 2355,
+    "width": 328,
+    "height": 540,
+    "range_degree": 26,
+    "mobs": [
+      {
+        "mob": "KQ_SandRatman",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_MiniDragon_Boss2": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9022,
+    "center_y": 2832,
+    "width": 0,
+    "height": 0,
+    "range_degree": 51,
+    "mobs": [
+      {
+        "mob": "KQ_G_BossTombRaider2",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_MiniDragon_2_1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7810,
+    "center_y": 2873,
+    "width": 120,
+    "height": 535,
+    "range_degree": -8,
+    "mobs": [
+      {
+        "mob": "KQ_SmallProck",
+        "count": 9,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_MiniDragon_2_2": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7664,
+    "center_y": 2800,
+    "width": 161,
+    "height": 399,
+    "range_degree": -8,
+    "mobs": [
+      {
+        "mob": "KQ_Bat",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_MiniDragon_2_3": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 8233,
+    "center_y": 2506,
+    "width": 250,
+    "height": 302,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "KQ_KissLips",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_MiniDragon_2_4": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 8491,
+    "center_y": 3343,
+    "width": 251,
+    "height": 372,
+    "range_degree": 10,
+    "mobs": [
+      {
+        "mob": "KQ_Spider",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_MiniDragon_2_5": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8363,
+    "center_y": 2952,
+    "width": 255,
+    "height": 717,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "KQ_HardboneImp",
+        "count": 8,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_MiniDragon_Boss3": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2920,
+    "center_y": 8076,
+    "width": 0,
+    "height": 0,
+    "range_degree": 64,
+    "mobs": [
+      {
+        "mob": "KQ_BossRobo2",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_MiniDragon_3_1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4841,
+    "center_y": 6541,
+    "width": 886,
+    "height": 212,
+    "range_degree": -55,
+    "mobs": [
+      {
+        "mob": "KQ_Bat",
+        "count": 15,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_MiniDragon_3_2": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4049,
+    "center_y": 7145,
+    "width": 952,
+    "height": 1298,
+    "range_degree": 35,
+    "mobs": [
+      {
+        "mob": "KQ_KissLips",
+        "count": 30,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_MiniDragon_3_3": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 4193,
+    "center_y": 6992,
+    "width": 746,
+    "height": 1083,
+    "range_degree": 26,
+    "mobs": [
+      {
+        "mob": "KQ_Spider",
+        "count": 12,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_MiniDragon_3_4": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 4477,
+    "center_y": 7668,
+    "width": 506,
+    "height": 506,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "KQ_SandRatman",
+        "count": 8,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_MiniDragon_3_5": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 3467,
+    "center_y": 6478,
+    "width": 485,
+    "height": 485,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "KQ_MadHob",
+        "count": 8,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_MiniDragon_3_6": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4228,
+    "center_y": 6976,
+    "width": 295,
+    "height": 1160,
+    "range_degree": 32,
+    "mobs": [
+      {
+        "mob": "KQ_HardboneImp",
+        "count": 12,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_MiniDragon_3_7": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 3705,
+    "center_y": 7382,
+    "width": 830,
+    "height": 472,
+    "range_degree": 35,
+    "mobs": [
+      {
+        "mob": "KQ_HeavyOgre",
+        "count": 12,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_MiniDragon_Boss4": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6356,
+    "center_y": 10742,
+    "width": 0,
+    "height": 0,
+    "range_degree": 58,
+    "mobs": [
+      {
+        "mob": "KQ_GobleKing",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_MiniDragon_4_1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7874,
+    "center_y": 9738,
+    "width": 477,
+    "height": 145,
+    "range_degree": 6,
+    "mobs": [
+      {
+        "mob": "KQ_Spider",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_MiniDragon_4_2": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7482,
+    "center_y": 9767,
+    "width": 517,
+    "height": 154,
+    "range_degree": 6,
+    "mobs": [
+      {
+        "mob": "KQ_SandRatman",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_MiniDragon_4_3": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6820,
+    "center_y": 9873,
+    "width": 327,
+    "height": 158,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "KQ_MadHob",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_MiniDragon_4_4": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 6448,
+    "center_y": 10068,
+    "width": 559,
+    "height": 215,
+    "range_degree": 38,
+    "mobs": [
+      {
+        "mob": "KQ_HardboneImp",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_MiniDragon_4_5": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 6493,
+    "center_y": 10048,
+    "width": 377,
+    "height": 158,
+    "range_degree": 41,
+    "mobs": [
+      {
+        "mob": "KQ_HeavyOgre",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KQ_MiniDragon_MINE1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11233,
+    "center_y": 11520,
+    "width": 0,
+    "height": 0,
+    "range_degree": 500,
+    "mobs": [
+      {
+        "mob": "KQ_MINE1",
+        "count": 250,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  }
+}

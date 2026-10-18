@@ -150,12 +150,14 @@ def parse_tutorial_character_data(filepath):
     return {"tutorials": tutorials}
 
 if __name__ == "__main__":
-    def_data = parse_default_character_data("data/DefaultCharacterData.txt")
+    def_path = "data/DefaultCharacterData.txt" if os.path.exists("data/DefaultCharacterData.txt") else "../AstraServer/Server/9Data/Shine/DefaultCharacterData.txt"
+    def_data = parse_default_character_data(def_path)
     with open("data/default_character_data.json", "w", encoding="utf-8") as out:
         json.dump(def_data, out, indent=2, ensure_ascii=False)
     print("Generated data/default_character_data.json successfully.")
 
-    tut_data = parse_tutorial_character_data("data/TutorialCharacterData.txt")
+    tut_path = "data/TutorialCharacterData.txt" if os.path.exists("data/TutorialCharacterData.txt") else "../AstraServer/Server/9Data/Shine/TutorialCharacterData.txt"
+    tut_data = parse_tutorial_character_data(tut_path)
     with open("data/tutorial_character_data.json", "w", encoding="utf-8") as out:
         json.dump(tut_data, out, indent=2, ensure_ascii=False)
     print("Generated data/tutorial_character_data.json successfully.")

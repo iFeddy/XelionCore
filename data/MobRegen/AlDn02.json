@@ -1,0 +1,4369 @@
+{
+  "AlDn01A001": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9928,
+    "center_y": 2714,
+    "width": 52,
+    "height": 251,
+    "range_degree": 42,
+    "mobs": [
+      {
+        "mob": "P_Seidwarrior3",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Seidhunter",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Seidwarrior1",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AlDn01A002": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9985,
+    "center_y": 2096,
+    "width": 0,
+    "height": 0,
+    "range_degree": 135,
+    "mobs": [
+      {
+        "mob": "P_Seidhunter",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Seidwarrior1",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Seidwarrior3",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AlDn01A003": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10692,
+    "center_y": 3180,
+    "width": 466,
+    "height": 101,
+    "range_degree": -22,
+    "mobs": [
+      {
+        "mob": "P_Fighter9M",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Seidwarrior1",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Seidhunter",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AlDn01A004": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11567,
+    "center_y": 2871,
+    "width": 0,
+    "height": 0,
+    "range_degree": 128,
+    "mobs": [
+      {
+        "mob": "P_Seidwarrior3",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Seidwarrior1",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Seidhunter",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AlDn01A005": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10447,
+    "center_y": 1695,
+    "width": 0,
+    "height": 0,
+    "range_degree": 163,
+    "mobs": [
+      {
+        "mob": "P_Seidhunter",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Seidwarrior1",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Fighter9M",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AlDn01A006": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11887,
+    "center_y": 4526,
+    "width": 0,
+    "height": 0,
+    "range_degree": 142,
+    "mobs": [
+      {
+        "mob": "P_Fighter9M",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Seidwarrior1",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Seidhunter",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AlDn007": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11705,
+    "center_y": 4825,
+    "width": 0,
+    "height": 0,
+    "range_degree": 142,
+    "mobs": [
+      {
+        "mob": "P_Seidhunter",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Seidwarrior1",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Fighter9M",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AlDn01A008": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11412,
+    "center_y": 5148,
+    "width": 0,
+    "height": 0,
+    "range_degree": 233,
+    "mobs": [
+      {
+        "mob": "P_Fighter9M",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Seidwarrior3",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Seidwarrior1",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Seidhunter",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AlDn01A009": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10942,
+    "center_y": 5297,
+    "width": 0,
+    "height": 0,
+    "range_degree": 212,
+    "mobs": [
+      {
+        "mob": "P_Seidhunter",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Seidwarrior1",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Seidwarrior3",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Fighter9M",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AlDn01A010": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10521,
+    "center_y": 5400,
+    "width": 0,
+    "height": 0,
+    "range_degree": 170,
+    "mobs": [
+      {
+        "mob": "P_Seidwarrior1",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Seidwarrior3",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Fighter9M",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AlDn01A011": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10173,
+    "center_y": 5629,
+    "width": 0,
+    "height": 0,
+    "range_degree": 149,
+    "mobs": [
+      {
+        "mob": "P_Fighter9M",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Seidhunter",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AlDn01A013": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10544,
+    "center_y": 7293,
+    "width": 0,
+    "height": 0,
+    "range_degree": 205,
+    "mobs": [
+      {
+        "mob": "P_Fighter9M",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Archer9F",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Seidwarrior3",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AlDn01A014": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10030,
+    "center_y": 7144,
+    "width": 0,
+    "height": 0,
+    "range_degree": 240,
+    "mobs": [
+      {
+        "mob": "P_Seidhunter",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Seidwarrior1",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Fighter9M",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Archer9F",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AlDn01A015": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9850,
+    "center_y": 7620,
+    "width": 0,
+    "height": 0,
+    "range_degree": 233,
+    "mobs": [
+      {
+        "mob": "P_Archer9F",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Fighter9M",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Seidwarrior2",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Seidhunter",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AlDn01A016": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10301,
+    "center_y": 7880,
+    "width": 0,
+    "height": 0,
+    "range_degree": 226,
+    "mobs": [
+      {
+        "mob": "P_Seidwarrior3",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Fighter9M",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Archer9F",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AlDn01A017": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9542,
+    "center_y": 9526,
+    "width": 0,
+    "height": 0,
+    "range_degree": 198,
+    "mobs": [
+      {
+        "mob": "P_Seidwarrior2",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Seidhunter",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Fighter9M",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AlDn01A018": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9146,
+    "center_y": 9925,
+    "width": 0,
+    "height": 0,
+    "range_degree": 275,
+    "mobs": [
+      {
+        "mob": "P_Fighter9M",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Seidwarrior3",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AlDn01A019": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8604,
+    "center_y": 9920,
+    "width": 0,
+    "height": 0,
+    "range_degree": 226,
+    "mobs": [
+      {
+        "mob": "P_Seidwarrior3",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Fighter9M",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AlDn01A020": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8711,
+    "center_y": 10320,
+    "width": 88,
+    "height": 234,
+    "range_degree": -40,
+    "mobs": [
+      {
+        "mob": "P_Seidwarrior2",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Fighter9M",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AlDn01A022": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6950,
+    "center_y": 11564,
+    "width": 0,
+    "height": 0,
+    "range_degree": 240,
+    "mobs": [
+      {
+        "mob": "P_Seidwarrior3",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Archer9F",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Fighter9M",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AlDn01A023": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7242,
+    "center_y": 10551,
+    "width": 0,
+    "height": 0,
+    "range_degree": 170,
+    "mobs": [
+      {
+        "mob": "P_Fighter9M",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Archer9F",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AlDn01A024": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6493,
+    "center_y": 10182,
+    "width": 0,
+    "height": 0,
+    "range_degree": 170,
+    "mobs": [
+      {
+        "mob": "P_Archer9F",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Fighter9M",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AlDn01A025": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6082,
+    "center_y": 11348,
+    "width": 0,
+    "height": 0,
+    "range_degree": 240,
+    "mobs": [
+      {
+        "mob": "P_Fighter9M",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Archer9F",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Seidwarrior3",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AlDn01A026": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6645,
+    "center_y": 10863,
+    "width": 0,
+    "height": 0,
+    "range_degree": 415,
+    "mobs": [
+      {
+        "mob": "P_Seidwarrior4",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Fighter9M",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Archer9F",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AlDn01A027": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5885,
+    "center_y": 10789,
+    "width": 0,
+    "height": 0,
+    "range_degree": 261,
+    "mobs": [
+      {
+        "mob": "P_Archer9F",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Fighter9M",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AlDn01A028": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6065,
+    "center_y": 10290,
+    "width": 0,
+    "height": 0,
+    "range_degree": 177,
+    "mobs": [
+      {
+        "mob": "P_Fighter9M",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Archer9F",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Seidhunter",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AlDn01A029": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6951,
+    "center_y": 10241,
+    "width": 0,
+    "height": 0,
+    "range_degree": 156,
+    "mobs": [
+      {
+        "mob": "P_Fighter9M",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Archer9F",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AlDn01A030": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4662,
+    "center_y": 10026,
+    "width": 0,
+    "height": 0,
+    "range_degree": 198,
+    "mobs": [
+      {
+        "mob": "P_Fighter9M",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Seidhunter",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Seidwarrior2",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AlDn01A031": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4289,
+    "center_y": 10115,
+    "width": 117,
+    "height": 271,
+    "range_degree": 1,
+    "mobs": [
+      {
+        "mob": "P_Seidwarrior4",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Fighter9M",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AlDn01A032": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3867,
+    "center_y": 10259,
+    "width": 0,
+    "height": 0,
+    "range_degree": 191,
+    "mobs": [
+      {
+        "mob": "P_Fighter9M",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AlDn01A033": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3470,
+    "center_y": 10155,
+    "width": 0,
+    "height": 0,
+    "range_degree": 205,
+    "mobs": [
+      {
+        "mob": "P_Fighter9M",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Seidwarrior4",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AlDn01A034": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3441,
+    "center_y": 9722,
+    "width": 0,
+    "height": 0,
+    "range_degree": 163,
+    "mobs": [
+      {
+        "mob": "P_Fighter9M",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Seidwarrior2",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AlDn01A035": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7320,
+    "center_y": 11127,
+    "width": 0,
+    "height": 0,
+    "range_degree": 191,
+    "mobs": [
+      {
+        "mob": "P_Archer9F",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Cleric9F",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AlDn01A036": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2616,
+    "center_y": 8524,
+    "width": 0,
+    "height": 0,
+    "range_degree": 184,
+    "mobs": [
+      {
+        "mob": "P_Cleric9F",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Archer9F",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AlDn01A037": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1856,
+    "center_y": 8104,
+    "width": 0,
+    "height": 0,
+    "range_degree": 261,
+    "mobs": [
+      {
+        "mob": "P_Archer9F",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Cleric9F",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Seidwarrior4",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AlDn01A039": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2446,
+    "center_y": 8082,
+    "width": 0,
+    "height": 0,
+    "range_degree": 219,
+    "mobs": [
+      {
+        "mob": "P_Cleric9F",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Archer9F",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AlDn01A040": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2995,
+    "center_y": 8161,
+    "width": 0,
+    "height": 0,
+    "range_degree": 198,
+    "mobs": [
+      {
+        "mob": "P_Archer9F",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Cleric9F",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AlDn01A041": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1809,
+    "center_y": 7224,
+    "width": 0,
+    "height": 0,
+    "range_degree": 149,
+    "mobs": [
+      {
+        "mob": "P_Archer9F",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Seidwarrior4",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AlDn01A042": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1812,
+    "center_y": 7595,
+    "width": 0,
+    "height": 0,
+    "range_degree": 177,
+    "mobs": [
+      {
+        "mob": "P_Cleric9F",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Archer9F",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AlDn01A043": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2315,
+    "center_y": 7073,
+    "width": 0,
+    "height": 0,
+    "range_degree": 226,
+    "mobs": [
+      {
+        "mob": "P_Mage9M",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Cleric9F",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AlDn01A044": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2378,
+    "center_y": 7562,
+    "width": 312,
+    "height": 187,
+    "range_degree": 3,
+    "mobs": [
+      {
+        "mob": "P_Cleric9F",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Seidwarrior4",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Mage9M",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AlDn01A045": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3007,
+    "center_y": 7606,
+    "width": 0,
+    "height": 0,
+    "range_degree": 268,
+    "mobs": [
+      {
+        "mob": "P_Cleric9F",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Mage9M",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AlDn01A046": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2829,
+    "center_y": 7110,
+    "width": 0,
+    "height": 0,
+    "range_degree": 191,
+    "mobs": [
+      {
+        "mob": "P_Mage9M",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Cleric9F",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AlDn01A047": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2205,
+    "center_y": 8436,
+    "width": 0,
+    "height": 0,
+    "range_degree": 149,
+    "mobs": [
+      {
+        "mob": "P_Cleric9F",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Mage9M",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AlDn01A048": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3176,
+    "center_y": 6078,
+    "width": 354,
+    "height": 155,
+    "range_degree": -3,
+    "mobs": [
+      {
+        "mob": "P_Seidhunter",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Seidwarrior2",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Cleric9F",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AlDn01A049": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3903,
+    "center_y": 6182,
+    "width": 0,
+    "height": 0,
+    "range_degree": 240,
+    "mobs": [
+      {
+        "mob": "P_Cleric9F",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Seidwarrior4",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AlDn01A050": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4063,
+    "center_y": 5716,
+    "width": 0,
+    "height": 0,
+    "range_degree": 198,
+    "mobs": [
+      {
+        "mob": "P_Seidwarrior4",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Cleric9F",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AlDn01A051": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3805,
+    "center_y": 5167,
+    "width": 94,
+    "height": 281,
+    "range_degree": 15,
+    "mobs": [
+      {
+        "mob": "P_Seidwarrior2",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Seidhunter",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Cleric9F",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AlDn01A052": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5056,
+    "center_y": 5307,
+    "width": 0,
+    "height": 0,
+    "range_degree": 233,
+    "mobs": [
+      {
+        "mob": "P_Cleric9F",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Mage9M",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AlDn01A054": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5525,
+    "center_y": 4783,
+    "width": 358,
+    "height": 153,
+    "range_degree": 1,
+    "mobs": [
+      {
+        "mob": "P_Mage9M",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Cleric9F",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AlDn01A055": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5436,
+    "center_y": 4301,
+    "width": 0,
+    "height": 0,
+    "range_degree": 226,
+    "mobs": [
+      {
+        "mob": "P_Cleric9F",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Mage9M",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AlDn01A056": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6171,
+    "center_y": 4393,
+    "width": 295,
+    "height": 203,
+    "range_degree": 29,
+    "mobs": [
+      {
+        "mob": "P_Mage9M",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Cleric9F",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Seidwarrior4",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AlDn01A057": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5708,
+    "center_y": 5266,
+    "width": 0,
+    "height": 0,
+    "range_degree": 240,
+    "mobs": [
+      {
+        "mob": "P_Mage9M",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AlDn01A058": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6768,
+    "center_y": 4256,
+    "width": 0,
+    "height": 0,
+    "range_degree": 177,
+    "mobs": [
+      {
+        "mob": "P_Mage9M",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Seidwarrior4",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AlDn01A059": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5862,
+    "center_y": 3950,
+    "width": 0,
+    "height": 0,
+    "range_degree": 226,
+    "mobs": [
+      {
+        "mob": "P_Mage9M",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Seidwarrior4",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AlDn01A060": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6513,
+    "center_y": 4847,
+    "width": 0,
+    "height": 0,
+    "range_degree": 184,
+    "mobs": [
+      {
+        "mob": "P_Cleric9F",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Mage9M",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AlDn01A061": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6312,
+    "center_y": 5334,
+    "width": 0,
+    "height": 0,
+    "range_degree": 212,
+    "mobs": [
+      {
+        "mob": "P_Mage9M",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Seidwarrior4",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AlDn01A067": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5987,
+    "center_y": 5759,
+    "width": 0,
+    "height": 0,
+    "range_degree": 226,
+    "mobs": [
+      {
+        "mob": "P_Cleric9F",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Mage9M",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AlDn01A068": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6930,
+    "center_y": 4770,
+    "width": 172,
+    "height": 262,
+    "range_degree": -4,
+    "mobs": [
+      {
+        "mob": "P_Mage9M",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Cleric9F",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AlDn01A069": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6539,
+    "center_y": 5783,
+    "width": 0,
+    "height": 0,
+    "range_degree": 205,
+    "mobs": [
+      {
+        "mob": "P_Cleric9F",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Mage9M",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AlDn01A070": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6837,
+    "center_y": 5345,
+    "width": 0,
+    "height": 0,
+    "range_degree": 212,
+    "mobs": [
+      {
+        "mob": "P_Mage9M",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Cleric9F",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AlDn01A071": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7328,
+    "center_y": 5164,
+    "width": 0,
+    "height": 0,
+    "range_degree": 198,
+    "mobs": [
+      {
+        "mob": "P_Seidwarrior2",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Cleric9F",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AlDn01A072": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8257,
+    "center_y": 4296,
+    "width": 0,
+    "height": 0,
+    "range_degree": 226,
+    "mobs": [
+      {
+        "mob": "P_Cleric9F",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Seidhunter",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AlDn01A073": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8600,
+    "center_y": 3793,
+    "width": 0,
+    "height": 0,
+    "range_degree": 324,
+    "mobs": [
+      {
+        "mob": "P_Seidhunter",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Seidwarrior2",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Seidwarrior4",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Cleric9F",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AlDn01A074": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8820,
+    "center_y": 3243,
+    "width": 0,
+    "height": 0,
+    "range_degree": 191,
+    "mobs": [
+      {
+        "mob": "P_Cleric9F",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Seidhunter",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AlDn01A075": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10976,
+    "center_y": 2794,
+    "width": 0,
+    "height": 0,
+    "range_degree": 254,
+    "mobs": [
+      {
+        "mob": "P_Seidhunter",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Seidwarrior2",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Cleric9F",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AlDn01A076": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10344,
+    "center_y": 2533,
+    "width": 0,
+    "height": 0,
+    "range_degree": 254,
+    "mobs": [
+      {
+        "mob": "P_Seidwarrior2",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Seidhunter",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Cleric9F",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  }
+}

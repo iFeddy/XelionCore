@@ -1,0 +1,200 @@
+{
+  "QField04_01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 618,
+    "center_y": 416,
+    "width": 0,
+    "height": 0,
+    "range_degree": 67,
+    "mobs": [
+      {
+        "mob": "Gagoyle",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 10,
+        "reg_min": 7,
+        "reg_max": 15,
+        "deltas": [
+          0,
+          5,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          5,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "QField04_02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 534,
+    "center_y": 798,
+    "width": 0,
+    "height": 0,
+    "range_degree": 67,
+    "mobs": [
+      {
+        "mob": "Gagoyle",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 10,
+        "reg_min": 7,
+        "reg_max": 15,
+        "deltas": [
+          0,
+          5,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          5,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "QField04_03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 797,
+    "center_y": 880,
+    "width": 0,
+    "height": 0,
+    "range_degree": 67,
+    "mobs": [
+      {
+        "mob": "Gagoyle",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 10,
+        "reg_min": 7,
+        "reg_max": 15,
+        "deltas": [
+          0,
+          5,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          5,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "QField04_04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 899,
+    "center_y": 364,
+    "width": 0,
+    "height": 0,
+    "range_degree": 67,
+    "mobs": [
+      {
+        "mob": "Gagoyle",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 10,
+        "reg_min": 7,
+        "reg_max": 15,
+        "deltas": [
+          0,
+          5,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          5,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "QField04_05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 971,
+    "center_y": 658,
+    "width": 0,
+    "height": 0,
+    "range_degree": 67,
+    "mobs": [
+      {
+        "mob": "Gagoyle",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 75,
+        "reg_min": 60,
+        "reg_max": 90,
+        "deltas": [
+          120,
+          15,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          15,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "QField04_06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 278,
+    "center_y": 542,
+    "width": 0,
+    "height": 0,
+    "range_degree": 36,
+    "mobs": [
+      {
+        "mob": "Rock",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 75,
+        "reg_min": 60,
+        "reg_max": 90,
+        "deltas": [
+          120,
+          15,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          15,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  }
+}

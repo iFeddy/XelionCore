@@ -1,0 +1,2466 @@
+{
+  "KDFA1_001": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9422,
+    "center_y": 1283,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "KDFargels_FSpearman",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 170,
+        "reg_max": 190,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDFA1_002": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8758,
+    "center_y": 1008,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "KDFargels_FSpearman",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 170,
+        "reg_max": 190,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDFA1_003": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8205,
+    "center_y": 1590,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "KDFargels_FSpearman",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 170,
+        "reg_max": 190,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDFA1_004": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7267,
+    "center_y": 1485,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "KDFargels_FSpearman",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 170,
+        "reg_max": 190,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDFA1_005": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6870,
+    "center_y": 1070,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "KDFargels_FSpearman",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 170,
+        "reg_max": 190,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "KDFargels_FRanger",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 170,
+        "reg_max": 190,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDFA1_006": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6128,
+    "center_y": 1073,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "KDFargels_FSpearman",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 170,
+        "reg_max": 190,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "KDFargels_FRanger",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 170,
+        "reg_max": 190,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDFA1_007": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5392,
+    "center_y": 1821,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "KDFargels_FSpearman",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 170,
+        "reg_max": 190,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "KDFargels_FRanger",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 170,
+        "reg_max": 190,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDFA1_008": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5003,
+    "center_y": 2310,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "KDFargels_FSpearman",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 170,
+        "reg_max": 190,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "KDFargels_FRanger",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 170,
+        "reg_max": 190,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDFA1_009": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4571,
+    "center_y": 1635,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "KDFargels_FSpearman",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 170,
+        "reg_max": 190,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "KDFargels_FRanger",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 170,
+        "reg_max": 190,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDFA1_010": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3371,
+    "center_y": 2184,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "KDFargels_FSpearman",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 170,
+        "reg_max": 190,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "KDFargels_FRanger",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 170,
+        "reg_max": 190,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDFA1_011": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2597,
+    "center_y": 1412,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "KDFargels_FSpearman",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 170,
+        "reg_max": 190,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "KDFargels_FRanger",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 170,
+        "reg_max": 190,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDFA1_012": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1188,
+    "center_y": 2272,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "KDFargels_FSpearman",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 170,
+        "reg_max": 190,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "KDFargels_FRanger",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 170,
+        "reg_max": 190,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDFA1_013": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1991,
+    "center_y": 2936,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "KDFargels_FSpearman",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 170,
+        "reg_max": 190,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "KDFargels_FRanger",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 170,
+        "reg_max": 190,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDFA1_014": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1097,
+    "center_y": 2880,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "KDFargels_FSpearman",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 170,
+        "reg_max": 190,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "KDFargels_FRanger",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 170,
+        "reg_max": 190,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDFA1_S01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8184,
+    "center_y": 1080,
+    "width": 0,
+    "height": 0,
+    "range_degree": 94,
+    "mobs": [
+      {
+        "mob": "KDFargels_FSpearman",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 10,
+        "reg_min": 7,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDFA1_S02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7769,
+    "center_y": 1122,
+    "width": 0,
+    "height": 0,
+    "range_degree": 115,
+    "mobs": [
+      {
+        "mob": "KDFargels_FSpearman",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 10,
+        "reg_min": 7,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDFA1_S03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6139,
+    "center_y": 1524,
+    "width": 0,
+    "height": 0,
+    "range_degree": 129,
+    "mobs": [
+      {
+        "mob": "KDFargels_FSpearman",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 10,
+        "reg_min": 7,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDFA1_S04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5744,
+    "center_y": 1619,
+    "width": 0,
+    "height": 0,
+    "range_degree": 136,
+    "mobs": [
+      {
+        "mob": "KDFargels_FSpearman",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 10,
+        "reg_min": 7,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDFA1_S05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4033,
+    "center_y": 1290,
+    "width": 0,
+    "height": 0,
+    "range_degree": 143,
+    "mobs": [
+      {
+        "mob": "KDFargels_FSpearman",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 10,
+        "reg_min": 7,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDFA1_S06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3606,
+    "center_y": 1328,
+    "width": 0,
+    "height": 0,
+    "range_degree": 143,
+    "mobs": [
+      {
+        "mob": "KDFargels_FSpearman",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 10,
+        "reg_min": 7,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDFA1_S07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2926,
+    "center_y": 2550,
+    "width": 0,
+    "height": 0,
+    "range_degree": 129,
+    "mobs": [
+      {
+        "mob": "KDFargels_FSpearman",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 10,
+        "reg_min": 7,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDFA1_S08": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2547,
+    "center_y": 2828,
+    "width": 0,
+    "height": 0,
+    "range_degree": 143,
+    "mobs": [
+      {
+        "mob": "KDFargels_FSpearman",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 10,
+        "reg_min": 7,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDFA1_S09": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2036,
+    "center_y": 1591,
+    "width": 0,
+    "height": 0,
+    "range_degree": 122,
+    "mobs": [
+      {
+        "mob": "KDFargels_FSpearman",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 10,
+        "reg_min": 7,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDFA1_S10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1615,
+    "center_y": 1914,
+    "width": 0,
+    "height": 0,
+    "range_degree": 122,
+    "mobs": [
+      {
+        "mob": "KDFargels_FSpearman",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 10,
+        "reg_min": 7,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDFA1_R01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7695,
+    "center_y": 1670,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "KDFargels_Guard01",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30000,
+        "reg_min": 28000,
+        "reg_max": 32000,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "KDFargels_Guard03",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30000,
+        "reg_min": 28000,
+        "reg_max": 32000,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDFA1_R02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4326,
+    "center_y": 2413,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "KDFargels_Guard02",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30000,
+        "reg_min": 28000,
+        "reg_max": 32000,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "KDFargels_Guard03",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30000,
+        "reg_min": 28000,
+        "reg_max": 32000,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDFA1_R03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3134,
+    "center_y": 1401,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "KDFargels_Guard01",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30000,
+        "reg_min": 28000,
+        "reg_max": 32000,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "KDFargels_Guard02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30000,
+        "reg_min": 28000,
+        "reg_max": 32000,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDFA2_001": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1037,
+    "center_y": 7332,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "KDFargels_FSpearman",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 170,
+        "reg_max": 190,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "KDFargels_FRanger",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 170,
+        "reg_max": 190,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDFA2_002": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1280,
+    "center_y": 5245,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "KDFargels_Guard01",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 170,
+        "reg_max": 190,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "KDFargels_Guard02",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 170,
+        "reg_max": 190,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "KDFargels_Guard03",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 170,
+        "reg_max": 190,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDFA3_001": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3230,
+    "center_y": 7614,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "KDFargels_FSpearman",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 170,
+        "reg_max": 190,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDFA3_002": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3380,
+    "center_y": 8229,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "KDFargels_FSpearman",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 170,
+        "reg_max": 190,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDFA3_003": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4173,
+    "center_y": 7160,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "KDFargels_FSpearman",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 170,
+        "reg_max": 190,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDFA3_004": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4261,
+    "center_y": 6688,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "KDFargels_FSpearman",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 170,
+        "reg_max": 190,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDFA3_005": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3813,
+    "center_y": 5517,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "KDFargels_FSpearman",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 170,
+        "reg_max": 190,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "KDFargels_FRanger",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 170,
+        "reg_max": 190,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDFA3_006": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4164,
+    "center_y": 4933,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "KDFargels_FSpearman",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 170,
+        "reg_max": 190,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "KDFargels_FRanger",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 170,
+        "reg_max": 190,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDFA3_007": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5587,
+    "center_y": 4717,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "KDFargels_FSpearman",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 170,
+        "reg_max": 190,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "KDFargels_FRanger",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 170,
+        "reg_max": 190,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDFA3_008": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6255,
+    "center_y": 4137,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "KDFargels_FSpearman",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 170,
+        "reg_max": 190,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "KDFargels_FRanger",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 170,
+        "reg_max": 190,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDFA3_009": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6858,
+    "center_y": 3624,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "KDFargels_FSpearman",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 170,
+        "reg_max": 190,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "KDFargels_FRanger",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 170,
+        "reg_max": 190,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDFA3_010": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7422,
+    "center_y": 3609,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "KDFargels_FSpearman",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 170,
+        "reg_max": 190,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "KDFargels_FRanger",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 170,
+        "reg_max": 190,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDFA3_011": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8076,
+    "center_y": 3617,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "KDFargels_FSpearman",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 170,
+        "reg_max": 190,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "KDFargels_FRanger",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 170,
+        "reg_max": 190,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDFA3_012": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6877,
+    "center_y": 7196,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "KDFargels_FSpearman",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 170,
+        "reg_max": 190,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "KDFargels_FRanger",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 170,
+        "reg_max": 190,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDFA3_S01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4027,
+    "center_y": 8021,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "KDFargels_Spearman",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 24,
+        "reg_max": 36,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDFA3_S02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3501,
+    "center_y": 6661,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "KDFargels_Spearman",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 24,
+        "reg_max": 36,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDFA3_S03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4960,
+    "center_y": 5595,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "KDFargels_Spearman",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 24,
+        "reg_max": 36,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "KDFargels_Paladin",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 24,
+        "reg_max": 36,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDFA3_S04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6402,
+    "center_y": 6411,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "KDFargels_Paladin",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 24,
+        "reg_max": 36,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "KDFargels_Mage",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 24,
+        "reg_max": 36,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDFA3_S05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6700,
+    "center_y": 4061,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "KDFargels_Spearman",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 24,
+        "reg_max": 36,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "KDFargels_Mage",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 24,
+        "reg_max": 36,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDFA3_S06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8612,
+    "center_y": 3917,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "KDFargels_Paladin",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 24,
+        "reg_max": 36,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "KDFargels_Mage",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 24,
+        "reg_max": 36,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDFA3_B01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4926,
+    "center_y": 4522,
+    "width": 0,
+    "height": 0,
+    "range_degree": 282,
+    "mobs": [
+      {
+        "mob": "KDFargels_FRanger",
+        "count": 10,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 16,
+        "reg_max": 24,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "KDFargels_FSpearman",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 16,
+        "reg_max": 24,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDFA3_BL": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6997,
+    "center_y": 5215,
+    "width": 0,
+    "height": 0,
+    "range_degree": 296,
+    "mobs": [
+      {
+        "mob": "KDFargels_Spearman",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 16,
+        "reg_max": 24,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "KDFargels_Paladin",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 16,
+        "reg_max": 24,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "KDFargels_Mage",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 16,
+        "reg_max": 24,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDFA3_BU": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7423,
+    "center_y": 6070,
+    "width": 0,
+    "height": 0,
+    "range_degree": 295,
+    "mobs": [
+      {
+        "mob": "KDFargels_Paladin",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 24,
+        "reg_max": 36,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "KDFargels_Archlord",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 24,
+        "reg_max": 36,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "KDFargels_Mage",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 24,
+        "reg_max": 36,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDFA3_BC": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7907,
+    "center_y": 5453,
+    "width": 0,
+    "height": 0,
+    "range_degree": 232,
+    "mobs": [
+      {
+        "mob": "KDFargels_Archlord",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 24,
+        "reg_max": 36,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "KDFargels_Mage",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 24,
+        "reg_max": 36,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDFA3_B02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6619,
+    "center_y": 7661,
+    "width": 0,
+    "height": 0,
+    "range_degree": 275,
+    "mobs": [
+      {
+        "mob": "KDFargels_DKnight",
+        "count": 10,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 24,
+        "reg_max": 36,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "E_HOUT": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1230,
+    "center_y": 3860,
+    "width": 0,
+    "height": 0,
+    "range_degree": 23,
+    "mobs": [
+      {
+        "mob": "E_HwinOut",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 43200,
+        "reg_min": 43150,
+        "reg_max": 43250,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "E_HBOX": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1093,
+    "center_y": 3860,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "E_HwinBox",
+        "count": 10,
+        "kill_num": 0,
+        "reg_standard": 10,
+        "reg_min": 5,
+        "reg_max": 5,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  }
+}

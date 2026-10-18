@@ -1,0 +1,1586 @@
+{
+  "EldPriDn02Area01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1804,
+    "center_y": 4389,
+    "width": 618,
+    "height": 170,
+    "range_degree": 45,
+    "mobs": [
+      {
+        "mob": "GiantSparkDog",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 20,
+        "reg_max": 50,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Navar",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 20,
+        "reg_max": 50,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPriDn02Area02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3761,
+    "center_y": 4033,
+    "width": 625,
+    "height": 192,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "GoldJewelKeeper",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 20,
+        "reg_max": 50,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "GiantSparkDog",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 20,
+        "reg_max": 50,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPriDn02Area03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3729,
+    "center_y": 8615,
+    "width": 146,
+    "height": 1023,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "GiantSparkDog",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 20,
+        "reg_max": 50,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "GoldJewelKeeper",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 20,
+        "reg_max": 50,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPriDn02Area04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3878,
+    "center_y": 6742,
+    "width": 322,
+    "height": 190,
+    "range_degree": 47,
+    "mobs": [
+      {
+        "mob": "GoldJewelKeeper",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 20,
+        "reg_max": 50,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "GiantSparkDog",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 20,
+        "reg_max": 50,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPriDn02Area05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5032,
+    "center_y": 1261,
+    "width": 0,
+    "height": 0,
+    "range_degree": 737,
+    "mobs": [
+      {
+        "mob": "OrcCaptain",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 20,
+        "reg_max": 50,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPriDn02Area06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8442,
+    "center_y": 589,
+    "width": 371,
+    "height": 512,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "OrcCaptain",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 20,
+        "reg_max": 50,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPriDn02Area07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10159,
+    "center_y": 2499,
+    "width": 776,
+    "height": 618,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "NavarHenter",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 20,
+        "reg_max": 50,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "NaiadDemon",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 20,
+        "reg_max": 50,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPriDn02Area08": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11825,
+    "center_y": 2560,
+    "width": 131,
+    "height": 535,
+    "range_degree": 75,
+    "mobs": [
+      {
+        "mob": "NaiadDemon",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 20,
+        "reg_max": 50,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "NavarHenter",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 20,
+        "reg_max": 50,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPriDn02Area09": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11256,
+    "center_y": 4812,
+    "width": 818,
+    "height": 172,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "NoxHunter",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 20,
+        "reg_max": 50,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "BlueArchon",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 196,
+        "reg_max": 204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPriDn02Area10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7283,
+    "center_y": 4304,
+    "width": 1093,
+    "height": 778,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "MINE7",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 196,
+        "reg_max": 204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE8",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 196,
+        "reg_max": 204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE9",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 196,
+        "reg_max": 204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "NoxHunter",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 20,
+        "reg_max": 50,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "S_Stonie",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 21600,
+        "reg_min": 21590,
+        "reg_max": 21610,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "BlueArchon",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 196,
+        "reg_max": 204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPriDn02Area11": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9467,
+    "center_y": 4428,
+    "width": 427,
+    "height": 170,
+    "range_degree": -13,
+    "mobs": [
+      {
+        "mob": "NoxHunter",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 20,
+        "reg_max": 50,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPriDn02Area12": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9856,
+    "center_y": 5945,
+    "width": 151,
+    "height": 565,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "OldArchon",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 20,
+        "reg_max": 50,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "RunningBas",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 20,
+        "reg_max": 50,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "BlueArchon",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 196,
+        "reg_max": 204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPriDn02Area13": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8152,
+    "center_y": 6571,
+    "width": 0,
+    "height": 0,
+    "range_degree": 779,
+    "mobs": [
+      {
+        "mob": "OldArchon",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 20,
+        "reg_max": 50,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "RunningBas",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 20,
+        "reg_max": 50,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPriDn02Area14": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10273,
+    "center_y": 8171,
+    "width": 184,
+    "height": 910,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "OldArchon",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 20,
+        "reg_max": 50,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "RunningBas",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 20,
+        "reg_max": 50,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPriDn02Area15": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8632,
+    "center_y": 10086,
+    "width": 1205,
+    "height": 189,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "MINE7",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 196,
+        "reg_max": 204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE8",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 196,
+        "reg_max": 204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE9",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 196,
+        "reg_max": 204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "ElfKnightDemon",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 20,
+        "reg_max": 50,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPriDn02Area16": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6879,
+    "center_y": 8340,
+    "width": 0,
+    "height": 0,
+    "range_degree": 653,
+    "mobs": [
+      {
+        "mob": "BlackIncubus",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 20,
+        "reg_max": 50,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "AncientStonie",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 20,
+        "reg_max": 50,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPriDn02Area17": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6967,
+    "center_y": 11853,
+    "width": 789,
+    "height": 625,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "AncientStonie",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 20,
+        "reg_max": 50,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "BlackIncubus",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 20,
+        "reg_max": 50,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPriDn02Area18": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4746,
+    "center_y": 5324,
+    "width": 197,
+    "height": 595,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "GoldJewelKeeper",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 20,
+        "reg_max": 50,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "GiantSparkDog",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 20,
+        "reg_max": 50,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPriDn02Area19": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 12335,
+    "center_y": 3772,
+    "width": 164,
+    "height": 482,
+    "range_degree": 176,
+    "mobs": [
+      {
+        "mob": "NaiadDemon",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 20,
+        "reg_max": 50,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "NavarHenter",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 20,
+        "reg_max": 50,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPriDn02Area20": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3076,
+    "center_y": 2669,
+    "width": 130,
+    "height": 902,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "GoldJewelKeeper",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 20,
+        "reg_max": 50,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPriDn02Area21": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5131,
+    "center_y": 10070,
+    "width": 963,
+    "height": 190,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "ElfKnightDemon",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 20,
+        "reg_max": 50,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPriDn02Area22": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7003,
+    "center_y": 12223,
+    "width": 0,
+    "height": 0,
+    "range_degree": 303,
+    "mobs": [
+      {
+        "mob": "GhostKnight",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 345,
+        "reg_max": 375,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPriDn02Area23": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6841,
+    "center_y": 907,
+    "width": 779,
+    "height": 122,
+    "range_degree": 28,
+    "mobs": [
+      {
+        "mob": "MINE7",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 196,
+        "reg_max": 204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE8",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 196,
+        "reg_max": 204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE9",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 196,
+        "reg_max": 204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "OrcCaptain",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 20,
+        "reg_max": 50,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPriDn02Area24": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9933,
+    "center_y": 812,
+    "width": 138,
+    "height": 479,
+    "range_degree": 39,
+    "mobs": [
+      {
+        "mob": "NavarHenter",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 20,
+        "reg_max": 50,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "NaiadDemon",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 20,
+        "reg_max": 50,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPriDn02Area25": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6428,
+    "center_y": 3261,
+    "width": 6025,
+    "height": 2894,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "PresentBox12",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 14400,
+        "reg_min": 14385,
+        "reg_max": 14415,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Pbox01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6925,
+    "center_y": 9389,
+    "width": 5058,
+    "height": 3174,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "PresentBox12",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 14400,
+        "reg_min": 14385,
+        "reg_max": 14415,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Waypoint01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10176,
+    "center_y": 9915,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "BlackIncubus",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 20,
+        "reg_max": 50,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Waypoint02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3932,
+    "center_y": 10000,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "BlackIncubus",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 20,
+        "reg_max": 50,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Waypoint03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6944,
+    "center_y": 6944,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "BlackIncubus",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 35,
+        "reg_min": 20,
+        "reg_max": 50,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Waypoint04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6921,
+    "center_y": 8457,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "GhostKnight",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 345,
+        "reg_max": 375,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  }
+}

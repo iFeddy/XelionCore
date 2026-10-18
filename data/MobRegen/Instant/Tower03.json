@@ -1,0 +1,7130 @@
+{
+  "RGN_T3_02_01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10815,
+    "center_y": 9889,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_19",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_02_02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10527,
+    "center_y": 9778,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Guardian01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_02_03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10979,
+    "center_y": 9899,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Guardian01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_02_04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10619,
+    "center_y": 9540,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Guardian01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_02_05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10747,
+    "center_y": 10001,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Guardian01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_02_06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10860,
+    "center_y": 9670,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Watchman01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_03_01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11745,
+    "center_y": 7590,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_19",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_03_02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11742,
+    "center_y": 7694,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Guardian01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_03_03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11475,
+    "center_y": 7751,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Guardian01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_03_04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11572,
+    "center_y": 7873,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Guardian01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_03_05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11883,
+    "center_y": 7878,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Guardian01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_03_06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11572,
+    "center_y": 7553,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Watchman01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_03_07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11882,
+    "center_y": 7554,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Watchman01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_03_08": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11974,
+    "center_y": 7744,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Ghost01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_04_01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10989,
+    "center_y": 5289,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_19",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_04_03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10995,
+    "center_y": 5860,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Guardian01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_04_04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11025,
+    "center_y": 5879,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Guardian01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_04_06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10844,
+    "center_y": 5334,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Watchman01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_04_07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11094,
+    "center_y": 5161,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Watchman01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_04_09": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10865,
+    "center_y": 5514,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Ghost01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_04_10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11249,
+    "center_y": 5242,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Ghost01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_04_11": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10962,
+    "center_y": 5662,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Battle01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_04_12": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11356,
+    "center_y": 5374,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Battle01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_05_01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10286,
+    "center_y": 3151,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_19",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_05_02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10029,
+    "center_y": 3495,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Guardian01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_05_03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10068,
+    "center_y": 3531,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Guardian02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_05_04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10256,
+    "center_y": 3360,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Guardian02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_05_05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10185,
+    "center_y": 2925,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Watchman01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_05_06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10313,
+    "center_y": 2925,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Watchman01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_05_07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10016,
+    "center_y": 3363,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Battle01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_05_08": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10451,
+    "center_y": 3368,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Battle01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_05_09": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10030,
+    "center_y": 3037,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Ghost02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_05_10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10439,
+    "center_y": 3034,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Ghost02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_06_01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9198,
+    "center_y": 937,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_20",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_06_02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10221,
+    "center_y": 937,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Battle01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_06_03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9330,
+    "center_y": 683,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Battle01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_06_04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9194,
+    "center_y": 1226,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Watchman01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_06_05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9647,
+    "center_y": 950,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Watchman01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_07_01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6833,
+    "center_y": 928,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_23",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_07_02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6879,
+    "center_y": 1189,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Guardian02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_07_03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6590,
+    "center_y": 866,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Guardian02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_07_04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6555,
+    "center_y": 1047,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Guardian02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_07_05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6692,
+    "center_y": 1169,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Watchman02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_07_06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6840,
+    "center_y": 661,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Watchman02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_07_07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6789,
+    "center_y": 1000,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Battle02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_07_08": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7035,
+    "center_y": 1293,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Ghost02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_08_01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4349,
+    "center_y": 1221,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_23",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_08_02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4312,
+    "center_y": 1507,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Guardian02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_08_03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4185,
+    "center_y": 1084,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Watchman02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_08_04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4101,
+    "center_y": 1215,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Watchman02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_08_05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4210,
+    "center_y": 1376,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Battle02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_08_06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4459,
+    "center_y": 1388,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Snake_In",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_08_07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4359,
+    "center_y": 968,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Snake_In",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_08_08": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4444,
+    "center_y": 1190,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Snake_In",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_08_09": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4770,
+    "center_y": 1373,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Ghost02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_09_01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2089,
+    "center_y": 2442,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_23",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_09_03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2251,
+    "center_y": 2649,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Snake_In",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_09_04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2639,
+    "center_y": 2239,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Watchman02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_09_05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2635,
+    "center_y": 2277,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Snake_In",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_09_06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2226,
+    "center_y": 2134,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Battle02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_09_07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2075,
+    "center_y": 2544,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Ghost02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_09_08": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2433,
+    "center_y": 2348,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Battle02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_09_09": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1923,
+    "center_y": 2282,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Ghost02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_09_10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2402,
+    "center_y": 2531,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Watchman02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_09_11": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2058,
+    "center_y": 2137,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Watchman02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_10_01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1153,
+    "center_y": 4439,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_23",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_10_02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1038,
+    "center_y": 4593,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Guardian02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_10_03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1344,
+    "center_y": 4115,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Watchman02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_10_04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1370,
+    "center_y": 4144,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Watchman02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_10_05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1176,
+    "center_y": 4103,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Watchman02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_10_06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1313,
+    "center_y": 4099,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Snake_In",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_10_07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1204,
+    "center_y": 4323,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Snake_In",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_10_09": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1419,
+    "center_y": 4455,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Ghost02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_10_10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 937,
+    "center_y": 4444,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Battle02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_10_12": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1380,
+    "center_y": 4701,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Watchman02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_10_13": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 962,
+    "center_y": 4712,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Watchman02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_10_14": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1301,
+    "center_y": 4590,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Snake_In",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_10_15": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1170,
+    "center_y": 4618,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Snake_In",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_10_16": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1348,
+    "center_y": 7267,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Gate_Lab",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 8,
+        "reg_min": 0,
+        "reg_max": 10,
+        "deltas": [
+          2,
+          4,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          13,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_11_01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1176,
+    "center_y": 7463,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_25",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_11_02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1203,
+    "center_y": 6998,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Snake_In",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_11_03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1470,
+    "center_y": 6986,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Ghost02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_11_04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1148,
+    "center_y": 6997,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Snake_In",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_11_05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1415,
+    "center_y": 6943,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Ghost02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_11_06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1442,
+    "center_y": 6957,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Watchman02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_11_07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1403,
+    "center_y": 6922,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Watchman02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_11_08": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1500,
+    "center_y": 7047,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Watchman02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_11_09": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 956,
+    "center_y": 7291,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Child_Melt",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_11_10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 905,
+    "center_y": 7284,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Child_Balus",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_11_11": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1004,
+    "center_y": 7357,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Child_Chechale",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_11_12": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 939,
+    "center_y": 7361,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Child_Fred",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_02_07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10563,
+    "center_y": 9919,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Guardian01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_02_08": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10612,
+    "center_y": 9970,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Guardian01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RNG_T3_03_09": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11653,
+    "center_y": 7923,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Guardian01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_03_10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11810,
+    "center_y": 7909,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Guardian01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_04_13": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11147,
+    "center_y": 5653,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Battle01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_04_14": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11296,
+    "center_y": 5538,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Battle01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_05_11": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10103,
+    "center_y": 3162,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Battle01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_05_12": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10380,
+    "center_y": 3163,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Battle01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_05_13": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10246,
+    "center_y": 3475,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Battle01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_07_09": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7023,
+    "center_y": 969,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Guardian02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_07_10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6712,
+    "center_y": 931,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Guardian02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_08_10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4537,
+    "center_y": 1250,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Guardian02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_08_11": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4578,
+    "center_y": 1065,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Guardian02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_09_12": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2506,
+    "center_y": 2190,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Battle02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_09_13": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2366,
+    "center_y": 2048,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Snake_In",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_10_17": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1339,
+    "center_y": 4323,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Battle02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_T3_10_18": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 976,
+    "center_y": 4227,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Lab_Battle02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_02_01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10815,
+    "center_y": 9889,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_19",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_02_02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10527,
+    "center_y": 9778,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Guardian01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_02_03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10979,
+    "center_y": 9899,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Guardian01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_02_04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10619,
+    "center_y": 9540,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Guardian01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_02_05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10747,
+    "center_y": 10001,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Guardian01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_02_06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10860,
+    "center_y": 9670,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Watchman01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_03_01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11745,
+    "center_y": 7590,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_19",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_03_02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11742,
+    "center_y": 7694,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Guardian01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_03_03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11475,
+    "center_y": 7751,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Guardian01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_03_04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11572,
+    "center_y": 7873,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Guardian01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_03_05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11883,
+    "center_y": 7878,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Guardian01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_03_06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11572,
+    "center_y": 7553,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Watchman01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_03_07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11882,
+    "center_y": 7554,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Watchman01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_03_08": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11974,
+    "center_y": 7744,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Ghost01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_04_01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10989,
+    "center_y": 5289,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_19",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_04_03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10995,
+    "center_y": 5860,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Guardian01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_04_04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11025,
+    "center_y": 5879,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Guardian01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_04_06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10844,
+    "center_y": 5334,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Watchman01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_04_07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11094,
+    "center_y": 5161,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Watchman01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_04_09": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10865,
+    "center_y": 5514,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Ghost01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_04_10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11249,
+    "center_y": 5242,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Ghost01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_04_11": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10962,
+    "center_y": 5662,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Battle01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_04_12": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11356,
+    "center_y": 5374,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Battle01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_05_01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10286,
+    "center_y": 3151,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_19",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_05_02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10029,
+    "center_y": 3495,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Guardian01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_05_03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10068,
+    "center_y": 3531,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Guardian02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_05_04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10256,
+    "center_y": 3360,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Guardian02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_05_05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10185,
+    "center_y": 2925,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Watchman01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_05_06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10313,
+    "center_y": 2925,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Watchman01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_05_07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10016,
+    "center_y": 3363,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Battle01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_05_08": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10451,
+    "center_y": 3368,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Battle01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_05_09": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10030,
+    "center_y": 3037,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Ghost02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_05_10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10439,
+    "center_y": 3034,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Ghost02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_06_01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9198,
+    "center_y": 937,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_20",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_06_02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10221,
+    "center_y": 937,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Battle01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_06_03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9330,
+    "center_y": 683,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Battle01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_06_04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9194,
+    "center_y": 1226,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Watchman01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_06_05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9647,
+    "center_y": 950,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Watchman01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_07_01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6833,
+    "center_y": 928,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_23",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_07_02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6879,
+    "center_y": 1189,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Guardian02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_07_03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6590,
+    "center_y": 866,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Guardian02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_07_04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6555,
+    "center_y": 1047,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Guardian02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_07_05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6692,
+    "center_y": 1169,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Watchman02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_07_06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6840,
+    "center_y": 661,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Watchman02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_07_07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6789,
+    "center_y": 1000,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Battle02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_07_08": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7035,
+    "center_y": 1293,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Ghost02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_08_01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4349,
+    "center_y": 1221,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_23",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_08_02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4312,
+    "center_y": 1507,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Guardian02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_08_03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4185,
+    "center_y": 1084,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Watchman02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_08_04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4101,
+    "center_y": 1215,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Watchman02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_08_05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4210,
+    "center_y": 1376,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Battle02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_08_06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4459,
+    "center_y": 1388,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Snake_In",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_08_07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4359,
+    "center_y": 968,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Snake_In",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_08_08": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4444,
+    "center_y": 1190,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Snake_In",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_08_09": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4770,
+    "center_y": 1373,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Ghost02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_09_01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2089,
+    "center_y": 2442,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_23",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_09_03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2251,
+    "center_y": 2649,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Snake_In",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_09_04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2639,
+    "center_y": 2239,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Watchman02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_09_05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2635,
+    "center_y": 2277,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Snake_In",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_09_06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2226,
+    "center_y": 2134,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Battle02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_09_07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2075,
+    "center_y": 2544,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Ghost02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_09_08": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2433,
+    "center_y": 2348,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Battle02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_09_09": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1923,
+    "center_y": 2282,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Ghost02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_09_10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2402,
+    "center_y": 2531,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Watchman02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_09_11": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2058,
+    "center_y": 2137,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Watchman02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_10_01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1153,
+    "center_y": 4439,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_23",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_10_02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1038,
+    "center_y": 4593,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Guardian02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_10_03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1344,
+    "center_y": 4115,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Watchman02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_10_04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1370,
+    "center_y": 4144,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Watchman02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_10_05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1176,
+    "center_y": 4103,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Watchman02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_10_06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1313,
+    "center_y": 4099,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Snake_In",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_10_07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1204,
+    "center_y": 4323,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Snake_In",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_10_09": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1419,
+    "center_y": 4455,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Ghost02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_10_10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 937,
+    "center_y": 4444,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Battle02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_10_12": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1380,
+    "center_y": 4701,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Watchman02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_10_13": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 962,
+    "center_y": 4712,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Watchman02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_10_14": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1301,
+    "center_y": 4590,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Snake_In",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_10_15": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1170,
+    "center_y": 4618,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Snake_In",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_10_16": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1348,
+    "center_y": 7267,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Gate01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 8,
+        "reg_min": 0,
+        "reg_max": 10,
+        "deltas": [
+          2,
+          4,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          13,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_11_01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1176,
+    "center_y": 7463,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_25",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_11_02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1203,
+    "center_y": 6998,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Snake_In",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_11_03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1470,
+    "center_y": 6986,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Ghost02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_11_04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1148,
+    "center_y": 6997,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Snake_In",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_11_05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1415,
+    "center_y": 6943,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Ghost02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_11_06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1442,
+    "center_y": 6957,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Watchman02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_11_07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1403,
+    "center_y": 6922,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Watchman02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_11_08": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1500,
+    "center_y": 7047,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Watchman02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_11_09": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 956,
+    "center_y": 7291,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Child_Melt",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_11_10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 905,
+    "center_y": 7284,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Child_Balus",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_11_11": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1004,
+    "center_y": 7357,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Child_Chechale",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_11_12": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 939,
+    "center_y": 7361,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Child_Fred",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_02_07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10563,
+    "center_y": 9919,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Guardian01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_02_08": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10612,
+    "center_y": 9970,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Guardian01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RNGH_T3_03_09": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11653,
+    "center_y": 7923,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Guardian01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_03_10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11810,
+    "center_y": 7909,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Guardian01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_04_13": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11147,
+    "center_y": 5653,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Battle01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_04_14": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11296,
+    "center_y": 5538,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Battle01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_05_11": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10103,
+    "center_y": 3162,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Battle01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_05_12": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10380,
+    "center_y": 3163,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Battle01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_05_13": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10246,
+    "center_y": 3475,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Battle01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_07_09": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7023,
+    "center_y": 969,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Guardian02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_07_10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6712,
+    "center_y": 931,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Guardian02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_08_10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4537,
+    "center_y": 1250,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Guardian02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_08_11": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4578,
+    "center_y": 1065,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Guardian02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_09_12": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2506,
+    "center_y": 2190,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Battle02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_09_13": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2366,
+    "center_y": 2048,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Snake_In",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_10_17": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1339,
+    "center_y": 4323,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Battle02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGNH_T3_10_18": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 976,
+    "center_y": 4227,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "LabH_Battle02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 10,
+        "reg_max": 2,
+        "deltas": [
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "delta_secs": [
+          4,
+          0,
+          0,
+          0
+        ],
+        "enabled": true
+      }
+    ]
+  }
+}

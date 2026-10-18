@@ -1,0 +1,3544 @@
+{
+  "01ArkGuard01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2575,
+    "center_y": 5353,
+    "width": 0,
+    "height": 0,
+    "range_degree": 180,
+    "mobs": [
+      {
+        "mob": "P_ArkGuard",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "01ArkGuard02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3016,
+    "center_y": 6069,
+    "width": 0,
+    "height": 0,
+    "range_degree": 222,
+    "mobs": [
+      {
+        "mob": "P_ArkGuard",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "01ArkGuard03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2845,
+    "center_y": 5689,
+    "width": 0,
+    "height": 0,
+    "range_degree": 201,
+    "mobs": [
+      {
+        "mob": "P_ArkGuard",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "01ArkGuard04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1750,
+    "center_y": 6085,
+    "width": 0,
+    "height": 0,
+    "range_degree": 208,
+    "mobs": [
+      {
+        "mob": "P_ArkGuard",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "01ArkGuard05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2020,
+    "center_y": 5717,
+    "width": 0,
+    "height": 0,
+    "range_degree": 229,
+    "mobs": [
+      {
+        "mob": "P_ArkGuard",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "01ArkGuard06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1601,
+    "center_y": 5505,
+    "width": 0,
+    "height": 0,
+    "range_degree": 208,
+    "mobs": [
+      {
+        "mob": "P_ArkGuard",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "02ArkNovice01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4917,
+    "center_y": 3927,
+    "width": 0,
+    "height": 0,
+    "range_degree": 159,
+    "mobs": [
+      {
+        "mob": "P_ArkNovice",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "02ArkNovice02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3887,
+    "center_y": 3084,
+    "width": 0,
+    "height": 0,
+    "range_degree": 180,
+    "mobs": [
+      {
+        "mob": "P_ArkNovice",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "02ArkNovice03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5062,
+    "center_y": 3221,
+    "width": 0,
+    "height": 0,
+    "range_degree": 187,
+    "mobs": [
+      {
+        "mob": "P_ArkNovice",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "02ArkNovice04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4329,
+    "center_y": 2605,
+    "width": 0,
+    "height": 0,
+    "range_degree": 159,
+    "mobs": [
+      {
+        "mob": "P_ArkNovice",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "02ArkNovice05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4842,
+    "center_y": 2269,
+    "width": 0,
+    "height": 0,
+    "range_degree": 173,
+    "mobs": [
+      {
+        "mob": "P_ArkNovice",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "02ArkNovice06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5478,
+    "center_y": 2879,
+    "width": 0,
+    "height": 0,
+    "range_degree": 180,
+    "mobs": [
+      {
+        "mob": "P_ArkNovice",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "02ArkNovice07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4096,
+    "center_y": 4087,
+    "width": 0,
+    "height": 0,
+    "range_degree": 131,
+    "mobs": [
+      {
+        "mob": "P_ArkNovice",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "02ArkNovice08": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4478,
+    "center_y": 4454,
+    "width": 0,
+    "height": 0,
+    "range_degree": 124,
+    "mobs": [
+      {
+        "mob": "P_ArkNovice",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "02ArkNovice09": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5832,
+    "center_y": 2732,
+    "width": 0,
+    "height": 0,
+    "range_degree": 124,
+    "mobs": [
+      {
+        "mob": "P_ArkNovice",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "02ArkNovice10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5094,
+    "center_y": 4411,
+    "width": 0,
+    "height": 0,
+    "range_degree": 201,
+    "mobs": [
+      {
+        "mob": "P_ArkNovice",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "02ArkArch01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5264,
+    "center_y": 4057,
+    "width": 0,
+    "height": 0,
+    "range_degree": 165,
+    "mobs": [
+      {
+        "mob": "P_ArkArch",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_ArkAstan",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 60,
+        "reg_min": 48,
+        "reg_max": 72,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "02ArkArch02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5578,
+    "center_y": 3808,
+    "width": 0,
+    "height": 0,
+    "range_degree": 194,
+    "mobs": [
+      {
+        "mob": "P_ArkArch",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "02ArkArch03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5647,
+    "center_y": 4169,
+    "width": 0,
+    "height": 0,
+    "range_degree": 187,
+    "mobs": [
+      {
+        "mob": "P_ArkArch",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "02ArkArch04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5983,
+    "center_y": 3966,
+    "width": 0,
+    "height": 0,
+    "range_degree": 208,
+    "mobs": [
+      {
+        "mob": "P_ArkArch",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "02ArkArch05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6294,
+    "center_y": 3552,
+    "width": 0,
+    "height": 0,
+    "range_degree": 229,
+    "mobs": [
+      {
+        "mob": "P_ArkArch",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_ArkAstan",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 60,
+        "reg_min": 48,
+        "reg_max": 72,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "02ArkArch06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4432,
+    "center_y": 4139,
+    "width": 0,
+    "height": 0,
+    "range_degree": 116,
+    "mobs": [
+      {
+        "mob": "P_ArkArch",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "02ArkTech01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5596,
+    "center_y": 2438,
+    "width": 0,
+    "height": 0,
+    "range_degree": 194,
+    "mobs": [
+      {
+        "mob": "P_ArkTech",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "02ArkTech02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4766,
+    "center_y": 2664,
+    "width": 0,
+    "height": 0,
+    "range_degree": 144,
+    "mobs": [
+      {
+        "mob": "P_ArkTech",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "02ArkTech03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4273,
+    "center_y": 3232,
+    "width": 0,
+    "height": 0,
+    "range_degree": 173,
+    "mobs": [
+      {
+        "mob": "P_ArkTech",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "02ArkTech04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4661,
+    "center_y": 3271,
+    "width": 0,
+    "height": 0,
+    "range_degree": 187,
+    "mobs": [
+      {
+        "mob": "P_ArkTech",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "03ArkTech01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8325,
+    "center_y": 2856,
+    "width": 0,
+    "height": 0,
+    "range_degree": 152,
+    "mobs": [
+      {
+        "mob": "P_ArkTech",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "03ArkTech02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8407,
+    "center_y": 3196,
+    "width": 0,
+    "height": 0,
+    "range_degree": 173,
+    "mobs": [
+      {
+        "mob": "P_ArkTech",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "03ArkTech03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8648,
+    "center_y": 2887,
+    "width": 0,
+    "height": 0,
+    "range_degree": 180,
+    "mobs": [
+      {
+        "mob": "P_ArkTech",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "03ArkTech04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9042,
+    "center_y": 2920,
+    "width": 0,
+    "height": 0,
+    "range_degree": 215,
+    "mobs": [
+      {
+        "mob": "P_ArkTech",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "03ArkArch01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9239,
+    "center_y": 2672,
+    "width": 0,
+    "height": 0,
+    "range_degree": 208,
+    "mobs": [
+      {
+        "mob": "P_ArkArch",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_ArkAstan",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 60,
+        "reg_min": 48,
+        "reg_max": 72,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "03ArkArch02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10021,
+    "center_y": 2465,
+    "width": 0,
+    "height": 0,
+    "range_degree": 201,
+    "mobs": [
+      {
+        "mob": "P_ArkArch",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "03ArkArch03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10250,
+    "center_y": 3585,
+    "width": 0,
+    "height": 0,
+    "range_degree": 187,
+    "mobs": [
+      {
+        "mob": "P_ArkArch",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "03ArkArch04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10608,
+    "center_y": 2649,
+    "width": 0,
+    "height": 0,
+    "range_degree": 180,
+    "mobs": [
+      {
+        "mob": "P_ArkArch",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "03ArkArch05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10591,
+    "center_y": 3023,
+    "width": 0,
+    "height": 0,
+    "range_degree": 180,
+    "mobs": [
+      {
+        "mob": "P_ArkArch",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "03ArkArch06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9857,
+    "center_y": 3036,
+    "width": 0,
+    "height": 0,
+    "range_degree": 173,
+    "mobs": [
+      {
+        "mob": "P_ArkArch",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "03ArkMech01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9439,
+    "center_y": 3100,
+    "width": 0,
+    "height": 0,
+    "range_degree": 194,
+    "mobs": [
+      {
+        "mob": "P_ArkMech",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "03ArkMech02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10653,
+    "center_y": 4832,
+    "width": 0,
+    "height": 0,
+    "range_degree": 173,
+    "mobs": [
+      {
+        "mob": "P_ArkMech",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "03ArkMech03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9099,
+    "center_y": 4177,
+    "width": 0,
+    "height": 0,
+    "range_degree": 201,
+    "mobs": [
+      {
+        "mob": "P_ArkMech",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_ArkAstan",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 60,
+        "reg_min": 48,
+        "reg_max": 72,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "03ArkMech04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9253,
+    "center_y": 4688,
+    "width": 0,
+    "height": 0,
+    "range_degree": 124,
+    "mobs": [
+      {
+        "mob": "P_ArkMech",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "03ArkMech05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9731,
+    "center_y": 4493,
+    "width": 0,
+    "height": 0,
+    "range_degree": 166,
+    "mobs": [
+      {
+        "mob": "P_ArkMech",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "03ArkMech06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9411,
+    "center_y": 4960,
+    "width": 0,
+    "height": 0,
+    "range_degree": 159,
+    "mobs": [
+      {
+        "mob": "P_ArkMech",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "03ArkMech07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9758,
+    "center_y": 5166,
+    "width": 0,
+    "height": 0,
+    "range_degree": 180,
+    "mobs": [
+      {
+        "mob": "P_ArkMech",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "03ArkMech08": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10663,
+    "center_y": 3467,
+    "width": 0,
+    "height": 0,
+    "range_degree": 208,
+    "mobs": [
+      {
+        "mob": "P_ArkMech",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_ArkAstan",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 60,
+        "reg_min": 48,
+        "reg_max": 72,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "03ArkMech09": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10294,
+    "center_y": 3211,
+    "width": 0,
+    "height": 0,
+    "range_degree": 187,
+    "mobs": [
+      {
+        "mob": "P_ArkMech",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "03ArkMech10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10704,
+    "center_y": 4371,
+    "width": 0,
+    "height": 0,
+    "range_degree": 201,
+    "mobs": [
+      {
+        "mob": "P_ArkMech",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "03ArkMech11": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10649,
+    "center_y": 3932,
+    "width": 0,
+    "height": 0,
+    "range_degree": 229,
+    "mobs": [
+      {
+        "mob": "P_ArkMech",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "03ArkMaster01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10232,
+    "center_y": 2863,
+    "width": 0,
+    "height": 0,
+    "range_degree": 173,
+    "mobs": [
+      {
+        "mob": "P_ArkMaster",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 60,
+        "reg_min": 48,
+        "reg_max": 72,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "03ArkMaster02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9393,
+    "center_y": 4425,
+    "width": 0,
+    "height": 0,
+    "range_degree": 124,
+    "mobs": [
+      {
+        "mob": "P_ArkMaster",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 60,
+        "reg_min": 48,
+        "reg_max": 72,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "03ArkAstan01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10130,
+    "center_y": 4198,
+    "width": 0,
+    "height": 0,
+    "range_degree": 243,
+    "mobs": [
+      {
+        "mob": "P_ArkAstan",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 60,
+        "reg_min": 48,
+        "reg_max": 72,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "03ArkAstan02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10286,
+    "center_y": 5097,
+    "width": 0,
+    "height": 0,
+    "range_degree": 201,
+    "mobs": [
+      {
+        "mob": "P_ArkAstan",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 60,
+        "reg_min": 48,
+        "reg_max": 72,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "04ArkTech01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10573,
+    "center_y": 8986,
+    "width": 0,
+    "height": 0,
+    "range_degree": 131,
+    "mobs": [
+      {
+        "mob": "P_ArkTech",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "04ArkTech02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10349,
+    "center_y": 9538,
+    "width": 0,
+    "height": 0,
+    "range_degree": 152,
+    "mobs": [
+      {
+        "mob": "P_ArkTech",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "04ArkTech03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10101,
+    "center_y": 9771,
+    "width": 0,
+    "height": 0,
+    "range_degree": 159,
+    "mobs": [
+      {
+        "mob": "P_ArkTech",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "04ArkTech04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9755,
+    "center_y": 9768,
+    "width": 0,
+    "height": 0,
+    "range_degree": 145,
+    "mobs": [
+      {
+        "mob": "P_ArkTech",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "04ArkTech05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9158,
+    "center_y": 9111,
+    "width": 0,
+    "height": 0,
+    "range_degree": 173,
+    "mobs": [
+      {
+        "mob": "P_ArkTech",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "04ArkTech06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9869,
+    "center_y": 8910,
+    "width": 0,
+    "height": 0,
+    "range_degree": 159,
+    "mobs": [
+      {
+        "mob": "P_ArkTech",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "04ArkNovice01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9549,
+    "center_y": 8516,
+    "width": 0,
+    "height": 0,
+    "range_degree": 145,
+    "mobs": [
+      {
+        "mob": "P_ArkNovice",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "04ArkTech07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9073,
+    "center_y": 8564,
+    "width": 0,
+    "height": 0,
+    "range_degree": 194,
+    "mobs": [
+      {
+        "mob": "P_ArkTech",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "04ArkTech08": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8390,
+    "center_y": 8708,
+    "width": 0,
+    "height": 0,
+    "range_degree": 166,
+    "mobs": [
+      {
+        "mob": "P_ArkTech",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "04ArkTech09": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8162,
+    "center_y": 9249,
+    "width": 0,
+    "height": 0,
+    "range_degree": 208,
+    "mobs": [
+      {
+        "mob": "P_ArkTech",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "04ArkTech10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8629,
+    "center_y": 9199,
+    "width": 0,
+    "height": 0,
+    "range_degree": 201,
+    "mobs": [
+      {
+        "mob": "P_ArkTech",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "04ArkNovice02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8085,
+    "center_y": 8268,
+    "width": 0,
+    "height": 0,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "P_ArkNovice",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "04ArkTech11": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7701,
+    "center_y": 9270,
+    "width": 0,
+    "height": 0,
+    "range_degree": 194,
+    "mobs": [
+      {
+        "mob": "P_ArkTech",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "04ArkTech12": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8088,
+    "center_y": 9804,
+    "width": 0,
+    "height": 0,
+    "range_degree": 110,
+    "mobs": [
+      {
+        "mob": "P_ArkTech",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "04ArkTech13": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8588,
+    "center_y": 9778,
+    "width": 0,
+    "height": 0,
+    "range_degree": 117,
+    "mobs": [
+      {
+        "mob": "P_ArkTech",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "04ArkTech14": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8835,
+    "center_y": 10461,
+    "width": 0,
+    "height": 0,
+    "range_degree": 117,
+    "mobs": [
+      {
+        "mob": "P_ArkTech",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "04ArkMaster01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8338,
+    "center_y": 10313,
+    "width": 0,
+    "height": 0,
+    "range_degree": 110,
+    "mobs": [
+      {
+        "mob": "P_ArkMaster",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 60,
+        "reg_min": 48,
+        "reg_max": 72,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "04ArkMaster02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9485,
+    "center_y": 10467,
+    "width": 0,
+    "height": 0,
+    "range_degree": 103,
+    "mobs": [
+      {
+        "mob": "P_ArkMaster",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 60,
+        "reg_min": 48,
+        "reg_max": 72,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "04ArkMaster03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10024,
+    "center_y": 10325,
+    "width": 0,
+    "height": 0,
+    "range_degree": 117,
+    "mobs": [
+      {
+        "mob": "P_ArkMaster",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 60,
+        "reg_min": 48,
+        "reg_max": 72,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "04ArkAstan01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9226,
+    "center_y": 9535,
+    "width": 0,
+    "height": 0,
+    "range_degree": 194,
+    "mobs": [
+      {
+        "mob": "P_ArkAstan",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 60,
+        "reg_min": 48,
+        "reg_max": 72,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "04ArkAstan02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5861,
+    "center_y": 9105,
+    "width": 0,
+    "height": 0,
+    "range_degree": 215,
+    "mobs": [
+      {
+        "mob": "P_ArkAstan",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 60,
+        "reg_min": 48,
+        "reg_max": 72,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "04ArkAstan03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5859,
+    "center_y": 8639,
+    "width": 0,
+    "height": 0,
+    "range_degree": 215,
+    "mobs": [
+      {
+        "mob": "P_ArkAstan",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 60,
+        "reg_min": 48,
+        "reg_max": 72,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "04ArkAstan04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7125,
+    "center_y": 9598,
+    "width": 0,
+    "height": 0,
+    "range_degree": 166,
+    "mobs": [
+      {
+        "mob": "P_ArkAstan",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 60,
+        "reg_min": 48,
+        "reg_max": 72,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "05ArkAstan01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4080,
+    "center_y": 9643,
+    "width": 0,
+    "height": 0,
+    "range_degree": 152,
+    "mobs": [
+      {
+        "mob": "P_ArkAstan",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 60,
+        "reg_min": 48,
+        "reg_max": 72,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "05ArkAstan02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3967,
+    "center_y": 9276,
+    "width": 0,
+    "height": 0,
+    "range_degree": 187,
+    "mobs": [
+      {
+        "mob": "P_ArkAstan",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 60,
+        "reg_min": 48,
+        "reg_max": 72,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "05ArkAstron01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3535,
+    "center_y": 9258,
+    "width": 0,
+    "height": 0,
+    "range_degree": 194,
+    "mobs": [
+      {
+        "mob": "P_ArkAstron",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 60,
+        "reg_min": 48,
+        "reg_max": 72,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "05ArkAstan03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4403,
+    "center_y": 9374,
+    "width": 0,
+    "height": 0,
+    "range_degree": 173,
+    "mobs": [
+      {
+        "mob": "P_ArkAstan",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 60,
+        "reg_min": 48,
+        "reg_max": 72,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "05ArkAstan04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2891,
+    "center_y": 8461,
+    "width": 0,
+    "height": 0,
+    "range_degree": 201,
+    "mobs": [
+      {
+        "mob": "P_ArkAstan",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 60,
+        "reg_min": 48,
+        "reg_max": 72,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "05ArkAstron02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2769,
+    "center_y": 8881,
+    "width": 0,
+    "height": 0,
+    "range_degree": 187,
+    "mobs": [
+      {
+        "mob": "P_ArkAstron",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 60,
+        "reg_min": 48,
+        "reg_max": 72,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "05ArkAstron03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2340,
+    "center_y": 8726,
+    "width": 0,
+    "height": 0,
+    "range_degree": 187,
+    "mobs": [
+      {
+        "mob": "P_ArkAstron",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 60,
+        "reg_min": 48,
+        "reg_max": 72,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "05ArkMaster01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2436,
+    "center_y": 9150,
+    "width": 0,
+    "height": 0,
+    "range_degree": 194,
+    "mobs": [
+      {
+        "mob": "P_ArkMaster",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 60,
+        "reg_min": 48,
+        "reg_max": 72,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "05ArkAstanica01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2850,
+    "center_y": 9355,
+    "width": 0,
+    "height": 0,
+    "range_degree": 222,
+    "mobs": [
+      {
+        "mob": "P_ArkAstanica",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 180,
+        "reg_max": 240,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "05ArkAstanica02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2429,
+    "center_y": 9690,
+    "width": 0,
+    "height": 0,
+    "range_degree": 257,
+    "mobs": [
+      {
+        "mob": "P_ArkAstanica",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 200,
+        "reg_min": 180,
+        "reg_max": 240,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "05ArkMaster02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2860,
+    "center_y": 9867,
+    "width": 0,
+    "height": 0,
+    "range_degree": 215,
+    "mobs": [
+      {
+        "mob": "P_ArkMaster",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 60,
+        "reg_min": 48,
+        "reg_max": 72,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "05ArkAstron04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2512,
+    "center_y": 10148,
+    "width": 0,
+    "height": 0,
+    "range_degree": 194,
+    "mobs": [
+      {
+        "mob": "P_ArkAstron",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 60,
+        "reg_min": 48,
+        "reg_max": 72,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "05ArkAstron05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2530,
+    "center_y": 10630,
+    "width": 0,
+    "height": 0,
+    "range_degree": 222,
+    "mobs": [
+      {
+        "mob": "P_ArkAstron",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 60,
+        "reg_min": 48,
+        "reg_max": 72,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "05ArkAstan05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2990,
+    "center_y": 10391,
+    "width": 0,
+    "height": 0,
+    "range_degree": 278,
+    "mobs": [
+      {
+        "mob": "P_ArkAstan",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 60,
+        "reg_min": 48,
+        "reg_max": 72,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "05ArkAstan06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3514,
+    "center_y": 10363,
+    "width": 0,
+    "height": 0,
+    "range_degree": 215,
+    "mobs": [
+      {
+        "mob": "P_ArkAstan",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 60,
+        "reg_min": 48,
+        "reg_max": 72,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "05ArkAstron06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3259,
+    "center_y": 9535,
+    "width": 0,
+    "height": 0,
+    "range_degree": 173,
+    "mobs": [
+      {
+        "mob": "P_ArkAstron",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 60,
+        "reg_min": 48,
+        "reg_max": 72,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "05ArkAstan07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3884,
+    "center_y": 10155,
+    "width": 0,
+    "height": 0,
+    "range_degree": 215,
+    "mobs": [
+      {
+        "mob": "P_ArkAstan",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 60,
+        "reg_min": 48,
+        "reg_max": 72,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "05ArkAstan08": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3691,
+    "center_y": 9657,
+    "width": 0,
+    "height": 0,
+    "range_degree": 201,
+    "mobs": [
+      {
+        "mob": "P_ArkAstan",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 60,
+        "reg_min": 48,
+        "reg_max": 72,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "SArkGuard01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2387,
+    "center_y": 3765,
+    "width": 0,
+    "height": 0,
+    "range_degree": 130,
+    "mobs": [
+      {
+        "mob": "P_ArkGuard",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "SArkGuard02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3156,
+    "center_y": 3276,
+    "width": 0,
+    "height": 0,
+    "range_degree": 151,
+    "mobs": [
+      {
+        "mob": "P_ArkGuard",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "SArkGuard03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11531,
+    "center_y": 6657,
+    "width": 0,
+    "height": 0,
+    "range_degree": 137,
+    "mobs": [
+      {
+        "mob": "P_ArkGuard",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "SArkGuard04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11661,
+    "center_y": 7735,
+    "width": 0,
+    "height": 0,
+    "range_degree": 137,
+    "mobs": [
+      {
+        "mob": "P_ArkGuard",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "SArkGuard05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11198,
+    "center_y": 8918,
+    "width": 0,
+    "height": 0,
+    "range_degree": 123,
+    "mobs": [
+      {
+        "mob": "P_ArkGuard",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "SArkGuard06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10897,
+    "center_y": 6685,
+    "width": 0,
+    "height": 0,
+    "range_degree": 151,
+    "mobs": [
+      {
+        "mob": "P_ArkGuard",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "SArkGuard07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9571,
+    "center_y": 6395,
+    "width": 0,
+    "height": 0,
+    "range_degree": 201,
+    "mobs": [
+      {
+        "mob": "P_ArkGuard",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "SArkGuard08": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8067,
+    "center_y": 6178,
+    "width": 0,
+    "height": 0,
+    "range_degree": 201,
+    "mobs": [
+      {
+        "mob": "P_ArkGuard",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "SArkGuard09": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7372,
+    "center_y": 5866,
+    "width": 0,
+    "height": 0,
+    "range_degree": 201,
+    "mobs": [
+      {
+        "mob": "P_ArkGuard",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "SArkGuard10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6189,
+    "center_y": 5526,
+    "width": 0,
+    "height": 0,
+    "range_degree": 201,
+    "mobs": [
+      {
+        "mob": "P_ArkGuard",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "SArkGuard11": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6208,
+    "center_y": 7031,
+    "width": 0,
+    "height": 0,
+    "range_degree": 201,
+    "mobs": [
+      {
+        "mob": "P_ArkGuard",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "SArkGuard12": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5843,
+    "center_y": 8133,
+    "width": 0,
+    "height": 0,
+    "range_degree": 123,
+    "mobs": [
+      {
+        "mob": "P_ArkGuard",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  }
+}

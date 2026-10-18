@@ -1,0 +1,1773 @@
+{
+  "1": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 9153,
+    "center_y": 2071,
+    "width": 0,
+    "height": 0,
+    "range_degree": 142,
+    "mobs": [
+      {
+        "mob": "P_Orc1",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "2": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 9937,
+    "center_y": 1283,
+    "width": 0,
+    "height": 0,
+    "range_degree": 142,
+    "mobs": [
+      {
+        "mob": "P_Orc1",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "3": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9569,
+    "center_y": 1619,
+    "width": 1196,
+    "height": 1230,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "P_Orc1",
+        "count": 20,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Orc2",
+        "count": 25,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Pinky",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "4": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 1856,
+    "center_y": 1741,
+    "width": 0,
+    "height": 0,
+    "range_degree": 219,
+    "mobs": [
+      {
+        "mob": "P_Orc2",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "5": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 896,
+    "center_y": 842,
+    "width": 0,
+    "height": 0,
+    "range_degree": 212,
+    "mobs": [
+      {
+        "mob": "P_Orc2",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "6": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1373,
+    "center_y": 1313,
+    "width": 880,
+    "height": 894,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "P_Orc2",
+        "count": 13,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Orc3",
+        "count": 25,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Pinky",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "7": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 10628,
+    "center_y": 5906,
+    "width": 0,
+    "height": 0,
+    "range_degree": 149,
+    "mobs": [
+      {
+        "mob": "P_Orc3",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "8": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 11763,
+    "center_y": 6369,
+    "width": 0,
+    "height": 0,
+    "range_degree": 226,
+    "mobs": [
+      {
+        "mob": "P_Orc3",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "9": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11131,
+    "center_y": 6038,
+    "width": 927,
+    "height": 956,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "P_Pinky",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Orc3",
+        "count": 20,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Orc4",
+        "count": 30,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "10": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 2640,
+    "center_y": 7165,
+    "width": 0,
+    "height": 0,
+    "range_degree": 72,
+    "mobs": [
+      {
+        "mob": "P_Orc4",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "11": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 3206,
+    "center_y": 6566,
+    "width": 0,
+    "height": 0,
+    "range_degree": 72,
+    "mobs": [
+      {
+        "mob": "P_Orc4",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "12": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4592,
+    "center_y": 6870,
+    "width": 483,
+    "height": 464,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "P_Orc4",
+        "count": 10,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "13": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 2630,
+    "center_y": 6589,
+    "width": 0,
+    "height": 0,
+    "range_degree": 79,
+    "mobs": [
+      {
+        "mob": "P_Orc4",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "14": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 3212,
+    "center_y": 7171,
+    "width": 0,
+    "height": 0,
+    "range_degree": 72,
+    "mobs": [
+      {
+        "mob": "P_Orc4",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "15": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6303,
+    "center_y": 6913,
+    "width": 3458,
+    "height": 121,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "P_Orc3",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Pinky",
+        "count": 7,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "16": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6629,
+    "center_y": 5152,
+    "width": 134,
+    "height": 1720,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "P_Orc3",
+        "count": 7,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "17": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2598,
+    "center_y": 3501,
+    "width": 1832,
+    "height": 110,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "P_Orc2",
+        "count": 7,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "18": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5120,
+    "center_y": 1654,
+    "width": 602,
+    "height": 607,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "P_Orc1",
+        "count": 8,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "19": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5257,
+    "center_y": 1803,
+    "width": 3283,
+    "height": 122,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "P_Orc2",
+        "count": 7,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Pinky",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "20": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5224,
+    "center_y": 519,
+    "width": 2492,
+    "height": 109,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "P_Orc2",
+        "count": 7,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "21": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2896,
+    "center_y": 6851,
+    "width": 470,
+    "height": 482,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "P_Orc3",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Pinky",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "22": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8422,
+    "center_y": 7017,
+    "width": 590,
+    "height": 590,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "P_Orc4",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "23": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8428,
+    "center_y": 5402,
+    "width": 620,
+    "height": 619,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "P_Orc3",
+        "count": 8,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "24": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1358,
+    "center_y": 3647,
+    "width": 0,
+    "height": 0,
+    "range_degree": 598,
+    "mobs": [
+      {
+        "mob": "P_Orc2",
+        "count": 7,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "25": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4603,
+    "center_y": 6907,
+    "width": 0,
+    "height": 0,
+    "range_degree": 500,
+    "mobs": [
+      {
+        "mob": "MINE7",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 160,
+        "reg_min": 150,
+        "reg_max": 170,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE8",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 160,
+        "reg_min": 150,
+        "reg_max": 170,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE9",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 160,
+        "reg_min": 150,
+        "reg_max": 170,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "26": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9605,
+    "center_y": 1619,
+    "width": 0,
+    "height": 0,
+    "range_degree": 1249,
+    "mobs": [
+      {
+        "mob": "MINE7",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 160,
+        "reg_min": 150,
+        "reg_max": 170,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE8",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 160,
+        "reg_min": 150,
+        "reg_max": 170,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE9",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 160,
+        "reg_min": 150,
+        "reg_max": 170,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "27": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11176,
+    "center_y": 6049,
+    "width": 0,
+    "height": 0,
+    "range_degree": 983,
+    "mobs": [
+      {
+        "mob": "MINE7",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 160,
+        "reg_min": 150,
+        "reg_max": 170,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE8",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 160,
+        "reg_min": 150,
+        "reg_max": 170,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE9",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 160,
+        "reg_min": 150,
+        "reg_max": 170,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "28": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1355,
+    "center_y": 1331,
+    "width": 0,
+    "height": 0,
+    "range_degree": 948,
+    "mobs": [
+      {
+        "mob": "MINE7",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 160,
+        "reg_min": 150,
+        "reg_max": 170,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE8",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 160,
+        "reg_min": 150,
+        "reg_max": 170,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE9",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 160,
+        "reg_min": 150,
+        "reg_max": 170,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "29": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8352,
+    "center_y": 3853,
+    "width": 1159,
+    "height": 500,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "P_Orc3",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "30": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3411,
+    "center_y": 5224,
+    "width": 1072,
+    "height": 420,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "P_Orc3",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "C_1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5098,
+    "center_y": 1631,
+    "width": 0,
+    "height": 0,
+    "range_degree": 584,
+    "mobs": [
+      {
+        "mob": "P_Fighter1M",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Cleric1F",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "C_2": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2237,
+    "center_y": 3548,
+    "width": 1477,
+    "height": 193,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "P_Archer1M",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Fighter1M",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "C_3": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2871,
+    "center_y": 5184,
+    "width": 0,
+    "height": 0,
+    "range_degree": 422,
+    "mobs": [
+      {
+        "mob": "P_Cleric1F",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "C_4": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1357,
+    "center_y": 1326,
+    "width": 0,
+    "height": 0,
+    "range_degree": 1095,
+    "mobs": [
+      {
+        "mob": "P_Fighter1M",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Mage1F",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "C_5": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9135,
+    "center_y": 569,
+    "width": 1611,
+    "height": 102,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "P_Archer1M",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "C_6": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7689,
+    "center_y": 1793,
+    "width": 1040,
+    "height": 157,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "P_Fighter1M",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "C_7": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10634,
+    "center_y": 3534,
+    "width": 176,
+    "height": 2812,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "P_Cleric1F",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Mage1F",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "C_8": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2914,
+    "center_y": 6856,
+    "width": 0,
+    "height": 0,
+    "range_degree": 380,
+    "mobs": [
+      {
+        "mob": "P_Fighter1M",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "C_9": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8446,
+    "center_y": 6194,
+    "width": 581,
+    "height": 1543,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "P_Cleric1F",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Archer1M",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  }
+}

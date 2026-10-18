@@ -1,0 +1,1344 @@
+{
+  "boss": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 2913,
+    "center_y": 5826,
+    "width": 0,
+    "height": 0,
+    "range_degree": 51,
+    "mobs": [
+      {
+        "mob": "Helga",
+        "count": 1,
+        "kill_num": 1,
+        "reg_standard": 86400,
+        "reg_min": 86395,
+        "reg_max": 86405,
+        "deltas": [
+          -5,
+          -2,
+          0,
+          2,
+          5
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "B_SubHel01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 86400,
+        "reg_min": 86395,
+        "reg_max": 86405,
+        "deltas": [
+          -5,
+          -2,
+          0,
+          2,
+          5
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "B_SubHel02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 86400,
+        "reg_min": 86395,
+        "reg_max": 86405,
+        "deltas": [
+          -5,
+          -2,
+          0,
+          2,
+          5
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "B_SubHel03",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 86400,
+        "reg_min": 86395,
+        "reg_max": 86405,
+        "deltas": [
+          -5,
+          -2,
+          0,
+          2,
+          5
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "B_SubHel04",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 86400,
+        "reg_min": 86395,
+        "reg_max": 86405,
+        "deltas": [
+          -5,
+          -2,
+          0,
+          2,
+          5
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "mine1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2260,
+    "center_y": 4150,
+    "width": 132,
+    "height": 511,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "MINE9",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 595,
+        "reg_max": 605,
+        "deltas": [
+          -5,
+          -2,
+          0,
+          2,
+          5
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "mine2": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4067,
+    "center_y": 4159,
+    "width": 131,
+    "height": 559,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "MINE9",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 595,
+        "reg_max": 605,
+        "deltas": [
+          -5,
+          -2,
+          0,
+          2,
+          5
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "etc": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5118,
+    "center_y": 4590,
+    "width": 0,
+    "height": 0,
+    "range_degree": 51,
+    "mobs": [
+      {
+        "mob": "B_SubHel01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 115,
+        "reg_max": 125,
+        "deltas": [
+          -5,
+          -2,
+          0,
+          2,
+          5
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "etc3": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5177,
+    "center_y": 4123,
+    "width": 0,
+    "height": 0,
+    "range_degree": 51,
+    "mobs": [
+      {
+        "mob": "B_SubHel03",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 115,
+        "reg_max": 125,
+        "deltas": [
+          -5,
+          -2,
+          0,
+          2,
+          5
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "etc4": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5183,
+    "center_y": 3908,
+    "width": 0,
+    "height": 0,
+    "range_degree": 51,
+    "mobs": [
+      {
+        "mob": "B_SubHel04",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 115,
+        "reg_max": 125,
+        "deltas": [
+          -5,
+          -2,
+          0,
+          2,
+          5
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "etc2-1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1047,
+    "center_y": 4405,
+    "width": 0,
+    "height": 0,
+    "range_degree": 51,
+    "mobs": [
+      {
+        "mob": "B_SubHel01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 115,
+        "reg_max": 125,
+        "deltas": [
+          -5,
+          -2,
+          0,
+          2,
+          5
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "etc2-2": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1057,
+    "center_y": 4212,
+    "width": 0,
+    "height": 0,
+    "range_degree": 51,
+    "mobs": [
+      {
+        "mob": "B_SubHel02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 115,
+        "reg_max": 125,
+        "deltas": [
+          -5,
+          -2,
+          0,
+          2,
+          5
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "etc2-3": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1045,
+    "center_y": 4024,
+    "width": 0,
+    "height": 0,
+    "range_degree": 51,
+    "mobs": [
+      {
+        "mob": "B_SubHel03",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 115,
+        "reg_max": 125,
+        "deltas": [
+          -5,
+          -2,
+          0,
+          2,
+          5
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "etc2-4": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2197,
+    "center_y": 3996,
+    "width": 0,
+    "height": 0,
+    "range_degree": 51,
+    "mobs": [
+      {
+        "mob": "B_SubHel05",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 115,
+        "reg_max": 125,
+        "deltas": [
+          -5,
+          -2,
+          0,
+          2,
+          5
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "sub1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3178,
+    "center_y": 3739,
+    "width": 0,
+    "height": 0,
+    "range_degree": 134,
+    "mobs": [
+      {
+        "mob": "B_SubHel06",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 115,
+        "reg_max": 125,
+        "deltas": [
+          -5,
+          -2,
+          0,
+          2,
+          5
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "B_SubHel07",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 115,
+        "reg_max": 125,
+        "deltas": [
+          -5,
+          -2,
+          0,
+          2,
+          5
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "B_SubHel08",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 115,
+        "reg_max": 125,
+        "deltas": [
+          -5,
+          -2,
+          0,
+          2,
+          5
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "sum2": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2664,
+    "center_y": 4537,
+    "width": 0,
+    "height": 0,
+    "range_degree": 106,
+    "mobs": [
+      {
+        "mob": "B_SubHel06",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 115,
+        "reg_max": 125,
+        "deltas": [
+          -5,
+          -2,
+          0,
+          2,
+          5
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "B_SubHel07",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 115,
+        "reg_max": 125,
+        "deltas": [
+          -5,
+          -2,
+          0,
+          2,
+          5
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "B_SubHel08",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 115,
+        "reg_max": 125,
+        "deltas": [
+          -5,
+          -2,
+          0,
+          2,
+          5
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "sub3": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3599,
+    "center_y": 4600,
+    "width": 0,
+    "height": 0,
+    "range_degree": 106,
+    "mobs": [
+      {
+        "mob": "B_SubHel06",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 115,
+        "reg_max": 125,
+        "deltas": [
+          -5,
+          -2,
+          0,
+          2,
+          5
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "B_SubHel07",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 115,
+        "reg_max": 125,
+        "deltas": [
+          -5,
+          -2,
+          0,
+          2,
+          5
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "B_SubHel08",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 115,
+        "reg_max": 125,
+        "deltas": [
+          -5,
+          -2,
+          0,
+          2,
+          5
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "run1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4060,
+    "center_y": 4019,
+    "width": 0,
+    "height": 0,
+    "range_degree": 51,
+    "mobs": [
+      {
+        "mob": "B_SubHel05",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 115,
+        "reg_max": 125,
+        "deltas": [
+          -5,
+          -2,
+          0,
+          2,
+          5
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "run2": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2765,
+    "center_y": 2878,
+    "width": 0,
+    "height": 0,
+    "range_degree": 177,
+    "mobs": [
+      {
+        "mob": "B_SubHel05",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 115,
+        "reg_max": 125,
+        "deltas": [
+          -5,
+          -2,
+          0,
+          2,
+          5
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Party01": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 2656,
+    "center_y": 4108,
+    "width": 0,
+    "height": 0,
+    "range_degree": 198,
+    "mobs": [
+      {
+        "mob": "B_SubHel05",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 900,
+        "reg_min": 895,
+        "reg_max": 905,
+        "deltas": [
+          -5,
+          -2,
+          0,
+          2,
+          5
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "B_SubHel06",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 900,
+        "reg_min": 895,
+        "reg_max": 905,
+        "deltas": [
+          -5,
+          -2,
+          0,
+          2,
+          5
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "B_SubHel07",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 900,
+        "reg_min": 895,
+        "reg_max": 905,
+        "deltas": [
+          -5,
+          -2,
+          0,
+          2,
+          5
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "B_SubHel08",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 900,
+        "reg_min": 895,
+        "reg_max": 905,
+        "deltas": [
+          -5,
+          -2,
+          0,
+          2,
+          5
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Party02": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 3188,
+    "center_y": 3256,
+    "width": 0,
+    "height": 0,
+    "range_degree": 198,
+    "mobs": [
+      {
+        "mob": "B_SubHel05",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 900,
+        "reg_min": 895,
+        "reg_max": 905,
+        "deltas": [
+          -5,
+          -2,
+          0,
+          2,
+          5
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "B_SubHel06",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 900,
+        "reg_min": 895,
+        "reg_max": 905,
+        "deltas": [
+          -5,
+          -2,
+          0,
+          2,
+          5
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "B_SubHel07",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 900,
+        "reg_min": 895,
+        "reg_max": 905,
+        "deltas": [
+          -5,
+          -2,
+          0,
+          2,
+          5
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "B_SubHel08",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 900,
+        "reg_min": 895,
+        "reg_max": 905,
+        "deltas": [
+          -5,
+          -2,
+          0,
+          2,
+          5
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Party03": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 2592,
+    "center_y": 3532,
+    "width": 0,
+    "height": 0,
+    "range_degree": 177,
+    "mobs": [
+      {
+        "mob": "B_SubHel05",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 1200,
+        "reg_min": 1195,
+        "reg_max": 1205,
+        "deltas": [
+          -5,
+          -2,
+          0,
+          2,
+          5
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "B_SubHel06",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1200,
+        "reg_min": 1195,
+        "reg_max": 1205,
+        "deltas": [
+          -5,
+          -2,
+          0,
+          2,
+          5
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "B_SubHel07",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1200,
+        "reg_min": 1195,
+        "reg_max": 1205,
+        "deltas": [
+          -5,
+          -2,
+          0,
+          2,
+          5
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "B_SubHel08",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1200,
+        "reg_min": 1195,
+        "reg_max": 1205,
+        "deltas": [
+          -5,
+          -2,
+          0,
+          2,
+          5
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Party04": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 3666,
+    "center_y": 4180,
+    "width": 0,
+    "height": 0,
+    "range_degree": 184,
+    "mobs": [
+      {
+        "mob": "B_SubHel05",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 900,
+        "reg_min": 895,
+        "reg_max": 905,
+        "deltas": [
+          -5,
+          -2,
+          0,
+          2,
+          5
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "B_SubHel06",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 900,
+        "reg_min": 895,
+        "reg_max": 905,
+        "deltas": [
+          -5,
+          -2,
+          0,
+          2,
+          5
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "B_SubHel07",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 900,
+        "reg_min": 895,
+        "reg_max": 905,
+        "deltas": [
+          -5,
+          -2,
+          0,
+          2,
+          5
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "B_SubHel08",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 900,
+        "reg_min": 895,
+        "reg_max": 905,
+        "deltas": [
+          -5,
+          -2,
+          0,
+          2,
+          5
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Party05": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 3744,
+    "center_y": 3612,
+    "width": 0,
+    "height": 0,
+    "range_degree": 177,
+    "mobs": [
+      {
+        "mob": "B_SubHel05",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 1200,
+        "reg_min": 1195,
+        "reg_max": 1205,
+        "deltas": [
+          -5,
+          -2,
+          0,
+          2,
+          5
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "B_SubHel06",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1200,
+        "reg_min": 1195,
+        "reg_max": 1205,
+        "deltas": [
+          -5,
+          -2,
+          0,
+          2,
+          5
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "B_SubHel07",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1200,
+        "reg_min": 1195,
+        "reg_max": 1205,
+        "deltas": [
+          -5,
+          -2,
+          0,
+          2,
+          5
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "B_SubHel08",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1200,
+        "reg_min": 1195,
+        "reg_max": 1205,
+        "deltas": [
+          -5,
+          -2,
+          0,
+          2,
+          5
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Party10": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 3141,
+    "center_y": 4402,
+    "width": 0,
+    "height": 0,
+    "range_degree": 170,
+    "mobs": [
+      {
+        "mob": "B_SubHel01",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 1200,
+        "reg_min": 1195,
+        "reg_max": 1205,
+        "deltas": [
+          -5,
+          -2,
+          0,
+          2,
+          5
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "B_SubHel02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1200,
+        "reg_min": 1195,
+        "reg_max": 1205,
+        "deltas": [
+          -5,
+          -2,
+          0,
+          2,
+          5
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "B_SubHel03",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1200,
+        "reg_min": 1195,
+        "reg_max": 1205,
+        "deltas": [
+          -5,
+          -2,
+          0,
+          2,
+          5
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "B_SubHel04",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1200,
+        "reg_min": 1195,
+        "reg_max": 1205,
+        "deltas": [
+          -5,
+          -2,
+          0,
+          2,
+          5
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "run3": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3650,
+    "center_y": 2901,
+    "width": 0,
+    "height": 0,
+    "range_degree": 184,
+    "mobs": [
+      {
+        "mob": "B_SubHel05",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 120,
+        "reg_min": 115,
+        "reg_max": 125,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  }
+}

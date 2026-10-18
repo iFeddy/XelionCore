@@ -1,0 +1,7713 @@
+{
+  "EldPri01Area01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4441,
+    "center_y": 943,
+    "width": 0,
+    "height": 0,
+    "range_degree": 431,
+    "mobs": [
+      {
+        "mob": "KingCall",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WeakenedOgre",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3340,
+    "center_y": 1158,
+    "width": 0,
+    "height": 0,
+    "range_degree": 344,
+    "mobs": [
+      {
+        "mob": "WeakenedOgre",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "KingCall",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8460,
+    "center_y": 3374,
+    "width": 467,
+    "height": 108,
+    "range_degree": 12,
+    "mobs": [
+      {
+        "mob": "KingCall",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Harkan",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "LightingViVi",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4811,
+    "center_y": 1903,
+    "width": 171,
+    "height": 373,
+    "range_degree": 79,
+    "mobs": [
+      {
+        "mob": "WeakenedOgre",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4956,
+    "center_y": 1791,
+    "width": 190,
+    "height": 205,
+    "range_degree": -2,
+    "mobs": [
+      {
+        "mob": "KingCall",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WeakenedOgre",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6036,
+    "center_y": 1922,
+    "width": 676,
+    "height": 191,
+    "range_degree": -3,
+    "mobs": [
+      {
+        "mob": "KingCall",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "LightingViVi",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WeakenedOgre",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5090,
+    "center_y": 3401,
+    "width": 101,
+    "height": 303,
+    "range_degree": 61,
+    "mobs": [
+      {
+        "mob": "KingCall",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WeakenedOgre",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area08": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5503,
+    "center_y": 2707,
+    "width": 0,
+    "height": 0,
+    "range_degree": 438,
+    "mobs": [
+      {
+        "mob": "WeakenedOgre",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "KingCall",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area09": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8668,
+    "center_y": 1388,
+    "width": 618,
+    "height": 206,
+    "range_degree": 8,
+    "mobs": [
+      {
+        "mob": "KingCall",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WeakenedOgre",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8204,
+    "center_y": 2294,
+    "width": 446,
+    "height": 190,
+    "range_degree": -58,
+    "mobs": [
+      {
+        "mob": "KingCall",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WeakenedOgre",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area11": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8697,
+    "center_y": 1473,
+    "width": 174,
+    "height": 151,
+    "range_degree": 2,
+    "mobs": [
+      {
+        "mob": "Ogre",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 55,
+        "reg_min": 40,
+        "reg_max": 65,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WeakenedOgre",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area12": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6528,
+    "center_y": 822,
+    "width": 384,
+    "height": 236,
+    "range_degree": 2,
+    "mobs": [
+      {
+        "mob": "KingCall",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "LightingViVi",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area13": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7614,
+    "center_y": 641,
+    "width": 231,
+    "height": 52,
+    "range_degree": -1,
+    "mobs": [
+      {
+        "mob": "KingCall",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WeakenedOgre",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area14": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7492,
+    "center_y": 1021,
+    "width": 286,
+    "height": 115,
+    "range_degree": 51,
+    "mobs": [
+      {
+        "mob": "KingCall",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WeakenedOgre",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area15": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10424,
+    "center_y": 1748,
+    "width": 122,
+    "height": 355,
+    "range_degree": -13,
+    "mobs": [
+      {
+        "mob": "KingCall",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "LightingViVi",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WeakenedOgre",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area16": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9825,
+    "center_y": 715,
+    "width": 216,
+    "height": 178,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "LightingViVi",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WeakenedOgre",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area17": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10219,
+    "center_y": 3774,
+    "width": 385,
+    "height": 146,
+    "range_degree": 36,
+    "mobs": [
+      {
+        "mob": "VampireBat",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "LightingViVi",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area18": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9134,
+    "center_y": 2077,
+    "width": 0,
+    "height": 0,
+    "range_degree": 414,
+    "mobs": [
+      {
+        "mob": "KingCall",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WeakenedOgre",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area19": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7083,
+    "center_y": 2992,
+    "width": 131,
+    "height": 422,
+    "range_degree": -38,
+    "mobs": [
+      {
+        "mob": "KingCall",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "LightingViVi",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area20": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5868,
+    "center_y": 4196,
+    "width": 371,
+    "height": 229,
+    "range_degree": 10,
+    "mobs": [
+      {
+        "mob": "KingCall",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WeakenedOgre",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "LightingViVi",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area21": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11940,
+    "center_y": 3707,
+    "width": 81,
+    "height": 372,
+    "range_degree": 24,
+    "mobs": [
+      {
+        "mob": "VampireBat",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area22": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4366,
+    "center_y": 2553,
+    "width": 174,
+    "height": 314,
+    "range_degree": -20,
+    "mobs": [
+      {
+        "mob": "KingCall",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WeakenedOgre",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area23": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4177,
+    "center_y": 2855,
+    "width": 249,
+    "height": 194,
+    "range_degree": -21,
+    "mobs": [
+      {
+        "mob": "WeakenedOgre",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Harkan",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area24": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1923,
+    "center_y": 4799,
+    "width": 0,
+    "height": 0,
+    "range_degree": 347,
+    "mobs": [
+      {
+        "mob": "Harkan",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "KingCall",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WeakenedOgre",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area25": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3285,
+    "center_y": 4856,
+    "width": 206,
+    "height": 599,
+    "range_degree": 54,
+    "mobs": [
+      {
+        "mob": "Harkan",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "KingCall",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area26": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6008,
+    "center_y": 5752,
+    "width": 425,
+    "height": 231,
+    "range_degree": -19,
+    "mobs": [
+      {
+        "mob": "VampireBat",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "LightingViVi",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "KingCall",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area27": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3371,
+    "center_y": 6112,
+    "width": 629,
+    "height": 141,
+    "range_degree": 47,
+    "mobs": [
+      {
+        "mob": "VampireBat",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "LightingViVi",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "KingCall",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area28": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1842,
+    "center_y": 6107,
+    "width": 0,
+    "height": 0,
+    "range_degree": 353,
+    "mobs": [
+      {
+        "mob": "KingCall",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "VampireBat",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area29": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2348,
+    "center_y": 4445,
+    "width": 0,
+    "height": 0,
+    "range_degree": 377,
+    "mobs": [
+      {
+        "mob": "Harkan",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "VampireBat",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WeakenedOgre",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area30": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 839,
+    "center_y": 3175,
+    "width": 137,
+    "height": 484,
+    "range_degree": 65,
+    "mobs": [
+      {
+        "mob": "Harkan",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "KingCall",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "LightingViVi",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area31": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 848,
+    "center_y": 2999,
+    "width": 95,
+    "height": 462,
+    "range_degree": 3,
+    "mobs": [
+      {
+        "mob": "Harkan",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "KingCall",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area32": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 782,
+    "center_y": 4624,
+    "width": 136,
+    "height": 351,
+    "range_degree": 62,
+    "mobs": [
+      {
+        "mob": "Harkan",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "KingCall",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "LightingViVi",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area33": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 971,
+    "center_y": 5629,
+    "width": 0,
+    "height": 0,
+    "range_degree": 346,
+    "mobs": [
+      {
+        "mob": "VampireBat",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "KingCall",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area34": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1026,
+    "center_y": 6549,
+    "width": 138,
+    "height": 371,
+    "range_degree": 26,
+    "mobs": [
+      {
+        "mob": "VampireBat",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "LightingViVi",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "KingCall",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area35": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1566,
+    "center_y": 8041,
+    "width": 0,
+    "height": 0,
+    "range_degree": 534,
+    "mobs": [
+      {
+        "mob": "VampireBat",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "KingCall",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area36": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2178,
+    "center_y": 7136,
+    "width": 355,
+    "height": 151,
+    "range_degree": 147,
+    "mobs": [
+      {
+        "mob": "Prisoner",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "VampireBat",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area37": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 909,
+    "center_y": 9286,
+    "width": 145,
+    "height": 389,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "Prisoner",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "VampireBat",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "LightingViVi",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area38": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2921,
+    "center_y": 7551,
+    "width": 0,
+    "height": 0,
+    "range_degree": 236,
+    "mobs": [
+      {
+        "mob": "KaraSolider",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "KaraTempler",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "DisHarkan",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area39": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2443,
+    "center_y": 8651,
+    "width": 0,
+    "height": 0,
+    "range_degree": 265,
+    "mobs": [
+      {
+        "mob": "KaraSolider",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "DisHarkan",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "KaraTempler",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area40": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5011,
+    "center_y": 8602,
+    "width": 53,
+    "height": 755,
+    "range_degree": -41,
+    "mobs": [
+      {
+        "mob": "VampireBat",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area41": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5486,
+    "center_y": 7593,
+    "width": 0,
+    "height": 0,
+    "range_degree": 352,
+    "mobs": [
+      {
+        "mob": "VampireBat",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Prisoner",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area42": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4357,
+    "center_y": 7607,
+    "width": 0,
+    "height": 0,
+    "range_degree": 358,
+    "mobs": [
+      {
+        "mob": "Prisoner",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "VampireBat",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area43": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4004,
+    "center_y": 8666,
+    "width": 0,
+    "height": 0,
+    "range_degree": 401,
+    "mobs": [
+      {
+        "mob": "Prisoner",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "VampireBat",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area44": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3114,
+    "center_y": 9926,
+    "width": 0,
+    "height": 0,
+    "range_degree": 345,
+    "mobs": [
+      {
+        "mob": "Prisoner",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Torturer",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area45": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3482,
+    "center_y": 10099,
+    "width": 52,
+    "height": 494,
+    "range_degree": -52,
+    "mobs": [
+      {
+        "mob": "Prisoner",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Torturer",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area46": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4916,
+    "center_y": 11418,
+    "width": 0,
+    "height": 0,
+    "range_degree": 548,
+    "mobs": [
+      {
+        "mob": "Prisoner",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "SeniorTorturer",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area47": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6838,
+    "center_y": 11331,
+    "width": 0,
+    "height": 0,
+    "range_degree": 345,
+    "mobs": [
+      {
+        "mob": "KaraSolider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Torturer",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area48": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6779,
+    "center_y": 10427,
+    "width": 376,
+    "height": 124,
+    "range_degree": -7,
+    "mobs": [
+      {
+        "mob": "Prisoner",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Torturer",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "SeniorTorturer",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area49": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5913,
+    "center_y": 11357,
+    "width": 0,
+    "height": 0,
+    "range_degree": 525,
+    "mobs": [
+      {
+        "mob": "Prisoner",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Torturer",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area50": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7395,
+    "center_y": 10673,
+    "width": 310,
+    "height": 61,
+    "range_degree": 98,
+    "mobs": [
+      {
+        "mob": "KaraSolider",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "DisHarkan",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "KaraTempler",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area51": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6942,
+    "center_y": 8938,
+    "width": 0,
+    "height": 0,
+    "range_degree": 427,
+    "mobs": [
+      {
+        "mob": "Prisoner",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Torturer",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area52": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7755,
+    "center_y": 11187,
+    "width": 51,
+    "height": 290,
+    "range_degree": 45,
+    "mobs": [
+      {
+        "mob": "KaraSolider",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "KaraTempler",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area53": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7601,
+    "center_y": 9716,
+    "width": 195,
+    "height": 53,
+    "range_degree": -9,
+    "mobs": [
+      {
+        "mob": "KaraTempler",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "KaraSolider",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area54": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8672,
+    "center_y": 11015,
+    "width": 216,
+    "height": 50,
+    "range_degree": 21,
+    "mobs": [
+      {
+        "mob": "KaraSolider",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "DisHarkan",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area55": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10114,
+    "center_y": 4888,
+    "width": 186,
+    "height": 340,
+    "range_degree": 53,
+    "mobs": [
+      {
+        "mob": "VampireBat",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "LightingViVi",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area56": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11474,
+    "center_y": 3619,
+    "width": 132,
+    "height": 695,
+    "range_degree": 26,
+    "mobs": [
+      {
+        "mob": "VampireBat",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "LightingViVi",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area57": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9291,
+    "center_y": 4286,
+    "width": 351,
+    "height": 90,
+    "range_degree": 21,
+    "mobs": [
+      {
+        "mob": "VampireBat",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WeakenedOgre",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "KingCall",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area58": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7626,
+    "center_y": 5301,
+    "width": 399,
+    "height": 159,
+    "range_degree": 86,
+    "mobs": [
+      {
+        "mob": "Prisoner",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "VampireBat",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area59": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10906,
+    "center_y": 5004,
+    "width": 107,
+    "height": 344,
+    "range_degree": 135,
+    "mobs": [
+      {
+        "mob": "Prisoner",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "VampireBat",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area60": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8450,
+    "center_y": 4619,
+    "width": 108,
+    "height": 184,
+    "range_degree": -57,
+    "mobs": [
+      {
+        "mob": "VampireBat",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area61": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9334,
+    "center_y": 5285,
+    "width": 162,
+    "height": 101,
+    "range_degree": -76,
+    "mobs": [
+      {
+        "mob": "VampireBat",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area62": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11944,
+    "center_y": 4629,
+    "width": 156,
+    "height": 338,
+    "range_degree": 19,
+    "mobs": [
+      {
+        "mob": "Prisoner",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "VampireBat",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area63": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7527,
+    "center_y": 11566,
+    "width": 394,
+    "height": 219,
+    "range_degree": 157,
+    "mobs": [
+      {
+        "mob": "KaraTempler",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "KaraSolider",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area64": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8275,
+    "center_y": 4740,
+    "width": 0,
+    "height": 0,
+    "range_degree": 253,
+    "mobs": [
+      {
+        "mob": "Prisoner",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area65": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10813,
+    "center_y": 5691,
+    "width": 308,
+    "height": 50,
+    "range_degree": 15,
+    "mobs": [
+      {
+        "mob": "Prisoner",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area66": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11483,
+    "center_y": 9015,
+    "width": 0,
+    "height": 0,
+    "range_degree": 333,
+    "mobs": [
+      {
+        "mob": "SeniorTorturer",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "DeadTreeSoul",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area67": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11342,
+    "center_y": 7249,
+    "width": 0,
+    "height": 0,
+    "range_degree": 333,
+    "mobs": [
+      {
+        "mob": "Q_A_KaraTempler",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 45,
+        "reg_min": 40,
+        "reg_max": 50,
+        "deltas": [
+          -5,
+          -2,
+          0,
+          2,
+          5
+        ],
+        "delta_secs": [
+          10,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "SeniorTorturer",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area68": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6811,
+    "center_y": 9811,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "Prisoner",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Torturer",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "SeniorTorturer",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area69": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9658,
+    "center_y": 7698,
+    "width": 258,
+    "height": 425,
+    "range_degree": 77,
+    "mobs": [
+      {
+        "mob": "Prisoner",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Torturer",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "SeniorTorturer",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area70": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8507,
+    "center_y": 7516,
+    "width": 0,
+    "height": 0,
+    "range_degree": 403,
+    "mobs": [
+      {
+        "mob": "Prisoner",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Torturer",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Q_A_KaraTempler",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 45,
+        "reg_min": 40,
+        "reg_max": 50,
+        "deltas": [
+          -5,
+          -2,
+          0,
+          2,
+          5
+        ],
+        "delta_secs": [
+          10,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area71": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9408,
+    "center_y": 10850,
+    "width": 170,
+    "height": 88,
+    "range_degree": 1,
+    "mobs": [
+      {
+        "mob": "Prisoner",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area72": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 12150,
+    "center_y": 9330,
+    "width": 0,
+    "height": 0,
+    "range_degree": 396,
+    "mobs": [
+      {
+        "mob": "KaraSolider",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "KaraTempler",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area73": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11907,
+    "center_y": 8360,
+    "width": 0,
+    "height": 0,
+    "range_degree": 519,
+    "mobs": [
+      {
+        "mob": "KaraSolider",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "KaraTempler",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "DisHarkan",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area74": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10400,
+    "center_y": 10327,
+    "width": 110,
+    "height": 412,
+    "range_degree": 33,
+    "mobs": [
+      {
+        "mob": "KaraSolider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "KaraTempler",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area75": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 12181,
+    "center_y": 10367,
+    "width": 0,
+    "height": 0,
+    "range_degree": 372,
+    "mobs": [
+      {
+        "mob": "KaraTempler",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "KaraSolider",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area76": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10442,
+    "center_y": 9478,
+    "width": 50,
+    "height": 189,
+    "range_degree": -40,
+    "mobs": [
+      {
+        "mob": "KaraTempler",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area77": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10107,
+    "center_y": 11136,
+    "width": 330,
+    "height": 197,
+    "range_degree": -7,
+    "mobs": [
+      {
+        "mob": "KaraSolider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "KaraTempler",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "DisHarkan",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area78": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9811,
+    "center_y": 9513,
+    "width": 242,
+    "height": 121,
+    "range_degree": -49,
+    "mobs": [
+      {
+        "mob": "KaraSolider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "KaraTempler",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area79": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9054,
+    "center_y": 9488,
+    "width": 97,
+    "height": 299,
+    "range_degree": -53,
+    "mobs": [
+      {
+        "mob": "KaraSolider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "KaraTempler",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Q_A_KaraTempler",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area81": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10665,
+    "center_y": 7906,
+    "width": 0,
+    "height": 0,
+    "range_degree": 387,
+    "mobs": [
+      {
+        "mob": "Prisoner",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Torturer",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area82": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6220,
+    "center_y": 10093,
+    "width": 0,
+    "height": 0,
+    "range_degree": 632,
+    "mobs": [
+      {
+        "mob": "Prisoner",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Torturer",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "SeniorTorturer",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01AreaW1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4052,
+    "center_y": 1051,
+    "width": 908,
+    "height": 420,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "HERB4",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB5",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB6",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM4",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM5",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM6",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01AreaW2": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5827,
+    "center_y": 2362,
+    "width": 756,
+    "height": 452,
+    "range_degree": 54,
+    "mobs": [
+      {
+        "mob": "MUSHROOM5",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM6",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB5",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB6",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "FLOWER1",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD4",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01AreaW3": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11797,
+    "center_y": 4195,
+    "width": 295,
+    "height": 799,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "HERB6",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB4",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM4",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD5",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD4",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM6",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "FLOWER1",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "FLOWER1",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01AreaW4": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10004,
+    "center_y": 4944,
+    "width": 975,
+    "height": 325,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "HERB4",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB6",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM4",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM6",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "FLOWER1",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01AreaW5": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1386,
+    "center_y": 7683,
+    "width": 0,
+    "height": 0,
+    "range_degree": 891,
+    "mobs": [
+      {
+        "mob": "HERB5",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB6",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD4",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM6",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM5",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01AreaW6": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 868,
+    "center_y": 4453,
+    "width": 1381,
+    "height": 80,
+    "range_degree": 83,
+    "mobs": [
+      {
+        "mob": "HERB4",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB5",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM5",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM4",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "FLOWER1",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "FLOWER1",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD4",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD5",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01AreaW7": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6508,
+    "center_y": 11703,
+    "width": 324,
+    "height": 1211,
+    "range_degree": -108,
+    "mobs": [
+      {
+        "mob": "WOOD4",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD5",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "FLOWER1",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "FLOWER1",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM4",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM5",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM6",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB4",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB5",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB6",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01AreaW8": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6704,
+    "center_y": 992,
+    "width": 659,
+    "height": 363,
+    "range_degree": -9,
+    "mobs": [
+      {
+        "mob": "HERB4",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD4",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "FLOWER1",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM4",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01AreaH1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6772,
+    "center_y": 3582,
+    "width": 725,
+    "height": 261,
+    "range_degree": -7,
+    "mobs": [
+      {
+        "mob": "FLOWER1",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM6",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD4",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB6",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB5",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM5",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01AreaH2": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2046,
+    "center_y": 5971,
+    "width": 133,
+    "height": 641,
+    "range_degree": 21,
+    "mobs": [
+      {
+        "mob": "MUSHROOM5",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM6",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD5",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "FLOWER1",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB5",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB6",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01AreaH3": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5034,
+    "center_y": 9439,
+    "width": 209,
+    "height": 1663,
+    "range_degree": -41,
+    "mobs": [
+      {
+        "mob": "MUSHROOM4",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM5",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM6",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB4",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB5",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB6",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01AreaH4": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10418,
+    "center_y": 7677,
+    "width": 249,
+    "height": 1195,
+    "range_degree": 91,
+    "mobs": [
+      {
+        "mob": "WOOD4",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB6",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "FLOWER1",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM6",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM4",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB4",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01AreaH5": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6800,
+    "center_y": 2093,
+    "width": 0,
+    "height": 0,
+    "range_degree": 800,
+    "mobs": [
+      {
+        "mob": "MUSHROOM4",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM5",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM6",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB4",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB5",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB6",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01AreaH6": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4345,
+    "center_y": 2034,
+    "width": 0,
+    "height": 0,
+    "range_degree": 100,
+    "mobs": [
+      {
+        "mob": "KingCall3stBrother",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 55,
+        "reg_min": 40,
+        "reg_max": 65,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01AreaH7": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7820,
+    "center_y": 1560,
+    "width": 0,
+    "height": 0,
+    "range_degree": 100,
+    "mobs": [
+      {
+        "mob": "KingCall2stBrother",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 55,
+        "reg_min": 40,
+        "reg_max": 65,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01AreaH8": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5945,
+    "center_y": 1117,
+    "width": 0,
+    "height": 0,
+    "range_degree": 100,
+    "mobs": [
+      {
+        "mob": "KingCall1stBrother",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 55,
+        "reg_min": 40,
+        "reg_max": 65,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01AreaG1": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 11829,
+    "center_y": 7260,
+    "width": 0,
+    "height": 0,
+    "range_degree": 93,
+    "mobs": [
+      {
+        "mob": "S_VampireBat",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 21600,
+        "reg_min": 21590,
+        "reg_max": 21610,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "VampireBat",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 21600,
+        "reg_min": 21590,
+        "reg_max": 21610,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01AreaQ01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1593,
+    "center_y": 9560,
+    "width": 0,
+    "height": 0,
+    "range_degree": 337,
+    "mobs": [
+      {
+        "mob": "Q_A_KaraTempler",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 45,
+        "reg_min": 40,
+        "reg_max": 50,
+        "deltas": [
+          -5,
+          -2,
+          0,
+          2,
+          5
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "KaraSolider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01AreaQ02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6196,
+    "center_y": 9166,
+    "width": 107,
+    "height": 91,
+    "range_degree": -92,
+    "mobs": [
+      {
+        "mob": "Q_A_KaraTempler",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 45,
+        "reg_min": 40,
+        "reg_max": 50,
+        "deltas": [
+          -5,
+          -2,
+          0,
+          2,
+          5
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01AreaQ03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7804,
+    "center_y": 12167,
+    "width": 266,
+    "height": 54,
+    "range_degree": -29,
+    "mobs": [
+      {
+        "mob": "Q_A_KaraTempler",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 45,
+        "reg_min": 40,
+        "reg_max": 50,
+        "deltas": [
+          -5,
+          -2,
+          0,
+          2,
+          5
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01AreaQ04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8862,
+    "center_y": 10427,
+    "width": 78,
+    "height": 143,
+    "range_degree": 30,
+    "mobs": [
+      {
+        "mob": "Q_A_KaraTempler",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 45,
+        "reg_min": 40,
+        "reg_max": 50,
+        "deltas": [
+          -5,
+          -2,
+          0,
+          2,
+          5
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01AreaQ05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 12435,
+    "center_y": 9916,
+    "width": 0,
+    "height": 0,
+    "range_degree": 135,
+    "mobs": [
+      {
+        "mob": "Q_A_KaraTempler",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 45,
+        "reg_min": 40,
+        "reg_max": 50,
+        "deltas": [
+          -5,
+          -2,
+          0,
+          2,
+          5
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01AreaPbox01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6446,
+    "center_y": 6311,
+    "width": 6155,
+    "height": 5879,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "PresentBox10",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 14400,
+        "reg_min": 14390,
+        "reg_max": 14410,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area83": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1409,
+    "center_y": 8839,
+    "width": 0,
+    "height": 0,
+    "range_degree": 128,
+    "mobs": [
+      {
+        "mob": "DeadTreeSoul",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area84": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2660,
+    "center_y": 11071,
+    "width": 0,
+    "height": 0,
+    "range_degree": 303,
+    "mobs": [
+      {
+        "mob": "DeadTreeSoul",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Prisoner",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Torturer",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area85": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4791,
+    "center_y": 8350,
+    "width": 0,
+    "height": 0,
+    "range_degree": 415,
+    "mobs": [
+      {
+        "mob": "DeadTreeSoul",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Prisoner",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area86": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5235,
+    "center_y": 10227,
+    "width": 608,
+    "height": 171,
+    "range_degree": -90,
+    "mobs": [
+      {
+        "mob": "DeadTreeSoul",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Prisoner",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area87": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7252,
+    "center_y": 11971,
+    "width": 0,
+    "height": 0,
+    "range_degree": 380,
+    "mobs": [
+      {
+        "mob": "KaraSolider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "KaraTempler",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area88": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3545,
+    "center_y": 9350,
+    "width": 0,
+    "height": 0,
+    "range_degree": 345,
+    "mobs": [
+      {
+        "mob": "DeadTreeSoul",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Prisoner",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "VampireBat",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area89": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 12212,
+    "center_y": 10932,
+    "width": 0,
+    "height": 0,
+    "range_degree": 121,
+    "mobs": [
+      {
+        "mob": "DeadTreeSoul",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area90": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11588,
+    "center_y": 9655,
+    "width": 1043,
+    "height": 50,
+    "range_degree": -62,
+    "mobs": [
+      {
+        "mob": "DeadTreeSoul",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area91": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10449,
+    "center_y": 7143,
+    "width": 0,
+    "height": 0,
+    "range_degree": 233,
+    "mobs": [
+      {
+        "mob": "DeadTreeSoul",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area92": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9563,
+    "center_y": 7654,
+    "width": 0,
+    "height": 0,
+    "range_degree": 324,
+    "mobs": [
+      {
+        "mob": "DeadTreeSoul",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area93": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3441,
+    "center_y": 2108,
+    "width": 0,
+    "height": 0,
+    "range_degree": 345,
+    "mobs": [
+      {
+        "mob": "Harkan",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area94": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9134,
+    "center_y": 5981,
+    "width": 757,
+    "height": 51,
+    "range_degree": -8,
+    "mobs": [
+      {
+        "mob": "Torturer",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldPri01Area95": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4145,
+    "center_y": 5508,
+    "width": 0,
+    "height": 0,
+    "range_degree": 401,
+    "mobs": [
+      {
+        "mob": "Harkan",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "VampireBat",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "MINE_ICE": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2357,
+    "center_y": 2716,
+    "width": 0,
+    "height": 0,
+    "range_degree": 1284,
+    "mobs": [
+      {
+        "mob": "MINE_ICE",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 150,
+        "reg_min": 146,
+        "reg_max": 154,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "MINE_MAUL": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2377,
+    "center_y": 2764,
+    "width": 0,
+    "height": 0,
+    "range_degree": 1137,
+    "mobs": [
+      {
+        "mob": "MINE_MAUL",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 7200,
+        "reg_min": 7196,
+        "reg_max": 7204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  }
+}

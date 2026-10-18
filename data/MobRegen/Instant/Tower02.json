@@ -1,0 +1,3104 @@
+{
+  "RGN_C1_1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1198,
+    "center_y": 4484,
+    "width": 0,
+    "height": 0,
+    "range_degree": 366,
+    "mobs": [
+      {
+        "mob": "C_TombRaider",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C1_2": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1198,
+    "center_y": 4484,
+    "width": 0,
+    "height": 0,
+    "range_degree": 366,
+    "mobs": [
+      {
+        "mob": "C_DefGoblinSwordman",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C2_1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1198,
+    "center_y": 4484,
+    "width": 0,
+    "height": 0,
+    "range_degree": 366,
+    "mobs": [
+      {
+        "mob": "C_DarkBat",
+        "count": 8,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C2_2": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1198,
+    "center_y": 4484,
+    "width": 0,
+    "height": 0,
+    "range_degree": 366,
+    "mobs": [
+      {
+        "mob": "C_DarkVampireBat",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C3_1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1198,
+    "center_y": 4484,
+    "width": 0,
+    "height": 0,
+    "range_degree": 366,
+    "mobs": [
+      {
+        "mob": "C_DarkSoulSkeleton",
+        "count": 9,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C3_2": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1198,
+    "center_y": 4484,
+    "width": 0,
+    "height": 0,
+    "range_degree": 366,
+    "mobs": [
+      {
+        "mob": "C_DarkSkelWarrior",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C4_1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1198,
+    "center_y": 4484,
+    "width": 0,
+    "height": 0,
+    "range_degree": 366,
+    "mobs": [
+      {
+        "mob": "C_DarkPinky",
+        "count": 10,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C4_2": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1198,
+    "center_y": 4484,
+    "width": 0,
+    "height": 0,
+    "range_degree": 366,
+    "mobs": [
+      {
+        "mob": "C_DarkPixy",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C5_1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1198,
+    "center_y": 4484,
+    "width": 0,
+    "height": 0,
+    "range_degree": 366,
+    "mobs": [
+      {
+        "mob": "C_DarkSkeletonKnight",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C5_2": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1198,
+    "center_y": 4484,
+    "width": 0,
+    "height": 0,
+    "range_degree": 366,
+    "mobs": [
+      {
+        "mob": "C_DarkSkeletonCom",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C6_1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1198,
+    "center_y": 4484,
+    "width": 0,
+    "height": 0,
+    "range_degree": 366,
+    "mobs": [
+      {
+        "mob": "C_DarkLizardMan",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C6_2": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1198,
+    "center_y": 4484,
+    "width": 0,
+    "height": 0,
+    "range_degree": 366,
+    "mobs": [
+      {
+        "mob": "C_DarkComLizardMan",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C7_1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1198,
+    "center_y": 4484,
+    "width": 0,
+    "height": 0,
+    "range_degree": 366,
+    "mobs": [
+      {
+        "mob": "C_DarkGreenky",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C7_2": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1198,
+    "center_y": 4484,
+    "width": 0,
+    "height": 0,
+    "range_degree": 366,
+    "mobs": [
+      {
+        "mob": "C_DarkShylph",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C8_1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1198,
+    "center_y": 4484,
+    "width": 0,
+    "height": 0,
+    "range_degree": 366,
+    "mobs": [
+      {
+        "mob": "C_DarkStonie",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C8_2": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1198,
+    "center_y": 4484,
+    "width": 0,
+    "height": 0,
+    "range_degree": 366,
+    "mobs": [
+      {
+        "mob": "C_DarkStonieCom",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C9_1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1198,
+    "center_y": 4484,
+    "width": 0,
+    "height": 0,
+    "range_degree": 366,
+    "mobs": [
+      {
+        "mob": "C_DarkJewelKeeper",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C9_2": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1198,
+    "center_y": 4484,
+    "width": 0,
+    "height": 0,
+    "range_degree": 366,
+    "mobs": [
+      {
+        "mob": "C_BigJewelKeeper",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C10_1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1198,
+    "center_y": 4484,
+    "width": 0,
+    "height": 0,
+    "range_degree": 366,
+    "mobs": [
+      {
+        "mob": "C_DarkArchon",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C10_2": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1198,
+    "center_y": 4484,
+    "width": 0,
+    "height": 0,
+    "range_degree": 366,
+    "mobs": [
+      {
+        "mob": "C_BigDarkArchon",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C11_1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1198,
+    "center_y": 4484,
+    "width": 0,
+    "height": 0,
+    "range_degree": 366,
+    "mobs": [
+      {
+        "mob": "C_DarkLips",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C11_2": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1198,
+    "center_y": 4484,
+    "width": 0,
+    "height": 0,
+    "range_degree": 366,
+    "mobs": [
+      {
+        "mob": "C_BigDarkLips",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C12_1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1198,
+    "center_y": 4484,
+    "width": 0,
+    "height": 0,
+    "range_degree": 366,
+    "mobs": [
+      {
+        "mob": "C_DarkOrc",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C12_2": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1198,
+    "center_y": 4484,
+    "width": 0,
+    "height": 0,
+    "range_degree": 366,
+    "mobs": [
+      {
+        "mob": "C_CurseDarkOrc",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C13_1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1198,
+    "center_y": 4484,
+    "width": 0,
+    "height": 0,
+    "range_degree": 366,
+    "mobs": [
+      {
+        "mob": "C_DarkNavar",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C13_2": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1198,
+    "center_y": 4484,
+    "width": 0,
+    "height": 0,
+    "range_degree": 366,
+    "mobs": [
+      {
+        "mob": "C_CurseDarkNavar",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C14_1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1198,
+    "center_y": 4484,
+    "width": 0,
+    "height": 0,
+    "range_degree": 366,
+    "mobs": [
+      {
+        "mob": "C_DarkSpakeDog",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C14_2": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1198,
+    "center_y": 4484,
+    "width": 0,
+    "height": 0,
+    "range_degree": 366,
+    "mobs": [
+      {
+        "mob": "C_BigDarkSpakeDog",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C15_1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1198,
+    "center_y": 4484,
+    "width": 0,
+    "height": 0,
+    "range_degree": 366,
+    "mobs": [
+      {
+        "mob": "C_GoldJewelKeeper",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C15_2": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1198,
+    "center_y": 4484,
+    "width": 0,
+    "height": 0,
+    "range_degree": 366,
+    "mobs": [
+      {
+        "mob": "C_BigGoldJewelKeeper",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C16_1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1198,
+    "center_y": 4484,
+    "width": 0,
+    "height": 0,
+    "range_degree": 366,
+    "mobs": [
+      {
+        "mob": "C_DarkKingMushRoom",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C16_2": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1198,
+    "center_y": 4484,
+    "width": 0,
+    "height": 0,
+    "range_degree": 366,
+    "mobs": [
+      {
+        "mob": "C_KingMushRoom",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C17_1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1198,
+    "center_y": 4484,
+    "width": 0,
+    "height": 0,
+    "range_degree": 366,
+    "mobs": [
+      {
+        "mob": "C_MagTombRaider",
+        "count": 7,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C17_2": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1198,
+    "center_y": 4484,
+    "width": 0,
+    "height": 0,
+    "range_degree": 366,
+    "mobs": [
+      {
+        "mob": "C_MagGoblinSwordman",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C18_1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1198,
+    "center_y": 4484,
+    "width": 0,
+    "height": 0,
+    "range_degree": 366,
+    "mobs": [
+      {
+        "mob": "C_MasicBat",
+        "count": 7,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C18_2": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1198,
+    "center_y": 4484,
+    "width": 0,
+    "height": 0,
+    "range_degree": 366,
+    "mobs": [
+      {
+        "mob": "C_MagVampireBat",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C19_1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1198,
+    "center_y": 4484,
+    "width": 0,
+    "height": 0,
+    "range_degree": 366,
+    "mobs": [
+      {
+        "mob": "C_SkinStonie",
+        "count": 8,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C19_2": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1198,
+    "center_y": 4484,
+    "width": 0,
+    "height": 0,
+    "range_degree": 366,
+    "mobs": [
+      {
+        "mob": "C_SkinRedStonie",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C20_1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1198,
+    "center_y": 4484,
+    "width": 0,
+    "height": 0,
+    "range_degree": 366,
+    "mobs": [
+      {
+        "mob": "C_SkinLips1",
+        "count": 9,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C20_2": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1198,
+    "center_y": 4484,
+    "width": 0,
+    "height": 0,
+    "range_degree": 366,
+    "mobs": [
+      {
+        "mob": "C_SkinLips2",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C21_1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1198,
+    "center_y": 4484,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "C_KQ_Kamaris",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C21_2": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1198,
+    "center_y": 4484,
+    "width": 0,
+    "height": 0,
+    "range_degree": 366,
+    "mobs": [
+      {
+        "mob": "C_DarkZombie",
+        "count": 13,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C22_1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1198,
+    "center_y": 4484,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "C_KQ_Kamaris",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C22_2": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1198,
+    "center_y": 4484,
+    "width": 0,
+    "height": 0,
+    "range_degree": 366,
+    "mobs": [
+      {
+        "mob": "C_DarkMasFlyingStaff",
+        "count": 13,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C23_1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1198,
+    "center_y": 4484,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "C_KQ_Kamaris",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C23_2": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1198,
+    "center_y": 4484,
+    "width": 0,
+    "height": 0,
+    "range_degree": 366,
+    "mobs": [
+      {
+        "mob": "C_DarkLegendaryTree",
+        "count": 13,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C24_1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1198,
+    "center_y": 4484,
+    "width": 0,
+    "height": 0,
+    "range_degree": 366,
+    "mobs": [
+      {
+        "mob": "C_DarkMarloneArcher",
+        "count": 13,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C25_1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1198,
+    "center_y": 4484,
+    "width": 0,
+    "height": 0,
+    "range_degree": 366,
+    "mobs": [
+      {
+        "mob": "C_DarkSkelArcher",
+        "count": 10,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C25_2": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1198,
+    "center_y": 4484,
+    "width": 0,
+    "height": 0,
+    "range_degree": 366,
+    "mobs": [
+      {
+        "mob": "C_DarkOneSkelArcher",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C26_1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1198,
+    "center_y": 4484,
+    "width": 0,
+    "height": 0,
+    "range_degree": 366,
+    "mobs": [
+      {
+        "mob": "C_DarkSkelArcher",
+        "count": 8,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C26_2": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1198,
+    "center_y": 4484,
+    "width": 0,
+    "height": 0,
+    "range_degree": 366,
+    "mobs": [
+      {
+        "mob": "C_DarkOneSkelArcher",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C26_3": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1198,
+    "center_y": 4484,
+    "width": 0,
+    "height": 0,
+    "range_degree": 366,
+    "mobs": [
+      {
+        "mob": "C_RangerSkelArcher",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C27_1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1198,
+    "center_y": 4484,
+    "width": 0,
+    "height": 0,
+    "range_degree": 366,
+    "mobs": [
+      {
+        "mob": "C_DarkPresentBox01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C27_2": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1198,
+    "center_y": 4484,
+    "width": 0,
+    "height": 0,
+    "range_degree": 366,
+    "mobs": [
+      {
+        "mob": "C_DarkPresentBox02",
+        "count": 7,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C27_3": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1198,
+    "center_y": 4484,
+    "width": 0,
+    "height": 0,
+    "range_degree": 366,
+    "mobs": [
+      {
+        "mob": "C_DarkZombie",
+        "count": 13,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C27_4": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1198,
+    "center_y": 4484,
+    "width": 0,
+    "height": 0,
+    "range_degree": 366,
+    "mobs": [
+      {
+        "mob": "C_DarkPresentBox03",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C28_1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1198,
+    "center_y": 4484,
+    "width": 0,
+    "height": 0,
+    "range_degree": 366,
+    "mobs": [
+      {
+        "mob": "C_DarkMine1",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C28_2": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1198,
+    "center_y": 4484,
+    "width": 0,
+    "height": 0,
+    "range_degree": 366,
+    "mobs": [
+      {
+        "mob": "C_DarkMine2",
+        "count": 7,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C28_3": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1198,
+    "center_y": 4484,
+    "width": 0,
+    "height": 0,
+    "range_degree": 366,
+    "mobs": [
+      {
+        "mob": "C_DarkMarloneArcher",
+        "count": 13,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C28_4": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1198,
+    "center_y": 4484,
+    "width": 0,
+    "height": 0,
+    "range_degree": 366,
+    "mobs": [
+      {
+        "mob": "C_DarkMine3",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C29_1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1198,
+    "center_y": 4484,
+    "width": 0,
+    "height": 0,
+    "range_degree": 366,
+    "mobs": [
+      {
+        "mob": "C_FugitiveOrc",
+        "count": 8,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C29_2": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1198,
+    "center_y": 4484,
+    "width": 0,
+    "height": 0,
+    "range_degree": 366,
+    "mobs": [
+      {
+        "mob": "C_FugitiveComOrc",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C30_1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1198,
+    "center_y": 4484,
+    "width": 0,
+    "height": 0,
+    "range_degree": 366,
+    "mobs": [
+      {
+        "mob": "C_ChaseOrc",
+        "count": 9,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C30_2": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1198,
+    "center_y": 4484,
+    "width": 0,
+    "height": 0,
+    "range_degree": 366,
+    "mobs": [
+      {
+        "mob": "C_ChaseComOrc",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C31_1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1198,
+    "center_y": 4484,
+    "width": 0,
+    "height": 0,
+    "range_degree": 366,
+    "mobs": [
+      {
+        "mob": "C_FugitiveOrc",
+        "count": 8,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C31_2": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1198,
+    "center_y": 4484,
+    "width": 0,
+    "height": 0,
+    "range_degree": 366,
+    "mobs": [
+      {
+        "mob": "C_ChaseOrc",
+        "count": 9,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C31_3": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1198,
+    "center_y": 4484,
+    "width": 0,
+    "height": 0,
+    "range_degree": 366,
+    "mobs": [
+      {
+        "mob": "C_AssMarlone",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C32_1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8800,
+    "center_y": 11213,
+    "width": 0,
+    "height": 0,
+    "range_degree": 30,
+    "mobs": [
+      {
+        "mob": "C_LizardManGuardian",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C32_2": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8800,
+    "center_y": 11213,
+    "width": 0,
+    "height": 0,
+    "range_degree": 366,
+    "mobs": [
+      {
+        "mob": "C_LizardManIyzel",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C32_3": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8800,
+    "center_y": 11213,
+    "width": 0,
+    "height": 0,
+    "range_degree": 366,
+    "mobs": [
+      {
+        "mob": "C_DarkLizardManIyzel",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C32_4": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8923,
+    "center_y": 11189,
+    "width": 182,
+    "height": 177,
+    "range_degree": 27,
+    "mobs": [
+      {
+        "mob": "C_IyzenPresentBox01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C32_5": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8923,
+    "center_y": 11189,
+    "width": 182,
+    "height": 177,
+    "range_degree": 27,
+    "mobs": [
+      {
+        "mob": "C_MineBoxIyzel3",
+        "count": 15,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C32_6": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8923,
+    "center_y": 11189,
+    "width": 182,
+    "height": 177,
+    "range_degree": 27,
+    "mobs": [
+      {
+        "mob": "C_MineBoxIyzel4",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C33_1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8800,
+    "center_y": 11213,
+    "width": 0,
+    "height": 0,
+    "range_degree": 30,
+    "mobs": [
+      {
+        "mob": "C_HeavyOrc",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C33_2": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8800,
+    "center_y": 11213,
+    "width": 0,
+    "height": 0,
+    "range_degree": 366,
+    "mobs": [
+      {
+        "mob": "C_OrcIyzel",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C33_3": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8800,
+    "center_y": 11213,
+    "width": 0,
+    "height": 0,
+    "range_degree": 366,
+    "mobs": [
+      {
+        "mob": "C_CurseOrcIyzel",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C33_4": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8923,
+    "center_y": 11189,
+    "width": 182,
+    "height": 177,
+    "range_degree": 27,
+    "mobs": [
+      {
+        "mob": "C_IyzenPresentBox02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C33_5": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8923,
+    "center_y": 11189,
+    "width": 182,
+    "height": 177,
+    "range_degree": 27,
+    "mobs": [
+      {
+        "mob": "C_MineBoxIyzel3",
+        "count": 20,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C33_6": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8923,
+    "center_y": 11189,
+    "width": 182,
+    "height": 177,
+    "range_degree": 27,
+    "mobs": [
+      {
+        "mob": "C_MineBoxIyzel4",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C34_1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8800,
+    "center_y": 11213,
+    "width": 0,
+    "height": 0,
+    "range_degree": 30,
+    "mobs": [
+      {
+        "mob": "C_JewelGolem",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C34_2": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8800,
+    "center_y": 11213,
+    "width": 0,
+    "height": 0,
+    "range_degree": 366,
+    "mobs": [
+      {
+        "mob": "C_SkelArcherIyzel",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C34_3": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8800,
+    "center_y": 11213,
+    "width": 0,
+    "height": 0,
+    "range_degree": 366,
+    "mobs": [
+      {
+        "mob": "C_OneSkelArcherIyzel",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C34_4": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9026,
+    "center_y": 11116,
+    "width": 0,
+    "height": 0,
+    "range_degree": 10,
+    "mobs": [
+      {
+        "mob": "C_IyzenClPresentBox",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C34_5": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9094,
+    "center_y": 11259,
+    "width": 0,
+    "height": 0,
+    "range_degree": 20,
+    "mobs": [
+      {
+        "mob": "C_PillarofLight",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C34_6": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8746,
+    "center_y": 11481,
+    "width": 0,
+    "height": 0,
+    "range_degree": 20,
+    "mobs": [
+      {
+        "mob": "C_PillarofLight",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C34_7": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8578,
+    "center_y": 11156,
+    "width": 0,
+    "height": 0,
+    "range_degree": 20,
+    "mobs": [
+      {
+        "mob": "C_PillarofLight",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C34_8": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8922,
+    "center_y": 10969,
+    "width": 0,
+    "height": 0,
+    "range_degree": 20,
+    "mobs": [
+      {
+        "mob": "C_PillarofLight",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C34_9": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8923,
+    "center_y": 11189,
+    "width": 182,
+    "height": 177,
+    "range_degree": 27,
+    "mobs": [
+      {
+        "mob": "C_IyzenClPresentBox",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C34_10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8923,
+    "center_y": 11189,
+    "width": 182,
+    "height": 177,
+    "range_degree": 27,
+    "mobs": [
+      {
+        "mob": "C_IyzenBox1",
+        "count": 15,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C34_11": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8923,
+    "center_y": 11189,
+    "width": 182,
+    "height": 177,
+    "range_degree": 27,
+    "mobs": [
+      {
+        "mob": "C_IyzenBox2",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C35_1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1198,
+    "center_y": 4484,
+    "width": 0,
+    "height": 0,
+    "range_degree": 366,
+    "mobs": [
+      {
+        "mob": "DarkCoffin01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C35_2": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1198,
+    "center_y": 4484,
+    "width": 0,
+    "height": 0,
+    "range_degree": 366,
+    "mobs": [
+      {
+        "mob": "DarkCoffin02",
+        "count": 7,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C35_3": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1198,
+    "center_y": 4484,
+    "width": 0,
+    "height": 0,
+    "range_degree": 366,
+    "mobs": [
+      {
+        "mob": "DarkCoffin03",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "RGN_C35_4": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1198,
+    "center_y": 4484,
+    "width": 0,
+    "height": 0,
+    "range_degree": 366,
+    "mobs": [
+      {
+        "mob": "C_DarkZombie",
+        "count": 13,
+        "kill_num": 0,
+        "reg_standard": 1,
+        "reg_min": 15,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  }
+}

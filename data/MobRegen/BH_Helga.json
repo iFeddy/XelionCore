@@ -1,0 +1,112 @@
+{
+  "Helga": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1595,
+    "center_y": 1595,
+    "width": 0,
+    "height": 0,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "BH_Helga",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 86400,
+        "reg_min": 86395,
+        "reg_max": 86405,
+        "deltas": [
+          -5,
+          -2,
+          0,
+          2,
+          5
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "BH_HelgaBox": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1605,
+    "center_y": 1638,
+    "width": 0,
+    "height": 0,
+    "range_degree": 1032,
+    "mobs": [
+      {
+        "mob": "BH_Helga_O",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 60,
+        "reg_min": 59,
+        "reg_max": 61,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": false
+      },
+      {
+        "mob": "BH_Helga_O_02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 60,
+        "reg_min": 59,
+        "reg_max": 61,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": false
+      },
+      {
+        "mob": "BH_Helga_X",
+        "count": 48,
+        "kill_num": 0,
+        "reg_standard": 60,
+        "reg_min": 59,
+        "reg_max": 61,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  }
+}

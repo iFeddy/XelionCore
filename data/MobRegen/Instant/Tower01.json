@@ -1,0 +1,1223 @@
+{
+  "201": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1161,
+    "center_y": 4477,
+    "width": 0,
+    "height": 0,
+    "range_degree": 393,
+    "mobs": [
+      {
+        "mob": "T_Imp",
+        "count": 7,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "202": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1165,
+    "center_y": 4477,
+    "width": 0,
+    "height": 0,
+    "range_degree": 393,
+    "mobs": [
+      {
+        "mob": "T_GangImp",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "301": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2182,
+    "center_y": 2334,
+    "width": 0,
+    "height": 0,
+    "range_degree": 71,
+    "mobs": [
+      {
+        "mob": "T_HungryWolf",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "302": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2135,
+    "center_y": 2382,
+    "width": 0,
+    "height": 0,
+    "range_degree": 92,
+    "mobs": [
+      {
+        "mob": "T_Ratman",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "401": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4360,
+    "center_y": 1240,
+    "width": 11,
+    "height": 228,
+    "range_degree": 15,
+    "mobs": [
+      {
+        "mob": "T_Boar",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "402": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4490,
+    "center_y": 1196,
+    "width": 12,
+    "height": 95,
+    "range_degree": 14,
+    "mobs": [
+      {
+        "mob": "T_Kebing",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "501": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6863,
+    "center_y": 967,
+    "width": 0,
+    "height": 0,
+    "range_degree": 99,
+    "mobs": [
+      {
+        "mob": "T_IronSlime00",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "502": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6776,
+    "center_y": 963,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "T_DustGolem",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "601": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9296,
+    "center_y": 981,
+    "width": 0,
+    "height": 0,
+    "range_degree": 288,
+    "mobs": [
+      {
+        "mob": "T_SkelArcher00",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "701": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10245,
+    "center_y": 3118,
+    "width": 0,
+    "height": 0,
+    "range_degree": 57,
+    "mobs": [
+      {
+        "mob": "T_Kamaris00",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "801": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11090,
+    "center_y": 5387,
+    "width": 76,
+    "height": 126,
+    "range_degree": -45,
+    "mobs": [
+      {
+        "mob": "T_Skeleton",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "802": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10968,
+    "center_y": 5256,
+    "width": 10,
+    "height": 74,
+    "range_degree": -43,
+    "mobs": [
+      {
+        "mob": "T_SkelArcher01",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "901": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11734,
+    "center_y": 7673,
+    "width": 108,
+    "height": 10,
+    "range_degree": -48,
+    "mobs": [
+      {
+        "mob": "T_SkelWarrior",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "902": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11852,
+    "center_y": 7545,
+    "width": 0,
+    "height": 0,
+    "range_degree": 14,
+    "mobs": [
+      {
+        "mob": "T_SkelArcher02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "903": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11622,
+    "center_y": 7585,
+    "width": 0,
+    "height": 0,
+    "range_degree": 14,
+    "mobs": [
+      {
+        "mob": "T_ArchMageBook00",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "904": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11419,
+    "center_y": 7826,
+    "width": 10,
+    "height": 129,
+    "range_degree": -55,
+    "mobs": [
+      {
+        "mob": "T_SkelWarrior",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "905": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11624,
+    "center_y": 7597,
+    "width": 0,
+    "height": 0,
+    "range_degree": 14,
+    "mobs": [
+      {
+        "mob": "T_SkelArcher02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "906": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11872,
+    "center_y": 7557,
+    "width": 0,
+    "height": 0,
+    "range_degree": 14,
+    "mobs": [
+      {
+        "mob": "T_ArchMageBook00",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "1001": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10709,
+    "center_y": 9808,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "T_StoneGolem",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "1002": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10804,
+    "center_y": 9761,
+    "width": 70,
+    "height": 230,
+    "range_degree": 22,
+    "mobs": [
+      {
+        "mob": "T_ArchMageBook01",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "1101": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8742,
+    "center_y": 11263,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "T_Kamaris01",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "1102": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8752,
+    "center_y": 11261,
+    "width": 0,
+    "height": 0,
+    "range_degree": 204,
+    "mobs": [
+      {
+        "mob": "T_FlyingStaff00",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "1201": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6394,
+    "center_y": 11806,
+    "width": 0,
+    "height": 0,
+    "range_degree": 85,
+    "mobs": [
+      {
+        "mob": "T_OldFox",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "1202": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6317,
+    "center_y": 11810,
+    "width": 0,
+    "height": 0,
+    "range_degree": 85,
+    "mobs": [
+      {
+        "mob": "T_DesertWolf",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "1301": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4178,
+    "center_y": 10961,
+    "width": 0,
+    "height": 0,
+    "range_degree": 239,
+    "mobs": [
+      {
+        "mob": "T_Zombie",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "1401": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3254,
+    "center_y": 8839,
+    "width": 0,
+    "height": 0,
+    "range_degree": 203,
+    "mobs": [
+      {
+        "mob": "T_Ghost",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "1402": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3248,
+    "center_y": 8867,
+    "width": 0,
+    "height": 0,
+    "range_degree": 351,
+    "mobs": [
+      {
+        "mob": "T_IceViVi",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "1403": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3262,
+    "center_y": 8795,
+    "width": 0,
+    "height": 0,
+    "range_degree": 14,
+    "mobs": [
+      {
+        "mob": "T_PoisonGolem",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "1501": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3258,
+    "center_y": 6358,
+    "width": 213,
+    "height": 20,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "T_Prock",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "1502": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3262,
+    "center_y": 6118,
+    "width": 0,
+    "height": 0,
+    "range_degree": 295,
+    "mobs": [
+      {
+        "mob": "T_Spider00",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "1601": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4709,
+    "center_y": 4743,
+    "width": 0,
+    "height": 0,
+    "range_degree": 197,
+    "mobs": [
+      {
+        "mob": "T_KingSpider",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "1701": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7127,
+    "center_y": 4433,
+    "width": 0,
+    "height": 0,
+    "range_degree": 393,
+    "mobs": [
+      {
+        "mob": "T_Spider01",
+        "count": 20,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "1801": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8742,
+    "center_y": 5807,
+    "width": 0,
+    "height": 0,
+    "range_degree": 92,
+    "mobs": [
+      {
+        "mob": "T_KingCall",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "1901": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7739,
+    "center_y": 7620,
+    "width": 0,
+    "height": 0,
+    "range_degree": 56,
+    "mobs": [
+      {
+        "mob": "T_Kamaris02",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "2001": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5023,
+    "center_y": 7606,
+    "width": 235,
+    "height": 121,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "T_IronSlime01",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "2002": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5013,
+    "center_y": 7773,
+    "width": 0,
+    "height": 0,
+    "range_degree": 14,
+    "mobs": [
+      {
+        "mob": "T_IronGolem",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "2003": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5041,
+    "center_y": 7429,
+    "width": 246,
+    "height": 108,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "T_FlyingStaff01",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  }
+}

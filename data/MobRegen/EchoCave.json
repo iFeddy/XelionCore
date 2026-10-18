@@ -1,0 +1,4732 @@
+{
+  "EchoCaveMINE01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2310,
+    "center_y": 4280,
+    "width": 163,
+    "height": 775,
+    "range_degree": 12,
+    "mobs": [
+      {
+        "mob": "MINE1",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE2",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3174,
+    "center_y": 4031,
+    "width": 0,
+    "height": 0,
+    "range_degree": 603,
+    "mobs": [
+      {
+        "mob": "MINE1",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE1",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3686,
+    "center_y": 4336,
+    "width": 0,
+    "height": 0,
+    "range_degree": 625,
+    "mobs": [
+      {
+        "mob": "MINE1",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4353,
+    "center_y": 3829,
+    "width": 475,
+    "height": 241,
+    "range_degree": 55,
+    "mobs": [
+      {
+        "mob": "MINE1",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1512,
+    "center_y": 2948,
+    "width": 163,
+    "height": 903,
+    "range_degree": 7,
+    "mobs": [
+      {
+        "mob": "MINE1",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE2",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Ec_PhinoFlie",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4500,
+    "center_y": 2340,
+    "width": 382,
+    "height": 68,
+    "range_degree": -32,
+    "mobs": [
+      {
+        "mob": "MINE1",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE1",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 20565,
+    "center_y": 21631,
+    "width": 555,
+    "height": 170,
+    "range_degree": -38,
+    "mobs": [
+      {
+        "mob": "MINE1",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Ec_PhinoFlie",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE08": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 22980,
+    "center_y": 21359,
+    "width": 0,
+    "height": 0,
+    "range_degree": 652,
+    "mobs": [
+      {
+        "mob": "MINE1",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE2",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE09": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 22142,
+    "center_y": 22648,
+    "width": 430,
+    "height": 1001,
+    "range_degree": 144,
+    "mobs": [
+      {
+        "mob": "MINE1",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE3",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Ec_PhinoFlie",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 23030,
+    "center_y": 24097,
+    "width": 399,
+    "height": 153,
+    "range_degree": 158,
+    "mobs": [
+      {
+        "mob": "MINE1",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE2",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE11": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 21843,
+    "center_y": 22503,
+    "width": 523,
+    "height": 604,
+    "range_degree": -37,
+    "mobs": [
+      {
+        "mob": "MINE1",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE3",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE12": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 19294,
+    "center_y": 20747,
+    "width": 51,
+    "height": 921,
+    "range_degree": 57,
+    "mobs": [
+      {
+        "mob": "MINE1",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE2",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE3",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE13": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2856,
+    "center_y": 2090,
+    "width": 626,
+    "height": 130,
+    "range_degree": -25,
+    "mobs": [
+      {
+        "mob": "MINE1",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Ec_PhinoFlie",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE14": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9389,
+    "center_y": 8952,
+    "width": 212,
+    "height": 1027,
+    "range_degree": -27,
+    "mobs": [
+      {
+        "mob": "MINE1",
+        "count": 8,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE2",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE2",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Ec_PhinoFlie",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE15": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6938,
+    "center_y": 7395,
+    "width": 853,
+    "height": 373,
+    "range_degree": -23,
+    "mobs": [
+      {
+        "mob": "MINE1",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE1",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE2",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE16": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8631,
+    "center_y": 7513,
+    "width": 877,
+    "height": 420,
+    "range_degree": 6,
+    "mobs": [
+      {
+        "mob": "MINE1",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE2",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE2",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Ec_PhinoFlie",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE17": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9662,
+    "center_y": 10205,
+    "width": 0,
+    "height": 0,
+    "range_degree": 617,
+    "mobs": [
+      {
+        "mob": "MINE1",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE2",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE18": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7447,
+    "center_y": 10053,
+    "width": 1238,
+    "height": 262,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "MINE1",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE2",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE2",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Ec_PhinoFlie",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE19": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 17689,
+    "center_y": 19785,
+    "width": 0,
+    "height": 0,
+    "range_degree": 395,
+    "mobs": [
+      {
+        "mob": "MINE1",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE2",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE2",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Ec_PhinoFlie",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE20": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 19090,
+    "center_y": 17842,
+    "width": 0,
+    "height": 0,
+    "range_degree": 449,
+    "mobs": [
+      {
+        "mob": "MINE1",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE2",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE2",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE21": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 16437,
+    "center_y": 21015,
+    "width": 0,
+    "height": 0,
+    "range_degree": 372,
+    "mobs": [
+      {
+        "mob": "MINE1",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE2",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE2",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE22": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 16564,
+    "center_y": 18336,
+    "width": 150,
+    "height": 1196,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "MINE2",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE2",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE3",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Ec_PhinoFlie",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE23": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13870,
+    "center_y": 14679,
+    "width": 951,
+    "height": 493,
+    "range_degree": -14,
+    "mobs": [
+      {
+        "mob": "MINE2",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE3",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE3",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE24": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 16971,
+    "center_y": 5716,
+    "width": 1670,
+    "height": 185,
+    "range_degree": 5,
+    "mobs": [
+      {
+        "mob": "MINE3",
+        "count": 7,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Ec_ArchMageBook",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE25": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4896,
+    "center_y": 16877,
+    "width": 981,
+    "height": 333,
+    "range_degree": 56,
+    "mobs": [
+      {
+        "mob": "MINE3",
+        "count": 8,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE26": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13876,
+    "center_y": 18108,
+    "width": 203,
+    "height": 1220,
+    "range_degree": -67,
+    "mobs": [
+      {
+        "mob": "MINE2",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE2",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE27": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11074,
+    "center_y": 18912,
+    "width": 1208,
+    "height": 109,
+    "range_degree": 2,
+    "mobs": [
+      {
+        "mob": "MINE2",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE2",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE28": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8334,
+    "center_y": 18815,
+    "width": 1384,
+    "height": 155,
+    "range_degree": -8,
+    "mobs": [
+      {
+        "mob": "MINE2",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE3",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE29": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 17119,
+    "center_y": 15804,
+    "width": 147,
+    "height": 1795,
+    "range_degree": -42,
+    "mobs": [
+      {
+        "mob": "MINE2",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE2",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE30": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 18952,
+    "center_y": 12911,
+    "width": 50,
+    "height": 1554,
+    "range_degree": -14,
+    "mobs": [
+      {
+        "mob": "MINE2",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE2",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE31": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 18981,
+    "center_y": 7891,
+    "width": 99,
+    "height": 1031,
+    "range_degree": 24,
+    "mobs": [
+      {
+        "mob": "MINE2",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE3",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE32": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14313,
+    "center_y": 5626,
+    "width": 877,
+    "height": 108,
+    "range_degree": 3,
+    "mobs": [
+      {
+        "mob": "MINE2",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE3",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE33": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 12024,
+    "center_y": 6038,
+    "width": 59,
+    "height": 1411,
+    "range_degree": -86,
+    "mobs": [
+      {
+        "mob": "MINE2",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE2",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE34": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4822,
+    "center_y": 13956,
+    "width": 109,
+    "height": 1145,
+    "range_degree": -6,
+    "mobs": [
+      {
+        "mob": "MINE2",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE3",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE35": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5561,
+    "center_y": 11967,
+    "width": 71,
+    "height": 909,
+    "range_degree": -31,
+    "mobs": [
+      {
+        "mob": "MINE2",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE2",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE36": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8191,
+    "center_y": 15890,
+    "width": 72,
+    "height": 1662,
+    "range_degree": 109,
+    "mobs": [
+      {
+        "mob": "MINE3",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE3",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE37": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15868,
+    "center_y": 8896,
+    "width": 93,
+    "height": 1422,
+    "range_degree": -16,
+    "mobs": [
+      {
+        "mob": "MINE3",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE3",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE38": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10550,
+    "center_y": 14315,
+    "width": 140,
+    "height": 887,
+    "range_degree": -10,
+    "mobs": [
+      {
+        "mob": "MINE3",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE3",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE39": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11005,
+    "center_y": 15689,
+    "width": 93,
+    "height": 775,
+    "range_degree": 48,
+    "mobs": [
+      {
+        "mob": "MINE3",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE3",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE40": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15778,
+    "center_y": 11661,
+    "width": 88,
+    "height": 922,
+    "range_degree": 35,
+    "mobs": [
+      {
+        "mob": "MINE3",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE3",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE41": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14088,
+    "center_y": 10402,
+    "width": 919,
+    "height": 60,
+    "range_degree": -14,
+    "mobs": [
+      {
+        "mob": "MINE3",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE3",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE42": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10869,
+    "center_y": 12234,
+    "width": 105,
+    "height": 954,
+    "range_degree": -16,
+    "mobs": [
+      {
+        "mob": "MINE2",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE3",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE43": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11898,
+    "center_y": 10760,
+    "width": 77,
+    "height": 970,
+    "range_degree": -54,
+    "mobs": [
+      {
+        "mob": "MINE2",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE3",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE44": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15116,
+    "center_y": 16562,
+    "width": 84,
+    "height": 879,
+    "range_degree": 27,
+    "mobs": [
+      {
+        "mob": "MINE2",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE3",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE45": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 12236,
+    "center_y": 16969,
+    "width": 70,
+    "height": 863,
+    "range_degree": 34,
+    "mobs": [
+      {
+        "mob": "MINE2",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE3",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE46": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 16719,
+    "center_y": 14031,
+    "width": 52,
+    "height": 1266,
+    "range_degree": 13,
+    "mobs": [
+      {
+        "mob": "MINE3",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE3",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE47": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8970,
+    "center_y": 20701,
+    "width": 202,
+    "height": 1104,
+    "range_degree": -14,
+    "mobs": [
+      {
+        "mob": "MINE2",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE3",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE3",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE48": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4328,
+    "center_y": 5064,
+    "width": 367,
+    "height": 252,
+    "range_degree": -42,
+    "mobs": [
+      {
+        "mob": "MINE1",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE2",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE49": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13983,
+    "center_y": 13879,
+    "width": 285,
+    "height": 765,
+    "range_degree": 27,
+    "mobs": [
+      {
+        "mob": "MINE3",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE3",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE3",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE50": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3458,
+    "center_y": 4031,
+    "width": 709,
+    "height": 491,
+    "range_degree": -36,
+    "mobs": [
+      {
+        "mob": "Ec_PhinoFlie",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE51": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2002,
+    "center_y": 2117,
+    "width": 757,
+    "height": 95,
+    "range_degree": 20,
+    "mobs": [
+      {
+        "mob": "Ec_PhinoFlie",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE52": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4675,
+    "center_y": 5459,
+    "width": 1298,
+    "height": 100,
+    "range_degree": -46,
+    "mobs": [
+      {
+        "mob": "Ec_PhinoFlie",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE53": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6189,
+    "center_y": 7032,
+    "width": 0,
+    "height": 0,
+    "range_degree": 512,
+    "mobs": [
+      {
+        "mob": "Ec_PhinoFlie",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE54": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7883,
+    "center_y": 8602,
+    "width": 445,
+    "height": 1619,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "Ec_PhinoFlie",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE2",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE1",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE55": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5667,
+    "center_y": 11767,
+    "width": 50,
+    "height": 1637,
+    "range_degree": -32,
+    "mobs": [
+      {
+        "mob": "Ec_PhinoFlie",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE56": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 21534,
+    "center_y": 22258,
+    "width": 571,
+    "height": 659,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "Ec_PhinoFlie",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE57": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 23799,
+    "center_y": 23828,
+    "width": 441,
+    "height": 136,
+    "range_degree": 46,
+    "mobs": [
+      {
+        "mob": "Ec_PhinoFlie",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE58": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 20776,
+    "center_y": 21824,
+    "width": 146,
+    "height": 862,
+    "range_degree": 51,
+    "mobs": [
+      {
+        "mob": "Ec_PhinoFlie",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE59": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 18957,
+    "center_y": 20461,
+    "width": 684,
+    "height": 58,
+    "range_degree": -35,
+    "mobs": [
+      {
+        "mob": "Ec_PhinoFlie",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE60": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 18673,
+    "center_y": 18493,
+    "width": 1422,
+    "height": 50,
+    "range_degree": 42,
+    "mobs": [
+      {
+        "mob": "Ec_PhinoFlie",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE61": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 16869,
+    "center_y": 20380,
+    "width": 84,
+    "height": 1225,
+    "range_degree": -53,
+    "mobs": [
+      {
+        "mob": "Ec_PhinoFlie",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE62": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15555,
+    "center_y": 17381,
+    "width": 0,
+    "height": 0,
+    "range_degree": 445,
+    "mobs": [
+      {
+        "mob": "Ec_PhinoFlie",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE63": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13848,
+    "center_y": 14395,
+    "width": 0,
+    "height": 0,
+    "range_degree": 779,
+    "mobs": [
+      {
+        "mob": "Ec_ArchMageBook",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE64": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14542,
+    "center_y": 13449,
+    "width": 514,
+    "height": 194,
+    "range_degree": -12,
+    "mobs": [
+      {
+        "mob": "Ec_ArchMageBook",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE65": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13275,
+    "center_y": 18334,
+    "width": 1455,
+    "height": 110,
+    "range_degree": 21,
+    "mobs": [
+      {
+        "mob": "Ec_PhinoFlie",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE66": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 16999,
+    "center_y": 15896,
+    "width": 1434,
+    "height": 84,
+    "range_degree": 48,
+    "mobs": [
+      {
+        "mob": "Ec_PhinoFlie",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE67": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10599,
+    "center_y": 6475,
+    "width": 145,
+    "height": 1165,
+    "range_degree": -52,
+    "mobs": [
+      {
+        "mob": "Ec_PhinoFlie",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE68": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 19179,
+    "center_y": 11501,
+    "width": 51,
+    "height": 1008,
+    "range_degree": -3,
+    "mobs": [
+      {
+        "mob": "Ec_ArchMageBook",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE69": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9002,
+    "center_y": 20482,
+    "width": 1064,
+    "height": 162,
+    "range_degree": 75,
+    "mobs": [
+      {
+        "mob": "Ec_ArchMageBook",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE70": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11723,
+    "center_y": 16401,
+    "width": 1540,
+    "height": 55,
+    "range_degree": -50,
+    "mobs": [
+      {
+        "mob": "Ec_ArchMageBook",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE71": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 16607,
+    "center_y": 13477,
+    "width": 1252,
+    "height": 50,
+    "range_degree": -74,
+    "mobs": [
+      {
+        "mob": "Ec_ArchMageBook",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE72": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13240,
+    "center_y": 5853,
+    "width": 1316,
+    "height": 50,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "Ec_ArchMageBook",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE73": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5068,
+    "center_y": 14553,
+    "width": 58,
+    "height": 1393,
+    "range_degree": 14,
+    "mobs": [
+      {
+        "mob": "Ec_ArchMageBook",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE74": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5117,
+    "center_y": 17586,
+    "width": 360,
+    "height": 1081,
+    "range_degree": 59,
+    "mobs": [
+      {
+        "mob": "Ec_ArchMageBook",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE3",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE75": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 16067,
+    "center_y": 4814,
+    "width": 1315,
+    "height": 157,
+    "range_degree": 26,
+    "mobs": [
+      {
+        "mob": "Ec_ArchMageBook",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MINE3",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE76": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10867,
+    "center_y": 10845,
+    "width": 141,
+    "height": 711,
+    "range_degree": 58,
+    "mobs": [
+      {
+        "mob": "Ec_ArchMageBook",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE77": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10619,
+    "center_y": 13497,
+    "width": 56,
+    "height": 1650,
+    "range_degree": -7,
+    "mobs": [
+      {
+        "mob": "Ec_ArchMageBook",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE78": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 12163,
+    "center_y": 10551,
+    "width": 884,
+    "height": 58,
+    "range_degree": 30,
+    "mobs": [
+      {
+        "mob": "Ec_ArchMageBook",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE79": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14112,
+    "center_y": 10420,
+    "width": 50,
+    "height": 991,
+    "range_degree": 74,
+    "mobs": [
+      {
+        "mob": "Ec_ArchMageBook",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE80": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15641,
+    "center_y": 11393,
+    "width": 974,
+    "height": 60,
+    "range_degree": -52,
+    "mobs": [
+      {
+        "mob": "Ec_ArchMageBook",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE81": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15849,
+    "center_y": 8785,
+    "width": 55,
+    "height": 1370,
+    "range_degree": -13,
+    "mobs": [
+      {
+        "mob": "Ec_ArchMageBook",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE82": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8284,
+    "center_y": 15875,
+    "width": 53,
+    "height": 1261,
+    "range_degree": -72,
+    "mobs": [
+      {
+        "mob": "Ec_ArchMageBook",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE83": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10090,
+    "center_y": 15097,
+    "width": 0,
+    "height": 0,
+    "range_degree": 218,
+    "mobs": [
+      {
+        "mob": "Ec_ArchMageBook",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE84": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15224,
+    "center_y": 10472,
+    "width": 0,
+    "height": 0,
+    "range_degree": 162,
+    "mobs": [
+      {
+        "mob": "Ec_ArchMageBook",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE85": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9531,
+    "center_y": 10126,
+    "width": 0,
+    "height": 0,
+    "range_degree": 387,
+    "mobs": [
+      {
+        "mob": "Ec_PhinoFlie",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE88": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10612,
+    "center_y": 6420,
+    "width": 1012,
+    "height": 132,
+    "range_degree": 37,
+    "mobs": [
+      {
+        "mob": "MINE2",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE89": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6541,
+    "center_y": 18530,
+    "width": 436,
+    "height": 100,
+    "range_degree": -12,
+    "mobs": [
+      {
+        "mob": "Ec_ArchMageBook",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE90": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9672,
+    "center_y": 18940,
+    "width": 1226,
+    "height": 63,
+    "range_degree": -3,
+    "mobs": [
+      {
+        "mob": "Ec_ArchMageBook",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMINE91": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 19165,
+    "center_y": 8558,
+    "width": 52,
+    "height": 1346,
+    "range_degree": 20,
+    "mobs": [
+      {
+        "mob": "Ec_ArchMageBook",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveQstmob01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2570,
+    "center_y": 3011,
+    "width": 0,
+    "height": 0,
+    "range_degree": 625,
+    "mobs": [
+      {
+        "mob": "KQ_RookieSkeleton",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveQstmob02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 22905,
+    "center_y": 23042,
+    "width": 0,
+    "height": 0,
+    "range_degree": 688,
+    "mobs": [
+      {
+        "mob": "KQ_RookieSkeleton",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMine93": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 16411,
+    "center_y": 6562,
+    "width": 783,
+    "height": 321,
+    "range_degree": -56,
+    "mobs": [
+      {
+        "mob": "MINE3",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Ec_ArchMageBook",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMine94": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 17926,
+    "center_y": 6054,
+    "width": 521,
+    "height": 789,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "MINE3",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMine95": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 17906,
+    "center_y": 6309,
+    "width": 0,
+    "height": 0,
+    "range_degree": 661,
+    "mobs": [
+      {
+        "mob": "Ec_PhinoFlie",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMine96": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5254,
+    "center_y": 16249,
+    "width": 336,
+    "height": 1062,
+    "range_degree": 59,
+    "mobs": [
+      {
+        "mob": "MINE3",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Ec_ArchMageBook",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 100,
+        "reg_min": 85,
+        "reg_max": 115,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EchoCaveMine97": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8645,
+    "center_y": 8938,
+    "width": 589,
+    "height": 1340,
+    "range_degree": -17,
+    "mobs": [
+      {
+        "mob": "BigPhinoFlie",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 21600,
+        "reg_min": 21595,
+        "reg_max": 21600,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  }
+}

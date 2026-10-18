@@ -1,0 +1,2158 @@
+{
+  "swa1-2": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6796,
+    "center_y": 8210,
+    "width": 0,
+    "height": 0,
+    "range_degree": 85,
+    "mobs": [
+      {
+        "mob": "P_LivingTotem",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "swa1-3": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7073,
+    "center_y": 8417,
+    "width": 0,
+    "height": 0,
+    "range_degree": 156,
+    "mobs": [
+      {
+        "mob": "P_LivingTotem",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Raplan1",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "swa1-4": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6637,
+    "center_y": 8876,
+    "width": 0,
+    "height": 0,
+    "range_degree": 500,
+    "mobs": [
+      {
+        "mob": "P_Raplan1",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Raplan2",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "swa1-5": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5957,
+    "center_y": 8941,
+    "width": 0,
+    "height": 0,
+    "range_degree": 254,
+    "mobs": [
+      {
+        "mob": "P_Mage7M",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "swa1-6": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7416,
+    "center_y": 9165,
+    "width": 0,
+    "height": 0,
+    "range_degree": 121,
+    "mobs": [
+      {
+        "mob": "P_Archer7F",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "swa1-7": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4322,
+    "center_y": 9364,
+    "width": 0,
+    "height": 0,
+    "range_degree": 500,
+    "mobs": [
+      {
+        "mob": "P_Raplan2",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Raplan1",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_LivingTotem",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "swa1-8": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4416,
+    "center_y": 8658,
+    "width": 0,
+    "height": 0,
+    "range_degree": 219,
+    "mobs": [
+      {
+        "mob": "P_Raplan2",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Fighter7M",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "swa1-9": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4859,
+    "center_y": 8756,
+    "width": 0,
+    "height": 0,
+    "range_degree": 93,
+    "mobs": [
+      {
+        "mob": "P_LivingTotem",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "swa1-10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8933,
+    "center_y": 9284,
+    "width": 0,
+    "height": 0,
+    "range_degree": 500,
+    "mobs": [
+      {
+        "mob": "P_LivingTotem",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Raplan2",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Cleric7F",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "swa1-11": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9444,
+    "center_y": 8964,
+    "width": 0,
+    "height": 0,
+    "range_degree": 135,
+    "mobs": [
+      {
+        "mob": "P_Raplan1",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "swa2-1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10516,
+    "center_y": 6852,
+    "width": 0,
+    "height": 0,
+    "range_degree": 267,
+    "mobs": [
+      {
+        "mob": "P_Raplan2",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Raplan3",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "swa2-2": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10908,
+    "center_y": 5921,
+    "width": 0,
+    "height": 0,
+    "range_degree": 275,
+    "mobs": [
+      {
+        "mob": "P_Cleric7F",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Fighter7M",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "swa2-3": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11281,
+    "center_y": 5072,
+    "width": 0,
+    "height": 0,
+    "range_degree": 191,
+    "mobs": [
+      {
+        "mob": "P_LivingTotem",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "swa2-4": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11693,
+    "center_y": 3750,
+    "width": 0,
+    "height": 0,
+    "range_degree": 500,
+    "mobs": [
+      {
+        "mob": "P_Raplan4",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Raplan3",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Fighter7M",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Archer7F",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_LivingTotem",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "swa2-5": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10864,
+    "center_y": 3857,
+    "width": 0,
+    "height": 0,
+    "range_degree": 204,
+    "mobs": [
+      {
+        "mob": "P_LivingTotem",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "swa2-6": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11678,
+    "center_y": 4802,
+    "width": 0,
+    "height": 0,
+    "range_degree": 155,
+    "mobs": [
+      {
+        "mob": "P_Cleric7F",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Fighter7M",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "swa2-7": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10726,
+    "center_y": 4504,
+    "width": 0,
+    "height": 0,
+    "range_degree": 120,
+    "mobs": [
+      {
+        "mob": "P_Mage7M",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "swa2-8": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11308,
+    "center_y": 4435,
+    "width": 0,
+    "height": 0,
+    "range_degree": 289,
+    "mobs": [
+      {
+        "mob": "P_Raplan4",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "swa3": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7004,
+    "center_y": 6358,
+    "width": 0,
+    "height": 0,
+    "range_degree": 500,
+    "mobs": [
+      {
+        "mob": "P_Raplan3",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Raplan4",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "swa3-1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7382,
+    "center_y": 6875,
+    "width": 0,
+    "height": 0,
+    "range_degree": 240,
+    "mobs": [
+      {
+        "mob": "P_LivingTotem",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "swa3-2": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6072,
+    "center_y": 6481,
+    "width": 0,
+    "height": 0,
+    "range_degree": 345,
+    "mobs": [
+      {
+        "mob": "P_Raplan4",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "swa3-3": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6679,
+    "center_y": 5485,
+    "width": 0,
+    "height": 0,
+    "range_degree": 282,
+    "mobs": [
+      {
+        "mob": "P_Raplan2",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Fighter7M",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Cleric7F",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "swa3-4": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5746,
+    "center_y": 5922,
+    "width": 0,
+    "height": 0,
+    "range_degree": 233,
+    "mobs": [
+      {
+        "mob": "P_Archer7F",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Mage7M",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "swa3-7": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2022,
+    "center_y": 6510,
+    "width": 0,
+    "height": 0,
+    "range_degree": 500,
+    "mobs": [
+      {
+        "mob": "P_Raplan3",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "swa3-8": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2601,
+    "center_y": 5988,
+    "width": 0,
+    "height": 0,
+    "range_degree": 380,
+    "mobs": [
+      {
+        "mob": "P_Raplan3",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "swa3-9": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1945,
+    "center_y": 5854,
+    "width": 0,
+    "height": 0,
+    "range_degree": 296,
+    "mobs": [
+      {
+        "mob": "P_Raplan3",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Raplan2",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Raplan4",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "swa3-10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1848,
+    "center_y": 3743,
+    "width": 0,
+    "height": 0,
+    "range_degree": 534,
+    "mobs": [
+      {
+        "mob": "P_Raplan4",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Fighter7M",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Cleric7F",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Mage7M",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "swa3-11": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2350,
+    "center_y": 3466,
+    "width": 0,
+    "height": 0,
+    "range_degree": 219,
+    "mobs": [
+      {
+        "mob": "P_Fighter7M",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Raplan4",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "swa3-12": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2516,
+    "center_y": 4770,
+    "width": 0,
+    "height": 0,
+    "range_degree": 177,
+    "mobs": [
+      {
+        "mob": "P_LivingTotem",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "swa4": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4493,
+    "center_y": 4598,
+    "width": 0,
+    "height": 0,
+    "range_degree": 513,
+    "mobs": [
+      {
+        "mob": "P_LivingTotem",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Mage7M",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "swa4-1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4537,
+    "center_y": 1910,
+    "width": 0,
+    "height": 0,
+    "range_degree": 696,
+    "mobs": [
+      {
+        "mob": "P_Raplan2",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Raplan3",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Raplan4",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "swa4-2": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4503,
+    "center_y": 2830,
+    "width": 0,
+    "height": 0,
+    "range_degree": 275,
+    "mobs": [
+      {
+        "mob": "P_Fighter7M",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Cleric7F",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "swa4-3": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5284,
+    "center_y": 1564,
+    "width": 0,
+    "height": 0,
+    "range_degree": 254,
+    "mobs": [
+      {
+        "mob": "P_Cleric7F",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "swa4-4": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3632,
+    "center_y": 2025,
+    "width": 0,
+    "height": 0,
+    "range_degree": 219,
+    "mobs": [
+      {
+        "mob": "P_Raplan1",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Raplan4",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "swa4-5": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6884,
+    "center_y": 2399,
+    "width": 96,
+    "height": 553,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "P_LivingTotem",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Archer7F",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Mage7M",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "swa4-6": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7067,
+    "center_y": 1397,
+    "width": 0,
+    "height": 0,
+    "range_degree": 612,
+    "mobs": [
+      {
+        "mob": "P_LivingTotem",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Raplan4",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "swa5": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9081,
+    "center_y": 3655,
+    "width": 106,
+    "height": 501,
+    "range_degree": -16,
+    "mobs": [
+      {
+        "mob": "P_Raplan1",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "swa5-1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9401,
+    "center_y": 2206,
+    "width": 0,
+    "height": 0,
+    "range_degree": 801,
+    "mobs": [
+      {
+        "mob": "P_Raplan4",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Fighter7M",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Cleric7F",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Raplan3",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "swa5-2": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9915,
+    "center_y": 1668,
+    "width": 0,
+    "height": 0,
+    "range_degree": 500,
+    "mobs": [
+      {
+        "mob": "P_Raplan4",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Mage7M",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Fighter7M",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "swa5-3": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9087,
+    "center_y": 1562,
+    "width": 0,
+    "height": 0,
+    "range_degree": 275,
+    "mobs": [
+      {
+        "mob": "P_LivingTotem",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Cleric7F",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 70,
+        "reg_min": 60,
+        "reg_max": 80,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  }
+}

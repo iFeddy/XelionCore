@@ -1,0 +1,7833 @@
+{
+  "Rcos02_01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15434,
+    "center_y": 11681,
+    "width": 0,
+    "height": 0,
+    "range_degree": 267,
+    "mobs": [
+      {
+        "mob": "HeroSlime",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 16188,
+    "center_y": 13045,
+    "width": 0,
+    "height": 0,
+    "range_degree": 281,
+    "mobs": [
+      {
+        "mob": "HeroSlime",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 16685,
+    "center_y": 16570,
+    "width": 0,
+    "height": 0,
+    "range_degree": 351,
+    "mobs": [
+      {
+        "mob": "MushRoomFighter",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 20327,
+    "center_y": 12248,
+    "width": 0,
+    "height": 0,
+    "range_degree": 407,
+    "mobs": [
+      {
+        "mob": "MushRoomFighter",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 12906,
+    "center_y": 7664,
+    "width": 0,
+    "height": 0,
+    "range_degree": 540,
+    "mobs": [
+      {
+        "mob": "MushRoomFighter",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11988,
+    "center_y": 13054,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "KingCrab",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9345,
+    "center_y": 11254,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "KingCrab",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_08": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 14608,
+    "center_y": 8797,
+    "width": 0,
+    "height": 0,
+    "range_degree": 85,
+    "mobs": [
+      {
+        "mob": "GangImp",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 170,
+        "reg_max": 190,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "SubImp",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 170,
+        "reg_max": 190,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_09": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 11964,
+    "center_y": 7390,
+    "width": 0,
+    "height": 0,
+    "range_degree": 99,
+    "mobs": [
+      {
+        "mob": "GangImp",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 170,
+        "reg_max": 190,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "SubImp",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 170,
+        "reg_max": 190,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_10": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 19292,
+    "center_y": 18554,
+    "width": 0,
+    "height": 0,
+    "range_degree": 136,
+    "mobs": [
+      {
+        "mob": "GangImp",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 170,
+        "reg_max": 190,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "SubImp",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 170,
+        "reg_max": 190,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_11": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 16587,
+    "center_y": 14075,
+    "width": 0,
+    "height": 0,
+    "range_degree": 400,
+    "mobs": [
+      {
+        "mob": "Slime",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_12": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 17262,
+    "center_y": 12694,
+    "width": 0,
+    "height": 0,
+    "range_degree": 419,
+    "mobs": [
+      {
+        "mob": "Slime",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_13": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15988,
+    "center_y": 14320,
+    "width": 0,
+    "height": 0,
+    "range_degree": 400,
+    "mobs": [
+      {
+        "mob": "Slime",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_14": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 16338,
+    "center_y": 13504,
+    "width": 0,
+    "height": 0,
+    "range_degree": 400,
+    "mobs": [
+      {
+        "mob": "Slime",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_15": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15694,
+    "center_y": 13834,
+    "width": 0,
+    "height": 0,
+    "range_degree": 400,
+    "mobs": [
+      {
+        "mob": "Slime",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_16": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 16752,
+    "center_y": 13040,
+    "width": 0,
+    "height": 0,
+    "range_degree": 400,
+    "mobs": [
+      {
+        "mob": "Slime",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_17": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 16164,
+    "center_y": 12659,
+    "width": 0,
+    "height": 0,
+    "range_degree": 400,
+    "mobs": [
+      {
+        "mob": "Slime",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_18": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 16637,
+    "center_y": 12281,
+    "width": 0,
+    "height": 0,
+    "range_degree": 400,
+    "mobs": [
+      {
+        "mob": "Slime",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_21": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15621,
+    "center_y": 13230,
+    "width": 0,
+    "height": 0,
+    "range_degree": 400,
+    "mobs": [
+      {
+        "mob": "MushRoom",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_22": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15515,
+    "center_y": 12571,
+    "width": 0,
+    "height": 0,
+    "range_degree": 400,
+    "mobs": [
+      {
+        "mob": "MushRoom",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_23": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15965,
+    "center_y": 12062,
+    "width": 0,
+    "height": 0,
+    "range_degree": 400,
+    "mobs": [
+      {
+        "mob": "MushRoom",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_24": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 16467,
+    "center_y": 11624,
+    "width": 0,
+    "height": 0,
+    "range_degree": 400,
+    "mobs": [
+      {
+        "mob": "MushRoom",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_25": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15170,
+    "center_y": 12179,
+    "width": 0,
+    "height": 0,
+    "range_degree": 400,
+    "mobs": [
+      {
+        "mob": "MushRoom",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_26": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15890,
+    "center_y": 11466,
+    "width": 0,
+    "height": 0,
+    "range_degree": 400,
+    "mobs": [
+      {
+        "mob": "MushRoom",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_30": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14827,
+    "center_y": 11783,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "Mandragora",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_31": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15162,
+    "center_y": 11345,
+    "width": 0,
+    "height": 0,
+    "range_degree": 400,
+    "mobs": [
+      {
+        "mob": "Mandragora",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_32": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15586,
+    "center_y": 10935,
+    "width": 0,
+    "height": 0,
+    "range_degree": 315,
+    "mobs": [
+      {
+        "mob": "Mandragora",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_33": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14829,
+    "center_y": 11077,
+    "width": 0,
+    "height": 0,
+    "range_degree": 400,
+    "mobs": [
+      {
+        "mob": "Mandragora",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_34": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14181,
+    "center_y": 14408,
+    "width": 0,
+    "height": 0,
+    "range_degree": 371,
+    "mobs": [
+      {
+        "mob": "Mandragora",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_35": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14207,
+    "center_y": 14973,
+    "width": 0,
+    "height": 0,
+    "range_degree": 350,
+    "mobs": [
+      {
+        "mob": "Mandragora",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_36": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14367,
+    "center_y": 11557,
+    "width": 0,
+    "height": 0,
+    "range_degree": 315,
+    "mobs": [
+      {
+        "mob": "Mandragora",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_37": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15759,
+    "center_y": 10467,
+    "width": 0,
+    "height": 0,
+    "range_degree": 301,
+    "mobs": [
+      {
+        "mob": "Mandragora",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_38": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14300,
+    "center_y": 13893,
+    "width": 0,
+    "height": 0,
+    "range_degree": 336,
+    "mobs": [
+      {
+        "mob": "Mandragora",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_40": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13261,
+    "center_y": 9827,
+    "width": 0,
+    "height": 0,
+    "range_degree": 421,
+    "mobs": [
+      {
+        "mob": "Imp",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_41": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13899,
+    "center_y": 9430,
+    "width": 0,
+    "height": 0,
+    "range_degree": 456,
+    "mobs": [
+      {
+        "mob": "Imp",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_42": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14497,
+    "center_y": 8941,
+    "width": 0,
+    "height": 0,
+    "range_degree": 477,
+    "mobs": [
+      {
+        "mob": "Imp",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_43": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13010,
+    "center_y": 9091,
+    "width": 0,
+    "height": 0,
+    "range_degree": 463,
+    "mobs": [
+      {
+        "mob": "Imp",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_44": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14937,
+    "center_y": 8319,
+    "width": 0,
+    "height": 0,
+    "range_degree": 449,
+    "mobs": [
+      {
+        "mob": "Imp",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_45": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13622,
+    "center_y": 8670,
+    "width": 0,
+    "height": 0,
+    "range_degree": 470,
+    "mobs": [
+      {
+        "mob": "Imp",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_46": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14031,
+    "center_y": 8020,
+    "width": 0,
+    "height": 0,
+    "range_degree": 505,
+    "mobs": [
+      {
+        "mob": "Imp",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_47": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 12901,
+    "center_y": 8304,
+    "width": 0,
+    "height": 0,
+    "range_degree": 400,
+    "mobs": [
+      {
+        "mob": "Imp",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_48": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13469,
+    "center_y": 7532,
+    "width": 0,
+    "height": 0,
+    "range_degree": 470,
+    "mobs": [
+      {
+        "mob": "Imp",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_49": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14694,
+    "center_y": 15513,
+    "width": 0,
+    "height": 0,
+    "range_degree": 435,
+    "mobs": [
+      {
+        "mob": "Imp",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_50": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15358,
+    "center_y": 15765,
+    "width": 0,
+    "height": 0,
+    "range_degree": 456,
+    "mobs": [
+      {
+        "mob": "Imp",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_51": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 16225,
+    "center_y": 15961,
+    "width": 0,
+    "height": 0,
+    "range_degree": 540,
+    "mobs": [
+      {
+        "mob": "Imp",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_52": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 17055,
+    "center_y": 16017,
+    "width": 0,
+    "height": 0,
+    "range_degree": 491,
+    "mobs": [
+      {
+        "mob": "Imp",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_53": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14130,
+    "center_y": 6917,
+    "width": 0,
+    "height": 0,
+    "range_degree": 512,
+    "mobs": [
+      {
+        "mob": "FireMushRoom",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_54": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14683,
+    "center_y": 7657,
+    "width": 0,
+    "height": 0,
+    "range_degree": 484,
+    "mobs": [
+      {
+        "mob": "FireMushRoom",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_55": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 12212,
+    "center_y": 7536,
+    "width": 0,
+    "height": 0,
+    "range_degree": 400,
+    "mobs": [
+      {
+        "mob": "FireMushRoom",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_56": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 18388,
+    "center_y": 15582,
+    "width": 0,
+    "height": 0,
+    "range_degree": 449,
+    "mobs": [
+      {
+        "mob": "FireMushRoom",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_57": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 17717,
+    "center_y": 15793,
+    "width": 0,
+    "height": 0,
+    "range_degree": 477,
+    "mobs": [
+      {
+        "mob": "FireMushRoom",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_58": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 19208,
+    "center_y": 16594,
+    "width": 0,
+    "height": 0,
+    "range_degree": 526,
+    "mobs": [
+      {
+        "mob": "FireMushRoom",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_59": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 12690,
+    "center_y": 7003,
+    "width": 0,
+    "height": 0,
+    "range_degree": 392,
+    "mobs": [
+      {
+        "mob": "FireMushRoom",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_60": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 17529,
+    "center_y": 16777,
+    "width": 0,
+    "height": 0,
+    "range_degree": 547,
+    "mobs": [
+      {
+        "mob": "FireMushRoom",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_61": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 19276,
+    "center_y": 15831,
+    "width": 0,
+    "height": 0,
+    "range_degree": 519,
+    "mobs": [
+      {
+        "mob": "FireMushRoom",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_62": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13278,
+    "center_y": 6652,
+    "width": 0,
+    "height": 0,
+    "range_degree": 400,
+    "mobs": [
+      {
+        "mob": "FireMushRoom",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_63": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 12236,
+    "center_y": 8263,
+    "width": 0,
+    "height": 0,
+    "range_degree": 400,
+    "mobs": [
+      {
+        "mob": "FireMushRoom",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_64": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 19436,
+    "center_y": 9629,
+    "width": 0,
+    "height": 0,
+    "range_degree": 477,
+    "mobs": [
+      {
+        "mob": "SlowSlime",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_65": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 18285,
+    "center_y": 8659,
+    "width": 0,
+    "height": 0,
+    "range_degree": 470,
+    "mobs": [
+      {
+        "mob": "SlowSlime",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_66": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 18615,
+    "center_y": 9406,
+    "width": 0,
+    "height": 0,
+    "range_degree": 435,
+    "mobs": [
+      {
+        "mob": "SlowSlime",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_67": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 19131,
+    "center_y": 8806,
+    "width": 0,
+    "height": 0,
+    "range_degree": 477,
+    "mobs": [
+      {
+        "mob": "SlowSlime",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_68": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 17907,
+    "center_y": 7870,
+    "width": 0,
+    "height": 0,
+    "range_degree": 463,
+    "mobs": [
+      {
+        "mob": "SlowSlime",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_69": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 18498,
+    "center_y": 7345,
+    "width": 0,
+    "height": 0,
+    "range_degree": 505,
+    "mobs": [
+      {
+        "mob": "SlowSlime",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_70": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 18904,
+    "center_y": 8088,
+    "width": 0,
+    "height": 0,
+    "range_degree": 512,
+    "mobs": [
+      {
+        "mob": "SlowSlime",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_71": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13933,
+    "center_y": 17455,
+    "width": 0,
+    "height": 0,
+    "range_degree": 400,
+    "mobs": [
+      {
+        "mob": "SlowSlime",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_72": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 14287,
+    "center_y": 16893,
+    "width": 0,
+    "height": 0,
+    "range_degree": 484,
+    "mobs": [
+      {
+        "mob": "SlowSlime",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_73": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 13979,
+    "center_y": 16213,
+    "width": 0,
+    "height": 0,
+    "range_degree": 442,
+    "mobs": [
+      {
+        "mob": "SlowSlime",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_74": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 13466,
+    "center_y": 16977,
+    "width": 0,
+    "height": 0,
+    "range_degree": 442,
+    "mobs": [
+      {
+        "mob": "SlowSlime",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_75": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 13257,
+    "center_y": 16424,
+    "width": 0,
+    "height": 0,
+    "range_degree": 449,
+    "mobs": [
+      {
+        "mob": "SlowSlime",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_76": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 12185,
+    "center_y": 17802,
+    "width": 0,
+    "height": 0,
+    "range_degree": 400,
+    "mobs": [
+      {
+        "mob": "Crab",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_77": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 12786,
+    "center_y": 17633,
+    "width": 0,
+    "height": 0,
+    "range_degree": 400,
+    "mobs": [
+      {
+        "mob": "Crab",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_78": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10113,
+    "center_y": 10357,
+    "width": 0,
+    "height": 0,
+    "range_degree": 400,
+    "mobs": [
+      {
+        "mob": "Crab",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_79": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11965,
+    "center_y": 11496,
+    "width": 0,
+    "height": 0,
+    "range_degree": 400,
+    "mobs": [
+      {
+        "mob": "Crab",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_80": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11738,
+    "center_y": 15938,
+    "width": 0,
+    "height": 0,
+    "range_degree": 400,
+    "mobs": [
+      {
+        "mob": "Crab",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_81": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 12216,
+    "center_y": 15560,
+    "width": 0,
+    "height": 0,
+    "range_degree": 400,
+    "mobs": [
+      {
+        "mob": "Crab",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_82": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11429,
+    "center_y": 16573,
+    "width": 0,
+    "height": 0,
+    "range_degree": 400,
+    "mobs": [
+      {
+        "mob": "Crab",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_83": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9505,
+    "center_y": 10545,
+    "width": 0,
+    "height": 0,
+    "range_degree": 400,
+    "mobs": [
+      {
+        "mob": "Crab",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_84": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11481,
+    "center_y": 17817,
+    "width": 0,
+    "height": 0,
+    "range_degree": 400,
+    "mobs": [
+      {
+        "mob": "Crab",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_85": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11484,
+    "center_y": 17233,
+    "width": 0,
+    "height": 0,
+    "range_degree": 400,
+    "mobs": [
+      {
+        "mob": "Crab",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_86": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 12049,
+    "center_y": 12276,
+    "width": 0,
+    "height": 0,
+    "range_degree": 400,
+    "mobs": [
+      {
+        "mob": "Crab",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_87": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10839,
+    "center_y": 11327,
+    "width": 0,
+    "height": 0,
+    "range_degree": 400,
+    "mobs": [
+      {
+        "mob": "Crab",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_88": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 12500,
+    "center_y": 13543,
+    "width": 0,
+    "height": 0,
+    "range_degree": 400,
+    "mobs": [
+      {
+        "mob": "BlueCrab",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_89": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11972,
+    "center_y": 13077,
+    "width": 0,
+    "height": 0,
+    "range_degree": 400,
+    "mobs": [
+      {
+        "mob": "BlueCrab",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_90": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10056,
+    "center_y": 11783,
+    "width": 0,
+    "height": 0,
+    "range_degree": 400,
+    "mobs": [
+      {
+        "mob": "BlueCrab",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_91": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10738,
+    "center_y": 12028,
+    "width": 0,
+    "height": 0,
+    "range_degree": 400,
+    "mobs": [
+      {
+        "mob": "BlueCrab",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_92": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8837,
+    "center_y": 10964,
+    "width": 0,
+    "height": 0,
+    "range_degree": 400,
+    "mobs": [
+      {
+        "mob": "BlueCrab",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_93": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9424,
+    "center_y": 11331,
+    "width": 0,
+    "height": 0,
+    "range_degree": 400,
+    "mobs": [
+      {
+        "mob": "BlueCrab",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_94": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8643,
+    "center_y": 10353,
+    "width": 0,
+    "height": 0,
+    "range_degree": 400,
+    "mobs": [
+      {
+        "mob": "BlueCrab",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_95": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11243,
+    "center_y": 12608,
+    "width": 0,
+    "height": 0,
+    "range_degree": 400,
+    "mobs": [
+      {
+        "mob": "BlueCrab",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_96": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 12484,
+    "center_y": 14309,
+    "width": 0,
+    "height": 0,
+    "range_degree": 400,
+    "mobs": [
+      {
+        "mob": "BlueCrab",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_97": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 12514,
+    "center_y": 12849,
+    "width": 0,
+    "height": 0,
+    "range_degree": 400,
+    "mobs": [
+      {
+        "mob": "BlueCrab",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_98": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11370,
+    "center_y": 11978,
+    "width": 0,
+    "height": 0,
+    "range_degree": 400,
+    "mobs": [
+      {
+        "mob": "BlueCrab",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_99": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9228,
+    "center_y": 9911,
+    "width": 0,
+    "height": 0,
+    "range_degree": 400,
+    "mobs": [
+      {
+        "mob": "BlueCrab",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_100": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10101,
+    "center_y": 11123,
+    "width": 0,
+    "height": 0,
+    "range_degree": 400,
+    "mobs": [
+      {
+        "mob": "BlueCrab",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_101": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10387,
+    "center_y": 9507,
+    "width": 0,
+    "height": 0,
+    "range_degree": 400,
+    "mobs": [
+      {
+        "mob": "SpeedyHoneying",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_102": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 17726,
+    "center_y": 6325,
+    "width": 0,
+    "height": 0,
+    "range_degree": 414,
+    "mobs": [
+      {
+        "mob": "SpeedyHoneying",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_103": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 12222,
+    "center_y": 10812,
+    "width": 0,
+    "height": 0,
+    "range_degree": 382,
+    "mobs": [
+      {
+        "mob": "SpeedyHoneying",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_104": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 18291,
+    "center_y": 6091,
+    "width": 0,
+    "height": 0,
+    "range_degree": 451,
+    "mobs": [
+      {
+        "mob": "SpeedyHoneying",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_105": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 16908,
+    "center_y": 6348,
+    "width": 0,
+    "height": 0,
+    "range_degree": 400,
+    "mobs": [
+      {
+        "mob": "SpeedyHoneying",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_106": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 17214,
+    "center_y": 5711,
+    "width": 0,
+    "height": 0,
+    "range_degree": 449,
+    "mobs": [
+      {
+        "mob": "SpeedyHoneying",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_107": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10947,
+    "center_y": 9901,
+    "width": 0,
+    "height": 0,
+    "range_degree": 400,
+    "mobs": [
+      {
+        "mob": "SpeedyHoneying",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_108": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 16543,
+    "center_y": 5487,
+    "width": 0,
+    "height": 0,
+    "range_degree": 435,
+    "mobs": [
+      {
+        "mob": "SpeedyHoneying",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_109": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11567,
+    "center_y": 10525,
+    "width": 0,
+    "height": 0,
+    "range_degree": 436,
+    "mobs": [
+      {
+        "mob": "SpeedyHoneying",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_110": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 17783,
+    "center_y": 5528,
+    "width": 0,
+    "height": 0,
+    "range_degree": 394,
+    "mobs": [
+      {
+        "mob": "SpeedyHoneying",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_112": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8509,
+    "center_y": 14807,
+    "width": 0,
+    "height": 0,
+    "range_degree": 324,
+    "mobs": [
+      {
+        "mob": "JokeKebing",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_113": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8125,
+    "center_y": 13492,
+    "width": 0,
+    "height": 0,
+    "range_degree": 338,
+    "mobs": [
+      {
+        "mob": "JokeKebing",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_114": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8194,
+    "center_y": 14327,
+    "width": 0,
+    "height": 0,
+    "range_degree": 373,
+    "mobs": [
+      {
+        "mob": "JokeKebing",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_115": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8944,
+    "center_y": 14491,
+    "width": 0,
+    "height": 0,
+    "range_degree": 338,
+    "mobs": [
+      {
+        "mob": "JokeKebing",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_116": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7782,
+    "center_y": 4020,
+    "width": 0,
+    "height": 0,
+    "range_degree": 338,
+    "mobs": [
+      {
+        "mob": "JokeKebing",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_117": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8325,
+    "center_y": 4029,
+    "width": 0,
+    "height": 0,
+    "range_degree": 345,
+    "mobs": [
+      {
+        "mob": "JokeKebing",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_118": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8880,
+    "center_y": 3868,
+    "width": 0,
+    "height": 0,
+    "range_degree": 359,
+    "mobs": [
+      {
+        "mob": "JokeKebing",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_119": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9348,
+    "center_y": 4167,
+    "width": 0,
+    "height": 0,
+    "range_degree": 331,
+    "mobs": [
+      {
+        "mob": "SmartPhino",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_120": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11761,
+    "center_y": 4296,
+    "width": 0,
+    "height": 0,
+    "range_degree": 338,
+    "mobs": [
+      {
+        "mob": "SmartPhino",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_121": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10044,
+    "center_y": 3993,
+    "width": 0,
+    "height": 0,
+    "range_degree": 310,
+    "mobs": [
+      {
+        "mob": "SmartPhino",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_122": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11055,
+    "center_y": 4420,
+    "width": 0,
+    "height": 0,
+    "range_degree": 324,
+    "mobs": [
+      {
+        "mob": "SmartPhino",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_123": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11387,
+    "center_y": 4041,
+    "width": 0,
+    "height": 0,
+    "range_degree": 317,
+    "mobs": [
+      {
+        "mob": "SmartPhino",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_124": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 12325,
+    "center_y": 4437,
+    "width": 0,
+    "height": 0,
+    "range_degree": 310,
+    "mobs": [
+      {
+        "mob": "SmartPhino",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_125": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10598,
+    "center_y": 4166,
+    "width": 0,
+    "height": 0,
+    "range_degree": 331,
+    "mobs": [
+      {
+        "mob": "SmartPhino",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_126": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10876,
+    "center_y": 3799,
+    "width": 0,
+    "height": 0,
+    "range_degree": 303,
+    "mobs": [
+      {
+        "mob": "SmartPhino",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_127": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9558,
+    "center_y": 3732,
+    "width": 0,
+    "height": 0,
+    "range_degree": 359,
+    "mobs": [
+      {
+        "mob": "SmartPhino",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_128": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8458,
+    "center_y": 15536,
+    "width": 0,
+    "height": 0,
+    "range_degree": 408,
+    "mobs": [
+      {
+        "mob": "LittleLizardMan",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_129": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9169,
+    "center_y": 15218,
+    "width": 0,
+    "height": 0,
+    "range_degree": 443,
+    "mobs": [
+      {
+        "mob": "LittleLizardMan",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_130": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7489,
+    "center_y": 14587,
+    "width": 0,
+    "height": 0,
+    "range_degree": 380,
+    "mobs": [
+      {
+        "mob": "LittleLizardMan",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_131": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8011,
+    "center_y": 12864,
+    "width": 0,
+    "height": 0,
+    "range_degree": 324,
+    "mobs": [
+      {
+        "mob": "LittleLizardMan",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_132": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8548,
+    "center_y": 13178,
+    "width": 0,
+    "height": 0,
+    "range_degree": 324,
+    "mobs": [
+      {
+        "mob": "LittleLizardMan",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_133": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8721,
+    "center_y": 13810,
+    "width": 0,
+    "height": 0,
+    "range_degree": 415,
+    "mobs": [
+      {
+        "mob": "LittleLizardMan",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_135": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7561,
+    "center_y": 13291,
+    "width": 0,
+    "height": 0,
+    "range_degree": 352,
+    "mobs": [
+      {
+        "mob": "LittleLizardMan",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_136": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7839,
+    "center_y": 15109,
+    "width": 0,
+    "height": 0,
+    "range_degree": 394,
+    "mobs": [
+      {
+        "mob": "LittleLizardMan",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_137": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7533,
+    "center_y": 13965,
+    "width": 0,
+    "height": 0,
+    "range_degree": 380,
+    "mobs": [
+      {
+        "mob": "LittleLizardMan",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_138": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6623,
+    "center_y": 3838,
+    "width": 0,
+    "height": 0,
+    "range_degree": 345,
+    "mobs": [
+      {
+        "mob": "ProckZone",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_139": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7120,
+    "center_y": 3978,
+    "width": 0,
+    "height": 0,
+    "range_degree": 359,
+    "mobs": [
+      {
+        "mob": "ProckZone",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_140": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11994,
+    "center_y": 16550,
+    "width": 0,
+    "height": 0,
+    "range_degree": 359,
+    "mobs": [
+      {
+        "mob": "Crab",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_141": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 12578,
+    "center_y": 16172,
+    "width": 0,
+    "height": 0,
+    "range_degree": 359,
+    "mobs": [
+      {
+        "mob": "Crab",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_142": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11454,
+    "center_y": 11149,
+    "width": 0,
+    "height": 0,
+    "range_degree": 359,
+    "mobs": [
+      {
+        "mob": "Crab",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_143": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10676,
+    "center_y": 10631,
+    "width": 0,
+    "height": 0,
+    "range_degree": 359,
+    "mobs": [
+      {
+        "mob": "Crab",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_144": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 12876,
+    "center_y": 15473,
+    "width": 0,
+    "height": 0,
+    "range_degree": 359,
+    "mobs": [
+      {
+        "mob": "Crab",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_145": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13439,
+    "center_y": 15182,
+    "width": 0,
+    "height": 0,
+    "range_degree": 359,
+    "mobs": [
+      {
+        "mob": "Crab",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_146": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9586,
+    "center_y": 9209,
+    "width": 0,
+    "height": 0,
+    "range_degree": 359,
+    "mobs": [
+      {
+        "mob": "Crab",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_147": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9850,
+    "center_y": 9784,
+    "width": 0,
+    "height": 0,
+    "range_degree": 359,
+    "mobs": [
+      {
+        "mob": "Crab",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_148": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13299,
+    "center_y": 15766,
+    "width": 0,
+    "height": 0,
+    "range_degree": 359,
+    "mobs": [
+      {
+        "mob": "Crab",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_149": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 12638,
+    "center_y": 16910,
+    "width": 0,
+    "height": 0,
+    "range_degree": 359,
+    "mobs": [
+      {
+        "mob": "Crab",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_150": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 12075,
+    "center_y": 17199,
+    "width": 0,
+    "height": 0,
+    "range_degree": 359,
+    "mobs": [
+      {
+        "mob": "Crab",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_151": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 12255,
+    "center_y": 10107,
+    "width": 0,
+    "height": 0,
+    "range_degree": 359,
+    "mobs": [
+      {
+        "mob": "SpeedyHoneying",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_152": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 16247,
+    "center_y": 6146,
+    "width": 0,
+    "height": 0,
+    "range_degree": 471,
+    "mobs": [
+      {
+        "mob": "SpeedyHoneying",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_153": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 16530,
+    "center_y": 6894,
+    "width": 0,
+    "height": 0,
+    "range_degree": 443,
+    "mobs": [
+      {
+        "mob": "SpeedyHoneying",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_154": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 17270,
+    "center_y": 6988,
+    "width": 0,
+    "height": 0,
+    "range_degree": 422,
+    "mobs": [
+      {
+        "mob": "SpeedyHoneying",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_155": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15877,
+    "center_y": 6879,
+    "width": 0,
+    "height": 0,
+    "range_degree": 429,
+    "mobs": [
+      {
+        "mob": "SpeedyHoneying",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_156": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10879,
+    "center_y": 8829,
+    "width": 0,
+    "height": 0,
+    "range_degree": 359,
+    "mobs": [
+      {
+        "mob": "SpeedyHoneying",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_157": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15547,
+    "center_y": 6168,
+    "width": 0,
+    "height": 0,
+    "range_degree": 401,
+    "mobs": [
+      {
+        "mob": "SpeedyHoneying",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_158": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11669,
+    "center_y": 9770,
+    "width": 0,
+    "height": 0,
+    "range_degree": 359,
+    "mobs": [
+      {
+        "mob": "SpeedyHoneying",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_159": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11194,
+    "center_y": 9366,
+    "width": 0,
+    "height": 0,
+    "range_degree": 359,
+    "mobs": [
+      {
+        "mob": "SpeedyHoneying",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_160": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10349,
+    "center_y": 8897,
+    "width": 0,
+    "height": 0,
+    "range_degree": 359,
+    "mobs": [
+      {
+        "mob": "SpeedyHoneying",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_161": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 20536,
+    "center_y": 13897,
+    "width": 0,
+    "height": 0,
+    "range_degree": 464,
+    "mobs": [
+      {
+        "mob": "FireMushRoom",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_162": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 20129,
+    "center_y": 16387,
+    "width": 0,
+    "height": 0,
+    "range_degree": 520,
+    "mobs": [
+      {
+        "mob": "FireMushRoom",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_163": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 18282,
+    "center_y": 16204,
+    "width": 0,
+    "height": 0,
+    "range_degree": 499,
+    "mobs": [
+      {
+        "mob": "FireMushRoom",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_164": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 19780,
+    "center_y": 12688,
+    "width": 0,
+    "height": 0,
+    "range_degree": 457,
+    "mobs": [
+      {
+        "mob": "FireMushRoom",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_165": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 19396,
+    "center_y": 15147,
+    "width": 0,
+    "height": 0,
+    "range_degree": 457,
+    "mobs": [
+      {
+        "mob": "FireMushRoom",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_166": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 19858,
+    "center_y": 14442,
+    "width": 0,
+    "height": 0,
+    "range_degree": 506,
+    "mobs": [
+      {
+        "mob": "FireMushRoom",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_167": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 20011,
+    "center_y": 10774,
+    "width": 0,
+    "height": 0,
+    "range_degree": 457,
+    "mobs": [
+      {
+        "mob": "FireMushRoom",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_168": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 19357,
+    "center_y": 11165,
+    "width": 0,
+    "height": 0,
+    "range_degree": 457,
+    "mobs": [
+      {
+        "mob": "FireMushRoom",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_169": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 19545,
+    "center_y": 11882,
+    "width": 0,
+    "height": 0,
+    "range_degree": 464,
+    "mobs": [
+      {
+        "mob": "FireMushRoom",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_170": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 20595,
+    "center_y": 14828,
+    "width": 0,
+    "height": 0,
+    "range_degree": 506,
+    "mobs": [
+      {
+        "mob": "FireMushRoom",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_171": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 20174,
+    "center_y": 11401,
+    "width": 0,
+    "height": 0,
+    "range_degree": 471,
+    "mobs": [
+      {
+        "mob": "FireMushRoom",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_172": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 20449,
+    "center_y": 13096,
+    "width": 0,
+    "height": 0,
+    "range_degree": 429,
+    "mobs": [
+      {
+        "mob": "FireMushRoom",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_173": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 19931,
+    "center_y": 13531,
+    "width": 0,
+    "height": 0,
+    "range_degree": 478,
+    "mobs": [
+      {
+        "mob": "FireMushRoom",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_174": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11755,
+    "center_y": 8814,
+    "width": 0,
+    "height": 0,
+    "range_degree": 415,
+    "mobs": [
+      {
+        "mob": "SlowSlime",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_175": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14746,
+    "center_y": 16311,
+    "width": 0,
+    "height": 0,
+    "range_degree": 436,
+    "mobs": [
+      {
+        "mob": "SlowSlime",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_176": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11403,
+    "center_y": 7374,
+    "width": 0,
+    "height": 0,
+    "range_degree": 450,
+    "mobs": [
+      {
+        "mob": "SlowSlime",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_177": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 18946,
+    "center_y": 10116,
+    "width": 0,
+    "height": 0,
+    "range_degree": 450,
+    "mobs": [
+      {
+        "mob": "SlowSlime",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_178": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 12412,
+    "center_y": 9087,
+    "width": 0,
+    "height": 0,
+    "range_degree": 471,
+    "mobs": [
+      {
+        "mob": "SlowSlime",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_179": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 20077,
+    "center_y": 15477,
+    "width": 0,
+    "height": 0,
+    "range_degree": 506,
+    "mobs": [
+      {
+        "mob": "SlowSlime",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_180": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13996,
+    "center_y": 15549,
+    "width": 0,
+    "height": 0,
+    "range_degree": 443,
+    "mobs": [
+      {
+        "mob": "SlowSlime",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_181": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11909,
+    "center_y": 6839,
+    "width": 0,
+    "height": 0,
+    "range_degree": 429,
+    "mobs": [
+      {
+        "mob": "SlowSlime",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_182": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15095,
+    "center_y": 17143,
+    "width": 0,
+    "height": 0,
+    "range_degree": 457,
+    "mobs": [
+      {
+        "mob": "SlowSlime",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_183": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 12558,
+    "center_y": 6354,
+    "width": 0,
+    "height": 0,
+    "range_degree": 429,
+    "mobs": [
+      {
+        "mob": "SlowSlime",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_184": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15580,
+    "center_y": 16454,
+    "width": 0,
+    "height": 0,
+    "range_degree": 506,
+    "mobs": [
+      {
+        "mob": "SlowSlime",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_185": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11527,
+    "center_y": 8094,
+    "width": 0,
+    "height": 0,
+    "range_degree": 443,
+    "mobs": [
+      {
+        "mob": "SlowSlime",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_186": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 17989,
+    "center_y": 17513,
+    "width": 0,
+    "height": 0,
+    "range_degree": 506,
+    "mobs": [
+      {
+        "mob": "Imp",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_187": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 19793,
+    "center_y": 18598,
+    "width": 0,
+    "height": 0,
+    "range_degree": 471,
+    "mobs": [
+      {
+        "mob": "Imp",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_188": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 20511,
+    "center_y": 17151,
+    "width": 0,
+    "height": 0,
+    "range_degree": 443,
+    "mobs": [
+      {
+        "mob": "Imp",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_189": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 20206,
+    "center_y": 17914,
+    "width": 0,
+    "height": 0,
+    "range_degree": 471,
+    "mobs": [
+      {
+        "mob": "Imp",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_190": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 19058,
+    "center_y": 18840,
+    "width": 0,
+    "height": 0,
+    "range_degree": 513,
+    "mobs": [
+      {
+        "mob": "Imp",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_191": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 19365,
+    "center_y": 18057,
+    "width": 0,
+    "height": 0,
+    "range_degree": 485,
+    "mobs": [
+      {
+        "mob": "Imp",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_192": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 19708,
+    "center_y": 17219,
+    "width": 0,
+    "height": 0,
+    "range_degree": 499,
+    "mobs": [
+      {
+        "mob": "Imp",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_193": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 18866,
+    "center_y": 17464,
+    "width": 0,
+    "height": 0,
+    "range_degree": 520,
+    "mobs": [
+      {
+        "mob": "Imp",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_194": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 18333,
+    "center_y": 16865,
+    "width": 0,
+    "height": 0,
+    "range_degree": 499,
+    "mobs": [
+      {
+        "mob": "Imp",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_195": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 18494,
+    "center_y": 18304,
+    "width": 0,
+    "height": 0,
+    "range_degree": 520,
+    "mobs": [
+      {
+        "mob": "Imp",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 7,
+        "deltas": [
+          -3,
+          -2,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          15,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_P1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10178,
+    "center_y": 11943,
+    "width": 155,
+    "height": 2111,
+    "range_degree": -124,
+    "mobs": [
+      {
+        "mob": "STARFISH1",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "CLAM1",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_P2": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9972,
+    "center_y": 8924,
+    "width": 156,
+    "height": 1305,
+    "range_degree": -43,
+    "mobs": [
+      {
+        "mob": "STARFISH1",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "CLAM1",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_P3": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11368,
+    "center_y": 16763,
+    "width": 197,
+    "height": 1305,
+    "range_degree": -11,
+    "mobs": [
+      {
+        "mob": "CLAM1",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "STARFISH1",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_P4": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9481,
+    "center_y": 14576,
+    "width": 83,
+    "height": 632,
+    "range_degree": 27,
+    "mobs": [
+      {
+        "mob": "STARFISH1",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "CLAM1",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_P5": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 18150,
+    "center_y": 18860,
+    "width": 105,
+    "height": 1191,
+    "range_degree": -118,
+    "mobs": [
+      {
+        "mob": "WOOD1",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD2",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD3",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB1",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB2",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB3",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM1",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM2",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM3",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_P6": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 20355,
+    "center_y": 18343,
+    "width": 161,
+    "height": 1528,
+    "range_degree": -38,
+    "mobs": [
+      {
+        "mob": "WOOD1",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD2",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD3",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB1",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB2",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB3",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM1",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM2",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM3",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_P7": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 19991,
+    "center_y": 9873,
+    "width": 3791,
+    "height": 161,
+    "range_degree": -70,
+    "mobs": [
+      {
+        "mob": "WOOD1",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD2",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD3",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB1",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB2",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB3",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM1",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM2",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM3",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_P8": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10137,
+    "center_y": 3719,
+    "width": 170,
+    "height": 2508,
+    "range_degree": -93,
+    "mobs": [
+      {
+        "mob": "WOOD1",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD2",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD3",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB1",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB2",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB3",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM1",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM2",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM3",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_P9": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 18239,
+    "center_y": 11374,
+    "width": 240,
+    "height": 3651,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "WOOD1",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD2",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD3",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB1",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB2",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB3",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM1",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM2",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM3",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_P10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 16043,
+    "center_y": 12526,
+    "width": 0,
+    "height": 0,
+    "range_degree": 1179,
+    "mobs": [
+      {
+        "mob": "MUSHROOM1",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM2",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM3",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD1",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD2",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD3",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB1",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB2",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Rcos02_E_01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6002,
+    "center_y": 3909,
+    "width": 0,
+    "height": 0,
+    "range_degree": 50,
+    "mobs": [
+      {
+        "mob": "ViciousSlime",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 60,
+        "reg_min": 55,
+        "reg_max": 65,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PresentBox1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13361,
+    "center_y": 11146,
+    "width": 7674,
+    "height": 8577,
+    "range_degree": 0,
+    "mobs": []
+  },
+  "Waypoint01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14916,
+    "center_y": 11949,
+    "width": 155,
+    "height": 2111,
+    "range_degree": 120,
+    "mobs": [
+      {
+        "mob": "FLOWER1",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 10,
+        "reg_max": 80,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Waypoint02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15726,
+    "center_y": 14585,
+    "width": 155,
+    "height": 2111,
+    "range_degree": 120,
+    "mobs": [
+      {
+        "mob": "FLOWER1",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 10,
+        "reg_max": 80,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Waypoint03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 19513,
+    "center_y": 16617,
+    "width": 155,
+    "height": 2111,
+    "range_degree": 120,
+    "mobs": [
+      {
+        "mob": "FLOWER1",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      }
+    ]
+  }
+}

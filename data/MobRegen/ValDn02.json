@@ -1,0 +1,1465 @@
+{
+  "ValDn02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2114,
+    "center_y": 10131,
+    "width": 0,
+    "height": 0,
+    "range_degree": 275,
+    "mobs": [
+      {
+        "mob": "P_Phino1",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 40,
+        "reg_max": 50,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn02_01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3007,
+    "center_y": 10709,
+    "width": 0,
+    "height": 0,
+    "range_degree": 107,
+    "mobs": [
+      {
+        "mob": "P_Phino1",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 40,
+        "reg_max": 50,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn02_02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3652,
+    "center_y": 10083,
+    "width": 0,
+    "height": 0,
+    "range_degree": 107,
+    "mobs": [
+      {
+        "mob": "P_Phino1",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 40,
+        "reg_max": 50,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn02_03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3489,
+    "center_y": 10464,
+    "width": 0,
+    "height": 0,
+    "range_degree": 191,
+    "mobs": [
+      {
+        "mob": "P_PhinoFlie",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 40,
+        "reg_max": 50,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn02_04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1595,
+    "center_y": 9011,
+    "width": 0,
+    "height": 0,
+    "range_degree": 163,
+    "mobs": [
+      {
+        "mob": "P_Phino1",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 40,
+        "reg_max": 50,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn02_05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1645,
+    "center_y": 8154,
+    "width": 0,
+    "height": 0,
+    "range_degree": 156,
+    "mobs": [
+      {
+        "mob": "P_Phino1",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 40,
+        "reg_max": 50,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn02_06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2530,
+    "center_y": 9008,
+    "width": 0,
+    "height": 0,
+    "range_degree": 156,
+    "mobs": [
+      {
+        "mob": "P_Phino1",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 40,
+        "reg_max": 50,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn02_07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2997,
+    "center_y": 8175,
+    "width": 0,
+    "height": 0,
+    "range_degree": 149,
+    "mobs": [
+      {
+        "mob": "P_Phino1",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 40,
+        "reg_max": 50,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn02_08": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3975,
+    "center_y": 8809,
+    "width": 0,
+    "height": 0,
+    "range_degree": 142,
+    "mobs": [
+      {
+        "mob": "P_Phino1",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 40,
+        "reg_max": 50,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn02_09": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4606,
+    "center_y": 8411,
+    "width": 0,
+    "height": 0,
+    "range_degree": 163,
+    "mobs": [
+      {
+        "mob": "P_Phino2",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 40,
+        "reg_max": 50,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn02_10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3473,
+    "center_y": 6500,
+    "width": 0,
+    "height": 0,
+    "range_degree": 170,
+    "mobs": [
+      {
+        "mob": "P_Phino2",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 40,
+        "reg_max": 50,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_PhinoFlie",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 40,
+        "reg_max": 50,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn02_11": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2781,
+    "center_y": 6975,
+    "width": 0,
+    "height": 0,
+    "range_degree": 149,
+    "mobs": [
+      {
+        "mob": "P_Phino2",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 40,
+        "reg_max": 50,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_PhinoFlie",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 40,
+        "reg_max": 50,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn02_12": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2849,
+    "center_y": 7565,
+    "width": 0,
+    "height": 0,
+    "range_degree": 128,
+    "mobs": [
+      {
+        "mob": "P_Phino2",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 40,
+        "reg_max": 50,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn02_13": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3878,
+    "center_y": 7083,
+    "width": 0,
+    "height": 0,
+    "range_degree": 142,
+    "mobs": [
+      {
+        "mob": "P_Phino2",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 40,
+        "reg_max": 50,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_PhinoFlie",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 40,
+        "reg_max": 50,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn02_14": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5141,
+    "center_y": 9008,
+    "width": 0,
+    "height": 0,
+    "range_degree": 170,
+    "mobs": [
+      {
+        "mob": "P_Phino2",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 40,
+        "reg_max": 50,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn02_15": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1230,
+    "center_y": 6962,
+    "width": 0,
+    "height": 0,
+    "range_degree": 184,
+    "mobs": [
+      {
+        "mob": "P_Phino2",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 40,
+        "reg_max": 50,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn02_16": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1866,
+    "center_y": 5747,
+    "width": 0,
+    "height": 0,
+    "range_degree": 170,
+    "mobs": [
+      {
+        "mob": "P_Phino2",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 40,
+        "reg_max": 50,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Phino3",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 40,
+        "reg_max": 50,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn02_17": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1100,
+    "center_y": 5605,
+    "width": 0,
+    "height": 0,
+    "range_degree": 170,
+    "mobs": [
+      {
+        "mob": "P_Phino3",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 40,
+        "reg_max": 50,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn02_18": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1146,
+    "center_y": 4985,
+    "width": 0,
+    "height": 0,
+    "range_degree": 163,
+    "mobs": [
+      {
+        "mob": "P_Phino3",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 40,
+        "reg_max": 50,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn02_19": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1453,
+    "center_y": 4533,
+    "width": 0,
+    "height": 0,
+    "range_degree": 163,
+    "mobs": [
+      {
+        "mob": "P_Phino3",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 40,
+        "reg_max": 50,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn02_20": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2061,
+    "center_y": 4334,
+    "width": 0,
+    "height": 0,
+    "range_degree": 170,
+    "mobs": [
+      {
+        "mob": "P_Phino3",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 40,
+        "reg_max": 50,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn02_21": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2523,
+    "center_y": 5400,
+    "width": 0,
+    "height": 0,
+    "range_degree": 163,
+    "mobs": [
+      {
+        "mob": "P_Phino3",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 40,
+        "reg_max": 50,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn02_22": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2674,
+    "center_y": 4740,
+    "width": 0,
+    "height": 0,
+    "range_degree": 149,
+    "mobs": [
+      {
+        "mob": "P_Phino3",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 40,
+        "reg_max": 50,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn02_23": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1867,
+    "center_y": 5116,
+    "width": 0,
+    "height": 0,
+    "range_degree": 941,
+    "mobs": [
+      {
+        "mob": "P_PhinoFlie",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 40,
+        "reg_max": 50,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn02_24": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5899,
+    "center_y": 6993,
+    "width": 0,
+    "height": 0,
+    "range_degree": 156,
+    "mobs": [
+      {
+        "mob": "P_Phino3",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 40,
+        "reg_max": 50,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn02_25": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5412,
+    "center_y": 6523,
+    "width": 0,
+    "height": 0,
+    "range_degree": 156,
+    "mobs": [
+      {
+        "mob": "P_Phino3",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 40,
+        "reg_max": 50,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn02_26": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4812,
+    "center_y": 6423,
+    "width": 0,
+    "height": 0,
+    "range_degree": 149,
+    "mobs": [
+      {
+        "mob": "P_Phino3",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 40,
+        "reg_max": 50,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn02_27": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4378,
+    "center_y": 5933,
+    "width": 0,
+    "height": 0,
+    "range_degree": 163,
+    "mobs": [
+      {
+        "mob": "P_Phino4",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 40,
+        "reg_max": 50,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn02_28": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6848,
+    "center_y": 6432,
+    "width": 0,
+    "height": 0,
+    "range_degree": 156,
+    "mobs": [
+      {
+        "mob": "P_Phino3",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 40,
+        "reg_max": 50,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "P_Phino4",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 40,
+        "reg_max": 50,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn02_29": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6900,
+    "center_y": 5613,
+    "width": 0,
+    "height": 0,
+    "range_degree": 149,
+    "mobs": [
+      {
+        "mob": "P_Phino4",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 40,
+        "reg_max": 50,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn02_30": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6513,
+    "center_y": 4914,
+    "width": 0,
+    "height": 0,
+    "range_degree": 163,
+    "mobs": [
+      {
+        "mob": "P_Phino4",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 40,
+        "reg_max": 50,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn02_31": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5800,
+    "center_y": 4861,
+    "width": 0,
+    "height": 0,
+    "range_degree": 170,
+    "mobs": [
+      {
+        "mob": "P_Phino4",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 40,
+        "reg_max": 50,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn02_32": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5994,
+    "center_y": 5884,
+    "width": 0,
+    "height": 0,
+    "range_degree": 156,
+    "mobs": [
+      {
+        "mob": "P_Phino4",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 40,
+        "reg_max": 50,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn02_33": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5223,
+    "center_y": 5505,
+    "width": 0,
+    "height": 0,
+    "range_degree": 149,
+    "mobs": [
+      {
+        "mob": "P_Phino4",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 40,
+        "reg_max": 50,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn02_34": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6538,
+    "center_y": 5471,
+    "width": 0,
+    "height": 0,
+    "range_degree": 794,
+    "mobs": [
+      {
+        "mob": "P_PhinoFlie",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 40,
+        "reg_max": 50,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn02_35": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5111,
+    "center_y": 6375,
+    "width": 172,
+    "height": 1083,
+    "range_degree": 56,
+    "mobs": [
+      {
+        "mob": "P_PhinoFlie",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 40,
+        "reg_max": 50,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn02_36": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5182,
+    "center_y": 2770,
+    "width": 0,
+    "height": 0,
+    "range_degree": 170,
+    "mobs": [
+      {
+        "mob": "P_Phino4",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 40,
+        "reg_max": 50,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn02_37": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4559,
+    "center_y": 2266,
+    "width": 0,
+    "height": 0,
+    "range_degree": 184,
+    "mobs": [
+      {
+        "mob": "P_Phino4",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 40,
+        "reg_max": 50,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn02_38": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3712,
+    "center_y": 2749,
+    "width": 0,
+    "height": 0,
+    "range_degree": 198,
+    "mobs": [
+      {
+        "mob": "P_Phino4",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 40,
+        "reg_max": 50,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn02_39": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4256,
+    "center_y": 3736,
+    "width": 0,
+    "height": 0,
+    "range_degree": 198,
+    "mobs": [
+      {
+        "mob": "P_Phino4",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 40,
+        "reg_max": 50,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn02_40": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4453,
+    "center_y": 2949,
+    "width": 0,
+    "height": 0,
+    "range_degree": 927,
+    "mobs": [
+      {
+        "mob": "P_PhinoFlie",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 40,
+        "reg_max": 50,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          20,
+          40,
+          50,
+          60
+        ],
+        "enabled": true
+      }
+    ]
+  }
+}

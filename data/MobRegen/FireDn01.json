@@ -1,0 +1,1795 @@
+{
+  "boss01_01": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 11599,
+    "center_y": 11092,
+    "width": 0,
+    "height": 0,
+    "range_degree": 135,
+    "mobs": [
+      {
+        "mob": "D_GuardianMaster",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 540,
+        "reg_max": 600,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_CrystalGuardian-U",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 540,
+        "reg_max": 600,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "boss01_02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10782,
+    "center_y": 10740,
+    "width": 0,
+    "height": 0,
+    "range_degree": 766,
+    "mobs": [
+      {
+        "mob": "D_CrystalGuardian-U",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "boos02_01": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 11401,
+    "center_y": 3107,
+    "width": 0,
+    "height": 0,
+    "range_degree": 142,
+    "mobs": [
+      {
+        "mob": "D_GuardianMaster",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 540,
+        "reg_max": 600,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_CrystalGuardian-U",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 540,
+        "reg_max": 600,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "boss02_02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10906,
+    "center_y": 3600,
+    "width": 0,
+    "height": 0,
+    "range_degree": 612,
+    "mobs": [
+      {
+        "mob": "D_CrystalGuardian-U",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "boss03_01": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 3370,
+    "center_y": 1432,
+    "width": 0,
+    "height": 0,
+    "range_degree": 170,
+    "mobs": [
+      {
+        "mob": "D_GuardianMaster",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 540,
+        "reg_max": 600,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_CrystalGuardian-U",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 540,
+        "reg_max": 600,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "boss03_02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3556,
+    "center_y": 2311,
+    "width": 0,
+    "height": 0,
+    "range_degree": 766,
+    "mobs": [
+      {
+        "mob": "D_CrystalGuardian-U",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 204,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "boss04_01": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 1821,
+    "center_y": 10892,
+    "width": 0,
+    "height": 0,
+    "range_degree": 142,
+    "mobs": [
+      {
+        "mob": "D_GuardianMaster",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 540,
+        "reg_max": 600,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_CrystalGuardian-U",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 540,
+        "reg_max": 600,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "boss04_02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2345,
+    "center_y": 10404,
+    "width": 0,
+    "height": 0,
+    "range_degree": 598,
+    "mobs": [
+      {
+        "mob": "D_CrystalGuardian-U",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6340,
+    "center_y": 5736,
+    "width": 135,
+    "height": 350,
+    "range_degree": 20,
+    "mobs": [
+      {
+        "mob": "D_FlameHoneying",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7232,
+    "center_y": 6802,
+    "width": 388,
+    "height": 140,
+    "range_degree": -14,
+    "mobs": [
+      {
+        "mob": "D_FlameHoneying",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6354,
+    "center_y": 7655,
+    "width": 174,
+    "height": 300,
+    "range_degree": -5,
+    "mobs": [
+      {
+        "mob": "D_FlameHoneying",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5533,
+    "center_y": 6440,
+    "width": 405,
+    "height": 144,
+    "range_degree": -30,
+    "mobs": [
+      {
+        "mob": "D_FlameHoneying",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_05": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 5407,
+    "center_y": 5107,
+    "width": 0,
+    "height": 0,
+    "range_degree": 100,
+    "mobs": [
+      {
+        "mob": "D_CoreGuardian-U",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_06": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 5363,
+    "center_y": 4215,
+    "width": 0,
+    "height": 0,
+    "range_degree": 114,
+    "mobs": [
+      {
+        "mob": "D_LavaVivi",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_CoreGuardian-U",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_07": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 4116,
+    "center_y": 7084,
+    "width": 0,
+    "height": 0,
+    "range_degree": 93,
+    "mobs": [
+      {
+        "mob": "D_FlameHoneying",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_08": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 7321,
+    "center_y": 4269,
+    "width": 0,
+    "height": 0,
+    "range_degree": 100,
+    "mobs": [
+      {
+        "mob": "D_FlameHoneying",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_09": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 4274,
+    "center_y": 5276,
+    "width": 0,
+    "height": 0,
+    "range_degree": 93,
+    "mobs": [
+      {
+        "mob": "D_CoreGuardian-U",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6381,
+    "center_y": 4973,
+    "width": 1176,
+    "height": 265,
+    "range_degree": -5,
+    "mobs": [
+      {
+        "mob": "D_CoreGuardian-U",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_LavaVivi",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_11": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4815,
+    "center_y": 6307,
+    "width": 264,
+    "height": 885,
+    "range_degree": 12,
+    "mobs": [
+      {
+        "mob": "D_CoreGuardian-U",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_LavaVivi",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_FlameHoneying",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_12": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7776,
+    "center_y": 6925,
+    "width": 214,
+    "height": 836,
+    "range_degree": -6,
+    "mobs": [
+      {
+        "mob": "D_LavaVivi",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_CoreGuardian-U",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_13": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6292,
+    "center_y": 8110,
+    "width": 1174,
+    "height": 226,
+    "range_degree": -4,
+    "mobs": [
+      {
+        "mob": "D_CoreGuardian-U",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_LavaVivi",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_14": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 8562,
+    "center_y": 6172,
+    "width": 0,
+    "height": 0,
+    "range_degree": 114,
+    "mobs": [
+      {
+        "mob": "D_CoreGuardian-U",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_15": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 7721,
+    "center_y": 8826,
+    "width": 0,
+    "height": 0,
+    "range_degree": 135,
+    "mobs": [
+      {
+        "mob": "D_CoreGuardian-U",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_16": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 4842,
+    "center_y": 8734,
+    "width": 0,
+    "height": 0,
+    "range_degree": 128,
+    "mobs": [
+      {
+        "mob": "D_LavaVivi",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_CoreGuardian-U",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_17": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3951,
+    "center_y": 4817,
+    "width": 269,
+    "height": 625,
+    "range_degree": -34,
+    "mobs": [
+      {
+        "mob": "D_RubyGuardian-U",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_CrystalGuardian-U",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_18": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 3670,
+    "center_y": 3941,
+    "width": 0,
+    "height": 0,
+    "range_degree": 128,
+    "mobs": [
+      {
+        "mob": "D_CrystalGuardian-U",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_19": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5167,
+    "center_y": 3777,
+    "width": 885,
+    "height": 209,
+    "range_degree": 30,
+    "mobs": [
+      {
+        "mob": "D_RubyGuardian-U",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_CrystalGuardian-U",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_20": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 8435,
+    "center_y": 7693,
+    "width": 0,
+    "height": 0,
+    "range_degree": 121,
+    "mobs": [
+      {
+        "mob": "D_CoreGuardian-U",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_21": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7519,
+    "center_y": 3663,
+    "width": 1155,
+    "height": 218,
+    "range_degree": -22,
+    "mobs": [
+      {
+        "mob": "D_CrystalGuardian-U",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_RubyGuardian-U",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_22": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 9853,
+    "center_y": 4377,
+    "width": 0,
+    "height": 0,
+    "range_degree": 142,
+    "mobs": [
+      {
+        "mob": "D_CrystalGuardian-U",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_RubyGuardian-U",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_23": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9058,
+    "center_y": 4836,
+    "width": 688,
+    "height": 145,
+    "range_degree": -53,
+    "mobs": [
+      {
+        "mob": "D_RubyGuardian-U",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_CrystalGuardian-U",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_24": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9403,
+    "center_y": 6205,
+    "width": 198,
+    "height": 634,
+    "range_degree": -4,
+    "mobs": [
+      {
+        "mob": "D_RubyGuardian-U",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_CrystalGuardian-U",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_25": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9083,
+    "center_y": 8073,
+    "width": 202,
+    "height": 687,
+    "range_degree": -14,
+    "mobs": [
+      {
+        "mob": "D_RubyGuardian-U",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_CrystalGuardian-U",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_26": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7666,
+    "center_y": 9697,
+    "width": 1243,
+    "height": 158,
+    "range_degree": 10,
+    "mobs": [
+      {
+        "mob": "D_CrystalGuardian-U",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_RubyGuardian-U",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_27": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 9449,
+    "center_y": 10080,
+    "width": 0,
+    "height": 0,
+    "range_degree": 128,
+    "mobs": [
+      {
+        "mob": "D_CrystalGuardian-U",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_28": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4969,
+    "center_y": 9754,
+    "width": 874,
+    "height": 137,
+    "range_degree": -42,
+    "mobs": [
+      {
+        "mob": "D_RubyGuardian-U",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_CrystalGuardian-U",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_29": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 3334,
+    "center_y": 9586,
+    "width": 0,
+    "height": 0,
+    "range_degree": 163,
+    "mobs": [
+      {
+        "mob": "D_CrystalGuardian-U",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_RubyGuardian-U",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_30": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3396,
+    "center_y": 8217,
+    "width": 160,
+    "height": 1264,
+    "range_degree": 22,
+    "mobs": [
+      {
+        "mob": "D_RubyGuardian-U",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_CrystalGuardian-U",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Normal_31": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3251,
+    "center_y": 6447,
+    "width": 219,
+    "height": 559,
+    "range_degree": -13,
+    "mobs": [
+      {
+        "mob": "D_RubyGuardian-U",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_CrystalGuardian-U",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  }
+}

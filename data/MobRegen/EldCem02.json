@@ -1,0 +1,7141 @@
+{
+  "EldCem02Area01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1018,
+    "center_y": 5192,
+    "width": 0,
+    "height": 0,
+    "range_degree": 344,
+    "mobs": [
+      {
+        "mob": "FireViVi",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "OldFox",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "CemWolf",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Area02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2778,
+    "center_y": 1819,
+    "width": 0,
+    "height": 0,
+    "range_degree": 433,
+    "mobs": [
+      {
+        "mob": "OldFox",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "BabyWereBear",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "CemWolf",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Area03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2153,
+    "center_y": 3292,
+    "width": 90,
+    "height": 348,
+    "range_degree": 2,
+    "mobs": [
+      {
+        "mob": "FireViVi",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "OldFox",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Area04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1154,
+    "center_y": 3761,
+    "width": 288,
+    "height": 867,
+    "range_degree": -3,
+    "mobs": [
+      {
+        "mob": "FireViVi",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "OldFox",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "BabyWereBear",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "CemWolf",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Area05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2923,
+    "center_y": 991,
+    "width": 390,
+    "height": 52,
+    "range_degree": 10,
+    "mobs": [
+      {
+        "mob": "FireViVi",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "OldFox",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Area06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1854,
+    "center_y": 1335,
+    "width": 54,
+    "height": 205,
+    "range_degree": -35,
+    "mobs": [
+      {
+        "mob": "FireViVi",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Area07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1286,
+    "center_y": 2243,
+    "width": 211,
+    "height": 67,
+    "range_degree": 68,
+    "mobs": [
+      {
+        "mob": "FireViVi",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Area08": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4821,
+    "center_y": 1074,
+    "width": 718,
+    "height": 259,
+    "range_degree": 7,
+    "mobs": [
+      {
+        "mob": "FireViVi",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "OldFox",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "BabyWereBear",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Area09": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6314,
+    "center_y": 3527,
+    "width": 579,
+    "height": 186,
+    "range_degree": 14,
+    "mobs": [
+      {
+        "mob": "FireViVi",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Ghost",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "BabyWereBear",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Area10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5162,
+    "center_y": 2873,
+    "width": 345,
+    "height": 111,
+    "range_degree": 42,
+    "mobs": [
+      {
+        "mob": "Ghost",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "FireViVi",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Area11": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5471,
+    "center_y": 3098,
+    "width": 494,
+    "height": 180,
+    "range_degree": 39,
+    "mobs": [
+      {
+        "mob": "FireViVi",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Ghost",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "BabyWereBear",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Area12": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7091,
+    "center_y": 1475,
+    "width": 0,
+    "height": 0,
+    "range_degree": 275,
+    "mobs": [
+      {
+        "mob": "FireViVi",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Ghost",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Area13": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7440,
+    "center_y": 1940,
+    "width": 271,
+    "height": 267,
+    "range_degree": 38,
+    "mobs": [
+      {
+        "mob": "FireViVi",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Ghost",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "BabyWereBear",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Area14": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3880,
+    "center_y": 7659,
+    "width": 253,
+    "height": 607,
+    "range_degree": -57,
+    "mobs": [
+      {
+        "mob": "FireViVi",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Ghost",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "BabyWereBear",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Area15": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3324,
+    "center_y": 7033,
+    "width": 0,
+    "height": 0,
+    "range_degree": 393,
+    "mobs": [
+      {
+        "mob": "FireViVi",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Ghost",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Area16": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1869,
+    "center_y": 7551,
+    "width": 215,
+    "height": 373,
+    "range_degree": 15,
+    "mobs": [
+      {
+        "mob": "FireViVi",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Ghost",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Area17": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2319,
+    "center_y": 6739,
+    "width": 284,
+    "height": 245,
+    "range_degree": 69,
+    "mobs": [
+      {
+        "mob": "FireViVi",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Ghost",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Area18": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2097,
+    "center_y": 9188,
+    "width": 409,
+    "height": 284,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "FireViVi",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Hob",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HobFighter",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 50,
+        "reg_min": 35,
+        "reg_max": 65,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Area19": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5230,
+    "center_y": 9547,
+    "width": 644,
+    "height": 159,
+    "range_degree": 55,
+    "mobs": [
+      {
+        "mob": "EarthSpider",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "BoneImp",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HobFighter",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 50,
+        "reg_min": 35,
+        "reg_max": 65,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Prock",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Area20": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4720,
+    "center_y": 9924,
+    "width": 153,
+    "height": 405,
+    "range_degree": -34,
+    "mobs": [
+      {
+        "mob": "BoneImp",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Prock",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Area21": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6721,
+    "center_y": 11648,
+    "width": 153,
+    "height": 491,
+    "range_degree": 90,
+    "mobs": [
+      {
+        "mob": "EarthSpider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "BoneImp",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HobFighter",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 50,
+        "reg_min": 35,
+        "reg_max": 65,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Prock",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Area22": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5644,
+    "center_y": 11684,
+    "width": 431,
+    "height": 268,
+    "range_degree": -28,
+    "mobs": [
+      {
+        "mob": "BoneImp",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "EarthSpider",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Prock",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Area23": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1622,
+    "center_y": 11585,
+    "width": 556,
+    "height": 55,
+    "range_degree": -79,
+    "mobs": [
+      {
+        "mob": "BoneImp",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "EarthSpider",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Prock",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Area24": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3304,
+    "center_y": 10906,
+    "width": 686,
+    "height": 220,
+    "range_degree": -25,
+    "mobs": [
+      {
+        "mob": "BoneImp",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "EarthSpider",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Prock",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Area25": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1362,
+    "center_y": 11121,
+    "width": 57,
+    "height": 632,
+    "range_degree": -21,
+    "mobs": [
+      {
+        "mob": "BoneImp",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Prock",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Area26": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5761,
+    "center_y": 10753,
+    "width": 0,
+    "height": 0,
+    "range_degree": 370,
+    "mobs": [
+      {
+        "mob": "EarthSpider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "BoneImp",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Prock",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Area27": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7207,
+    "center_y": 10578,
+    "width": 563,
+    "height": 122,
+    "range_degree": 87,
+    "mobs": [
+      {
+        "mob": "BoneImp",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Hob",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Prock",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Area28": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7341,
+    "center_y": 6232,
+    "width": 276,
+    "height": 275,
+    "range_degree": 39,
+    "mobs": [
+      {
+        "mob": "Ghost",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Hob",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Area29": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6517,
+    "center_y": 8425,
+    "width": 0,
+    "height": 0,
+    "range_degree": 273,
+    "mobs": [
+      {
+        "mob": "BoneImp",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Prock",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Area30": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6904,
+    "center_y": 7463,
+    "width": 335,
+    "height": 57,
+    "range_degree": 36,
+    "mobs": [
+      {
+        "mob": "Ghost",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Area31": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8441,
+    "center_y": 7200,
+    "width": 307,
+    "height": 215,
+    "range_degree": 113,
+    "mobs": [
+      {
+        "mob": "BoneImp",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Hob",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Prock",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Area32": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7908,
+    "center_y": 7711,
+    "width": 50,
+    "height": 393,
+    "range_degree": 37,
+    "mobs": [
+      {
+        "mob": "BoneImp",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Hob",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Area33": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10407,
+    "center_y": 5510,
+    "width": 0,
+    "height": 0,
+    "range_degree": 505,
+    "mobs": [
+      {
+        "mob": "BoneImp",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "EarthSpider",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Hob",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Area34": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11957,
+    "center_y": 4739,
+    "width": 201,
+    "height": 658,
+    "range_degree": -4,
+    "mobs": [
+      {
+        "mob": "EarthSpider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "BoneImp",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Hob",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HobFighter",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 50,
+        "reg_min": 18,
+        "reg_max": 65,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Prock",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Area35": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10301,
+    "center_y": 3291,
+    "width": 297,
+    "height": 320,
+    "range_degree": 29,
+    "mobs": [
+      {
+        "mob": "BoneImp",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Hob",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Area36": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11296,
+    "center_y": 2575,
+    "width": 0,
+    "height": 0,
+    "range_degree": 297,
+    "mobs": [
+      {
+        "mob": "EarthSpider",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "BoneImp",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Prock",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Hob",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Area37": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11246,
+    "center_y": 3034,
+    "width": 66,
+    "height": 646,
+    "range_degree": 71,
+    "mobs": [
+      {
+        "mob": "BoneImp",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Prock",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Area38": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9683,
+    "center_y": 4103,
+    "width": 133,
+    "height": 328,
+    "range_degree": -8,
+    "mobs": [
+      {
+        "mob": "BoneImp",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Hob",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HobFighter",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 50,
+        "reg_min": 35,
+        "reg_max": 65,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Prock",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Area39": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11761,
+    "center_y": 2635,
+    "width": 110,
+    "height": 538,
+    "range_degree": 12,
+    "mobs": [
+      {
+        "mob": "EarthSpider",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "BoneImp",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Prock",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Area40": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8922,
+    "center_y": 1451,
+    "width": 442,
+    "height": 242,
+    "range_degree": 48,
+    "mobs": [
+      {
+        "mob": "Hob",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Ghost",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "BabyWereBear",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Area41": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10245,
+    "center_y": 1403,
+    "width": 0,
+    "height": 0,
+    "range_degree": 422,
+    "mobs": [
+      {
+        "mob": "FireViVi",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Hob",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HobFighter",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 50,
+        "reg_min": 35,
+        "reg_max": 65,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Area42": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10380,
+    "center_y": 9833,
+    "width": 0,
+    "height": 0,
+    "range_degree": 141,
+    "mobs": [
+      {
+        "mob": "Prock",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Robo",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 365,
+        "reg_min": 350,
+        "reg_max": 380,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Area43": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9403,
+    "center_y": 8846,
+    "width": 0,
+    "height": 0,
+    "range_degree": 414,
+    "mobs": [
+      {
+        "mob": "BoneImp",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Prock",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Area44": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10377,
+    "center_y": 9020,
+    "width": 0,
+    "height": 0,
+    "range_degree": 363,
+    "mobs": [
+      {
+        "mob": "EarthSpider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Prock",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Area45": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9829,
+    "center_y": 9384,
+    "width": 0,
+    "height": 0,
+    "range_degree": 370,
+    "mobs": [
+      {
+        "mob": "BoneImp",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Prock",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Area46": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9366,
+    "center_y": 9831,
+    "width": 0,
+    "height": 0,
+    "range_degree": 408,
+    "mobs": [
+      {
+        "mob": "Prock",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "EarthSpider",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Area47": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3059,
+    "center_y": 5787,
+    "width": 298,
+    "height": 606,
+    "range_degree": -45,
+    "mobs": [
+      {
+        "mob": "FireViVi",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Ghost",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "BabyWereBear",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Area48": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7063,
+    "center_y": 3016,
+    "width": 241,
+    "height": 185,
+    "range_degree": -36,
+    "mobs": [
+      {
+        "mob": "Ghost",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "BabyWereBear",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Area49": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4561,
+    "center_y": 8706,
+    "width": 774,
+    "height": 79,
+    "range_degree": 27,
+    "mobs": [
+      {
+        "mob": "Ghost",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Hob",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Area50": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10629,
+    "center_y": 4748,
+    "width": 558,
+    "height": 91,
+    "range_degree": -27,
+    "mobs": [
+      {
+        "mob": "EarthSpider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Hob",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Area51": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11809,
+    "center_y": 10002,
+    "width": 83,
+    "height": 573,
+    "range_degree": -2,
+    "mobs": [
+      {
+        "mob": "BoneImp",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Prock",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Area52": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11627,
+    "center_y": 7887,
+    "width": 0,
+    "height": 0,
+    "range_degree": 435,
+    "mobs": [
+      {
+        "mob": "BoneImp",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Prock",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Area53": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9202,
+    "center_y": 6881,
+    "width": 140,
+    "height": 472,
+    "range_degree": -28,
+    "mobs": [
+      {
+        "mob": "EarthSpider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "BoneImp",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Prock",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Area55": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8396,
+    "center_y": 4090,
+    "width": 204,
+    "height": 446,
+    "range_degree": -7,
+    "mobs": [
+      {
+        "mob": "FireViVi",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Ghost",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Hob",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Area54": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10456,
+    "center_y": 11465,
+    "width": 609,
+    "height": 278,
+    "range_degree": 10,
+    "mobs": [
+      {
+        "mob": "BoneImp",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Prock",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCEm02Area56": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6503,
+    "center_y": 1993,
+    "width": 87,
+    "height": 449,
+    "range_degree": -47,
+    "mobs": [
+      {
+        "mob": "FireViVi",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "BabyWereBear",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Area57": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1958,
+    "center_y": 2972,
+    "width": 145,
+    "height": 120,
+    "range_degree": 38,
+    "mobs": [
+      {
+        "mob": "FireViVi",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Area58": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3948,
+    "center_y": 1741,
+    "width": 338,
+    "height": 130,
+    "range_degree": 41,
+    "mobs": [
+      {
+        "mob": "FireViVi",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Area59": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 820,
+    "center_y": 5723,
+    "width": 161,
+    "height": 177,
+    "range_degree": -6,
+    "mobs": [
+      {
+        "mob": "FireViVi",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Area60": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4437,
+    "center_y": 4012,
+    "width": 55,
+    "height": 193,
+    "range_degree": 53,
+    "mobs": [
+      {
+        "mob": "OldFox",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Area61": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6646,
+    "center_y": 3953,
+    "width": 424,
+    "height": 224,
+    "range_degree": 19,
+    "mobs": [
+      {
+        "mob": "Ghost",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "BabyWereBear",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Area62": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6197,
+    "center_y": 2481,
+    "width": 283,
+    "height": 80,
+    "range_degree": 170,
+    "mobs": [
+      {
+        "mob": "Ghost",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Area63": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9466,
+    "center_y": 2034,
+    "width": 0,
+    "height": 0,
+    "range_degree": 384,
+    "mobs": [
+      {
+        "mob": "Hob",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Ghost",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "BabyWereBear",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Area64": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6554,
+    "center_y": 6639,
+    "width": 162,
+    "height": 229,
+    "range_degree": -6,
+    "mobs": [
+      {
+        "mob": "Ghost",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Hob",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Area65": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5520,
+    "center_y": 4900,
+    "width": 52,
+    "height": 465,
+    "range_degree": 63,
+    "mobs": [
+      {
+        "mob": "Ghost",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Hob",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Area66": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7305,
+    "center_y": 5554,
+    "width": 555,
+    "height": 154,
+    "range_degree": 8,
+    "mobs": [
+      {
+        "mob": "Ghost",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Hob",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Area67": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5831,
+    "center_y": 7066,
+    "width": 121,
+    "height": 479,
+    "range_degree": 10,
+    "mobs": [
+      {
+        "mob": "BoneImp",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Hob",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Area68": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8023,
+    "center_y": 5559,
+    "width": 205,
+    "height": 404,
+    "range_degree": 18,
+    "mobs": [
+      {
+        "mob": "Ghost",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Hob",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Area69": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4266,
+    "center_y": 6404,
+    "width": 243,
+    "height": 456,
+    "range_degree": 20,
+    "mobs": [
+      {
+        "mob": "FireViVi",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Ghost",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Area70": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2944,
+    "center_y": 11772,
+    "width": 0,
+    "height": 0,
+    "range_degree": 415,
+    "mobs": [
+      {
+        "mob": "BoneImp",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Prock",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Area71": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2576,
+    "center_y": 8398,
+    "width": 233,
+    "height": 182,
+    "range_degree": -5,
+    "mobs": [
+      {
+        "mob": "Ghost",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "BabyWereBear",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Area72": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2794,
+    "center_y": 9396,
+    "width": 277,
+    "height": 94,
+    "range_degree": 22,
+    "mobs": [
+      {
+        "mob": "Hob",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "BabyWereBear",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Area73": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7466,
+    "center_y": 8207,
+    "width": 356,
+    "height": 131,
+    "range_degree": 15,
+    "mobs": [
+      {
+        "mob": "BoneImp",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Hob",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Area74": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2056,
+    "center_y": 10856,
+    "width": 0,
+    "height": 0,
+    "range_degree": 465,
+    "mobs": [
+      {
+        "mob": "EarthSpider",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "BoneImp",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Prock",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Area76": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8728,
+    "center_y": 11125,
+    "width": 138,
+    "height": 767,
+    "range_degree": 39,
+    "mobs": [
+      {
+        "mob": "Prock",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Arean01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4051,
+    "center_y": 1380,
+    "width": 356,
+    "height": 1327,
+    "range_degree": -71,
+    "mobs": [
+      {
+        "mob": "MUSHROOM4",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 290,
+        "reg_max": 310,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM5",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 290,
+        "reg_max": 310,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB4",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 290,
+        "reg_max": 310,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB5",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 290,
+        "reg_max": 310,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD1",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 290,
+        "reg_max": 310,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "FLOWER1",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 290,
+        "reg_max": 310,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Arean02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1601,
+    "center_y": 3550,
+    "width": 0,
+    "height": 0,
+    "range_degree": 821,
+    "mobs": [
+      {
+        "mob": "HERB4",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 290,
+        "reg_max": 310,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB5",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 290,
+        "reg_max": 310,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM4",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 290,
+        "reg_max": 310,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD1",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 290,
+        "reg_max": 310,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD2",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 290,
+        "reg_max": 310,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM5",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 290,
+        "reg_max": 310,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "FLOWER1",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 290,
+        "reg_max": 310,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "FLOWER1",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 290,
+        "reg_max": 310,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Arean03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2540,
+    "center_y": 6834,
+    "width": 352,
+    "height": 1281,
+    "range_degree": -26,
+    "mobs": [
+      {
+        "mob": "HERB4",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 290,
+        "reg_max": 310,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB5",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 290,
+        "reg_max": 310,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM4",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 290,
+        "reg_max": 310,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD1",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 290,
+        "reg_max": 310,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD2",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 290,
+        "reg_max": 310,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM5",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 290,
+        "reg_max": 310,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "FLOWER1",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 290,
+        "reg_max": 310,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "FLOWER1",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 290,
+        "reg_max": 310,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Arean04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7586,
+    "center_y": 6657,
+    "width": 0,
+    "height": 0,
+    "range_degree": 1206,
+    "mobs": [
+      {
+        "mob": "HERB4",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 290,
+        "reg_max": 310,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB5",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 290,
+        "reg_max": 310,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM4",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 290,
+        "reg_max": 310,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB6",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 290,
+        "reg_max": 310,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM5",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 290,
+        "reg_max": 310,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM6",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 290,
+        "reg_max": 310,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD4",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 290,
+        "reg_max": 310,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD5",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 290,
+        "reg_max": 310,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD6",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 290,
+        "reg_max": 310,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "FLOWER1",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 290,
+        "reg_max": 310,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "FLOWER1",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 290,
+        "reg_max": 310,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Arean05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6435,
+    "center_y": 3258,
+    "width": 0,
+    "height": 0,
+    "range_degree": 918,
+    "mobs": [
+      {
+        "mob": "MUSHROOM5",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 290,
+        "reg_max": 310,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM6",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 290,
+        "reg_max": 310,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB5",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 290,
+        "reg_max": 310,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB6",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 290,
+        "reg_max": 310,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD1",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 290,
+        "reg_max": 310,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD2",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 290,
+        "reg_max": 310,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "FLOWER1",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 290,
+        "reg_max": 310,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Arean06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10801,
+    "center_y": 4330,
+    "width": 730,
+    "height": 1179,
+    "range_degree": -11,
+    "mobs": [
+      {
+        "mob": "HERB4",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 290,
+        "reg_max": 310,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB5",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 290,
+        "reg_max": 310,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB6",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 290,
+        "reg_max": 310,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM4",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 290,
+        "reg_max": 310,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM5",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 290,
+        "reg_max": 310,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM6",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 290,
+        "reg_max": 310,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Arean07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3202,
+    "center_y": 10863,
+    "width": 968,
+    "height": 183,
+    "range_degree": -15,
+    "mobs": [
+      {
+        "mob": "MUSHROOM4",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 290,
+        "reg_max": 310,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM5",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 290,
+        "reg_max": 310,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM6",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 290,
+        "reg_max": 310,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB4",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 290,
+        "reg_max": 310,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB5",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 290,
+        "reg_max": 310,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB6",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 290,
+        "reg_max": 310,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Arean08": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5219,
+    "center_y": 9864,
+    "width": 766,
+    "height": 300,
+    "range_degree": 14,
+    "mobs": [
+      {
+        "mob": "HERB6",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 290,
+        "reg_max": 310,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM6",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 290,
+        "reg_max": 310,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "FLOWER1",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 290,
+        "reg_max": 310,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD1",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 290,
+        "reg_max": 310,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD2",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 290,
+        "reg_max": 310,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Arean09": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9815,
+    "center_y": 9283,
+    "width": 0,
+    "height": 0,
+    "range_degree": 863,
+    "mobs": [
+      {
+        "mob": "HERB5",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 290,
+        "reg_max": 310,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB6",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 290,
+        "reg_max": 310,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM5",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 290,
+        "reg_max": 310,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM6",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 290,
+        "reg_max": 310,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02AreaG1": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 11143,
+    "center_y": 3885,
+    "width": 0,
+    "height": 0,
+    "range_degree": 134,
+    "mobs": [
+      {
+        "mob": "S_Zombie",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 21600,
+        "reg_min": 21590,
+        "reg_max": 21610,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Zombie",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 21600,
+        "reg_min": 21590,
+        "reg_max": 21610,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02AreaPbox01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6588,
+    "center_y": 3675,
+    "width": 3493,
+    "height": 5835,
+    "range_degree": 90,
+    "mobs": [
+      {
+        "mob": "PresentBox8",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 14400,
+        "reg_min": 14390,
+        "reg_max": 14410,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Area77": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2061,
+    "center_y": 4178,
+    "width": 102,
+    "height": 667,
+    "range_degree": -23,
+    "mobs": [
+      {
+        "mob": "FireViVi",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02AreaPbox02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11268,
+    "center_y": 4402,
+    "width": 5768,
+    "height": 2576,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "PresentBox8",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 14400,
+        "reg_min": 14390,
+        "reg_max": 14410,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Cem02Mush01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1147,
+    "center_y": 9144,
+    "width": 256,
+    "height": 494,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "MUSHROOM5",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 290,
+        "reg_max": 310,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM6",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 290,
+        "reg_max": 310,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM4",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 290,
+        "reg_max": 310,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Cem02Wood01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11604,
+    "center_y": 8534,
+    "width": 151,
+    "height": 895,
+    "range_degree": -4,
+    "mobs": [
+      {
+        "mob": "WOOD4",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 290,
+        "reg_max": 310,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD5",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 290,
+        "reg_max": 310,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD6",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 290,
+        "reg_max": 310,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Cem02Wood02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8127,
+    "center_y": 9853,
+    "width": 127,
+    "height": 645,
+    "range_degree": 14,
+    "mobs": [
+      {
+        "mob": "WOOD4",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 290,
+        "reg_max": 310,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD5",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 290,
+        "reg_max": 310,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD6",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 290,
+        "reg_max": 310,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Cem02Wood03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8744,
+    "center_y": 11071,
+    "width": 126,
+    "height": 503,
+    "range_degree": 43,
+    "mobs": [
+      {
+        "mob": "WOOD4",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 290,
+        "reg_max": 310,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD5",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 290,
+        "reg_max": 310,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD6",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 290,
+        "reg_max": 310,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Cem02Wood04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11917,
+    "center_y": 6923,
+    "width": 142,
+    "height": 484,
+    "range_degree": -13,
+    "mobs": [
+      {
+        "mob": "WOOD4",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 290,
+        "reg_max": 310,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD5",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 290,
+        "reg_max": 310,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD6",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 290,
+        "reg_max": 310,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          3,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Cem02Area78": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7524,
+    "center_y": 6920,
+    "width": 0,
+    "height": 0,
+    "range_degree": 324,
+    "mobs": [
+      {
+        "mob": "Ghost",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Hob",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Area79": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8330,
+    "center_y": 6428,
+    "width": 0,
+    "height": 0,
+    "range_degree": 352,
+    "mobs": [
+      {
+        "mob": "Ghost",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Hob",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Area80": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11204,
+    "center_y": 3633,
+    "width": 0,
+    "height": 0,
+    "range_degree": 500,
+    "mobs": [
+      {
+        "mob": "BoneImp",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "EarthSpider",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Area81": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4499,
+    "center_y": 11504,
+    "width": 212,
+    "height": 275,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "BoneImp",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "EarthSpider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Area82": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6245,
+    "center_y": 9956,
+    "width": 0,
+    "height": 0,
+    "range_degree": 380,
+    "mobs": [
+      {
+        "mob": "Hob",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "BoneImp",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02Area83": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6606,
+    "center_y": 10742,
+    "width": 0,
+    "height": 0,
+    "range_degree": 324,
+    "mobs": [
+      {
+        "mob": "BoneImp",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Hob",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02)84": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1245,
+    "center_y": 9140,
+    "width": 0,
+    "height": 0,
+    "range_degree": 500,
+    "mobs": [
+      {
+        "mob": "FireViVi",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Ghost",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldCem02_85": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8030,
+    "center_y": 9617,
+    "width": 116,
+    "height": 842,
+    "range_degree": 16,
+    "mobs": [
+      {
+        "mob": "BoneImp",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Prock",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 33,
+        "reg_min": 18,
+        "reg_max": 48,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  }
+}

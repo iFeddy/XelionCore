@@ -1,0 +1,3412 @@
+{
+  "ValDn01Mo01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3570,
+    "center_y": 10463,
+    "width": 575,
+    "height": 189,
+    "range_degree": 34,
+    "mobs": [
+      {
+        "mob": "D_Kebing",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_TombRaider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn01Mo02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1800,
+    "center_y": 8124,
+    "width": 0,
+    "height": 0,
+    "range_degree": 302,
+    "mobs": [
+      {
+        "mob": "D_Kebing",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_TombRaider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn01Mo03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1847,
+    "center_y": 9179,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "D_Kebing",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_TombRaider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn01Mo04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2684,
+    "center_y": 8806,
+    "width": 0,
+    "height": 0,
+    "range_degree": 386,
+    "mobs": [
+      {
+        "mob": "D_Kebing",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_TombRaider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn01Mo05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4049,
+    "center_y": 8758,
+    "width": 368,
+    "height": 143,
+    "range_degree": -83,
+    "mobs": [
+      {
+        "mob": "D_TombRaider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_MageBook",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn01Mo06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3698,
+    "center_y": 6799,
+    "width": 183,
+    "height": 543,
+    "range_degree": 37,
+    "mobs": [
+      {
+        "mob": "D_TombRaider",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_MageBook",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn01Mo07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1735,
+    "center_y": 5102,
+    "width": 0,
+    "height": 0,
+    "range_degree": 723,
+    "mobs": [
+      {
+        "mob": "D_MageBook",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_TombRaider",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn01Mo08": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4008,
+    "center_y": 3345,
+    "width": 251,
+    "height": 581,
+    "range_degree": 42,
+    "mobs": [
+      {
+        "mob": "D_MageBook",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_TombRaider",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn01Mo09": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3055,
+    "center_y": 7841,
+    "width": 105,
+    "height": 488,
+    "range_degree": -137,
+    "mobs": [
+      {
+        "mob": "D_TombRaider",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_MageBook",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn01Mo10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8247,
+    "center_y": 2912,
+    "width": 0,
+    "height": 0,
+    "range_degree": 582,
+    "mobs": [
+      {
+        "mob": "D_MarloneArcher",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_MarloneMegaton",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn01Mo11": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10320,
+    "center_y": 1445,
+    "width": 472,
+    "height": 51,
+    "range_degree": 53,
+    "mobs": [
+      {
+        "mob": "D_MarloneArcher",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_MarloneMegaton",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn01Mo12": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11139,
+    "center_y": 1815,
+    "width": 102,
+    "height": 335,
+    "range_degree": -36,
+    "mobs": [
+      {
+        "mob": "D_MarloneArcher",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_MarloneMegaton",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn01Mo13": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10514,
+    "center_y": 2240,
+    "width": 82,
+    "height": 363,
+    "range_degree": -35,
+    "mobs": [
+      {
+        "mob": "D_MarloneArcher",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn01Mo14": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 11018,
+    "center_y": 1199,
+    "width": 223,
+    "height": 99,
+    "range_degree": -33,
+    "mobs": [
+      {
+        "mob": "D_MarloneMegaton",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 540,
+        "reg_max": 600,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_kingMarlone",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 540,
+        "reg_max": 600,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn01Mo15": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 10285,
+    "center_y": 5052,
+    "width": 0,
+    "height": 0,
+    "range_degree": 204,
+    "mobs": [
+      {
+        "mob": "D_MarloneMegaton",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_MarloneFighter",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn01Mo16": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 11547,
+    "center_y": 8033,
+    "width": 213,
+    "height": 130,
+    "range_degree": 28,
+    "mobs": [
+      {
+        "mob": "D_MarloneMegaton",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 540,
+        "reg_max": 600,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_kingMarlone",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 540,
+        "reg_max": 600,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn01Mo17": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10415,
+    "center_y": 7739,
+    "width": 255,
+    "height": 347,
+    "range_degree": -28,
+    "mobs": [
+      {
+        "mob": "D_MarloneMegaton",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn01Mo18": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 8290,
+    "center_y": 8591,
+    "width": 0,
+    "height": 0,
+    "range_degree": 205,
+    "mobs": [
+      {
+        "mob": "D_MarloneFighter",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_MarloneMegaton",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn01Mo19": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9930,
+    "center_y": 9434,
+    "width": 561,
+    "height": 171,
+    "range_degree": 99,
+    "mobs": [
+      {
+        "mob": "D_MarloneFighter",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn01Mo20": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10482,
+    "center_y": 10128,
+    "width": 574,
+    "height": 95,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "D_MarloneFighter",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn01Mo21": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8128,
+    "center_y": 5673,
+    "width": 0,
+    "height": 0,
+    "range_degree": 358,
+    "mobs": [
+      {
+        "mob": "D_MarloneFighter",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn01Mo22": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 5278,
+    "center_y": 4550,
+    "width": 331,
+    "height": 144,
+    "range_degree": 32,
+    "mobs": [
+      {
+        "mob": "D_MageBook",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn01Mo23": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6035,
+    "center_y": 6780,
+    "width": 0,
+    "height": 0,
+    "range_degree": 546,
+    "mobs": [
+      {
+        "mob": "D_MarloneArcher",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_MarloneFighter",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn01Mo24": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6730,
+    "center_y": 5791,
+    "width": 370,
+    "height": 417,
+    "range_degree": -5,
+    "mobs": [
+      {
+        "mob": "D_MarloneFighter",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_MarloneArcher",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn01Mo25": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5125,
+    "center_y": 5399,
+    "width": 633,
+    "height": 285,
+    "range_degree": 28,
+    "mobs": [
+      {
+        "mob": "D_MarloneMegaton",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn01Mo26": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 4815,
+    "center_y": 6294,
+    "width": 0,
+    "height": 0,
+    "range_degree": 297,
+    "mobs": [
+      {
+        "mob": "D_kingMarlone",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 540,
+        "reg_max": 600,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_MarloneFighter",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 540,
+        "reg_max": 600,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn01Mo27": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1971,
+    "center_y": 10374,
+    "width": 485,
+    "height": 236,
+    "range_degree": 38,
+    "mobs": [
+      {
+        "mob": "D_Kebing",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn01Mo28": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9539,
+    "center_y": 3069,
+    "width": 488,
+    "height": 99,
+    "range_degree": 5,
+    "mobs": [
+      {
+        "mob": "D_MarloneArcher",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_MarloneMegaton",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn01Mo29": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8588,
+    "center_y": 6624,
+    "width": 59,
+    "height": 541,
+    "range_degree": -7,
+    "mobs": [
+      {
+        "mob": "D_MarloneFighter",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn01Mo30": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 9144,
+    "center_y": 5790,
+    "width": 0,
+    "height": 0,
+    "range_degree": 142,
+    "mobs": [
+      {
+        "mob": "D_MarloneMegaton",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDnM31": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6233,
+    "center_y": 2759,
+    "width": 1129,
+    "height": 111,
+    "range_degree": -7,
+    "mobs": [
+      {
+        "mob": "D_MarloneArcher",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDnM32": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5795,
+    "center_y": 6126,
+    "width": 0,
+    "height": 0,
+    "range_degree": 1745,
+    "mobs": [
+      {
+        "mob": "PresentBox4",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 14400,
+        "reg_min": 14396,
+        "reg_max": 14404,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDnM33": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10094,
+    "center_y": 4294,
+    "width": 2416,
+    "height": 2624,
+    "range_degree": -1,
+    "mobs": [
+      {
+        "mob": "PresentBox4",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 14400,
+        "reg_min": 14396,
+        "reg_max": 14404,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDnM34": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3232,
+    "center_y": 9877,
+    "width": 573,
+    "height": 138,
+    "range_degree": 42,
+    "mobs": [
+      {
+        "mob": "D_Kebing",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_TombRaider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDnM35": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4958,
+    "center_y": 8709,
+    "width": 161,
+    "height": 670,
+    "range_degree": 46,
+    "mobs": [
+      {
+        "mob": "D_TombRaider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_MageBook",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDnM36": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 1188,
+    "center_y": 6738,
+    "width": 183,
+    "height": 189,
+    "range_degree": 33,
+    "mobs": [
+      {
+        "mob": "D_TombRaider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDnM347": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2944,
+    "center_y": 6868,
+    "width": 339,
+    "height": 191,
+    "range_degree": 44,
+    "mobs": [
+      {
+        "mob": "D_TombRaider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDnM38": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9582,
+    "center_y": 6743,
+    "width": 108,
+    "height": 699,
+    "range_degree": 56,
+    "mobs": [
+      {
+        "mob": "D_MarloneArcher",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_MarloneMegaton",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDnM349": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4986,
+    "center_y": 2564,
+    "width": 140,
+    "height": 604,
+    "range_degree": 55,
+    "mobs": [
+      {
+        "mob": "D_MageBook",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_TombRaider",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDnM40": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 7533,
+    "center_y": 3692,
+    "width": 0,
+    "height": 0,
+    "range_degree": 253,
+    "mobs": [
+      {
+        "mob": "D_kingMarlone",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 540,
+        "reg_max": 600,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_MarloneFighter",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 540,
+        "reg_max": 600,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn01Mo41": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 10353,
+    "center_y": 9689,
+    "width": 0,
+    "height": 0,
+    "range_degree": 121,
+    "mobs": [
+      {
+        "mob": "D_kingMarlone",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 540,
+        "reg_max": 600,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_MarloneArcher",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 540,
+        "reg_max": 600,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_MarloneFighter",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 540,
+        "reg_max": 600,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn01Mo42": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10803,
+    "center_y": 1131,
+    "width": 301,
+    "height": 51,
+    "range_degree": -7,
+    "mobs": [
+      {
+        "mob": "D_MarloneFighter",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn01Mo43": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7178,
+    "center_y": 3089,
+    "width": 60,
+    "height": 537,
+    "range_degree": -3,
+    "mobs": [
+      {
+        "mob": "D_MarloneArcher",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn01Mo44": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 6237,
+    "center_y": 4986,
+    "width": 0,
+    "height": 0,
+    "range_degree": 254,
+    "mobs": [
+      {
+        "mob": "D_kingMarlone",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 540,
+        "reg_max": 600,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_MarloneArcher",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 540,
+        "reg_max": 600,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_MarloneMegaton",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 540,
+        "reg_max": 600,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn01Mo45": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 2527,
+    "center_y": 5213,
+    "width": 0,
+    "height": 0,
+    "range_degree": 212,
+    "mobs": [
+      {
+        "mob": "D_kingMarlone",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 540,
+        "reg_max": 600,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_MarloneArcher",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 540,
+        "reg_max": 600,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn01Mo46": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1687,
+    "center_y": 7266,
+    "width": 0,
+    "height": 0,
+    "range_degree": 226,
+    "mobs": [
+      {
+        "mob": "D_Kebing",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_TombRaider",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn01Mo47": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3089,
+    "center_y": 3885,
+    "width": 532,
+    "height": 98,
+    "range_degree": 34,
+    "mobs": [
+      {
+        "mob": "D_MageBook",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn01Mo48": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 4289,
+    "center_y": 2731,
+    "width": 0,
+    "height": 0,
+    "range_degree": 205,
+    "mobs": [
+      {
+        "mob": "D_MageBook",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_TombRaider",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn01Mo49": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 9183,
+    "center_y": 7772,
+    "width": 0,
+    "height": 0,
+    "range_degree": 191,
+    "mobs": [
+      {
+        "mob": "D_MarloneMegaton",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_MarloneArcher",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn01Mo50": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8159,
+    "center_y": 7965,
+    "width": 214,
+    "height": 336,
+    "range_degree": -30,
+    "mobs": [
+      {
+        "mob": "D_MarloneArcher",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_MarloneMegaton",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn01Mo60": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8925,
+    "center_y": 8378,
+    "width": 0,
+    "height": 0,
+    "range_degree": 633,
+    "mobs": [
+      {
+        "mob": "D_MarloneMegaton",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_MarloneFighter",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn01Mo5": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11261,
+    "center_y": 7456,
+    "width": 0,
+    "height": 0,
+    "range_degree": 128,
+    "mobs": [
+      {
+        "mob": "D_MarloneArcher",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn01Mo53": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11341,
+    "center_y": 6933,
+    "width": 0,
+    "height": 0,
+    "range_degree": 135,
+    "mobs": [
+      {
+        "mob": "D_MarloneArcher",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn01Mo55": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11153,
+    "center_y": 4913,
+    "width": 0,
+    "height": 0,
+    "range_degree": 871,
+    "mobs": [
+      {
+        "mob": "D_MarloneMegaton",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_MarloneFighter",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn01Mo56": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10697,
+    "center_y": 6090,
+    "width": 174,
+    "height": 386,
+    "range_degree": 18,
+    "mobs": [
+      {
+        "mob": "D_MarloneArcher",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_MarloneMegaton",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn01Mo57": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10302,
+    "center_y": 3491,
+    "width": 0,
+    "height": 0,
+    "range_degree": 135,
+    "mobs": [
+      {
+        "mob": "D_MarloneArcher",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn01Mo58": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3181,
+    "center_y": 8776,
+    "width": 0,
+    "height": 0,
+    "range_degree": 2033,
+    "mobs": [
+      {
+        "mob": "PresentBox4",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 14400,
+        "reg_min": 14396,
+        "reg_max": 14404,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn01Mo59": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11254,
+    "center_y": 8094,
+    "width": 405,
+    "height": 210,
+    "range_degree": 15,
+    "mobs": [
+      {
+        "mob": "D_MarloneMegaton",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "D_MarloneFighter",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn01Mo61": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5939,
+    "center_y": 8854,
+    "width": 324,
+    "height": 50,
+    "range_degree": 30,
+    "mobs": [
+      {
+        "mob": "D_TombRaider",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn01Mo62": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6497,
+    "center_y": 7922,
+    "width": 54,
+    "height": 368,
+    "range_degree": 6,
+    "mobs": [
+      {
+        "mob": "D_MageBook",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn01Mo64": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4622,
+    "center_y": 8917,
+    "width": 0,
+    "height": 0,
+    "range_degree": 373,
+    "mobs": [
+      {
+        "mob": "D_TombRaider",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn01Mo65": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4162,
+    "center_y": 7868,
+    "width": 0,
+    "height": 0,
+    "range_degree": 282,
+    "mobs": [
+      {
+        "mob": "D_MageBook",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn01P01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2936,
+    "center_y": 8037,
+    "width": 0,
+    "height": 0,
+    "range_degree": 296,
+    "mobs": [
+      {
+        "mob": "MINE2",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 304,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn01P02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3835,
+    "center_y": 9410,
+    "width": 0,
+    "height": 0,
+    "range_degree": 261,
+    "mobs": [
+      {
+        "mob": "MINE3",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 304,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn01P2": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6477,
+    "center_y": 7913,
+    "width": 0,
+    "height": 0,
+    "range_degree": 149,
+    "mobs": [
+      {
+        "mob": "MINE1",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 304,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn01P04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4994,
+    "center_y": 4061,
+    "width": 0,
+    "height": 0,
+    "range_degree": 331,
+    "mobs": [
+      {
+        "mob": "MINE1",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 304,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn01P05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10937,
+    "center_y": 6559,
+    "width": 0,
+    "height": 0,
+    "range_degree": 198,
+    "mobs": [
+      {
+        "mob": "MINE1",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 304,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn01P06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9378,
+    "center_y": 8741,
+    "width": 0,
+    "height": 0,
+    "range_degree": 240,
+    "mobs": [
+      {
+        "mob": "MINE3",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 304,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn01P07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7795,
+    "center_y": 5436,
+    "width": 266,
+    "height": 162,
+    "range_degree": -30,
+    "mobs": [
+      {
+        "mob": "MINE3",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 304,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn01P08": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1402,
+    "center_y": 4866,
+    "width": 0,
+    "height": 0,
+    "range_degree": 436,
+    "mobs": [
+      {
+        "mob": "MINE2",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 304,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn01P09": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7916,
+    "center_y": 2895,
+    "width": 0,
+    "height": 0,
+    "range_degree": 521,
+    "mobs": [
+      {
+        "mob": "MINE2",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 296,
+        "reg_max": 304,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn01Mo66": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5601,
+    "center_y": 6303,
+    "width": 0,
+    "height": 0,
+    "range_degree": 107,
+    "mobs": [
+      {
+        "mob": "D_MarloneArcher",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn01Mo67": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6437,
+    "center_y": 5958,
+    "width": 0,
+    "height": 0,
+    "range_degree": 107,
+    "mobs": [
+      {
+        "mob": "D_MarloneArcher",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn01Mo68": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5544,
+    "center_y": 5373,
+    "width": 0,
+    "height": 0,
+    "range_degree": 107,
+    "mobs": [
+      {
+        "mob": "D_MarloneArcher",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn01Mo69": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4782,
+    "center_y": 3208,
+    "width": 511,
+    "height": 302,
+    "range_degree": 33,
+    "mobs": [
+      {
+        "mob": "D_TombRaider",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "ValDn01Mo70": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1690,
+    "center_y": 5848,
+    "width": 0,
+    "height": 0,
+    "range_degree": 149,
+    "mobs": [
+      {
+        "mob": "D_TombRaider",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 240,
+        "reg_min": 236,
+        "reg_max": 244,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "PBox": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3098,
+    "center_y": 3938,
+    "width": 2454,
+    "height": 1331,
+    "range_degree": 39,
+    "mobs": [
+      {
+        "mob": "PresentBox4",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 14400,
+        "reg_min": 14396,
+        "reg_max": 14404,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Pbox1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9724,
+    "center_y": 8581,
+    "width": 2301,
+    "height": 1927,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "PresentBox4",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 14400,
+        "reg_min": 14396,
+        "reg_max": 14404,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  }
+}

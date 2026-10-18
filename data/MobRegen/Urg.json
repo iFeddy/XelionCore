@@ -1,0 +1,2807 @@
+{
+  "Urg01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1860,
+    "center_y": 7726,
+    "width": 121,
+    "height": 522,
+    "range_degree": 47,
+    "mobs": [
+      {
+        "mob": "Pixy",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "ArchonJuinor",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Urg02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1458,
+    "center_y": 7790,
+    "width": 388,
+    "height": 92,
+    "range_degree": -60,
+    "mobs": [
+      {
+        "mob": "Pixy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Urg03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2688,
+    "center_y": 9007,
+    "width": 137,
+    "height": 292,
+    "range_degree": 20,
+    "mobs": [
+      {
+        "mob": "ArchonJuinor",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Urg04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1598,
+    "center_y": 8565,
+    "width": 211,
+    "height": 399,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "Pixy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "ArchonJuinor",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Urg05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2525,
+    "center_y": 10255,
+    "width": 114,
+    "height": 387,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "ArchonJuinor",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Pixy",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Urg06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2479,
+    "center_y": 8374,
+    "width": 359,
+    "height": 69,
+    "range_degree": 110,
+    "mobs": [
+      {
+        "mob": "ArchonJuinor",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Urg07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3086,
+    "center_y": 3577,
+    "width": 0,
+    "height": 0,
+    "range_degree": 531,
+    "mobs": [
+      {
+        "mob": "Orc",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Pinky",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Urg08": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1912,
+    "center_y": 4376,
+    "width": 0,
+    "height": 0,
+    "range_degree": 450,
+    "mobs": [
+      {
+        "mob": "Orc",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Pinky",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Urg09": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8798,
+    "center_y": 3164,
+    "width": 202,
+    "height": 308,
+    "range_degree": 58,
+    "mobs": [
+      {
+        "mob": "Orc",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Pinky",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Urg10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2711,
+    "center_y": 5146,
+    "width": 0,
+    "height": 0,
+    "range_degree": 299,
+    "mobs": [
+      {
+        "mob": "Orc",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Urg11": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1983,
+    "center_y": 5697,
+    "width": 276,
+    "height": 460,
+    "range_degree": -36,
+    "mobs": [
+      {
+        "mob": "Orc",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Pinky",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Urg12": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2490,
+    "center_y": 2962,
+    "width": 191,
+    "height": 447,
+    "range_degree": 21,
+    "mobs": [
+      {
+        "mob": "Pinky",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Orc",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Urg13": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6335,
+    "center_y": 3512,
+    "width": 0,
+    "height": 0,
+    "range_degree": 515,
+    "mobs": [
+      {
+        "mob": "Orc",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Pinky",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Urg14": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5314,
+    "center_y": 1341,
+    "width": 0,
+    "height": 0,
+    "range_degree": 793,
+    "mobs": [
+      {
+        "mob": "Orc",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Pinky",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Urg15": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6881,
+    "center_y": 986,
+    "width": 103,
+    "height": 681,
+    "range_degree": 82,
+    "mobs": [
+      {
+        "mob": "Pinky",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Orc",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Urg16": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9558,
+    "center_y": 3579,
+    "width": 0,
+    "height": 0,
+    "range_degree": 552,
+    "mobs": [
+      {
+        "mob": "Orc",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Pinky",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Urg17": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8351,
+    "center_y": 2892,
+    "width": 0,
+    "height": 0,
+    "range_degree": 168,
+    "mobs": [
+      {
+        "mob": "Orc",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Urg19": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5882,
+    "center_y": 2447,
+    "width": 0,
+    "height": 0,
+    "range_degree": 445,
+    "mobs": [
+      {
+        "mob": "Orc",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Pinky",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Urg20": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10894,
+    "center_y": 2197,
+    "width": 0,
+    "height": 0,
+    "range_degree": 372,
+    "mobs": [
+      {
+        "mob": "Orc",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Pinky",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Urg21": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8469,
+    "center_y": 4435,
+    "width": 381,
+    "height": 71,
+    "range_degree": 94,
+    "mobs": [
+      {
+        "mob": "KingMushRoom",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "OrcHunter",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Urg22": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10865,
+    "center_y": 8218,
+    "width": 680,
+    "height": 172,
+    "range_degree": -104,
+    "mobs": [
+      {
+        "mob": "KingMushRoom",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "OrcHunter",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Urg24": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8687,
+    "center_y": 5250,
+    "width": 282,
+    "height": 297,
+    "range_degree": 48,
+    "mobs": [
+      {
+        "mob": "OrcHunter",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "KingMushRoom",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Urg25": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9245,
+    "center_y": 5689,
+    "width": 0,
+    "height": 0,
+    "range_degree": 423,
+    "mobs": [
+      {
+        "mob": "OrcHunter",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "KingMushRoom",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Urg26": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9825,
+    "center_y": 6462,
+    "width": 205,
+    "height": 368,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "OrcHunter",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "KingMushRoom",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Urg27": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9709,
+    "center_y": 10820,
+    "width": 562,
+    "height": 207,
+    "range_degree": 14,
+    "mobs": [
+      {
+        "mob": "OrcHunter",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "KingMushRoom",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Urg28": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6327,
+    "center_y": 2357,
+    "width": 1744,
+    "height": 6122,
+    "range_degree": -90,
+    "mobs": [
+      {
+        "mob": "PresentBox13",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 14400,
+        "reg_min": 14385,
+        "reg_max": 14415,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Urg29": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8552,
+    "center_y": 11179,
+    "width": 676,
+    "height": 203,
+    "range_degree": 19,
+    "mobs": [
+      {
+        "mob": "Nox",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Q_NoxCaptain",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 170,
+        "reg_min": 155,
+        "reg_max": 185,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Lips",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Urg30": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10879,
+    "center_y": 9413,
+    "width": 879,
+    "height": 245,
+    "range_degree": -87,
+    "mobs": [
+      {
+        "mob": "Nox",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Q_NoxCaptain",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 170,
+        "reg_min": 155,
+        "reg_max": 185,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Lips",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Urg32": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9134,
+    "center_y": 8878,
+    "width": 88,
+    "height": 607,
+    "range_degree": -141,
+    "mobs": [
+      {
+        "mob": "OrcHunter",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Nox",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Q_NoxCaptain",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 170,
+        "reg_min": 155,
+        "reg_max": 185,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Urg33": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10342,
+    "center_y": 5094,
+    "width": 524,
+    "height": 121,
+    "range_degree": -59,
+    "mobs": [
+      {
+        "mob": "OrcHunter",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Urg34": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9197,
+    "center_y": 10118,
+    "width": 87,
+    "height": 590,
+    "range_degree": 105,
+    "mobs": [
+      {
+        "mob": "Lips",
+        "count": 0,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Urg35": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10042,
+    "center_y": 4472,
+    "width": 0,
+    "height": 0,
+    "range_degree": 713,
+    "mobs": [
+      {
+        "mob": "OrcHunter",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "KingMushRoom",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Urg001": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2501,
+    "center_y": 4362,
+    "width": 958,
+    "height": 1688,
+    "range_degree": -31,
+    "mobs": [
+      {
+        "mob": "HERB7",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB8",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB9",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD7",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD8",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD9",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM7",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM8",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM9",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Urg002": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6636,
+    "center_y": 1269,
+    "width": 488,
+    "height": 1875,
+    "range_degree": 83,
+    "mobs": [
+      {
+        "mob": "HERB7",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB8",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB9",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD7",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD8",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD9",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM7",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM8",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM9",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Urg003": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9179,
+    "center_y": 4026,
+    "width": 519,
+    "height": 1946,
+    "range_degree": 24,
+    "mobs": [
+      {
+        "mob": "WOOD7",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD8",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD9",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB7",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB8",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB9",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM7",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM8",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM9",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Urg004": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8867,
+    "center_y": 10628,
+    "width": 961,
+    "height": 417,
+    "range_degree": 13,
+    "mobs": [
+      {
+        "mob": "MUSHROOM7",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM8",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM9",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD7",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD8",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD9",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB7",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB8",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB9",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Urg18": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3619,
+    "center_y": 4135,
+    "width": 0,
+    "height": 0,
+    "range_degree": 232,
+    "mobs": [
+      {
+        "mob": "Pinky",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Urg36": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3849,
+    "center_y": 4576,
+    "width": 0,
+    "height": 0,
+    "range_degree": 259,
+    "mobs": [
+      {
+        "mob": "Pinky",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Orc",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          10,
+          20,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Urg37": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9658,
+    "center_y": 2303,
+    "width": 0,
+    "height": 0,
+    "range_degree": 260,
+    "mobs": [
+      {
+        "mob": "Orc",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Urg38": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8952,
+    "center_y": 5667,
+    "width": 54,
+    "height": 338,
+    "range_degree": -41,
+    "mobs": [
+      {
+        "mob": "Orc",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Urg29_1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8110,
+    "center_y": 10676,
+    "width": 0,
+    "height": 0,
+    "range_degree": 455,
+    "mobs": [
+      {
+        "mob": "Nox",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Town_Guard001": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5116,
+    "center_y": 5312,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "Town_Safer",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 6,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Town_Guard002": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7670,
+    "center_y": 5053,
+    "width": 0,
+    "height": 0,
+    "range_degree": 150,
+    "mobs": [
+      {
+        "mob": "Town_Safer",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 6,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Town_Guard003": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4888,
+    "center_y": 10968,
+    "width": 0,
+    "height": 0,
+    "range_degree": 200,
+    "mobs": [
+      {
+        "mob": "Town_Safer",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 5,
+        "reg_min": 1,
+        "reg_max": 6,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "XmasTree": {
+    "enabled": false,
+    "is_family": false,
+    "center_x": 7208,
+    "center_y": 6923,
+    "width": 0,
+    "height": 0,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "ChristmasTree",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": false
+      }
+    ]
+  }
+}

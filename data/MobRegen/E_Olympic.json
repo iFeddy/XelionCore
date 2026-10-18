@@ -1,0 +1,1058 @@
+{
+  "E_Ski_NPC": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4844,
+    "center_y": 22447,
+    "width": 0,
+    "height": 0,
+    "range_degree": 10,
+    "mobs": [
+      {
+        "mob": "E_Ski_CongressNPC",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 600,
+        "reg_min": 600,
+        "reg_max": 600,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EventSnow01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5719,
+    "center_y": 4396,
+    "width": 0,
+    "height": 0,
+    "range_degree": 65,
+    "mobs": [
+      {
+        "mob": "BH_SnowBall",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 10,
+        "reg_min": 5,
+        "reg_max": 15,
+        "deltas": [
+          -3,
+          -2,
+          5,
+          6,
+          0
+        ],
+        "delta_secs": [
+          7,
+          9,
+          15,
+          17
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EventSnow02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5343,
+    "center_y": 5773,
+    "width": 0,
+    "height": 0,
+    "range_degree": 65,
+    "mobs": [
+      {
+        "mob": "BH_SnowBall",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 10,
+        "reg_min": 5,
+        "reg_max": 15,
+        "deltas": [
+          -3,
+          -2,
+          5,
+          6,
+          0
+        ],
+        "delta_secs": [
+          7,
+          9,
+          15,
+          17
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EventSnow03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4771,
+    "center_y": 5328,
+    "width": 0,
+    "height": 0,
+    "range_degree": 65,
+    "mobs": [
+      {
+        "mob": "BH_SnowBall",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 10,
+        "reg_min": 5,
+        "reg_max": 15,
+        "deltas": [
+          -3,
+          -2,
+          5,
+          6,
+          0
+        ],
+        "delta_secs": [
+          7,
+          9,
+          15,
+          17
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EventSnow04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4442,
+    "center_y": 6624,
+    "width": 0,
+    "height": 0,
+    "range_degree": 65,
+    "mobs": [
+      {
+        "mob": "BH_SnowBall",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 10,
+        "reg_min": 5,
+        "reg_max": 15,
+        "deltas": [
+          -3,
+          -2,
+          5,
+          6,
+          0
+        ],
+        "delta_secs": [
+          7,
+          9,
+          15,
+          17
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EventSnow05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3210,
+    "center_y": 9815,
+    "width": 0,
+    "height": 0,
+    "range_degree": 65,
+    "mobs": [
+      {
+        "mob": "BH_SnowBall",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 10,
+        "reg_min": 5,
+        "reg_max": 15,
+        "deltas": [
+          -3,
+          -2,
+          5,
+          6,
+          0
+        ],
+        "delta_secs": [
+          7,
+          9,
+          15,
+          17
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EventSnow06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3731,
+    "center_y": 11258,
+    "width": 0,
+    "height": 0,
+    "range_degree": 65,
+    "mobs": [
+      {
+        "mob": "BH_SnowBall",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 10,
+        "reg_min": 5,
+        "reg_max": 15,
+        "deltas": [
+          -3,
+          -2,
+          5,
+          6,
+          0
+        ],
+        "delta_secs": [
+          7,
+          9,
+          15,
+          17
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EventSnow07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3204,
+    "center_y": 12094,
+    "width": 0,
+    "height": 0,
+    "range_degree": 65,
+    "mobs": [
+      {
+        "mob": "BH_SnowBall",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 10,
+        "reg_min": 5,
+        "reg_max": 15,
+        "deltas": [
+          -3,
+          -2,
+          5,
+          6,
+          0
+        ],
+        "delta_secs": [
+          7,
+          9,
+          15,
+          17
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EventSnow08": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3078,
+    "center_y": 10927,
+    "width": 0,
+    "height": 0,
+    "range_degree": 72,
+    "mobs": [
+      {
+        "mob": "BH_SnowBall",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 10,
+        "reg_min": 5,
+        "reg_max": 15,
+        "deltas": [
+          -3,
+          -2,
+          5,
+          6,
+          0
+        ],
+        "delta_secs": [
+          7,
+          9,
+          15,
+          17
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EventSnow09": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1092,
+    "center_y": 7434,
+    "width": 0,
+    "height": 0,
+    "range_degree": 72,
+    "mobs": [
+      {
+        "mob": "BH_SnowBall",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 10,
+        "reg_min": 5,
+        "reg_max": 15,
+        "deltas": [
+          -3,
+          -2,
+          5,
+          6,
+          0
+        ],
+        "delta_secs": [
+          7,
+          9,
+          15,
+          17
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EventSnow10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2117,
+    "center_y": 6949,
+    "width": 0,
+    "height": 0,
+    "range_degree": 72,
+    "mobs": [
+      {
+        "mob": "BH_SnowBall",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 10,
+        "reg_min": 5,
+        "reg_max": 15,
+        "deltas": [
+          -3,
+          -2,
+          5,
+          6,
+          0
+        ],
+        "delta_secs": [
+          7,
+          9,
+          15,
+          17
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EventSnow11": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2311,
+    "center_y": 5635,
+    "width": 0,
+    "height": 0,
+    "range_degree": 79,
+    "mobs": [
+      {
+        "mob": "BH_SnowBall",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 10,
+        "reg_min": 5,
+        "reg_max": 15,
+        "deltas": [
+          -3,
+          -2,
+          5,
+          6,
+          0
+        ],
+        "delta_secs": [
+          7,
+          9,
+          15,
+          17
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EventSnow12": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5646,
+    "center_y": 4391,
+    "width": 0,
+    "height": 0,
+    "range_degree": 86,
+    "mobs": [
+      {
+        "mob": "BH_SnowBall",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 10,
+        "reg_min": 5,
+        "reg_max": 15,
+        "deltas": [
+          -3,
+          -2,
+          5,
+          6,
+          0
+        ],
+        "delta_secs": [
+          7,
+          9,
+          15,
+          17
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EventSnow13": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5308,
+    "center_y": 5920,
+    "width": 0,
+    "height": 0,
+    "range_degree": 79,
+    "mobs": [
+      {
+        "mob": "BH_SnowBall",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 10,
+        "reg_min": 5,
+        "reg_max": 15,
+        "deltas": [
+          -3,
+          -2,
+          5,
+          6,
+          0
+        ],
+        "delta_secs": [
+          7,
+          9,
+          15,
+          17
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EventSnow14": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4740,
+    "center_y": 5200,
+    "width": 0,
+    "height": 0,
+    "range_degree": 79,
+    "mobs": [
+      {
+        "mob": "BH_SnowBall",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 10,
+        "reg_min": 5,
+        "reg_max": 15,
+        "deltas": [
+          -3,
+          -2,
+          5,
+          6,
+          0
+        ],
+        "delta_secs": [
+          7,
+          9,
+          15,
+          17
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EventSnow15": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3873,
+    "center_y": 6383,
+    "width": 0,
+    "height": 0,
+    "range_degree": 79,
+    "mobs": [
+      {
+        "mob": "BH_SnowBall",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 10,
+        "reg_min": 5,
+        "reg_max": 15,
+        "deltas": [
+          -3,
+          -2,
+          5,
+          6,
+          0
+        ],
+        "delta_secs": [
+          7,
+          9,
+          15,
+          17
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EventSnow16": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3103,
+    "center_y": 9727,
+    "width": 0,
+    "height": 0,
+    "range_degree": 86,
+    "mobs": [
+      {
+        "mob": "BH_SnowBall",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 10,
+        "reg_min": 5,
+        "reg_max": 15,
+        "deltas": [
+          -3,
+          -2,
+          5,
+          6,
+          0
+        ],
+        "delta_secs": [
+          7,
+          9,
+          15,
+          17
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EventSnow17": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3782,
+    "center_y": 11331,
+    "width": 0,
+    "height": 0,
+    "range_degree": 72,
+    "mobs": [
+      {
+        "mob": "BH_SnowBall",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 10,
+        "reg_min": 5,
+        "reg_max": 15,
+        "deltas": [
+          -3,
+          -2,
+          5,
+          6,
+          0
+        ],
+        "delta_secs": [
+          7,
+          9,
+          15,
+          17
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EventSnow18": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3185,
+    "center_y": 11236,
+    "width": 0,
+    "height": 0,
+    "range_degree": 65,
+    "mobs": [
+      {
+        "mob": "BH_SnowBall",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 10,
+        "reg_min": 5,
+        "reg_max": 15,
+        "deltas": [
+          -3,
+          -2,
+          5,
+          6,
+          0
+        ],
+        "delta_secs": [
+          7,
+          9,
+          15,
+          17
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EventSnow19": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3118,
+    "center_y": 10805,
+    "width": 0,
+    "height": 0,
+    "range_degree": 65,
+    "mobs": [
+      {
+        "mob": "BH_SnowBall",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 10,
+        "reg_min": 5,
+        "reg_max": 15,
+        "deltas": [
+          -3,
+          -2,
+          5,
+          6,
+          0
+        ],
+        "delta_secs": [
+          7,
+          9,
+          15,
+          17
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EventSnow20": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1877,
+    "center_y": 7326,
+    "width": 0,
+    "height": 0,
+    "range_degree": 65,
+    "mobs": [
+      {
+        "mob": "BH_SnowBall",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 10,
+        "reg_min": 5,
+        "reg_max": 15,
+        "deltas": [
+          -3,
+          -2,
+          5,
+          6,
+          0
+        ],
+        "delta_secs": [
+          7,
+          9,
+          15,
+          17
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EventSnow21": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2080,
+    "center_y": 6812,
+    "width": 0,
+    "height": 0,
+    "range_degree": 65,
+    "mobs": [
+      {
+        "mob": "BH_SnowBall",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 10,
+        "reg_min": 5,
+        "reg_max": 15,
+        "deltas": [
+          -3,
+          -2,
+          5,
+          6,
+          0
+        ],
+        "delta_secs": [
+          7,
+          9,
+          15,
+          17
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EventSnow22": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2329,
+    "center_y": 5840,
+    "width": 0,
+    "height": 0,
+    "range_degree": 65,
+    "mobs": [
+      {
+        "mob": "BH_SnowBall",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 10,
+        "reg_min": 5,
+        "reg_max": 15,
+        "deltas": [
+          -3,
+          -2,
+          5,
+          6,
+          0
+        ],
+        "delta_secs": [
+          7,
+          9,
+          15,
+          17
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EventSnow23": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5748,
+    "center_y": 4294,
+    "width": 0,
+    "height": 0,
+    "range_degree": 72,
+    "mobs": [
+      {
+        "mob": "BH_SnowBall",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 10,
+        "reg_min": 5,
+        "reg_max": 15,
+        "deltas": [
+          -3,
+          -2,
+          5,
+          6,
+          0
+        ],
+        "delta_secs": [
+          7,
+          9,
+          15,
+          17
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EventSnow24": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5468,
+    "center_y": 5801,
+    "width": 0,
+    "height": 0,
+    "range_degree": 72,
+    "mobs": [
+      {
+        "mob": "BH_SnowBall",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 10,
+        "reg_min": 5,
+        "reg_max": 15,
+        "deltas": [
+          -3,
+          -2,
+          5,
+          6,
+          0
+        ],
+        "delta_secs": [
+          7,
+          9,
+          15,
+          17
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EventSnow25": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4889,
+    "center_y": 5235,
+    "width": 0,
+    "height": 0,
+    "range_degree": 72,
+    "mobs": [
+      {
+        "mob": "BH_SnowBall",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 10,
+        "reg_min": 5,
+        "reg_max": 15,
+        "deltas": [
+          -3,
+          -2,
+          5,
+          6,
+          0
+        ],
+        "delta_secs": [
+          7,
+          9,
+          15,
+          17
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EventSnow26": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3128,
+    "center_y": 9949,
+    "width": 0,
+    "height": 0,
+    "range_degree": 79,
+    "mobs": [
+      {
+        "mob": "BH_SnowBall",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 10,
+        "reg_min": 5,
+        "reg_max": 15,
+        "deltas": [
+          -3,
+          -2,
+          5,
+          6,
+          0
+        ],
+        "delta_secs": [
+          7,
+          9,
+          15,
+          17
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EventSnow27": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3063,
+    "center_y": 12057,
+    "width": 0,
+    "height": 0,
+    "range_degree": 86,
+    "mobs": [
+      {
+        "mob": "BH_SnowBall",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 10,
+        "reg_min": 5,
+        "reg_max": 15,
+        "deltas": [
+          -3,
+          -2,
+          5,
+          6,
+          0
+        ],
+        "delta_secs": [
+          7,
+          9,
+          15,
+          17
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EventSnow28": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3047,
+    "center_y": 10978,
+    "width": 0,
+    "height": 0,
+    "range_degree": 79,
+    "mobs": [
+      {
+        "mob": "BH_SnowBall",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 10,
+        "reg_min": 5,
+        "reg_max": 15,
+        "deltas": [
+          -3,
+          -2,
+          5,
+          6,
+          0
+        ],
+        "delta_secs": [
+          7,
+          9,
+          15,
+          17
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EventSnow29": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1888,
+    "center_y": 7500,
+    "width": 0,
+    "height": 0,
+    "range_degree": 79,
+    "mobs": [
+      {
+        "mob": "BH_SnowBall",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 10,
+        "reg_min": 5,
+        "reg_max": 15,
+        "deltas": [
+          -3,
+          -2,
+          5,
+          6,
+          0
+        ],
+        "delta_secs": [
+          7,
+          9,
+          15,
+          17
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EventSnow30": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2042,
+    "center_y": 6649,
+    "width": 0,
+    "height": 0,
+    "range_degree": 79,
+    "mobs": [
+      {
+        "mob": "BH_SnowBall",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 10,
+        "reg_min": 5,
+        "reg_max": 15,
+        "deltas": [
+          -3,
+          -2,
+          5,
+          6,
+          0
+        ],
+        "delta_secs": [
+          7,
+          9,
+          15,
+          17
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EventSnow31": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2437,
+    "center_y": 5498,
+    "width": 0,
+    "height": 0,
+    "range_degree": 86,
+    "mobs": [
+      {
+        "mob": "BH_SnowBall",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 10,
+        "reg_min": 5,
+        "reg_max": 15,
+        "deltas": [
+          -3,
+          -2,
+          5,
+          6,
+          0
+        ],
+        "delta_secs": [
+          7,
+          9,
+          15,
+          17
+        ],
+        "enabled": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,2147 @@
+{
+  "KD_EnMaze01_01": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 1882,
+    "center_y": 1647,
+    "width": 215,
+    "height": 55,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "KQ_G_Stonie",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KD_EnMaze01_02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1893,
+    "center_y": 1889,
+    "width": 147,
+    "height": 51,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "KQ_G_SparkDog",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KD_EnMaze01_03": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 1879,
+    "center_y": 2145,
+    "width": 0,
+    "height": 0,
+    "range_degree": 107,
+    "mobs": [
+      {
+        "mob": "KQ_G_JewelKeeper",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KD_EnMaze01_04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1890,
+    "center_y": 2399,
+    "width": 169,
+    "height": 78,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "KQ_G_SparkDog",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KD_EnMaze01_05": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 1881,
+    "center_y": 2401,
+    "width": 110,
+    "height": 50,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "KQ_G_Stonie",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KD_EnMaze01_06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1830,
+    "center_y": 3023,
+    "width": 51,
+    "height": 445,
+    "range_degree": 89,
+    "mobs": [
+      {
+        "mob": "KQ_G_SparkDog",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KD_EnMaze01_07": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 1248,
+    "center_y": 3289,
+    "width": 223,
+    "height": 113,
+    "range_degree": 45,
+    "mobs": [
+      {
+        "mob": "KQ_G_JewelKeeper",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KD_EnMaze01_08": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1833,
+    "center_y": 2932,
+    "width": 54,
+    "height": 386,
+    "range_degree": 89,
+    "mobs": [
+      {
+        "mob": "KQ_G_Pixy",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KD_EnMaze01_09": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 2451,
+    "center_y": 3328,
+    "width": 256,
+    "height": 129,
+    "range_degree": -45,
+    "mobs": [
+      {
+        "mob": "KQ_G_JewelKeeper",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KD_EnMaze01_10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2812,
+    "center_y": 4137,
+    "width": 196,
+    "height": 81,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "KQ_G_OrcCaptain",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KD_EnMaze01_11": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1027,
+    "center_y": 3549,
+    "width": 174,
+    "height": 94,
+    "range_degree": -28,
+    "mobs": [
+      {
+        "mob": "KQ_G_Pixy",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KD_EnMaze01_12": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 998,
+    "center_y": 4147,
+    "width": 202,
+    "height": 67,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "KQ_G_Nox",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KD_EnMaze02_01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1482,
+    "center_y": 5120,
+    "width": 164,
+    "height": 340,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "KQ_G_JewelKeeper",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KD_EnMaze02_02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 448,
+    "center_y": 5315,
+    "width": 0,
+    "height": 0,
+    "range_degree": 211,
+    "mobs": [
+      {
+        "mob": "KQ_G_Pixy",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KD_EnMaze02_03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 988,
+    "center_y": 5081,
+    "width": 160,
+    "height": 338,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "KQ_G_OrcCaptain",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KD_EnMaze02_04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 443,
+    "center_y": 5143,
+    "width": 174,
+    "height": 402,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "KQ_G_NaiadDemon",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KD_EnMaze02_05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 987,
+    "center_y": 5118,
+    "width": 50,
+    "height": 50,
+    "range_degree": -1,
+    "mobs": [
+      {
+        "mob": "KQ_G_Pixy",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KD_EnMaze02_06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1000,
+    "center_y": 4471,
+    "width": 181,
+    "height": 51,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "KQ_G_OrcCaptain",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KD_EnMaze02_07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 990,
+    "center_y": 5766,
+    "width": 0,
+    "height": 0,
+    "range_degree": 120,
+    "mobs": [
+      {
+        "mob": "KQ_G_Nox",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KD_EnMaze02_08": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1493,
+    "center_y": 5182,
+    "width": 0,
+    "height": 0,
+    "range_degree": 226,
+    "mobs": [
+      {
+        "mob": "KQ_G_Shylph",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KD_EnMaze03_01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2504,
+    "center_y": 4764,
+    "width": 0,
+    "height": 0,
+    "range_degree": 247,
+    "mobs": [
+      {
+        "mob": "KQ_G_Pixy",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KD_EnMaze03_02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2746,
+    "center_y": 5343,
+    "width": 569,
+    "height": 293,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "KQ_G_OrcCaptain",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KD_EnMaze03_03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2660,
+    "center_y": 5368,
+    "width": 258,
+    "height": 574,
+    "range_degree": 89,
+    "mobs": [
+      {
+        "mob": "KQ_G_NaiadDemon",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KD_EnMaze03_04": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 2831,
+    "center_y": 5889,
+    "width": 111,
+    "height": 54,
+    "range_degree": 2,
+    "mobs": [
+      {
+        "mob": "KQ_G_Shylph",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KD_EnMaze03_05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3231,
+    "center_y": 4792,
+    "width": 0,
+    "height": 0,
+    "range_degree": 254,
+    "mobs": [
+      {
+        "mob": "KQ_G_Shylph",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KD_EnMaze03_06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2744,
+    "center_y": 6805,
+    "width": 0,
+    "height": 0,
+    "range_degree": 219,
+    "mobs": [
+      {
+        "mob": "KQ_G_Shylph",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KD_EnMaze03_07": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 2759,
+    "center_y": 6778,
+    "width": 71,
+    "height": 85,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "KQ_G_Shylph",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KD_EnMaze03_08": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2172,
+    "center_y": 7079,
+    "width": 0,
+    "height": 0,
+    "range_degree": 162,
+    "mobs": [
+      {
+        "mob": "KQ_G_Archon",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KD_EnMaze03_09": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1344,
+    "center_y": 7391,
+    "width": 0,
+    "height": 0,
+    "range_degree": 253,
+    "mobs": [
+      {
+        "mob": "KQ_G_Pixy",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KD_EnMaze03_10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 908,
+    "center_y": 7340,
+    "width": 0,
+    "height": 0,
+    "range_degree": 197,
+    "mobs": [
+      {
+        "mob": "KQ_G_OrcCaptain",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KD_EnMaze03_11": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 939,
+    "center_y": 7070,
+    "width": 0,
+    "height": 0,
+    "range_degree": 723,
+    "mobs": [
+      {
+        "mob": "KQ_G_NaiadDemon",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KD_EnMaze03_12": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 1310,
+    "center_y": 7431,
+    "width": 0,
+    "height": 0,
+    "range_degree": 106,
+    "mobs": [
+      {
+        "mob": "KQ_G_Shylph",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KD_EnMaze03_13": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1133,
+    "center_y": 6900,
+    "width": 0,
+    "height": 0,
+    "range_degree": 274,
+    "mobs": [
+      {
+        "mob": "KQ_G_Shylph",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KD_EnMaze03_14": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 854,
+    "center_y": 8675,
+    "width": 0,
+    "height": 0,
+    "range_degree": 134,
+    "mobs": [
+      {
+        "mob": "KQ_G_Shylph",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KD_EnMaze03_15": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 1487,
+    "center_y": 8980,
+    "width": 0,
+    "height": 0,
+    "range_degree": 184,
+    "mobs": [
+      {
+        "mob": "KQ_G_Shylph",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KD_EnMaze03_16": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 951,
+    "center_y": 8739,
+    "width": 0,
+    "height": 0,
+    "range_degree": 177,
+    "mobs": [
+      {
+        "mob": "KQ_G_Archon",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KD_EnMaze03_17": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2533,
+    "center_y": 8625,
+    "width": 168,
+    "height": 285,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "KQ_G_Pixy",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KD_EnMaze03_18": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2830,
+    "center_y": 9588,
+    "width": 214,
+    "height": 111,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "KQ_G_OrcCaptain",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KD_EnMaze03_19": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3224,
+    "center_y": 9378,
+    "width": 322,
+    "height": 209,
+    "range_degree": 45,
+    "mobs": [
+      {
+        "mob": "KQ_G_NaiadDemon",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KD_EnMaze03_20": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2831,
+    "center_y": 9004,
+    "width": 0,
+    "height": 0,
+    "range_degree": 744,
+    "mobs": [
+      {
+        "mob": "KQ_G_Shylph",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KD_EnMaze03_21": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 3546,
+    "center_y": 8974,
+    "width": 50,
+    "height": 167,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "KQ_G_Shylph",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KD_EnMaze03_22": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2884,
+    "center_y": 9044,
+    "width": 0,
+    "height": 0,
+    "range_degree": 169,
+    "mobs": [
+      {
+        "mob": "KQ_G_Archon",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KD_EnMaze03_23": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2222,
+    "center_y": 8982,
+    "width": 126,
+    "height": 343,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "KQ_G_Archon",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KD_EnMaze03_24": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2820,
+    "center_y": 8612,
+    "width": 0,
+    "height": 0,
+    "range_degree": 260,
+    "mobs": [
+      {
+        "mob": "KQ_G_Incubus",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KD_EnMaze03_25": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 4520,
+    "center_y": 8918,
+    "width": 0,
+    "height": 0,
+    "range_degree": 100,
+    "mobs": [
+      {
+        "mob": "KQ_G_Archon",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KD_EnMaze03_26": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3958,
+    "center_y": 8973,
+    "width": 0,
+    "height": 0,
+    "range_degree": 191,
+    "mobs": [
+      {
+        "mob": "KQ_G_Shylph",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KD_EnMaze03_27": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4623,
+    "center_y": 8771,
+    "width": 0,
+    "height": 0,
+    "range_degree": 190,
+    "mobs": [
+      {
+        "mob": "KQ_G_Shylph",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KD_EnMaze03_28": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4737,
+    "center_y": 6573,
+    "width": 430,
+    "height": 50,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "KQ_G_Pixy",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KD_EnMaze03_29": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 4728,
+    "center_y": 7775,
+    "width": 0,
+    "height": 0,
+    "range_degree": 169,
+    "mobs": [
+      {
+        "mob": "KQ_G_OrcCaptain",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KD_EnMaze03_30": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4710,
+    "center_y": 7194,
+    "width": 652,
+    "height": 316,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "KQ_G_NaiadDemon",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KD_EnMaze03_31": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5042,
+    "center_y": 7241,
+    "width": 0,
+    "height": 0,
+    "range_degree": 422,
+    "mobs": [
+      {
+        "mob": "KQ_G_Shylph",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KD_EnMaze03_32": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4373,
+    "center_y": 7246,
+    "width": 0,
+    "height": 0,
+    "range_degree": 415,
+    "mobs": [
+      {
+        "mob": "KQ_G_Shylph",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KD_EnMaze03_33": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4630,
+    "center_y": 5403,
+    "width": 181,
+    "height": 143,
+    "range_degree": 42,
+    "mobs": [
+      {
+        "mob": "KQ_G_Archon",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KD_EnMaze03_34": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4727,
+    "center_y": 5806,
+    "width": 0,
+    "height": 0,
+    "range_degree": 162,
+    "mobs": [
+      {
+        "mob": "KQ_G_Shylph",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KD_EnMaze03_35": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 4734,
+    "center_y": 6099,
+    "width": 172,
+    "height": 50,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "KQ_G_Shylph",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KD_EnMaze04_01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2560,
+    "center_y": 11338,
+    "width": 0,
+    "height": 0,
+    "range_degree": 121,
+    "mobs": [
+      {
+        "mob": "KQ_G_Archon",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KD_EnMaze04_02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3108,
+    "center_y": 11322,
+    "width": 0,
+    "height": 0,
+    "range_degree": 121,
+    "mobs": [
+      {
+        "mob": "KQ_G_Archon",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KD_EnMaze04_03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2309,
+    "center_y": 11399,
+    "width": 283,
+    "height": 116,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "KQ_G_Shylph",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KD_EnMaze04_04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3327,
+    "center_y": 11381,
+    "width": 266,
+    "height": 115,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "KQ_G_Shylph",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KD_EnMaze04_05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2297,
+    "center_y": 11979,
+    "width": 0,
+    "height": 0,
+    "range_degree": 373,
+    "mobs": [
+      {
+        "mob": "KQ_G_Shylph",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KD_EnMaze04_06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3344,
+    "center_y": 11984,
+    "width": 0,
+    "height": 0,
+    "range_degree": 345,
+    "mobs": [
+      {
+        "mob": "KQ_G_Archon",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KD_EnMaze04_07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2823,
+    "center_y": 12437,
+    "width": 364,
+    "height": 122,
+    "range_degree": 1,
+    "mobs": [
+      {
+        "mob": "KQ_G_Incubus",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KD_EnMaze04_08": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 2820,
+    "center_y": 12332,
+    "width": 306,
+    "height": 55,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "KQ_G_Nox",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KD_EnMaze04_09": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2795,
+    "center_y": 11911,
+    "width": 0,
+    "height": 0,
+    "range_degree": 219,
+    "mobs": [
+      {
+        "mob": "KQ_G_BlackIncubus",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KD_EnMaze04_10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2830,
+    "center_y": 11438,
+    "width": 261,
+    "height": 67,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "KQ_G_BlackIncubus",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  }
+}

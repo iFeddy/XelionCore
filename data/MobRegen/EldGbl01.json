@@ -1,0 +1,6151 @@
+{
+  "EldGbl01Area01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5981,
+    "center_y": 4380,
+    "width": 0,
+    "height": 0,
+    "range_degree": 506,
+    "mobs": [
+      {
+        "mob": "Goblin",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Prock",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGbl01Area02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6331,
+    "center_y": 3041,
+    "width": 0,
+    "height": 0,
+    "range_degree": 471,
+    "mobs": [
+      {
+        "mob": "Goblin",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "GoblinSwordman",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Prock",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGbl01Area03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7781,
+    "center_y": 5636,
+    "width": 232,
+    "height": 329,
+    "range_degree": 7,
+    "mobs": [
+      {
+        "mob": "Goblin",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "GoblinSwordman",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Prock",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGbl01Area04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8693,
+    "center_y": 3581,
+    "width": 0,
+    "height": 0,
+    "range_degree": 666,
+    "mobs": [
+      {
+        "mob": "GoblinSwordman",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Prock",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Goblin",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGbl01Area05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7356,
+    "center_y": 2222,
+    "width": 0,
+    "height": 0,
+    "range_degree": 487,
+    "mobs": [
+      {
+        "mob": "Goblin",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Prock",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "GoblinSwordman",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGbl01Area06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8119,
+    "center_y": 1390,
+    "width": 0,
+    "height": 0,
+    "range_degree": 457,
+    "mobs": [
+      {
+        "mob": "Goblin",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "GoblinSwordman",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Prock",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGbl01Area07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8613,
+    "center_y": 2322,
+    "width": 0,
+    "height": 0,
+    "range_degree": 456,
+    "mobs": [
+      {
+        "mob": "GoblinSwordman",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Prock",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGbl01Area08": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10189,
+    "center_y": 2673,
+    "width": 0,
+    "height": 0,
+    "range_degree": 751,
+    "mobs": [
+      {
+        "mob": "GoblinSwordman",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Prock",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGbl01Area09": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10682,
+    "center_y": 1167,
+    "width": 0,
+    "height": 0,
+    "range_degree": 471,
+    "mobs": [
+      {
+        "mob": "GoblinSwordman",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Prock",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGbl01Area10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10388,
+    "center_y": 4306,
+    "width": 0,
+    "height": 0,
+    "range_degree": 503,
+    "mobs": [
+      {
+        "mob": "GoblinSwordman",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Prock",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGbl01Area11": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10337,
+    "center_y": 5286,
+    "width": 0,
+    "height": 0,
+    "range_degree": 549,
+    "mobs": [
+      {
+        "mob": "WereBear",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "GoblinSwordman",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGbl01Area12": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9391,
+    "center_y": 7105,
+    "width": 590,
+    "height": 323,
+    "range_degree": 20,
+    "mobs": [
+      {
+        "mob": "WereBear",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "GoblinSwordman",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGbl01Area13": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8936,
+    "center_y": 5596,
+    "width": 149,
+    "height": 527,
+    "range_degree": 48,
+    "mobs": [
+      {
+        "mob": "WereBear",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WereBearFighter",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 50,
+        "reg_min": 35,
+        "reg_max": 60,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "GoblinSwordman",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGbl01Area14": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11010,
+    "center_y": 8876,
+    "width": 349,
+    "height": 186,
+    "range_degree": -34,
+    "mobs": [
+      {
+        "mob": "GoblinSwordman",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WereBear",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGbl01Area15": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11811,
+    "center_y": 10123,
+    "width": 53,
+    "height": 1537,
+    "range_degree": 2,
+    "mobs": [
+      {
+        "mob": "GoblinMage",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WereBear",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGbl01Area16": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10844,
+    "center_y": 11736,
+    "width": 813,
+    "height": 211,
+    "range_degree": 13,
+    "mobs": [
+      {
+        "mob": "WereBear",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WereBearFighter",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGbl01Area17": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10266,
+    "center_y": 10106,
+    "width": 0,
+    "height": 0,
+    "range_degree": 535,
+    "mobs": [
+      {
+        "mob": "GoblinMage",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WereBear",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGbl01Area18": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8668,
+    "center_y": 10237,
+    "width": 0,
+    "height": 0,
+    "range_degree": 427,
+    "mobs": [
+      {
+        "mob": "GoblinMage",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WereBear",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGbl01Area19": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10095,
+    "center_y": 9000,
+    "width": 0,
+    "height": 0,
+    "range_degree": 229,
+    "mobs": [
+      {
+        "mob": "WereBear",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "GoblinMage",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGbl01Area20": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9613,
+    "center_y": 11600,
+    "width": 0,
+    "height": 0,
+    "range_degree": 467,
+    "mobs": [
+      {
+        "mob": "GoblinMage",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WereBear",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGbl01Area21": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7506,
+    "center_y": 10299,
+    "width": 0,
+    "height": 0,
+    "range_degree": 454,
+    "mobs": [
+      {
+        "mob": "GoblinMage",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "GoblinCaptain",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WereBear",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGbl01Area22": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6355,
+    "center_y": 10304,
+    "width": 0,
+    "height": 0,
+    "range_degree": 415,
+    "mobs": [
+      {
+        "mob": "GoblinMage",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "GoblinCaptain",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGbl01Area23": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6297,
+    "center_y": 9506,
+    "width": 0,
+    "height": 0,
+    "range_degree": 576,
+    "mobs": [
+      {
+        "mob": "GoblinMage",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "GoblinCaptain",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGbl01Area24": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6031,
+    "center_y": 11625,
+    "width": 0,
+    "height": 0,
+    "range_degree": 472,
+    "mobs": [
+      {
+        "mob": "GoblinMage",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "GoblinCaptain",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGbl01Area25": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4951,
+    "center_y": 11565,
+    "width": 0,
+    "height": 0,
+    "range_degree": 404,
+    "mobs": [
+      {
+        "mob": "GoblinMage",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "GoblinCaptain",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGbl01Area26": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5264,
+    "center_y": 10534,
+    "width": 0,
+    "height": 0,
+    "range_degree": 422,
+    "mobs": [
+      {
+        "mob": "GoblinMage",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "GoblinCaptain",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGbl01Area27": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5334,
+    "center_y": 9478,
+    "width": 0,
+    "height": 0,
+    "range_degree": 272,
+    "mobs": [
+      {
+        "mob": "GoblinCaptain",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "GoblinMage",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGbl01Area28": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1650,
+    "center_y": 10122,
+    "width": 579,
+    "height": 120,
+    "range_degree": 148,
+    "mobs": [
+      {
+        "mob": "WeakenedOgre",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "GoblinCaptain",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGbl01Area29": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3734,
+    "center_y": 11592,
+    "width": 595,
+    "height": 113,
+    "range_degree": -33,
+    "mobs": [
+      {
+        "mob": "GoblinCaptain",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WeakenedOgre",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGbl01Area30": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1416,
+    "center_y": 10832,
+    "width": 108,
+    "height": 384,
+    "range_degree": 62,
+    "mobs": [
+      {
+        "mob": "GoblinCaptain",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WeakenedOgre",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Ogre",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 55,
+        "reg_min": 40,
+        "reg_max": 65,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGbl01Area31": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2822,
+    "center_y": 11963,
+    "width": 0,
+    "height": 0,
+    "range_degree": 306,
+    "mobs": [
+      {
+        "mob": "WeakenedOgre",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Ogre",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 55,
+        "reg_min": 40,
+        "reg_max": 65,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGbl01Area32": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2312,
+    "center_y": 11067,
+    "width": 185,
+    "height": 633,
+    "range_degree": -37,
+    "mobs": [
+      {
+        "mob": "Ogre",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 55,
+        "reg_min": 40,
+        "reg_max": 65,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WeakenedOgre",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGbl01Area33": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1591,
+    "center_y": 11853,
+    "width": 539,
+    "height": 102,
+    "range_degree": -31,
+    "mobs": [
+      {
+        "mob": "GoblinCaptain",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WeakenedOgre",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Ogre",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 55,
+        "reg_min": 40,
+        "reg_max": 65,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGbl01Area34": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1958,
+    "center_y": 7749,
+    "width": 0,
+    "height": 0,
+    "range_degree": 573,
+    "mobs": [
+      {
+        "mob": "GoblinCaptain",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "GoblinMage",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGbl01Area35": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1931,
+    "center_y": 6609,
+    "width": 0,
+    "height": 0,
+    "range_degree": 489,
+    "mobs": [
+      {
+        "mob": "GoblinCaptain",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "GoblinMage",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGbl01Area36": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3441,
+    "center_y": 8096,
+    "width": 0,
+    "height": 0,
+    "range_degree": 405,
+    "mobs": [
+      {
+        "mob": "GoblinMage",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "GoblinCaptain",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGbl01Area37": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4064,
+    "center_y": 7906,
+    "width": 0,
+    "height": 0,
+    "range_degree": 379,
+    "mobs": [
+      {
+        "mob": "GoblinMage",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "GoblinCaptain",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGbl01Area38": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2005,
+    "center_y": 4942,
+    "width": 0,
+    "height": 0,
+    "range_degree": 696,
+    "mobs": [
+      {
+        "mob": "GoblinCaptain",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "GoblinMage",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGbl01Area39": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4881,
+    "center_y": 2148,
+    "width": 843,
+    "height": 333,
+    "range_degree": 48,
+    "mobs": [
+      {
+        "mob": "GoblinCaptain",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "GoblinMage",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGbl01Area40": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3755,
+    "center_y": 3654,
+    "width": 210,
+    "height": 864,
+    "range_degree": -39,
+    "mobs": [
+      {
+        "mob": "GoblinMage",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "GoblinCaptain",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "SandMushroom",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGbl01Area41": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2016,
+    "center_y": 1688,
+    "width": 0,
+    "height": 0,
+    "range_degree": 494,
+    "mobs": [
+      {
+        "mob": "SandMushroom",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGbl01Area42": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1130,
+    "center_y": 1183,
+    "width": 0,
+    "height": 0,
+    "range_degree": 545,
+    "mobs": [
+      {
+        "mob": "GobleKing",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 360,
+        "reg_min": 345,
+        "reg_max": 370,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "GoblinCaptain",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGbl01Area43": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2219,
+    "center_y": 2491,
+    "width": 0,
+    "height": 0,
+    "range_degree": 702,
+    "mobs": [
+      {
+        "mob": "GoblinMage",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "GoblinCaptain",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGbl01Area44": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2980,
+    "center_y": 1667,
+    "width": 0,
+    "height": 0,
+    "range_degree": 559,
+    "mobs": [
+      {
+        "mob": "GoblinMage",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "GoblinCaptain",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGbl01Area45": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1113,
+    "center_y": 2423,
+    "width": 0,
+    "height": 0,
+    "range_degree": 519,
+    "mobs": [
+      {
+        "mob": "GoblinCaptain",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGbl01Area46": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3012,
+    "center_y": 2757,
+    "width": 0,
+    "height": 0,
+    "range_degree": 256,
+    "mobs": [
+      {
+        "mob": "GoblinCaptain",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGbl01Area47": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2162,
+    "center_y": 979,
+    "width": 0,
+    "height": 0,
+    "range_degree": 498,
+    "mobs": [
+      {
+        "mob": "GoblinCaptain",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "GoblinMage",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGbl01Area48": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7157,
+    "center_y": 9177,
+    "width": 0,
+    "height": 0,
+    "range_degree": 239,
+    "mobs": [
+      {
+        "mob": "GoblinCaptain",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "GoblinMage",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGbl01Area49": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11242,
+    "center_y": 10333,
+    "width": 0,
+    "height": 0,
+    "range_degree": 202,
+    "mobs": [
+      {
+        "mob": "GoblinMage",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGbl01AreaN01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9175,
+    "center_y": 1018,
+    "width": 164,
+    "height": 916,
+    "range_degree": -86,
+    "mobs": [
+      {
+        "mob": "WOOD4",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD5",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB4",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB5",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB6",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          150,
+          300
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGbl01AreaN02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11599,
+    "center_y": 3408,
+    "width": 58,
+    "height": 1435,
+    "range_degree": -1,
+    "mobs": [
+      {
+        "mob": "FLOWER1",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "FLOWER1",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM4",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM5",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM6",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          150,
+          300
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGbl01AreaN03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11097,
+    "center_y": 11851,
+    "width": 798,
+    "height": 86,
+    "range_degree": 13,
+    "mobs": [
+      {
+        "mob": "MUSHROOM5",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM6",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB5",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB6",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          150,
+          300
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGbl01AreaN04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6476,
+    "center_y": 12035,
+    "width": 614,
+    "height": 149,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "HERB6",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM5",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM6",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB6",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          150,
+          300
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGbl01AreaN05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 920,
+    "center_y": 5082,
+    "width": 113,
+    "height": 1037,
+    "range_degree": 2,
+    "mobs": [
+      {
+        "mob": "WOOD4",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD5",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "FLOWER1",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "FLOWER1",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          150,
+          300
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGbl01AreaN06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2233,
+    "center_y": 2076,
+    "width": 1364,
+    "height": 142,
+    "range_degree": 33,
+    "mobs": [
+      {
+        "mob": "MUSHROOM4",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB4",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          150,
+          300
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGbl01AreaN07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10285,
+    "center_y": 2640,
+    "width": 0,
+    "height": 0,
+    "range_degree": 702,
+    "mobs": [
+      {
+        "mob": "HERB4",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB5",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB6",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM4",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM5",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM6",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          150,
+          300
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGbl01AreaN08": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10309,
+    "center_y": 5050,
+    "width": 179,
+    "height": 1038,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "HERB4",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB5",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB6",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM4",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM5",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM6",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          150,
+          300
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGbl01AreaN09": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10324,
+    "center_y": 10100,
+    "width": 0,
+    "height": 0,
+    "range_degree": 561,
+    "mobs": [
+      {
+        "mob": "HERB4",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB5",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB6",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM4",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM5",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM6",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          150,
+          300
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGbl01AreaN10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1226,
+    "center_y": 10623,
+    "width": 50,
+    "height": 878,
+    "range_degree": -6,
+    "mobs": [
+      {
+        "mob": "FLOWER1",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "FLOWER1",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD4",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD5",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          150,
+          300
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGbl01AreaN11": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4725,
+    "center_y": 7113,
+    "width": 295,
+    "height": 285,
+    "range_degree": 20,
+    "mobs": [
+      {
+        "mob": "GoblinCaptain",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGbl01AreaN12": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6362,
+    "center_y": 10425,
+    "width": 55,
+    "height": 798,
+    "range_degree": 90,
+    "mobs": [
+      {
+        "mob": "MUSHROOM4",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM5",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM6",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          150,
+          300
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGbl01AreaN13": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8680,
+    "center_y": 3616,
+    "width": 0,
+    "height": 0,
+    "range_degree": 568,
+    "mobs": [
+      {
+        "mob": "FLOWER1",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD6",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB6",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM6",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          150,
+          300
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGbl01AreaN14": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7129,
+    "center_y": 11791,
+    "width": 0,
+    "height": 0,
+    "range_degree": 540,
+    "mobs": [
+      {
+        "mob": "WereBear",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "GoblinMage",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGbl01AreaN15": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2027,
+    "center_y": 4942,
+    "width": 0,
+    "height": 0,
+    "range_degree": 933,
+    "mobs": [
+      {
+        "mob": "HERB4",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB5",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB6",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          150,
+          300
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGbl01AreaN16": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2138,
+    "center_y": 764,
+    "width": 88,
+    "height": 694,
+    "range_degree": 94,
+    "mobs": [
+      {
+        "mob": "HERB4",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB5",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM4",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM5",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          150,
+          300
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGbl01AreaN17": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2876,
+    "center_y": 11975,
+    "width": 971,
+    "height": 63,
+    "range_degree": 11,
+    "mobs": [
+      {
+        "mob": "MUSHROOM4",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM5",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM6",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          150,
+          300
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGbl01AreaN18": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8202,
+    "center_y": 11862,
+    "width": 732,
+    "height": 164,
+    "range_degree": 1,
+    "mobs": [
+      {
+        "mob": "MUSHROOM5",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB5",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 180,
+        "reg_min": 80,
+        "reg_max": 190,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          150,
+          300
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGb01AreaG1": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 2282,
+    "center_y": 11105,
+    "width": 0,
+    "height": 0,
+    "range_degree": 113,
+    "mobs": [
+      {
+        "mob": "S_WereBear",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 21600,
+        "reg_min": 21590,
+        "reg_max": 21610,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WereBear",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 21600,
+        "reg_min": 21590,
+        "reg_max": 21610,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGb01AreaPbox01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9439,
+    "center_y": 6447,
+    "width": 2586,
+    "height": 6086,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "PresentBox9",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 14400,
+        "reg_min": 14390,
+        "reg_max": 14410,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGbl01AreaQ01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8418,
+    "center_y": 7435,
+    "width": 0,
+    "height": 0,
+    "range_degree": 352,
+    "mobs": [
+      {
+        "mob": "Q_SandRatman",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 55,
+        "reg_min": 40,
+        "reg_max": 65,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGbl01AreaQ02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2098,
+    "center_y": 4917,
+    "width": 443,
+    "height": 1165,
+    "range_degree": 91,
+    "mobs": [
+      {
+        "mob": "Q_SandRatman",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 55,
+        "reg_min": 40,
+        "reg_max": 65,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGbl01AreaQ03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 963,
+    "center_y": 8324,
+    "width": 0,
+    "height": 0,
+    "range_degree": 442,
+    "mobs": [
+      {
+        "mob": "Q_SandRatman",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 55,
+        "reg_min": 40,
+        "reg_max": 65,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "GoblinMage",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGb01Area50": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1322,
+    "center_y": 9842,
+    "width": 0,
+    "height": 0,
+    "range_degree": 107,
+    "mobs": [
+      {
+        "mob": "MiniLips",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGb01Area51": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1784,
+    "center_y": 10140,
+    "width": 0,
+    "height": 0,
+    "range_degree": 100,
+    "mobs": [
+      {
+        "mob": "MiniLips",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGb01Area52": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3593,
+    "center_y": 11407,
+    "width": 0,
+    "height": 0,
+    "range_degree": 107,
+    "mobs": [
+      {
+        "mob": "MiniLips",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGb01Area53": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4149,
+    "center_y": 11787,
+    "width": 0,
+    "height": 0,
+    "range_degree": 107,
+    "mobs": [
+      {
+        "mob": "MiniLips",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGb01Area54": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3377,
+    "center_y": 12139,
+    "width": 0,
+    "height": 0,
+    "range_degree": 205,
+    "mobs": [
+      {
+        "mob": "MiniLips",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGb01Area55": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2693,
+    "center_y": 12240,
+    "width": 0,
+    "height": 0,
+    "range_degree": 121,
+    "mobs": [
+      {
+        "mob": "MiniLips",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGb01Area56": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1435,
+    "center_y": 10872,
+    "width": 0,
+    "height": 0,
+    "range_degree": 114,
+    "mobs": [
+      {
+        "mob": "MiniLips",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGb01Area57": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1029,
+    "center_y": 10421,
+    "width": 0,
+    "height": 0,
+    "range_degree": 205,
+    "mobs": [
+      {
+        "mob": "MiniLips",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGb01Area58": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1217,
+    "center_y": 11593,
+    "width": 0,
+    "height": 0,
+    "range_degree": 212,
+    "mobs": [
+      {
+        "mob": "MiniLips",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGb01Area59": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2116,
+    "center_y": 12061,
+    "width": 0,
+    "height": 0,
+    "range_degree": 205,
+    "mobs": [
+      {
+        "mob": "MiniLips",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGb01Area60": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1925,
+    "center_y": 5949,
+    "width": 0,
+    "height": 0,
+    "range_degree": 235,
+    "mobs": [
+      {
+        "mob": "SandMushroom",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGb01Area62": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1880,
+    "center_y": 9062,
+    "width": 0,
+    "height": 0,
+    "range_degree": 422,
+    "mobs": [
+      {
+        "mob": "SandMushroom",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "GoblinCaptain",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGb01Area63": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4086,
+    "center_y": 10703,
+    "width": 0,
+    "height": 0,
+    "range_degree": 415,
+    "mobs": [
+      {
+        "mob": "SandMushroom",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "GoblinCaptain",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGb01Area64": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3102,
+    "center_y": 10089,
+    "width": 0,
+    "height": 0,
+    "range_degree": 373,
+    "mobs": [
+      {
+        "mob": "SandMushroom",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "GoblinCaptain",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGb01Area65": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6530,
+    "center_y": 11398,
+    "width": 364,
+    "height": 68,
+    "range_degree": -4,
+    "mobs": [
+      {
+        "mob": "SandMushroom",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGb01Area66": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7945,
+    "center_y": 10998,
+    "width": 0,
+    "height": 0,
+    "range_degree": 205,
+    "mobs": [
+      {
+        "mob": "SandMushroom",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGbl01AreaPbox02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3789,
+    "center_y": 6353,
+    "width": 3168,
+    "height": 5968,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "PresentBox9",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 14400,
+        "reg_min": 14390,
+        "reg_max": 14410,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Qst01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10325,
+    "center_y": 4473,
+    "width": 2318,
+    "height": 753,
+    "range_degree": 89,
+    "mobs": [
+      {
+        "mob": "Q_GB_Mushroom",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Q_GB_Herb",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          150,
+          300
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Qst02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7615,
+    "center_y": 11090,
+    "width": 4335,
+    "height": 782,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "Q_GB_Mushroom",
+        "count": 7,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Q_GB_Herb",
+        "count": 7,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          150,
+          300
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGbl01Area67": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9400,
+    "center_y": 10680,
+    "width": 243,
+    "height": 168,
+    "range_degree": 37,
+    "mobs": [
+      {
+        "mob": "WereBear",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "GoblinMage",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGblArea68": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9030,
+    "center_y": 9150,
+    "width": 0,
+    "height": 0,
+    "range_degree": 359,
+    "mobs": [
+      {
+        "mob": "WereBear",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "GoblinMage",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGblArea69": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11437,
+    "center_y": 8480,
+    "width": 340,
+    "height": 172,
+    "range_degree": -52,
+    "mobs": [
+      {
+        "mob": "WereBear",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGblArea70": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9314,
+    "center_y": 1375,
+    "width": 0,
+    "height": 0,
+    "range_degree": 499,
+    "mobs": [
+      {
+        "mob": "Prock",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "GoblinSwordman",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGbl01Area70": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11299,
+    "center_y": 1601,
+    "width": 0,
+    "height": 0,
+    "range_degree": 520,
+    "mobs": [
+      {
+        "mob": "Prock",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "GoblinSwordman",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGbl01Area71": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3586,
+    "center_y": 10483,
+    "width": 873,
+    "height": 229,
+    "range_degree": -33,
+    "mobs": [
+      {
+        "mob": "GoblinMage",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGbl01Area72": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10289,
+    "center_y": 6207,
+    "width": 0,
+    "height": 0,
+    "range_degree": 373,
+    "mobs": [
+      {
+        "mob": "GoblinSwordman",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGbl01Area73": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8453,
+    "center_y": 11654,
+    "width": 0,
+    "height": 0,
+    "range_degree": 468,
+    "mobs": [
+      {
+        "mob": "WereBear",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "GoblinMage",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGbl01Area74": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11391,
+    "center_y": 11324,
+    "width": 0,
+    "height": 0,
+    "range_degree": 422,
+    "mobs": [
+      {
+        "mob": "WereBear",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "GoblinMage",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGbl01Area75": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11663,
+    "center_y": 9470,
+    "width": 0,
+    "height": 0,
+    "range_degree": 282,
+    "mobs": [
+      {
+        "mob": "GoblinSwordman",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WereBear",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGbl01Area76": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7332,
+    "center_y": 3562,
+    "width": 0,
+    "height": 0,
+    "range_degree": 471,
+    "mobs": [
+      {
+        "mob": "Goblin",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Prock",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGbl01Area77": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11359,
+    "center_y": 3438,
+    "width": 0,
+    "height": 0,
+    "range_degree": 478,
+    "mobs": [
+      {
+        "mob": "GoblinSwordman",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WereBear",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGbl01Area78": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11459,
+    "center_y": 4708,
+    "width": 0,
+    "height": 0,
+    "range_degree": 408,
+    "mobs": [
+      {
+        "mob": "GoblinSwordman",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldGbl01Area79": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5609,
+    "center_y": 5016,
+    "width": 0,
+    "height": 0,
+    "range_degree": 485,
+    "mobs": [
+      {
+        "mob": "Goblin",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Prock",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 30,
+        "reg_min": 15,
+        "reg_max": 40,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          10,
+          25,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  }
+}

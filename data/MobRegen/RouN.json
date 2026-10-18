@@ -1,0 +1,134 @@
+{
+  "XTree": {
+    "enabled": false,
+    "is_family": false,
+    "center_x": 5598,
+    "center_y": 5579,
+    "width": 52,
+    "height": 251,
+    "range_degree": 42,
+    "mobs": [
+      {
+        "mob": "ChristmasTree",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 20,
+        "reg_min": 18,
+        "reg_max": 22,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": false
+      }
+    ]
+  },
+  "Snow": {
+    "enabled": false,
+    "is_family": false,
+    "center_x": 7969,
+    "center_y": 5783,
+    "width": 52,
+    "height": 251,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "BH_SnowBall",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 10,
+        "reg_min": 5,
+        "reg_max": 15,
+        "deltas": [
+          -3,
+          -2,
+          5,
+          6,
+          0
+        ],
+        "delta_secs": [
+          7,
+          9,
+          15,
+          17
+        ],
+        "enabled": false
+      }
+    ]
+  },
+  "Snow1": {
+    "enabled": false,
+    "is_family": false,
+    "center_x": 4966,
+    "center_y": 5603,
+    "width": 52,
+    "height": 251,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "BH_SnowBall",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 10,
+        "reg_min": 5,
+        "reg_max": 15,
+        "deltas": [
+          -3,
+          -2,
+          5,
+          6,
+          0
+        ],
+        "delta_secs": [
+          7,
+          9,
+          15,
+          17
+        ],
+        "enabled": false
+      }
+    ]
+  },
+  "Snow2": {
+    "enabled": false,
+    "is_family": false,
+    "center_x": 7636,
+    "center_y": 7608,
+    "width": 52,
+    "height": 251,
+    "range_degree": 300,
+    "mobs": [
+      {
+        "mob": "BH_SnowBall",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 10,
+        "reg_min": 5,
+        "reg_max": 15,
+        "deltas": [
+          -3,
+          -2,
+          5,
+          6,
+          0
+        ],
+        "delta_secs": [
+          7,
+          9,
+          15,
+          17
+        ],
+        "enabled": false
+      }
+    ]
+  }
+}

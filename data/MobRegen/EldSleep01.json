@@ -1,0 +1,3258 @@
+{
+  "EldSleep01_01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11496,
+    "center_y": 10735,
+    "width": 213,
+    "height": 522,
+    "range_degree": -49,
+    "mobs": [
+      {
+        "mob": "SpadeGuardTrumpy",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldSleep01_02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13470,
+    "center_y": 8332,
+    "width": 830,
+    "height": 149,
+    "range_degree": 178,
+    "mobs": [
+      {
+        "mob": "SpadeGuardTrumpy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "OrcCaptain",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldSleep01_03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11791,
+    "center_y": 9696,
+    "width": 288,
+    "height": 532,
+    "range_degree": 178,
+    "mobs": [
+      {
+        "mob": "SpadeGuardTrumpy",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldSleep01_04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11657,
+    "center_y": 7787,
+    "width": 0,
+    "height": 0,
+    "range_degree": 920,
+    "mobs": [
+      {
+        "mob": "OrcCaptain",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "SpadeGuardTrumpy",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldSleep01_05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13592,
+    "center_y": 7576,
+    "width": 924,
+    "height": 517,
+    "range_degree": -1,
+    "mobs": [
+      {
+        "mob": "SpadeGuardTrumpy",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "OrcCaptain",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldSleep01_06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9935,
+    "center_y": 14969,
+    "width": 750,
+    "height": 431,
+    "range_degree": -17,
+    "mobs": [
+      {
+        "mob": "GreedyLizardMan",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "NaiadDemon",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "BlueArchon",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldSleep01_07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13624,
+    "center_y": 9013,
+    "width": 0,
+    "height": 0,
+    "range_degree": 496,
+    "mobs": [
+      {
+        "mob": "SpadeGuardTrumpy",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "OrcCaptain",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldSleep01_08": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10198,
+    "center_y": 13507,
+    "width": 1166,
+    "height": 148,
+    "range_degree": 49,
+    "mobs": [
+      {
+        "mob": "GreedyLizardMan",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "NaiadDemon",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldSleep01_09": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9187,
+    "center_y": 15948,
+    "width": 487,
+    "height": 717,
+    "range_degree": -14,
+    "mobs": [
+      {
+        "mob": "NaiadDemon",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "GreedyLizardMan",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "BlueArchon",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldSleep01_10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8783,
+    "center_y": 17232,
+    "width": 543,
+    "height": 511,
+    "range_degree": 71,
+    "mobs": [
+      {
+        "mob": "GreedyLizardMan",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "NaiadDemon",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldSleep01_11": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8014,
+    "center_y": 16087,
+    "width": 297,
+    "height": 929,
+    "range_degree": -2,
+    "mobs": [
+      {
+        "mob": "Shylph",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldSleep01_12": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14173,
+    "center_y": 8681,
+    "width": 0,
+    "height": 0,
+    "range_degree": 91,
+    "mobs": [
+      {
+        "mob": "OrcCaptain",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldSleep01_13": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14334,
+    "center_y": 11960,
+    "width": 0,
+    "height": 0,
+    "range_degree": 606,
+    "mobs": [
+      {
+        "mob": "AncientStonie",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "ElfKnightDemon",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldSleep01_14": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14362,
+    "center_y": 13863,
+    "width": 192,
+    "height": 555,
+    "range_degree": 48,
+    "mobs": [
+      {
+        "mob": "AncientStonie",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldSleep01_15": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13373,
+    "center_y": 11578,
+    "width": 1029,
+    "height": 301,
+    "range_degree": 36,
+    "mobs": [
+      {
+        "mob": "AncientStonie",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "ElfKnightDemon",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldSleep01_16": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13316,
+    "center_y": 12838,
+    "width": 0,
+    "height": 0,
+    "range_degree": 695,
+    "mobs": [
+      {
+        "mob": "AncientStonie",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "ElfKnightDemon",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldSleep01_17": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8155,
+    "center_y": 12965,
+    "width": 0,
+    "height": 0,
+    "range_degree": 767,
+    "mobs": [
+      {
+        "mob": "Shylph",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "RedShylph",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldSleep01_18": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7899,
+    "center_y": 14449,
+    "width": 666,
+    "height": 588,
+    "range_degree": 84,
+    "mobs": [
+      {
+        "mob": "Shylph",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "RedShylph",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "BlueArchon",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldSleep01_19": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10010,
+    "center_y": 11904,
+    "width": 260,
+    "height": 1170,
+    "range_degree": 128,
+    "mobs": [
+      {
+        "mob": "Shylph",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "RedShylph",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldSleep01_20": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11435,
+    "center_y": 14131,
+    "width": 561,
+    "height": 564,
+    "range_degree": 37,
+    "mobs": [
+      {
+        "mob": "OldArchon",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "DiaTrumpy",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldSleep01_21": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11279,
+    "center_y": 18209,
+    "width": 675,
+    "height": 934,
+    "range_degree": -41,
+    "mobs": [
+      {
+        "mob": "DiaTrumpy",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "OldArchon",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldSleep01_22": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 17563,
+    "center_y": 13960,
+    "width": 239,
+    "height": 1013,
+    "range_degree": 159,
+    "mobs": [
+      {
+        "mob": "ElfKnightDemon",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "SpadeTrumpy",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldSleep01_23": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10155,
+    "center_y": 17768,
+    "width": 294,
+    "height": 675,
+    "range_degree": -5,
+    "mobs": [
+      {
+        "mob": "OldArchon",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "DiaTrumpy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldSleep01_24": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13776,
+    "center_y": 15617,
+    "width": 1003,
+    "height": 750,
+    "range_degree": -16,
+    "mobs": [
+      {
+        "mob": "SpadeTrumpy",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "ElfKnightDemon",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldSleep01_25": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 16671,
+    "center_y": 15305,
+    "width": 1014,
+    "height": 389,
+    "range_degree": 169,
+    "mobs": [
+      {
+        "mob": "ElfKnightDemon",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "SpadeTrumpy",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldSleep01_26": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10130,
+    "center_y": 16574,
+    "width": 61,
+    "height": 554,
+    "range_degree": -18,
+    "mobs": [
+      {
+        "mob": "DiaTrumpy",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "OldArchon",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldSleep01_27": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 16165,
+    "center_y": 16277,
+    "width": 558,
+    "height": 1316,
+    "range_degree": 79,
+    "mobs": [
+      {
+        "mob": "SpadeTrumpy",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "ElfKnightDemon",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldSleep01_28": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11852,
+    "center_y": 16588,
+    "width": 203,
+    "height": 675,
+    "range_degree": -30,
+    "mobs": [
+      {
+        "mob": "OldArchon",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "DiaTrumpy",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldSleep01_29": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 17277,
+    "center_y": 11379,
+    "width": 256,
+    "height": 645,
+    "range_degree": 6,
+    "mobs": [
+      {
+        "mob": "LizardManKnight",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "JokerTrumpy",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldSleep01_30": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 17683,
+    "center_y": 9971,
+    "width": 254,
+    "height": 577,
+    "range_degree": 39,
+    "mobs": [
+      {
+        "mob": "LizardManKnight",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "JokerTrumpy",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldSleep01_31": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 16768,
+    "center_y": 8715,
+    "width": 108,
+    "height": 310,
+    "range_degree": -23,
+    "mobs": [
+      {
+        "mob": "LizardManKnight",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldSleep01_32": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15882,
+    "center_y": 11647,
+    "width": 522,
+    "height": 324,
+    "range_degree": 101,
+    "mobs": [
+      {
+        "mob": "LizardManKnight",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "JokerTrumpy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldSleep01_33": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 16158,
+    "center_y": 10712,
+    "width": 282,
+    "height": 68,
+    "range_degree": 84,
+    "mobs": [
+      {
+        "mob": "LizardManKnight",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldSleep01_34": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15429,
+    "center_y": 10332,
+    "width": 238,
+    "height": 834,
+    "range_degree": 27,
+    "mobs": [
+      {
+        "mob": "LizardManKnight",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "JokerTrumpy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldSleep01_35": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 16301,
+    "center_y": 9445,
+    "width": 0,
+    "height": 0,
+    "range_degree": 488,
+    "mobs": [
+      {
+        "mob": "JokerTrumpy",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "LizardManKnight",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldSleep01_36": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15729,
+    "center_y": 8340,
+    "width": 852,
+    "height": 189,
+    "range_degree": 58,
+    "mobs": [
+      {
+        "mob": "WhiteJokerTrumpy",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "LizardManKnight",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldSleep0001": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 12998,
+    "center_y": 10250,
+    "width": 3498,
+    "height": 5829,
+    "range_degree": 87,
+    "mobs": [
+      {
+        "mob": "PresentBox15",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 14400,
+        "reg_min": 14385,
+        "reg_max": 14415,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldSleep002": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 12748,
+    "center_y": 16343,
+    "width": 2653,
+    "height": 5989,
+    "range_degree": 87,
+    "mobs": [
+      {
+        "mob": "PresentBox15",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 14400,
+        "reg_min": 14385,
+        "reg_max": 14415,
+        "deltas": [
+          -15,
+          -10,
+          0,
+          10,
+          15
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldSleep003": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 12725,
+    "center_y": 7757,
+    "width": 1656,
+    "height": 603,
+    "range_degree": -2,
+    "mobs": [
+      {
+        "mob": "MUSHROOM7",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM8",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM9",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB7",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB8",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB9",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldSleep004": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8653,
+    "center_y": 15105,
+    "width": 1432,
+    "height": 1129,
+    "range_degree": 172,
+    "mobs": [
+      {
+        "mob": "MUSHROOM7",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM8",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM9",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB7",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB8",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB9",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldSleep005": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 11174,
+    "center_y": 18150,
+    "width": 295,
+    "height": 737,
+    "range_degree": -40,
+    "mobs": [
+      {
+        "mob": "WOOD7",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD8",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD9",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldSleep006": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8917,
+    "center_y": 13012,
+    "width": 1357,
+    "height": 914,
+    "range_degree": 172,
+    "mobs": [
+      {
+        "mob": "MUSHROOM7",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM8",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM9",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB7",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB8",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB9",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldSleep007": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 12597,
+    "center_y": 10721,
+    "width": 116,
+    "height": 1393,
+    "range_degree": -33,
+    "mobs": [
+      {
+        "mob": "MUSHROOM7",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM8",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM9",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB7",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB8",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB9",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "GreedyLizardMan",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "BlueArchon",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldSleep008": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 13416,
+    "center_y": 15557,
+    "width": 0,
+    "height": 0,
+    "range_degree": 1144,
+    "mobs": [
+      {
+        "mob": "WOOD7",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD8",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD9",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldSleep009": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 16703,
+    "center_y": 15439,
+    "width": 735,
+    "height": 1750,
+    "range_degree": -48,
+    "mobs": [
+      {
+        "mob": "WOOD7",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD8",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD9",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldSleep010": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 15860,
+    "center_y": 9874,
+    "width": 709,
+    "height": 2329,
+    "range_degree": -1,
+    "mobs": [
+      {
+        "mob": "WOOD7",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD8",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "WOOD9",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB7",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB8",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HERB9",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM7",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM8",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "MUSHROOM9",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "S_GaintStone01": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 13982,
+    "center_y": 10449,
+    "width": 255,
+    "height": 524,
+    "range_degree": 5,
+    "mobs": [
+      {
+        "mob": "S_Stonie",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 21600,
+        "reg_min": 21590,
+        "reg_max": 21610,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Stonie",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 21600,
+        "reg_min": 21590,
+        "reg_max": 21610,
+        "deltas": [
+          -10,
+          -5,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "EldSleep110": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 15244,
+    "center_y": 12941,
+    "width": 0,
+    "height": 0,
+    "range_degree": 337,
+    "mobs": [
+      {
+        "mob": "LegendaryTree",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "GiantElvenTree",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Waypoint01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 12316,
+    "center_y": 7185,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "BlueArchon",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Waypoint02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10844,
+    "center_y": 11320,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "BlueArchon",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 300,
+        "reg_min": 200,
+        "reg_max": 310,
+        "deltas": [
+          -100,
+          -50,
+          0,
+          5,
+          10
+        ],
+        "delta_secs": [
+          5,
+          15,
+          150,
+          300
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Waypoint03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 17600,
+    "center_y": 9955,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "LizardManKnight",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "Waypoint04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 17512,
+    "center_y": 11632,
+    "width": 0,
+    "height": 0,
+    "range_degree": 420,
+    "mobs": [
+      {
+        "mob": "LizardManKnight",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 25,
+        "reg_min": 23,
+        "reg_max": 27,
+        "deltas": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "delta_secs": [
+          8,
+          15,
+          60,
+          120
+        ],
+        "enabled": true
+      }
+    ]
+  }
+}

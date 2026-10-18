@@ -1,0 +1,3125 @@
+{
+  "1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4252,
+    "center_y": 12635,
+    "width": 0,
+    "height": 0,
+    "range_degree": 2000,
+    "mobs": [
+      {
+        "mob": "FogViVi",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 296,
+        "reg_min": 304,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "FogBat",
+        "count": 7,
+        "kill_num": 0,
+        "reg_standard": 296,
+        "reg_min": 304,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HungryZombie",
+        "count": 7,
+        "kill_num": 0,
+        "reg_standard": 296,
+        "reg_min": 304,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "2": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3926,
+    "center_y": 5594,
+    "width": 0,
+    "height": 0,
+    "range_degree": 1200,
+    "mobs": [
+      {
+        "mob": "FogBat",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 296,
+        "reg_min": 304,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HungryZombie",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 296,
+        "reg_min": 304,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "2a": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4843,
+    "center_y": 6462,
+    "width": 0,
+    "height": 0,
+    "range_degree": 1200,
+    "mobs": [
+      {
+        "mob": "FogBat",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 296,
+        "reg_min": 304,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HungryZombie",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 296,
+        "reg_min": 304,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "2b": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6372,
+    "center_y": 6996,
+    "width": 0,
+    "height": 0,
+    "range_degree": 1200,
+    "mobs": [
+      {
+        "mob": "FogBat",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 296,
+        "reg_min": 304,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HungryZombie",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 296,
+        "reg_min": 304,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "3": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 12532,
+    "center_y": 4292,
+    "width": 0,
+    "height": 0,
+    "range_degree": 1408,
+    "mobs": [
+      {
+        "mob": "FogBat",
+        "count": 7,
+        "kill_num": 0,
+        "reg_standard": 296,
+        "reg_min": 304,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "VampireViVi",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 296,
+        "reg_min": 304,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HungryZombie",
+        "count": 7,
+        "kill_num": 0,
+        "reg_standard": 296,
+        "reg_min": 304,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "4": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3327,
+    "center_y": 22636,
+    "width": 0,
+    "height": 0,
+    "range_degree": 2000,
+    "mobs": [
+      {
+        "mob": "FogNepilim",
+        "count": 11,
+        "kill_num": 0,
+        "reg_standard": 296,
+        "reg_min": 304,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Ape",
+        "count": 11,
+        "kill_num": 0,
+        "reg_standard": 296,
+        "reg_min": 304,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "5": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7349,
+    "center_y": 17291,
+    "width": 0,
+    "height": 0,
+    "range_degree": 2014,
+    "mobs": [
+      {
+        "mob": "VampireViVi",
+        "count": 7,
+        "kill_num": 0,
+        "reg_standard": 296,
+        "reg_min": 304,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "FogWeasel",
+        "count": 7,
+        "kill_num": 0,
+        "reg_standard": 296,
+        "reg_min": 304,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "7": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 16086,
+    "center_y": 7477,
+    "width": 0,
+    "height": 0,
+    "range_degree": 700,
+    "mobs": [
+      {
+        "mob": "FogNepilim",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 296,
+        "reg_min": 304,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "FogWeasel",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 296,
+        "reg_min": 304,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "7a": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 16922,
+    "center_y": 6044,
+    "width": 0,
+    "height": 0,
+    "range_degree": 700,
+    "mobs": [
+      {
+        "mob": "FogNepilim",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 296,
+        "reg_min": 304,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "FogWeasel",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 296,
+        "reg_min": 304,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "7b": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 18033,
+    "center_y": 7520,
+    "width": 0,
+    "height": 0,
+    "range_degree": 700,
+    "mobs": [
+      {
+        "mob": "FogNepilim",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 296,
+        "reg_min": 304,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "FogWeasel",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 296,
+        "reg_min": 304,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "8": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 21587,
+    "center_y": 2964,
+    "width": 0,
+    "height": 0,
+    "range_degree": 2200,
+    "mobs": [
+      {
+        "mob": "FogNepilim",
+        "count": 15,
+        "kill_num": 0,
+        "reg_standard": 296,
+        "reg_min": 304,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "LeoPard",
+        "count": 15,
+        "kill_num": 0,
+        "reg_standard": 296,
+        "reg_min": 304,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "9": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6895,
+    "center_y": 23510,
+    "width": 0,
+    "height": 0,
+    "range_degree": 700,
+    "mobs": [
+      {
+        "mob": "BloodShadow",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 296,
+        "reg_min": 304,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "FogNepilim",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 296,
+        "reg_min": 304,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "9a": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7797,
+    "center_y": 22190,
+    "width": 0,
+    "height": 0,
+    "range_degree": 700,
+    "mobs": [
+      {
+        "mob": "FogWeasel",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 296,
+        "reg_min": 304,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "FogNepilim",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 296,
+        "reg_min": 304,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "9b": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8988,
+    "center_y": 23429,
+    "width": 0,
+    "height": 0,
+    "range_degree": 700,
+    "mobs": [
+      {
+        "mob": "BloodShadow",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 296,
+        "reg_min": 304,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "FogNepilim",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 296,
+        "reg_min": 304,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 12071,
+    "center_y": 20969,
+    "width": 0,
+    "height": 0,
+    "range_degree": 1105,
+    "mobs": [
+      {
+        "mob": "FogViVi",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 296,
+        "reg_min": 304,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "FogNepilim",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 296,
+        "reg_min": 304,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "BloodShadow",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 296,
+        "reg_min": 304,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "11": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 16299,
+    "center_y": 14938,
+    "width": 0,
+    "height": 0,
+    "range_degree": 610,
+    "mobs": [
+      {
+        "mob": "BloodShadow",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 296,
+        "reg_min": 304,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "DarkShadow",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 296,
+        "reg_min": 304,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "FogNepilim",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 296,
+        "reg_min": 304,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "VampireViVi",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 296,
+        "reg_min": 304,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "FogWeasel",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 296,
+        "reg_min": 304,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "12": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 19793,
+    "center_y": 12531,
+    "width": 0,
+    "height": 0,
+    "range_degree": 933,
+    "mobs": [
+      {
+        "mob": "FogViVi",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 296,
+        "reg_min": 304,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "FogNepilim",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 296,
+        "reg_min": 304,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "DarkShadow",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 296,
+        "reg_min": 304,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "13": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 22504,
+    "center_y": 8024,
+    "width": 0,
+    "height": 0,
+    "range_degree": 1586,
+    "mobs": [
+      {
+        "mob": "FogWeasel",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 296,
+        "reg_min": 304,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "VampireViVi",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 296,
+        "reg_min": 304,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "BloodShadow",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 296,
+        "reg_min": 304,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "VampireViVi",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 296,
+        "reg_min": 304,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "14": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 22940,
+    "center_y": 12719,
+    "width": 0,
+    "height": 0,
+    "range_degree": 1000,
+    "mobs": [
+      {
+        "mob": "FogViVi",
+        "count": 10,
+        "kill_num": 0,
+        "reg_standard": 296,
+        "reg_min": 304,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "FogBat",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 296,
+        "reg_min": 304,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "HungryZombie",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 296,
+        "reg_min": 304,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "15": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14822,
+    "center_y": 23017,
+    "width": 0,
+    "height": 0,
+    "range_degree": 1196,
+    "mobs": [
+      {
+        "mob": "FogBat",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 296,
+        "reg_min": 304,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "FogViVi",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 296,
+        "reg_min": 304,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "15a": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14966,
+    "center_y": 23158,
+    "width": 0,
+    "height": 0,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "KillerHide",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 3395,
+        "reg_min": 3615,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "16": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 18368,
+    "center_y": 17735,
+    "width": 0,
+    "height": 0,
+    "range_degree": 1148,
+    "mobs": [
+      {
+        "mob": "FogNepilim",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 296,
+        "reg_min": 304,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "FogLence",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 296,
+        "reg_min": 304,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "16a": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 18435,
+    "center_y": 17838,
+    "width": 0,
+    "height": 0,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "Silberk",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 3395,
+        "reg_min": 3615,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "17": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 23591,
+    "center_y": 15351,
+    "width": 0,
+    "height": 0,
+    "range_degree": 1015,
+    "mobs": [
+      {
+        "mob": "FogBat",
+        "count": 10,
+        "kill_num": 0,
+        "reg_standard": 296,
+        "reg_min": 304,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "FogBat",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 296,
+        "reg_min": 304,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "VampireViVi",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 296,
+        "reg_min": 304,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "17a": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 23306,
+    "center_y": 15406,
+    "width": 0,
+    "height": 0,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "BloodVampire",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 3395,
+        "reg_min": 3615,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "18": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 19884,
+    "center_y": 22857,
+    "width": 0,
+    "height": 0,
+    "range_degree": 1189,
+    "mobs": [
+      {
+        "mob": "HungryZombie",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 296,
+        "reg_min": 304,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "18a": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 21921,
+    "center_y": 23591,
+    "width": 0,
+    "height": 0,
+    "range_degree": 1259,
+    "mobs": [
+      {
+        "mob": "HungryZombie",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 296,
+        "reg_min": 304,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "18b": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 23963,
+    "center_y": 21860,
+    "width": 0,
+    "height": 0,
+    "range_degree": 1112,
+    "mobs": [
+      {
+        "mob": "HungryZombie",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 296,
+        "reg_min": 304,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "18c": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 22478,
+    "center_y": 22275,
+    "width": 0,
+    "height": 0,
+    "range_degree": 1070,
+    "mobs": [
+      {
+        "mob": "HungryZombie",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 296,
+        "reg_min": 304,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "18d": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2004,
+    "center_y": 2040,
+    "width": 0,
+    "height": 0,
+    "range_degree": 607,
+    "mobs": [
+      {
+        "mob": "HungryZombie",
+        "count": 7,
+        "kill_num": 0,
+        "reg_standard": 296,
+        "reg_min": 304,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "19": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 21196,
+    "center_y": 21023,
+    "width": 0,
+    "height": 0,
+    "range_degree": 1308,
+    "mobs": [
+      {
+        "mob": "HungryZombie",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 296,
+        "reg_min": 304,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "19a": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 23286,
+    "center_y": 19415,
+    "width": 0,
+    "height": 0,
+    "range_degree": 1168,
+    "mobs": [
+      {
+        "mob": "HungryZombie",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 296,
+        "reg_min": 304,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "21": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 23884,
+    "center_y": 23541,
+    "width": 0,
+    "height": 0,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "Karen",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 86395,
+        "reg_min": 86405,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          5
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "Firepamelia",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 3395,
+        "reg_min": 3615,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "21a": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 23702,
+    "center_y": 23362,
+    "width": 0,
+    "height": 0,
+    "range_degree": 0,
+    "mobs": []
+  },
+  "21b": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 23708,
+    "center_y": 23708,
+    "width": 0,
+    "height": 0,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "IncubusAgole",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 3395,
+        "reg_min": 3615,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "21c": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 24046,
+    "center_y": 23349,
+    "width": 0,
+    "height": 0,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "IncubusRock",
+        "count": 1,
+        "kill_num": 1,
+        "reg_standard": 3395,
+        "reg_min": 3615,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          1
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "totem1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14900,
+    "center_y": 23100,
+    "width": 0,
+    "height": 0,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "FireTotem",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 4,
+        "reg_min": 6,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "totem2": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 18400,
+    "center_y": 17800,
+    "width": 0,
+    "height": 0,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "FireTotem",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 4,
+        "reg_min": 6,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "totem3": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 23700,
+    "center_y": 15300,
+    "width": 0,
+    "height": 0,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "FireTotem",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 4,
+        "reg_min": 6,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "totemA": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 22197,
+    "center_y": 21871,
+    "width": 0,
+    "height": 0,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "FireTotem",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 4,
+        "reg_min": 6,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "totemB": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 22119,
+    "center_y": 23443,
+    "width": 0,
+    "height": 0,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "FireTotem",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 4,
+        "reg_min": 6,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "totemC": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 23735,
+    "center_y": 21727,
+    "width": 0,
+    "height": 0,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "FireTotem",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 4,
+        "reg_min": 6,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "totemD": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 20297,
+    "center_y": 23389,
+    "width": 0,
+    "height": 0,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "FireTotem",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 4,
+        "reg_min": 6,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "totemE": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 23342,
+    "center_y": 20176,
+    "width": 0,
+    "height": 0,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "FireTotem",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 4,
+        "reg_min": 6,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "totemF": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 24391,
+    "center_y": 24053,
+    "width": 0,
+    "height": 0,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "FireTotem",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 4,
+        "reg_min": 6,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "path1": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4184,
+    "center_y": 9452,
+    "width": 0,
+    "height": 0,
+    "range_degree": 500,
+    "mobs": [
+      {
+        "mob": "VampireViVi",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 296,
+        "reg_min": 304,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "path2": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9235,
+    "center_y": 4429,
+    "width": 0,
+    "height": 0,
+    "range_degree": 500,
+    "mobs": [
+      {
+        "mob": "FogBat",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 296,
+        "reg_min": 304,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "path3": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4555,
+    "center_y": 19607,
+    "width": 0,
+    "height": 0,
+    "range_degree": 500,
+    "mobs": [
+      {
+        "mob": "FogViVi",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 296,
+        "reg_min": 304,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "path4": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7922,
+    "center_y": 20154,
+    "width": 0,
+    "height": 0,
+    "range_degree": 500,
+    "mobs": [
+      {
+        "mob": "DarkShadow",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 296,
+        "reg_min": 304,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "FogBat",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 296,
+        "reg_min": 304,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "path5": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 19047,
+    "center_y": 4639,
+    "width": 0,
+    "height": 0,
+    "range_degree": 500,
+    "mobs": [
+      {
+        "mob": "BloodShadow",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 296,
+        "reg_min": 304,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "FogBat",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 296,
+        "reg_min": 304,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "path6": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9130,
+    "center_y": 14217,
+    "width": 0,
+    "height": 0,
+    "range_degree": 500,
+    "mobs": [
+      {
+        "mob": "VampireViVi",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 296,
+        "reg_min": 304,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "path7": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14037,
+    "center_y": 9087,
+    "width": 0,
+    "height": 0,
+    "range_degree": 500,
+    "mobs": [
+      {
+        "mob": "FogViVi",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 296,
+        "reg_min": 304,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "path8": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 14071,
+    "center_y": 13707,
+    "width": 0,
+    "height": 0,
+    "range_degree": 500,
+    "mobs": [
+      {
+        "mob": "FogNepilim",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 296,
+        "reg_min": 304,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          4
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AdlThornR01": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 15807,
+    "center_y": 15028,
+    "width": 0,
+    "height": 0,
+    "range_degree": 10,
+    "mobs": [
+      {
+        "mob": "FogNepilim",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 597,
+        "reg_min": 602,
+        "reg_max": 0,
+        "deltas": [
+          60,
+          120,
+          180,
+          240,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          150,
+          300
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AdlThornR02": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 11501,
+    "center_y": 21668,
+    "width": 0,
+    "height": 0,
+    "range_degree": 10,
+    "mobs": [
+      {
+        "mob": "VampireViVi",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 597,
+        "reg_min": 602,
+        "reg_max": 0,
+        "deltas": [
+          60,
+          120,
+          180,
+          240,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          150,
+          300
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AdlThornR03": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 5167,
+    "center_y": 11968,
+    "width": 0,
+    "height": 0,
+    "range_degree": 10,
+    "mobs": [
+      {
+        "mob": "FogViVi",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 597,
+        "reg_min": 602,
+        "reg_max": 0,
+        "deltas": [
+          60,
+          120,
+          180,
+          240,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          150,
+          300
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AdlThornR04": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 11760,
+    "center_y": 4290,
+    "width": 0,
+    "height": 0,
+    "range_degree": 10,
+    "mobs": [
+      {
+        "mob": "VampireViVi",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 597,
+        "reg_min": 602,
+        "reg_max": 0,
+        "deltas": [
+          60,
+          120,
+          180,
+          240,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          150,
+          300
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AdlThornR05": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 15748,
+    "center_y": 5772,
+    "width": 0,
+    "height": 0,
+    "range_degree": 10,
+    "mobs": [
+      {
+        "mob": "FogViVi",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 597,
+        "reg_min": 602,
+        "reg_max": 0,
+        "deltas": [
+          60,
+          120,
+          180,
+          240,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          150,
+          300
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AdlThornR06": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 22032,
+    "center_y": 23310,
+    "width": 0,
+    "height": 0,
+    "range_degree": 10,
+    "mobs": [
+      {
+        "mob": "IncubusRock",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 3395,
+        "reg_min": 3615,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AdlThornR07": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 22032,
+    "center_y": 23310,
+    "width": 0,
+    "height": 0,
+    "range_degree": 10,
+    "mobs": [
+      {
+        "mob": "Firepamelia",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 3395,
+        "reg_min": 3615,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AdlThornR08": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 22032,
+    "center_y": 23310,
+    "width": 0,
+    "height": 0,
+    "range_degree": 10,
+    "mobs": [
+      {
+        "mob": "IncubusAgole",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 3395,
+        "reg_min": 3615,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AdlThornR09": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 19672,
+    "center_y": 22729,
+    "width": 0,
+    "height": 0,
+    "range_degree": 10,
+    "mobs": [
+      {
+        "mob": "IncubusRock",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 3395,
+        "reg_min": 3615,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AdlThornR10": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 19672,
+    "center_y": 22729,
+    "width": 0,
+    "height": 0,
+    "range_degree": 10,
+    "mobs": [
+      {
+        "mob": "IncubusAgole",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 3395,
+        "reg_min": 3615,
+        "reg_max": 0,
+        "deltas": [
+          5,
+          8,
+          10,
+          13,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          2,
+          5
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AdlThornR11": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 15092,
+    "center_y": 15565,
+    "width": 0,
+    "height": 0,
+    "range_degree": 10,
+    "mobs": [
+      {
+        "mob": "FogNepilim",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 597,
+        "reg_min": 602,
+        "reg_max": 0,
+        "deltas": [
+          60,
+          120,
+          180,
+          240,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "FogLence",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 597,
+        "reg_min": 602,
+        "reg_max": 0,
+        "deltas": [
+          60,
+          120,
+          180,
+          240,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          150,
+          300
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "AdlThornR12": {
+    "enabled": true,
+    "is_family": true,
+    "center_x": 16045,
+    "center_y": 15078,
+    "width": 0,
+    "height": 0,
+    "range_degree": 10,
+    "mobs": [
+      {
+        "mob": "FogNepilim",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 597,
+        "reg_min": 602,
+        "reg_max": 0,
+        "deltas": [
+          60,
+          120,
+          180,
+          240,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          150,
+          300
+        ],
+        "enabled": true
+      },
+      {
+        "mob": "FogLence",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 597,
+        "reg_min": 602,
+        "reg_max": 0,
+        "deltas": [
+          60,
+          120,
+          180,
+          240,
+          0
+        ],
+        "delta_secs": [
+          0,
+          0,
+          150,
+          300
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "30": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 24524,
+    "center_y": 24206,
+    "width": 0,
+    "height": 0,
+    "range_degree": 303,
+    "mobs": [
+      {
+        "mob": "HungryZombie",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 296,
+        "reg_min": 304,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "31": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 23221,
+    "center_y": 24285,
+    "width": 0,
+    "height": 0,
+    "range_degree": 275,
+    "mobs": [
+      {
+        "mob": "HungryZombie",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 296,
+        "reg_min": 304,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "32": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 24752,
+    "center_y": 22936,
+    "width": 0,
+    "height": 0,
+    "range_degree": 289,
+    "mobs": [
+      {
+        "mob": "HungryZombie",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 296,
+        "reg_min": 304,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "33": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 22983,
+    "center_y": 23527,
+    "width": 0,
+    "height": 0,
+    "range_degree": 261,
+    "mobs": [
+      {
+        "mob": "HungryZombie",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 296,
+        "reg_min": 304,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "34": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 23998,
+    "center_y": 22687,
+    "width": 0,
+    "height": 0,
+    "range_degree": 289,
+    "mobs": [
+      {
+        "mob": "HungryZombie",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 296,
+        "reg_min": 304,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,266 @@
+{
+  "B_CrackerHumar": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3274,
+    "center_y": 3771,
+    "width": 0,
+    "height": 0,
+    "range_degree": 23,
+    "mobs": [
+      {
+        "mob": "B_CrackerHumar",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 43200,
+        "reg_min": 43150,
+        "reg_max": 43250,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "B_CrackerLooter": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4380,
+    "center_y": 3570,
+    "width": 0,
+    "height": 0,
+    "range_degree": 15,
+    "mobs": [
+      {
+        "mob": "B_CrackerLooter",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 43200,
+        "reg_min": 43150,
+        "reg_max": 43250,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "B_CrackerGuardian": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 1728,
+    "center_y": 2332,
+    "width": 0,
+    "height": 0,
+    "range_degree": 15,
+    "mobs": [
+      {
+        "mob": "B_CrackerGuardian",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 43200,
+        "reg_min": 43150,
+        "reg_max": 43250,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "B_CrackerKeeper_01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3016,
+    "center_y": 2427,
+    "width": 0,
+    "height": 0,
+    "range_degree": 32,
+    "mobs": [
+      {
+        "mob": "B_CrackerKeeper",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 43200,
+        "reg_min": 43150,
+        "reg_max": 43250,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "B_CrackerKeeper_02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2912,
+    "center_y": 2807,
+    "width": 0,
+    "height": 0,
+    "range_degree": 32,
+    "mobs": [
+      {
+        "mob": "B_CrackerKeeper",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 43200,
+        "reg_min": 43150,
+        "reg_max": 43250,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "B_CrackerKeeper_03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 3399,
+    "center_y": 2436,
+    "width": 0,
+    "height": 0,
+    "range_degree": 32,
+    "mobs": [
+      {
+        "mob": "B_CrackerKeeper",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 43200,
+        "reg_min": 43150,
+        "reg_max": 43250,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "B_CrackerKeeper_04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 2472,
+    "center_y": 2896,
+    "width": 0,
+    "height": 0,
+    "range_degree": 32,
+    "mobs": [
+      {
+        "mob": "B_CrackerKeeper",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 43200,
+        "reg_min": 43150,
+        "reg_max": 43250,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "B_CrackerKeeper_05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4305,
+    "center_y": 2619,
+    "width": 0,
+    "height": 0,
+    "range_degree": 32,
+    "mobs": [
+      {
+        "mob": "B_CrackerKeeper",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 43200,
+        "reg_min": 43150,
+        "reg_max": 43250,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  }
+}

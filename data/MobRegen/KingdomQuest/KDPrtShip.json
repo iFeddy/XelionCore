@@ -1,0 +1,1751 @@
+{
+  "KDPrtShipArea01": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10581,
+    "center_y": 8082,
+    "width": 231,
+    "height": 209,
+    "range_degree": 82,
+    "mobs": [
+      {
+        "mob": "KQ_Boogy",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDPrtShipArea02": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10480,
+    "center_y": 8632,
+    "width": 205,
+    "height": 226,
+    "range_degree": 7,
+    "mobs": [
+      {
+        "mob": "KQ_Boogy",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDPrtShipArea03": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 10232,
+    "center_y": 7963,
+    "width": 297,
+    "height": 139,
+    "range_degree": -1,
+    "mobs": [
+      {
+        "mob": "KQ_MaraCrew",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDPrtShipArea04": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8703,
+    "center_y": 8847,
+    "width": 558,
+    "height": 53,
+    "range_degree": -6,
+    "mobs": [
+      {
+        "mob": "KQ_MarloneArcher",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDPrtShipArea05": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9801,
+    "center_y": 8788,
+    "width": 519,
+    "height": 121,
+    "range_degree": -2,
+    "mobs": [
+      {
+        "mob": "KQ_MaraCrew",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDPrtShipArea06": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7890,
+    "center_y": 8765,
+    "width": 530,
+    "height": 129,
+    "range_degree": 0,
+    "mobs": [
+      {
+        "mob": "KQ_MaraSailor",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDPrtShipArea07": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7015,
+    "center_y": 8828,
+    "width": 1399,
+    "height": 71,
+    "range_degree": 1,
+    "mobs": [
+      {
+        "mob": "KQ_MaraCrew",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDPrtShipArea08": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7023,
+    "center_y": 8820,
+    "width": 275,
+    "height": 290,
+    "range_degree": -90,
+    "mobs": [
+      {
+        "mob": "KQ_MarloneArcher",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDPrtShipArea09": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5884,
+    "center_y": 9032,
+    "width": 450,
+    "height": 161,
+    "range_degree": -139,
+    "mobs": [
+      {
+        "mob": "KQ_MaraElite",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDPrtShipArea10": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6524,
+    "center_y": 11426,
+    "width": 261,
+    "height": 174,
+    "range_degree": -25,
+    "mobs": [
+      {
+        "mob": "KQ_MaraSailor",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDPrtShipArea12": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7218,
+    "center_y": 11523,
+    "width": 197,
+    "height": 120,
+    "range_degree": 53,
+    "mobs": [
+      {
+        "mob": "KQ_MarloneArcher",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDPrtShipArea13": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5307,
+    "center_y": 9981,
+    "width": 149,
+    "height": 251,
+    "range_degree": 47,
+    "mobs": [
+      {
+        "mob": "KQ_MaraSailor",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDPrtShipArea14": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7886,
+    "center_y": 10845,
+    "width": 126,
+    "height": 154,
+    "range_degree": 53,
+    "mobs": [
+      {
+        "mob": "KQ_MarloneArcher",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDPrtShipArea15": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6842,
+    "center_y": 11426,
+    "width": 140,
+    "height": 327,
+    "range_degree": 86,
+    "mobs": [
+      {
+        "mob": "KQ_MaraElite",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDPrtShipArea16": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8144,
+    "center_y": 11913,
+    "width": 150,
+    "height": 517,
+    "range_degree": 48,
+    "mobs": [
+      {
+        "mob": "KQ_MaraElite",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDPrtShipArea17": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7773,
+    "center_y": 14423,
+    "width": 195,
+    "height": 106,
+    "range_degree": 79,
+    "mobs": [
+      {
+        "mob": "KQ_MaraElite",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDPrtShipArea18": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8558,
+    "center_y": 12252,
+    "width": 135,
+    "height": 488,
+    "range_degree": 28,
+    "mobs": [
+      {
+        "mob": "KQ_MaraSailor",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDPrtShipArea19": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8136,
+    "center_y": 12139,
+    "width": 138,
+    "height": 350,
+    "range_degree": -81,
+    "mobs": [
+      {
+        "mob": "KQ_MarloneArcher",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDPrtShipArea21": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8998,
+    "center_y": 12866,
+    "width": 158,
+    "height": 376,
+    "range_degree": -175,
+    "mobs": [
+      {
+        "mob": "KQ_MaraSailor",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDPrtShipArea22": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8231,
+    "center_y": 14979,
+    "width": 251,
+    "height": 151,
+    "range_degree": -8,
+    "mobs": [
+      {
+        "mob": "KQ_MarloneMegaton",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDPrtShipArea23": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8396,
+    "center_y": 15294,
+    "width": 215,
+    "height": 201,
+    "range_degree": 83,
+    "mobs": [
+      {
+        "mob": "KQ_MarloneMegaton",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDPrtShipArea24": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9353,
+    "center_y": 16910,
+    "width": 384,
+    "height": 128,
+    "range_degree": -47,
+    "mobs": [
+      {
+        "mob": "KQ_MaraSailor",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 4,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDPrtShipArea25": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8076,
+    "center_y": 14986,
+    "width": 724,
+    "height": 51,
+    "range_degree": -51,
+    "mobs": [
+      {
+        "mob": "KQ_MarloneArcher",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDPrtShipArea26": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8589,
+    "center_y": 17631,
+    "width": 245,
+    "height": 187,
+    "range_degree": 45,
+    "mobs": [
+      {
+        "mob": "KQ_MarloneArcher",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDPrtShipArea27": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9198,
+    "center_y": 18213,
+    "width": 82,
+    "height": 506,
+    "range_degree": -21,
+    "mobs": [
+      {
+        "mob": "KQ_MaraSailor",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDPrtShipArea28": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7193,
+    "center_y": 19293,
+    "width": 272,
+    "height": 109,
+    "range_degree": 44,
+    "mobs": [
+      {
+        "mob": "KQ_MarloneMegaton",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDPrtShipArea29": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7269,
+    "center_y": 19244,
+    "width": 449,
+    "height": 115,
+    "range_degree": 130,
+    "mobs": [
+      {
+        "mob": "KQ_MarloneFighter",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDPrtShipArea30": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7030,
+    "center_y": 18931,
+    "width": 379,
+    "height": 101,
+    "range_degree": 127,
+    "mobs": [
+      {
+        "mob": "KQ_MarloneArcher",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDPrtShipArea31": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6744,
+    "center_y": 20319,
+    "width": 168,
+    "height": 336,
+    "range_degree": 51,
+    "mobs": [
+      {
+        "mob": "KQ_MarloneFighter",
+        "count": 5,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDPrtShipArea32": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7207,
+    "center_y": 20894,
+    "width": 202,
+    "height": 139,
+    "range_degree": 6,
+    "mobs": [
+      {
+        "mob": "KQ_MarloneArcher",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDPrtShipArea33": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5146,
+    "center_y": 20584,
+    "width": 0,
+    "height": 0,
+    "range_degree": 156,
+    "mobs": [
+      {
+        "mob": "KQ_MarloneArcher",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDPrtShipArea34": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6337,
+    "center_y": 20083,
+    "width": 223,
+    "height": 245,
+    "range_degree": 9,
+    "mobs": [
+      {
+        "mob": "KQ_MaraSailor",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDPrtShipArea35": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5550,
+    "center_y": 19309,
+    "width": 0,
+    "height": 0,
+    "range_degree": 149,
+    "mobs": [
+      {
+        "mob": "KQ_MarloneArcher",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDPrtShipArea36": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9035,
+    "center_y": 17651,
+    "width": 0,
+    "height": 0,
+    "range_degree": 226,
+    "mobs": [
+      {
+        "mob": "KQ_MarloneFighter",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDPrtShipArea37": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5449,
+    "center_y": 20314,
+    "width": 313,
+    "height": 209,
+    "range_degree": -16,
+    "mobs": [
+      {
+        "mob": "KQ_MaraCrew",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDPrtShipArea38": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5659,
+    "center_y": 19635,
+    "width": 260,
+    "height": 203,
+    "range_degree": -13,
+    "mobs": [
+      {
+        "mob": "KQ_MaraElite",
+        "count": 6,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDPrtShipArea39": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5376,
+    "center_y": 20074,
+    "width": 0,
+    "height": 0,
+    "range_degree": 100,
+    "mobs": [
+      {
+        "mob": "KQ_MarloneFighter",
+        "count": 4,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDPrtShipArea40": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4648,
+    "center_y": 19065,
+    "width": 0,
+    "height": 0,
+    "range_degree": 64,
+    "mobs": [
+      {
+        "mob": "KQ_TrueMarlone",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDPrtShipArea41": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4421,
+    "center_y": 19857,
+    "width": 0,
+    "height": 0,
+    "range_degree": 288,
+    "mobs": [
+      {
+        "mob": "KQ_Mara",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDPrtShipArea42": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4623,
+    "center_y": 19014,
+    "width": 0,
+    "height": 0,
+    "range_degree": 254,
+    "mobs": [
+      {
+        "mob": "KQ_Marlone",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDPrtShipArea43": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5625,
+    "center_y": 9316,
+    "width": 0,
+    "height": 0,
+    "range_degree": 170,
+    "mobs": [
+      {
+        "mob": "KQ_MarloneArcher",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDPrtShipArea44": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9323,
+    "center_y": 16822,
+    "width": 100,
+    "height": 301,
+    "range_degree": 130,
+    "mobs": [
+      {
+        "mob": "KQ_MarloneFighter",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDPrtShipArea45": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4456,
+    "center_y": 19855,
+    "width": 0,
+    "height": 0,
+    "range_degree": 72,
+    "mobs": [
+      {
+        "mob": "KQ_TrueMara",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 0,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDPrtShipArea46": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7373,
+    "center_y": 14461,
+    "width": 135,
+    "height": 114,
+    "range_degree": -10,
+    "mobs": [
+      {
+        "mob": "KQ_MarloneMegaton",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDPrtShipArea47": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 7745,
+    "center_y": 11481,
+    "width": 0,
+    "height": 0,
+    "range_degree": 142,
+    "mobs": [
+      {
+        "mob": "KQ_Mara",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDPrtShipArea48": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8430,
+    "center_y": 18443,
+    "width": 0,
+    "height": 0,
+    "range_degree": 128,
+    "mobs": [
+      {
+        "mob": "KQ_Marlone",
+        "count": 1,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDPrtShipArea49": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 5743,
+    "center_y": 8922,
+    "width": 0,
+    "height": 0,
+    "range_degree": 261,
+    "mobs": [
+      {
+        "mob": "KQ_MarloneFighter",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDPrtShipArea50": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 6784,
+    "center_y": 11498,
+    "width": 0,
+    "height": 0,
+    "range_degree": 191,
+    "mobs": [
+      {
+        "mob": "KQ_MarloneArcher",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDPrtShipArea51": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 8957,
+    "center_y": 12895,
+    "width": 0,
+    "height": 0,
+    "range_degree": 198,
+    "mobs": [
+      {
+        "mob": "KQ_MarloneFighter",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDPrtShipArea52": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 9227,
+    "center_y": 14097,
+    "width": 0,
+    "height": 0,
+    "range_degree": 142,
+    "mobs": [
+      {
+        "mob": "KQ_MarloneArcher",
+        "count": 3,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDPrtShipArea53": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4930,
+    "center_y": 18981,
+    "width": 0,
+    "height": 0,
+    "range_degree": 65,
+    "mobs": [
+      {
+        "mob": "KQ_MarloneArcher",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDPrtShipArea54": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4609,
+    "center_y": 20019,
+    "width": 0,
+    "height": 0,
+    "range_degree": 72,
+    "mobs": [
+      {
+        "mob": "KQ_MarloneArcher",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  },
+  "KDPrtShipArea55": {
+    "enabled": true,
+    "is_family": false,
+    "center_x": 4547,
+    "center_y": 19472,
+    "width": 0,
+    "height": 0,
+    "range_degree": 198,
+    "mobs": [
+      {
+        "mob": "KQ_MarloneFighter",
+        "count": 2,
+        "kill_num": 0,
+        "reg_standard": 9,
+        "reg_min": 1,
+        "reg_max": 15,
+        "deltas": [
+          -4,
+          -2,
+          0,
+          2,
+          4
+        ],
+        "delta_secs": [
+          5,
+          8,
+          10,
+          13
+        ],
+        "enabled": true
+      }
+    ]
+  }
+}
