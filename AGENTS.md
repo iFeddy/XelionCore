@@ -55,3 +55,29 @@ En el legado (`AstraServer`), los servidores se comunicaban mediante complejas c
    - Maneja directamente el bucle de juego, NPCs, mobs y combate, cargando los `.shn` de mapas y scripts de datos.
 4. **`GamigoZR`:**
    - **No se emula ni se requiere.** Fue únicamente un mock HTTP local para saltear un chequeo DRM que Gamigo introdujo en `Zone.exe` en 2015.
+
+---
+
+## 5. Mapa de Recursos Modernizados para `ZoneService` (`data/` y `pkg/data/`)
+
+Todos los archivos de configuración y datos del mundo de `Zone.exe` han sido modernizados a JSON modular estructurado con cero pérdida de datos y cuentan con sus cargadores oficiales en Go (`pkg/data/*`):
+
+| Subsistema | Ubicación de Datos (`data/`) | Cargador Go (`pkg/data/`) | Responsabilidad en `ZoneService` |
+| :--- | :--- | :--- | :--- |
+| **Field / Maps** | `data/World/Map/` (`FieldList.json`, `InstanceDungeon.json`, `GuildTournament.json`, `TutorialMap.json`) | `pkg/data/field` | Configuración de campos, atributos de mapa, coordenadas de revivir, flags de PvP y binding de zonas (`zoneNumber`). |
+| **NPCs & Links** | `data/World/NPC/` (`Maps/<Map>.json`, `LinkTable.json`, `NPCAction.json`) | `pkg/data/npc` | Spawns de NPCs por mapa (activos e inactivos), portales/warps entre mapas y máquinas de estado/acciones de NPCs. |
+| **Mob Regen** | `data/MobRegen/<Map>.json` | `pkg/data/mobregen` | Generación y respawn de monstruos en cada mapa del mundo. |
+| **Mob Setting** | `data/MobSetting/<Mob>.json` | `pkg/data/mobsetting` | Atributos individuales de monstruos, rangos de visión, persecución y triggers de acción unificados. |
+| **Mob Behavior** | `data/MobBehaviorDescript.json` | `pkg/data/mobsetting` | Máquinas de estados y comportamientos de IA de monstruos. |
+| **Mob Roam** | `data/MobRoam/<Map>.json` | `pkg/data/mobroam` | Rutas de patrullaje y movimiento de monstruos por mapa. |
+| **Mob Attacks** | `data/MobAttackSequence/<Mob>.json` | `pkg/data/mobattack` | Secuencias de animación y patrones de ataque de monstruos. |
+| **Drops** | `data/World/Drop/` (`ItemDropTable.json`, `ItemDropGroup.json`) | `pkg/data/drop` | Tablas de drop por monstruo (arrays dinámicos sin slots nulos) y grupos de drop probabilísticos. |
+| **Combat** | `data/World/Combat/` (`Common.json`, `ExpTable.json`, `FreeStatTable.json`, `DamageByAngle.json`, etc.) | `pkg/data/combat` | Fórmulas de combate, tablas de experiencia, distribución de stats y multiplicadores posicionales. |
+| **Class Param** | `data/World/ClassParam/<Class>.json` (27 clases) | `pkg/data/classparam` | Tablas de stats base, crecimiento y fórmulas por nivel (1 al 150) para cada clase del juego. |
+| **Items** | `data/World/Item/` (`ItemOptions.json`, `ItemUseFunction.json`, `RandomOptionTable.json`, `TreasureReward.json`) | `pkg/data/item` | Opciones aleatorias de equipamiento, cofres del tesoro y scripts de uso de ítems. |
+| **NPC Merchant** | `data/NPCItemList/<NPC>.json` | `pkg/data/npcitem` | Inventario y venta de ítems de mercaderes por NPC individual. |
+| **AbState** | `data/AbState/<AbState>.json` | `pkg/data/abstate` | Efectos de estados anormales, buffs, debuffs y ticks periódicos. |
+| **Misc** | `data/World/Misc/` (`RecallCoord.json`, `StealthMatrix.json`, `SkillMechanics.json`, `MobChat.json`) | `pkg/data/misc` | Pergaminos de retorno, capas de invisibilidad, totems/trampas y diálogos de monstruos. |
+| **Quest Parser** | `data/World/Quest/QuestParser.json` | `pkg/data/questparser` | Mapeo de IDs de clases de misiones (`gQuestParserData`). |
+| **Scripts & Lua** | `data/Script/*.json` y `data/LuaScript/` | `pkg/data/script`, `pkg/script/lua` | Lógica de eventos, diálogos y scripts de misiones ejecutados en runtime Lua. |
+| **SHN Tables** | `../AstraServer/Server/9Data/Shine/` | `pkg/data/shn` | Universo binario de datos oficiales (189 SHNs). |
