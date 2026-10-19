@@ -212,7 +212,7 @@ func LoadWorldDataStore(dataDir string) (*WorldDataStore, error) {
 	}
 
 	// 4. Inicializar motor de Checksums de 49 archivos
-	if chkEngine, err := shn.NewChecksumEngine(dataDir); err == nil {
+	if chkEngine, err := shn.NewChecksumEngine(dataDir, filepath.Join(dataDir, "View")); err == nil {
 		store.Checksums = chkEngine
 	} else {
 		log.Printf("[WorldDataStore] Warning: Failed to init ChecksumEngine: %v", err)

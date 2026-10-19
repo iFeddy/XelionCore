@@ -11,6 +11,7 @@ import (
 	"github.com/iFeddy/XelionCore/pkg/crypto"
 	"github.com/iFeddy/XelionCore/pkg/data/classparam"
 	"github.com/iFeddy/XelionCore/pkg/data/field"
+	"github.com/iFeddy/XelionCore/pkg/data/shn"
 	"github.com/iFeddy/XelionCore/pkg/database"
 	"github.com/iFeddy/XelionCore/pkg/protocol"
 )
@@ -86,7 +87,7 @@ func TestZoneServer_Phase1_LifecycleAndHandshake(t *testing.T) {
 		MapID:    0,
 	}
 
-	srv := NewServer(cfg, charRepo, transfers, classStore, fieldStore)
+	srv := NewServer(cfg, charRepo, transfers, classStore, fieldStore, nil)
 	if err := srv.Start(); err != nil {
 		t.Fatalf("failed to start zone server: %v", err)
 	}
@@ -134,7 +135,7 @@ func TestZoneServer_Phase1_TransferKeyVerification(t *testing.T) {
 		MapID:    0,
 	}
 
-	srv := NewServer(cfg, charRepo, transfers, classStore, fieldStore)
+	srv := NewServer(cfg, charRepo, transfers, classStore, fieldStore, nil)
 	if err := srv.Start(); err != nil {
 		t.Fatalf("failed to start zone server: %v", err)
 	}
@@ -215,7 +216,7 @@ func TestZoneServer_Phase1_InvalidTransferRejection(t *testing.T) {
 		MapID:    0,
 	}
 
-	srv := NewServer(cfg, charRepo, transfers, classStore, fieldStore)
+	srv := NewServer(cfg, charRepo, transfers, classStore, fieldStore, nil)
 	if err := srv.Start(); err != nil {
 		t.Fatalf("failed to start zone server: %v", err)
 	}
@@ -250,3 +251,91 @@ func TestZoneServer_Phase1_InvalidTransferRejection(t *testing.T) {
 		t.Errorf("expected PROTO_NC_MAP_LOGINFAIL_ACK (0x%04X), got 0x%04X", protocol.PROTO_NC_MAP_LOGINFAIL_ACK, respPkt.OpCode)
 	}
 }
+
+func TestZoneServer_Phase1_ChecksumVerification(t *testing.T) {
+	classDir := filepath.Join("..", "..", "..", "data", "World", "ClassParam")
+	mapDir := filepath.Join("..", "..", "..", "data", "World", "Map")
+	dataDir := filepath.Join("..", "..", "..", "data")
+	viewDir := filepath.Join(dataDir, "View")
+
+	classStore, _ := classparam.Load(classDir)
+	fieldStore, _ := field.Load(mapDir)
+	chkEngine, err := shn.NewChecksumEngine(dataDir, viewDir)
+	if err != nil {
+		t.Fatalf("failed to init ChecksumEngine: %v", err)
+	}
+
+	charRepo := database.NewMemoryCharacterRepositoryWithFile("")
+	transfers := database.NewTransferManager()
+
+	cfg := &Config{
+		BindAddr: "127.0.0.1:19213",
+		Port:     19213,
+		IP:       "127.0.0.1",
+		MapID:    0,
+	}
+
+	srv := NewServer(cfg, charRepo, transfers, classStore, fieldStore, chkEngine)
+	if err := srv.Start(); err != nil {
+		t.Fatalf("failed to start zone server: %v", err)
+	}
+	defer srv.Stop()
+
+	char := &database.Character{
+		ID:        100,
+		AccountID: 1,
+		Name:      "ChecksumTester",
+		Job:       1,
+		Level:     1,
+		Male:      true,
+		XPos:      5600,
+		YPos:      8800,
+		CurHP:     52,
+		CurSP:     10,
+	}
+	_ = charRepo.CreateCharacter(char)
+	transfers.CreateZoneTransfer(1, "TestUser", char.Name, char.ID, 54321, 0, "127.0.0.1")
+
+	// Conectar cliente y enviar checksum corrupto en el índice 2 (CharacterTitleData.shn)
+	conn, err := net.DialTimeout("tcp", "127.0.0.1:19213", 2*time.Second)
+	if err != nil {
+		t.Fatalf("failed to connect: %v", err)
+	}
+	defer conn.Close()
+
+	hsPkt, _ := readServerPacket(conn)
+	xorPos, _ := hsPkt.Reader.ReadInt16()
+	clientCrypto, _ := crypto.NewNetCrypto(xorPos)
+
+	req := protocol.NewPacketWriter(protocol.PROTO_NC_MAP_LOGIN_REQ)
+	req.WriteUint16(54321) // RandomID
+	req.WriteString(char.Name, 20)
+	checksums := chkEngine.GetChecksums()
+	checksums[2][0] ^= 0xFF // Corromper índice 2 (CharacterTitleData.shn)
+	for i := 0; i < 49; i++ {
+		req.WriteBytes(checksums[i][:])
+	}
+
+	if err := sendClientPacket(conn, req, clientCrypto); err != nil {
+		t.Fatalf("failed to send packet: %v", err)
+	}
+
+	respPkt, err := readServerPacket(conn)
+	if err != nil {
+		t.Fatalf("failed to read response: %v", err)
+	}
+
+	if respPkt.OpCode != protocol.PROTO_NC_MAP_LOGINFAIL_ACK {
+		t.Fatalf("expected PROTO_NC_MAP_LOGINFAIL_ACK (0x%04X), got 0x%04X", protocol.PROTO_NC_MAP_LOGINFAIL_ACK, respPkt.OpCode)
+	}
+
+	errCode, _ := respPkt.Reader.ReadUint16()
+	wrongIdx, _ := respPkt.Reader.ReadByte()
+	if errCode != 0x0147 {
+		t.Errorf("expected errCode 0x0147, got 0x%04X", errCode)
+	}
+	if wrongIdx != 2 {
+		t.Errorf("expected wrongIdx 2, got %d", wrongIdx)
+	}
+}
+

@@ -7,6 +7,7 @@ import (
 
 	"github.com/iFeddy/XelionCore/pkg/data/classparam"
 	"github.com/iFeddy/XelionCore/pkg/data/field"
+	"github.com/iFeddy/XelionCore/pkg/data/shn"
 	"github.com/iFeddy/XelionCore/pkg/database"
 	"github.com/iFeddy/XelionCore/pkg/network"
 	"github.com/iFeddy/XelionCore/pkg/protocol"
@@ -19,17 +20,19 @@ type Handler struct {
 	transfers  *database.TransferManager
 	classStore *classparam.Store
 	fieldStore *field.Store
+	chkEngine  *shn.ChecksumEngine
 	players    map[*network.Client]*ZonePlayer
 	roumenMap  *ZoneMap
 }
 
 // NewHandler initializes a new Zone packet handler.
-func NewHandler(charRepo database.CharacterRepository, transfers *database.TransferManager, classStore *classparam.Store, fieldStore *field.Store) *Handler {
+func NewHandler(charRepo database.CharacterRepository, transfers *database.TransferManager, classStore *classparam.Store, fieldStore *field.Store, chkEngine *shn.ChecksumEngine) *Handler {
 	return &Handler{
 		charRepo:   charRepo,
 		transfers:  transfers,
 		classStore: classStore,
 		fieldStore: fieldStore,
+		chkEngine:  chkEngine,
 		players:    make(map[*network.Client]*ZonePlayer),
 		roumenMap:  NewZoneMap(0, "Roumen", "RouN"),
 	}
@@ -85,21 +88,40 @@ func (h *Handler) getPlayer(client *network.Client) (*ZonePlayer, bool) {
 }
 
 func (h *Handler) handleTransferKey(client *network.Client, pkt *protocol.Packet) {
-	randomID, err := pkt.Reader.ReadUint16()
+	req, err := protocol.Read_PROTO_NC_MAP_LOGIN_REQ(pkt.Reader)
 	if err != nil {
-		log.Printf("[Zone][%s] Error reading randomID: %v", client.RemoteAddr(), err)
+		log.Printf("[Zone][%s] Error reading PROTO_NC_MAP_LOGIN_REQ: %v", client.RemoteAddr(), err)
 		return
 	}
 
-	charName, err := pkt.Reader.ReadString(16)
-	if err != nil {
-		log.Printf("[Zone][%s] Error reading character name: %v", client.RemoteAddr(), err)
-		return
-	}
-	charName = strings.TrimSpace(charName)
+	charName := strings.TrimSpace(req.Chardata.Charid)
+	randomID := req.Chardata.Wldmanhandle
 
-	log.Printf("[Zone][%s] TransferKey received for character '%s' (RandomID: %d)",
-		client.RemoteAddr(), charName, randomID)
+	log.Printf("[Zone][%s] PROTO_NC_MAP_LOGIN_REQ received for character '%s' (RandomID: %d, HasChecksums: %v)",
+		client.RemoteAddr(), charName, randomID, req.HasChecksums)
+
+	// Verificación oficial binaria de DataFileCheck (Zone.exe 0x0045264b)
+	if h.chkEngine != nil && req.HasChecksums {
+		var clientChecksums [49]shn.Name8
+		for i := 0; i < 49; i++ {
+			clientChecksums[i] = req.Checksum[i]
+		}
+		valid, wrongIdx := h.chkEngine.VerifyDataFiles(clientChecksums)
+		if !valid {
+			fileName := h.chkEngine.GetFileName(wrongIdx)
+			expectedHash := h.chkEngine.GetRawHash(wrongIdx)
+			clientHash := string(req.Checksum[wrongIdx][:])
+			log.Printf("[Zone][%s] DataFileCheck FAILED at index %d (%s): client hash='%s', server expected='%s'",
+				client.RemoteAddr(), wrongIdx, fileName, clientHash, expectedHash)
+
+			// Error oficial en Zone.exe (0x00452727): código 0x0147 (327 decimal) + nWrongDataFileIndex (1 byte)
+			failPkt := protocol.New_PROTO_NC_MAP_LOGINFAIL_ACK(0x0147, byte(wrongIdx))
+			_ = client.SendPacket(failPkt)
+			client.Close()
+			return
+		}
+		log.Printf("[Zone][%s] DataFileCheck PASSED for all 49 .shn files", client.RemoteAddr())
+	}
 
 	transfer, ok := h.transfers.ConsumeZoneTransfer(charName, randomID, pkt.Raw)
 	if !ok {
@@ -107,6 +129,7 @@ func (h *Handler) handleTransferKey(client *network.Client, pkt *protocol.Packet
 			client.RemoteAddr(), charName, randomID)
 		errPkt := protocol.New_PROTO_NC_MAP_LOGINFAIL_ACK(4, 0) // RequestedCharacterIDNotMatching
 		_ = client.SendPacket(errPkt)
+		client.Close()
 		return
 	}
 
@@ -119,6 +142,7 @@ func (h *Handler) handleTransferKey(client *network.Client, pkt *protocol.Packet
 		log.Printf("[Zone][%s] Character '%s' not found in database: %v", client.RemoteAddr(), transfer.CharName, err)
 		errPkt := protocol.New_PROTO_NC_MAP_LOGINFAIL_ACK(4, 0)
 		_ = client.SendPacket(errPkt)
+		client.Close()
 		return
 	}
 
@@ -178,23 +202,27 @@ func (h *Handler) sendInGameChunk(p *ZonePlayer) {
 	questsDone.WriteUint16(0) // nIndex
 	_ = p.Client.SendPacket(questsDone)
 
-	// 5. PROTO_NC_CHAR_CLIENT_SKILL_CMD (0x103D, wire len = 12, payload = 10)
-	// struct PROTO_NC_CHAR_CLIENT_SKILL_CMD {
-	//     unsigned char  restempow; // 1 byte
-	//     unsigned char  PartMark;  // 1 byte (3 = all parts/mark)
-	//     unsigned short nMaxNum;   // 2 bytes
-	//     unsigned long  chrregnum; // 4 bytes
-	//     unsigned short number;    // 2 bytes
+	// 5. PROTO_NC_CHAR_CLIENT_QUEST_READ_CMD (0x10CE, wire len = 8, payload = 6)
+	// struct PROTO_NC_CHAR_CLIENT_QUEST_READ_CMD {
+	//     unsigned long  chrregnum;       // 4 bytes
+	//     unsigned short nNumOfReadQuest; // 2 bytes
 	// }
-	activeSkills := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_CLIENT_SKILL_CMD)
-	activeSkills.WriteByte(0)                  // restempow
-	activeSkills.WriteByte(3)                  // PartMark (3 = all parts)
-	activeSkills.WriteUint16(0)                // nMaxNum
-	activeSkills.WriteUint32(uint32(p.Char.ID)) // chrregnum
-	activeSkills.WriteUint16(0)                // number
-	_ = p.Client.SendPacket(activeSkills)
+	questsRead := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_CLIENT_QUEST_READ_CMD)
+	questsRead.WriteUint32(uint32(p.Char.ID))
+	questsRead.WriteUint16(0) // nNumOfReadQuest = 0
+	_ = p.Client.SendPacket(questsRead)
 
-	// 6. PROTO_NC_CHAR_CLIENT_PASSIVE_CMD (0x103E, wire len = 4, payload = 2)
+	// 6. PROTO_NC_CHAR_CLIENT_QUEST_REPEAT_CMD (0x10D7, wire len = 8, payload = 6)
+	// struct PROTO_NC_CHAR_CLIENT_QUEST_REPEAT_CMD {
+	//     unsigned long  chrregnum;         // 4 bytes
+	//     unsigned short nNumOfRepeatQuest; // 2 bytes
+	// }
+	questsRepeat := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_CLIENT_QUEST_REPEAT_CMD)
+	questsRepeat.WriteUint32(uint32(p.Char.ID))
+	questsRepeat.WriteUint16(0) // nNumOfRepeatQuest = 0
+	_ = p.Client.SendPacket(questsRepeat)
+
+	// 7. PROTO_NC_CHAR_CLIENT_PASSIVE_CMD (0x103E, wire len = 4, payload = 2)
 	// struct PROTO_NC_CHAR_CLIENT_PASSIVE_CMD {
 	//     unsigned short number; // 2 bytes
 	// }
@@ -202,7 +230,21 @@ func (h *Handler) sendInGameChunk(p *ZonePlayer) {
 	passiveSkills.WriteUint16(0) // number = 0
 	_ = p.Client.SendPacket(passiveSkills)
 
-	// 7-10. PROTO_NC_CHAR_CLIENT_ITEM_CMD (0x1047, wire len = 5, payload = 3 each)
+	// 8. PROTO_NC_CHAR_CLIENT_SKILL_CMD (0x103D):
+	// En el binario oficial Zone.exe (so_charskilldata), si el personaje no tiene
+	// skills aprendidas (nMaxNum == 0), el servidor oficial NO envía 0x103D.
+	// Si tuviera skills activas, se enviaría aquí.
+
+	// 9. PROTO_NC_CHAR_CLIENT_GAME_CMD (0x1048, wire len = 6, payload = 4)
+	// struct PROTO_NC_CHAR_CLIENT_GAME_CMD {
+	//     unsigned short partyno; // 2 bytes (0xFFFF = sin party)
+	//     unsigned short nRaidNo; // 2 bytes (0xFFFF = sin raid)
+	// }
+	gamePkt := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_CLIENT_GAME_CMD)
+	gamePkt.WriteUint32(0xFFFFFFFF) // partyno = 0xFFFF, nRaidNo = 0xFFFF (Sin party ni raid)
+	_ = p.Client.SendPacket(gamePkt)
+
+	// 10-13. PROTO_NC_CHAR_CLIENT_ITEM_CMD (0x1047, wire len = 5, payload = 3 each)
 	// struct PROTO_NC_CHAR_CLIENT_ITEM_CMD {
 	//     unsigned char numofitem; // 1 byte
 	//     unsigned char box;       // 1 byte
@@ -218,15 +260,7 @@ func (h *Handler) sendInGameChunk(p *ZonePlayer) {
 		_ = p.Client.SendPacket(itemPkt)
 	}
 
-	// 11. PROTO_NC_CHAR_CLIENT_GAME_CMD (0x1048, wire len = 6, payload = 4)
-	// struct PROTO_NC_CHAR_CLIENT_GAME_CMD {
-	//     unsigned long party_handle; // 4 bytes (0 = no party)
-	// }
-	gamePkt := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_CLIENT_GAME_CMD)
-	gamePkt.WriteUint32(0) // party_handle = 0
-	_ = p.Client.SendPacket(gamePkt)
-
-	// 12. PROTO_NC_CHAR_CLIENT_CHARTITLE_CMD (0x1049, wire len = 8, payload = 6)
+	// 14. PROTO_NC_CHAR_CLIENT_CHARTITLE_CMD (0x1049, wire len = 8, payload = 6)
 	// struct PROTO_NC_CHAR_CLIENT_CHARTITLE_CMD {
 	//     unsigned char  CurrentTitle;        // 1 byte
 	//     unsigned char  CurrentTitleElement; // 1 byte
@@ -240,7 +274,7 @@ func (h *Handler) sendInGameChunk(p *ZonePlayer) {
 	titles.WriteUint16(0) // NumOfTitle = 0
 	_ = p.Client.SendPacket(titles)
 
-	// 13. PROTO_NC_CHAR_MAPLOGIN_ACK (0x1802, wire len = 244, payload = 242)
+	// 15. PROTO_NC_CHAR_MAPLOGIN_ACK (0x1802, wire len = 244, payload = 242)
 	extraPkt := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_MAPLOGIN_ACK)
 	p.WriteDetailedInfoExtra(extraPkt, false)
 	_ = p.Client.SendPacket(extraPkt)
@@ -255,12 +289,7 @@ func (h *Handler) handleClientReady(client *network.Client, pkt *protocol.Packet
 	log.Printf("[Zone][%s] ClientReady received from '%s'. Spawning into Roumen...",
 		client.RemoteAddr(), player.Char.Name)
 
-	// 1. Usable Points
-	pts := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_POINTS_ACK)
-	pts.WriteByte(0)
-	_ = client.SendPacket(pts)
-
-	// 2. Add player to map and broadcast spawn
+	// Add player to map and broadcast spawn
 	h.roumenMap.AddPlayer(player)
 }
 

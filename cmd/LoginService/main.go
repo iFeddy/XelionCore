@@ -11,11 +11,19 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/iFeddy/XelionCore/pkg/config"
 	"github.com/iFeddy/XelionCore/pkg/database"
+	"github.com/iFeddy/XelionCore/pkg/logger"
 	"github.com/iFeddy/XelionCore/pkg/protocol"
 	"github.com/iFeddy/XelionCore/pkg/server/login"
 )
 
 func main() {
+	logFile, err := logger.InitSessionLogger("LoginService")
+	if err != nil {
+		log.Printf("[LoginService] Warning: failed to initialize session log file: %v", err)
+	} else {
+		defer logFile.Close()
+	}
+
 	log.Println("==================================================")
 	log.Println("           XELION ONLINE - LOGIN SERVICE          ")
 	log.Println("==================================================")

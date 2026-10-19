@@ -11,10 +11,18 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/iFeddy/XelionCore/pkg/config"
 	"github.com/iFeddy/XelionCore/pkg/database"
+	"github.com/iFeddy/XelionCore/pkg/logger"
 	"github.com/iFeddy/XelionCore/pkg/server/world"
 )
 
 func main() {
+	logFile, err := logger.InitSessionLogger("WorldService")
+	if err != nil {
+		log.Printf("[WorldService] Warning: failed to initialize session log file: %v", err)
+	} else {
+		defer logFile.Close()
+	}
+
 	log.Println("==================================================")
 	log.Println("           XELION ONLINE - WORLD SERVICE          ")
 	log.Println("==================================================")

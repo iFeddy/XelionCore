@@ -60,12 +60,16 @@ func (m *ZoneMap) AddPlayer(p *ZonePlayer) {
 		m.ID, p.Char.Name, p.MapObjectID, p.Char.XPos, p.Char.YPos, len(others)+1)
 
 	// 1. Send all existing players to the joining player (PROTO_NC_BRIEFINFO_CHARACTER_ACK)
-	spawnOthers := protocol.NewPacketWriter(protocol.PROTO_NC_BRIEFINFO_CHARACTER_ACK)
-	spawnOthers.WriteByte(byte(len(others)))
-	for _, other := range others {
-		other.WriteCharacterDisplay(spawnOthers)
+	// En Zone.exe oficial (bixc_Send 0x43D5D8), si no hay otros jugadores en el mapa (count == 0),
+	// el servidor NO envía el paquete 0x1C07 al cliente.
+	if len(others) > 0 {
+		spawnOthers := protocol.NewPacketWriter(protocol.PROTO_NC_BRIEFINFO_CHARACTER_ACK)
+		spawnOthers.WriteByte(byte(len(others)))
+		for _, other := range others {
+			other.WriteCharacterDisplay(spawnOthers)
+		}
+		_ = p.Client.SendPacket(spawnOthers)
 	}
-	_ = p.Client.SendPacket(spawnOthers)
 
 	// 2. Broadcast the joining player to all other players (PROTO_NC_BRIEFINFO_LOGINCHARACTER_CMD)
 	spawnSelf := protocol.NewPacketWriter(protocol.PROTO_NC_BRIEFINFO_LOGINCHARACTER_CMD)

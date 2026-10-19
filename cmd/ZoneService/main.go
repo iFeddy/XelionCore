@@ -12,11 +12,20 @@ import (
 	"github.com/iFeddy/XelionCore/pkg/config"
 	"github.com/iFeddy/XelionCore/pkg/data/classparam"
 	"github.com/iFeddy/XelionCore/pkg/data/field"
+	"github.com/iFeddy/XelionCore/pkg/data/shn"
 	"github.com/iFeddy/XelionCore/pkg/database"
+	"github.com/iFeddy/XelionCore/pkg/logger"
 	"github.com/iFeddy/XelionCore/pkg/server/zone"
 )
 
 func main() {
+	logFile, err := logger.InitSessionLogger("ZoneService")
+	if err != nil {
+		log.Printf("[ZoneService] Warning: failed to initialize session log file: %v", err)
+	} else {
+		defer logFile.Close()
+	}
+
 	log.Println("==================================================")
 	log.Println("           XELION ONLINE - ZONE SERVER            ")
 	log.Println("==================================================")
@@ -74,12 +83,21 @@ func main() {
 		log.Printf("[Zone] Loaded %d field definitions.", fieldStore.FieldCount())
 	}
 
-	// 3. Inicializar repositorios y gestor de transferencias
+	// 3. Cargar motor de checksums oficial CShnDataFileCheckSum (49 archivos SHN)
+	log.Println("[Zone] Initializing CShnDataFileCheckSum (49 anti-cheat SHN files)...")
+	chkEngine, err := shn.NewChecksumEngine("data", "data/View")
+	if err != nil {
+		log.Printf("[Zone] Warning: Failed to init ChecksumEngine: %v", err)
+	} else {
+		log.Printf("[Zone] ChecksumEngine initialized successfully with 49 files.")
+	}
+
+	// 4. Inicializar repositorios y gestor de transferencias
 	charRepo := database.NewMySQLCharacterRepository(db)
 	transfers := database.NewTransferManager(db)
 
-	// 4. Iniciar servidor
-	srv := zone.NewServer(zoneCfg, charRepo, transfers, classStore, fieldStore)
+	// 5. Iniciar servidor
+	srv := zone.NewServer(zoneCfg, charRepo, transfers, classStore, fieldStore, chkEngine)
 	if err := srv.Start(); err != nil {
 		log.Fatalf("[Zone] Fatal error starting server: %v", err)
 	}
