@@ -76,14 +76,14 @@ const (
 	PROTO_NC_CHAR_DELETE_ACK      uint16 = (5 << 10) | 12 // 0x140C
 
 	// Department 6: MAP / Zone Handshake & Navigation
-	PROTO_NC_MAP_LOGIN_REQ        uint16 = (6 << 10) | 1  // 0x1801 (C2S TransferKey)
-	PROTO_NC_CHAR_MAPLOGIN_ACK    uint16 = (6 << 10) | 2  // 0x1802 (S2C Map Login 242 bytes)
-	PROTO_NC_MAP_LOGINFAIL_ACK    uint16 = (6 << 10) | 3  // 0x1803 (S2C Transfer failure)
-	PROTO_NC_MAP_CLIENT_READY_REQ uint16 = (6 << 10) | 3  // 0x1803 (C2S ClientReady)
-	PROTO_NC_MAP_CHANGE_CMD       uint16 = (6 << 10) | 9  // 0x1809
-	PROTO_NC_MAP_CHANGE_ZONE_CMD  uint16 = (6 << 10) | 10 // 0x180A
-	PROTO_NC_MAP_TELEPORT_REQ     uint16 = (6 << 10) | 26 // 0x181A
-	PROTO_NC_MAP_TELEPORT_ACK     uint16 = (6 << 10) | 27 // 0x181B
+	PROTO_NC_MAP_LOGIN_REQ         uint16 = (6 << 10) | 1  // 0x1801 (C2S TransferKey)
+	PROTO_NC_CHAR_MAPLOGIN_ACK     uint16 = (6 << 10) | 2  // 0x1802 (S2C Map Login 242 bytes)
+	PROTO_NC_MAP_LOGINFAIL_ACK     uint16 = (6 << 10) | 3  // 0x1803 (S2C Transfer failure)
+	PROTO_NC_MAP_LOGINCOMPLETE_CMD uint16 = (6 << 10) | 3  // 0x1803 (C2S Map Login Complete from client)
+	PROTO_NC_MAP_CHANGE_CMD        uint16 = (6 << 10) | 9  // 0x1809
+	PROTO_NC_MAP_CHANGE_ZONE_CMD   uint16 = (6 << 10) | 10 // 0x180A
+	PROTO_NC_MAP_TELEPORT_REQ      uint16 = (6 << 10) | 26 // 0x181A
+	PROTO_NC_MAP_TELEPORT_ACK      uint16 = (6 << 10) | 27 // 0x181B
 
 	// Department 7: BRIEFINFO / Spawns & Visibilidad
 	PROTO_NC_BRIEFINFO_UNSHARE_EQUIP_ACK  uint16 = (7 << 10) | 4  // 0x1C04
@@ -93,24 +93,28 @@ const (
 	PROTO_NC_BRIEFINFO_LEAVE_CMD          uint16 = (7 << 10) | 14 // 0x1C0E (Despawn)
 
 	// Department 8: ACT / Movimiento, Combate & Chat
-	PROTO_NC_ACT_CHAT_REQ        uint16 = (8 << 10) | 1  // 0x2001
-	PROTO_NC_ACT_CHAT_ACK        uint16 = (8 << 10) | 2  // 0x2002
-	PROTO_NC_ACT_GM_NOTICE_ACK   uint16 = (8 << 10) | 17 // 0x2011
-	PROTO_NC_ACT_STOP_REQ        uint16 = (8 << 10) | 18 // 0x2012
-	PROTO_NC_ACT_STOP_ACK        uint16 = (8 << 10) | 19 // 0x2013
-	PROTO_NC_ACT_WALK_REQ        uint16 = (8 << 10) | 23 // 0x2017
-	PROTO_NC_ACT_WALK_ACK        uint16 = (8 << 10) | 24 // 0x2018
-	PROTO_NC_ACT_RUN_REQ         uint16 = (8 << 10) | 25 // 0x2019
-	PROTO_NC_ACT_RUN_ACK         uint16 = (8 << 10) | 26 // 0x201A
-	PROTO_NC_ACT_TELEPORT_CMD    uint16 = (8 << 10) | 27 // 0x201B
-	PROTO_NC_ACT_EMOTE_REQ       uint16 = (8 << 10) | 32 // 0x2020
-	PROTO_NC_ACT_JUMP_REQ        uint16 = (8 << 10) | 36 // 0x2024
-	PROTO_NC_ACT_JUMP_ACK        uint16 = (8 << 10) | 37 // 0x2025
-	PROTO_NC_ACT_REST_START_REQ  uint16 = (8 << 10) | 39 // 0x2027
-	PROTO_NC_ACT_REST_START_ACK  uint16 = (8 << 10) | 40 // 0x2028
-	PROTO_NC_ACT_REST_STOP_REQ   uint16 = (8 << 10) | 42 // 0x202A
-	PROTO_NC_ACT_REST_STOP_ACK   uint16 = (8 << 10) | 43 // 0x202B
-	PROTO_NC_ACT_BLOCK_WALK_ACK  uint16 = (8 << 10) | 74 // 0x204A
+	PROTO_NC_ACT_CHAT_REQ       uint16 = (8 << 10) | 1  // 0x2001 (sp_NC_ACT_CHAT_REQ)
+	PROTO_NC_ACT_CHAT_ACK       uint16 = (8 << 10) | 2  // 0x2002
+	PROTO_NC_ACT_WALK_REQ       uint16 = (8 << 10) | 3  // 0x2003 (sp_NC_ACT_WALK_REQ)
+	PROTO_NC_ACT_RUN_REQ        uint16 = (8 << 10) | 5  // 0x2005 (sp_NC_ACT_RUN_REQ)
+	PROTO_NC_ACT_CHANGEMODE_REQ uint16 = (8 << 10) | 8  // 0x2008 (sp_NC_ACT_CHANGEMODE_REQ)
+	PROTO_NC_ACT_NPCCLICK_CMD   uint16 = (8 << 10) | 10 // 0x200A (sp_NC_ACT_NPCCLICK_CMD)
+	PROTO_NC_ACT_GM_NOTICE_ACK  uint16 = (8 << 10) | 17 // 0x2011
+	PROTO_NC_ACT_STOP_REQ       uint16 = (8 << 10) | 18 // 0x2012 (sp_NC_ACT_STOP_REQ)
+	PROTO_NC_ACT_STOP_ACK       uint16 = (8 << 10) | 19 // 0x2013
+	PROTO_NC_ACT_MOVEWALK_CMD   uint16 = (8 << 10) | 23 // 0x2017 (sp_NC_ACT_MOVEWALK_CMD)
+	PROTO_NC_ACT_WALK_ACK       uint16 = (8 << 10) | 24 // 0x2018
+	PROTO_NC_ACT_MOVERUN_CMD    uint16 = (8 << 10) | 25 // 0x2019 (sp_NC_ACT_MOVERUN_CMD)
+	PROTO_NC_ACT_RUN_ACK        uint16 = (8 << 10) | 26 // 0x201A
+	PROTO_NC_ACT_TELEPORT_CMD   uint16 = (8 << 10) | 27 // 0x201B
+	PROTO_NC_ACT_EMOTE_REQ      uint16 = (8 << 10) | 32 // 0x2020
+	PROTO_NC_ACT_JUMP_CMD       uint16 = (8 << 10) | 36 // 0x2024 (sp_NC_ACT_JUMP_CMD)
+	PROTO_NC_ACT_JUMP_ACK       uint16 = (8 << 10) | 37 // 0x2025
+	PROTO_NC_ACT_REST_START_REQ uint16 = (8 << 10) | 39 // 0x2027
+	PROTO_NC_ACT_REST_START_ACK uint16 = (8 << 10) | 40 // 0x2028
+	PROTO_NC_ACT_REST_STOP_REQ  uint16 = (8 << 10) | 42 // 0x202A
+	PROTO_NC_ACT_REST_STOP_ACK  uint16 = (8 << 10) | 43 // 0x202B
+	PROTO_NC_ACT_BLOCK_WALK_ACK uint16 = (8 << 10) | 74 // 0x204A
 
 	// Department 12: ITEM / Inventario
 	PROTO_NC_ITEM_PREMIUM_LIST_ACK uint16 = (12 << 10) | 33 // 0x3021

@@ -40,7 +40,7 @@ func (h *Handler) HandlePacket(client *network.Client, pkt *protocol.Packet) {
 	switch pkt.OpCode {
 	case protocol.PROTO_NC_MAP_LOGIN_REQ:
 		h.handleTransferKey(client, pkt)
-	case protocol.PROTO_NC_MAP_CLIENT_READY_REQ, protocol.PROTO_NC_CHAR_INGAME_REQ:
+	case protocol.PROTO_NC_MAP_LOGINCOMPLETE_CMD, protocol.PROTO_NC_CHAR_INGAME_REQ:
 		h.handleClientReady(client, pkt)
 	case protocol.PROTO_NC_ACT_WALK_REQ:
 		h.handleWalk(client, pkt)
@@ -48,7 +48,7 @@ func (h *Handler) HandlePacket(client *network.Client, pkt *protocol.Packet) {
 		h.handleRun(client, pkt)
 	case protocol.PROTO_NC_ACT_STOP_REQ:
 		h.handleStop(client, pkt)
-	case protocol.PROTO_NC_ACT_JUMP_REQ:
+	case protocol.PROTO_NC_ACT_JUMP_CMD:
 		h.handleJump(client, pkt)
 	case protocol.PROTO_NC_ACT_CHAT_REQ:
 		h.handleChatNormal(client, pkt)
