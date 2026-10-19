@@ -46,10 +46,10 @@ func NewHandler(
 // HandlePacket despacha paquetes basándose exclusivamente en OpCodes oficiales PROTO_NC_*.
 func (h *Handler) HandlePacket(client *network.Client, pkt *protocol.Packet) {
 	switch pkt.OpCode {
-	case protocol.PROTO_NC_MISC_HEARTBEAT_ACK, protocol.CH2Type_Pong:
+	case protocol.PROTO_NC_MISC_HEARTBEAT_ACK:
 		// Client heartbeat acknowledge
 
-	case protocol.PROTO_NC_MISC_GAMETIME_REQ, protocol.CH2Type_Unk1:
+	case protocol.PROTO_NC_MISC_GAMETIME_REQ:
 		h.handleGameTime(client, pkt)
 
 	case protocol.PROTO_NC_MISC_WORLD_CLIENT_KEY_REQ:
@@ -64,7 +64,7 @@ func (h *Handler) HandlePacket(client *network.Client, pkt *protocol.Packet) {
 	case protocol.PROTO_NC_CHAR_CREATE_REQ:
 		h.handleCreateCharacter(client, pkt)
 
-	case protocol.PROTO_NC_CHAR_DELETE_REQ, protocol.CH5Type_DeleteCharacter:
+	case protocol.PROTO_NC_CHAR_DELETE_REQ:
 		h.handleDeleteCharacter(client, pkt)
 
 	case protocol.PROTO_NC_CHAR_INGAME_REQ:
@@ -423,7 +423,7 @@ func (h *Handler) handleCharSelect(client *network.Client, pkt *protocol.Packet)
 }
 
 func (h *Handler) sendError(client *network.Client, errCode protocol.ServerError) {
-	resp := protocol.NewPacketWriter(protocol.SH3Type_Error)
+	resp := protocol.NewPacketWriter(protocol.PROTO_NC_USER_LOGINFAIL_ACK)
 	resp.WriteUint16(uint16(errCode))
 	_ = client.SendPacket(resp)
 }

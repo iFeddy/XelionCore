@@ -8,6 +8,8 @@ import (
 	"os/signal"
 	"syscall"
 
+	"github.com/iFeddy/XelionCore/pkg/data/classparam"
+	"github.com/iFeddy/XelionCore/pkg/data/field"
 	"github.com/iFeddy/XelionCore/pkg/database"
 	"github.com/iFeddy/XelionCore/pkg/protocol"
 	"github.com/iFeddy/XelionCore/pkg/server/login"
@@ -88,7 +90,9 @@ func main() {
 	}
 
 	// 3. Zone Server
-	zoneSrv := zone.NewServer(&cfg.ZoneServer, charRepo, transfers)
+	classStore, _ := classparam.Load("data/World/ClassParam")
+	fieldStore, _ := field.Load("data/World/Map")
+	zoneSrv := zone.NewServer(&cfg.ZoneServer, charRepo, transfers, classStore, fieldStore)
 	if err := zoneSrv.Start(); err != nil {
 		log.Fatalf("[Zone] Fatal error starting server: %v", err)
 	}

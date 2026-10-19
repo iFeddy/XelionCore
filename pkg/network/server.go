@@ -73,8 +73,8 @@ func (s *TCPServer) acceptLoop() {
 		s.clients.Store(client.RemoteAddr(), client)
 		log.Printf("[%s] client connected, xor offset: %d", client.RemoteAddr(), client.Crypto().XorPos())
 
-		// Send initial Fiesta handshake packet: SH2Type_SetXorKeyPosition
-		handshake := protocol.NewPacketWriter(protocol.SH2Type_SetXorKeyPosition)
+		// Send initial Fiesta handshake packet: PROTO_NC_MISC_SEED_CMD (0x0807)
+		handshake := protocol.NewPacketWriter(protocol.PROTO_NC_MISC_SEED_CMD)
 		handshake.WriteInt16(client.Crypto().XorPos())
 		if err := client.SendPacket(handshake); err != nil {
 			log.Printf("[%s] failed to send initial handshake: %v", client.RemoteAddr(), err)

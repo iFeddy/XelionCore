@@ -37,7 +37,7 @@ func (h *Handler) HandlePacket(client *network.Client, pkt *protocol.Packet) {
 	switch pkt.OpCode {
 	case protocol.PROTO_NC_USER_CLIENT_VERSION_CHECK_REQ:
 		h.handle_PROTO_NC_USER_CLIENT_VERSION_CHECK_REQ(client, pkt)
-	case protocol.PROTO_NC_USER_US_LOGIN_REQ, protocol.PROTO_NC_USER_LOGIN_REQ:
+	case protocol.PROTO_NC_USER_US_LOGIN_REQ, protocol.PROTO_NC_USER_LOGIN_REQ, protocol.PROTO_NC_USER_LOGIN_WITH_OTP_REQ, protocol.PROTO_NC_USER_LOGIN_WITH_OTP_LEGACY:
 		h.handle_PROTO_NC_USER_US_LOGIN_REQ(client, pkt)
 	case protocol.PROTO_NC_USER_FILE_CHECK_REQ:
 		h.handle_PROTO_NC_USER_FILE_CHECK_REQ(client, pkt)
@@ -86,26 +86,44 @@ func (h *Handler) handle_PROTO_NC_USER_CLIENT_VERSION_CHECK_REQ(client *network.
 	}
 }
 
-// handle_PROTO_NC_USER_US_LOGIN_REQ procesa la solicitud de autenticación (0x0C5A / 0x0C03).
-// Estructura oficial: sUserName[260], sPassword[36], spawnapps[20] (316 bytes).
+// handle_PROTO_NC_USER_US_LOGIN_REQ procesa la solicitud de autenticación (0x0C5A / 0x0C03 / 0x0C37 / 0x0C38).
+// Soporta la estructura oficial (sUserName[260], sPassword[36], spawnapps[20] = 316 bytes) y formatos legacy.
 func (h *Handler) handle_PROTO_NC_USER_US_LOGIN_REQ(client *network.Client, pkt *protocol.Packet) {
-	username, err := pkt.Reader.ReadString(260)
-	if err != nil {
-		log.Printf("[%s] Error leyendo sUserName: %v", client.RemoteAddr(), err)
-		h.send_PROTO_NC_USER_LOGINFAIL_ACK(client, protocol.ErrException)
-		return
-	}
+	var (
+		username  string
+		password  string
+		spawnApps string
+		err       error
+	)
 
-	password, err := pkt.Reader.ReadString(36)
-	if err != nil {
-		log.Printf("[%s] Error leyendo sPassword: %v", client.RemoteAddr(), err)
-		h.send_PROTO_NC_USER_LOGINFAIL_ACK(client, protocol.ErrException)
-		return
-	}
-
-	var spawnApps string
-	if pkt.Reader.Remaining() >= 20 {
-		spawnApps, _ = pkt.Reader.ReadString(20)
+	rem := pkt.Reader.Remaining()
+	if rem >= 292 {
+		username, err = pkt.Reader.ReadString(260)
+		if err != nil {
+			log.Printf("[%s] Error leyendo sUserName: %v", client.RemoteAddr(), err)
+			h.send_PROTO_NC_USER_LOGINFAIL_ACK(client, protocol.ErrException)
+			return
+		}
+		if pkt.Reader.Remaining() >= 36 {
+			password, err = pkt.Reader.ReadString(36)
+		} else {
+			password, err = pkt.Reader.ReadString(32)
+		}
+		if err != nil {
+			log.Printf("[%s] Error leyendo sPassword: %v", client.RemoteAddr(), err)
+			h.send_PROTO_NC_USER_LOGINFAIL_ACK(client, protocol.ErrException)
+			return
+		}
+		if pkt.Reader.Remaining() >= 20 {
+			spawnApps, _ = pkt.Reader.ReadString(20)
+		} else if pkt.Reader.Remaining() >= 8 {
+			spawnApps, _ = pkt.Reader.ReadString(8)
+		}
+	} else if rem >= 32 {
+		username, _ = pkt.Reader.ReadString(16)
+		password, _ = pkt.Reader.ReadString(rem - 16)
+	} else {
+		username, _ = pkt.Reader.ReadString(rem)
 	}
 
 	username = strings.TrimSpace(username)
@@ -135,6 +153,16 @@ func (h *Handler) handle_PROTO_NC_USER_US_LOGIN_REQ(client *network.Client, pkt 
 	acc, err := h.repo.GetAccountByUsername(username)
 	if err != nil {
 		if errors.Is(err, database.ErrAccountNotFound) {
+			// En modo memoria, auto-crear la cuenta para facilitar pruebas locales
+			if memRepo, ok := h.repo.(*database.MemoryAccountRepository); ok {
+				log.Printf("[%s] Cuenta '%s' no encontrada, auto-creando en memoria...", client.RemoteAddr(), username)
+				newAcc, createErr := memRepo.CreateAccount(username, password)
+				if createErr == nil {
+					acc = newAcc
+					goto credsValid
+				}
+			}
+
 			log.Printf("[%s] Usuario '%s' no encontrado", client.RemoteAddr(), username)
 			if mysqlRepo, ok := h.repo.(*database.MySQLAccountRepository); ok {
 				_ = mysqlRepo.LogAccount(username, 2, 0, 0, uint16(protocol.ErrInvalidCredentials), clientIP)
@@ -148,20 +176,28 @@ func (h *Handler) handle_PROTO_NC_USER_US_LOGIN_REQ(client *network.Client, pkt 
 		return
 	}
 
-	// 3. Validar credenciales: MD5 hash oficial de 32 chars o texto plano
-	inputHash := password
-	if len(password) != 32 {
-		inputHash = md5Hash(password)
+	// 3. Validar credenciales: MD5 hash oficial de 32 chars o texto plano bidireccional
+	{
+		clientPassLower := strings.ToLower(password)
+		accPassLower := strings.ToLower(acc.Password)
+		accPassMD5 := strings.ToLower(md5Hash(acc.Password))
+		clientPassMD5 := strings.ToLower(md5Hash(password))
+
+		valid := (clientPassLower == accPassLower) ||
+			(clientPassLower == accPassMD5) ||
+			(clientPassMD5 == accPassLower)
+
+		if !valid {
+			log.Printf("[%s] Contraseña incorrecta para usuario '%s'", client.RemoteAddr(), username)
+			if mysqlRepo, ok := h.repo.(*database.MySQLAccountRepository); ok {
+				_ = mysqlRepo.LogAccount(username, 2, acc.ID, 0, uint16(protocol.ErrInvalidCredentials), clientIP)
+			}
+			h.send_PROTO_NC_USER_LOGINFAIL_ACK(client, protocol.ErrInvalidCredentials)
+			return
+		}
 	}
 
-	if strings.ToLower(inputHash) != strings.ToLower(acc.Password) && strings.ToLower(password) != strings.ToLower(acc.Password) {
-		log.Printf("[%s] Contraseña incorrecta para usuario '%s'", client.RemoteAddr(), username)
-		if mysqlRepo, ok := h.repo.(*database.MySQLAccountRepository); ok {
-			_ = mysqlRepo.LogAccount(username, 2, acc.ID, 0, uint16(protocol.ErrInvalidCredentials), clientIP)
-		}
-		h.send_PROTO_NC_USER_LOGINFAIL_ACK(client, protocol.ErrInvalidCredentials)
-		return
-	}
+credsValid:
 
 	// 4. Validar estado de la cuenta (bloqueada, eliminada o sin permisos)
 	if acc.Banned {

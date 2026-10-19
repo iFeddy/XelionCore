@@ -159,6 +159,15 @@ func NewStore() *Store {
 	}
 }
 
+// Load loads all field and map JSON files from the specified directory and returns a new Store.
+func Load(dir string) (*Store, error) {
+	s := NewStore()
+	if err := s.LoadDir(dir); err != nil {
+		return nil, err
+	}
+	return s, nil
+}
+
 // LoadDir loads all 4 map JSON files from the designated directory.
 func (s *Store) LoadDir(dir string) error {
 	// 1. FieldList.json

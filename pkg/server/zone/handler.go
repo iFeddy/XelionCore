@@ -5,6 +5,8 @@ import (
 	"strings"
 	"sync"
 
+	"github.com/iFeddy/XelionCore/pkg/data/classparam"
+	"github.com/iFeddy/XelionCore/pkg/data/field"
 	"github.com/iFeddy/XelionCore/pkg/database"
 	"github.com/iFeddy/XelionCore/pkg/network"
 	"github.com/iFeddy/XelionCore/pkg/protocol"
@@ -12,45 +14,49 @@ import (
 
 // Handler processes incoming packets for the Zone Server.
 type Handler struct {
-	mu        sync.RWMutex
-	charRepo  database.CharacterRepository
-	transfers *database.TransferManager
-	players   map[*network.Client]*ZonePlayer
-	roumenMap *ZoneMap
+	mu         sync.RWMutex
+	charRepo   database.CharacterRepository
+	transfers  *database.TransferManager
+	classStore *classparam.Store
+	fieldStore *field.Store
+	players    map[*network.Client]*ZonePlayer
+	roumenMap  *ZoneMap
 }
 
 // NewHandler initializes a new Zone packet handler.
-func NewHandler(charRepo database.CharacterRepository, transfers *database.TransferManager) *Handler {
+func NewHandler(charRepo database.CharacterRepository, transfers *database.TransferManager, classStore *classparam.Store, fieldStore *field.Store) *Handler {
 	return &Handler{
-		charRepo:  charRepo,
-		transfers: transfers,
-		players:   make(map[*network.Client]*ZonePlayer),
-		roumenMap: NewZoneMap(0, "Roumen", "Rou"),
+		charRepo:   charRepo,
+		transfers:  transfers,
+		classStore: classStore,
+		fieldStore: fieldStore,
+		players:    make(map[*network.Client]*ZonePlayer),
+		roumenMap:  NewZoneMap(0, "Roumen", "RouN"),
 	}
 }
 
-// HandlePacket routes packets to their specific handlers.
+// HandlePacket routes packets to their specific handlers using official PROTO_NC_* opcodes.
 func (h *Handler) HandlePacket(client *network.Client, pkt *protocol.Packet) {
 	switch pkt.OpCode {
-	case protocol.CH6Type_TransferKey:
+	case protocol.PROTO_NC_MAP_LOGIN_REQ:
 		h.handleTransferKey(client, pkt)
-	case protocol.CH6Type_ClientReady:
+	case protocol.PROTO_NC_MAP_CLIENT_READY_REQ, protocol.PROTO_NC_CHAR_INGAME_REQ:
 		h.handleClientReady(client, pkt)
-	case protocol.CH8Type_Walk:
+	case protocol.PROTO_NC_ACT_WALK_REQ:
 		h.handleWalk(client, pkt)
-	case protocol.CH8Type_Run:
+	case protocol.PROTO_NC_ACT_RUN_REQ:
 		h.handleRun(client, pkt)
-	case protocol.CH8Type_Stop:
+	case protocol.PROTO_NC_ACT_STOP_REQ:
 		h.handleStop(client, pkt)
-	case protocol.CH8Type_Jump:
+	case protocol.PROTO_NC_ACT_JUMP_REQ:
 		h.handleJump(client, pkt)
-	case protocol.CH8Type_ChatNormal:
+	case protocol.PROTO_NC_ACT_CHAT_REQ:
 		h.handleChatNormal(client, pkt)
-	case protocol.CH8Type_BeginRest:
+	case protocol.PROTO_NC_ACT_REST_START_REQ:
 		h.handleBeginRest(client, pkt)
-	case protocol.CH8Type_EndRest:
+	case protocol.PROTO_NC_ACT_REST_STOP_REQ:
 		h.handleEndRest(client, pkt)
-	case protocol.CH2Type_Pong, protocol.CH2Type_Unk1:
+	case protocol.PROTO_NC_MISC_HEARTBEAT_ACK, protocol.PROTO_NC_MISC_GAMETIME_REQ:
 		// Heartbeat pong received, ignore
 	default:
 		log.Printf("[Zone][%s] Unhandled OpCode: 0x%04X (Header=%d, Type=%d, Len=%d)",
@@ -99,8 +105,7 @@ func (h *Handler) handleTransferKey(client *network.Client, pkt *protocol.Packet
 	if !ok {
 		log.Printf("[Zone][%s] Transfer verification failed for '%s' (RandomID: %d)",
 			client.RemoteAddr(), charName, randomID)
-		errPkt := protocol.NewPacketWriter(protocol.SH4Type_ConnectError)
-		errPkt.WriteUint16(4) // RequestedCharacterIDNotMatching
+		errPkt := protocol.New_PROTO_NC_MAP_LOGINFAIL_ACK(4, 0) // RequestedCharacterIDNotMatching
 		_ = client.SendPacket(errPkt)
 		return
 	}
@@ -112,13 +117,12 @@ func (h *Handler) handleTransferKey(client *network.Client, pkt *protocol.Packet
 
 	if err != nil || char == nil {
 		log.Printf("[Zone][%s] Character '%s' not found in database: %v", client.RemoteAddr(), transfer.CharName, err)
-		errPkt := protocol.NewPacketWriter(protocol.SH4Type_ConnectError)
-		errPkt.WriteUint16(4)
+		errPkt := protocol.New_PROTO_NC_MAP_LOGINFAIL_ACK(4, 0)
 		_ = client.SendPacket(errPkt)
 		return
 	}
 
-	player := NewZonePlayer(client, char)
+	player := NewZonePlayer(client, char, h.classStore)
 	h.roumenMap.AssignObjectID(player)
 	h.mu.Lock()
 	h.players[client] = player
@@ -137,101 +141,88 @@ func (h *Handler) handleTransferKey(client *network.Client, pkt *protocol.Packet
 
 func (h *Handler) sendInGameChunk(p *ZonePlayer) {
 	// 1. Character Info
-	infoPkt := protocol.NewPacketWriter(protocol.SH4Type_CharacterInfo)
+	infoPkt := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_BASE_CMD)
 	p.WriteDetailedInfo(infoPkt)
 	_ = p.Client.SendPacket(infoPkt)
 
 	// 2. Character Look
-	lookPkt := protocol.NewPacketWriter(protocol.SH4Type_CharacterLook)
+	lookPkt := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_LOOK_CMD)
 	p.WriteLook(lookPkt)
 	_ = p.Client.SendPacket(lookPkt)
 
 	// 3. Busy Quests
-	questsBusy := protocol.NewPacketWriter(protocol.SH4Type_CharacterQuestsBusy)
+	questsBusy := protocol.NewPacketWriter(protocol.PROTO_NC_QUEST_BUSY_LIST_CMD)
 	questsBusy.WriteInt32(int32(p.Char.ID))
 	questsBusy.WriteByte(1) // enabled list
 	questsBusy.WriteByte(0) // count
 	_ = p.Client.SendPacket(questsBusy)
 
 	// 4. Done Quests
-	questsDone := protocol.NewPacketWriter(protocol.SH4Type_CharacterQuestsDone)
+	questsDone := protocol.NewPacketWriter(protocol.PROTO_NC_QUEST_DONE_LIST_CMD)
 	questsDone.WriteInt32(int32(p.Char.ID))
 	questsDone.WriteInt16(0) // count
 	_ = p.Client.SendPacket(questsDone)
 
 	// 5. Active Skills
-	activeSkills := protocol.NewPacketWriter(protocol.SH4Type_CharacterActiveSkillList)
+	activeSkills := protocol.NewPacketWriter(protocol.PROTO_NC_SKILL_ACTIVE_LIST_CMD)
 	activeSkills.WriteByte(0)
 	activeSkills.WriteInt32(int32(p.Char.ID))
 	activeSkills.WriteUint16(0)
 	_ = p.Client.SendPacket(activeSkills)
 
 	// 6. Passive Skills
-	passiveSkills := protocol.NewPacketWriter(protocol.SH4Type_CharacterPassiveSkillList)
+	passiveSkills := protocol.NewPacketWriter(protocol.PROTO_NC_SKILL_PASSIVE_LIST_CMD)
 	passiveSkills.WriteUint16(0)
 	_ = p.Client.SendPacket(passiveSkills)
 
 	// 7. Equipped Items (inv = 0x08)
-	equipped := protocol.NewPacketWriter(protocol.SH4Type_CharacterItemList)
+	equipped := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_LIST_CMD)
 	equipped.WriteByte(0)    // item count
 	equipped.WriteByte(0x08) // inventory number
 	equipped.WriteByte(115)  // UNK
 	_ = p.Client.SendPacket(equipped)
 
 	// 8. Inventory Items (inv = 0x09)
-	inventory := protocol.NewPacketWriter(protocol.SH4Type_CharacterItemList)
+	inventory := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_LIST_CMD)
 	inventory.WriteByte(0)
 	inventory.WriteByte(0x09)
 	inventory.WriteByte(115)
 	_ = p.Client.SendPacket(inventory)
 
 	// 9. House Items (inv = 0x0C)
-	house := protocol.NewPacketWriter(protocol.SH4Type_CharacterItemList)
+	house := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_LIST_CMD)
 	house.WriteByte(0)
 	house.WriteByte(0x0C)
 	house.WriteByte(0x35)
 	_ = p.Client.SendPacket(house)
 
 	// 10. Premium Emotions (inv = 0x0F)
-	emotions := protocol.NewPacketWriter(protocol.SH4Type_CharacterItemList)
+	emotions := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_LIST_CMD)
 	emotions.WriteByte(0)
 	emotions.WriteByte(0x0F)
 	emotions.WriteByte(0xCB)
 	_ = p.Client.SendPacket(emotions)
 
 	// 11. Premium Item List
-	premium := protocol.NewPacketWriter(protocol.SH4Type_CharacterItemList)
+	premium := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_LIST_CMD)
 	premium.WriteUint16(0)
 	_ = p.Client.SendPacket(premium)
 
 	// 12. Titles
-	titles := protocol.NewPacketWriter(protocol.SH4Type_CharacterTitles)
+	titles := protocol.NewPacketWriter(protocol.PROTO_NC_TITLE_LIST_CMD)
 	titles.WriteInt32(0)
 	titles.WriteInt16(0)
 	_ = p.Client.SendPacket(titles)
 
 	// 13. Chunk End
-	endPkt := protocol.NewPacketWriter(protocol.SH4Type_CharacterInfoEnd)
+	endPkt := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_INFO_END_CMD)
 	endPkt.WriteUint16(0xFFFF)
 	_ = p.Client.SendPacket(endPkt)
 
-	// 14. Detailed Info Extra
-	extraPkt := protocol.NewPacketWriter(protocol.SH6Type_DetailedCharacterInfo)
+	// 14. Detailed Info Extra (0x1802 PROTO_NC_CHAR_MAPLOGIN_ACK)
+	extraPkt := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_MAPLOGIN_ACK)
 	p.WriteDetailedInfoExtra(extraPkt, false)
 	_ = p.Client.SendPacket(extraPkt)
-
-	// 15. Premium Item List (SH12Type_SendPremiumItemList)
-	premiumList := protocol.NewPacketWriter(protocol.SH12Type_SendPremiumItemList)
-	premiumList.WriteUint16(0x1041)
-	premiumList.WriteByte(1)  // UNK
-	premiumList.WriteUint16(1) // Page count = 1 (matching NextGen PremiumInventory.PremiumItems.Count)
-	_ = p.Client.SendPacket(premiumList)
-
-	// 16. Reward List (SH12Type_SendRewardList)
-	rewardList := protocol.NewPacketWriter(protocol.SH12Type_SendRewardList)
-	rewardList.WriteByte(0)  // Item count = 0
-	rewardList.WriteByte(90) // UNK
-	_ = p.Client.SendPacket(rewardList)
 }
 
 func (h *Handler) handleClientReady(client *network.Client, pkt *protocol.Packet) {
@@ -244,7 +235,7 @@ func (h *Handler) handleClientReady(client *network.Client, pkt *protocol.Packet
 		client.RemoteAddr(), player.Char.Name)
 
 	// 1. Usable Points
-	pts := protocol.NewPacketWriter(protocol.SH4Type_CharacterPoints)
+	pts := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_POINTS_ACK)
 	pts.WriteByte(0)
 	_ = client.SendPacket(pts)
 
@@ -344,7 +335,7 @@ func (h *Handler) handleBeginRest(client *network.Client, pkt *protocol.Packet) 
 	}
 
 	player.State = 4 // Resting
-	pw := protocol.NewPacketWriter(protocol.SH8Type_BeginRest)
+	pw := protocol.NewPacketWriter(protocol.PROTO_NC_ACT_REST_START_ACK)
 	pw.WriteUint16(0x0A81) // OK to rest
 	_ = client.SendPacket(pw)
 }
@@ -356,7 +347,7 @@ func (h *Handler) handleEndRest(client *network.Client, pkt *protocol.Packet) {
 	}
 
 	player.State = 1 // Normal
-	pw := protocol.NewPacketWriter(protocol.SH8Type_EndRest)
+	pw := protocol.NewPacketWriter(protocol.PROTO_NC_ACT_REST_STOP_ACK)
 	pw.WriteUint16(0x0A81)
 	_ = client.SendPacket(pw)
 }

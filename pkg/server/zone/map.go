@@ -59,16 +59,16 @@ func (m *ZoneMap) AddPlayer(p *ZonePlayer) {
 	log.Printf("[Zone][Map %d] Added '%s' (MapObjectID: %d, Pos: %d,%d). Current map population: %d",
 		m.ID, p.Char.Name, p.MapObjectID, p.Char.XPos, p.Char.YPos, len(others)+1)
 
-	// 1. Send all existing players to the joining player (SH7Type_SpawnMultiPlayer)
-	spawnOthers := protocol.NewPacketWriter(protocol.SH7Type_SpawnMultiPlayer)
+	// 1. Send all existing players to the joining player (PROTO_NC_BRIEFINFO_CHARACTER_ACK)
+	spawnOthers := protocol.NewPacketWriter(protocol.PROTO_NC_BRIEFINFO_CHARACTER_ACK)
 	spawnOthers.WriteByte(byte(len(others)))
 	for _, other := range others {
 		other.WriteCharacterDisplay(spawnOthers)
 	}
 	_ = p.Client.SendPacket(spawnOthers)
 
-	// 2. Broadcast the joining player to all other players (SH7Type_SpawnSinglePlayer)
-	spawnSelf := protocol.NewPacketWriter(protocol.SH7Type_SpawnSinglePlayer)
+	// 2. Broadcast the joining player to all other players (PROTO_NC_BRIEFINFO_LOGINCHARACTER_CMD)
+	spawnSelf := protocol.NewPacketWriter(protocol.PROTO_NC_BRIEFINFO_LOGINCHARACTER_CMD)
 	p.WriteCharacterDisplay(spawnSelf)
 	m.Broadcast(spawnSelf, p.MapObjectID)
 }
@@ -82,7 +82,7 @@ func (m *ZoneMap) RemovePlayer(p *ZonePlayer) {
 
 	log.Printf("[Zone][Map %d] Player '%s' (MapObjectID: %d) left the map.", m.ID, p.Char.Name, objID)
 
-	removePkt := protocol.NewPacketWriter(protocol.SH7Type_RemoveObject)
+	removePkt := protocol.NewPacketWriter(protocol.PROTO_NC_BRIEFINFO_LEAVE_CMD)
 	removePkt.WriteUint16(objID)
 	m.Broadcast(removePkt, objID)
 }
@@ -105,9 +105,9 @@ func (m *ZoneMap) MovePlayer(p *ZonePlayer, oldX, oldY, newX, newY int, walk boo
 	p.Char.XPos = newX
 	p.Char.YPos = newY
 
-	op := protocol.SH8Type_Move
+	op := protocol.PROTO_NC_ACT_RUN_ACK
 	if walk {
-		op = protocol.SH8Type_Walk
+		op = protocol.PROTO_NC_ACT_WALK_ACK
 	}
 
 	pw := protocol.NewPacketWriter(op)
@@ -125,7 +125,7 @@ func (m *ZoneMap) StopPlayer(p *ZonePlayer, x, y int) {
 	p.Char.XPos = x
 	p.Char.YPos = y
 
-	pw := protocol.NewPacketWriter(protocol.SH8Type_StopTele)
+	pw := protocol.NewPacketWriter(protocol.PROTO_NC_ACT_STOP_ACK)
 	pw.WriteUint16(p.MapObjectID)
 	pw.WriteInt32(int32(x))
 	pw.WriteInt32(int32(y))
@@ -134,14 +134,14 @@ func (m *ZoneMap) StopPlayer(p *ZonePlayer, x, y int) {
 
 // JumpPlayer broadcasts player jump.
 func (m *ZoneMap) JumpPlayer(p *ZonePlayer) {
-	pw := protocol.NewPacketWriter(protocol.SH8Type_Jump)
+	pw := protocol.NewPacketWriter(protocol.PROTO_NC_ACT_JUMP_ACK)
 	pw.WriteUint16(p.MapObjectID)
 	m.Broadcast(pw, p.MapObjectID)
 }
 
 // NormalChat broadcasts chat to all players in the map (including sender).
 func (m *ZoneMap) NormalChat(p *ZonePlayer, text string, color byte) {
-	pw := protocol.NewPacketWriter(protocol.SH8Type_ChatNormal)
+	pw := protocol.NewPacketWriter(protocol.PROTO_NC_ACT_CHAT_ACK)
 	pw.WriteUint16(p.MapObjectID)
 	pw.WriteByte(byte(len(text)))
 	pw.WriteByte(color)

@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"log"
 
+	"github.com/iFeddy/XelionCore/pkg/data/classparam"
+	"github.com/iFeddy/XelionCore/pkg/data/field"
 	"github.com/iFeddy/XelionCore/pkg/database"
 	"github.com/iFeddy/XelionCore/pkg/network"
 )
@@ -16,12 +18,12 @@ type Server struct {
 }
 
 // NewServer initializes a new Zone Server.
-func NewServer(cfg *Config, charRepo database.CharacterRepository, transfers *database.TransferManager) *Server {
+func NewServer(cfg *Config, charRepo database.CharacterRepository, transfers *database.TransferManager, classStore *classparam.Store, fieldStore *field.Store) *Server {
 	if cfg.BindAddr == "" {
 		cfg.BindAddr = fmt.Sprintf("0.0.0.0:%d", cfg.Port)
 	}
 
-	handler := NewHandler(charRepo, transfers)
+	handler := NewHandler(charRepo, transfers, classStore, fieldStore)
 
 	s := &Server{
 		config:  cfg,

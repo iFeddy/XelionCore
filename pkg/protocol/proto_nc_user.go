@@ -2,27 +2,7 @@ package protocol
 
 // Constantes oficiales de paquetes de red extraídos directamente de los PDBs oficiales.
 // Nomenclatura 100% idéntica a la documentación oficial (docs/Servicios/Login.md).
-const (
-	// Department 2: MISC / Handshake & System
-	PROTO_NC_MISC_HEARTBEAT_ACK uint16 = 0x0801 // (Dept: 2, Cmd: 1)
-	PROTO_NC_MISC_HEARTBEAT_REQ uint16 = 0x0804 // (Dept: 2, Cmd: 4)
-	PROTO_NC_MISC_SEED_CMD      uint16 = 0x0807 // (Dept: 2, Cmd: 7) Handshake XOR offset
 
-	// Department 3: USER / Login & World Selection
-	PROTO_NC_USER_CLIENT_WRONGVERSION_CHECK_ACK uint16 = 0x0C02 // (Dept: 3, Cmd: 2)
-	PROTO_NC_USER_LOGIN_REQ                     uint16 = 0x0C03 // (Dept: 3, Cmd: 3)
-	PROTO_NC_USER_FILE_CHECK_REQ                uint16 = 0x0C04 // (Dept: 3, Cmd: 4)
-	PROTO_NC_USER_FILE_CHECK_ACK                uint16 = 0x0C05 // (Dept: 3, Cmd: 5)
-	PROTO_NC_USER_LOGINFAIL_ACK                 uint16 = 0x0C09 // (Dept: 3, Cmd: 9)
-	PROTO_NC_USER_LOGIN_ACK                     uint16 = 0x0C0A // (Dept: 3, Cmd: 10)
-	PROTO_NC_USER_WORLDSELECT_REQ               uint16 = 0x0C0B // (Dept: 3, Cmd: 11)
-	PROTO_NC_USER_WORLDSELECT_ACK               uint16 = 0x0C0C // (Dept: 3, Cmd: 12)
-	PROTO_NC_USER_WORLDSTATUS_REQ               uint16 = 0x0C1B // (Dept: 3, Cmd: 27)
-	PROTO_NC_USER_WORLDSTATUS_ACK               uint16 = 0x0C1C // (Dept: 3, Cmd: 28)
-	PROTO_NC_USER_US_LOGIN_REQ                  uint16 = 0x0C5A // (Dept: 3, Cmd: 90)
-	PROTO_NC_USER_CLIENT_VERSION_CHECK_REQ      uint16 = 0x0C65 // (Dept: 3, Cmd: 101)
-	PROTO_NC_USER_CLIENT_RIGHTVERSION_CHECK_ACK uint16 = 0x0C67 // (Dept: 3, Cmd: 103)
-)
 
 // PROTO_NC_USER_CLIENT_VERSION_CHECK_REQ (0x0C65 - Dept: 3, Cmd: 101, Size: 64 bytes)
 type PROTO_NC_USER_CLIENT_VERSION_CHECK_REQ_DATA struct {

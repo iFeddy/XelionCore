@@ -1,228 +1,152 @@
 package protocol
 
-// MakeOpCode combines a 6-bit Header and a 10-bit Type into a 16-bit OpCode.
-// Formula: (Header << 10) | (Type & 0x3FF)
-func MakeOpCode(header uint8, typ uint16) uint16 {
-	return (uint16(header) << 10) | (typ & 0x03FF)
+// MakeOpCode combines a 6-bit Department (Header) and a 10-bit Command (Type) into a 16-bit OpCode.
+// Formula oficial: (Department << 10) | (Command & 0x3FF)
+func MakeOpCode(dept uint8, cmd uint16) uint16 {
+	return (uint16(dept) << 10) | (cmd & 0x03FF)
 }
 
-// ExtractHeader extracts the 6-bit header from a 16-bit OpCode.
+// ExtractHeader extracts the 6-bit department from a 16-bit OpCode.
 func ExtractHeader(opCode uint16) uint8 {
 	return uint8(opCode >> 10)
 }
 
-// ExtractType extracts the 10-bit type from a 16-bit OpCode.
+// ExtractType extracts the 10-bit command from a 16-bit OpCode.
 func ExtractType(opCode uint16) uint16 {
 	return opCode & 0x03FF
 }
 
-// Server -> Client OpCodes (SH = Server Header)
-var (
-	// Header 2: System / Handshake
-	SH2Type_Ping              = PROTO_NC_MISC_HEARTBEAT_REQ
-	SH2Type_SetXorKeyPosition = PROTO_NC_MISC_SEED_CMD // Handshake offset
-	SH2Type_Unk1              = PROTO_NC_MISC_GAMETIME_ACK
-	SH2Type_UnkTimePacket     = PROTO_NC_MISC_TIME_SYNC_ACK
-	SH2Type_UpdateClientTime  = MakeOpCode(2, 73)
+// Protocol OpCodes (100% oficial de Fiesta Online PDBs: Zone.pdb, WorldManager.pdb, Login.pdb, Character.pdb)
+const (
+	// Department 2: MISC / System / Handshake
+	PROTO_NC_MISC_HEARTBEAT_REQ  uint16 = (2 << 10) | 4  // 0x0804
+	PROTO_NC_MISC_HEARTBEAT_ACK  uint16 = (2 << 10) | 5  // 0x0805
+	PROTO_NC_MISC_SEED_CMD       uint16 = (2 << 10) | 7  // 0x0807 (Handshake seed offset)
+	PROTO_NC_MISC_GAMETIME_REQ   uint16 = (2 << 10) | 13 // 0x080D
+	PROTO_NC_MISC_GAMETIME_ACK   uint16 = (2 << 10) | 14 // 0x080E
+	PROTO_NC_MISC_TIME_SYNC_ACK  uint16 = (2 << 10) | 69 // 0x0845
+	PROTO_NC_MISC_UPDATE_TIME    uint16 = (2 << 10) | 73 // 0x0849
 
-	// Header 3: Login / World Selection
-	SH3Type_IncorrectVersion        = PROTO_NC_USER_CLIENT_WRONGVERSION_CHECK_ACK
-	SH3Type_FilecheckAllow          = PROTO_NC_USER_FILE_CHECK_ACK
-	SH3Type_Error                   = PROTO_NC_USER_LOGINFAIL_ACK
-	SH3Type_WorldlistNew            = PROTO_NC_USER_LOGIN_ACK
-	SH3Type_WorldServerIP           = PROTO_NC_USER_WORLDSELECT_ACK
-	SH3Type_CharacterList           = PROTO_NC_CHAR_CLIENT_CHARLIST_ACK
-	SH3Type_WorldistResend          = PROTO_NC_USER_WORLDSTATUS_ACK
-	SH3Type_BackToWorldListFromChar = PROTO_NC_USER_BACKTOWORLDLIST_ACK
-	SH3Type_VersionAllowed          = PROTO_NC_USER_CLIENT_RIGHTVERSION_CHECK_ACK
+	// Department 3: USER / Login & World Selection
+	PROTO_NC_USER_CLIENT_WRONGVERSION_CHECK_ACK uint16 = (3 << 10) | 2   // 0x0C02
+	PROTO_NC_USER_FILE_CHECK_REQ                uint16 = (3 << 10) | 4   // 0x0C04
+	PROTO_NC_USER_FILE_CHECK_ACK                uint16 = (3 << 10) | 5   // 0x0C05
+	PROTO_NC_USER_LOGIN_REQ                     uint16 = (3 << 10) | 6   // 0x0C06
+	PROTO_NC_USER_LOGINFAIL_ACK                 uint16 = (3 << 10) | 9   // 0x0C09
+	PROTO_NC_USER_LOGIN_ACK                     uint16 = (3 << 10) | 10  // 0x0C0A
+	PROTO_NC_USER_WORLDSELECT_REQ               uint16 = (3 << 10) | 11  // 0x0C0B
+	PROTO_NC_USER_WORLDSELECT_ACK               uint16 = (3 << 10) | 12  // 0x0C0C
+	PROTO_NC_USER_LOGINWORLD_REQ                uint16 = (3 << 10) | 15  // 0x0C0F
+	PROTO_NC_MISC_WORLD_CLIENT_KEY_REQ          uint16 = (3 << 10) | 15  // 0x0C0F
+	PROTO_NC_USER_LOGINWORLD_ACK                uint16 = (3 << 10) | 16  // 0x0C10
+	PROTO_NC_MISC_WORLD_CLIENT_KEY_ACK          uint16 = (3 << 10) | 16  // 0x0C10
+	PROTO_NC_CHAR_CLIENT_CHARLIST_ACK           uint16 = (3 << 10) | 20  // 0x0C14
+	PROTO_NC_USER_NORMALLOGOUT_CMD              uint16 = (3 << 10) | 24  // 0x0C18
+	PROTO_NC_USER_WORLDSTATUS_REQ               uint16 = (3 << 10) | 27  // 0x0C1B
+	PROTO_NC_USER_WORLDSTATUS_ACK               uint16 = (3 << 10) | 28  // 0x0C1C
+	PROTO_NC_USER_BACKTOWORLDLIST_REQ           uint16 = (3 << 10) | 51  // 0x0C33
+	PROTO_NC_USER_BACKTOWORLDLIST_ACK           uint16 = (3 << 10) | 52  // 0x0C34
+	PROTO_NC_USER_LOGIN_WITH_OTP_REQ            uint16 = (3 << 10) | 55  // 0x0C37
+	PROTO_NC_USER_LOGIN_WITH_OTP_LEGACY         uint16 = (3 << 10) | 56  // 0x0C38
+	PROTO_NC_USER_US_LOGIN_REQ                  uint16 = (3 << 10) | 90  // 0x0C5A (NA/US client login)
+	PROTO_NC_USER_CLIENT_VERSION_CHECK_REQ      uint16 = (3 << 10) | 101 // 0x0C65
+	PROTO_NC_USER_CLIENT_RIGHTVERSION_CHECK_ACK uint16 = (3 << 10) | 103 // 0x0C67
 
-	// Nombres oficiales PROTO_NC_* para World/Character (Header 2, 3, 4, 5, 21, 22, 28, 31)
-	PROTO_NC_MISC_GAMETIME_REQ  = MakeOpCode(2, 13) // 0x080D
-	PROTO_NC_MISC_GAMETIME_ACK  = MakeOpCode(2, 14) // 0x080E
-	PROTO_NC_MISC_TIME_SYNC_ACK = MakeOpCode(2, 69)
+	// Department 4: CHAR / Character Selection & Zone Character Data
+	PROTO_NC_CHAR_LOGIN_REQ           uint16 = (4 << 10) | 1  // 0x1001
+	PROTO_NC_CHAR_LOGINFAIL_ACK       uint16 = (4 << 10) | 2  // 0x1002
+	PROTO_NC_CHAR_LOGIN_ACK           uint16 = (4 << 10) | 3  // 0x1003
+	PROTO_NC_CHAR_SERVER_IP_ACK       uint16 = (4 << 10) | 3  // 0x1003
+	PROTO_NC_CHAR_BASE_CMD            uint16 = (4 << 10) | 56 // 0x1038 (105 bytes)
+	PROTO_NC_CHAR_LOOK_CMD            uint16 = (4 << 10) | 57 // 0x1039 (4 bytes)
+	PROTO_NC_QUEST_BUSY_LIST_CMD      uint16 = (4 << 10) | 58 // 0x103A
+	PROTO_NC_QUEST_DONE_LIST_CMD      uint16 = (4 << 10) | 59 // 0x103B
+	PROTO_NC_SKILL_ACTIVE_LIST_CMD    uint16 = (4 << 10) | 61 // 0x103D
+	PROTO_NC_SKILL_PASSIVE_LIST_CMD   uint16 = (4 << 10) | 62 // 0x103E
+	PROTO_NC_ITEM_LIST_CMD            uint16 = (4 << 10) | 71 // 0x1047
+	PROTO_NC_CHAR_INFO_END_CMD        uint16 = (4 << 10) | 72 // 0x1048
+	PROTO_NC_TITLE_LIST_CMD           uint16 = (4 << 10) | 73 // 0x1049
+	PROTO_NC_CHAR_POINTS_ACK          uint16 = (4 << 10) | 91 // 0x105B
 
-	PROTO_NC_USER_LOGINWORLD_REQ       = MakeOpCode(3, 15) // 0x0C0F
-	PROTO_NC_MISC_WORLD_CLIENT_KEY_REQ = PROTO_NC_USER_LOGINWORLD_REQ
-	PROTO_NC_USER_LOGINWORLD_ACK       = MakeOpCode(3, 16) // 0x0C10
-	PROTO_NC_MISC_WORLD_CLIENT_KEY_ACK = PROTO_NC_USER_LOGINWORLD_ACK
-	PROTO_NC_CHAR_CLIENT_CHARLIST_ACK  = MakeOpCode(3, 20) // 0x0C14
-	PROTO_NC_USER_BACKTOWORLDLIST_REQ  = MakeOpCode(3, 51) // 0x0C33
-	PROTO_NC_USER_BACKTOWORLDLIST_ACK  = MakeOpCode(3, 52) // 0x0C34
+	// Department 5: CHAR Management
+	PROTO_NC_CHAR_CREATE_REQ      uint16 = (5 << 10) | 1  // 0x1401
+	PROTO_NC_CHAR_DELETE_REQ      uint16 = (5 << 10) | 7  // 0x1407 (C2S Character Delete)
+	PROTO_NC_CHAR_CREATE_FAIL_ACK uint16 = (5 << 10) | 4  // 0x1404
+	PROTO_NC_CHAR_CREATE_ACK      uint16 = (5 << 10) | 6  // 0x1406
+	PROTO_NC_CHAR_DELETE_ACK      uint16 = (5 << 10) | 12 // 0x140C
 
-	PROTO_NC_CHAR_LOGIN_REQ     = MakeOpCode(4, 1) // 0x1001
-	PROTO_NC_CHAR_LOGINFAIL_ACK = MakeOpCode(4, 2) // 0x1002
-	PROTO_NC_CHAR_LOGIN_ACK     = MakeOpCode(4, 3) // 0x1003
-	PROTO_NC_CHAR_SERVER_IP_ACK = PROTO_NC_CHAR_LOGIN_ACK
+	// Department 6: MAP / Zone Handshake & Navigation
+	PROTO_NC_MAP_LOGIN_REQ        uint16 = (6 << 10) | 1  // 0x1801 (C2S TransferKey)
+	PROTO_NC_CHAR_MAPLOGIN_ACK    uint16 = (6 << 10) | 2  // 0x1802 (S2C Map Login 242 bytes)
+	PROTO_NC_MAP_LOGINFAIL_ACK    uint16 = (6 << 10) | 3  // 0x1803 (S2C Transfer failure)
+	PROTO_NC_MAP_CLIENT_READY_REQ uint16 = (6 << 10) | 3  // 0x1803 (C2S ClientReady)
+	PROTO_NC_MAP_CHANGE_CMD       uint16 = (6 << 10) | 9  // 0x1809
+	PROTO_NC_MAP_CHANGE_ZONE_CMD  uint16 = (6 << 10) | 10 // 0x180A
+	PROTO_NC_MAP_TELEPORT_REQ     uint16 = (6 << 10) | 26 // 0x181A
+	PROTO_NC_MAP_TELEPORT_ACK     uint16 = (6 << 10) | 27 // 0x181B
 
-	PROTO_NC_CHAR_CREATE_REQ      = MakeOpCode(5, 1)  // 0x1401
-	PROTO_NC_CHAR_DELETE_REQ      = MakeOpCode(5, 2)  // 0x1402
-	PROTO_NC_CHAR_CREATE_FAIL_ACK = MakeOpCode(5, 4)  // 0x1404
-	PROTO_NC_CHAR_CREATE_ACK      = MakeOpCode(5, 6)  // 0x1406
-	PROTO_NC_CHAR_DELETE_ACK      = MakeOpCode(5, 12) // 0x140C
+	// Department 7: BRIEFINFO / Spawns & Visibilidad
+	PROTO_NC_BRIEFINFO_UNSHARE_EQUIP_ACK  uint16 = (7 << 10) | 4  // 0x1C04
+	PROTO_NC_BRIEFINFO_SHARE_EQUIP_ACK    uint16 = (7 << 10) | 5  // 0x1C05
+	PROTO_NC_BRIEFINFO_LOGINCHARACTER_CMD uint16 = (7 << 10) | 6  // 0x1C06 (235 bytes)
+	PROTO_NC_BRIEFINFO_CHARACTER_ACK      uint16 = (7 << 10) | 7  // 0x1C07 (Multi-player spawn)
+	PROTO_NC_BRIEFINFO_LEAVE_CMD          uint16 = (7 << 10) | 14 // 0x1C0E (Despawn)
 
-	PROTO_NC_FRIEND_LIST_ACK    = MakeOpCode(21, 7)
-	PROTO_NC_CHAR_INGAME_REQ    = MakeOpCode(22, 27) // 0x581B
-	PROTO_NC_CHAR_INGAME_ACK    = MakeOpCode(22, 28) // 0x581C
-	PROTO_NC_KQ_LIST_COUNT_ACK  = MakeOpCode(22, 29) // 0x581D
+	// Department 8: ACT / Movimiento, Combate & Chat
+	PROTO_NC_ACT_CHAT_REQ        uint16 = (8 << 10) | 1  // 0x2001
+	PROTO_NC_ACT_CHAT_ACK        uint16 = (8 << 10) | 2  // 0x2002
+	PROTO_NC_ACT_GM_NOTICE_ACK   uint16 = (8 << 10) | 17 // 0x2011
+	PROTO_NC_ACT_STOP_REQ        uint16 = (8 << 10) | 18 // 0x2012
+	PROTO_NC_ACT_STOP_ACK        uint16 = (8 << 10) | 19 // 0x2013
+	PROTO_NC_ACT_WALK_REQ        uint16 = (8 << 10) | 23 // 0x2017
+	PROTO_NC_ACT_WALK_ACK        uint16 = (8 << 10) | 24 // 0x2018
+	PROTO_NC_ACT_RUN_REQ         uint16 = (8 << 10) | 25 // 0x2019
+	PROTO_NC_ACT_RUN_ACK         uint16 = (8 << 10) | 26 // 0x201A
+	PROTO_NC_ACT_TELEPORT_CMD    uint16 = (8 << 10) | 27 // 0x201B
+	PROTO_NC_ACT_EMOTE_REQ       uint16 = (8 << 10) | 32 // 0x2020
+	PROTO_NC_ACT_JUMP_REQ        uint16 = (8 << 10) | 36 // 0x2024
+	PROTO_NC_ACT_JUMP_ACK        uint16 = (8 << 10) | 37 // 0x2025
+	PROTO_NC_ACT_REST_START_REQ  uint16 = (8 << 10) | 39 // 0x2027
+	PROTO_NC_ACT_REST_START_ACK  uint16 = (8 << 10) | 40 // 0x2028
+	PROTO_NC_ACT_REST_STOP_REQ   uint16 = (8 << 10) | 42 // 0x202A
+	PROTO_NC_ACT_REST_STOP_ACK   uint16 = (8 << 10) | 43 // 0x202B
+	PROTO_NC_ACT_BLOCK_WALK_ACK  uint16 = (8 << 10) | 74 // 0x204A
 
-	PROTO_NC_CHAR_GET_QUICKBAR_REQ       = MakeOpCode(28, 2)
-	PROTO_NC_CHAR_GET_QUICKBAR_ACK       = MakeOpCode(28, 3)
-	PROTO_NC_CHAR_GET_QUICKBAR_STATE_REQ = MakeOpCode(28, 4)
-	PROTO_NC_CHAR_GET_QUICKBAR_STATE_ACK = MakeOpCode(28, 5)
-	PROTO_NC_CHAR_GET_GAME_SETTINGS_REQ  = MakeOpCode(28, 10)
-	PROTO_NC_CHAR_GET_GAME_SETTINGS_ACK  = MakeOpCode(28, 11)
-	PROTO_NC_CHAR_GET_CLIENT_SETTINGS_REQ = MakeOpCode(28, 12)
-	PROTO_NC_CHAR_GET_CLIENT_SETTINGS_ACK = MakeOpCode(28, 13)
-	PROTO_NC_CHAR_GET_SHORTCUTS_REQ      = MakeOpCode(28, 14)
-	PROTO_NC_CHAR_GET_SHORTCUTS_ACK      = MakeOpCode(28, 15)
-	PROTO_NC_CHAR_SAVE_QUICKBAR_REQ      = MakeOpCode(28, 16)
-	PROTO_NC_CHAR_SAVE_QUICKBAR_STATE_REQ = MakeOpCode(28, 17)
-	PROTO_NC_CHAR_SAVE_GAME_SETTINGS_REQ = MakeOpCode(28, 20)
-	PROTO_NC_CHAR_SAVE_CLIENT_SETTINGS_REQ = MakeOpCode(28, 21)
-	PROTO_NC_CHAR_SAVE_SHORTCUTS_REQ     = MakeOpCode(28, 22)
+	// Department 12: ITEM / Inventario
+	PROTO_NC_ITEM_PREMIUM_LIST_ACK uint16 = (12 << 10) | 33 // 0x3021
+	PROTO_NC_ITEM_REWARD_LIST_ACK  uint16 = (12 << 10) | 45 // 0x302D
 
-	PROTO_NC_SYSTEM_UNKNOWN_REQ = MakeOpCode(31, 6)
-	PROTO_NC_SYSTEM_UNKNOWN_ACK = MakeOpCode(31, 7)
+	// Department 21: FRIEND / Social
+	PROTO_NC_FRIEND_LIST_ACK uint16 = (21 << 10) | 7 // 0x5407
 
-	// Header 4: Character Selection / Zone Transfer
-	SH4Type_ConnectError              = MakeOpCode(4, 2)
-	SH4Type_ServerIP                  = PROTO_NC_CHAR_SERVER_IP_ACK
-	SH4Type_CharacterInfo             = MakeOpCode(4, 56)
-	SH4Type_CharacterLook             = MakeOpCode(4, 57)
-	SH4Type_CharacterQuestsBusy       = MakeOpCode(4, 58)
-	SH4Type_CharacterQuestsDone       = MakeOpCode(4, 59)
-	SH4Type_CharacterActiveSkillList  = MakeOpCode(4, 61)
-	SH4Type_CharacterPassiveSkillList = MakeOpCode(4, 62)
-	SH4Type_CharacterItemList         = MakeOpCode(4, 71)
-	SH4Type_CharacterInfoEnd          = MakeOpCode(4, 72)
-	SH4Type_CharacterTitles           = MakeOpCode(4, 73)
-	SH4Type_CharacterPoints           = MakeOpCode(4, 91)
+	// Department 22: CHAR In-Game / Kingdom Quest
+	PROTO_NC_CHAR_INGAME_REQ   uint16 = (22 << 10) | 27 // 0x581B
+	PROTO_NC_CHAR_INGAME_ACK   uint16 = (22 << 10) | 28 // 0x581C
+	PROTO_NC_KQ_LIST_COUNT_ACK uint16 = (22 << 10) | 29 // 0x581D
 
-	// Header 5: Character Management
-	SH5Type_CharCreationError          = PROTO_NC_CHAR_CREATE_FAIL_ACK
-	SH5Type_CharCreationOK             = PROTO_NC_CHAR_CREATE_ACK
-	SH5Type_CharDeleteOK               = PROTO_NC_CHAR_DELETE_ACK
-	SH5Type_SendCharacterChangeNewName = MakeOpCode(5, 16)
+	// Department 28: Settings & QuickBar
+	PROTO_NC_CHAR_GET_QUICKBAR_REQ         uint16 = (28 << 10) | 2  // 0x7002
+	PROTO_NC_CHAR_GET_QUICKBAR_ACK         uint16 = (28 << 10) | 3  // 0x7003
+	PROTO_NC_CHAR_GET_QUICKBAR_STATE_REQ   uint16 = (28 << 10) | 4  // 0x7004
+	PROTO_NC_CHAR_GET_QUICKBAR_STATE_ACK   uint16 = (28 << 10) | 5  // 0x7005
+	PROTO_NC_CHAR_GET_GAME_SETTINGS_REQ    uint16 = (28 << 10) | 10 // 0x700A
+	PROTO_NC_CHAR_GET_GAME_SETTINGS_ACK    uint16 = (28 << 10) | 11 // 0x700B
+	PROTO_NC_CHAR_GET_CLIENT_SETTINGS_REQ  uint16 = (28 << 10) | 12 // 0x700C
+	PROTO_NC_CHAR_GET_CLIENT_SETTINGS_ACK  uint16 = (28 << 10) | 13 // 0x700D
+	PROTO_NC_CHAR_GET_SHORTCUTS_REQ        uint16 = (28 << 10) | 14 // 0x700E
+	PROTO_NC_CHAR_GET_SHORTCUTS_ACK        uint16 = (28 << 10) | 15 // 0x700F
+	PROTO_NC_CHAR_SAVE_QUICKBAR_REQ        uint16 = (28 << 10) | 16 // 0x7010
+	PROTO_NC_CHAR_SAVE_QUICKBAR_STATE_REQ  uint16 = (28 << 10) | 17 // 0x7011
+	PROTO_NC_CHAR_SAVE_GAME_SETTINGS_REQ   uint16 = (28 << 10) | 20 // 0x7014
+	PROTO_NC_CHAR_SAVE_CLIENT_SETTINGS_REQ uint16 = (28 << 10) | 21 // 0x7015
+	PROTO_NC_CHAR_SAVE_SHORTCUTS_REQ       uint16 = (28 << 10) | 22 // 0x7016
 
-	// Header 6: Zone Transfer & Detailed Info
-	SH6Type_DetailedCharacterInfo = MakeOpCode(6, 2)
-	SH6Type_Error                 = MakeOpCode(6, 3)
-	SH6Type_ChangeMap             = MakeOpCode(6, 9)
-	SH6Type_ChangeZone            = MakeOpCode(6, 10)
-	SH6Type_Teleporter            = MakeOpCode(6, 27)
-
-	// Header 7: Map Spawns
-	SH7Type_ShowUnequip       = MakeOpCode(7, 4)
-	SH7Type_ShowEquip         = MakeOpCode(7, 5)
-	SH7Type_SpawnSinglePlayer = MakeOpCode(7, 6)
-	SH7Type_SpawnMultiPlayer  = MakeOpCode(7, 7)
-	SH7Type_RemoveObject      = MakeOpCode(7, 14)
-
-	// Header 8: Map Movement & Chat
-	SH8Type_ChatNormal = MakeOpCode(8, 2)
-	SH8Type_GmNotice   = MakeOpCode(8, 17)
-	SH8Type_StopTele   = MakeOpCode(8, 19)
-	SH8Type_Walk       = MakeOpCode(8, 24)
-	SH8Type_Move       = MakeOpCode(8, 26)
-	SH8Type_Teleport   = MakeOpCode(8, 27)
-	SH8Type_Jump       = MakeOpCode(8, 37)
-	SH8Type_BeginRest  = MakeOpCode(8, 40)
-	SH8Type_EndRest    = MakeOpCode(8, 43)
-	SH8Type_BlockWalk  = MakeOpCode(8, 74)
-
-	// Header 12: Inventory & Items
-	SH12Type_ModifyItemSlot           = MakeOpCode(12, 1)
-	SH12Type_ModifyEquipSlot          = MakeOpCode(12, 2)
-	SH12Type_InventoryFull            = MakeOpCode(12, 4)
-	SH12Type_ObtainedItem             = MakeOpCode(12, 10)
-	SH12Type_MoveIteminContaInComplet = MakeOpCode(12, 12)
-	SH12Type_FailedEquip              = MakeOpCode(12, 17)
-	SH12Type_FailedUnequip            = MakeOpCode(12, 19)
-	SH12Type_ItemUseEffect            = MakeOpCode(12, 22)
-	SH12Type_ItemUpgrade              = MakeOpCode(12, 24)
-	SH12Type_ItemUsedOk               = MakeOpCode(12, 26)
-	SH12Type_SendPremiumItemList      = MakeOpCode(12, 33)
-	SH12Type_SendRewardList           = MakeOpCode(12, 45)
-
-	// Header 21: Social / Friends
-	SH21Type_FriendList = MakeOpCode(21, 7)
-
-	// Header 22: In-Game Status / Kingdom Quest
-	SH22Type_GotIngameAck      = MakeOpCode(22, 28) // 0x581C
-	SH22Type_KingdomQuestCount = MakeOpCode(22, 29) // 0x581D
-
-	// Header 28: Settings & QuickBar
-	SH28Type_LoadQuickBar      = MakeOpCode(28, 3)
-	SH28Type_LoadQuickBarState = MakeOpCode(28, 5)
-	SH28Type_LoadGameSettings  = MakeOpCode(28, 11)
-	SH28Type_LoadClientSettings = MakeOpCode(28, 13)
-	SH28Type_LoadShortCuts     = MakeOpCode(28, 15)
-
-	// Header 31: Unknown System Block
-	SH31Type_LoadUnknown       = MakeOpCode(31, 7)
+	// Department 31: SYSTEM
+	PROTO_NC_SYSTEM_UNKNOWN_REQ uint16 = (31 << 10) | 6 // 0x7C06
+	PROTO_NC_SYSTEM_UNKNOWN_ACK uint16 = (31 << 10) | 7 // 0x7C07
 )
 
-// Client -> Server OpCodes (CH = Client Header)
-var (
-	// Header 2: System / Handshake
-	CH2Type_Pong = MakeOpCode(2, 5)
-	CH2Type_Unk1 = MakeOpCode(2, 13)
-
-	// Header 3: Login / World Selection
-	CH3Type_FileHash          = PROTO_NC_USER_FILE_CHECK_REQ
-	CH3Type_WorldSelect       = PROTO_NC_USER_WORLDSELECT_REQ
-	CH3Type_WorldClientKey    = PROTO_NC_MISC_WORLD_CLIENT_KEY_REQ
-	CH3Type_BackToCharSelect  = MakeOpCode(3, 24)
-	CH3Type_WorldReRequest    = PROTO_NC_USER_WORLDSTATUS_REQ
-	CH3Type_BackToWorldSelect = PROTO_NC_USER_BACKTOWORLDLIST_REQ
-	CH3Type_LoginLegacy55     = MakeOpCode(3, 55)
-	CH3Type_LoginLegacy56     = MakeOpCode(3, 56)
-	CH3Type_Login             = PROTO_NC_USER_US_LOGIN_REQ
-	CH3Type_Version           = PROTO_NC_USER_CLIENT_VERSION_CHECK_REQ
-
-	// Header 4: Character Selection
-	CH4Type_CharSelect = PROTO_NC_CHAR_LOGIN_REQ
-
-	// Header 5: Character Management
-	CH5Type_CreateCharacter     = PROTO_NC_CHAR_CREATE_REQ
-	CH5Type_ChangeCharacterName = MakeOpCode(5, 5)
-	CH5Type_DeleteCharacter     = MakeOpCode(5, 7)
-
-	// Header 6: Zone Transfer
-	CH6Type_TransferKey = MakeOpCode(6, 1)
-	CH6Type_ClientReady = MakeOpCode(6, 3)
-	CH6Type_Teleporter  = MakeOpCode(6, 26)
-
-	// Header 8: Map Movement & Chat
-	CH8Type_ChatNormal = MakeOpCode(8, 1)
-	CH8Type_Stop       = MakeOpCode(8, 18)
-	CH8Type_Walk       = MakeOpCode(8, 23)
-	CH8Type_Run        = MakeOpCode(8, 25)
-	CH8Type_Emote      = MakeOpCode(8, 32)
-	CH8Type_Jump       = MakeOpCode(8, 36)
-	CH8Type_BeginRest  = MakeOpCode(8, 39)
-	CH8Type_EndRest    = MakeOpCode(8, 42)
-
-	// Header 22: In-Game Status / Heartbeat
-	CH22Type_GotIngame = MakeOpCode(22, 27) // 0x581B, matching fc_NC_CHAR_LOGIN_REQ
-
-	// Header 28: Settings & QuickBar
-	CH28Type_GetQuickBar       = MakeOpCode(28, 2)
-	CH28Type_GetQuickBarState  = MakeOpCode(28, 4)
-	CH28Type_GetGameSettings   = MakeOpCode(28, 10)
-	CH28Type_GetClientSettings = MakeOpCode(28, 12)
-	CH28Type_GetShortCuts      = MakeOpCode(28, 14)
-	CH28Type_SaveQuickBar      = MakeOpCode(28, 16)
-	CH28Type_SaveQuickBarState = MakeOpCode(28, 17)
-	CH28Type_SaveGameSettings  = MakeOpCode(28, 20)
-	CH28Type_SaveClientSettings = MakeOpCode(28, 21)
-	CH28Type_SaveShortCuts     = MakeOpCode(28, 22)
-
-	// Header 31: Unknown System Block
-	CH31Type_GetUnknown        = MakeOpCode(31, 6)
-)
-
-// ServerError codes returned in SH3Type_Error packets.
+// ServerError codes returned in PROTO_NC_USER_LOGINFAIL_ACK packets.
 type ServerError uint16
 
 const (
@@ -253,7 +177,7 @@ const (
 	WorldStatus_High            WorldStatus = 10
 )
 
-// CreateCharError codes returned in SH5Type_CharCreationError packets.
+// CreateCharError codes returned in PROTO_NC_CHAR_CREATE_FAIL_ACK packets.
 type CreateCharError uint16
 
 const (

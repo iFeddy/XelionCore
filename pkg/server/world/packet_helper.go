@@ -26,77 +26,85 @@ const (
 )
 
 // WriteBasicCharInfo serializa la información del personaje según el struct oficial
-// PROTO_AVATARINFORMATION (130 bytes) extraído de WorldManager.pdb / Character.pdb.
+// PROTO_AVATARINFORMATION (130 bytes exactos) extraído de WorldManager.pdb / Character.pdb.
 func WriteBasicCharInfo(ch *database.Character, pw *protocol.PacketWriter) {
-	pw.WriteInt32(int32(ch.ID))
-	pw.WriteString(ch.Name, 16)
-	pw.WriteInt32(0) // unk
-	pw.WriteInt16(int16(ch.Level))
+	// 0x000 (4 bytes): unsigned int chrregnum
+	pw.WriteUint32(uint32(ch.ID))
+
+	// 0x004 (20 bytes): Name5 name
+	pw.WriteString(ch.Name, 20)
+
+	// 0x018 (2 bytes): unsigned short level
+	pw.WriteUint16(uint16(ch.Level))
+
+	// 0x01a (1 byte): unsigned char slot
 	pw.WriteByte(ch.Slot)
 
-	mapShortName := "Rou"
-	switch ch.Map {
-	case 0:
-		mapShortName = "Rou"
-	case 1:
-		mapShortName = "RouCos01"
-	case 2:
-		mapShortName = "RouVal01"
-	case 9:
-		mapShortName = "Eld"
-	default:
-		mapShortName = "Rou"
+	// 0x01b (12 bytes): Name3 loginmap
+	mapShortName := ch.TownName
+	if mapShortName == "" {
+		mapShortName = "RouN"
 	}
-	pw.WriteString(mapShortName, 13)
-	pw.WriteInt32(0) // random seed
+	pw.WriteString(mapShortName, 12)
 
-	// Look: 4 bytes
-	maleBit := byte(0)
+	// 0x027 (5 bytes): PROTO_AVATAR_DELETE_INFO delinfo (year, month, day, hour, min)
+	pw.WriteBytes([]byte{0, 0, 0, 0, 0})
+
+	// 0x02c (4 bytes): PROTO_AVATAR_SHAPE_INFO shape (race:2, chrclass:5, gender:1, hairtype, haircolor, faceshape)
+	genderBit := byte(0)
 	if ch.Male {
-		maleBit = 1
+		genderBit = 1
 	}
-	lookByte := byte(0x01 | (ch.Job << 2) | (maleBit << 7))
-	pw.WriteByte(lookByte)
+	shapeByte0 := byte((1 & 0x03) | ((ch.Job & 0x1F) << 2) | ((genderBit & 0x01) << 7))
+	pw.WriteByte(shapeByte0)
 	pw.WriteByte(ch.Hair)
 	pw.WriteByte(ch.HairColor)
 	pw.WriteByte(ch.Face)
 
-	// Equipment: 42 bytes
-	pw.WriteUint16(ch.GetEquip(SlotHelm))
-	pw.WriteUint16(ch.GetEquip(SlotWeapon))
-	pw.WriteUint16(ch.GetEquip(SlotArmor))
-	pw.WriteUint16(ch.GetEquip(SlotWeapon2))
-	pw.WriteUint16(ch.GetEquip(SlotPants))
-	pw.WriteUint16(ch.GetEquip(SlotBoots))
-	pw.WriteUint16(ch.GetEquip(SlotCostumeBoots))
-	pw.WriteUint16(ch.GetEquip(SlotCostumePants))
-	pw.WriteUint16(ch.GetEquip(SlotCostumeArmor))
-	pw.Fill(6, 0xFF)
-	pw.WriteUint16(ch.GetEquip(SlotGlasses))
-	pw.WriteUint16(ch.GetEquip(SlotCostumeHelm))
-	pw.Fill(2, 0xFF)
-	pw.WriteUint16(ch.GetEquip(SlotCostumeWeapon))
-	pw.WriteUint16(ch.GetEquip(SlotWing))
-	pw.Fill(2, 0xFF)
-	pw.WriteUint16(ch.GetEquip(SlotTail))
-	pw.WriteUint16(ch.GetEquip(SlotPet))
+	// 0x030 (43 bytes): PROTO_EQUIPMENT equip (20 slots * 2 bytes + 3 bytes upgrade)
+	pw.WriteUint16(ch.GetEquip(SlotHelm))          // Equ_Head
+	pw.WriteUint16(0)                             // Equ_Mouth
+	pw.WriteUint16(ch.GetEquip(SlotWeapon))        // Equ_RightHand
+	pw.WriteUint16(ch.GetEquip(SlotArmor))         // Equ_Body
+	pw.WriteUint16(ch.GetEquip(SlotWeapon2))       // Equ_LeftHand
+	pw.WriteUint16(ch.GetEquip(SlotPants))         // Equ_Pant
+	pw.WriteUint16(ch.GetEquip(SlotBoots))         // Equ_Boot
+	pw.WriteUint16(ch.GetEquip(SlotCostumeBoots))  // Equ_AccBoot
+	pw.WriteUint16(ch.GetEquip(SlotCostumePants))  // Equ_AccPant
+	pw.WriteUint16(ch.GetEquip(SlotCostumeArmor))  // Equ_AccBody
+	pw.WriteUint16(ch.GetEquip(SlotCostumeHelm))   // Equ_AccHeadA
+	pw.WriteUint16(0)                             // Equ_MiniMon_R
+	pw.WriteUint16(ch.GetEquip(SlotGlasses))       // Equ_Eye
+	pw.WriteUint16(ch.GetEquip(SlotCostumeShield)) // Equ_AccLeftHand
+	pw.WriteUint16(ch.GetEquip(SlotCostumeWeapon)) // Equ_AccRightHand
+	pw.WriteUint16(ch.GetEquip(SlotWing))          // Equ_AccBack
+	pw.WriteUint16(0)                             // Equ_CosEff
+	pw.WriteUint16(ch.GetEquip(SlotTail))          // Equ_AccHip
+	pw.WriteUint16(ch.GetEquip(SlotPet))           // Equ_Minimon
+	pw.WriteUint16(0)                             // Equ_AccShield
+	pw.WriteBytes([]byte{0, 0, 0})                // upgrade (3 bytes: lefthand, righthand, body, leg, shoes)
 
-	// Refinement: 3 bytes
-	pw.Fill(3, 0xFF)
+	// 0x05b (4 bytes): unsigned int nKQHandle
+	pw.WriteUint32(0)
 
-	// Trailer
+	// 0x05f (12 bytes): Name3 sKQMapName
+	pw.WriteString("", 12)
+
+	// 0x06b (8 bytes): SHINE_XY_TYPE nKQCoord (x, y)
+	pw.WriteUint32(0)
+	pw.WriteUint32(0)
+
+	// 0x073 (4 bytes): SHINE_DATETIME dKQDate
+	pw.WriteUint32(0)
+
+	// 0x077 (6 bytes): CHAR_ID_CHANGE_DATA CharIDChangeData (bNeedChangeID, bInit, nRowNo)
 	pw.WriteByte(0)
-	pw.WriteByte(0xF0)
-	pw.WriteByte(0xFF)
-	pw.WriteByte(0xFF)
+	pw.WriteByte(0)
+	pw.WriteUint32(0)
 
-	pw.WriteString(mapShortName, 12)
-	pw.WriteInt32(0) // pos X
-	pw.WriteInt32(0) // pos Y
-	pw.WriteUint16(0xDB78)
-	pw.WriteUint16(4910)
-	pw.WriteUint16(25600)
-	pw.Fill(4, 0)
+	// 0x07d (5 bytes): PROTO_TUTORIAL_INFO TutorialInfo (nTutorialState, nTutorialStep)
+	pw.WriteUint32(0)
+	pw.WriteByte(0)
 }
 
 // GetBeginnerWeapon returns the starter weapon ID for a given job.

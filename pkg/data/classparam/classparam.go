@@ -60,6 +60,15 @@ func NewStore() *Store {
 	}
 }
 
+// Load loads all class parameter JSON files from the specified directory and returns a new Store.
+func Load(dir string) (*Store, error) {
+	s := NewStore()
+	if err := s.LoadDir(dir); err != nil {
+		return nil, err
+	}
+	return s, nil
+}
+
 // LoadDir loads all class parameter JSON files from the specified directory.
 func (s *Store) LoadDir(dir string) error {
 	entries, err := os.ReadDir(dir)

@@ -6,7 +6,7 @@ import (
 )
 
 func TestPacketSerializationAndCrypto(t *testing.T) {
-	pw := NewPacketWriter(SH3Type_VersionAllowed)
+	pw := NewPacketWriter(PROTO_NC_USER_CLIENT_RIGHTVERSION_CHECK_ACK)
 	pw.WriteInt16(1)
 
 	wire := pw.BuildWirePacket()
@@ -25,8 +25,8 @@ func TestPacketSerializationAndCrypto(t *testing.T) {
 		t.Fatalf("failed to parse packet")
 	}
 
-	if packet.OpCode != SH3Type_VersionAllowed {
-		t.Fatalf("expected opcode %d, got %d", SH3Type_VersionAllowed, packet.OpCode)
+	if packet.OpCode != PROTO_NC_USER_CLIENT_RIGHTVERSION_CHECK_ACK {
+		t.Fatalf("expected opcode %d, got %d", PROTO_NC_USER_CLIENT_RIGHTVERSION_CHECK_ACK, packet.OpCode)
 	}
 
 	val, err := packet.Reader.ReadInt16()
@@ -41,7 +41,7 @@ func TestPacketSerializationAndCrypto(t *testing.T) {
 
 func TestOpCodePacking(t *testing.T) {
 	header := uint8(3)
-	typ := uint16(90) // CH3Type_Login
+	typ := uint16(90) // PROTO_NC_USER_US_LOGIN_REQ
 
 	opCode := MakeOpCode(header, typ)
 	if ExtractHeader(opCode) != header {

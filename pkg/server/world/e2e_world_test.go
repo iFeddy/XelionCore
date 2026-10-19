@@ -160,9 +160,22 @@ func TestE2EWorldServiceFlow(t *testing.T) {
 	initialCharCount, _ := pkt.Reader.ReadByte()
 	t.Logf("Paso 2: Autenticación World exitosa, recibida lista de personajes (%d activos)", initialCharCount)
 
+	existingChars, _ := charRepo.GetCharactersByAccount(1)
+	usedSlots := make(map[byte]bool)
+	for _, c := range existingChars {
+		usedSlots[c.Slot] = true
+	}
+	var freeSlot byte = 5
+	for s := byte(0); s < 6; s++ {
+		if !usedSlots[s] {
+			freeSlot = s
+			break
+		}
+	}
+
 	// 4. Probar rechazo de BadNameFilter
 	badReq := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_CREATE_REQ)
-	badReq.WriteByte(2) // Slot 2
+	badReq.WriteByte(freeSlot)
 	badReq.WriteString("AdminMaster", 20)
 	badReq.WriteByte(byte(1 << 2)) // Fighter
 	badReq.WriteByte(1) // Hair
@@ -183,7 +196,7 @@ func TestE2EWorldServiceFlow(t *testing.T) {
 	// 5. Crear personaje legítimo: "XelionKnight"
 	charName := fmt.Sprintf("Xel%d", time.Now().Unix()%100000)
 	createReq := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_CREATE_REQ)
-	createReq.WriteByte(2) // Slot 2
+	createReq.WriteByte(freeSlot)
 	createReq.WriteString(charName, 20)
 	createReq.WriteByte(byte((1 << 2) | (1 << 7))) // Fighter, Male
 	createReq.WriteByte(1)                         // Hair

@@ -4,6 +4,8 @@ import (
 	"crypto/rand"
 	"database/sql"
 	"encoding/hex"
+	"fmt"
+	"strconv"
 	"strings"
 	"sync"
 	"time"
@@ -233,6 +235,17 @@ func (tm *TransferManager) CreateZoneTransfer(accountID int, username, charName 
 		HostIP:    hostIP,
 		CreatedAt: time.Now(),
 	}
+
+	if tm.db != nil {
+		tok := fmt.Sprintf("ZONE:%s", key)
+		payload := fmt.Sprintf("%s|%d|%d", username, charID, randomID)
+		query := `
+			INSERT INTO tTransferToken (sToken, nUserNo, sUserID, nAuthID, sIP, dCreatedAt)
+			VALUES (?, ?, ?, ?, ?, NOW())
+			ON DUPLICATE KEY UPDATE nUserNo = VALUES(nUserNo), sUserID = VALUES(sUserID), nAuthID = VALUES(nAuthID), sIP = VALUES(sIP), dCreatedAt = NOW();
+		`
+		_, _ = tm.db.Exec(query, tok, accountID, payload, admin, hostIP)
+	}
 }
 
 // ConsumeZoneTransfer valida y consume un token de traspaso a Zona (World -> Zone).
@@ -242,25 +255,115 @@ func (tm *TransferManager) ConsumeZoneTransfer(charName string, randomID uint16,
 
 	key := strings.ToLower(strings.TrimSpace(charName))
 
-	// 1. Búsqueda directa por nombre de personaje
+	// 1. Búsqueda directa en memoria local por nombre de personaje
 	if t, exists := tm.zoneTransfers[key]; exists {
 		delete(tm.zoneTransfers, key)
+		if tm.db != nil {
+			_, _ = tm.db.Exec("DELETE FROM tTransferToken WHERE sToken = ?", fmt.Sprintf("ZONE:%s", key))
+		}
 		return t, true
 	}
 
-	// 2. Búsqueda por RandomID
+	// 2. Búsqueda en memoria local por RandomID
 	for k, t := range tm.zoneTransfers {
 		if t.RandomID == randomID {
 			delete(tm.zoneTransfers, k)
+			if tm.db != nil {
+				_, _ = tm.db.Exec("DELETE FROM tTransferToken WHERE sToken = ?", fmt.Sprintf("ZONE:%s", k))
+			}
 			return t, true
 		}
 	}
 
-	// 3. Fallback: traspaso más reciente dentro de los 60 segundos
+	// 3. Consulta en MySQL tTransferToken (inter-proceso WorldService -> ZoneService)
+	if tm.db != nil {
+		tok := fmt.Sprintf("ZONE:%s", key)
+		query := `
+			SELECT sToken, nUserNo, sUserID, nAuthID, sIP, dCreatedAt
+			FROM tTransferToken
+			WHERE sToken = ? AND dCreatedAt >= NOW() - INTERVAL 120 SECOND
+			LIMIT 1;
+		`
+		var (
+			sTok      string
+			userNo    int
+			userID    string
+			authID    byte
+			ip        string
+			createdAt time.Time
+		)
+		err := tm.db.QueryRow(query, tok).Scan(&sTok, &userNo, &userID, &authID, &ip, &createdAt)
+		if err == nil {
+			_, _ = tm.db.Exec("DELETE FROM tTransferToken WHERE sToken = ?", sTok)
+			parts := strings.Split(userID, "|")
+			var uName string
+			var cID int
+			var rID uint16
+			if len(parts) >= 3 {
+				uName = parts[0]
+				cID, _ = strconv.Atoi(parts[1])
+				rVal, _ := strconv.ParseUint(parts[2], 10, 16)
+				rID = uint16(rVal)
+			} else {
+				uName = userID
+			}
+			return &ZoneTransfer{
+				AccountID: userNo,
+				Username:  uName,
+				CharName:  charName,
+				CharID:    cID,
+				RandomID:  rID,
+				Admin:     authID,
+				HostIP:    ip,
+				CreatedAt: createdAt,
+			}, true
+		}
+
+		// Fallback en MySQL buscando el transfer más reciente dentro de 60 segundos
+		queryAny := `
+			SELECT sToken, nUserNo, sUserID, nAuthID, sIP, dCreatedAt
+			FROM tTransferToken
+			WHERE sToken LIKE 'ZONE:%' AND dCreatedAt >= NOW() - INTERVAL 60 SECOND
+			ORDER BY dCreatedAt DESC
+			LIMIT 1;
+		`
+		err = tm.db.QueryRow(queryAny).Scan(&sTok, &userNo, &userID, &authID, &ip, &createdAt)
+		if err == nil {
+			_, _ = tm.db.Exec("DELETE FROM tTransferToken WHERE sToken = ?", sTok)
+			cName := strings.TrimPrefix(sTok, "ZONE:")
+			parts := strings.Split(userID, "|")
+			var uName string
+			var cID int
+			var rID uint16
+			if len(parts) >= 3 {
+				uName = parts[0]
+				cID, _ = strconv.Atoi(parts[1])
+				rVal, _ := strconv.ParseUint(parts[2], 10, 16)
+				rID = uint16(rVal)
+			} else {
+				uName = userID
+			}
+			return &ZoneTransfer{
+				AccountID: userNo,
+				Username:  uName,
+				CharName:  cName,
+				CharID:    cID,
+				RandomID:  rID,
+				Admin:     authID,
+				HostIP:    ip,
+				CreatedAt: createdAt,
+			}, true
+		}
+	}
+
+	// 4. Fallback en memoria local: traspaso más reciente dentro de los 60 segundos
 	now := time.Now()
 	for k, t := range tm.zoneTransfers {
 		if now.Sub(t.CreatedAt) < 60*time.Second {
 			delete(tm.zoneTransfers, k)
+			if tm.db != nil {
+				_, _ = tm.db.Exec("DELETE FROM tTransferToken WHERE sToken = ?", fmt.Sprintf("ZONE:%s", k))
+			}
 			return t, true
 		}
 	}
