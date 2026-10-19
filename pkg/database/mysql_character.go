@@ -451,7 +451,67 @@ func (r *MySQLCharacterRepository) CreateCharacter(ch *Character) error {
 				VALUES (0, ?, ?, ?, 0, NOW());
 			`, charNo, slot, itemID)
 			if err != nil {
-				return fmt.Errorf("failed inserting starter item: %w", err)
+				return fmt.Errorf("failed inserting starter equip item: %w", err)
+			}
+		}
+	}
+
+	// 7. Insertar items de inventario iniciales si fueron provistos
+	if ch.Items != nil {
+		for _, it := range ch.Items {
+			if it == nil || it.ItemID == 0 {
+				continue
+			}
+			stType := it.StorageType
+			if stType == 0 {
+				stType = 9 // Default a inventario (Box 9)
+			}
+			_, err = tx.Exec(`
+				INSERT INTO tItem (nStorageType, nOwner, nStorage, nItemID, nFlags, dDate)
+				VALUES (?, ?, ?, ?, ?, NOW());
+			`, stType, charNo, it.Storage, it.ItemID, it.Flags)
+			if err != nil {
+				return fmt.Errorf("failed inserting starter inventory item: %w", err)
+			}
+		}
+	}
+
+	// 8. Insertar shortcuts iniciales si fueron provistos
+	if ch.Shortcuts != nil {
+		for _, sc := range ch.Shortcuts {
+			if sc == nil {
+				continue
+			}
+			codeType := sc.CodeType
+			if codeType == 0 {
+				codeType = 1
+			}
+			_, err = tx.Exec(`
+				INSERT INTO tCharacterShortCut (nCharNo, nSlotNo, nCodeType, nCodeNo, nValue)
+				VALUES (?, ?, ?, ?, ?);
+			`, charNo, sc.SlotNo, codeType, sc.CodeNo, sc.Value)
+			if err != nil {
+				return fmt.Errorf("failed inserting starter shortcut: %w", err)
+			}
+		}
+	}
+
+	// 9. Insertar habilidades iniciales si fueron provistas
+	if ch.Skills != nil {
+		for _, sk := range ch.Skills {
+			if sk == nil || sk.SkillNo == 0 {
+				continue
+			}
+			lvl := sk.SkillLevel
+			if lvl == 0 {
+				lvl = 1
+			}
+			_, err = tx.Exec(`
+				INSERT INTO tSkill (nCharNo, nSkillNo, nSkillLevel)
+				VALUES (?, ?, ?);
+			`, charNo, sk.SkillNo, lvl)
+			if err != nil {
+				return fmt.Errorf("failed inserting starter skill: %w", err)
 			}
 		}
 	}
@@ -557,4 +617,122 @@ func (r *MySQLCharacterRepository) getCharacterEquips(charNo int) (map[byte]uint
 		equips[slot] = itemID
 	}
 	return equips, nil
+}
+
+// GetCharacterItems recupera todos los items asociados a un personaje desde tItem.
+func (r *MySQLCharacterRepository) GetCharacterItems(charNo int) ([]*Item, error) {
+	rows, err := r.db.Query(`
+		SELECT nItemKey, nStorageType, nOwner, nStorage, nItemID, nFlags, dDate
+		FROM tItem
+		WHERE nOwner = ?
+		ORDER BY nStorageType, nStorage;
+	`, charNo)
+	if err != nil {
+		return nil, fmt.Errorf("error querying items for char %d: %w", charNo, err)
+	}
+	defer rows.Close()
+
+	var items []*Item
+	for rows.Next() {
+		var it Item
+		if err := rows.Scan(&it.ItemKey, &it.StorageType, &it.Owner, &it.Storage, &it.ItemID, &it.Flags, &it.Date); err != nil {
+			return nil, fmt.Errorf("error scanning item for char %d: %w", charNo, err)
+		}
+		items = append(items, &it)
+	}
+	return items, nil
+}
+
+// GetCharacterShortcuts recupera la barra de atajos oficial desde tCharacterShortCut.
+func (r *MySQLCharacterRepository) GetCharacterShortcuts(charNo int) ([]*Shortcut, error) {
+	rows, err := r.db.Query(`
+		SELECT nCharNo, nSlotNo, nCodeType, nCodeNo, nValue
+		FROM tCharacterShortCut
+		WHERE nCharNo = ?
+		ORDER BY nSlotNo;
+	`, charNo)
+	if err != nil {
+		return nil, fmt.Errorf("error querying shortcuts for char %d: %w", charNo, err)
+	}
+	defer rows.Close()
+
+	var shortcuts []*Shortcut
+	for rows.Next() {
+		var sc Shortcut
+		if err := rows.Scan(&sc.CharNo, &sc.SlotNo, &sc.CodeType, &sc.CodeNo, &sc.Value); err != nil {
+			return nil, fmt.Errorf("error scanning shortcut for char %d: %w", charNo, err)
+		}
+		shortcuts = append(shortcuts, &sc)
+	}
+	return shortcuts, nil
+}
+
+// GetCharacterSkills recupera las habilidades aprendidas desde tSkill.
+func (r *MySQLCharacterRepository) GetCharacterSkills(charNo int) ([]*CharacterSkill, error) {
+	rows, err := r.db.Query(`
+		SELECT nCharNo, nSkillNo, nSkillLevel
+		FROM tSkill
+		WHERE nCharNo = ?
+		ORDER BY nSkillNo;
+	`, charNo)
+	if err != nil {
+		return nil, fmt.Errorf("error querying skills for char %d: %w", charNo, err)
+	}
+	defer rows.Close()
+
+	var skills []*CharacterSkill
+	for rows.Next() {
+		var sk CharacterSkill
+		if err := rows.Scan(&sk.CharNo, &sk.SkillNo, &sk.SkillLevel); err != nil {
+			return nil, fmt.Errorf("error scanning skill for char %d: %w", charNo, err)
+		}
+		skills = append(skills, &sk)
+	}
+	return skills, nil
+}
+
+// SaveCharacterItem persiste un item individual en tItem.
+func (r *MySQLCharacterRepository) SaveCharacterItem(item *Item) error {
+	res, err := r.db.Exec(`
+		INSERT INTO tItem (nStorageType, nOwner, nStorage, nItemID, nFlags, dDate)
+		VALUES (?, ?, ?, ?, ?, NOW());
+	`, item.StorageType, item.Owner, item.Storage, item.ItemID, item.Flags)
+	if err != nil {
+		return fmt.Errorf("error inserting item for char %d: %w", item.Owner, err)
+	}
+	id, err := res.LastInsertId()
+	if err == nil {
+		item.ItemKey = id
+	}
+	return nil
+}
+
+// SaveCharacterShortcuts persiste una lista de atajos en tCharacterShortCut.
+func (r *MySQLCharacterRepository) SaveCharacterShortcuts(charNo int, shortcuts []*Shortcut) error {
+	for _, sc := range shortcuts {
+		_, err := r.db.Exec(`
+			INSERT INTO tCharacterShortCut (nCharNo, nSlotNo, nCodeType, nCodeNo, nValue)
+			VALUES (?, ?, ?, ?, ?)
+			ON DUPLICATE KEY UPDATE nCodeType = VALUES(nCodeType), nCodeNo = VALUES(nCodeNo), nValue = VALUES(nValue), sys_update_date = NOW();
+		`, charNo, sc.SlotNo, sc.CodeType, sc.CodeNo, sc.Value)
+		if err != nil {
+			return fmt.Errorf("error saving shortcut slot %d for char %d: %w", sc.SlotNo, charNo, err)
+		}
+	}
+	return nil
+}
+
+// SaveCharacterSkills persiste habilidades aprendidas en tSkill.
+func (r *MySQLCharacterRepository) SaveCharacterSkills(charNo int, skills []*CharacterSkill) error {
+	for _, sk := range skills {
+		_, err := r.db.Exec(`
+			INSERT INTO tSkill (nCharNo, nSkillNo, nSkillLevel)
+			VALUES (?, ?, ?)
+			ON DUPLICATE KEY UPDATE nSkillLevel = VALUES(nSkillLevel);
+		`, charNo, sk.SkillNo, sk.SkillLevel)
+		if err != nil {
+			return fmt.Errorf("error saving skill %d for char %d: %w", sk.SkillNo, charNo, err)
+		}
+	}
+	return nil
 }

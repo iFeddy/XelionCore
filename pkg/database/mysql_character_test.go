@@ -190,3 +190,75 @@ func TestMySQLCharacterRepository_Lifecycle(t *testing.T) {
 	// Limpieza final
 	_, _ = db.Exec("DELETE FROM tCharacter WHERE sID LIKE 'TestKnight%' OR sID = ?", testCharName)
 }
+
+func TestMySQLCharacterRepository_StarterItemsAndShortcuts(t *testing.T) {
+	db, repo := setupTestCharDB(t)
+	defer db.Close()
+
+	testUserNo := 1
+	testCharName := "TestStarterChar"
+
+	// Limpieza previa
+	_, _ = db.Exec("DELETE FROM tCharacter WHERE sID LIKE 'TestStarterChar%' OR sID = ?", testCharName)
+
+	ch := &database.Character{
+		AccountID: testUserNo,
+		Name:      testCharName,
+		Slot:      3,
+		Job:       21, // Joker
+		Level:     1,
+		Male:      true,
+		TownName:  "RouN",
+		XPos:      6888,
+		YPos:      7045,
+		Equips:    map[byte]uint16{12: 57363},
+		Items: []*database.Item{
+			{StorageType: 9, Storage: 0, ItemID: 46003, Flags: 1},
+		},
+		Shortcuts: []*database.Shortcut{
+			{SlotNo: 0, CodeType: 1, CodeNo: 4, Value: 0},
+			{SlotNo: 10, CodeType: 1, CodeNo: 1, Value: 3500},
+		},
+		Skills: []*database.CharacterSkill{
+			{SkillNo: 29200, SkillLevel: 1},
+		},
+	}
+
+	err := repo.CreateCharacter(ch)
+	if err != nil {
+		t.Fatalf("Failed to create character with starters: %v", err)
+	}
+	defer func() {
+		_, _ = db.Exec("DELETE FROM tCharacter WHERE sID LIKE 'TestStarterChar%' OR sID = ?", testCharName)
+		_, _ = db.Exec("DELETE FROM tItem WHERE nOwner = ?", ch.ID)
+		_, _ = db.Exec("DELETE FROM tCharacterShortCut WHERE nCharNo = ?", ch.ID)
+		_, _ = db.Exec("DELETE FROM tSkill WHERE nCharNo = ?", ch.ID)
+	}()
+
+	// 1. Verificar lectura de items
+	items, err := repo.GetCharacterItems(ch.ID)
+	if err != nil {
+		t.Fatalf("Failed to get character items: %v", err)
+	}
+	if len(items) != 2 {
+		t.Fatalf("Expected 2 items (1 equip + 1 inven), got %d", len(items))
+	}
+
+	// 2. Verificar lectura de shortcuts
+	shortcuts, err := repo.GetCharacterShortcuts(ch.ID)
+	if err != nil {
+		t.Fatalf("Failed to get character shortcuts: %v", err)
+	}
+	if len(shortcuts) != 2 {
+		t.Fatalf("Expected 2 shortcuts, got %d", len(shortcuts))
+	}
+
+	// 3. Verificar lectura de skills
+	skills, err := repo.GetCharacterSkills(ch.ID)
+	if err != nil {
+		t.Fatalf("Failed to get character skills: %v", err)
+	}
+	if len(skills) != 1 || skills[0].SkillNo != 29200 {
+		t.Fatalf("Expected 1 skill with ID 29200, got %+v", skills)
+	}
+}

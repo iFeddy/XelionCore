@@ -7,6 +7,7 @@ import (
 	"path/filepath"
 	"strings"
 	"sync"
+	"time"
 )
 
 var (
@@ -108,6 +109,36 @@ type Character struct {
 	CurHP     int    `json:"cur_hp"`
 	CurSP     int    `json:"cur_sp"`
 	TownName  string `json:"town_name"`
+	Items     []*Item           `json:"items"`
+	Shortcuts []*Shortcut       `json:"shortcuts"`
+	Skills    []*CharacterSkill `json:"skills"`
+}
+
+// Item represents an official tItem database row.
+type Item struct {
+	ItemKey     int64     `json:"item_key"`
+	StorageType byte      `json:"storage_type"` // 0: Equip, 9: Inven, 12: House, 15: Emotions
+	Owner       int       `json:"owner"`        // nCharNo
+	Storage     int16     `json:"storage"`      // Slot
+	ItemID      uint16    `json:"item_id"`
+	Flags       int32     `json:"flags"`
+	Date        time.Time `json:"date"`
+}
+
+// Shortcut represents an entry in tCharacterShortCut.
+type Shortcut struct {
+	CharNo   int   `json:"char_no"`
+	SlotNo   byte  `json:"slot_no"`
+	CodeType int16 `json:"code_type"`
+	CodeNo   int16 `json:"code_no"`
+	Value    int32 `json:"value"`
+}
+
+// CharacterSkill represents a learned skill in tSkill.
+type CharacterSkill struct {
+	CharNo     int    `json:"char_no"`
+	SkillNo    uint16 `json:"skill_no"`
+	SkillLevel byte   `json:"skill_level"`
 }
 
 // Sync ensures bidirectional alignment between flat fields and the canonical tables.
@@ -191,6 +222,14 @@ type CharacterRepository interface {
 	CreateCharacter(ch *Character) error
 	UpdateCharacter(ch *Character) error
 	DeleteCharacter(accountID int, slot byte) error
+
+	// Official inventory, shortcuts and skill routines
+	GetCharacterItems(charNo int) ([]*Item, error)
+	GetCharacterShortcuts(charNo int) ([]*Shortcut, error)
+	GetCharacterSkills(charNo int) ([]*CharacterSkill, error)
+	SaveCharacterItem(item *Item) error
+	SaveCharacterShortcuts(charNo int, shortcuts []*Shortcut) error
+	SaveCharacterSkills(charNo int, skills []*CharacterSkill) error
 }
 
 type charStore struct {
@@ -365,4 +404,76 @@ func (r *MemoryCharacterRepository) DeleteCharacter(accountID int, slot byte) er
 		}
 	}
 	return ErrCharacterNotFound
+}
+
+func (r *MemoryCharacterRepository) GetCharacterItems(charNo int) ([]*Item, error) {
+	r.mu.RLock()
+	defer r.mu.RUnlock()
+	ch, exists := r.characters[charNo]
+	if !exists {
+		return nil, ErrCharacterNotFound
+	}
+	res := make([]*Item, len(ch.Items))
+	copy(res, ch.Items)
+	return res, nil
+}
+
+func (r *MemoryCharacterRepository) GetCharacterShortcuts(charNo int) ([]*Shortcut, error) {
+	r.mu.RLock()
+	defer r.mu.RUnlock()
+	ch, exists := r.characters[charNo]
+	if !exists {
+		return nil, ErrCharacterNotFound
+	}
+	res := make([]*Shortcut, len(ch.Shortcuts))
+	copy(res, ch.Shortcuts)
+	return res, nil
+}
+
+func (r *MemoryCharacterRepository) GetCharacterSkills(charNo int) ([]*CharacterSkill, error) {
+	r.mu.RLock()
+	defer r.mu.RUnlock()
+	ch, exists := r.characters[charNo]
+	if !exists {
+		return nil, ErrCharacterNotFound
+	}
+	res := make([]*CharacterSkill, len(ch.Skills))
+	copy(res, ch.Skills)
+	return res, nil
+}
+
+func (r *MemoryCharacterRepository) SaveCharacterItem(item *Item) error {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	ch, exists := r.characters[item.Owner]
+	if !exists {
+		return ErrCharacterNotFound
+	}
+	ch.Items = append(ch.Items, item)
+	r.save()
+	return nil
+}
+
+func (r *MemoryCharacterRepository) SaveCharacterShortcuts(charNo int, shortcuts []*Shortcut) error {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	ch, exists := r.characters[charNo]
+	if !exists {
+		return ErrCharacterNotFound
+	}
+	ch.Shortcuts = append(ch.Shortcuts, shortcuts...)
+	r.save()
+	return nil
+}
+
+func (r *MemoryCharacterRepository) SaveCharacterSkills(charNo int, skills []*CharacterSkill) error {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	ch, exists := r.characters[charNo]
+	if !exists {
+		return ErrCharacterNotFound
+	}
+	ch.Skills = append(ch.Skills, skills...)
+	r.save()
+	return nil
 }

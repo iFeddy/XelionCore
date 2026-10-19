@@ -318,6 +318,44 @@ func (h *Handler) handleCreateCharacter(client *network.Client, pkt *protocol.Pa
 	newChar.TCharacterState.HPStones = hpSoul
 	newChar.TCharacterState.SPStones = spSoul
 
+	if h.dataStore != nil && h.dataStore.DefaultData != nil {
+		if classData, exists := h.dataStore.DefaultData.GetClassData(classID); exists {
+			var invenSlot int16 = 0
+			for _, sItem := range classData.StarterItems {
+				if uint16(sItem.ItemID) == wItem {
+					continue // Ya se inserta como arma equipada en slot de arma
+				}
+				amount := sItem.Amount
+				if amount <= 0 {
+					amount = 1
+				}
+				newChar.Items = append(newChar.Items, &database.Item{
+					StorageType: 9, // Inventario / Mochila (Box 9)
+					Storage:     invenSlot,
+					ItemID:      uint16(sItem.ItemID),
+					Flags:       int32(amount),
+				})
+				invenSlot++
+			}
+
+			for _, sc := range classData.Shortcuts {
+				newChar.Shortcuts = append(newChar.Shortcuts, &database.Shortcut{
+					SlotNo:   sc.Slot,
+					CodeType: 1,
+					CodeNo:   int16(sc.CodeNo),
+					Value:    int32(sc.Value),
+				})
+			}
+
+			for _, sk := range classData.StarterSkills {
+				newChar.Skills = append(newChar.Skills, &database.CharacterSkill{
+					SkillNo:    uint16(sk),
+					SkillLevel: 1,
+				})
+			}
+		}
+	}
+
 	if err := h.charRepo.CreateCharacter(newChar); err != nil {
 		log.Printf("[World][%s] Failed to create character '%s': %v", client.RemoteAddr(), name, err)
 		h.sendCharCreationError(client, protocol.CreateCharError_FailedToCreate)

@@ -56,6 +56,7 @@ func JobToClassName(job byte) string {
 type ZonePlayer struct {
 	Client      *network.Client
 	Char        *database.Character
+	CurrentMap  *ZoneMap
 	MapObjectID uint16
 	State       byte // 1=Normal, 2=Player, 3=Dead, 4=Resting, 5=Vendor, 6=Mount
 	Rotation    byte
@@ -194,6 +195,9 @@ func (p *ZonePlayer) WriteDetailedInfo(pw *protocol.PacketWriter) {
 
 	// logininfo: PROTO_NC_CHAR_BASE_CMD::LoginLocation (21 bytes)
 	shortName := p.Char.TownName
+	if p.CurrentMap != nil && p.CurrentMap.MapID != "" {
+		shortName = p.CurrentMap.MapID
+	}
 	if shortName == "" {
 		shortName = "RouN"
 	}

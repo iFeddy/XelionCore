@@ -2,30 +2,99 @@ package zone
 
 import (
 	"log"
+	"strings"
 	"sync"
 
+	"github.com/iFeddy/XelionCore/pkg/data/field"
 	"github.com/iFeddy/XelionCore/pkg/protocol"
 )
 
-// ZoneMap manages the players and entities inside a single map instance (e.g. Roumen).
+// ZoneMap manages the players and entities inside a single map instance.
 type ZoneMap struct {
-	mu          sync.RWMutex
-	ID          uint16
-	Name        string
-	ShortName   string
-	nextObjID   uint16
-	players     map[uint16]*ZonePlayer
+	mu        sync.RWMutex
+	ID        uint16
+	MapID     string
+	Name      string
+	ShortName string
+	Width     int
+	Height    int
+	nextObjID uint16
+	players   map[uint16]*ZonePlayer
 }
 
-// NewZoneMap creates a new map instance for Roumen (Map 0).
-func NewZoneMap(id uint16, name, shortName string) *ZoneMap {
+// NewZoneMap creates a new map instance with real metadata.
+func NewZoneMap(id uint16, mapID, name string) *ZoneMap {
 	return &ZoneMap{
 		ID:        id,
+		MapID:     mapID,
 		Name:      name,
-		ShortName: shortName,
+		ShortName: mapID,
 		nextObjID: 1,
 		players:   make(map[uint16]*ZonePlayer),
 	}
+}
+
+// MapManager manages active ZoneMap instances dynamically mapped from data/World/Map definitions.
+type MapManager struct {
+	mu         sync.RWMutex
+	fieldStore *field.Store
+	maps       map[string]*ZoneMap
+}
+
+// NewMapManager initializes a new dynamic MapManager.
+func NewMapManager(fieldStore *field.Store) *MapManager {
+	return &MapManager{
+		fieldStore: fieldStore,
+		maps:       make(map[string]*ZoneMap),
+	}
+}
+
+// GetOrCreateMap retrieves an existing active map or instantiates one from field definitions.
+func (mm *MapManager) GetOrCreateMap(mapID string) *ZoneMap {
+	mm.mu.Lock()
+	defer mm.mu.Unlock()
+
+	normID := strings.TrimSpace(mapID)
+	if normID == "" {
+		normID = "RouN"
+	}
+	key := strings.ToLower(normID)
+
+	if existing, ok := mm.maps[key]; ok {
+		return existing
+	}
+
+	var (
+		serial uint16 = 0
+		name   string = normID
+		width  int    = 256
+		height int    = 256
+	)
+
+	if mm.fieldStore != nil {
+		if entry, ok := mm.fieldStore.GetField(normID); ok && entry != nil {
+			serial = uint16(entry.Serial)
+			name = entry.Name
+			width = entry.Width
+			height = entry.Height
+			normID = entry.MapID
+		}
+	}
+
+	zMap := &ZoneMap{
+		ID:        serial,
+		MapID:     normID,
+		Name:      name,
+		ShortName: normID,
+		Width:     width,
+		Height:    height,
+		nextObjID: 1,
+		players:   make(map[uint16]*ZonePlayer),
+	}
+	mm.maps[key] = zMap
+	log.Printf("[Zone] Initialized dynamic map '%s' (Serial: %d, Name: '%s', Size: %dx%d)",
+		normID, serial, name, width, height)
+	return zMap
 }
 
 // AssignObjectID assigns a unique MapObjectID to a player before in-game chunk transmission.

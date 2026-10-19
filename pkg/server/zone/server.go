@@ -42,8 +42,8 @@ func NewServer(cfg *Config, charRepo database.CharacterRepository, transfers *da
 
 // Start begins accepting Zone client connections.
 func (s *Server) Start() error {
-	log.Printf("[ZoneServer] Starting Zone Server on %s (Map ID: %d)...",
-		s.config.BindAddr, s.config.MapID)
+	log.Printf("[ZoneServer] Starting Zone Server on %s (Dynamic Map Engine active)...",
+		s.config.BindAddr)
 	return s.tcpServer.Start()
 }
 

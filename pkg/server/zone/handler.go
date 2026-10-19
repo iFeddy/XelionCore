@@ -22,7 +22,7 @@ type Handler struct {
 	fieldStore *field.Store
 	chkEngine  *shn.ChecksumEngine
 	players    map[*network.Client]*ZonePlayer
-	roumenMap  *ZoneMap
+	mapManager *MapManager
 }
 
 // NewHandler initializes a new Zone packet handler.
@@ -34,7 +34,7 @@ func NewHandler(charRepo database.CharacterRepository, transfers *database.Trans
 		fieldStore: fieldStore,
 		chkEngine:  chkEngine,
 		players:    make(map[*network.Client]*ZonePlayer),
-		roumenMap:  NewZoneMap(0, "Roumen", "RouN"),
+		mapManager: NewMapManager(fieldStore),
 	}
 }
 
@@ -75,7 +75,9 @@ func (h *Handler) OnClientDisconnect(client *network.Client) {
 	h.mu.Unlock()
 
 	if exists && player != nil {
-		h.roumenMap.RemovePlayer(player)
+		if player.CurrentMap != nil {
+			player.CurrentMap.RemovePlayer(player)
+		}
 		_ = h.charRepo.UpdateCharacter(player.Char)
 	}
 }
@@ -147,7 +149,13 @@ func (h *Handler) handleTransferKey(client *network.Client, pkt *protocol.Packet
 	}
 
 	player := NewZonePlayer(client, char, h.classStore)
-	h.roumenMap.AssignObjectID(player)
+	mapID := char.TownName
+	if mapID == "" {
+		mapID = "RouN"
+	}
+	zMap := h.mapManager.GetOrCreateMap(mapID)
+	player.CurrentMap = zMap
+	zMap.AssignObjectID(player)
 	h.mu.Lock()
 	h.players[client] = player
 	h.mu.Unlock()
@@ -249,14 +257,40 @@ func (h *Handler) sendInGameChunk(p *ZonePlayer) {
 	//     unsigned char numofitem; // 1 byte
 	//     unsigned char box;       // 1 byte
 	//     unsigned char flag;      // 1 byte (1)
+	//     PROTO_ITEMPACKET_INFORM ItemArray[numofitem];
 	// }
 	// The 4 official boxes sent on login: 8 (Equip), 9 (Inventory), 12 (House), 15 (Emotions)
+	charItems, _ := h.charRepo.GetCharacterItems(p.Char.ID)
+	var invenItems []*database.Item
+	for _, it := range charItems {
+		if it.StorageType == 9 {
+			invenItems = append(invenItems, it)
+		}
+	}
+
 	boxes := []uint8{8, 9, 12, 15}
 	for _, box := range boxes {
 		itemPkt := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_CLIENT_ITEM_CMD)
-		itemPkt.WriteByte(0)   // numofitem = 0
-		itemPkt.WriteByte(box) // box
-		itemPkt.WriteByte(1)   // flag = 1
+		if box == 9 && len(invenItems) > 0 {
+			itemPkt.WriteByte(byte(len(invenItems))) // numofitem
+			itemPkt.WriteByte(9)                     // box 9
+			itemPkt.WriteByte(1)                     // flag = 1
+			for _, it := range invenItems {
+				itemPkt.WriteByte(8)                // datasize: 2 (location) + 2 (itemid) + 4 (amount) = 8
+				itemPkt.WriteByte(byte(it.Storage)) // Pos (slot 0..23)
+				itemPkt.WriteByte(0x24)             // Type (0x24 = normal inventory item)
+				itemPkt.WriteUint16(it.ItemID)      // ItemID
+				amt := uint32(it.Flags)
+				if amt == 0 {
+					amt = 1
+				}
+				itemPkt.WriteUint32(amt)            // Amount
+			}
+		} else {
+			itemPkt.WriteByte(0)   // numofitem = 0
+			itemPkt.WriteByte(box) // box
+			itemPkt.WriteByte(1)   // flag = 1
+		}
 		_ = p.Client.SendPacket(itemPkt)
 	}
 
@@ -282,20 +316,20 @@ func (h *Handler) sendInGameChunk(p *ZonePlayer) {
 
 func (h *Handler) handleClientReady(client *network.Client, pkt *protocol.Packet) {
 	player, ok := h.getPlayer(client)
-	if !ok || player == nil {
+	if !ok || player == nil || player.CurrentMap == nil {
 		return
 	}
 
-	log.Printf("[Zone][%s] ClientReady received from '%s'. Spawning into Roumen...",
-		client.RemoteAddr(), player.Char.Name)
+	log.Printf("[Zone][%s] ClientReady received from '%s'. Spawning into '%s' (MapID: %s, Serial: %d)...",
+		client.RemoteAddr(), player.Char.Name, player.CurrentMap.Name, player.CurrentMap.MapID, player.CurrentMap.ID)
 
 	// Add player to map and broadcast spawn
-	h.roumenMap.AddPlayer(player)
+	player.CurrentMap.AddPlayer(player)
 }
 
 func (h *Handler) handleWalk(client *network.Client, pkt *protocol.Packet) {
 	player, ok := h.getPlayer(client)
-	if !ok || player == nil {
+	if !ok || player == nil || player.CurrentMap == nil {
 		return
 	}
 
@@ -307,12 +341,12 @@ func (h *Handler) handleWalk(client *network.Client, pkt *protocol.Packet) {
 	newX, _ := pkt.Reader.ReadInt32()
 	newY, _ := pkt.Reader.ReadInt32()
 
-	h.roumenMap.MovePlayer(player, int(oldX), int(oldY), int(newX), int(newY), true)
+	player.CurrentMap.MovePlayer(player, int(oldX), int(oldY), int(newX), int(newY), true)
 }
 
 func (h *Handler) handleRun(client *network.Client, pkt *protocol.Packet) {
 	player, ok := h.getPlayer(client)
-	if !ok || player == nil {
+	if !ok || player == nil || player.CurrentMap == nil {
 		return
 	}
 
@@ -324,12 +358,12 @@ func (h *Handler) handleRun(client *network.Client, pkt *protocol.Packet) {
 	newX, _ := pkt.Reader.ReadInt32()
 	newY, _ := pkt.Reader.ReadInt32()
 
-	h.roumenMap.MovePlayer(player, int(oldX), int(oldY), int(newX), int(newY), false)
+	player.CurrentMap.MovePlayer(player, int(oldX), int(oldY), int(newX), int(newY), false)
 }
 
 func (h *Handler) handleStop(client *network.Client, pkt *protocol.Packet) {
 	player, ok := h.getPlayer(client)
-	if !ok || player == nil {
+	if !ok || player == nil || player.CurrentMap == nil {
 		return
 	}
 
@@ -339,21 +373,21 @@ func (h *Handler) handleStop(client *network.Client, pkt *protocol.Packet) {
 	}
 	newY, _ := pkt.Reader.ReadInt32()
 
-	h.roumenMap.StopPlayer(player, int(newX), int(newY))
+	player.CurrentMap.StopPlayer(player, int(newX), int(newY))
 }
 
 func (h *Handler) handleJump(client *network.Client, pkt *protocol.Packet) {
 	player, ok := h.getPlayer(client)
-	if !ok || player == nil {
+	if !ok || player == nil || player.CurrentMap == nil {
 		return
 	}
 
-	h.roumenMap.JumpPlayer(player)
+	player.CurrentMap.JumpPlayer(player)
 }
 
 func (h *Handler) handleChatNormal(client *network.Client, pkt *protocol.Packet) {
 	player, ok := h.getPlayer(client)
-	if !ok || player == nil {
+	if !ok || player == nil || player.CurrentMap == nil {
 		return
 	}
 
@@ -368,14 +402,14 @@ func (h *Handler) handleChatNormal(client *network.Client, pkt *protocol.Packet)
 	}
 	text = strings.TrimSpace(text)
 
-	log.Printf("[Zone][Chat][%s] %s: %s", h.roumenMap.Name, player.Char.Name, text)
+	log.Printf("[Zone][Chat][%s] %s: %s", player.CurrentMap.Name, player.Char.Name, text)
 
 	color := byte(0x2A) // Normal chat color
 	if player.Client.Admin > 0 {
 		color = 0x03 // GM gold color
 	}
 
-	h.roumenMap.NormalChat(player, text, color)
+	player.CurrentMap.NormalChat(player, text, color)
 }
 
 func (h *Handler) handleBeginRest(client *network.Client, pkt *protocol.Packet) {
