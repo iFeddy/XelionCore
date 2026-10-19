@@ -228,7 +228,7 @@ func TestE2EWorldServiceFlow(t *testing.T) {
 
 	// 6. Seleccionar personaje para ingresar a Zona (PROTO_NC_CHAR_LOGIN_REQ)
 	selReq := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_LOGIN_REQ)
-	selReq.WriteByte(2) // Slot 2
+	selReq.WriteByte(freeSlot) // Slot creado
 	if err := sendClientPacket(conn, selReq, clientCrypto); err != nil {
 		t.Fatalf("failed to send CharLogin: %v", err)
 	}
@@ -258,7 +258,7 @@ func TestE2EWorldServiceFlow(t *testing.T) {
 
 	// 7. Borrar personaje recién creado (PROTO_NC_CHAR_DELETE_REQ)
 	delReq := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_DELETE_REQ)
-	delReq.WriteByte(2) // Slot 2
+	delReq.WriteByte(freeSlot)
 	if err := sendClientPacket(conn, delReq, clientCrypto); err != nil {
 		t.Fatalf("failed to send DeleteChar: %v", err)
 	}
@@ -272,10 +272,10 @@ func TestE2EWorldServiceFlow(t *testing.T) {
 			protocol.PROTO_NC_CHAR_DELETE_ACK, pkt.OpCode)
 	}
 	delSlot, _ := pkt.Reader.ReadByte()
-	if delSlot != 2 {
-		t.Fatalf("expected slot 2 in delete ack, got %d", delSlot)
+	if delSlot != freeSlot {
+		t.Fatalf("expected slot %d in delete ack, got %d", freeSlot, delSlot)
 	}
-	t.Logf("Paso 8: Soft-delete completado con 0x140C (Slot 2 liberado)")
+	t.Logf("Paso 8: Soft-delete completado con 0x140C (Slot %d liberado)", freeSlot)
 
 	// 8. Volver a la lista de mundos (PROTO_NC_USER_BACKTOWORLDLIST_REQ)
 	backReq := protocol.NewPacketWriter(protocol.PROTO_NC_USER_BACKTOWORLDLIST_REQ)

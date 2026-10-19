@@ -140,86 +140,107 @@ func (h *Handler) handleTransferKey(client *network.Client, pkt *protocol.Packet
 }
 
 func (h *Handler) sendInGameChunk(p *ZonePlayer) {
-	// 1. Character Info
-	infoPkt := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_BASE_CMD)
+	// 1. PROTO_NC_CHAR_CLIENT_BASE_CMD (0x1038, wire len = 107, payload = 105)
+	infoPkt := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_CLIENT_BASE_CMD)
 	p.WriteDetailedInfo(infoPkt)
 	_ = p.Client.SendPacket(infoPkt)
 
-	// 2. Character Look
-	lookPkt := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_LOOK_CMD)
+	// 2. PROTO_NC_CHAR_CLIENT_SHAPE_CMD (0x1039, wire len = 6, payload = 4)
+	lookPkt := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_CLIENT_SHAPE_CMD)
 	p.WriteLook(lookPkt)
 	_ = p.Client.SendPacket(lookPkt)
 
-	// 3. Busy Quests
-	questsBusy := protocol.NewPacketWriter(protocol.PROTO_NC_QUEST_BUSY_LIST_CMD)
-	questsBusy.WriteInt32(int32(p.Char.ID))
-	questsBusy.WriteByte(1) // enabled list
-	questsBusy.WriteByte(0) // count
+	// 3. PROTO_NC_CHAR_CLIENT_QUEST_DOING_CMD (0x103A, wire len = 8, payload = 6)
+	// struct PROTO_NC_CHAR_CLIENT_QUEST_DOING_CMD {
+	//     unsigned long chrregnum;       // 4 bytes
+	//     unsigned char bNeedClear;      // 1 byte
+	//     unsigned char nNumOfDoingQuest; // 1 byte
+	// }
+	questsBusy := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_CLIENT_QUEST_DOING_CMD)
+	questsBusy.WriteUint32(uint32(p.Char.ID))
+	questsBusy.WriteByte(1) // bNeedClear = 1
+	questsBusy.WriteByte(0) // nNumOfDoingQuest = 0
 	_ = p.Client.SendPacket(questsBusy)
 
-	// 4. Done Quests
-	questsDone := protocol.NewPacketWriter(protocol.PROTO_NC_QUEST_DONE_LIST_CMD)
-	questsDone.WriteInt32(int32(p.Char.ID))
-	questsDone.WriteInt16(0) // count
+	// 4. PROTO_NC_CHAR_CLIENT_QUEST_DONE_CMD (0x103B, wire len = 14, payload = 12)
+	// struct PROTO_NC_CHAR_CLIENT_QUEST_DONE_CMD {
+	//     unsigned long  chrregnum;           // 4 bytes
+	//     unsigned short nTotalDoneQuest;     // 2 bytes
+	//     unsigned short nTotalDoneQuestSize; // 2 bytes
+	//     unsigned short nDoneQuestCount;     // 2 bytes
+	//     unsigned short nIndex;              // 2 bytes
+	// }
+	questsDone := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_CLIENT_QUEST_DONE_CMD)
+	questsDone.WriteUint32(uint32(p.Char.ID))
+	questsDone.WriteUint16(0) // nTotalDoneQuest
+	questsDone.WriteUint16(0) // nTotalDoneQuestSize
+	questsDone.WriteUint16(0) // nDoneQuestCount
+	questsDone.WriteUint16(0) // nIndex
 	_ = p.Client.SendPacket(questsDone)
 
-	// 5. Active Skills
-	activeSkills := protocol.NewPacketWriter(protocol.PROTO_NC_SKILL_ACTIVE_LIST_CMD)
-	activeSkills.WriteByte(0)
-	activeSkills.WriteInt32(int32(p.Char.ID))
-	activeSkills.WriteUint16(0)
+	// 5. PROTO_NC_CHAR_CLIENT_SKILL_CMD (0x103D, wire len = 12, payload = 10)
+	// struct PROTO_NC_CHAR_CLIENT_SKILL_CMD {
+	//     unsigned char  restempow; // 1 byte
+	//     unsigned char  PartMark;  // 1 byte (3 = all parts/mark)
+	//     unsigned short nMaxNum;   // 2 bytes
+	//     unsigned long  chrregnum; // 4 bytes
+	//     unsigned short number;    // 2 bytes
+	// }
+	activeSkills := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_CLIENT_SKILL_CMD)
+	activeSkills.WriteByte(0)                  // restempow
+	activeSkills.WriteByte(3)                  // PartMark (3 = all parts)
+	activeSkills.WriteUint16(0)                // nMaxNum
+	activeSkills.WriteUint32(uint32(p.Char.ID)) // chrregnum
+	activeSkills.WriteUint16(0)                // number
 	_ = p.Client.SendPacket(activeSkills)
 
-	// 6. Passive Skills
-	passiveSkills := protocol.NewPacketWriter(protocol.PROTO_NC_SKILL_PASSIVE_LIST_CMD)
-	passiveSkills.WriteUint16(0)
+	// 6. PROTO_NC_CHAR_CLIENT_PASSIVE_CMD (0x103E, wire len = 4, payload = 2)
+	// struct PROTO_NC_CHAR_CLIENT_PASSIVE_CMD {
+	//     unsigned short number; // 2 bytes
+	// }
+	passiveSkills := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_CLIENT_PASSIVE_CMD)
+	passiveSkills.WriteUint16(0) // number = 0
 	_ = p.Client.SendPacket(passiveSkills)
 
-	// 7. Equipped Items (inv = 0x08)
-	equipped := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_LIST_CMD)
-	equipped.WriteByte(0)    // item count
-	equipped.WriteByte(0x08) // inventory number
-	equipped.WriteByte(115)  // UNK
-	_ = p.Client.SendPacket(equipped)
+	// 7-10. PROTO_NC_CHAR_CLIENT_ITEM_CMD (0x1047, wire len = 5, payload = 3 each)
+	// struct PROTO_NC_CHAR_CLIENT_ITEM_CMD {
+	//     unsigned char numofitem; // 1 byte
+	//     unsigned char box;       // 1 byte
+	//     unsigned char flag;      // 1 byte (1)
+	// }
+	// The 4 official boxes sent on login: 8 (Equip), 9 (Inventory), 12 (House), 15 (Emotions)
+	boxes := []uint8{8, 9, 12, 15}
+	for _, box := range boxes {
+		itemPkt := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_CLIENT_ITEM_CMD)
+		itemPkt.WriteByte(0)   // numofitem = 0
+		itemPkt.WriteByte(box) // box
+		itemPkt.WriteByte(1)   // flag = 1
+		_ = p.Client.SendPacket(itemPkt)
+	}
 
-	// 8. Inventory Items (inv = 0x09)
-	inventory := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_LIST_CMD)
-	inventory.WriteByte(0)
-	inventory.WriteByte(0x09)
-	inventory.WriteByte(115)
-	_ = p.Client.SendPacket(inventory)
+	// 11. PROTO_NC_CHAR_CLIENT_GAME_CMD (0x1048, wire len = 6, payload = 4)
+	// struct PROTO_NC_CHAR_CLIENT_GAME_CMD {
+	//     unsigned long party_handle; // 4 bytes (0 = no party)
+	// }
+	gamePkt := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_CLIENT_GAME_CMD)
+	gamePkt.WriteUint32(0) // party_handle = 0
+	_ = p.Client.SendPacket(gamePkt)
 
-	// 9. House Items (inv = 0x0C)
-	house := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_LIST_CMD)
-	house.WriteByte(0)
-	house.WriteByte(0x0C)
-	house.WriteByte(0x35)
-	_ = p.Client.SendPacket(house)
-
-	// 10. Premium Emotions (inv = 0x0F)
-	emotions := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_LIST_CMD)
-	emotions.WriteByte(0)
-	emotions.WriteByte(0x0F)
-	emotions.WriteByte(0xCB)
-	_ = p.Client.SendPacket(emotions)
-
-	// 11. Premium Item List
-	premium := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_LIST_CMD)
-	premium.WriteUint16(0)
-	_ = p.Client.SendPacket(premium)
-
-	// 12. Titles
-	titles := protocol.NewPacketWriter(protocol.PROTO_NC_TITLE_LIST_CMD)
-	titles.WriteInt32(0)
-	titles.WriteInt16(0)
+	// 12. PROTO_NC_CHAR_CLIENT_CHARTITLE_CMD (0x1049, wire len = 8, payload = 6)
+	// struct PROTO_NC_CHAR_CLIENT_CHARTITLE_CMD {
+	//     unsigned char  CurrentTitle;        // 1 byte
+	//     unsigned char  CurrentTitleElement; // 1 byte
+	//     unsigned short CurrentTitleMobID;   // 2 bytes
+	//     unsigned short NumOfTitle;          // 2 bytes
+	// }
+	titles := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_CLIENT_CHARTITLE_CMD)
+	titles.WriteByte(0)   // CurrentTitle = 0
+	titles.WriteByte(0)   // CurrentTitleElement = 0
+	titles.WriteUint16(0) // CurrentTitleMobID = 0
+	titles.WriteUint16(0) // NumOfTitle = 0
 	_ = p.Client.SendPacket(titles)
 
-	// 13. Chunk End
-	endPkt := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_INFO_END_CMD)
-	endPkt.WriteUint16(0xFFFF)
-	_ = p.Client.SendPacket(endPkt)
-
-	// 14. Detailed Info Extra (0x1802 PROTO_NC_CHAR_MAPLOGIN_ACK)
+	// 13. PROTO_NC_CHAR_MAPLOGIN_ACK (0x1802, wire len = 244, payload = 242)
 	extraPkt := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_MAPLOGIN_ACK)
 	p.WriteDetailedInfoExtra(extraPkt, false)
 	_ = p.Client.SendPacket(extraPkt)

@@ -194,8 +194,8 @@ func TestZoneServer_Phase1_TransferKeyVerification(t *testing.T) {
 		t.Fatalf("failed to read response: %v", err)
 	}
 
-	if respPkt.OpCode != protocol.PROTO_NC_CHAR_BASE_CMD {
-		t.Errorf("expected PROTO_NC_CHAR_BASE_CMD (0x%04X), got 0x%04X", protocol.PROTO_NC_CHAR_BASE_CMD, respPkt.OpCode)
+	if respPkt.OpCode != protocol.PROTO_NC_CHAR_CLIENT_BASE_CMD {
+		t.Errorf("expected PROTO_NC_CHAR_CLIENT_BASE_CMD (0x%04X), got 0x%04X", protocol.PROTO_NC_CHAR_CLIENT_BASE_CMD, respPkt.OpCode)
 	}
 }
 
