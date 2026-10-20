@@ -11,9 +11,6 @@ import (
 
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/iFeddy/XelionCore/pkg/config"
-	"github.com/iFeddy/XelionCore/pkg/data/classparam"
-	"github.com/iFeddy/XelionCore/pkg/data/field"
-	"github.com/iFeddy/XelionCore/pkg/data/shn"
 	"github.com/iFeddy/XelionCore/pkg/database"
 	"github.com/iFeddy/XelionCore/pkg/logger"
 	"github.com/iFeddy/XelionCore/pkg/server/zone"
@@ -68,39 +65,26 @@ func main() {
 		MapID:    0,
 	}
 
-	// 2. Cargar datos del juego modernizados
-	log.Println("[Zone] Loading ClassParam and Field definitions...")
-	classStore, err := classparam.Load("data/World/ClassParam")
+	// 2. Cargar la totalidad de subsistemas y datos en memoria RAM (Zero-Disk-I/O durante runtime)
+	log.Println("[Zone] Loading complete official game data into RAM (ClassParam, Field, NPC, MobRegen, Items, Combat, Skills)...")
+	dataStore, err := zone.LoadAllData("data")
 	if err != nil {
-		log.Printf("[Zone] Warning: ClassParam load error: %v", err)
-	} else {
-		log.Printf("[Zone] Loaded %d character classes into memory.", classStore.ClassCount())
+		log.Fatalf("[Zone] Fatal error loading data store: %v", err)
 	}
 
-	fieldStore, err := field.Load("data/World/Map")
-	if err != nil {
-		log.Printf("[Zone] Warning: Field load error: %v", err)
-	} else {
-		log.Printf("[Zone] Loaded %d field definitions.", fieldStore.FieldCount())
-	}
+	classStore := dataStore.ClassStore
+	fieldStore := dataStore.FieldStore
+	chkEngine := dataStore.ChkEngine
 
-	// 3. Cargar motor de checksums oficial CShnDataFileCheckSum (49 archivos SHN)
-	log.Println("[Zone] Initializing CShnDataFileCheckSum (49 anti-cheat SHN files)...")
-	chkEngine, err := shn.NewChecksumEngine("data", "data/View")
-	if err != nil {
-		log.Printf("[Zone] Warning: Failed to init ChecksumEngine: %v", err)
-	} else {
-		log.Printf("[Zone] ChecksumEngine initialized successfully with 49 files.")
-	}
-
-	// 4. Inicializar repositorios y gestor de transferencias
+	// 3. Inicializar repositorios y gestor de transferencias
 	charRepo := database.NewMySQLCharacterRepository(db)
 	accountRepo := database.NewMySQLAccountRepository(db)
 	transfers := database.NewTransferManager(db)
 
-	// 5. Iniciar servidor
+	// 4. Iniciar servidor e inyectar almacén global en memoria RAM
 	srv := zone.NewServer(zoneCfg, charRepo, transfers, classStore, fieldStore, chkEngine)
 	srv.SetAccountRepo(accountRepo)
+	srv.SetDataStore(dataStore)
 
 	// 6. Activar telemetría periódica oficial (p_SameTimeChar_Add y p_SameTimeCharClass_Add en tSameTimeChar)
 	telemetryTicker := time.NewTicker(60 * time.Second)

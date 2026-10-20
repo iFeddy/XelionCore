@@ -8,6 +8,7 @@ import (
 
 	"github.com/iFeddy/XelionCore/pkg/data/classparam"
 	"github.com/iFeddy/XelionCore/pkg/data/field"
+	"github.com/iFeddy/XelionCore/pkg/data/item"
 	"github.com/iFeddy/XelionCore/pkg/data/shn"
 	"github.com/iFeddy/XelionCore/pkg/database"
 	"github.com/iFeddy/XelionCore/pkg/network"
@@ -20,9 +21,11 @@ type Handler struct {
 	charRepo    database.CharacterRepository
 	accountRepo *database.MySQLAccountRepository
 	transfers   *database.TransferManager
+	dataStore   *DataStore
 	classStore  *classparam.Store
 	fieldStore  *field.Store
 	chkEngine   *shn.ChecksumEngine
+	itemStore   *item.Store
 	players     map[*network.Client]*ZonePlayer
 	mapManager  *MapManager
 }
@@ -288,14 +291,21 @@ func (h *Handler) sendInGameChunk(p *ZonePlayer) {
 	// Si tuviera skills activas, se envía aquí.
 	if len(activeSkills) > 0 {
 		skillPkt := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_CLIENT_SKILL_CMD)
-		skillPkt.WriteByte(0)                          // restempow
-		skillPkt.WriteByte(0)                          // PartMark
-		skillPkt.WriteUint16(uint16(len(activeSkills))) // nMaxNum
-		skillPkt.WriteUint32(uint32(p.Char.ID))        // chrregnum
-		skillPkt.WriteUint16(uint16(len(activeSkills))) // number
+		skillPkt.WriteByte(0)                          // restempow (1 byte)
+		skillPkt.WriteByte(1)                          // PartMark (1 byte)
+		skillPkt.WriteUint16(uint16(len(activeSkills))) // nMaxNum (2 bytes)
+		skillPkt.WriteUint32(uint32(p.Char.ID))        // chrregnum (4 bytes)
+		skillPkt.WriteUint16(uint16(len(activeSkills))) // number (2 bytes)
 		for _, sk := range activeSkills {
+			// struct PROTO_SKILLREADBLOCKCLIENT (12 bytes oficiales en PDB):
+			// unsigned short skillid;  // 2 bytes
+			// unsigned int   cooltime; // 4 bytes
+			// unsigned short empow;    // 2 bytes
+			// unsigned int   mastery;  // 4 bytes
 			skillPkt.WriteUint16(sk.SkillNo)
-			skillPkt.WriteByte(sk.SkillLevel)
+			skillPkt.WriteUint32(0) // cooltime
+			skillPkt.WriteUint16(0) // empow
+			skillPkt.WriteUint32(0) // mastery
 		}
 		_ = p.Client.SendPacket(skillPkt)
 	}
@@ -342,15 +352,21 @@ func (h *Handler) sendInGameChunk(p *ZonePlayer) {
 			itemPkt.WriteByte(box)              // box
 			itemPkt.WriteByte(1)                // flag = 1
 			for _, it := range items {
-				itemPkt.WriteByte(8)                // datasize: 2 (location) + 2 (itemid) + 4 (amount) = 8
-				itemPkt.WriteByte(byte(it.Storage)) // Pos (slot)
-				itemPkt.WriteByte(0x24)             // Type (0x24 = normal inventory item)
-				itemPkt.WriteUint16(it.ItemID)      // ItemID
-				amt := uint32(it.Flags)
-				if amt == 0 {
-					amt = 1
+				loc := (uint16(box) << 10) | (uint16(it.Storage) & 0x03FF)
+				attrSize := h.itemStore.GetItemAttrSize(it.ItemID)
+				dataSize := byte(2 + 2 + attrSize)
+				itemPkt.WriteByte(dataSize)    // datasize: 2 (location) + 2 (itemid) + attrSize
+				itemPkt.WriteUint16(loc)       // location: ITEM_INVEN (uint16 bitfield: (box << 10) | slot)
+				itemPkt.WriteUint16(it.ItemID) // ItemID
+				if attrSize == 4 {
+					amt := uint32(it.Flags)
+					if amt == 0 {
+						amt = 1
+					}
+					itemPkt.WriteUint32(amt) // Amount (4 bytes)
+				} else {
+					itemPkt.Fill(attrSize, 0) // Atributos oficiales limpios (ej. 65B Weapon, 37B Armor)
 				}
-				itemPkt.WriteUint32(amt)            // Amount
 			}
 		} else {
 			itemPkt.WriteByte(0)   // numofitem = 0
@@ -503,6 +519,13 @@ func (h *Handler) handleEndRest(client *network.Client, pkt *protocol.Packet) {
 }
 
 // SetAccountRepo configura el repositorio de cuentas y logs oficial (tLogout, tReport, etc.).
+// SetItemStore sets the item data store for equipment and attribute serialization.
+func (h *Handler) SetItemStore(store *item.Store) {
+	h.mu.Lock()
+	defer h.mu.Unlock()
+	h.itemStore = store
+}
+
 func (h *Handler) SetAccountRepo(repo *database.MySQLAccountRepository) {
 	h.mu.Lock()
 	defer h.mu.Unlock()
@@ -633,3 +656,25 @@ func (h *Handler) handleReportGet(client *network.Client, pkt *protocol.Packet) 
 	ack := protocol.New_PROTO_NC_DATA_REPORT_GET_ACK(hReporter, 1, 0, 0, "")
 	_ = client.SendPacket(ack)
 }
+
+// SetDataStore sets the entire loaded game data store for the zone handler.
+func (h *Handler) SetDataStore(ds *DataStore) {
+	h.mu.Lock()
+	defer h.mu.Unlock()
+	h.dataStore = ds
+	if ds != nil {
+		if ds.ClassStore != nil {
+			h.classStore = ds.ClassStore
+		}
+		if ds.FieldStore != nil {
+			h.fieldStore = ds.FieldStore
+		}
+		if ds.ItemStore != nil {
+			h.itemStore = ds.ItemStore
+		}
+		if ds.ChkEngine != nil {
+			h.chkEngine = ds.ChkEngine
+		}
+	}
+}
+

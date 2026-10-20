@@ -79,6 +79,37 @@ func LoadMapRegen(baseDir, mapName string) (*MapRegen, error) {
 	}, nil
 }
 
+// LoadAll carga y parsea todas las configuraciones de respawn en baseDir y sus subdirectorios.
+func LoadAll(baseDir string) (map[string]*MapRegen, error) {
+	result := make(map[string]*MapRegen)
+	err := filepath.Walk(baseDir, func(path string, info os.FileInfo, err error) error {
+		if err != nil {
+			return err
+		}
+		if info.IsDir() || !strings.HasSuffix(info.Name(), ".json") {
+			return nil
+		}
+		data, err := os.ReadFile(path)
+		if err != nil {
+			return err
+		}
+		var groups map[string]Group
+		if err := json.Unmarshal(data, &groups); err != nil {
+			return err
+		}
+		mapName := strings.TrimSuffix(info.Name(), ".json")
+		result[mapName] = &MapRegen{
+			MapName: mapName,
+			Groups:  groups,
+		}
+		return nil
+	})
+	if err != nil {
+		return nil, fmt.Errorf("error cargando MobRegen desde %s: %w", baseDir, err)
+	}
+	return result, nil
+}
+
 // GetActiveGroups devuelve únicamente las áreas de respawn activas (descartando eventos apagados).
 func (m *MapRegen) GetActiveGroups() map[string]Group {
 	active := make(map[string]Group)
