@@ -11,6 +11,37 @@ def parse_int(v, default=0):
     except (ValueError, TypeError):
         return default
 
+OFFICIAL_MAP_NAMES = {
+    "IDGate01": "Secret Basement",
+    "BerKal01": "Kahal Plain",
+    "Bera": "Bera",
+    "AlDn01": "Origin of Life Tree",
+    "QField01": "Cave of memories",
+    "AlDn02": "Tree of Abyss",
+    "AdlF": "Burning Adealia",
+    "KDMine": "Hidden Mine",
+    "WarN": "Devildom Territory",
+    "WarBL": "Devildom Mine",
+    "RouT": "Roumen",
+    "KDGreenHill": "Rage of the Emperor Slime",
+    "E_Olympic": "Ski Tournament Arena",
+    "KDWater": "Water Battlefield",
+    "BerFrz01": "Kahal Snow Fields",
+    "ArkDn01": "Arkroute",
+    "Siren": "Siren's Castle",
+    "ArkDn02": "Arkroute of the Abyss",
+    "B_Albi": "King Albireo's Hideout",
+    "BerVale01": "Kahal Canyon",
+    "AdlFH": "Seized Adealia",
+    "RouN": "Roumen",
+    "AdlVal01": "Adealia Valley",
+    "KDSoccer_W": "WinterCup Field",
+    "KDFargels": "Bijou's Sanctuary",
+    "SD_Vale01": "Ominous Canyon",
+    "KDCake": "Cupcake War",
+    "BH_Albi": "King Albireo's Hideout (Hard)",
+}
+
 def convert():
     fpath = "data/World/Map/Field.txt"
     field_list = []
@@ -41,6 +72,8 @@ def convert():
                     sub_to = parts[2]
                     serial = parse_int(parts[3])
                     name = parts[4].replace("#", " ")
+                    if map_id in OFFICIAL_MAP_NAMES:
+                        name = OFFICIAL_MAP_NAMES[map_id]
                     kq = parse_int(parts[5])
                     xsize = parse_int(parts[6])
                     ysize = parse_int(parts[7])
