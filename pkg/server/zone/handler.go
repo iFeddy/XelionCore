@@ -291,10 +291,10 @@ func (h *Handler) sendInGameChunk(p *ZonePlayer) {
 	// Si tuviera skills activas, se envía aquí.
 	if len(activeSkills) > 0 {
 		skillPkt := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_CLIENT_SKILL_CMD)
-		skillPkt.WriteByte(0)                          // restempow (1 byte)
-		skillPkt.WriteByte(1)                          // PartMark (1 byte)
+		skillPkt.WriteByte(0)                           // restempow (1 byte)
+		skillPkt.WriteByte(1)                           // PartMark (1 byte)
 		skillPkt.WriteUint16(uint16(len(activeSkills))) // nMaxNum (2 bytes)
-		skillPkt.WriteUint32(uint32(p.Char.ID))        // chrregnum (4 bytes)
+		skillPkt.WriteUint32(uint32(p.Char.ID))         // chrregnum (4 bytes)
 		skillPkt.WriteUint16(uint16(len(activeSkills))) // number (2 bytes)
 		for _, sk := range activeSkills {
 			// struct PROTO_SKILLREADBLOCKCLIENT (12 bytes oficiales en PDB):
@@ -677,4 +677,3 @@ func (h *Handler) SetDataStore(ds *DataStore) {
 		}
 	}
 }
-

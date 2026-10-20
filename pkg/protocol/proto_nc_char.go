@@ -122,41 +122,132 @@ func New_PROTO_NC_CHAR_OPTION_GET_GAME_ACK(data []byte) *PacketWriter {
 	return pw
 }
 
-// New_PROTO_NC_CHAR_OPTION_GET_WINDOWPOS_ACK construye la respuesta de posición de ventanas (OpCode 0x700B / 0x700D).
-// Struct oficial PDB: PROTO_NC_CHAR_OPTION_GET_WINDOWPOS_ACK (137 bytes: 1 byte bSuccess + 136 bytes Data).
+// New_PROTO_NC_CHAR_OPTION_GET_WINDOWPOS_ACK construye la respuesta de posición de ventanas (OpCode 0x700D).
+// Struct oficial PDB: PROTO_NC_CHAR_OPTION_GET_WINDOWPOS_ACK (393 bytes / 0x189: 1 byte bSuccess + 392 bytes Data).
 func New_PROTO_NC_CHAR_OPTION_GET_WINDOWPOS_ACK(data []byte) *PacketWriter {
 	pw := NewPacketWriter(PROTO_NC_CHAR_OPTION_GET_WINDOWPOS_ACK)
 	if len(data) > 0 {
 		pw.WriteByte(1)
-		if len(data) >= 136 {
-			pw.WriteBytes(data[:136])
+		if len(data) >= 392 {
+			pw.WriteBytes(data[:392])
 		} else {
 			pw.WriteBytes(data)
-			pw.Fill(136-len(data), 0)
+			pw.Fill(392-len(data), 0)
 		}
 	} else {
 		pw.WriteByte(0)
-		pw.Fill(136, 0)
+		pw.Fill(392, 0)
 	}
 	return pw
 }
 
-// New_PROTO_NC_CHAR_OPTION_GET_KEYMAPPING_ACK construye la respuesta de mapeo de teclas (OpCode 0x700D / 0x700F).
-// Struct oficial PDB: PROTO_NC_CHAR_OPTION_GET_KEYMAPPING_ACK (53 bytes: 1 byte bSuccess + 52 bytes Data).
+// New_PROTO_NC_CHAR_OPTION_GET_KEYMAPPING_ACK construye la respuesta de mapeo de teclas (OpCode 0x700F).
+// Struct oficial PDB: PROTO_NC_CHAR_OPTION_GET_KEYMAPPING_ACK (309 bytes / 0x135: 1 byte bSuccess + 308 bytes Data).
 func New_PROTO_NC_CHAR_OPTION_GET_KEYMAPPING_ACK(data []byte) *PacketWriter {
 	pw := NewPacketWriter(PROTO_NC_CHAR_OPTION_GET_KEYMAPPING_ACK)
 	if len(data) > 0 {
 		pw.WriteByte(1)
-		if len(data) >= 52 {
-			pw.WriteBytes(data[:52])
+		if len(data) >= 308 {
+			pw.WriteBytes(data[:308])
 		} else {
 			pw.WriteBytes(data)
-			pw.Fill(52-len(data), 0)
+			pw.Fill(308-len(data), 0)
 		}
 	} else {
 		pw.WriteByte(0)
-		pw.Fill(52, 0)
+		pw.Fill(308, 0)
 	}
+	return pw
+}
+
+// SHORT_CUT_DATA representa un bloque individual de acceso directo del sistema mejorado NA2016 (7 bytes).
+// Struct oficial PDB: SHORT_CUT_DATA { unsigned char nSlotNo; unsigned short nCodeNo; int nValue; }
+type SHORT_CUT_DATA struct {
+	SlotNo byte
+	CodeNo uint16
+	Value  int32
+}
+
+// KEY_MAP_DATA representa un bloque individual de mapeo de tecla del sistema mejorado NA2016 (4 bytes).
+// Struct oficial PDB: KEY_MAP_DATA { unsigned short nFunctionNo; unsigned char nExtendKey; unsigned char nASCIICode; }
+type KEY_MAP_DATA struct {
+	FunctionNo uint16
+	ExtendKey  byte
+	ASCIICode  byte
+}
+
+// GAME_OPTION_DATA representa un bloque individual de opción de juego del sistema mejorado NA2016 (3 bytes).
+// Struct oficial PDB: GAME_OPTION_DATA { unsigned short nOptionNo; unsigned char nValue; }
+type GAME_OPTION_DATA struct {
+	OptionNo uint16
+	Value    byte
+}
+
+// New_PROTO_NC_CHAR_OPTION_IMPROVE_GET_SHORTCUTDATA_CMD construye el comando de accesos directos mejorados (OpCode 0x7032).
+// Struct oficial PDB: PROTO_NC_CHAR_OPTION_IMPROVE_GET_SHORTCUTDATA_CMD (2 + 7*N bytes):
+// - nShortCutDataCnt: unsigned short (2 bytes)
+// - ShortCutData: SHORT_CUT_DATA[nShortCutDataCnt] (7 bytes cada uno)
+func New_PROTO_NC_CHAR_OPTION_IMPROVE_GET_SHORTCUTDATA_CMD(entries []SHORT_CUT_DATA, rawData []byte) *PacketWriter {
+	pw := NewPacketWriter(PROTO_NC_CHAR_OPTION_IMPROVE_GET_SHORTCUTDATA_CMD)
+	if len(entries) > 0 {
+		pw.WriteUint16(uint16(len(entries)))
+		for _, e := range entries {
+			pw.WriteByte(e.SlotNo)
+			pw.WriteUint16(e.CodeNo)
+			pw.WriteInt32(e.Value)
+		}
+		return pw
+	}
+	if len(rawData) >= 2 {
+		pw.WriteBytes(rawData)
+		return pw
+	}
+	pw.WriteUint16(0) // nShortCutDataCnt = 0 (estructura vacía válida)
+	return pw
+}
+
+// New_PROTO_NC_CHAR_OPTION_IMPROVE_GET_KEYMAP_CMD construye el comando de mapeo de teclas mejorado (OpCode 0x7033).
+// Struct oficial PDB: PROTO_NC_CHAR_OPTION_IMPROVE_GET_KEYMAP_CMD (2 + 4*N bytes):
+// - nKeyMapDataCnt: unsigned short (2 bytes)
+// - KeyMapData: KEY_MAP_DATA[nKeyMapDataCnt] (4 bytes cada uno)
+func New_PROTO_NC_CHAR_OPTION_IMPROVE_GET_KEYMAP_CMD(entries []KEY_MAP_DATA, rawData []byte) *PacketWriter {
+	pw := NewPacketWriter(PROTO_NC_CHAR_OPTION_IMPROVE_GET_KEYMAP_CMD)
+	if len(entries) > 0 {
+		pw.WriteUint16(uint16(len(entries)))
+		for _, e := range entries {
+			pw.WriteUint16(e.FunctionNo)
+			pw.WriteByte(e.ExtendKey)
+			pw.WriteByte(e.ASCIICode)
+		}
+		return pw
+	}
+	if len(rawData) >= 2 {
+		pw.WriteBytes(rawData)
+		return pw
+	}
+	pw.WriteUint16(0) // nKeyMapDataCnt = 0 (estructura vacía válida)
+	return pw
+}
+
+// New_PROTO_NC_CHAR_OPTION_IMPROVE_GET_GAMEOPTION_CMD construye el comando de opciones de juego mejoradas (OpCode 0x7034).
+// Struct oficial PDB: PROTO_NC_CHAR_OPTION_IMPROVE_GET_GAMEOPTION_CMD (2 + 3*N bytes):
+// - nGameOptionDataCnt: unsigned short (2 bytes)
+// - GameOptionData: GAME_OPTION_DATA[nGameOptionDataCnt] (3 bytes cada uno)
+func New_PROTO_NC_CHAR_OPTION_IMPROVE_GET_GAMEOPTION_CMD(entries []GAME_OPTION_DATA, rawData []byte) *PacketWriter {
+	pw := NewPacketWriter(PROTO_NC_CHAR_OPTION_IMPROVE_GET_GAMEOPTION_CMD)
+	if len(entries) > 0 {
+		pw.WriteUint16(uint16(len(entries)))
+		for _, e := range entries {
+			pw.WriteUint16(e.OptionNo)
+			pw.WriteByte(e.Value)
+		}
+		return pw
+	}
+	if len(rawData) >= 2 {
+		pw.WriteBytes(rawData)
+		return pw
+	}
+	pw.WriteUint16(0) // nGameOptionDataCnt = 0 (estructura vacía válida)
 	return pw
 }
 

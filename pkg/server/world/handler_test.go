@@ -347,6 +347,25 @@ func TestHandler_CharSelect_ZoneHandover(t *testing.T) {
 		t.Fatalf("expected ZonePort 9210, got %d", zonePort)
 	}
 
+	// Verificar los 3 paquetes de opciones del sistema mejorado NA2016 (0x7032, 0x7033, 0x7034)
+	expectedOptOpcodes := []uint16{
+		protocol.PROTO_NC_CHAR_OPTION_IMPROVE_GET_SHORTCUTDATA_CMD,
+		protocol.PROTO_NC_CHAR_OPTION_IMPROVE_GET_KEYMAP_CMD,
+		protocol.PROTO_NC_CHAR_OPTION_IMPROVE_GET_GAMEOPTION_CMD,
+	}
+	for _, expOp := range expectedOptOpcodes {
+		optOp, optPayload, err := readPacketFromConn(clientConn)
+		if err != nil {
+			t.Fatalf("failed to read option packet 0x%04X: %v", expOp, err)
+		}
+		if optOp != expOp {
+			t.Fatalf("expected option OpCode 0x%04X, got 0x%04X", expOp, optOp)
+		}
+		if len(optPayload) < 2 {
+			t.Fatalf("expected at least 2 bytes payload for 0x%04X, got %d", expOp, len(optPayload))
+		}
+	}
+
 	// Verificar que el token de transferencia a Zone fue generado y es consumible
 	transfer, ok := transfers.ConsumeZoneTransfer("Legolas", 0, nil)
 	if !ok || transfer == nil {

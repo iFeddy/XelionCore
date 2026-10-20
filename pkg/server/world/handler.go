@@ -635,6 +635,56 @@ func (h *Handler) handleCharSelect(client *network.Client, pkt *protocol.Packet)
 	// Enviar respuesta oficial PROTO_NC_CHAR_LOGIN_ACK (0x1003) con IP y Puerto de Zone
 	resp := protocol.New_PROTO_NC_CHAR_LOGIN_ACK(h.zoneIP, h.zonePort)
 	_ = client.SendPacket(resp)
+
+	// Enviar configuración de interfaz del personaje (SendToClient_CharOptionData @ 0x00431680, DataType == 2 NA2016):
+	// 1. 0x7032 (PROTO_NC_CHAR_OPTION_IMPROVE_GET_SHORTCUTDATA_CMD)
+	// 2. 0x7033 (PROTO_NC_CHAR_OPTION_IMPROVE_GET_KEYMAP_CMD)
+	// 3. 0x7034 (PROTO_NC_CHAR_OPTION_IMPROVE_GET_GAMEOPTION_CMD)
+	h.sendCharOptionDataImprove(client, selected.ID)
+}
+
+// sendCharOptionDataImprove envía automáticamente los paquetes del sistema mejorado de opciones (DataType == 2)
+// justo después de PROTO_NC_CHAR_LOGIN_ACK (0x1003), replicando CWMClientSession::SendToClient_CharOptionData.
+func (h *Handler) sendCharOptionDataImprove(client *network.Client, charNo int) {
+	var shortcutEntries []protocol.SHORT_CUT_DATA
+	if shortcuts, err := h.charRepo.GetCharacterShortcuts(charNo); err == nil && len(shortcuts) > 0 {
+		shortcutEntries = make([]protocol.SHORT_CUT_DATA, 0, len(shortcuts))
+		for _, sc := range shortcuts {
+			if sc == nil {
+				continue
+			}
+			shortcutEntries = append(shortcutEntries, protocol.SHORT_CUT_DATA{
+				SlotNo: sc.SlotNo,
+				CodeNo: uint16(sc.CodeNo),
+				Value:  sc.Value,
+			})
+		}
+	}
+
+	var rawShortcutData, rawKeyMapData, rawGameOptionData []byte
+	if opts, err := h.charRepo.GetCharacterOptions(charNo); err == nil && opts != nil {
+		if len(shortcutEntries) == 0 && len(opts.ShortCutData) >= 2 && (len(opts.ShortCutData)-2)%7 == 0 {
+			rawShortcutData = opts.ShortCutData
+		}
+		if len(opts.KeyMapping) >= 2 && (len(opts.KeyMapping)-2)%4 == 0 {
+			rawKeyMapData = opts.KeyMapping
+		}
+		if len(opts.Game) >= 2 && (len(opts.Game)-2)%3 == 0 {
+			rawGameOptionData = opts.Game
+		}
+	}
+
+	// 1. 0x7032: PROTO_NC_CHAR_OPTION_IMPROVE_GET_SHORTCUTDATA_CMD
+	pktShortcut := protocol.New_PROTO_NC_CHAR_OPTION_IMPROVE_GET_SHORTCUTDATA_CMD(shortcutEntries, rawShortcutData)
+	_ = client.SendPacket(pktShortcut)
+
+	// 2. 0x7033: PROTO_NC_CHAR_OPTION_IMPROVE_GET_KEYMAP_CMD
+	pktKeyMap := protocol.New_PROTO_NC_CHAR_OPTION_IMPROVE_GET_KEYMAP_CMD(nil, rawKeyMapData)
+	_ = client.SendPacket(pktKeyMap)
+
+	// 3. 0x7034: PROTO_NC_CHAR_OPTION_IMPROVE_GET_GAMEOPTION_CMD
+	pktGameOpt := protocol.New_PROTO_NC_CHAR_OPTION_IMPROVE_GET_GAMEOPTION_CMD(nil, rawGameOptionData)
+	_ = client.SendPacket(pktGameOpt)
 }
 
 func (h *Handler) sendError(client *network.Client, errCode protocol.ServerError) {

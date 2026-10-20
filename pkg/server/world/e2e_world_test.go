@@ -249,6 +249,23 @@ func TestE2EWorldServiceFlow(t *testing.T) {
 	}
 	t.Logf("Paso 6: Traspaso a Zone recibido (0x1003): Destino = %s:%d", zoneIP, zonePort)
 
+	// Recibir los 3 paquetes de configuración de interfaz del personaje (0x7032, 0x7033, 0x7034)
+	expectedOptOpcodes := []uint16{
+		protocol.PROTO_NC_CHAR_OPTION_IMPROVE_GET_SHORTCUTDATA_CMD,
+		protocol.PROTO_NC_CHAR_OPTION_IMPROVE_GET_KEYMAP_CMD,
+		protocol.PROTO_NC_CHAR_OPTION_IMPROVE_GET_GAMEOPTION_CMD,
+	}
+	for _, expOp := range expectedOptOpcodes {
+		optPkt, err := readServerPacket(conn)
+		if err != nil {
+			t.Fatalf("failed to read option packet 0x%04X: %v", expOp, err)
+		}
+		if optPkt.OpCode != expOp {
+			t.Fatalf("expected option OpCode 0x%04X, got 0x%04X", expOp, optPkt.OpCode)
+		}
+	}
+	t.Logf("Paso 6b: Paquetes de configuración de interfaz (0x7032, 0x7033, 0x7034) recibidos correctamente")
+
 	// Verificar token de Zona en TransferManager
 	zTransfer, ok := transfers.ConsumeZoneTransfer(charName, 0, nil)
 	if !ok || zTransfer == nil {
