@@ -54,10 +54,18 @@ func (h *Handler) HandlePacket(client *network.Client, pkt *protocol.Packet) {
 		h.handleWalk(client, pkt)
 	case protocol.PROTO_NC_ACT_RUN_REQ:
 		h.handleRun(client, pkt)
+	case protocol.PROTO_NC_ACT_MOVEWALK_CMD:
+		h.handleMoveWalk(client, pkt)
+	case protocol.PROTO_NC_ACT_MOVERUN_CMD:
+		h.handleMoveRun(client, pkt)
 	case protocol.PROTO_NC_ACT_STOP_REQ:
 		h.handleStop(client, pkt)
 	case protocol.PROTO_NC_ACT_JUMP_CMD:
 		h.handleJump(client, pkt)
+	case protocol.PROTO_NC_ACT_EMOTICON_CMD:
+		h.handleEmoticon(client, pkt)
+	case protocol.PROTO_NC_ACT_EMOTICONSTOP_CMD:
+		h.handleEmoticonStop(client, pkt)
 	case protocol.PROTO_NC_ACT_CHAT_REQ:
 		h.handleChatNormal(client, pkt)
 	case protocol.PROTO_NC_ACT_REST_START_REQ:
@@ -70,6 +78,12 @@ func (h *Handler) HandlePacket(client *network.Client, pkt *protocol.Packet) {
 		h.handleReportCancel(client, pkt)
 	case protocol.PROTO_NC_DATA_REPORT_GET_REQ:
 		h.handleReportGet(client, pkt)
+	case protocol.PROTO_NC_ACT_ENDOFTRADE_CMD:
+		// 0x200B (sp_NC_ACT_ENDOFTRADE_CMD en Zone.pdb): si el jugador no está en un trade activo, se ignora silenciosamente.
+	case protocol.PROTO_NC_ITEM_REWARDINVENOPEN_REQ:
+		h.handleRewardInvenOpen(client, pkt)
+	case protocol.PROTO_NC_ITEM_CHARGEDINVENOPEN_REQ:
+		h.handleChargedInvenOpen(client, pkt)
 	case protocol.PROTO_NC_MISC_HEARTBEAT_ACK, protocol.PROTO_NC_MISC_GAMETIME_REQ:
 		// Heartbeat pong received, ignore
 	default:
@@ -443,6 +457,52 @@ func (h *Handler) handleRun(client *network.Client, pkt *protocol.Packet) {
 	player.CurrentMap.MovePlayer(player, int(oldX), int(oldY), int(newX), int(newY), false)
 }
 
+// handleMoveWalk implementa sp_NC_ACT_MOVEWALK_CMD (0x2017) según Zone.pdb (RVA 0x56C60):
+// Lee PROTO_NC_ACT_MOVEWALK_CMD (from: SHINE_XY_TYPE 8B, to: SHINE_XY_TYPE 8B) y transmite 0x2018 (PROTO_NC_ACT_SOMEONEMOVEWALK_CMD).
+func (h *Handler) handleMoveWalk(client *network.Client, pkt *protocol.Packet) {
+	player, ok := h.getPlayer(client)
+	if !ok || player == nil || player.CurrentMap == nil {
+		return
+	}
+
+	fromX, err := pkt.Reader.ReadInt32()
+	if err != nil {
+		return
+	}
+	fromY, _ := pkt.Reader.ReadInt32()
+	toX, _ := pkt.Reader.ReadInt32()
+	toY, _ := pkt.Reader.ReadInt32()
+
+	if fromX == toX && fromY == toY {
+		return
+	}
+
+	player.CurrentMap.MovePlayerCmd(player, int(fromX), int(fromY), int(toX), int(toY), true)
+}
+
+// handleMoveRun implementa sp_NC_ACT_MOVERUN_CMD (0x2019) según Zone.pdb (RVA 0x56FD0):
+// Lee PROTO_NC_ACT_MOVERUN_CMD (from: SHINE_XY_TYPE 8B, to: SHINE_XY_TYPE 8B) y transmite 0x201A (PROTO_NC_ACT_SOMEONEMOVERUN_CMD).
+func (h *Handler) handleMoveRun(client *network.Client, pkt *protocol.Packet) {
+	player, ok := h.getPlayer(client)
+	if !ok || player == nil || player.CurrentMap == nil {
+		return
+	}
+
+	fromX, err := pkt.Reader.ReadInt32()
+	if err != nil {
+		return
+	}
+	fromY, _ := pkt.Reader.ReadInt32()
+	toX, _ := pkt.Reader.ReadInt32()
+	toY, _ := pkt.Reader.ReadInt32()
+
+	if fromX == toX && fromY == toY {
+		return
+	}
+
+	player.CurrentMap.MovePlayerCmd(player, int(fromX), int(fromY), int(toX), int(toY), false)
+}
+
 func (h *Handler) handleStop(client *network.Client, pkt *protocol.Packet) {
 	player, ok := h.getPlayer(client)
 	if !ok || player == nil || player.CurrentMap == nil {
@@ -465,6 +525,42 @@ func (h *Handler) handleJump(client *network.Client, pkt *protocol.Packet) {
 	}
 
 	player.CurrentMap.JumpPlayer(player)
+}
+
+// handleEmoticon maneja 0x2020 (PROTO_NC_ACT_EMOTICON_CMD -> sp_NC_ACT_EMOTICON_CMD / sp_DoEmotion en Zone.pdb).
+// Lee PROTO_NC_ACT_EMOTICON_CMD (emoticonid: uint8, 1 byte) y transmite 0x2021 (PROTO_NC_ACT_SOMEONEEMOTICON_CMD).
+func (h *Handler) handleEmoticon(client *network.Client, pkt *protocol.Packet) {
+	player, ok := h.getPlayer(client)
+	if !ok || player == nil || player.CurrentMap == nil {
+		return
+	}
+
+	emoticonID, err := pkt.Reader.ReadByte()
+	if err != nil {
+		return
+	}
+
+	player.CurrentMap.EmoticonPlayer(player, emoticonID)
+}
+
+// handleEmoticonStop maneja 0x2022 (PROTO_NC_ACT_EMOTICONSTOP_CMD -> sp_NC_ACT_EMOTICONSTOP_CMD en Zone.pdb).
+// Lee STOPEMOTICON_DESCRIPT (emoticonid: uint8 1B, emoticonframe: uint16 2B) y transmite 0x2023 (PROTO_NC_ACT_SOMEONEEMOTICONSTOP_CMD).
+func (h *Handler) handleEmoticonStop(client *network.Client, pkt *protocol.Packet) {
+	player, ok := h.getPlayer(client)
+	if !ok || player == nil || player.CurrentMap == nil {
+		return
+	}
+
+	emoticonID, err := pkt.Reader.ReadByte()
+	if err != nil {
+		return
+	}
+	emoticonFrame, err := pkt.Reader.ReadUint16()
+	if err != nil {
+		return
+	}
+
+	player.CurrentMap.EmoticonStopPlayer(player, emoticonID, emoticonFrame)
 }
 
 func (h *Handler) handleChatNormal(client *network.Client, pkt *protocol.Packet) {
@@ -654,6 +750,101 @@ func (h *Handler) handleReportGet(client *network.Client, pkt *protocol.Packet) 
 	}
 
 	ack := protocol.New_PROTO_NC_DATA_REPORT_GET_ACK(hReporter, 1, 0, 0, "")
+	_ = client.SendPacket(ack)
+}
+
+// handleRewardInvenOpen implementa sp_NC_ITEM_REWARDINVENOPEN_REQ (0x302C) y so_ply_FillRewardInven (0x302D)
+// según Zone.pdb (RewardInven.cpp, RVA 0xFB060 y 0xFB310):
+//   - Lee uint16 page (24 slots por página: from = page * 24, to = page * 24 + 23)
+//   - Consulta tItem con nStorageType = 2 (Reward Inventory)
+//   - Responde con 0x302D (PROTO_NC_ITEM_REWARDINVENOPEN_ACK): itemcounter (1B) + PROTO_ITEMPACKET_INFORM[itemcounter]
+func (h *Handler) handleRewardInvenOpen(client *network.Client, pkt *protocol.Packet) {
+	player, ok := h.getPlayer(client)
+	if !ok || player == nil || player.Char == nil {
+		return
+	}
+
+	page, err := pkt.Reader.ReadUint16()
+	if err != nil {
+		page = 0
+	}
+	fromSlot := int16(page * 24)
+	toSlot := int16(page*24 + 23)
+
+	var pageItems []*database.Item
+	if h.charRepo != nil {
+		allRewardItems, err := h.charRepo.GetItemsByStorage(player.Char.ID, 2) // nStorageType = 2 (Reward Storage en Zone.exe)
+		if err == nil {
+			for _, it := range allRewardItems {
+				if it != nil && it.Storage >= fromSlot && it.Storage <= toSlot {
+					pageItems = append(pageItems, it)
+				}
+			}
+		}
+	}
+
+	ack := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_REWARDINVENOPEN_ACK)
+	ack.WriteByte(byte(len(pageItems))) // itemcounter (1 byte)
+	for _, it := range pageItems {
+		loc := (uint16(2) << 10) | (uint16(it.Storage) & 0x03FF)
+		var attrBuf []byte
+		if h.itemStore != nil {
+			attrBuf = h.itemStore.BuildItemAttr(it.ItemID, uint32(it.Flags), nil, 0)
+		} else {
+			attrBuf = []byte{1}
+		}
+		dataSize := byte(2 + 2 + len(attrBuf))
+		ack.WriteByte(dataSize)    // datasize
+		ack.WriteUint16(loc)       // location: ITEM_INVEN
+		ack.WriteUint16(it.ItemID) // ItemID
+		ack.WriteBytes(attrBuf)    // attr (iac_fill2buffer)
+	}
+	_ = client.SendPacket(ack)
+}
+
+// handleChargedInvenOpen implementa sp_NC_ITEM_CHARGEDINVENOPEN_REQ (0x3020) y so_ply_FillChargedInven (0x3021)
+// según Zone.pdb (RVA 0x913C0 y 0x91F30):
+//   - Lee uint16 page (24 slots por página: from = page * 24, to = page * 24 + 23)
+//   - Consulta tChargeItem (usp_Charge_ItemSelectList / usp_ChargeItem_GetList) filtrando por userNo e isDraw = 0
+//   - Responde con 0x3021 (PROTO_NC_ITEM_CHARGEDINVENOPEN_ACK):
+//     ErrorCode (uint16 = 0x1041), nPartMark (uint8 = 3), NumOfChargedItem (uint16),
+//     seguido de PROTO_CHARGED_ITEM_INFO[NumOfChargedItem] (16 bytes cada uno: ItemOrderNo, ItemCode, ItemAmount, ItemRegisterDate).
+func (h *Handler) handleChargedInvenOpen(client *network.Client, pkt *protocol.Packet) {
+	player, ok := h.getPlayer(client)
+	if !ok || player == nil || player.Char == nil {
+		return
+	}
+
+	page, err := pkt.Reader.ReadUint16()
+	if err != nil {
+		page = 0
+	}
+
+	var pageItems []*database.ChargedItem
+	if h.accountRepo != nil {
+		allCharged, err := h.accountRepo.GetChargedItems(player.Char.AccountID)
+		if err == nil && len(allCharged) > 0 {
+			startIdx := int(page) * 24
+			endIdx := startIdx + 24
+			if startIdx < len(allCharged) {
+				if endIdx > len(allCharged) {
+					endIdx = len(allCharged)
+				}
+				pageItems = allCharged[startIdx:endIdx]
+			}
+		}
+	}
+
+	ack := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_CHARGEDINVENOPEN_ACK)
+	ack.WriteUint16(0x1041)               // ErrorCode = 0x1041 (4161 = éxito en so_ply_FillChargedInven, Zone.exe 0x492F8E)
+	ack.WriteByte(3)                      // nPartMark = 3 (first=1 | last=1, Zone.exe 0x493007)
+	ack.WriteUint16(uint16(len(pageItems))) // NumOfChargedItem
+	for _, ci := range pageItems {
+		ack.WriteUint32(ci.RowNo)                                  // 0x00: ItemOrderNo (4 bytes)
+		ack.WriteUint32(ci.GoodsNo)                                // 0x04: ItemCode (4 bytes)
+		ack.WriteUint32(ci.Amount)                                 // 0x08: ItemAmount (4 bytes)
+		ack.WriteUint32(database.PackShineDateTime(ci.RegisterDate)) // 0x0C: ItemRegisterDate (ShineDateTime, 4 bytes)
+	}
 	_ = client.SendPacket(ack)
 }
 

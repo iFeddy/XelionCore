@@ -77,6 +77,37 @@ type LogoutLog struct {
 	PlayTime   int16     `json:"playTime"`
 }
 
+// ChargedItem representa un ítem de la tienda premium en tChargeItem (usp_Charge_ItemSelectList).
+type ChargedItem struct {
+	RowNo        uint32    `json:"rowNo"`
+	UserNo       int       `json:"userNo"`
+	OrderNo      uint32    `json:"orderNo"`
+	GoodsNo      uint32    `json:"goodsNo"`
+	Amount       uint32    `json:"amount"`
+	RegisterDate time.Time `json:"registerDate"`
+	IsDraw       uint8     `json:"isDraw"`
+}
+
+// PackShineDateTime codifica un time.Time al bitfield oficial ShineDateTime (4 bytes en Zone.pdb):
+// year: 8 bits (bits 0..7, base 2000), month: 5 bits (bits 8..12), date: 6 bits (bits 13..18),
+// hour: 6 bits (bits 19..24), minute: 7 bits (bits 25..31).
+func PackShineDateTime(t time.Time) uint32 {
+	if t.IsZero() {
+		return 0
+	}
+	year := uint32(0)
+	if t.Year() >= 2000 {
+		year = uint32(t.Year()-2000) & 0xFF
+	} else if t.Year() >= 1900 {
+		year = uint32(t.Year()-1900) & 0xFF
+	}
+	month := uint32(t.Month()) & 0x1F
+	day := uint32(t.Day()) & 0x3F
+	hour := uint32(t.Hour()) & 0x3F
+	minute := uint32(t.Minute()) & 0x7F
+	return year | (month << 8) | (day << 13) | (hour << 19) | (minute << 25)
+}
+
 // Sync ensures bidirectional alignment between flat fields and TUser record.
 func (a *Account) Sync() {
 	if a.TUser.UserNo == 0 && a.ID != 0 {

@@ -112,6 +112,19 @@ func (r *MySQLAccountRepository) initAuxiliaryTables() {
 			PRIMARY KEY (nIndex),
 			KEY idx_tdayclasslevel_date (dDate, nWorld)
 		) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;`,
+
+		`CREATE TABLE IF NOT EXISTS tChargeItem (
+			rowNo INT NOT NULL AUTO_INCREMENT,
+			userNo INT NOT NULL,
+			orderNo INT NOT NULL DEFAULT 0,
+			goodsNo INT NOT NULL,
+			amount INT NOT NULL DEFAULT 1,
+			registerDate DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+			isDraw TINYINT UNSIGNED NOT NULL DEFAULT 0,
+			drawDate DATETIME DEFAULT NULL,
+			PRIMARY KEY (rowNo),
+			KEY idx_tchargeitem_userno_draw (userNo, isDraw)
+		) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;`,
 	}
 
 	for _, q := range queries {
@@ -527,4 +540,31 @@ func (r *MySQLAccountRepository) AddSameTimeCharClass(worldNo uint8, classVal ui
 	`
 	_, err := r.db.Exec(query, worldNo, classVal, level, count)
 	return err
+}
+
+// GetChargedItems implementa usp_Charge_ItemSelectList / usp_ChargeItem_GetList:
+// consulta los ítems del inventario premium pendientes de retirar (isDraw = 0) en tChargeItem.
+func (r *MySQLAccountRepository) GetChargedItems(userNo int) ([]*ChargedItem, error) {
+	query := `
+		SELECT rowNo, goodsNo, amount, registerDate
+		FROM tChargeItem
+		WHERE userNo = ? AND isDraw = 0
+		ORDER BY rowNo ASC;
+	`
+	rows, err := r.db.Query(query, userNo)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+
+	var items []*ChargedItem
+	for rows.Next() {
+		var it ChargedItem
+		it.UserNo = userNo
+		if err := rows.Scan(&it.RowNo, &it.GoodsNo, &it.Amount, &it.RegisterDate); err != nil {
+			return nil, err
+		}
+		items = append(items, &it)
+	}
+	return items, nil
 }

@@ -193,6 +193,30 @@ func (m *ZoneMap) MovePlayer(p *ZonePlayer, oldX, oldY, newX, newY int, walk boo
 	m.Broadcast(pw, p.MapObjectID)
 }
 
+// MovePlayerCmd actualiza la posición del jugador y transmite PROTO_NC_ACT_SOMEONEMOVEWALK_CMD (0x2018)
+// o PROTO_NC_ACT_SOMEONEMOVERUN_CMD (0x201A) de 22 bytes según Zone.pdb (sp_NC_ACT_MOVEWALK_CMD / sp_NC_ACT_MOVERUN_CMD).
+func (m *ZoneMap) MovePlayerCmd(p *ZonePlayer, fromX, fromY, toX, toY int, walk bool) {
+	p.Char.XPos = toX
+	p.Char.YPos = toY
+
+	op := protocol.PROTO_NC_ACT_SOMEONEMOVERUN_CMD
+	speed := uint16(115)
+	if walk {
+		op = protocol.PROTO_NC_ACT_SOMEONEMOVEWALK_CMD
+		speed = 50
+	}
+
+	pw := protocol.NewPacketWriter(op)
+	pw.WriteUint16(p.MapObjectID) // 0x00: handle (2 bytes)
+	pw.WriteInt32(int32(fromX))   // 0x02: from.x (4 bytes)
+	pw.WriteInt32(int32(fromY))   // 0x06: from.y (4 bytes)
+	pw.WriteInt32(int32(toX))     // 0x0A: to.x (4 bytes)
+	pw.WriteInt32(int32(toY))     // 0x0E: to.y (4 bytes)
+	pw.WriteUint16(speed)         // 0x12: speed (2 bytes)
+	pw.WriteUint16(0)             // 0x14: moveattr (2 bytes, direct=0)
+	m.Broadcast(pw, p.MapObjectID)
+}
+
 // StopPlayer updates position and broadcasts stop to others.
 func (m *ZoneMap) StopPlayer(p *ZonePlayer, x, y int) {
 	p.Char.XPos = x
@@ -210,6 +234,25 @@ func (m *ZoneMap) JumpPlayer(p *ZonePlayer) {
 	pw := protocol.NewPacketWriter(protocol.PROTO_NC_ACT_JUMP_ACK)
 	pw.WriteUint16(p.MapObjectID)
 	m.Broadcast(pw, p.MapObjectID)
+}
+
+// EmoticonPlayer transmite PROTO_NC_ACT_SOMEONEEMOTICON_CMD (0x2021) de 3 bytes a todos en el mapa (incluido el emisor)
+// según sp_DoEmotion en Zone.pdb.
+func (m *ZoneMap) EmoticonPlayer(p *ZonePlayer, emoticonID byte) {
+	pw := protocol.NewPacketWriter(protocol.PROTO_NC_ACT_SOMEONEEMOTICON_CMD)
+	pw.WriteUint16(p.MapObjectID) // 0x00: handle (2 bytes)
+	pw.WriteByte(emoticonID)      // 0x02: emoticonid (1 byte)
+	m.Broadcast(pw, 0)
+}
+
+// EmoticonStopPlayer transmite PROTO_NC_ACT_SOMEONEEMOTICONSTOP_CMD (0x2023) de 5 bytes a todos en el mapa (incluido el emisor)
+// según sp_NC_ACT_EMOTICONSTOP_CMD en Zone.pdb.
+func (m *ZoneMap) EmoticonStopPlayer(p *ZonePlayer, emoticonID byte, emoticonFrame uint16) {
+	pw := protocol.NewPacketWriter(protocol.PROTO_NC_ACT_SOMEONEEMOTICONSTOP_CMD)
+	pw.WriteUint16(p.MapObjectID) // 0x00: handle (2 bytes)
+	pw.WriteByte(emoticonID)      // 0x02: emoticon.emoticonid (1 byte)
+	pw.WriteUint16(emoticonFrame) // 0x03: emoticon.emoticonframe (2 bytes)
+	m.Broadcast(pw, 0)
 }
 
 // NormalChat broadcasts chat to all players in the map (including sender).
