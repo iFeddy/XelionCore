@@ -53,6 +53,7 @@ func NewServer(
 	s.tcpServer.SetOnDisconnect(func(c *network.Client) {
 		if c.CharacterID > 0 {
 			handler.partyMgr.UnregisterOnline(c.CharacterID)
+			handler.friendMgr.BroadcastLogout(c.CharacterID, c.Username)
 		}
 	})
 	return s

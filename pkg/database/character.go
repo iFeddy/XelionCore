@@ -247,6 +247,23 @@ type CharacterRepository interface {
 	// Official client options / settings routines (tCharacterOptions)
 	GetCharacterOptions(charNo int) (*CharacterOptions, error)
 	SaveCharacterOption(charNo int, optType string, data []byte) error
+
+	// Official friend routines (tFriend - p_Friend_Get, p_Friend_Set, p_Friend_Del)
+	GetFriends(charNo int) ([]*FriendInfo, error)
+	AddFriend(charNo, friendCharNo int) error
+	RemoveFriend(charNo, friendCharNo int) error
+	GetFriendPoints(charNo int) (int, error)
+	SetFriendPoints(charNo int, points int) error
+}
+
+// FriendInfo representa la información de un amigo persistido en tFriend.
+type FriendInfo struct {
+	CharID   int    `json:"char_id"`
+	CharName string `json:"char_name"`
+	Class    byte   `json:"class"`
+	Level    byte   `json:"level"`
+	Map      string `json:"map"`
+	Flags    byte   `json:"flags"`
 }
 
 type charStore struct {
@@ -260,6 +277,8 @@ type MemoryCharacterRepository struct {
 	filePath   string
 	characters map[int]*Character // Key: Character.ID
 	options    map[int]*CharacterOptions // Key: Character.ID
+	friends    map[int][]int             // Key: Character.ID -> Friend CharIDs
+	points     map[int]int               // Key: Character.ID -> Friend Points
 	nextID     int
 }
 
@@ -269,6 +288,8 @@ func NewMemoryCharacterRepositoryWithFile(filePath string) *MemoryCharacterRepos
 		filePath:   filePath,
 		characters: make(map[int]*Character),
 		options:    make(map[int]*CharacterOptions),
+		friends:    make(map[int][]int),
+		points:     make(map[int]int),
 		nextID:     1,
 	}
 	repo.load()
@@ -532,5 +553,66 @@ func (r *MemoryCharacterRepository) SaveCharacterOption(charNo int, optType stri
 	case "video":
 		opt.Video = data
 	}
+	return nil
+}
+
+func (r *MemoryCharacterRepository) GetFriends(charNo int) ([]*FriendInfo, error) {
+	r.mu.RLock()
+	defer r.mu.RUnlock()
+
+	friendIDs := r.friends[charNo]
+	var list []*FriendInfo
+	for _, fID := range friendIDs {
+		if friendChar, exists := r.characters[fID]; exists && friendChar.TCharacter.IsDelete == 0 {
+			list = append(list, &FriendInfo{
+				CharID:   friendChar.ID,
+				CharName: friendChar.Name,
+				Class:    friendChar.Job,
+				Level:    friendChar.Level,
+				Map:      friendChar.TownName,
+			})
+		}
+	}
+	return list, nil
+}
+
+func (r *MemoryCharacterRepository) AddFriend(charNo, friendCharNo int) error {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+
+	r.friends[charNo] = append(r.friends[charNo], friendCharNo)
+	r.friends[friendCharNo] = append(r.friends[friendCharNo], charNo)
+	return nil
+}
+
+func (r *MemoryCharacterRepository) RemoveFriend(charNo, friendCharNo int) error {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+
+	remove := func(list []int, target int) []int {
+		res := make([]int, 0, len(list))
+		for _, v := range list {
+			if v != target {
+				res = append(res, v)
+			}
+		}
+		return res
+	}
+
+	r.friends[charNo] = remove(r.friends[charNo], friendCharNo)
+	r.friends[friendCharNo] = remove(r.friends[friendCharNo], charNo)
+	return nil
+}
+
+func (r *MemoryCharacterRepository) GetFriendPoints(charNo int) (int, error) {
+	r.mu.RLock()
+	defer r.mu.RUnlock()
+	return r.points[charNo], nil
+}
+
+func (r *MemoryCharacterRepository) SetFriendPoints(charNo int, points int) error {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	r.points[charNo] = points
 	return nil
 }

@@ -17,6 +17,7 @@ type Handler struct {
 	transfers *database.TransferManager
 	dataStore *WorldDataStore
 	partyMgr  *PartyManager
+	friendMgr *FriendManager
 	zoneIP    string
 	zonePort  uint16
 }
@@ -35,11 +36,14 @@ func NewHandler(
 	if zonePort == 0 {
 		zonePort = 9210
 	}
+	pm := NewPartyManager()
+	fm := NewFriendManager(charRepo, pm)
 	return &Handler{
 		charRepo:  charRepo,
 		transfers: transfers,
 		dataStore: dataStore,
-		partyMgr:  NewPartyManager(),
+		partyMgr:  pm,
+		friendMgr: fm,
 		zoneIP:    zoneIP,
 		zonePort:  zonePort,
 	}
@@ -133,6 +137,21 @@ func (h *Handler) HandlePacket(client *network.Client, pkt *protocol.Packet) {
 
 	case protocol.PROTO_NC_PARTY_FINDER_LIST_REQ:
 		h.partyMgr.ListFinderAds(client)
+
+	// Subsistema Oficial de Amigos (Friend - Dept: 21)
+	case protocol.PROTO_NC_FRIEND_SET_REQ:
+		targetName, _ := pkt.Reader.ReadString(20)
+		h.friendMgr.RequestFriend(client, targetName)
+
+	case protocol.PROTO_NC_FRIEND_SET_CONFIRM_ACK:
+		h.friendMgr.AcceptFriend(client)
+
+	case protocol.PROTO_NC_FRIEND_DEL_REQ:
+		targetName, _ := pkt.Reader.ReadString(20)
+		h.friendMgr.DeleteFriend(client, targetName)
+
+	case protocol.PROTO_NC_FRIEND_POINT_REQ:
+		h.friendMgr.SendFriendPoints(client)
 
 	default:
 		log.Printf("[World][%s] Unhandled OpCode: 0x%04X (Dept=%d, Cmd=%d)",
@@ -640,10 +659,9 @@ func (h *Handler) handleGotIngame(client *network.Client, pkt *protocol.Packet) 
 	p2.WriteInt16(0)
 	_ = client.SendPacket(p2)
 
-	// 3. Packet PROTO_NC_FRIEND_LIST_ACK (21, 7) - 0 amigos
-	p3 := protocol.NewPacketWriter(protocol.PROTO_NC_FRIEND_LIST_ACK)
-	p3.WriteByte(0)
-	_ = client.SendPacket(p3)
+	// 3. Despachar lista oficial de amigos del jugador desde tFriend (0x5407)
+	h.friendMgr.SendFriendList(client)
+	h.friendMgr.BroadcastLogin(client, client.Username, "RouN")
 
 	// 4. Packet PROTO_NC_MISC_TIME_SYNC_ACK (0x0845 / Dept:2, Cmd:69) - Sincronización oficial del reloj
 	p4 := protocol.NewPacketWriter(protocol.PROTO_NC_MISC_TIME_SYNC_ACK)

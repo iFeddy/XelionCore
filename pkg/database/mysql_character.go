@@ -814,3 +814,87 @@ func (r *MySQLCharacterRepository) SaveCharacterOption(charNo int, optType strin
 	}
 	return nil
 }
+
+// GetFriends recupera la lista oficial de amigos de un personaje (implementa p_Friend_GetAll / p_Friend_Get).
+func (r *MySQLCharacterRepository) GetFriends(charNo int) ([]*FriendInfo, error) {
+	query := `
+		SELECT F.nFriendCharNo, C.sID, S.nClass, C.nLevel, C.sLoginZone, F.nFlags
+		FROM tFriend F
+		INNER JOIN tCharacter C ON F.nFriendCharNo = C.nCharNo AND C.bDeleted = 0
+		INNER JOIN tCharacterShape S ON S.nCharNo = F.nFriendCharNo
+		WHERE F.nCharNo = ?;
+	`
+	rows, err := r.db.Query(query, charNo)
+	if err != nil {
+		return nil, fmt.Errorf("error querying friends for char %d: %w", charNo, err)
+	}
+	defer rows.Close()
+
+	var friends []*FriendInfo
+	for rows.Next() {
+		f := &FriendInfo{}
+		if err := rows.Scan(&f.CharID, &f.CharName, &f.Class, &f.Level, &f.Map, &f.Flags); err != nil {
+			return nil, fmt.Errorf("error scanning friend for char %d: %w", charNo, err)
+		}
+		friends = append(friends, f)
+	}
+	return friends, nil
+}
+
+// AddFriend guarda una relación de amistad bidireccional en tFriend (implementa p_Friend_Set).
+func (r *MySQLCharacterRepository) AddFriend(charNo, friendCharNo int) error {
+	tx, err := r.db.Begin()
+	if err != nil {
+		return err
+	}
+	defer tx.Rollback()
+
+	query := `
+		INSERT INTO tFriend (nCharNo, nFriendCharNo, nFlags, dDate)
+		VALUES (?, ?, 0, NOW())
+		ON DUPLICATE KEY UPDATE dDate = NOW();
+	`
+	if _, err := tx.Exec(query, charNo, friendCharNo); err != nil {
+		return fmt.Errorf("error adding friend link (%d -> %d): %w", charNo, friendCharNo, err)
+	}
+	if _, err := tx.Exec(query, friendCharNo, charNo); err != nil {
+		return fmt.Errorf("error adding reverse friend link (%d -> %d): %w", friendCharNo, charNo, err)
+	}
+
+	return tx.Commit()
+}
+
+// RemoveFriend elimina una relación de amistad bidireccional de tFriend (implementa p_Friend_Del).
+func (r *MySQLCharacterRepository) RemoveFriend(charNo, friendCharNo int) error {
+	query := `
+		DELETE FROM tFriend 
+		WHERE (nCharNo = ? AND nFriendCharNo = ?) 
+		   OR (nCharNo = ? AND nFriendCharNo = ?);
+	`
+	_, err := r.db.Exec(query, charNo, friendCharNo, friendCharNo, charNo)
+	if err != nil {
+		return fmt.Errorf("error removing friend link (%d <-> %d): %w", charNo, friendCharNo, err)
+	}
+	return nil
+}
+
+// GetFriendPoints consulta los puntos de amistad acumulados de un personaje (implementa usp_Character_GetFriendpoint).
+func (r *MySQLCharacterRepository) GetFriendPoints(charNo int) (int, error) {
+	query := `SELECT COALESCE(nFriendPoint, 0) FROM tCharacter WHERE nCharNo = ?;`
+	var points int
+	err := r.db.QueryRow(query, charNo).Scan(&points)
+	if err != nil {
+		if errors.Is(err, sql.ErrNoRows) {
+			return 0, ErrCharacterNotFound
+		}
+		return 0, err
+	}
+	return points, nil
+}
+
+// SetFriendPoints actualiza los puntos de amistad de un personaje (implementa usp_Character_SetFriendpoint).
+func (r *MySQLCharacterRepository) SetFriendPoints(charNo int, points int) error {
+	query := `UPDATE tCharacter SET nFriendPoint = ? WHERE nCharNo = ?;`
+	_, err := r.db.Exec(query, points, charNo)
+	return err
+}
