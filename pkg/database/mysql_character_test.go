@@ -261,4 +261,28 @@ func TestMySQLCharacterRepository_StarterItemsAndShortcuts(t *testing.T) {
 	if len(skills) != 1 || skills[0].SkillNo != 29200 {
 		t.Fatalf("Expected 1 skill with ID 29200, got %+v", skills)
 	}
+
+	// 4. Verificar tCharacterOptions (p_Char_SetOptShortCutData / p_Char_GetOptShortCutData)
+	testSCData := make([]byte, 1024)
+	testSCData[0] = 0xAA
+	testSCData[1023] = 0xBB
+	if err := repo.SaveCharacterOption(ch.ID, "shortcut_data", testSCData); err != nil {
+		t.Fatalf("Failed to save shortcut_data option: %v", err)
+	}
+
+	testGameOpt := []byte{1, 2, 3, 4, 5}
+	if err := repo.SaveCharacterOption(ch.ID, "game", testGameOpt); err != nil {
+		t.Fatalf("Failed to save game option: %v", err)
+	}
+
+	opts, err := repo.GetCharacterOptions(ch.ID)
+	if err != nil {
+		t.Fatalf("Failed to get character options: %v", err)
+	}
+	if len(opts.ShortCutData) == 0 || opts.ShortCutData[0] != 0xAA || opts.ShortCutData[1023] != 0xBB {
+		t.Fatalf("Character options shortcut_data mismatch: got len=%d", len(opts.ShortCutData))
+	}
+	if len(opts.Game) == 0 || opts.Game[0] != 1 {
+		t.Fatalf("Character options game mismatch: got %+v", opts.Game)
+	}
 }

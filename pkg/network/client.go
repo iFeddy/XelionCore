@@ -22,6 +22,8 @@ type Client struct {
 	// Client metadata
 	AccountID       int
 	Username        string
+	CharacterID     int
+	Slot            byte
 	IsAuthenticated bool
 	ClientYear      uint16
 	ClientVersion   uint16

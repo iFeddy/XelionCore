@@ -92,8 +92,8 @@ func (h *Handler) HandlePacket(client *network.Client, pkt *protocol.Packet) {
 		protocol.PROTO_NC_CHAR_SAVE_SHORTCUTS_REQ:
 		h.handleSaveSettings(client, pkt)
 
-	case protocol.PROTO_NC_SYSTEM_UNKNOWN_REQ:
-		h.handleGetUnknown31(client, pkt)
+	case protocol.PROTO_NC_PRISON_GET_REQ:
+		h.handlePrisonGet(client, pkt)
 
 	default:
 		log.Printf("[World][%s] Unhandled OpCode: 0x%04X (Dept=%d, Cmd=%d)",
@@ -435,6 +435,9 @@ func (h *Handler) handleCharSelect(client *network.Client, pkt *protocol.Packet)
 		return
 	}
 
+	client.CharacterID = selected.ID
+	client.Slot = slot
+
 	randomID := client.RandomID
 	if randomID == 0 {
 		randomID = uint16(rand.Intn(65534) + 1)
@@ -471,76 +474,144 @@ func (h *Handler) sendCharCreationError(client *network.Client, errCode protocol
 	_ = client.SendPacket(resp)
 }
 
+func (h *Handler) getActiveCharNo(client *network.Client) int {
+	if client.CharacterID > 0 {
+		return client.CharacterID
+	}
+	chars, err := h.charRepo.GetCharactersByAccount(client.AccountID)
+	if err == nil && len(chars) > 0 {
+		return chars[0].ID
+	}
+	return 0
+}
+
 func (h *Handler) handleGetQuickBar(client *network.Client, pkt *protocol.Packet) {
-	resp := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_GET_QUICKBAR_ACK)
-	resp.WriteByte(0) // hasData = false
-	resp.WriteByte(0)
-	_ = client.SendPacket(resp)
+	charNo := h.getActiveCharNo(client)
+	var data []byte
+	if charNo > 0 {
+		opts, err := h.charRepo.GetCharacterOptions(charNo)
+		if err == nil && opts != nil && len(opts.ShortCutData) > 0 {
+			data = opts.ShortCutData
+		}
+	}
+	_ = client.SendPacket(protocol.New_PROTO_NC_CHAR_OPTION_GET_SHORTCUTDATA_ACK(data))
 }
 
 func (h *Handler) handleGetQuickBarState(client *network.Client, pkt *protocol.Packet) {
-	resp := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_GET_QUICKBAR_STATE_ACK)
-	resp.WriteByte(0)
-	resp.WriteByte(0)
-	_ = client.SendPacket(resp)
+	charNo := h.getActiveCharNo(client)
+	var data []byte
+	if charNo > 0 {
+		opts, err := h.charRepo.GetCharacterOptions(charNo)
+		if err == nil && opts != nil && len(opts.ShortCutSize) > 0 {
+			data = opts.ShortCutSize
+		}
+	}
+	_ = client.SendPacket(protocol.New_PROTO_NC_CHAR_OPTION_GET_SHORTCUTSIZE_ACK(data))
 }
 
 func (h *Handler) handleGetGameSettings(client *network.Client, pkt *protocol.Packet) {
-	resp := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_GET_GAME_SETTINGS_ACK)
-	resp.WriteByte(0)
-	resp.WriteByte(0)
-	_ = client.SendPacket(resp)
+	charNo := h.getActiveCharNo(client)
+	var data []byte
+	if charNo > 0 {
+		opts, err := h.charRepo.GetCharacterOptions(charNo)
+		if err == nil && opts != nil && len(opts.Game) > 0 {
+			data = opts.Game
+		}
+	}
+	_ = client.SendPacket(protocol.New_PROTO_NC_CHAR_OPTION_GET_GAME_ACK(data))
 }
 
 func (h *Handler) handleGetClientSettings(client *network.Client, pkt *protocol.Packet) {
-	resp := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_GET_CLIENT_SETTINGS_ACK)
-	resp.WriteByte(0)
-	resp.WriteByte(0)
-	_ = client.SendPacket(resp)
+	charNo := h.getActiveCharNo(client)
+	var data []byte
+	if charNo > 0 {
+		opts, err := h.charRepo.GetCharacterOptions(charNo)
+		if err == nil && opts != nil && len(opts.WindowsPos) > 0 {
+			data = opts.WindowsPos
+		}
+	}
+	_ = client.SendPacket(protocol.New_PROTO_NC_CHAR_OPTION_GET_WINDOWPOS_ACK(data))
 }
 
 func (h *Handler) handleGetShortCuts(client *network.Client, pkt *protocol.Packet) {
-	resp := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_GET_SHORTCUTS_ACK)
-	resp.WriteByte(0)
-	resp.WriteByte(0)
-	_ = client.SendPacket(resp)
+	charNo := h.getActiveCharNo(client)
+	var data []byte
+	if charNo > 0 {
+		opts, err := h.charRepo.GetCharacterOptions(charNo)
+		if err == nil && opts != nil && len(opts.KeyMapping) > 0 {
+			data = opts.KeyMapping
+		}
+	}
+	_ = client.SendPacket(protocol.New_PROTO_NC_CHAR_OPTION_GET_KEYMAPPING_ACK(data))
 }
 
 func (h *Handler) handleSaveSettings(client *network.Client, pkt *protocol.Packet) {
-	log.Printf("[World][%s] Received settings save packet 0x%04X (Dept=%d, Cmd=%d)",
-		client.RemoteAddr(), pkt.OpCode, pkt.Header, pkt.Type)
+	charNo := h.getActiveCharNo(client)
+	if charNo <= 0 {
+		log.Printf("[World][%s] Cannot save settings: No active character selected", client.RemoteAddr())
+		return
+	}
+
+	payload, _ := pkt.Reader.ReadBytes(pkt.Reader.Remaining())
+	var optType string
+
+	switch pkt.OpCode {
+	case protocol.PROTO_NC_CHAR_SAVE_QUICKBAR_REQ:
+		optType = "shortcut_data"
+	case protocol.PROTO_NC_CHAR_SAVE_QUICKBAR_STATE_REQ:
+		optType = "shortcut_size"
+	case protocol.PROTO_NC_CHAR_SAVE_GAME_SETTINGS_REQ:
+		optType = "game"
+	case protocol.PROTO_NC_CHAR_SAVE_CLIENT_SETTINGS_REQ:
+		optType = "window_pos"
+	case protocol.PROTO_NC_CHAR_SAVE_SHORTCUTS_REQ:
+		optType = "key_mapping"
+	default:
+		log.Printf("[World][%s] Unknown save settings OpCode 0x%04X", client.RemoteAddr(), pkt.OpCode)
+		return
+	}
+
+	if err := h.charRepo.SaveCharacterOption(charNo, optType, payload); err != nil {
+		log.Printf("[World][%s] Error saving %s for char %d: %v", client.RemoteAddr(), optType, charNo, err)
+		return
+	}
+
+	log.Printf("[World][%s] Saved %s (%d bytes) in tCharacterOptions for char %d",
+		client.RemoteAddr(), optType, len(payload), charNo)
 }
 
-func (h *Handler) handleGetUnknown31(client *network.Client, pkt *protocol.Packet) {
-	resp := protocol.NewPacketWriter(protocol.PROTO_NC_SYSTEM_UNKNOWN_ACK)
-	resp.WriteInt32(0xBD1)
+func (h *Handler) handlePrisonGet(client *network.Client, pkt *protocol.Packet) {
+	resp := protocol.NewPacketWriter(protocol.PROTO_NC_PRISON_GET_ACK)
+	resp.WriteByte(0) // bInPrison = 0 (libre / no encarcelado)
 	_ = client.SendPacket(resp)
 }
 
 func (h *Handler) handleGotIngame(client *network.Client, pkt *protocol.Packet) {
-	log.Printf("[World][%s] Player '%s' entering in-game zone (0x%04X). Dispatching in-game ACKs...",
+	log.Printf("[World][%s] Player '%s' entering in-game zone (0x%04X). Dispatching official in-game ACKs...",
 		client.RemoteAddr(), client.Username, pkt.OpCode)
 
-	// 1. Packet PROTO_NC_CHAR_INGAME_ACK (0x581C)
-	p1 := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_INGAME_ACK)
-	p1.WriteUint32(0x4d0bc167)
+	// 1. Packet PROTO_NC_KQ_LIST_TIME_ACK (0x581C) con timestamp Unix dinámico del servidor
+	p1 := protocol.NewPacketWriter(protocol.PROTO_NC_KQ_LIST_TIME_ACK)
+	p1.WriteUint32(uint32(time.Now().Unix()))
 	_ = client.SendPacket(p1)
 
-	// 2. Packet PROTO_NC_KQ_LIST_COUNT_ACK (0x581D) - 0 active Kingdom Quests
+	// 2. Packet PROTO_NC_KQ_LIST_COUNT_ACK (0x581D) - 0 Kingdom Quests activas iniciales
 	p2 := protocol.NewPacketWriter(protocol.PROTO_NC_KQ_LIST_COUNT_ACK)
 	p2.WriteInt16(0)
 	_ = client.SendPacket(p2)
 
-	// 3. Packet PROTO_NC_FRIEND_LIST_ACK (21, 7) - 0 friends
+	// 3. Packet PROTO_NC_FRIEND_LIST_ACK (21, 7) - 0 amigos
 	p3 := protocol.NewPacketWriter(protocol.PROTO_NC_FRIEND_LIST_ACK)
 	p3.WriteByte(0)
 	_ = client.SendPacket(p3)
 
-	// 4. Packet PROTO_NC_MISC_TIME_SYNC_ACK (2, 69) - Time sync
+	// 4. Packet PROTO_NC_MISC_TIME_SYNC_ACK (0x0845 / Dept:2, Cmd:69) - Sincronización oficial del reloj
 	p4 := protocol.NewPacketWriter(protocol.PROTO_NC_MISC_TIME_SYNC_ACK)
-	p4.WriteInt16(256)
+	now := time.Now()
+	millis := uint32(now.Hour()*3600000 + now.Minute()*60000 + now.Second()*1000 + now.Nanosecond()/1000000)
+	p4.WriteUint32(millis)
 	_ = client.SendPacket(p4)
 
-	log.Printf("[World][%s] In-game ACK sequence sent successfully for '%s'",
+	log.Printf("[World][%s] Official in-game ACK sequence sent successfully for '%s'",
 		client.RemoteAddr(), client.Username)
 }

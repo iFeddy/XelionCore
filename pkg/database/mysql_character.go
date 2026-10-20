@@ -736,3 +736,81 @@ func (r *MySQLCharacterRepository) SaveCharacterSkills(charNo int, skills []*Cha
 	}
 	return nil
 }
+
+// GetCharacterOptions recupera las opciones binarias persistidas de un personaje en tCharacterOptions
+// (implementa p_Char_GetOptShortCutData, p_Char_GetOptShortCutSize, p_Char_GetOptGame, etc.).
+func (r *MySQLCharacterRepository) GetCharacterOptions(charNo int) (*CharacterOptions, error) {
+	query := `
+		SELECT nCharNo, sShortCutData, sShortCutSize, sVideo, sSound, sGame, sWindowsPos, sKeyMapping
+		FROM tCharacterOptions
+		WHERE nCharNo = ?
+		LIMIT 1;
+	`
+	opts := &CharacterOptions{CharNo: charNo}
+	var (
+		cNo        int
+		scData     []byte
+		scSize     []byte
+		video      []byte
+		sound      []byte
+		game       []byte
+		windowsPos []byte
+		keyMapping []byte
+	)
+
+	err := r.db.QueryRow(query, charNo).Scan(
+		&cNo, &scData, &scSize, &video, &sound, &game, &windowsPos, &keyMapping,
+	)
+	if err != nil {
+		if errors.Is(err, sql.ErrNoRows) {
+			return opts, nil
+		}
+		return nil, fmt.Errorf("error querying character options for %d: %w", charNo, err)
+	}
+
+	opts.ShortCutData = scData
+	opts.ShortCutSize = scSize
+	opts.Video = video
+	opts.Sound = sound
+	opts.Game = game
+	opts.WindowsPos = windowsPos
+	opts.KeyMapping = keyMapping
+
+	return opts, nil
+}
+
+// SaveCharacterOption guarda una opción binaria en tCharacterOptions según el procedimiento oficial:
+// p_Char_SetOptShortCutData, p_Char_SetOptShortCutSize, p_Char_SetOptGame, etc.
+func (r *MySQLCharacterRepository) SaveCharacterOption(charNo int, optType string, data []byte) error {
+	var colName string
+	switch optType {
+	case "shortcut_data":
+		colName = "sShortCutData"
+	case "shortcut_size":
+		colName = "sShortCutSize"
+	case "game":
+		colName = "sGame"
+	case "sound":
+		colName = "sSound"
+	case "window_pos":
+		colName = "sWindowsPos"
+	case "key_mapping":
+		colName = "sKeyMapping"
+	case "video":
+		colName = "sVideo"
+	default:
+		return fmt.Errorf("unknown character option type: %s", optType)
+	}
+
+	query := fmt.Sprintf(`
+		INSERT INTO tCharacterOptions (nCharNo, %s)
+		VALUES (?, ?)
+		ON DUPLICATE KEY UPDATE %s = VALUES(%s);
+	`, colName, colName, colName)
+
+	_, err := r.db.Exec(query, charNo, data)
+	if err != nil {
+		return fmt.Errorf("error saving %s for char %d: %w", colName, charNo, err)
+	}
+	return nil
+}

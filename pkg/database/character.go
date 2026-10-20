@@ -214,6 +214,19 @@ func (c *Character) GetEquip(slot byte) uint16 {
 	return 0xFFFF
 }
 
+// CharacterOptions representa las opciones binarias del cliente persistidas en tCharacterOptions
+// (p_Char_GetOptShortCutData, p_Char_SetOptShortCutData, p_Char_GetOptGame, etc.).
+type CharacterOptions struct {
+	CharNo       int    `json:"nCharNo"`
+	ShortCutData []byte `json:"sShortCutData"` // 1024 bytes (p_Char_GetOptShortCutData)
+	ShortCutSize []byte `json:"sShortCutSize"` // 24 bytes (p_Char_GetOptShortCutSize)
+	Video        []byte `json:"sVideo"`        // 60 bytes
+	Sound        []byte `json:"sSound"`        // 1 byte (p_Char_GetOptSound)
+	Game         []byte `json:"sGame"`         // 64 bytes (p_Char_GetOptGame)
+	WindowsPos   []byte `json:"sWindowsPos"`   // 136 bytes (p_Char_GetOptWindowsPos)
+	KeyMapping   []byte `json:"sKeyMapping"`   // 52 bytes (p_Char_GetOptKeyMapping)
+}
+
 // CharacterRepository defines persistence operations for player characters.
 type CharacterRepository interface {
 	GetCharactersByAccount(accountID int) ([]*Character, error)
@@ -230,6 +243,10 @@ type CharacterRepository interface {
 	SaveCharacterItem(item *Item) error
 	SaveCharacterShortcuts(charNo int, shortcuts []*Shortcut) error
 	SaveCharacterSkills(charNo int, skills []*CharacterSkill) error
+
+	// Official client options / settings routines (tCharacterOptions)
+	GetCharacterOptions(charNo int) (*CharacterOptions, error)
+	SaveCharacterOption(charNo int, optType string, data []byte) error
 }
 
 type charStore struct {
@@ -242,6 +259,7 @@ type MemoryCharacterRepository struct {
 	mu         sync.RWMutex
 	filePath   string
 	characters map[int]*Character // Key: Character.ID
+	options    map[int]*CharacterOptions // Key: Character.ID
 	nextID     int
 }
 
@@ -250,6 +268,7 @@ func NewMemoryCharacterRepositoryWithFile(filePath string) *MemoryCharacterRepos
 	repo := &MemoryCharacterRepository{
 		filePath:   filePath,
 		characters: make(map[int]*Character),
+		options:    make(map[int]*CharacterOptions),
 		nextID:     1,
 	}
 	repo.load()
@@ -475,5 +494,43 @@ func (r *MemoryCharacterRepository) SaveCharacterSkills(charNo int, skills []*Ch
 	}
 	ch.Skills = append(ch.Skills, skills...)
 	r.save()
+	return nil
+}
+
+func (r *MemoryCharacterRepository) GetCharacterOptions(charNo int) (*CharacterOptions, error) {
+	r.mu.RLock()
+	defer r.mu.RUnlock()
+	opt, exists := r.options[charNo]
+	if !exists {
+		return &CharacterOptions{CharNo: charNo}, nil
+	}
+	copied := *opt
+	return &copied, nil
+}
+
+func (r *MemoryCharacterRepository) SaveCharacterOption(charNo int, optType string, data []byte) error {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	opt, exists := r.options[charNo]
+	if !exists {
+		opt = &CharacterOptions{CharNo: charNo}
+		r.options[charNo] = opt
+	}
+	switch optType {
+	case "shortcut_data":
+		opt.ShortCutData = data
+	case "shortcut_size":
+		opt.ShortCutSize = data
+	case "game":
+		opt.Game = data
+	case "sound":
+		opt.Sound = data
+	case "window_pos":
+		opt.WindowsPos = data
+	case "key_mapping":
+		opt.KeyMapping = data
+	case "video":
+		opt.Video = data
+	}
 	return nil
 }
