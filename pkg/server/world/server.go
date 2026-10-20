@@ -50,6 +50,11 @@ func NewServer(
 	}
 
 	s.tcpServer = network.NewTCPServer(cfg.BindAddr, nil, handler.HandlePacket)
+	s.tcpServer.SetOnDisconnect(func(c *network.Client) {
+		if c.CharacterID > 0 {
+			handler.partyMgr.UnregisterOnline(c.CharacterID)
+		}
+	})
 	return s
 }
 

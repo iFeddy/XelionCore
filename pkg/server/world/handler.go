@@ -16,6 +16,7 @@ type Handler struct {
 	charRepo  database.CharacterRepository
 	transfers *database.TransferManager
 	dataStore *WorldDataStore
+	partyMgr  *PartyManager
 	zoneIP    string
 	zonePort  uint16
 }
@@ -38,6 +39,7 @@ func NewHandler(
 		charRepo:  charRepo,
 		transfers: transfers,
 		dataStore: dataStore,
+		partyMgr:  NewPartyManager(),
 		zoneIP:    zoneIP,
 		zonePort:  zonePort,
 	}
@@ -94,6 +96,43 @@ func (h *Handler) HandlePacket(client *network.Client, pkt *protocol.Packet) {
 
 	case protocol.PROTO_NC_PRISON_GET_REQ:
 		h.handlePrisonGet(client, pkt)
+
+	// Subsistema Oficial de Grupos (Party - Dept: 14)
+	case protocol.PROTO_NC_PARTY_JOIN_REQ:
+		targetName, _ := pkt.Reader.ReadString(20)
+		h.partyMgr.InviteMember(client, targetName)
+
+	case protocol.PROTO_NC_PARTY_JOINPROPOSE_ALLOW_ACK:
+		h.partyMgr.AcceptInvite(client)
+
+	case protocol.PROTO_NC_PARTY_JOINPROPOSE_REJECT_ACK:
+		h.partyMgr.RejectInvite(client)
+
+	case protocol.PROTO_NC_PARTY_LEAVE_REQ:
+		h.partyMgr.LeaveParty(client)
+
+	case protocol.PROTO_NC_PARTY_KICKOFF_REQ:
+		targetName, _ := pkt.Reader.ReadString(20)
+		h.partyMgr.KickMember(client, targetName)
+
+	case protocol.PROTO_NC_PARTY_CHANGEMASTER_REQ:
+		newMaster, _ := pkt.Reader.ReadString(20)
+		h.partyMgr.ChangeMaster(client, newMaster)
+
+	case protocol.PROTO_NC_PARTY_ITEM_LOOTING_SET:
+		lootType, _ := pkt.Reader.ReadByte()
+		itemGrade, _ := pkt.Reader.ReadByte()
+		h.partyMgr.SetLooting(client, lootType, itemGrade)
+
+	case protocol.PROTO_NC_PARTY_FINDER_ADD_REQ:
+		purpose, _ := pkt.Reader.ReadString(pkt.Reader.Remaining())
+		h.partyMgr.AddFinderAd(client, purpose)
+
+	case protocol.PROTO_NC_PARTY_FINDER_DELETE_REQ:
+		h.partyMgr.DeleteFinderAd(client)
+
+	case protocol.PROTO_NC_PARTY_FINDER_LIST_REQ:
+		h.partyMgr.ListFinderAds(client)
 
 	default:
 		log.Printf("[World][%s] Unhandled OpCode: 0x%04X (Dept=%d, Cmd=%d)",
@@ -437,6 +476,7 @@ func (h *Handler) handleCharSelect(client *network.Client, pkt *protocol.Packet)
 
 	client.CharacterID = selected.ID
 	client.Slot = slot
+	h.partyMgr.RegisterOnline(client, selected.ID, selected.Name, selected.Job, selected.Level)
 
 	randomID := client.RandomID
 	if randomID == 0 {
