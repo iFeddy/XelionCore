@@ -3,8 +3,10 @@ package database
 import (
 	"encoding/json"
 	"errors"
+	"fmt"
 	"os"
 	"path/filepath"
+	"strconv"
 	"strings"
 	"sync"
 	"time"
@@ -254,6 +256,106 @@ type CharacterRepository interface {
 	RemoveFriend(charNo, friendCharNo int) error
 	GetFriendPoints(charNo int) (int, error)
 	SetFriendPoints(charNo int, points int) error
+
+	// Official guild routines (tGuild, tGuildMember - p_Guild_*)
+	CreateGuild(masterCharID int, name, password string, guildType byte) (int, error)
+	GetGuild(guildID int) (*GuildData, error)
+	GetGuildByCharID(charID int) (*GuildData, *GuildMemberData, error)
+	GetGuildMembers(guildID int) ([]*GuildMemberData, error)
+	GetAllGuilds() ([]*GuildListItem, error)
+	AddGuildMember(guildID, charID int, grade byte) error
+	RemoveGuildMember(guildID, charID int) error
+	SetGuildMemberGrade(guildID, charID int, grade byte) error
+	SetGuildNotify(guildID int, charName, notify string) error
+	DismissGuild(guildID int) error
+
+	// Official guild academy routines (tGuildAcademy, tGuildAcademyMember - usp_GuildAcademy_*)
+	CreateGuildAcademy(guildID, masterCharID int) error
+	GetGuildAcademy(guildID int) (*GuildAcademyData, error)
+	GetAcademyByCharID(charID int) (*GuildAcademyData, *GuildAcademyMemberData, error)
+	GetAcademyMembers(guildID int) ([]*GuildAcademyMemberData, error)
+	AddAcademyMember(guildID, charID int, joinLevel byte) error
+	RemoveAcademyMember(guildID, charID int) error
+	SetAcademyNotify(guildID int, charName, notify string) error
+}
+
+// GuildData modela tGuild según el esquema oficial de base de datos.
+type GuildData struct {
+	ID            int       `json:"id"`
+	Name          string    `json:"name"`
+	Password      string    `json:"password"`
+	MaxMembers    uint16    `json:"max_members"`
+	Money         uint64    `json:"money"`
+	Type          byte      `json:"type"`
+	Grade         byte      `json:"grade"`
+	Fame          uint32    `json:"fame"`
+	StoneLevel    uint16    `json:"stone_level"`
+	Exp           uint64    `json:"exp"`
+	CreateDate    time.Time `json:"create_date"`
+	DismissStatus byte      `json:"dismiss_status"`
+	DismissDate   time.Time `json:"dismiss_date"`
+	Intro         string    `json:"intro"`
+	NotifyDate    time.Time `json:"notify_date"`
+	NotifyCharID  string    `json:"notify_char_id"`
+	Notify        string    `json:"notify"`
+}
+
+// GuildMemberData modela tGuildMember enriquecido con los datos del personaje.
+type GuildMemberData struct {
+	GuildID   int       `json:"guild_id"`
+	CharID    int       `json:"char_id"`
+	CharName  string    `json:"char_name"`
+	JoinDate  time.Time `json:"join_date"`
+	Grade     byte      `json:"grade"` // 0=Master, 1=SubMaster, 2=Officer, 3=Member, 4=Newbie
+	Flags     uint32    `json:"flags"`
+	ExpRatio  uint16    `json:"exp_ratio"`
+	Intro     string    `json:"intro"`
+	Class     byte      `json:"class"`
+	Level     byte      `json:"level"`
+	Map       string    `json:"map"`
+	LastLogin time.Time `json:"last_login"`
+	IsOnline  bool      `json:"is_online"`
+}
+
+// GuildAcademyData modela tGuildAcademy según el esquema oficial.
+type GuildAcademyData struct {
+	GuildID        int       `json:"guild_id"`
+	MasterCharID   int       `json:"master_char_id"`
+	MasterCharName string    `json:"master_char_name"`
+	MaxMember      uint16    `json:"max_member"`
+	Money          uint64    `json:"money"`
+	Point          uint32    `json:"point"`
+	BuffEndTime    time.Time `json:"buff_end_time"`
+	NotifyDate     time.Time `json:"notify_date"`
+	NotifyCharID   string    `json:"notify_char_id"`
+	Notify         string    `json:"notify"`
+	Intro          string    `json:"intro"`
+}
+
+// GuildAcademyMemberData modela tGuildAcademyMember con datos del aprendiz.
+type GuildAcademyMemberData struct {
+	GuildID   int       `json:"guild_id"`
+	CharID    int       `json:"char_id"`
+	CharName  string    `json:"char_name"`
+	JoinDate  time.Time `json:"join_date"`
+	JoinLevel byte      `json:"join_level"`
+	Grade     byte      `json:"grade"`
+	Class     byte      `json:"class"`
+	Level     byte      `json:"level"`
+	Map       string    `json:"map"`
+	LastLogin time.Time `json:"last_login"`
+	IsOnline  bool      `json:"is_online"`
+}
+
+// GuildListItem representa una fila resumen para la lista pública de gremios.
+type GuildListItem struct {
+	GuildID        uint32 `json:"guild_id"`
+	GuildName      string `json:"guild_name"`
+	MasterCharName string `json:"master_char_name"`
+	Type           byte   `json:"type"`
+	Grade          byte   `json:"grade"`
+	MemberCount    uint16 `json:"member_count"`
+	MaxMembers     uint16 `json:"max_members"`
 }
 
 // FriendInfo representa la información de un amigo persistido en tFriend.
@@ -279,18 +381,28 @@ type MemoryCharacterRepository struct {
 	options    map[int]*CharacterOptions // Key: Character.ID
 	friends    map[int][]int             // Key: Character.ID -> Friend CharIDs
 	points     map[int]int               // Key: Character.ID -> Friend Points
+	guilds     map[int]*GuildData        // Key: GuildID
+	members    map[int][]*GuildMemberData // Key: GuildID -> Members
+	academies  map[int]*GuildAcademyData // Key: GuildID
+	acadMembers map[int][]*GuildAcademyMemberData // Key: GuildID -> Academy Members
+	nextGuildID int
 	nextID     int
 }
 
 // NewMemoryCharacterRepositoryWithFile initializes a character repository with a custom file path (or empty for in-memory).
 func NewMemoryCharacterRepositoryWithFile(filePath string) *MemoryCharacterRepository {
 	repo := &MemoryCharacterRepository{
-		filePath:   filePath,
-		characters: make(map[int]*Character),
-		options:    make(map[int]*CharacterOptions),
-		friends:    make(map[int][]int),
-		points:     make(map[int]int),
-		nextID:     1,
+		filePath:    filePath,
+		characters:  make(map[int]*Character),
+		options:     make(map[int]*CharacterOptions),
+		friends:     make(map[int][]int),
+		points:      make(map[int]int),
+		guilds:      make(map[int]*GuildData),
+		members:     make(map[int][]*GuildMemberData),
+		academies:   make(map[int]*GuildAcademyData),
+		acadMembers: make(map[int][]*GuildAcademyMemberData),
+		nextGuildID: 1,
+		nextID:      1,
 	}
 	repo.load()
 	return repo
@@ -614,5 +726,335 @@ func (r *MemoryCharacterRepository) SetFriendPoints(charNo int, points int) erro
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	r.points[charNo] = points
+	return nil
+}
+
+func (r *MemoryCharacterRepository) CreateGuild(masterCharID int, name, password string, guildType byte) (int, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+
+	// Chequear si existe nombre
+	for _, g := range r.guilds {
+		if g.Name == name {
+			return -1, fmt.Errorf("guild name already exists")
+		}
+	}
+
+	// Chequear si el char ya pertenece a un gremio
+	for _, mList := range r.members {
+		for _, m := range mList {
+			if m.CharID == masterCharID {
+				return -3, fmt.Errorf("character already belongs to a guild")
+			}
+		}
+	}
+
+	guildID := r.nextGuildID
+	r.nextGuildID++
+
+	now := time.Now()
+	g := &GuildData{
+		ID:          guildID,
+		Name:        name,
+		Password:    password,
+		MaxMembers:  30,
+		Money:       0,
+		Type:        guildType,
+		Grade:       1,
+		CreateDate:  now,
+		NotifyDate:  now,
+		DismissDate: now,
+	}
+	r.guilds[guildID] = g
+
+	// Agregar al creador como Guild Master (Grade 0)
+	ch := r.characters[masterCharID]
+	charName := ""
+	var classID, level byte
+	mapName := "Rou"
+	if ch != nil {
+		charName = ch.Name
+		classID = ch.Job
+		level = ch.Level
+		mapName = strconv.Itoa(int(ch.Map))
+	}
+
+	masterMember := &GuildMemberData{
+		GuildID:   guildID,
+		CharID:    masterCharID,
+		CharName:  charName,
+		JoinDate:  now,
+		Grade:     0,
+		Class:     classID,
+		Level:     level,
+		Map:       mapName,
+		LastLogin: now,
+		IsOnline:  true,
+	}
+	r.members[guildID] = []*GuildMemberData{masterMember}
+
+	return guildID, nil
+}
+
+func (r *MemoryCharacterRepository) GetGuild(guildID int) (*GuildData, error) {
+	r.mu.RLock()
+	defer r.mu.RUnlock()
+	g, ok := r.guilds[guildID]
+	if !ok {
+		return nil, fmt.Errorf("guild not found")
+	}
+	return g, nil
+}
+
+func (r *MemoryCharacterRepository) GetGuildByCharID(charID int) (*GuildData, *GuildMemberData, error) {
+	r.mu.RLock()
+	defer r.mu.RUnlock()
+	for gID, mList := range r.members {
+		for _, m := range mList {
+			if m.CharID == charID {
+				return r.guilds[gID], m, nil
+			}
+		}
+	}
+	return nil, nil, nil
+}
+
+func (r *MemoryCharacterRepository) GetGuildMembers(guildID int) ([]*GuildMemberData, error) {
+	r.mu.RLock()
+	defer r.mu.RUnlock()
+	mList, ok := r.members[guildID]
+	if !ok {
+		return []*GuildMemberData{}, nil
+	}
+	res := make([]*GuildMemberData, len(mList))
+	copy(res, mList)
+	return res, nil
+}
+
+func (r *MemoryCharacterRepository) GetAllGuilds() ([]*GuildListItem, error) {
+	r.mu.RLock()
+	defer r.mu.RUnlock()
+	res := make([]*GuildListItem, 0, len(r.guilds))
+	for _, g := range r.guilds {
+		if g.DismissStatus != 0 {
+			continue
+		}
+		masterName := ""
+		mList := r.members[g.ID]
+		for _, m := range mList {
+			if m.Grade == 0 {
+				masterName = m.CharName
+				break
+			}
+		}
+		res = append(res, &GuildListItem{
+			GuildID:        uint32(g.ID),
+			GuildName:      g.Name,
+			MasterCharName: masterName,
+			Type:           g.Type,
+			Grade:          g.Grade,
+			MemberCount:    uint16(len(mList)),
+			MaxMembers:     g.MaxMembers,
+		})
+	}
+	return res, nil
+}
+
+func (r *MemoryCharacterRepository) AddGuildMember(guildID, charID int, grade byte) error {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+
+	ch := r.characters[charID]
+	charName := ""
+	var classID, level byte
+	mapName := "Rou"
+	if ch != nil {
+		charName = ch.Name
+		classID = ch.Job
+		level = ch.Level
+		mapName = strconv.Itoa(int(ch.Map))
+	}
+
+	m := &GuildMemberData{
+		GuildID:   guildID,
+		CharID:    charID,
+		CharName:  charName,
+		JoinDate:  time.Now(),
+		Grade:     grade,
+		Class:     classID,
+		Level:     level,
+		Map:       mapName,
+		LastLogin: time.Now(),
+		IsOnline:  true,
+	}
+	r.members[guildID] = append(r.members[guildID], m)
+	return nil
+}
+
+func (r *MemoryCharacterRepository) RemoveGuildMember(guildID, charID int) error {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	mList := r.members[guildID]
+	res := make([]*GuildMemberData, 0, len(mList))
+	for _, m := range mList {
+		if m.CharID != charID {
+			res = append(res, m)
+		}
+	}
+	r.members[guildID] = res
+	return nil
+}
+
+func (r *MemoryCharacterRepository) SetGuildMemberGrade(guildID, charID int, grade byte) error {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	for _, m := range r.members[guildID] {
+		if m.CharID == charID {
+			m.Grade = grade
+			return nil
+		}
+	}
+	return fmt.Errorf("member not found in guild")
+}
+
+func (r *MemoryCharacterRepository) SetGuildNotify(guildID int, charName, notify string) error {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	g, ok := r.guilds[guildID]
+	if !ok {
+		return fmt.Errorf("guild not found")
+	}
+	g.NotifyDate = time.Now()
+	g.NotifyCharID = charName
+	g.Notify = notify
+	return nil
+}
+
+func (r *MemoryCharacterRepository) DismissGuild(guildID int) error {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	g, ok := r.guilds[guildID]
+	if !ok {
+		return fmt.Errorf("guild not found")
+	}
+	g.DismissStatus = 1
+	g.DismissDate = time.Now()
+	delete(r.members, guildID)
+	return nil
+}
+
+func (r *MemoryCharacterRepository) CreateGuildAcademy(guildID, masterCharID int) error {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+
+	ch := r.characters[masterCharID]
+	masterName := ""
+	if ch != nil {
+		masterName = ch.Name
+	}
+
+	now := time.Now()
+	r.academies[guildID] = &GuildAcademyData{
+		GuildID:        guildID,
+		MasterCharID:   masterCharID,
+		MasterCharName: masterName,
+		MaxMember:      50,
+		NotifyDate:     now,
+		BuffEndTime:    now,
+	}
+	return nil
+}
+
+func (r *MemoryCharacterRepository) GetGuildAcademy(guildID int) (*GuildAcademyData, error) {
+	r.mu.RLock()
+	defer r.mu.RUnlock()
+	a, ok := r.academies[guildID]
+	if !ok {
+		return nil, fmt.Errorf("academy not found")
+	}
+	return a, nil
+}
+
+func (r *MemoryCharacterRepository) GetAcademyByCharID(charID int) (*GuildAcademyData, *GuildAcademyMemberData, error) {
+	r.mu.RLock()
+	defer r.mu.RUnlock()
+	for gID, mList := range r.acadMembers {
+		for _, m := range mList {
+			if m.CharID == charID {
+				return r.academies[gID], m, nil
+			}
+		}
+	}
+	return nil, nil, nil
+}
+
+func (r *MemoryCharacterRepository) GetAcademyMembers(guildID int) ([]*GuildAcademyMemberData, error) {
+	r.mu.RLock()
+	defer r.mu.RUnlock()
+	mList, ok := r.acadMembers[guildID]
+	if !ok {
+		return []*GuildAcademyMemberData{}, nil
+	}
+	res := make([]*GuildAcademyMemberData, len(mList))
+	copy(res, mList)
+	return res, nil
+}
+
+func (r *MemoryCharacterRepository) AddAcademyMember(guildID, charID int, joinLevel byte) error {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+
+	ch := r.characters[charID]
+	charName := ""
+	var classID, level byte
+	mapName := "Rou"
+	if ch != nil {
+		charName = ch.Name
+		classID = ch.Job
+		level = ch.Level
+		mapName = strconv.Itoa(int(ch.Map))
+	}
+
+	m := &GuildAcademyMemberData{
+		GuildID:   guildID,
+		CharID:    charID,
+		CharName:  charName,
+		JoinDate:  time.Now(),
+		JoinLevel: joinLevel,
+		Grade:     0,
+		Class:     classID,
+		Level:     level,
+		Map:       mapName,
+		LastLogin: time.Now(),
+		IsOnline:  true,
+	}
+	r.acadMembers[guildID] = append(r.acadMembers[guildID], m)
+	return nil
+}
+
+func (r *MemoryCharacterRepository) RemoveAcademyMember(guildID, charID int) error {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	mList := r.acadMembers[guildID]
+	res := make([]*GuildAcademyMemberData, 0, len(mList))
+	for _, m := range mList {
+		if m.CharID != charID {
+			res = append(res, m)
+		}
+	}
+	r.acadMembers[guildID] = res
+	return nil
+}
+
+func (r *MemoryCharacterRepository) SetAcademyNotify(guildID int, charName, notify string) error {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	a, ok := r.academies[guildID]
+	if !ok {
+		return fmt.Errorf("academy not found")
+	}
+	a.NotifyDate = time.Now()
+	a.NotifyCharID = charName
+	a.Notify = notify
 	return nil
 }

@@ -54,6 +54,7 @@ func NewServer(
 		if c.CharacterID > 0 {
 			handler.partyMgr.UnregisterOnline(c.CharacterID)
 			handler.friendMgr.BroadcastLogout(c.CharacterID, c.Username)
+			handler.guildMgr.UnregisterOnline(c.CharacterID)
 		}
 	})
 	return s

@@ -898,3 +898,432 @@ func (r *MySQLCharacterRepository) SetFriendPoints(charNo int, points int) error
 	_, err := r.db.Exec(query, points, charNo)
 	return err
 }
+
+// CreateGuild crea un nuevo gremio en tGuild e inserta al maestro en tGuildMember (implementa p_Guild_Make).
+func (r *MySQLCharacterRepository) CreateGuild(masterCharID int, name, password string, guildType byte) (int, error) {
+	tx, err := r.db.Begin()
+	if err != nil {
+		return 0, err
+	}
+	defer tx.Rollback()
+
+	// Chequear si existe nombre
+	var exists int
+	err = tx.QueryRow(`SELECT COUNT(*) FROM tGuild WHERE sName = ?;`, name).Scan(&exists)
+	if err != nil {
+		return 0, err
+	}
+	if exists > 0 {
+		return -1, fmt.Errorf("guild name already exists")
+	}
+
+	// Chequear si el char ya pertenece a un gremio
+	err = tx.QueryRow(`SELECT COUNT(*) FROM tGuildMember WHERE nCharNo = ?;`, masterCharID).Scan(&exists)
+	if err != nil {
+		return 0, err
+	}
+	if exists > 0 {
+		return -3, fmt.Errorf("character already in guild")
+	}
+
+	// Insertar tGuild
+	res, err := tx.Exec(`
+		INSERT INTO tGuild (sName, sPassword, nMaxMembers, nType, nGrade, dCreateDate, dNotifyDate, dDismissDate)
+		VALUES (?, ?, 30, ?, 1, NOW(), NOW(), NOW());
+	`, name, password, guildType)
+	if err != nil {
+		return 0, fmt.Errorf("error creating guild: %w", err)
+	}
+
+	guildID64, err := res.LastInsertId()
+	if err != nil {
+		return 0, err
+	}
+	guildID := int(guildID64)
+
+	// Insertar Guild Master en tGuildMember (Grade 0)
+	_, err = tx.Exec(`
+		INSERT INTO tGuildMember (nNo, nCharNo, dJoinDate, nGrade)
+		VALUES (?, ?, NOW(), 0);
+	`, guildID, masterCharID)
+	if err != nil {
+		return 0, fmt.Errorf("error adding guild master: %w", err)
+	}
+
+	// Crear academia asociada por defecto (tGuildAcademy)
+	_, err = tx.Exec(`
+		INSERT INTO tGuildAcademy (nNo, nMasterCharNo, nMaxMember, dNotifyDate, dBuffEndTime)
+		VALUES (?, ?, 50, NOW(), NOW())
+		ON DUPLICATE KEY UPDATE nMasterCharNo = VALUES(nMasterCharNo);
+	`, guildID, masterCharID)
+	if err != nil {
+		return 0, fmt.Errorf("error creating guild academy: %w", err)
+	}
+
+	if err := tx.Commit(); err != nil {
+		return 0, err
+	}
+
+	return guildID, nil
+}
+
+// GetGuild obtiene los datos completos de un gremio por su ID (implementa p_Guild_Get).
+func (r *MySQLCharacterRepository) GetGuild(guildID int) (*GuildData, error) {
+	query := `
+		SELECT nNo, sName, sPassword, nMaxMembers, nMoney, nType, nGrade, nFame, nStoneLevel, nExp,
+		       dCreateDate, nDismissStatus, dDismissDate, sIntro, dNotifyDate, sNotifyCharID, sNotify
+		FROM tGuild
+		WHERE nNo = ?;
+	`
+	g := &GuildData{}
+	var createDate, dismissDate, notifyDate sql.NullTime
+	err := r.db.QueryRow(query, guildID).Scan(
+		&g.ID, &g.Name, &g.Password, &g.MaxMembers, &g.Money, &g.Type, &g.Grade, &g.Fame, &g.StoneLevel, &g.Exp,
+		&createDate, &g.DismissStatus, &dismissDate, &g.Intro, &notifyDate, &g.NotifyCharID, &g.Notify,
+	)
+	if err != nil {
+		if errors.Is(err, sql.ErrNoRows) {
+			return nil, fmt.Errorf("guild not found")
+		}
+		return nil, err
+	}
+	if createDate.Valid {
+		g.CreateDate = createDate.Time
+	}
+	if dismissDate.Valid {
+		g.DismissDate = dismissDate.Time
+	}
+	if notifyDate.Valid {
+		g.NotifyDate = notifyDate.Time
+	}
+	return g, nil
+}
+
+// GetGuildByCharID busca a qué gremio pertenece un personaje (implementa p_Guild_Member_Get).
+func (r *MySQLCharacterRepository) GetGuildByCharID(charID int) (*GuildData, *GuildMemberData, error) {
+	query := `
+		SELECT G.nNo, G.sName, G.sPassword, G.nMaxMembers, G.nMoney, G.nType, G.nGrade, G.nFame, G.nStoneLevel, G.nExp,
+		       G.dCreateDate, G.nDismissStatus, G.dDismissDate, G.sIntro, G.dNotifyDate, G.sNotifyCharID, G.sNotify,
+		       M.dJoinDate, M.nGrade, M.nFlags, M.nExpRatio, M.sIntro,
+		       C.sID, S.nClass, C.nLevel, C.sLoginZone, C.dLastLoginDate
+		FROM tGuildMember M
+		JOIN tGuild G ON M.nNo = G.nNo
+		JOIN tCharacter C ON M.nCharNo = C.nCharNo AND C.bDeleted = 0
+		JOIN tCharacterShape S ON M.nCharNo = S.nCharNo
+		WHERE M.nCharNo = ?;
+	`
+	g := &GuildData{}
+	m := &GuildMemberData{CharID: charID}
+	var createDate, dismissDate, notifyDate, joinDate, lastLogin sql.NullTime
+
+	err := r.db.QueryRow(query, charID).Scan(
+		&g.ID, &g.Name, &g.Password, &g.MaxMembers, &g.Money, &g.Type, &g.Grade, &g.Fame, &g.StoneLevel, &g.Exp,
+		&createDate, &g.DismissStatus, &dismissDate, &g.Intro, &notifyDate, &g.NotifyCharID, &g.Notify,
+		&joinDate, &m.Grade, &m.Flags, &m.ExpRatio, &m.Intro,
+		&m.CharName, &m.Class, &m.Level, &m.Map, &lastLogin,
+	)
+	if err != nil {
+		if errors.Is(err, sql.ErrNoRows) {
+			return nil, nil, nil
+		}
+		return nil, nil, err
+	}
+
+	if createDate.Valid {
+		g.CreateDate = createDate.Time
+	}
+	if dismissDate.Valid {
+		g.DismissDate = dismissDate.Time
+	}
+	if notifyDate.Valid {
+		g.NotifyDate = notifyDate.Time
+	}
+	if joinDate.Valid {
+		m.JoinDate = joinDate.Time
+	}
+	if lastLogin.Valid {
+		m.LastLogin = lastLogin.Time
+	}
+	m.GuildID = g.ID
+
+	return g, m, nil
+}
+
+// GetGuildMembers obtiene todos los miembros de un gremio (implementa p_Guild_Member_GetAll).
+func (r *MySQLCharacterRepository) GetGuildMembers(guildID int) ([]*GuildMemberData, error) {
+	query := `
+		SELECT M.nNo, M.nCharNo, C.sID, M.dJoinDate, M.nGrade, M.nFlags, M.nExpRatio, M.sIntro,
+		       S.nClass, C.nLevel, C.sLoginZone, C.dLastLoginDate
+		FROM tGuildMember M
+		JOIN tCharacter C ON M.nCharNo = C.nCharNo AND C.bDeleted = 0
+		JOIN tCharacterShape S ON M.nCharNo = S.nCharNo
+		WHERE M.nNo = ?
+		ORDER BY M.nGrade ASC, M.dJoinDate ASC;
+	`
+	rows, err := r.db.Query(query, guildID)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+
+	var list []*GuildMemberData
+	for rows.Next() {
+		m := &GuildMemberData{GuildID: guildID}
+		var joinDate, lastLogin sql.NullTime
+		err := rows.Scan(
+			&m.GuildID, &m.CharID, &m.CharName, &joinDate, &m.Grade, &m.Flags, &m.ExpRatio, &m.Intro,
+			&m.Class, &m.Level, &m.Map, &lastLogin,
+		)
+		if err != nil {
+			return nil, err
+		}
+		if joinDate.Valid {
+			m.JoinDate = joinDate.Time
+		}
+		if lastLogin.Valid {
+			m.LastLogin = lastLogin.Time
+		}
+		list = append(list, m)
+	}
+	return list, nil
+}
+
+// GetAllGuilds retorna el resumen de todos los gremios activos para el directorio (implementa p_Guild_GetListDetail).
+func (r *MySQLCharacterRepository) GetAllGuilds() ([]*GuildListItem, error) {
+	query := `
+		SELECT G.nNo, G.sName, COALESCE(C.sID, ''), G.nType, G.nGrade,
+		       (SELECT COUNT(*) FROM tGuildMember WHERE nNo = G.nNo), G.nMaxMembers
+		FROM tGuild G
+		LEFT JOIN tGuildMember M_Master ON G.nNo = M_Master.nNo AND M_Master.nGrade = 0
+		LEFT JOIN tCharacter C ON M_Master.nCharNo = C.nCharNo
+		WHERE G.nDismissStatus = 0
+		ORDER BY G.nNo ASC;
+	`
+	rows, err := r.db.Query(query)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+
+	var list []*GuildListItem
+	for rows.Next() {
+		item := &GuildListItem{}
+		err := rows.Scan(
+			&item.GuildID, &item.GuildName, &item.MasterCharName,
+			&item.Type, &item.Grade, &item.MemberCount, &item.MaxMembers,
+		)
+		if err != nil {
+			return nil, err
+		}
+		list = append(list, item)
+	}
+	return list, nil
+}
+
+// AddGuildMember inserta a un jugador en tGuildMember (implementa p_Guild_Member_Join).
+func (r *MySQLCharacterRepository) AddGuildMember(guildID, charID int, grade byte) error {
+	query := `
+		INSERT INTO tGuildMember (nNo, nCharNo, dJoinDate, nGrade)
+		VALUES (?, ?, NOW(), ?);
+	`
+	_, err := r.db.Exec(query, guildID, charID, grade)
+	return err
+}
+
+// RemoveGuildMember elimina a un jugador de tGuildMember (implementa p_Guild_Member_Leave).
+func (r *MySQLCharacterRepository) RemoveGuildMember(guildID, charID int) error {
+	query := `DELETE FROM tGuildMember WHERE nNo = ? AND nCharNo = ?;`
+	_, err := r.db.Exec(query, guildID, charID)
+	return err
+}
+
+// SetGuildMemberGrade cambia el rango de un miembro de gremio (implementa p_Guild_Member_SetGrade).
+func (r *MySQLCharacterRepository) SetGuildMemberGrade(guildID, charID int, grade byte) error {
+	query := `UPDATE tGuildMember SET nGrade = ? WHERE nNo = ? AND nCharNo = ?;`
+	_, err := r.db.Exec(query, grade, guildID, charID)
+	return err
+}
+
+// SetGuildNotify actualiza el mensaje de anuncio del gremio (implementa p_Guild_SetNotify).
+func (r *MySQLCharacterRepository) SetGuildNotify(guildID int, charName, notify string) error {
+	query := `
+		UPDATE tGuild 
+		SET dNotifyDate = NOW(), sNotifyCharID = ?, sNotify = ?
+		WHERE nNo = ?;
+	`
+	_, err := r.db.Exec(query, charName, notify, guildID)
+	return err
+}
+
+// DismissGuild marca el gremio como disuelto y borra los miembros (implementa p_Guild_SetDismiss).
+func (r *MySQLCharacterRepository) DismissGuild(guildID int) error {
+	tx, err := r.db.Begin()
+	if err != nil {
+		return err
+	}
+	defer tx.Rollback()
+
+	if _, err := tx.Exec(`UPDATE tGuild SET nDismissStatus = 1, dDismissDate = NOW() WHERE nNo = ?;`, guildID); err != nil {
+		return err
+	}
+	if _, err := tx.Exec(`DELETE FROM tGuildMember WHERE nNo = ?;`, guildID); err != nil {
+		return err
+	}
+	return tx.Commit()
+}
+
+// CreateGuildAcademy registra la academia del gremio (implementa usp_GuildAcademy_setAcademy).
+func (r *MySQLCharacterRepository) CreateGuildAcademy(guildID, masterCharID int) error {
+	query := `
+		INSERT INTO tGuildAcademy (nNo, nMasterCharNo, nMaxMember, dNotifyDate, dBuffEndTime)
+		VALUES (?, ?, 50, NOW(), NOW())
+		ON DUPLICATE KEY UPDATE nMasterCharNo = VALUES(nMasterCharNo);
+	`
+	_, err := r.db.Exec(query, guildID, masterCharID)
+	return err
+}
+
+// GetGuildAcademy obtiene los datos de la academia de un gremio (implementa usp_GuildAcademy_getGuildAcademyList).
+func (r *MySQLCharacterRepository) GetGuildAcademy(guildID int) (*GuildAcademyData, error) {
+	query := `
+		SELECT A.nNo, A.nMasterCharNo, COALESCE(C.sID, ''), A.nMaxMember, A.nMoney, A.nPoint,
+		       A.dBuffEndTime, A.dNotifyDate, A.sNotify, A.sIntro
+		FROM tGuildAcademy A
+		LEFT JOIN tCharacter C ON A.nMasterCharNo = C.nCharNo
+		WHERE A.nNo = ?;
+	`
+	a := &GuildAcademyData{}
+	var buffTime, notifyDate sql.NullTime
+	err := r.db.QueryRow(query, guildID).Scan(
+		&a.GuildID, &a.MasterCharID, &a.MasterCharName, &a.MaxMember, &a.Money, &a.Point,
+		&buffTime, &notifyDate, &a.Notify, &a.Intro,
+	)
+	if err != nil {
+		if errors.Is(err, sql.ErrNoRows) {
+			return nil, fmt.Errorf("academy not found")
+		}
+		return nil, err
+	}
+	if buffTime.Valid {
+		a.BuffEndTime = buffTime.Time
+	}
+	if notifyDate.Valid {
+		a.NotifyDate = notifyDate.Time
+	}
+	return a, nil
+}
+
+// GetAcademyByCharID busca a qué academia pertenece un aprendiz (implementa usp_GuildAcademy_getGuildNo).
+func (r *MySQLCharacterRepository) GetAcademyByCharID(charID int) (*GuildAcademyData, *GuildAcademyMemberData, error) {
+	query := `
+		SELECT A.nNo, A.nMasterCharNo, COALESCE(C.sID, ''), A.nMaxMember, A.nMoney, A.nPoint,
+		       A.dBuffEndTime, A.dNotifyDate, A.sNotify, A.sIntro,
+		       M.dJoinDate, M.nJoinLevel, M.nGrade,
+		       SC.sID, S.nClass, SC.nLevel, SC.sLoginZone, SC.dLastLoginDate
+		FROM tGuildAcademyMember M
+		JOIN tGuildAcademy A ON M.nNo = A.nNo
+		JOIN tCharacter SC ON M.nCharNo = SC.nCharNo AND SC.bDeleted = 0
+		JOIN tCharacterShape S ON M.nCharNo = S.nCharNo
+		LEFT JOIN tCharacter C ON A.nMasterCharNo = C.nCharNo
+		WHERE M.nCharNo = ?;
+	`
+	a := &GuildAcademyData{}
+	m := &GuildAcademyMemberData{CharID: charID}
+	var buffTime, notifyDate, joinDate, lastLogin sql.NullTime
+
+	err := r.db.QueryRow(query, charID).Scan(
+		&a.GuildID, &a.MasterCharID, &a.MasterCharName, &a.MaxMember, &a.Money, &a.Point,
+		&buffTime, &notifyDate, &a.Notify, &a.Intro,
+		&joinDate, &m.JoinLevel, &m.Grade,
+		&m.CharName, &m.Class, &m.Level, &m.Map, &lastLogin,
+	)
+	if err != nil {
+		if errors.Is(err, sql.ErrNoRows) {
+			return nil, nil, nil
+		}
+		return nil, nil, err
+	}
+
+	if buffTime.Valid {
+		a.BuffEndTime = buffTime.Time
+	}
+	if notifyDate.Valid {
+		a.NotifyDate = notifyDate.Time
+	}
+	if joinDate.Valid {
+		m.JoinDate = joinDate.Time
+	}
+	if lastLogin.Valid {
+		m.LastLogin = lastLogin.Time
+	}
+	m.GuildID = a.GuildID
+
+	return a, m, nil
+}
+
+// GetAcademyMembers retorna los alumnos de la academia (implementa usp_GuildAcademy_getMemberList).
+func (r *MySQLCharacterRepository) GetAcademyMembers(guildID int) ([]*GuildAcademyMemberData, error) {
+	query := `
+		SELECT M.nNo, M.nCharNo, C.sID, M.dJoinDate, M.nJoinLevel, M.nGrade,
+		       S.nClass, C.nLevel, C.sLoginZone, C.dLastLoginDate
+		FROM tGuildAcademyMember M
+		JOIN tCharacter C ON M.nCharNo = C.nCharNo AND C.bDeleted = 0
+		JOIN tCharacterShape S ON M.nCharNo = S.nCharNo
+		WHERE M.nNo = ?
+		ORDER BY M.dJoinDate ASC;
+	`
+	rows, err := r.db.Query(query, guildID)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+
+	var list []*GuildAcademyMemberData
+	for rows.Next() {
+		m := &GuildAcademyMemberData{GuildID: guildID}
+		var joinDate, lastLogin sql.NullTime
+		err := rows.Scan(
+			&m.GuildID, &m.CharID, &m.CharName, &joinDate, &m.JoinLevel, &m.Grade,
+			&m.Class, &m.Level, &m.Map, &lastLogin,
+		)
+		if err != nil {
+			return nil, err
+		}
+		if joinDate.Valid {
+			m.JoinDate = joinDate.Time
+		}
+		if lastLogin.Valid {
+			m.LastLogin = lastLogin.Time
+		}
+		list = append(list, m)
+	}
+	return list, nil
+}
+
+// AddAcademyMember registra a un alumno en tGuildAcademyMember (implementa usp_GuildAcademy_setMember).
+func (r *MySQLCharacterRepository) AddAcademyMember(guildID, charID int, joinLevel byte) error {
+	query := `
+		INSERT INTO tGuildAcademyMember (nNo, nCharNo, nJoinLevel, dJoinDate, nGrade)
+		VALUES (?, ?, ?, NOW(), 0);
+	`
+	_, err := r.db.Exec(query, guildID, charID, joinLevel)
+	return err
+}
+
+// RemoveAcademyMember remueve a un alumno de tGuildAcademyMember (implementa usp_GuildAcademy_delMember).
+func (r *MySQLCharacterRepository) RemoveAcademyMember(guildID, charID int) error {
+	query := `DELETE FROM tGuildAcademyMember WHERE nNo = ? AND nCharNo = ?;`
+	_, err := r.db.Exec(query, guildID, charID)
+	return err
+}
+
+// SetAcademyNotify actualiza el mensaje de la academia (implementa usp_GuildAcademy_setNotify).
+func (r *MySQLCharacterRepository) SetAcademyNotify(guildID int, charName, notify string) error {
+	query := `
+		UPDATE tGuildAcademy
+		SET dNotifyDate = NOW(), sNotify = ?
+		WHERE nNo = ?;
+	`
+	_, err := r.db.Exec(query, notify, guildID)
+	return err
+}

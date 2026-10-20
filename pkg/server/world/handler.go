@@ -18,6 +18,7 @@ type Handler struct {
 	dataStore *WorldDataStore
 	partyMgr  *PartyManager
 	friendMgr *FriendManager
+	guildMgr  *GuildManager
 	zoneIP    string
 	zonePort  uint16
 }
@@ -38,12 +39,14 @@ func NewHandler(
 	}
 	pm := NewPartyManager()
 	fm := NewFriendManager(charRepo, pm)
+	gm := NewGuildManager(charRepo)
 	return &Handler{
 		charRepo:  charRepo,
 		transfers: transfers,
 		dataStore: dataStore,
 		partyMgr:  pm,
 		friendMgr: fm,
+		guildMgr:  gm,
 		zoneIP:    zoneIP,
 		zonePort:  zonePort,
 	}
@@ -152,6 +155,80 @@ func (h *Handler) HandlePacket(client *network.Client, pkt *protocol.Packet) {
 
 	case protocol.PROTO_NC_FRIEND_POINT_REQ:
 		h.friendMgr.SendFriendPoints(client)
+
+	// Subsistema Oficial de Gremios (Guild - Dept: 29)
+	case protocol.PROTO_NC_GUILD_LIST_REQ:
+		h.guildMgr.HandleGuildList(client, 0)
+
+	case protocol.PROTO_NC_GUILD_MAKE_REQ:
+		name, _ := pkt.Reader.ReadString(16)
+		password, _ := pkt.Reader.ReadString(12)
+		guildType, _ := pkt.Reader.ReadByte()
+		h.guildMgr.HandleGuildMake(client, name, password, guildType)
+
+	case protocol.PROTO_NC_GUILD_MY_GUILD_INFO_REQ:
+		h.guildMgr.HandleMyGuildInfo(client)
+
+	case protocol.PROTO_NC_GUILD_MEMBER_LIST_REQ:
+		h.guildMgr.HandleMemberList(client)
+
+	case protocol.PROTO_NC_GUILD_MEMBER_INVITE_REQ:
+		targetName, _ := pkt.Reader.ReadString(20)
+		h.guildMgr.HandleInvite(client, targetName)
+
+	case protocol.PROTO_NC_GUILD_MEMBER_JOIN_ACK:
+		guildName, _ := pkt.Reader.ReadString(16)
+		joinAck, _ := pkt.Reader.ReadByte()
+		h.guildMgr.HandleJoinAck(client, guildName, joinAck)
+
+	case protocol.PROTO_NC_GUILD_MEMBER_LEAVE_REQ:
+		h.guildMgr.HandleLeave(client)
+
+	case protocol.PROTO_NC_GUILD_MEMBER_VANISH_REQ:
+		targetName, _ := pkt.Reader.ReadString(20)
+		h.guildMgr.HandleVanish(client, targetName)
+
+	case protocol.PROTO_NC_GUILD_MEMBER_GRADE_REQ:
+		targetName, _ := pkt.Reader.ReadString(20)
+		grade, _ := pkt.Reader.ReadByte()
+		h.guildMgr.HandleGrade(client, targetName, grade)
+
+	case protocol.PROTO_NC_GUILD_NOTIFY_REQ:
+		nLen, _ := pkt.Reader.ReadUint16()
+		notifyBytes, _ := pkt.Reader.ReadBytes(int(nLen))
+		h.guildMgr.HandleNotify(client, string(notifyBytes))
+
+	case protocol.PROTO_NC_GUILD_DISMISS_REQ:
+		h.guildMgr.HandleDismiss(client)
+
+	case protocol.PROTO_NC_GUILD_CHAT_REQ:
+		_, _ = pkt.Reader.ReadByte() // itemLinkCount
+		lenByte, _ := pkt.Reader.ReadByte()
+		msgBytes, _ := pkt.Reader.ReadBytes(int(lenByte))
+		h.guildMgr.HandleChat(client, string(msgBytes))
+
+	// Subsistema Oficial de Academia de Gremios (Guild Academy - Dept: 38)
+	case protocol.PROTO_NC_GUILD_ACADEMY_LIST_REQ:
+		h.guildMgr.HandleAcademyList(client, 0)
+
+	case protocol.PROTO_NC_GUILD_ACADEMY_MY_GUILD_ACADEMY_INFO_REQ:
+		h.guildMgr.HandleAcademyMyInfo(client)
+
+	case protocol.PROTO_NC_GUILD_ACADEMY_MEMBER_LIST_REQ:
+		h.guildMgr.HandleAcademyMemberList(client)
+
+	case protocol.PROTO_NC_GUILD_ACADEMY_MEMBER_JOIN_REQ:
+		guildName, _ := pkt.Reader.ReadString(16)
+		h.guildMgr.HandleAcademyJoin(client, guildName)
+
+	case protocol.PROTO_NC_GUILD_ACADEMY_MEMBER_LEAVE_REQ:
+		h.guildMgr.HandleAcademyLeave(client)
+
+	case protocol.PROTO_NC_GUILD_ACADEMY_CHAT_REQ:
+		_, _ = pkt.Reader.ReadByte() // itemLinkCount
+		lenByte, _ := pkt.Reader.ReadByte()
+		msgBytes, _ := pkt.Reader.ReadBytes(int(lenByte))
+		h.guildMgr.HandleAcademyChat(client, string(msgBytes))
 
 	default:
 		log.Printf("[World][%s] Unhandled OpCode: 0x%04X (Dept=%d, Cmd=%d)",
@@ -663,7 +740,12 @@ func (h *Handler) handleGotIngame(client *network.Client, pkt *protocol.Packet) 
 	h.friendMgr.SendFriendList(client)
 	h.friendMgr.BroadcastLogin(client, client.Username, "RouN")
 
-	// 4. Packet PROTO_NC_MISC_TIME_SYNC_ACK (0x0845 / Dept:2, Cmd:69) - Sincronización oficial del reloj
+	// 4. Registrar en GuildManager y enviar información de gremio si pertenece a uno
+	h.guildMgr.RegisterOnline(client, client.CharacterID, client.Username)
+	h.guildMgr.HandleMyGuildInfo(client)
+	h.guildMgr.HandleMemberList(client)
+
+	// 5. Packet PROTO_NC_MISC_TIME_SYNC_ACK (0x0845 / Dept:2, Cmd:69) - Sincronización oficial del reloj
 	p4 := protocol.NewPacketWriter(protocol.PROTO_NC_MISC_TIME_SYNC_ACK)
 	now := time.Now()
 	millis := uint32(now.Hour()*3600000 + now.Minute()*60000 + now.Second()*1000 + now.Nanosecond()/1000000)
