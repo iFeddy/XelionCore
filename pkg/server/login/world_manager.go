@@ -29,10 +29,10 @@ func NewWorldManager() *WorldManager {
 		worlds: make(map[byte]*World),
 	}
 
-	// Default development World (World 0: INITIO)
+	// Servidor por defecto oficial (World 0: Apoline)
 	wm.worlds[0] = &World{
 		ID:     0,
-		Name:   "INITIO",
+		Name:   "Apoline",
 		Status: protocol.WorldStatus_Low,
 		IP:     "127.0.0.1",
 		Port:   9110,

@@ -69,22 +69,16 @@ func New_PROTO_NC_USER_LOGINFAIL_ACK(errCode uint16) *PacketWriter {
 }
 
 // New_PROTO_NC_USER_LOGIN_ACK construye el paquete oficial con el listado de mundos (0x0C0A o 0x0C1C).
+// Estructura oficial (PDB Login.pdb):
+// struct PROTO_NC_USER_LOGIN_ACK { unsigned char numofworld; WorldInfo worldinfo[0]; };
 func New_PROTO_NC_USER_LOGIN_ACK(opCode uint16, worlds []PROTO_NC_USER_LOGIN_ACK_WorldInfo) *PacketWriter {
 	pw := NewPacketWriter(opCode)
-	const maxWorldSlots = 11
-	pw.WriteByte(uint8(maxWorldSlots))
+	pw.WriteByte(uint8(len(worlds)))
 
 	for _, w := range worlds {
 		pw.WriteByte(w.WorldNo)
 		pw.WriteString(w.WorldName, 16)
 		pw.WriteByte(w.WorldStatus)
-	}
-
-	// Completar slots no utilizados hasta 11 (estándar de Fiesta)
-	for i := len(worlds); i < maxWorldSlots; i++ {
-		pw.WriteByte(uint8(i))
-		pw.WriteString("", 16)
-		pw.WriteByte(uint8(WorldStatus_Offline))
 	}
 
 	return pw

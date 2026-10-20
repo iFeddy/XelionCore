@@ -168,20 +168,10 @@ func (h *Handler) handle_PROTO_NC_USER_US_LOGIN_REQ(client *network.Client, pkt 
 		}
 	}
 
-	// 2. Consulta en base de datos oficial tUser
+	// 2. Consulta en base de datos oficial tUser (usp_User_USloginGame)
 	acc, err := h.repo.GetAccountByUsername(username)
 	if err != nil {
 		if errors.Is(err, database.ErrAccountNotFound) {
-			// En modo memoria, auto-crear la cuenta para facilitar pruebas locales
-			if memRepo, ok := h.repo.(*database.MemoryAccountRepository); ok {
-				log.Printf("[%s] Cuenta '%s' no encontrada, auto-creando en memoria...", client.RemoteAddr(), username)
-				newAcc, createErr := memRepo.CreateAccount(username, password)
-				if createErr == nil {
-					acc = newAcc
-					goto credsValid
-				}
-			}
-
 			log.Printf("[%s] Usuario '%s' no encontrado", client.RemoteAddr(), username)
 			if mysqlRepo, ok := h.repo.(*database.MySQLAccountRepository); ok {
 				_ = mysqlRepo.LogAccount(username, 2, 0, 0, uint16(protocol.ErrInvalidCredentials), clientIP)
@@ -195,18 +185,19 @@ func (h *Handler) handle_PROTO_NC_USER_US_LOGIN_REQ(client *network.Client, pkt 
 		return
 	}
 
-	// 3. Validar credenciales: MD5 hash oficial de 32 chars o texto plano bidireccional
+	// 3. Validar credenciales según el estándar estricto oficial de Fiesta Online:
+	// El cliente envía el hash MD5 (32 caracteres hexadecimales) y tUser.sUserPW almacena char(32) MD5.
 	{
-		clientPassLower := strings.ToLower(password)
-		accPassLower := strings.ToLower(acc.Password)
-		accPassMD5 := strings.ToLower(md5Hash(acc.Password))
-		clientPassMD5 := strings.ToLower(md5Hash(password))
+		clientPassHash := strings.ToLower(password)
+		if len(clientPassHash) != 32 {
+			clientPassHash = strings.ToLower(md5Hash(password))
+		}
+		accPassHash := strings.ToLower(acc.Password)
+		if len(accPassHash) != 32 {
+			accPassHash = strings.ToLower(md5Hash(acc.Password))
+		}
 
-		valid := (clientPassLower == accPassLower) ||
-			(clientPassLower == accPassMD5) ||
-			(clientPassMD5 == accPassLower)
-
-		if !valid {
+		if clientPassHash != accPassHash {
 			log.Printf("[%s] Contraseña incorrecta para usuario '%s'", client.RemoteAddr(), username)
 			if mysqlRepo, ok := h.repo.(*database.MySQLAccountRepository); ok {
 				_ = mysqlRepo.LogAccount(username, 2, acc.ID, 0, uint16(protocol.ErrInvalidCredentials), clientIP)
@@ -215,8 +206,6 @@ func (h *Handler) handle_PROTO_NC_USER_US_LOGIN_REQ(client *network.Client, pkt 
 			return
 		}
 	}
-
-credsValid:
 
 	// 4. Validar estado de la cuenta (bloqueada, eliminada o sin permisos)
 	if acc.Banned {
