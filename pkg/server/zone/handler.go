@@ -211,37 +211,43 @@ func (h *Handler) handleTransferKey(client *network.Client, pkt *protocol.Packet
 	h.sendInGameChunk(player)
 }
 
+// sendInGameChunk despacha la secuencia estricta de paquetes de entrada a Zona (cliente NA2016):
+//  1. 0x1038 (PROTO_NC_CHAR_CLIENT_BASE_CMD)             - Siempre
+//  2. 0x1039 (PROTO_NC_CHAR_CLIENT_SHAPE_CMD)            - Siempre
+//  3. 0x103A (PROTO_NC_CHAR_CLIENT_QUEST_DOING_CMD)      - Siempre
+//  4. 0x103B (PROTO_NC_CHAR_CLIENT_QUEST_DONE_CMD)       - Siempre
+//  5. 0x10CE (PROTO_NC_CHAR_CLIENT_QUEST_READ_CMD)       - Siempre
+//  6. 0x10D7 (PROTO_NC_CHAR_CLIENT_QUEST_REPEAT_CMD)     - Siempre
+//  7. 0x103E (PROTO_NC_CHAR_CLIENT_PASSIVE_CMD)          - Siempre
+//  8. 0x104A (PROTO_NC_CHAR_CLIENT_CHARGEDBUFF_CMD)      - Siempre (incondicional, 0 si está vacío)
+//  9. 0x103D (PROTO_NC_CHAR_CLIENT_SKILL_CMD)            - Solo si len(activeSkills) > 0 (PartMark = 3)
+// 10. 0x1048 (PROTO_NC_CHAR_CLIENT_GAME_CMD)             - Siempre
+// 11. 0x1047 (PROTO_NC_CHAR_CLIENT_ITEM_CMD, Box 8)      - Solo si len > 0 (Equip)
+// 12. 0x1047 (PROTO_NC_CHAR_CLIENT_ITEM_CMD, Box 9)      - Solo si len > 0 (Inven)
+// 13. 0x1047 (PROTO_NC_CHAR_CLIENT_ITEM_CMD, Box 12)     - Solo si len > 0 (House)
+// 14. 0x1047 (PROTO_NC_CHAR_CLIENT_ITEM_CMD, Box 15)     - Siempre (ActionItem, incluso vacío)
+// 15. 0x1049 (PROTO_NC_CHAR_CLIENT_CHARTITLE_CMD)        - Siempre
+// 16. 0x3801/0x3802/0x3803 (Card Regist)                 - Solo si tiene cartas registradas
+// 17. 0x1802 (PROTO_NC_CHAR_MAPLOGIN_ACK)                - Siempre (último paquete del bloque)
 func (h *Handler) sendInGameChunk(p *ZonePlayer) {
-	// 1. PROTO_NC_CHAR_CLIENT_BASE_CMD (0x1038, wire len = 107, payload = 105)
+	// 1. 0x1038 - PROTO_NC_CHAR_CLIENT_BASE_CMD (Siempre, wire len = 107, payload = 105)
 	infoPkt := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_CLIENT_BASE_CMD)
 	p.WriteDetailedInfo(infoPkt)
 	_ = p.Client.SendPacket(infoPkt)
 
-	// 2. PROTO_NC_CHAR_CLIENT_SHAPE_CMD (0x1039, wire len = 6, payload = 4)
+	// 2. 0x1039 - PROTO_NC_CHAR_CLIENT_SHAPE_CMD (Siempre, wire len = 6, payload = 4)
 	lookPkt := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_CLIENT_SHAPE_CMD)
 	p.WriteLook(lookPkt)
 	_ = p.Client.SendPacket(lookPkt)
 
-	// 3. PROTO_NC_CHAR_CLIENT_QUEST_DOING_CMD (0x103A, wire len = 8, payload = 6)
-	// struct PROTO_NC_CHAR_CLIENT_QUEST_DOING_CMD {
-	//     unsigned long chrregnum;       // 4 bytes
-	//     unsigned char bNeedClear;      // 1 byte
-	//     unsigned char nNumOfDoingQuest; // 1 byte
-	// }
+	// 3. 0x103A - PROTO_NC_CHAR_CLIENT_QUEST_DOING_CMD (Siempre, wire len = 8, payload = 6)
 	questsBusy := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_CLIENT_QUEST_DOING_CMD)
 	questsBusy.WriteUint32(uint32(p.Char.ID))
 	questsBusy.WriteByte(1) // bNeedClear = 1
 	questsBusy.WriteByte(0) // nNumOfDoingQuest = 0
 	_ = p.Client.SendPacket(questsBusy)
 
-	// 4. PROTO_NC_CHAR_CLIENT_QUEST_DONE_CMD (0x103B, wire len = 14, payload = 12)
-	// struct PROTO_NC_CHAR_CLIENT_QUEST_DONE_CMD {
-	//     unsigned long  chrregnum;           // 4 bytes
-	//     unsigned short nTotalDoneQuest;     // 2 bytes
-	//     unsigned short nTotalDoneQuestSize; // 2 bytes
-	//     unsigned short nDoneQuestCount;     // 2 bytes
-	//     unsigned short nIndex;              // 2 bytes
-	// }
+	// 4. 0x103B - PROTO_NC_CHAR_CLIENT_QUEST_DONE_CMD (Siempre, wire len = 14, payload = 12)
 	questsDone := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_CLIENT_QUEST_DONE_CMD)
 	questsDone.WriteUint32(uint32(p.Char.ID))
 	questsDone.WriteUint16(0) // nTotalDoneQuest
@@ -250,30 +256,19 @@ func (h *Handler) sendInGameChunk(p *ZonePlayer) {
 	questsDone.WriteUint16(0) // nIndex
 	_ = p.Client.SendPacket(questsDone)
 
-	// 5. PROTO_NC_CHAR_CLIENT_QUEST_READ_CMD (0x10CE, wire len = 8, payload = 6)
-	// struct PROTO_NC_CHAR_CLIENT_QUEST_READ_CMD {
-	//     unsigned long  chrregnum;       // 4 bytes
-	//     unsigned short nNumOfReadQuest; // 2 bytes
-	// }
+	// 5. 0x10CE - PROTO_NC_CHAR_CLIENT_QUEST_READ_CMD (Siempre, wire len = 8, payload = 6)
 	questsRead := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_CLIENT_QUEST_READ_CMD)
 	questsRead.WriteUint32(uint32(p.Char.ID))
 	questsRead.WriteUint16(0) // nNumOfReadQuest = 0
 	_ = p.Client.SendPacket(questsRead)
 
-	// 6. PROTO_NC_CHAR_CLIENT_QUEST_REPEAT_CMD (0x10D7, wire len = 8, payload = 6)
-	// struct PROTO_NC_CHAR_CLIENT_QUEST_REPEAT_CMD {
-	//     unsigned long  chrregnum;         // 4 bytes
-	//     unsigned short nNumOfRepeatQuest; // 2 bytes
-	// }
+	// 6. 0x10D7 - PROTO_NC_CHAR_CLIENT_QUEST_REPEAT_CMD (Siempre, wire len = 8, payload = 6)
 	questsRepeat := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_CLIENT_QUEST_REPEAT_CMD)
 	questsRepeat.WriteUint32(uint32(p.Char.ID))
 	questsRepeat.WriteUint16(0) // nNumOfRepeatQuest = 0
 	_ = p.Client.SendPacket(questsRepeat)
 
-	// 7. PROTO_NC_CHAR_CLIENT_PASSIVE_CMD (0x103E, wire len = 4, payload = 2)
-	// struct PROTO_NC_CHAR_CLIENT_PASSIVE_CMD {
-	//     unsigned short number; // 2 bytes
-	// }
+	// 7. 0x103E - PROTO_NC_CHAR_CLIENT_PASSIVE_CMD (Siempre, wire len = 4, payload = 2)
 	skills, _ := h.charRepo.GetCharacterSkills(p.Char.ID)
 	var activeSkills []*database.CharacterSkill
 	var passiveCount uint16
@@ -285,48 +280,51 @@ func (h *Handler) sendInGameChunk(p *ZonePlayer) {
 	passiveSkills.WriteUint16(passiveCount)
 	_ = p.Client.SendPacket(passiveSkills)
 
-	// 8. PROTO_NC_CHAR_CLIENT_SKILL_CMD (0x103D):
-	// En el binario oficial Zone.exe (so_charskilldata), si el personaje no tiene
-	// skills aprendidas (nMaxNum == 0), el servidor oficial NO envía 0x103D.
-	// Si tuviera skills activas, se envía aquí.
+	// 8. 0x104A - PROTO_NC_CHAR_CLIENT_CHARGEDBUFF_CMD (CRÍTICO: Siempre, incondicional)
+	type chargedBuffEntry struct {
+		ID       uint16
+		TimeLeft uint32
+		KeepTime uint32
+		Value    uint32
+	}
+	var chargedBuffs []chargedBuffEntry
+	buffPkt := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_CLIENT_CHARGEDBUFF_CMD)
+	buffPkt.WriteUint16(uint16(len(chargedBuffs))) // 0 si no tiene buffs (2 bytes de payload)
+	for _, buff := range chargedBuffs {
+		buffPkt.WriteUint16(buff.ID)
+		buffPkt.WriteUint32(buff.TimeLeft)
+		buffPkt.WriteUint32(buff.KeepTime)
+		buffPkt.WriteUint32(buff.Value)
+	}
+	_ = p.Client.SendPacket(buffPkt)
+
+	// 9. 0x103D - PROTO_NC_CHAR_CLIENT_SKILL_CMD (Solo si tiene skills activas, con PartMark = 3)
 	if len(activeSkills) > 0 {
 		skillPkt := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_CLIENT_SKILL_CMD)
 		skillPkt.WriteByte(0)                           // restempow (1 byte)
-		skillPkt.WriteByte(1)                           // PartMark (1 byte)
+		skillPkt.WriteByte(3)                           // PartMark = 3 (first=1 | last=1, 1 byte)
 		skillPkt.WriteUint16(uint16(len(activeSkills))) // nMaxNum (2 bytes)
 		skillPkt.WriteUint32(uint32(p.Char.ID))         // chrregnum (4 bytes)
 		skillPkt.WriteUint16(uint16(len(activeSkills))) // number (2 bytes)
 		for _, sk := range activeSkills {
-			// struct PROTO_SKILLREADBLOCKCLIENT (12 bytes oficiales en PDB):
-			// unsigned short skillid;  // 2 bytes
-			// unsigned int   cooltime; // 4 bytes
-			// unsigned short empow;    // 2 bytes
-			// unsigned int   mastery;  // 4 bytes
-			skillPkt.WriteUint16(sk.SkillNo)
-			skillPkt.WriteUint32(0) // cooltime
-			skillPkt.WriteUint16(0) // empow
-			skillPkt.WriteUint32(0) // mastery
+			skillPkt.WriteUint16(sk.SkillNo) // skillid (2 bytes)
+			skillPkt.WriteUint32(0)          // cooltime (4 bytes)
+			skillPkt.WriteUint16(0)          // empow (2 bytes)
+			skillPkt.WriteUint32(0)          // mastery (4 bytes)
 		}
 		_ = p.Client.SendPacket(skillPkt)
 	}
 
-	// 9. PROTO_NC_CHAR_CLIENT_GAME_CMD (0x1048, wire len = 6, payload = 4)
-	// struct PROTO_NC_CHAR_CLIENT_GAME_CMD {
-	//     unsigned short partyno; // 2 bytes (0xFFFF = sin party)
-	//     unsigned short nRaidNo; // 2 bytes (0xFFFF = sin raid)
-	// }
+	// 10. 0x1048 - PROTO_NC_CHAR_CLIENT_GAME_CMD (Siempre, wire len = 6, payload = 4)
 	gamePkt := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_CLIENT_GAME_CMD)
 	gamePkt.WriteUint32(0xFFFFFFFF) // partyno = 0xFFFF, nRaidNo = 0xFFFF (Sin party ni raid)
 	_ = p.Client.SendPacket(gamePkt)
 
-	// 10-13. PROTO_NC_CHAR_CLIENT_ITEM_CMD (0x1047, wire len = 5, payload = 3 each)
-	// struct PROTO_NC_CHAR_CLIENT_ITEM_CMD {
-	//     unsigned char numofitem; // 1 byte
-	//     unsigned char box;       // 1 byte
-	//     unsigned char flag;      // 1 byte (1)
-	//     PROTO_ITEMPACKET_INFORM ItemArray[numofitem];
-	// }
-	// The 4 official boxes sent on login: 8 (Equip), 9 (Inventory), 12 (House), 15 (Emotions)
+	// 11-14. 0x1047 - PROTO_NC_CHAR_CLIENT_ITEM_CMD:
+	// - Box 8 (Equip):      Solo si len > 0
+	// - Box 9 (Inven):      Solo si len > 0
+	// - Box 12 (House):     Solo si len > 0
+	// - Box 15 (ActionItem): Siempre (incluso vacío: numofitem=0, box=15, flag=1)
 	charItems, _ := h.charRepo.GetCharacterItems(p.Char.ID)
 	itemsByBox := make(map[uint8][]*database.Item)
 	for _, it := range charItems {
@@ -343,9 +341,10 @@ func (h *Handler) sendInGameChunk(p *ZonePlayer) {
 		}
 	}
 
-	boxes := []uint8{8, 9, 12, 15}
-	for _, box := range boxes {
-		items := itemsByBox[box]
+	sendItemBox := func(box uint8, items []*database.Item, sendIfEmpty bool) {
+		if len(items) == 0 && !sendIfEmpty {
+			return
+		}
 		itemPkt := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_CLIENT_ITEM_CMD)
 		if len(items) > 0 {
 			itemPkt.WriteByte(byte(len(items))) // numofitem
@@ -353,36 +352,31 @@ func (h *Handler) sendInGameChunk(p *ZonePlayer) {
 			itemPkt.WriteByte(1)                // flag = 1
 			for _, it := range items {
 				loc := (uint16(box) << 10) | (uint16(it.Storage) & 0x03FF)
-				attrSize := h.itemStore.GetItemAttrSize(it.ItemID)
-				dataSize := byte(2 + 2 + attrSize)
-				itemPkt.WriteByte(dataSize)    // datasize: 2 (location) + 2 (itemid) + attrSize
+				attrBuf := h.itemStore.BuildItemAttr(it.ItemID, uint32(it.Flags), nil, 0)
+				dataSize := byte(2 + 2 + len(attrBuf))
+				itemPkt.WriteByte(dataSize)    // datasize: 2 (location) + 2 (itemid) + len(attr)
 				itemPkt.WriteUint16(loc)       // location: ITEM_INVEN (uint16 bitfield: (box << 10) | slot)
 				itemPkt.WriteUint16(it.ItemID) // ItemID
-				if attrSize == 4 {
-					amt := uint32(it.Flags)
-					if amt == 0 {
-						amt = 1
-					}
-					itemPkt.WriteUint32(amt) // Amount (4 bytes)
-				} else {
-					itemPkt.Fill(attrSize, 0) // Atributos oficiales limpios (ej. 65B Weapon, 37B Armor)
-				}
+				itemPkt.WriteBytes(attrBuf)    // attr: dynamic payload emulating iac_fill2buffer
 			}
 		} else {
 			itemPkt.WriteByte(0)   // numofitem = 0
-			itemPkt.WriteByte(box) // box
+			itemPkt.WriteByte(box) // box = 15 (ActionItem)
 			itemPkt.WriteByte(1)   // flag = 1
 		}
 		_ = p.Client.SendPacket(itemPkt)
 	}
 
-	// 14. PROTO_NC_CHAR_CLIENT_CHARTITLE_CMD (0x1049, wire len = 8, payload = 6)
-	// struct PROTO_NC_CHAR_CLIENT_CHARTITLE_CMD {
-	//     unsigned char  CurrentTitle;        // 1 byte
-	//     unsigned char  CurrentTitleElement; // 1 byte
-	//     unsigned short CurrentTitleMobID;   // 2 bytes
-	//     unsigned short NumOfTitle;          // 2 bytes
-	// }
+	// 11. 0x1047 (Box 8: Equip) - Solo si len > 0
+	sendItemBox(8, itemsByBox[8], false)
+	// 12. 0x1047 (Box 9: Inven) - Solo si len > 0
+	sendItemBox(9, itemsByBox[9], false)
+	// 13. 0x1047 (Box 12: House) - Solo si len > 0
+	sendItemBox(12, itemsByBox[12], false)
+	// 14. 0x1047 (Box 15: ActionItem) - Siempre (incluso vacío)
+	sendItemBox(15, itemsByBox[15], true)
+
+	// 15. 0x1049 - PROTO_NC_CHAR_CLIENT_CHARTITLE_CMD (Siempre, wire len = 8, payload = 6)
 	titles := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_CLIENT_CHARTITLE_CMD)
 	titles.WriteByte(0)   // CurrentTitle = 0
 	titles.WriteByte(0)   // CurrentTitleElement = 0
@@ -390,7 +384,13 @@ func (h *Handler) sendInGameChunk(p *ZonePlayer) {
 	titles.WriteUint16(0) // NumOfTitle = 0
 	_ = p.Client.SendPacket(titles)
 
-	// 15. PROTO_NC_CHAR_MAPLOGIN_ACK (0x1802, wire len = 244, payload = 242)
+	// 16. 0x3801 / 0x3802 / 0x3803 (Card Regist) - Solo si tiene cartas registradas
+	var cardRegistPackets []*protocol.PacketWriter
+	for _, cardPkt := range cardRegistPackets {
+		_ = p.Client.SendPacket(cardPkt)
+	}
+
+	// 17. 0x1802 - PROTO_NC_CHAR_MAPLOGIN_ACK (CRÍTICO: Absolutamente el último paquete del bloque)
 	extraPkt := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_MAPLOGIN_ACK)
 	p.WriteDetailedInfoExtra(extraPkt, false)
 	_ = p.Client.SendPacket(extraPkt)

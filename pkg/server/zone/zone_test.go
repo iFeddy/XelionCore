@@ -189,14 +189,30 @@ func TestZoneServer_Phase1_TransferKeyVerification(t *testing.T) {
 		t.Fatalf("failed to send PROTO_NC_MAP_LOGIN_REQ: %v", err)
 	}
 
-	// Leer respuesta del servidor (primer paquete del InGame chunk: PROTO_NC_CHAR_BASE_CMD)
-	respPkt, err := readServerPacket(conn)
-	if err != nil {
-		t.Fatalf("failed to read response: %v", err)
+	// Leer secuencia completa de paquetes del InGame chunk para personaje limpio (sin skills ni ítems en cajas 8/9/12):
+	expectedOpCodes := []uint16{
+		protocol.PROTO_NC_CHAR_CLIENT_BASE_CMD,          // 1. 0x1038
+		protocol.PROTO_NC_CHAR_CLIENT_SHAPE_CMD,         // 2. 0x1039
+		protocol.PROTO_NC_CHAR_CLIENT_QUEST_DOING_CMD,   // 3. 0x103A
+		protocol.PROTO_NC_CHAR_CLIENT_QUEST_DONE_CMD,    // 4. 0x103B
+		protocol.PROTO_NC_CHAR_CLIENT_QUEST_READ_CMD,    // 5. 0x10CE
+		protocol.PROTO_NC_CHAR_CLIENT_QUEST_REPEAT_CMD,  // 6. 0x10D7
+		protocol.PROTO_NC_CHAR_CLIENT_PASSIVE_CMD,       // 7. 0x103E
+		protocol.PROTO_NC_CHAR_CLIENT_CHARGEDBUFF_CMD,   // 8. 0x104A
+		protocol.PROTO_NC_CHAR_CLIENT_GAME_CMD,          // 10. 0x1048 (0x103D omitido si len(skills)==0)
+		protocol.PROTO_NC_CHAR_CLIENT_ITEM_CMD,          // 14. 0x1047 (Solo Box 15 vacía; 8, 9 y 12 omitidas si vacías)
+		protocol.PROTO_NC_CHAR_CLIENT_CHARTITLE_CMD,     // 15. 0x1049
+		protocol.PROTO_NC_CHAR_MAPLOGIN_ACK,             // 17. 0x1802 (Último paquete del bloque)
 	}
 
-	if respPkt.OpCode != protocol.PROTO_NC_CHAR_CLIENT_BASE_CMD {
-		t.Errorf("expected PROTO_NC_CHAR_CLIENT_BASE_CMD (0x%04X), got 0x%04X", protocol.PROTO_NC_CHAR_CLIENT_BASE_CMD, respPkt.OpCode)
+	for idx, expOp := range expectedOpCodes {
+		respPkt, err := readServerPacket(conn)
+		if err != nil {
+			t.Fatalf("step %d: failed to read packet (expected 0x%04X): %v", idx+1, expOp, err)
+		}
+		if respPkt.OpCode != expOp {
+			t.Fatalf("step %d: expected OpCode 0x%04X, got 0x%04X", idx+1, expOp, respPkt.OpCode)
+		}
 	}
 }
 

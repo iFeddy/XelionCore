@@ -1,6 +1,7 @@
 package item
 
 import (
+	"encoding/binary"
 	"encoding/json"
 	"fmt"
 	"os"
@@ -11,58 +12,118 @@ import (
 	"github.com/iFeddy/XelionCore/pkg/data/shn"
 )
 
-// ItemAttrSizes maps official ItemClass (0 to 38) from BoothItemInfo::GetAttrSize to network attribute payload size.
-var ItemAttrSizes = [39]int{
-	0: 1,   // ByteLot
-	1: 2,   // WordLot
-	2: 4,   // DwrdLot
-	3: 2,   // QuestLot
-	4: 38,  // Amulet (trimmed from 62)
-	5: 65,  // Weapon (trimmed from 89)
-	6: 37,  // Armor
-	7: 37,  // Shield
-	8: 37,  // Boot
-	9: 36,  // Furniture
-	10: 8,  // Decoration
-	11: 1,  // SkillScroll
-	12: 1,  // RecallScroll
-	13: 101,// BindItem
-	14: 1,  // UpSource
-	15: 65, // ItemChest
-	16: 1,  // WeaponTitleLicence
-	17: 1,  // KingdomQuestItem
-	18: 4,  // MiniHouseSkin
-	19: 1,  // UpgradeRedGem
-	20: 1,  // UpgradeBlueGem
-	21: 2,  // KQStep
-	22: 1,  // Feed
-	23: 19, // Riding
-	24: 4,  // Amount
-	25: 1,  // UpgradeGoldGem
-	26: 4,  // CostumWeapon
-	27: 4,  // ActionItem
-	28: 1,  // Enchant
-	29: 12, // Capsule
-	30: 9,  // CardCollect_Close
-	31: 5,  // CardCollect
-	32: 1,  // NoEffect
-	33: 1,  // NoEffect
-	34: 1,  // GBCoin
-	35: 2,  // ActiveSkill
-	36: 26, // Pet
-	37: 4,  // CostumShield
-	38: 37, // Bracelet (trimmed)
+// ItemStatOption represents a single 3-byte stat option in ItemAttributeClass (type + value).
+type ItemStatOption struct {
+	Type  uint8
+	Value uint16
 }
 
-// GetAttrSizeForClass returns the exact attribute payload size in bytes for a given ItemClass.
+// CalcAttrSizeForClass calculates the dynamic binary attribute size in bytes emulating
+// iac_fill2buffer in Zone.exe based on ItemClass and the number of options/inner items (numOpts).
+func CalcAttrSizeForClass(itemClass uint8, numOpts int) int {
+	if numOpts < 0 {
+		numOpts = 0
+	}
+	switch itemClass {
+	case 6, 7, 8, 38: // Armor, Shield, Boot, Bracelet: 13 + (3 * numOpts)
+		return 13 + (3 * numOpts)
+	case 5: // Weapon: 65 + (3 * numOpts)
+		return 65 + (3 * numOpts)
+	case 4: // Amulet / Ring: 38 + (3 * numOpts)
+		return 38 + (3 * numOpts)
+	case 15: // Chest: 1 + (8 * items_adentro)
+		return 1 + (8 * numOpts)
+	case 13: // BindItem: 1 + (10 * count)
+		return 1 + (10 * numOpts)
+	case 10: // Decoration: 8 bytes fixed
+		return 8
+	case 0, 11, 12, 14, 16, 19, 20, 22, 25, 28, 33, 34: // Simple 1-byte classes (ByteLot, Scrolls, Gems, etc.)
+		return 1
+	case 1, 3, 21, 35: // 2-byte classes (WordLot, QuestLot, KQStep, ActiveSkill)
+		return 2
+	case 2, 18, 24, 26, 27, 37: // 4-byte classes (DwrdLot, MiniHouseSkin, Amount, CostumWeapon, ActionItem, CostumShield)
+		return 4
+	case 9: // Furniture
+		return 36
+	case 17, 32: // KingdomQuestItem / NoEffect (0-byte payload in iac_fill2buffer)
+		return 0
+	case 23: // Riding
+		return 19
+	case 29: // Capsule
+		return 12
+	case 30: // CardCollect_Close
+		return 9
+	case 31: // CardCollect
+		return 5
+	case 36: // Pet
+		return 26
+	default:
+		return 4
+	}
+}
+
+// GetAttrSizeForClass returns the base (0-option) attribute payload size in bytes for a given ItemClass.
 func GetAttrSizeForClass(itemClass uint8) int {
-	if int(itemClass) < len(ItemAttrSizes) {
-		sz := ItemAttrSizes[itemClass]
-		if sz > 0 {
-			return sz
+	return CalcAttrSizeForClass(itemClass, 0)
+}
+
+// BuildItemAttrBuffer serializes the dynamic item attribute slice (attr) emulating iac_fill2buffer.
+// The returned byte slice has the exact dynamic length required by PROTO_NC_CHAR_CLIENT_ITEM_CMD without trailing zero padding.
+func BuildItemAttrBuffer(itemClass uint8, amount uint32, opts []ItemStatOption, innerCount int) []byte {
+	numOpts := len(opts)
+	if itemClass == 13 || itemClass == 15 {
+		numOpts = innerCount
+	}
+	size := CalcAttrSizeForClass(itemClass, numOpts)
+	if size == 0 {
+		return nil
+	}
+	buf := make([]byte, size)
+
+	switch itemClass {
+	case 6, 7, 8, 38: // Armor, Shield, Boot, Bracelet: offset 12 holds (numOpts << 1) | 1
+		buf[12] = byte((numOpts << 1) | 1)
+		writeStatOptions(buf[13:], opts)
+	case 5: // Weapon: offset 64 holds (numOpts << 1) | 1
+		buf[64] = byte((numOpts << 1) | 1)
+		writeStatOptions(buf[65:], opts)
+	case 4: // Amulet / Ring: offset 37 holds (numOpts << 1) | 1
+		buf[37] = byte((numOpts << 1) | 1)
+		writeStatOptions(buf[38:], opts)
+	case 15: // Chest: 1 byte count + (8 * items_adentro)
+		buf[0] = byte(numOpts)
+	case 13: // BindItem: 1 byte count + (10 * count)
+		buf[0] = byte(numOpts)
+	case 10: // Decoration: 8 bytes fixed
+		// Initialized to 8 clean bytes
+	case 0, 11, 12, 14, 16, 19, 20, 22, 25, 28, 33, 34: // 1 byte fixed
+		if amount == 0 {
+			amount = 1
+		}
+		buf[0] = byte(amount)
+	case 1, 3, 21, 35: // 2 bytes fixed
+		if amount == 0 {
+			amount = 1
+		}
+		binary.LittleEndian.PutUint16(buf[0:2], uint16(amount))
+	case 2, 18, 24, 26, 27, 37: // 4 bytes fixed
+		if amount == 0 {
+			amount = 1
+		}
+		binary.LittleEndian.PutUint32(buf[0:4], amount)
+	}
+
+	return buf
+}
+
+func writeStatOptions(dst []byte, opts []ItemStatOption) {
+	for i, opt := range opts {
+		off := i * 3
+		if off+3 <= len(dst) {
+			dst[off] = opt.Type
+			binary.LittleEndian.PutUint16(dst[off+1:off+3], opt.Value)
 		}
 	}
-	return 4 // default fallback: Amount
 }
 
 // ItemOptionEntry defines weight distribution for a bonus stat degree and type.
@@ -269,22 +330,29 @@ func (s *Store) LoadItemInfoSHN(filePath string) error {
 
 // GetItemClass returns the official ItemClass for a given itemID.
 func (s *Store) GetItemClass(itemID uint16) (uint8, bool) {
+	if s == nil {
+		return 0, false
+	}
 	s.mu.RLock()
 	defer s.mu.RUnlock()
 	cls, ok := s.itemClasses[itemID]
 	return cls, ok
 }
 
-// GetItemAttrSize returns the exact binary attribute payload size in bytes for an item.
+// GetItemAttrSize returns the base binary attribute payload size in bytes for an item (0 options).
 func (s *Store) GetItemAttrSize(itemID uint16) int {
-	if s == nil {
-		return 4
-	}
-	s.mu.RLock()
-	cls, ok := s.itemClasses[itemID]
-	s.mu.RUnlock()
+	cls, ok := s.GetItemClass(itemID)
 	if !ok {
 		return 4 // default fallback: Amount (4 bytes)
 	}
-	return GetAttrSizeForClass(cls)
+	return CalcAttrSizeForClass(cls, 0)
+}
+
+// BuildItemAttr serializes the dynamic attribute byte slice for an item emulating iac_fill2buffer.
+func (s *Store) BuildItemAttr(itemID uint16, amount uint32, opts []ItemStatOption, innerCount int) []byte {
+	cls, ok := s.GetItemClass(itemID)
+	if !ok {
+		cls = 24 // default fallback: Class 24 (Amount, 4 bytes)
+	}
+	return BuildItemAttrBuffer(cls, amount, opts, innerCount)
 }
