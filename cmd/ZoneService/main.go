@@ -7,6 +7,7 @@ import (
 	"os"
 	"os/signal"
 	"syscall"
+	"time"
 
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/iFeddy/XelionCore/pkg/config"
@@ -94,10 +95,33 @@ func main() {
 
 	// 4. Inicializar repositorios y gestor de transferencias
 	charRepo := database.NewMySQLCharacterRepository(db)
+	accountRepo := database.NewMySQLAccountRepository(db)
 	transfers := database.NewTransferManager(db)
 
 	// 5. Iniciar servidor
 	srv := zone.NewServer(zoneCfg, charRepo, transfers, classStore, fieldStore, chkEngine)
+	srv.SetAccountRepo(accountRepo)
+
+	// 6. Activar telemetría periódica oficial (p_SameTimeChar_Add y p_SameTimeCharClass_Add en tSameTimeChar)
+	telemetryTicker := time.NewTicker(60 * time.Second)
+	defer telemetryTicker.Stop()
+	go func() {
+		for range telemetryTicker.C {
+			count := srv.Handler().ActivePlayersCount()
+			_, _ = accountRepo.AddSameTimeChar(0, count)
+
+			players := srv.Handler().ActivePlayersSnapshot()
+			classCounts := make(map[byte]int)
+			for _, p := range players {
+				if p != nil && p.Char != nil {
+					classCounts[p.Char.Job]++
+				}
+			}
+			for classVal, c := range classCounts {
+				_ = accountRepo.AddSameTimeCharClass(0, classVal, 1, c)
+			}
+		}
+	}()
 	if err := srv.Start(); err != nil {
 		log.Fatalf("[Zone] Fatal error starting server: %v", err)
 	}

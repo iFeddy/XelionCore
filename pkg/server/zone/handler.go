@@ -4,6 +4,7 @@ import (
 	"log"
 	"strings"
 	"sync"
+	"time"
 
 	"github.com/iFeddy/XelionCore/pkg/data/classparam"
 	"github.com/iFeddy/XelionCore/pkg/data/field"
@@ -15,14 +16,15 @@ import (
 
 // Handler processes incoming packets for the Zone Server.
 type Handler struct {
-	mu         sync.RWMutex
-	charRepo   database.CharacterRepository
-	transfers  *database.TransferManager
-	classStore *classparam.Store
-	fieldStore *field.Store
-	chkEngine  *shn.ChecksumEngine
-	players    map[*network.Client]*ZonePlayer
-	mapManager *MapManager
+	mu          sync.RWMutex
+	charRepo    database.CharacterRepository
+	accountRepo *database.MySQLAccountRepository
+	transfers   *database.TransferManager
+	classStore  *classparam.Store
+	fieldStore  *field.Store
+	chkEngine   *shn.ChecksumEngine
+	players     map[*network.Client]*ZonePlayer
+	mapManager  *MapManager
 }
 
 // NewHandler initializes a new Zone packet handler.
@@ -59,6 +61,12 @@ func (h *Handler) HandlePacket(client *network.Client, pkt *protocol.Packet) {
 		h.handleBeginRest(client, pkt)
 	case protocol.PROTO_NC_ACT_REST_STOP_REQ:
 		h.handleEndRest(client, pkt)
+	case protocol.PROTO_NC_DATA_REPORT_ADD_REQ:
+		h.handleReportAdd(client, pkt)
+	case protocol.PROTO_NC_DATA_REPORT_CANCEL_REQ:
+		h.handleReportCancel(client, pkt)
+	case protocol.PROTO_NC_DATA_REPORT_GET_REQ:
+		h.handleReportGet(client, pkt)
 	case protocol.PROTO_NC_MISC_HEARTBEAT_ACK, protocol.PROTO_NC_MISC_GAMETIME_REQ:
 		// Heartbeat pong received, ignore
 	default:
@@ -79,6 +87,26 @@ func (h *Handler) OnClientDisconnect(client *network.Client) {
 			player.CurrentMap.RemovePlayer(player)
 		}
 		_ = h.charRepo.UpdateCharacter(player.Char)
+
+		// Persistir registro oficial de desconexión y tiempo jugado en tLogout (usp_Log_setLogout)
+		if h.accountRepo != nil && player.Char != nil {
+			playMin := int16(time.Since(player.LoginTime).Minutes())
+			if playMin < 1 {
+				playMin = 1
+			}
+			worldNo := uint8(0)
+			_ = h.accountRepo.LogLogout(
+				worldNo,
+				player.Char.AccountID,
+				player.Char.ID,
+				player.Char.Job,
+				player.Char.Level,
+				player.Char.TCharacterState.Exp,
+				playMin,
+			)
+			log.Printf("[Zone][%s] Logout registrado en tLogout: '%s' (User: %d, Char: %d, PlayTime: %d min)",
+				client.RemoteAddr(), player.Char.Name, player.Char.AccountID, player.Char.ID, playMin)
+		}
 	}
 }
 
@@ -434,4 +462,136 @@ func (h *Handler) handleEndRest(client *network.Client, pkt *protocol.Packet) {
 	pw := protocol.NewPacketWriter(protocol.PROTO_NC_ACT_REST_STOP_ACK)
 	pw.WriteUint16(0x0A81)
 	_ = client.SendPacket(pw)
+}
+
+// SetAccountRepo configura el repositorio de cuentas y logs oficial (tLogout, tReport, etc.).
+func (h *Handler) SetAccountRepo(repo *database.MySQLAccountRepository) {
+	h.mu.Lock()
+	defer h.mu.Unlock()
+	h.accountRepo = repo
+}
+
+// ActivePlayersCount retorna la cantidad actual de jugadores conectados en la zona.
+func (h *Handler) ActivePlayersCount() int {
+	h.mu.RLock()
+	defer h.mu.RUnlock()
+	return len(h.players)
+}
+
+// ActivePlayersSnapshot retorna una instantánea de los jugadores para telemetría de clases.
+func (h *Handler) ActivePlayersSnapshot() []*ZonePlayer {
+	h.mu.RLock()
+	defer h.mu.RUnlock()
+	list := make([]*ZonePlayer, 0, len(h.players))
+	for _, p := range h.players {
+		if p != nil {
+			list = append(list, p)
+		}
+	}
+	return list
+}
+
+func (h *Handler) handleReportAdd(client *network.Client, pkt *protocol.Packet) {
+	player, ok := h.getPlayer(client)
+	if !ok || player == nil || player.Char == nil {
+		return
+	}
+
+	// Estructura oficial PROTO_NC_DATA_REPORT_ADD_REQ (2369 bytes)
+	// dwReporter(4), hReporter(2), nWorldNo(1), sReporterCharID(20), sHarmer(20), byReportType(16), byReason(256), nChatLogSize(2), byChatLog(...)
+	_ = pkt.Reader.Skip(4) // dwReporter
+	hReporter, _ := pkt.Reader.ReadUint16()
+	nWorldNo, _ := pkt.Reader.ReadByte()
+	sReporterCharID, _ := pkt.Reader.ReadString(20)
+	sHarmer, _ := pkt.Reader.ReadString(20)
+	byReportType, _ := pkt.Reader.ReadString(16)
+	byReason, _ := pkt.Reader.ReadString(256)
+	chatLogSize, _ := pkt.Reader.ReadUint16()
+	var chatLog string
+	if chatLogSize > 0 && pkt.Reader.Remaining() >= int(chatLogSize) {
+		chatLog, _ = pkt.Reader.ReadString(int(chatLogSize))
+	} else if pkt.Reader.Remaining() > 0 {
+		chatLog, _ = pkt.Reader.ReadString(pkt.Reader.Remaining())
+	}
+
+	sReporterCharID = strings.TrimSpace(sReporterCharID)
+	if sReporterCharID == "" {
+		sReporterCharID = player.Char.Name
+	}
+	sHarmer = strings.TrimSpace(sHarmer)
+	byReportType = strings.TrimSpace(byReportType)
+	byReason = strings.TrimSpace(byReason)
+
+	log.Printf("[Zone][%s] Denuncia oficial recibida de '%s' contra '%s' (Tipo: %s, Razón: %s)",
+		client.RemoteAddr(), sReporterCharID, sHarmer, byReportType, byReason)
+
+	var regNo int
+	var err error
+	if h.accountRepo != nil {
+		rep := &database.Report{
+			Reporter:       player.Char.AccountID,
+			ReporterCharID: sReporterCharID,
+			Harmer:         sHarmer,
+			WorldNo:        nWorldNo,
+			ReportType:     byReportType,
+			Reason:         byReason,
+			ChatLog:        chatLog,
+		}
+		regNo, err = h.accountRepo.AddReport(rep)
+	}
+
+	var errCode uint16 = 0
+	if err != nil {
+		errCode = 1 // Error interno
+	} else if regNo == -1 {
+		errCode = 2 // Cooldown 1 hora por reportero
+	} else if regNo == -2 {
+		errCode = 3 // Cooldown 24 horas contra el mismo objetivo
+	}
+
+	ack := protocol.New_PROTO_NC_DATA_REPORT_ADD_ACK(errCode, hReporter, sHarmer, int32(regNo))
+	_ = client.SendPacket(ack)
+}
+
+func (h *Handler) handleReportCancel(client *network.Client, pkt *protocol.Packet) {
+	player, ok := h.getPlayer(client)
+	if !ok || player == nil {
+		return
+	}
+
+	regNumber, _ := pkt.Reader.ReadInt32()
+	hReporter, _ := pkt.Reader.ReadUint16()
+
+	var errCode int16 = 0
+	if h.accountRepo != nil {
+		errCode, _ = h.accountRepo.DeleteReport(int(regNumber))
+	}
+
+	ack := protocol.New_PROTO_NC_DATA_REPORT_CANCEL_ACK(regNumber, hReporter, uint16(errCode))
+	_ = client.SendPacket(ack)
+}
+
+func (h *Handler) handleReportGet(client *network.Client, pkt *protocol.Packet) {
+	player, ok := h.getPlayer(client)
+	if !ok || player == nil || player.Char == nil {
+		return
+	}
+
+	hReporter, _ := pkt.Reader.ReadUint16()
+	_ = pkt.Reader.Skip(4) // dwReporter
+	nWorldNo, _ := pkt.Reader.ReadByte()
+
+	if h.accountRepo != nil {
+		summaries, err := h.accountRepo.GetReports(player.Char.AccountID, nWorldNo)
+		if err == nil && len(summaries) > 0 {
+			for _, s := range summaries {
+				ack := protocol.New_PROTO_NC_DATA_REPORT_GET_ACK(hReporter, 0, int32(s.RegNumber), s.Result, s.Remark)
+				_ = client.SendPacket(ack)
+			}
+			return
+		}
+	}
+
+	ack := protocol.New_PROTO_NC_DATA_REPORT_GET_ACK(hReporter, 1, 0, 0, "")
+	_ = client.SendPacket(ack)
 }

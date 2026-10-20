@@ -42,6 +42,41 @@ type Account struct {
 	TUser TUser `json:"t_user"`
 }
 
+// Report representa un reporte/denuncia en la tabla tReport (AccountLog).
+type Report struct {
+	RegNumber      int       `json:"nRegNumber"`
+	Reporter       int       `json:"nReporter"`
+	ReporterCharID string    `json:"sReporterCharID"`
+	Harmer         string    `json:"sHarmer"`
+	WorldNo        uint8     `json:"nWorldNo"`
+	ReportType     string    `json:"sReportType"`
+	Reason         string    `json:"sReason"`
+	ChatLog        string    `json:"sChatLog"`
+	Result         uint8     `json:"nResult"`
+	Remark         string    `json:"sRemark"`
+	ReportDate     time.Time `json:"dReportDate"`
+}
+
+// ReportSummary representa el resumen devuelto por p_Report_Get.
+type ReportSummary struct {
+	RegNumber int    `json:"nRegNumber"`
+	Result    uint8  `json:"nResult"`
+	Remark    string `json:"sRemark"`
+}
+
+// LogoutLog representa un registro en la tabla oficial tLogout (AccountLog).
+type LogoutLog struct {
+	RowNo      int64     `json:"rowNo"`
+	LogDate    time.Time `json:"logDate"`
+	WorldNo    uint8     `json:"worldNo"`
+	UserNo     int       `json:"userNo"`
+	CharNo     int       `json:"charNo"`
+	Class      uint8     `json:"class"`
+	Level      uint8     `json:"level"`
+	Experience int64     `json:"experience"`
+	PlayTime   int16     `json:"playTime"`
+}
+
 // Sync ensures bidirectional alignment between flat fields and TUser record.
 func (a *Account) Sync() {
 	if a.TUser.UserNo == 0 && a.ID != 0 {

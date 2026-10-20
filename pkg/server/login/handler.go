@@ -15,9 +15,10 @@ import (
 // Handler procesa los paquetes entrantes para LoginService respetando estrictamente
 // la nomenclatura y estructuras oficiales de red (docs/Servicios/Login.md).
 type Handler struct {
-	repo         database.AccountRepository
-	worldManager *WorldManager
-	transfers    *database.TransferManager
+	repo          database.AccountRepository
+	worldManager  *WorldManager
+	transfers     *database.TransferManager
+	clientVersion string
 }
 
 // NewHandler inicializa el despachador de protocolos oficiales de LoginService.
@@ -30,6 +31,11 @@ func NewHandler(repo database.AccountRepository, wm *WorldManager, tm *database.
 		worldManager: wm,
 		transfers:    tm,
 	}
+}
+
+// SetClientVersion configura la versión oficial esperada del cliente (ClientVersionKeyInfo.txt).
+func (h *Handler) SetClientVersion(ver string) {
+	h.clientVersion = strings.TrimSpace(ver)
 }
 
 // HandlePacket enruta cada paquete entrante según su OpCode oficial PROTO_NC_*.
@@ -45,6 +51,10 @@ func (h *Handler) HandlePacket(client *network.Client, pkt *protocol.Packet) {
 		h.handle_PROTO_NC_USER_WORLDSTATUS_REQ(client, pkt)
 	case protocol.PROTO_NC_USER_WORLDSELECT_REQ:
 		h.handle_PROTO_NC_USER_WORLDSELECT_REQ(client, pkt)
+	case protocol.PROTO_NC_MISC_HEARTBEAT_REQ:
+		h.handle_PROTO_NC_MISC_HEARTBEAT_REQ(client, pkt)
+	case protocol.PROTO_NC_USER_NORMALLOGOUT_CMD:
+		h.handle_PROTO_NC_USER_NORMALLOGOUT_CMD(client, pkt)
 	default:
 		log.Printf("[%s] OpCode no manejado en LoginService: 0x%04X (Dept=%d, Cmd=%d)",
 			client.RemoteAddr(), pkt.OpCode, pkt.Header, pkt.Type)
@@ -78,6 +88,15 @@ func (h *Handler) handle_PROTO_NC_USER_CLIENT_VERSION_CHECK_REQ(client *network.
 	}
 
 	log.Printf("[%s] PROTO_NC_USER_CLIENT_VERSION_CHECK_REQ recibido (Key='%s')", client.RemoteAddr(), versionKey)
+
+	// Validar versión si está configurada (ClientVersionKeyInfo.txt)
+	if h.clientVersion != "" && versionKey != "" && versionKey != h.clientVersion {
+		log.Printf("[%s] Versión de cliente no coincide: '%s' (Esperada: '%s'). Rechazando conexión.",
+			client.RemoteAddr(), versionKey, h.clientVersion)
+		_ = client.SendPacket(protocol.New_PROTO_NC_USER_CLIENT_WRONGVERSION_CHECK_ACK())
+		client.Close()
+		return
+	}
 
 	// Responder con éxito de verificación de versión: PROTO_NC_USER_CLIENT_RIGHTVERSION_CHECK_ACK (0x0C67)
 	resp := protocol.New_PROTO_NC_USER_CLIENT_RIGHTVERSION_CHECK_ACK()
@@ -213,6 +232,20 @@ credsValid:
 	if mysqlRepo, ok := h.repo.(*database.MySQLAccountRepository); ok {
 		_ = mysqlRepo.UpdateLoginSession(acc.ID, clientIP)
 		_ = mysqlRepo.LogAccount(username, 1, acc.ID, 0, 0, clientIP)
+
+		// 5a. Detección y premio para jugador retornante (usp_ReturnUser_GetDatediffLastlog & usp_ReturnUser_SetUserItem)
+		diffLastLog, err := mysqlRepo.GetReturnUserDateDiffLastLog(acc.ID)
+		if err == nil {
+			// Si nunca ha recibido el pack (-1) o pasaron más de 30 días (2592000 seg) desde el último retorno
+			if diffLastLog == -1 || diffLastLog >= 30*24*3600 {
+				diffCreated, errCreated := mysqlRepo.GetUserDateDiffCreated(acc.ID)
+				if errCreated == nil && diffCreated >= 30*24*3600 {
+					log.Printf("[%s] Jugador retornante '%s' elegible (Inactivo %d s). Asignando paquete de bienvenida.",
+						client.RemoteAddr(), username, diffLastLog)
+					_ = mysqlRepo.SetReturnUserItem(acc.ID, 30001)
+				}
+			}
+		}
 	}
 
 	client.AccountID = acc.ID
@@ -225,6 +258,17 @@ credsValid:
 
 	// 6. Enviar listado de mundos oficiales (PROTO_NC_USER_LOGIN_ACK 0x0C0A)
 	h.send_PROTO_NC_USER_LOGIN_ACK(client, false)
+}
+
+// handle_PROTO_NC_MISC_HEARTBEAT_REQ procesa el keep-alive heartbeat del cliente (0x0804).
+func (h *Handler) handle_PROTO_NC_MISC_HEARTBEAT_REQ(client *network.Client, pkt *protocol.Packet) {
+	_ = client.SendPacket(protocol.New_PROTO_NC_MISC_HEARTBEAT_ACK())
+}
+
+// handle_PROTO_NC_USER_NORMALLOGOUT_CMD procesa la desconexión normal solicitada por el cliente (0x0C18).
+func (h *Handler) handle_PROTO_NC_USER_NORMALLOGOUT_CMD(client *network.Client, pkt *protocol.Packet) {
+	log.Printf("[%s] PROTO_NC_USER_NORMALLOGOUT_CMD recibido. Cerrando conexión limpiamente.", client.RemoteAddr())
+	client.Close()
 }
 
 // handle_PROTO_NC_USER_FILE_CHECK_REQ procesa la verificación de archivos del cliente (0x0C04).

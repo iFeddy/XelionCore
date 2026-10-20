@@ -41,7 +41,7 @@ func TestMySQLCharacterRepository_Lifecycle(t *testing.T) {
 	testCharName := "TestKnight"
 
 	// Limpieza previa
-	_, _ = db.Exec("DELETE FROM tCharacter WHERE sID LIKE 'TestKnight%' OR sID = ?", testCharName)
+	_, _ = db.Exec("DELETE FROM tCharacter WHERE sID LIKE 'TestKnight%' OR sID = ? OR (nUserNo = ? AND nSlotNo IN (4, 5))", testCharName, testUserNo)
 
 	// 1. Crear personaje
 	ch := &database.Character{
@@ -92,7 +92,7 @@ func TestMySQLCharacterRepository_Lifecycle(t *testing.T) {
 	chDupName := &database.Character{
 		AccountID: testUserNo,
 		Name:      testCharName,
-		Slot:      1,
+		Slot:      5,
 		Job:       2,
 	}
 	err = repo.CreateCharacter(chDupName)
@@ -199,7 +199,7 @@ func TestMySQLCharacterRepository_StarterItemsAndShortcuts(t *testing.T) {
 	testCharName := "TestStarterChar"
 
 	// Limpieza previa
-	_, _ = db.Exec("DELETE FROM tCharacter WHERE sID LIKE 'TestStarterChar%' OR sID = ?", testCharName)
+	_, _ = db.Exec("DELETE FROM tCharacter WHERE sID LIKE 'TestStarterChar%' OR sID = ? OR (nUserNo = ? AND nSlotNo = 3)", testCharName, testUserNo)
 
 	ch := &database.Character{
 		AccountID: testUserNo,

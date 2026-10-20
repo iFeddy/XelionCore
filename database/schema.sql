@@ -120,6 +120,98 @@ CREATE TABLE IF NOT EXISTS `tTransferToken` (
     KEY `idx_transfer_created` (`dCreatedAt`)
 ) ENGINE=MEMORY DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+-- ----------------------------------------------------------------------------
+-- 7a. tReturnUser: Eventos de retorno de jugadores inactivos (Account.bak)
+-- ----------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS `tReturnUser` (
+    `nRowNo` INT NOT NULL AUTO_INCREMENT,
+    `dDate` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `nUserNo` INT NOT NULL,
+    `nItemNo` INT NOT NULL DEFAULT 30001,
+    PRIMARY KEY (`nRowNo`),
+    KEY `idx_treturnuser_userno_date` (`nUserNo`, `dDate`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ----------------------------------------------------------------------------
+-- 7b. tSerialKey: Cupones y claves seriales de usuario (Account.bak)
+-- ----------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS `tSerialKey` (
+    `userNo` INT NOT NULL,
+    `serialKey` BIGINT NOT NULL,
+    `registerDate` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (`userNo`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ----------------------------------------------------------------------------
+-- 7c. tCash: Saldo de moneda virtual / Cash por cuenta (Account.bak)
+-- ----------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS `tCash` (
+    `userNo` INT NOT NULL,
+    `cashType` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `cash` INT NOT NULL DEFAULT 0,
+    `status` TINYINT UNSIGNED NOT NULL DEFAULT 1,
+    PRIMARY KEY (`userNo`, `cashType`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ----------------------------------------------------------------------------
+-- 7d. tCashLog: Historial de transacciones de moneda premium (Account.bak)
+-- ----------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS `tCashLog` (
+    `rowNo` INT NOT NULL AUTO_INCREMENT,
+    `userNo` INT NOT NULL,
+    `logType` TINYINT UNSIGNED NOT NULL DEFAULT 1,
+    `cashType` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `cash` INT NOT NULL,
+    `reference` VARCHAR(50) NOT NULL DEFAULT '',
+    `validDate` DATETIME DEFAULT NULL,
+    `issueDate` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (`rowNo`),
+    KEY `idx_tcashlog_userno` (`userNo`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ----------------------------------------------------------------------------
+-- 7e. tReport: Denuncias de jugadores a GameMasters (AccountLog.bak)
+-- ----------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS `tReport` (
+    `nRegNumber` INT NOT NULL AUTO_INCREMENT,
+    `sReportType` VARCHAR(16) NOT NULL DEFAULT '',
+    `nReporter` INT NOT NULL,
+    `sReporterCharID` VARCHAR(16) NOT NULL DEFAULT '',
+    `sHarmer` VARCHAR(16) NOT NULL DEFAULT '',
+    `nWorldNo` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `sReason` VARCHAR(512) NOT NULL DEFAULT '',
+    `sChatLog` TEXT,
+    `nResult` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `sRemark` VARCHAR(512) NOT NULL DEFAULT '',
+    `dReportDate` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (`nRegNumber`),
+    KEY `idx_treport_reporter` (`nReporter`, `nWorldNo`, `dReportDate`),
+    KEY `idx_treport_harmer` (`sHarmer`, `dReportDate`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ----------------------------------------------------------------------------
+-- 7f. tSameTimeChar & tDayClassLevel: Métricas y telemetría de CCU (StatisticsData.bak)
+-- ----------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS `tSameTimeChar` (
+    `nIndex` INT NOT NULL AUTO_INCREMENT,
+    `dDate` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `nWorld` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `nCount` INT NOT NULL DEFAULT 0,
+    PRIMARY KEY (`nIndex`),
+    KEY `idx_tsametimechar_date` (`dDate`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS `tDayClassLevel` (
+    `nIndex` INT NOT NULL AUTO_INCREMENT,
+    `dDate` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `nWorld` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `nClass` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `nLevel` SMALLINT UNSIGNED NOT NULL DEFAULT 1,
+    `nCount` INT NOT NULL DEFAULT 0,
+    PRIMARY KEY (`nIndex`),
+    KEY `idx_tdayclasslevel_date` (`dDate`, `nWorld`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 -- ============================================================================
 -- WORLD & CHARACTER TABLES (World00_Character)
 -- Fidelidad binaria con AstraServer / WorldManager.exe & Character.exe
@@ -1397,6 +1489,450 @@ CREATE TABLE IF NOT EXISTS `tGameLog` (
     PRIMARY KEY (`nLogNo`),
     KEY `idx_gamelog_char` (`nCharNo`, `dDate`),
     KEY `idx_gamelog_type` (`nType`, `dDate`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+
+-- ============================================================================
+-- TABLAS OFICIALES DE ACCOUNT & BILLING (Account.bak)
+-- ============================================================================
+
+CREATE TABLE IF NOT EXISTS `tUserOption` (
+    `nUserNo` INT NOT NULL,
+    `sEmail` VARCHAR(72) NOT NULL DEFAULT '',
+    `sJuminNo` VARCHAR(50) NOT NULL DEFAULT '',
+    `sPhoneNo` VARCHAR(20) NOT NULL DEFAULT '',
+    `nZipNo` INT NOT NULL DEFAULT 0,
+    `sAddress` VARCHAR(90) NOT NULL DEFAULT '',
+    `bIsMail` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `sChannel` VARCHAR(20) NOT NULL DEFAULT '',
+    `nAffiliateID` VARCHAR(50) NOT NULL DEFAULT '',
+    `szAffiliateSubID` VARCHAR(50) NOT NULL DEFAULT '',
+    `szCountryCode` VARCHAR(50) NOT NULL DEFAULT '',
+    PRIMARY KEY (`nUserNo`),
+    CONSTRAINT `fk_tuseroption_user` FOREIGN KEY (`nUserNo`) REFERENCES `tUser` (`nUserNo`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS `tPasswordLog` (
+    `nLogNo` INT NOT NULL AUTO_INCREMENT,
+    `nUserNo` INT NOT NULL,
+    `sPrevPW` VARCHAR(32) NOT NULL DEFAULT '',
+    `sCurrPW` VARCHAR(32) NOT NULL DEFAULT '',
+    `sUserIP` VARCHAR(30) NOT NULL DEFAULT '',
+    `dDate` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (`nLogNo`),
+    KEY `idx_tpasswordlog_user` (`nUserNo`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS `tChannelLog` (
+    `rowNo` INT NOT NULL AUTO_INCREMENT,
+    `userNo` INT NOT NULL,
+    `channel` VARCHAR(20) NOT NULL DEFAULT '',
+    `issueDate` VARCHAR(20) NOT NULL DEFAULT '',
+    `dDate` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (`rowNo`),
+    KEY `idx_tchannellog_user` (`userNo`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS `tCharacterMoveLog` (
+    `nOldCharNo` INT NOT NULL,
+    `nFromWorld` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `nNewCharNo` INT NOT NULL DEFAULT 0,
+    `nToWorld` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `nUserNo` INT NOT NULL,
+    `dMovedDate` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (`nOldCharNo`, `nFromWorld`, `dMovedDate`),
+    KEY `idx_tcharactermovelog_user` (`nUserNo`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS `tDrawComment` (
+    `nLogNo` INT NOT NULL AUTO_INCREMENT,
+    `nUserNo` INT NOT NULL,
+    `nCauseNo` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `sComment` VARCHAR(104) NOT NULL DEFAULT '',
+    `sUserIP` VARCHAR(30) NOT NULL DEFAULT '',
+    `dDate` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (`nLogNo`),
+    KEY `idx_tdrawcomment_user` (`nUserNo`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS `tItemCategory` (
+    `category` VARCHAR(10) NOT NULL,
+    `name` VARCHAR(20) NOT NULL DEFAULT '',
+    `parent` VARCHAR(10) NOT NULL DEFAULT '',
+    `status` TINYINT UNSIGNED NOT NULL DEFAULT 1,
+    `registerDate` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (`category`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS `tOrder` (
+    `orderNo` INT NOT NULL AUTO_INCREMENT,
+    `orderDate` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `orderType` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `userNo` INT NOT NULL,
+    `toUserNo` INT NOT NULL DEFAULT 0,
+    `goodsNo` INT NOT NULL DEFAULT 0,
+    `goodsPrice` INT NOT NULL DEFAULT 0,
+    `amount` INT NOT NULL DEFAULT 1,
+    `discount` INT NOT NULL DEFAULT 0,
+    `orderPrice` INT NOT NULL DEFAULT 0,
+    `cashType` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `isPay` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `userIP` VARCHAR(30) NOT NULL DEFAULT '',
+    `pcbangNo` INT NOT NULL DEFAULT 0,
+    PRIMARY KEY (`orderNo`),
+    KEY `idx_torder_user` (`userNo`, `orderDate`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS `tPay` (
+    `orderNo` INT NOT NULL,
+    `userNo` INT NOT NULL,
+    `payNo` INT NOT NULL DEFAULT 0,
+    `cash` INT NOT NULL DEFAULT 0,
+    `userIP` VARCHAR(30) NOT NULL DEFAULT '',
+    `registerDate` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (`orderNo`, `userNo`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS `tPayAgreement` (
+    `rowNo` INT NOT NULL AUTO_INCREMENT,
+    `userNo` INT NOT NULL,
+    `name` VARCHAR(10) NOT NULL DEFAULT '',
+    `juminNo` VARCHAR(20) NOT NULL DEFAULT '',
+    `phoneNo` VARCHAR(20) NOT NULL DEFAULT '',
+    `status` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `issueDate` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `validDate` DATETIME DEFAULT NULL,
+    PRIMARY KEY (`rowNo`),
+    KEY `idx_tpayagreement_user` (`userNo`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS `tPayResult` (
+    `orderNo` INT NOT NULL,
+    `result` INT NOT NULL DEFAULT 0,
+    `resultDate` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `pgTID` VARCHAR(50) NOT NULL DEFAULT '',
+    PRIMARY KEY (`orderNo`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS `tPayType` (
+    `payNo` INT NOT NULL,
+    `name` VARCHAR(20) NOT NULL DEFAULT '',
+    `company` VARCHAR(20) NOT NULL DEFAULT '',
+    `isActive` TINYINT UNSIGNED NOT NULL DEFAULT 1,
+    `registerDate` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (`payNo`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS `tChargeItem` (
+    `rowNo` INT NOT NULL AUTO_INCREMENT,
+    `userNo` INT NOT NULL,
+    `orderNo` INT NOT NULL DEFAULT 0,
+    `goodsNo` INT NOT NULL DEFAULT 0,
+    `amount` INT NOT NULL DEFAULT 1,
+    `registerDate` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `isDraw` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `drawDate` DATETIME DEFAULT NULL,
+    PRIMARY KEY (`rowNo`),
+    KEY `idx_tchargeitem_user` (`userNo`, `isDraw`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS `tChargeItemDelLog` (
+    `rowNo` INT NOT NULL AUTO_INCREMENT,
+    `userNo` INT NOT NULL,
+    `orderNo` INT NOT NULL DEFAULT 0,
+    `goodsNo` INT NOT NULL DEFAULT 0,
+    `amount` INT NOT NULL DEFAULT 1,
+    `registerDate` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `deleteDate` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (`rowNo`),
+    KEY `idx_tchargeitemdellog_user` (`userNo`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS `tbSellitem` (
+    `baseDate` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `goodsNo` INT NOT NULL,
+    `amount` INT NOT NULL DEFAULT 0,
+    PRIMARY KEY (`baseDate`, `goodsNo`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS `tTutorial` (
+    `nUserNo` INT NOT NULL,
+    `nCharNo` INT NOT NULL DEFAULT 0,
+    `nState` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `nStep` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `dDate` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (`nUserNo`, `nCharNo`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS `FOUS` (
+    `GameAccountTitle` VARCHAR(127) NOT NULL,
+    `GameAccountGameServerReference` DOUBLE NOT NULL DEFAULT 0,
+    `GameAccountKey` DOUBLE NOT NULL DEFAULT 0,
+    `GameVersionKey` VARCHAR(127) NOT NULL DEFAULT '',
+    PRIMARY KEY (`GameAccountTitle`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS `Event_Christmas_Item` (
+    `rowNo` INT NOT NULL AUTO_INCREMENT,
+    `expirationDate` DATETIME DEFAULT NULL,
+    `goodsNo` INT NOT NULL,
+    PRIMARY KEY (`rowNo`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS `Event_Christmas_Log` (
+    `rowNo` INT NOT NULL AUTO_INCREMENT,
+    `userNo` INT NOT NULL,
+    `giveDate` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `goodsNo` INT NOT NULL,
+    PRIMARY KEY (`rowNo`),
+    KEY `idx_event_christmas_user` (`userNo`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS `tLv120` (
+    `userNo` INT NOT NULL,
+    PRIMARY KEY (`userNo`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ============================================================================
+-- TABLAS OFICIALES DE ACCOUNT LOG & EVENTOS (AccountLog.bak)
+-- ============================================================================
+
+CREATE TABLE IF NOT EXISTS `tEventWorldCup` (
+    `nEventCharNo` INT NOT NULL,
+    `nEventUserNo` INT NOT NULL,
+    `nLevel` TINYINT UNSIGNED NOT NULL DEFAULT 1,
+    `nWorldNo` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    PRIMARY KEY (`nEventCharNo`, `nWorldNo`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS `tEvent_Friend` (
+    `nEventUserNo` INT NOT NULL,
+    `nEventCharNo` INT NOT NULL,
+    `nFriendUserNo` INT NOT NULL,
+    `nFriendCharNo` INT NOT NULL,
+    `nWorldNo` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `bEventComplete` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `dDate` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (`nEventUserNo`, `nFriendUserNo`, `nWorldNo`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS `tEvent_Friend_HideMsg` (
+    `nUserNo` INT NOT NULL,
+    PRIMARY KEY (`nUserNo`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS `tEventiPad` (
+    `nUserNo` INT NOT NULL,
+    `nTicket` INT NOT NULL DEFAULT 0,
+    `sys_create_date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `sys_update_date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY (`nUserNo`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS `tUserLog` (
+    `rowNo` INT NOT NULL AUTO_INCREMENT,
+    `joinDate` VARCHAR(10) NOT NULL DEFAULT '',
+    `userNo` INT NOT NULL,
+    PRIMARY KEY (`rowNo`),
+    KEY `idx_tuserlog_user` (`userNo`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ============================================================================
+-- TABLAS OFICIALES DE OPERATOR TOOL (OperatorTool.bak)
+-- ============================================================================
+
+CREATE TABLE IF NOT EXISTS `tOperator` (
+    `nOperNo` INT NOT NULL AUTO_INCREMENT,
+    `sOperID` VARCHAR(20) NOT NULL,
+    `sOperPW` VARCHAR(32) NOT NULL,
+    `nOperLevel` TINYINT UNSIGNED NOT NULL DEFAULT 1,
+    `dRegDate` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (`nOperNo`),
+    UNIQUE KEY `uk_toperator_id` (`sOperID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS `tMenuAuth` (
+    `no` TINYINT UNSIGNED NOT NULL,
+    `menu` VARCHAR(20) NOT NULL,
+    `auth` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    PRIMARY KEY (`no`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS `tOpLog` (
+    `nNo` INT NOT NULL AUTO_INCREMENT,
+    `dDate` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `nOperNo` SMALLINT NOT NULL,
+    `sIP` VARCHAR(20) NOT NULL DEFAULT '',
+    `nType` SMALLINT NOT NULL DEFAULT 0,
+    `nUserNo` INT NOT NULL DEFAULT 0,
+    `sServer` VARCHAR(50) NOT NULL DEFAULT '',
+    `nCharNo` INT NOT NULL DEFAULT 0,
+    `sDesc` TEXT,
+    PRIMARY KEY (`nNo`),
+    KEY `idx_toplog_oper` (`nOperNo`, `dDate`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ============================================================================
+-- TABLAS OFICIALES DE TELEMETRÍA Y ESTADÍSTICAS (StatisticsData.bak)
+-- ============================================================================
+
+CREATE TABLE IF NOT EXISTS `tDayActiveUser` (
+    `nIndex` INT NOT NULL AUTO_INCREMENT,
+    `dDate` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `nActiveCount` INT NOT NULL DEFAULT 0,
+    `nNetmarbleCount` INT NOT NULL DEFAULT 0,
+    `nTotalUserCount` INT NOT NULL DEFAULT 0,
+    PRIMARY KEY (`nIndex`),
+    KEY `idx_tdayactiveuser_date` (`dDate`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS `tDayUser` (
+    `nIndex` INT NOT NULL AUTO_INCREMENT,
+    `dDate` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `nUserCount` INT NOT NULL DEFAULT 0,
+    `nConnectCount` INT NOT NULL DEFAULT 0,
+    PRIMARY KEY (`nIndex`),
+    KEY `idx_tdayuser_date` (`dDate`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS `tDayClassLevelPlay` (
+    `nIndex` INT NOT NULL AUTO_INCREMENT,
+    `dDate` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `nWorld` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `nClass` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `nLevel` SMALLINT UNSIGNED NOT NULL DEFAULT 1,
+    `nPlayMin` INT NOT NULL DEFAULT 0,
+    `nConnectCount` INT NOT NULL DEFAULT 0,
+    PRIMARY KEY (`nIndex`),
+    KEY `idx_tdayclasslevelplay_date` (`dDate`, `nWorld`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS `tGender` (
+    `nLogNo` INT NOT NULL AUTO_INCREMENT,
+    `sLogDate` VARCHAR(10) NOT NULL DEFAULT '',
+    `nGender` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `nCount` INT NOT NULL DEFAULT 0,
+    `nYear` SMALLINT NOT NULL DEFAULT 0,
+    `nMonth` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `nDay` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `nWeek` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `nWeekDay` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    PRIMARY KEY (`nLogNo`),
+    KEY `idx_tgender_date` (`sLogDate`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS `tAge` (
+    `nLogNo` INT NOT NULL AUTO_INCREMENT,
+    `sLogDate` VARCHAR(10) NOT NULL DEFAULT '',
+    `nAge` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `nCount` INT NOT NULL DEFAULT 0,
+    `nYear` SMALLINT NOT NULL DEFAULT 0,
+    `nMonth` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `nDay` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `nWeek` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `nWeekDay` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    PRIMARY KEY (`nLogNo`),
+    KEY `idx_tage_date` (`sLogDate`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS `tLocation` (
+    `nLogNo` INT NOT NULL AUTO_INCREMENT,
+    `sLogDate` VARCHAR(10) NOT NULL DEFAULT '',
+    `sLocation` VARCHAR(4) NOT NULL DEFAULT '',
+    `nCount` INT NOT NULL DEFAULT 0,
+    `nYear` SMALLINT NOT NULL DEFAULT 0,
+    `nMonth` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `nDay` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `nWeek` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `nWeekDay` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    PRIMARY KEY (`nLogNo`),
+    KEY `idx_tlocation_date` (`sLogDate`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS `TopCharacter` (
+    `nUserNo` INT NOT NULL,
+    `nLevel` INT NOT NULL DEFAULT 1,
+    PRIMARY KEY (`nUserNo`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS `TopCharacter_MAY` (
+    `nUserNo` INT NOT NULL,
+    `nLevel` INT NOT NULL DEFAULT 1,
+    PRIMARY KEY (`nUserNo`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS `tQuestTimesQ20016` (
+    `ServerNo` INT NOT NULL,
+    `sID` VARCHAR(40) NOT NULL,
+    `nTimes` INT NOT NULL DEFAULT 0,
+    `dLastComplete` CHAR(17) NOT NULL DEFAULT '',
+    PRIMARY KEY (`ServerNo`, `sID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS `tQuestTimesQ2079` (
+    `ServerNo` INT NOT NULL,
+    `sID` VARCHAR(40) NOT NULL,
+    `nTimes` INT NOT NULL DEFAULT 0,
+    `dLastComplete` CHAR(17) NOT NULL DEFAULT '',
+    PRIMARY KEY (`ServerNo`, `sID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS `tQuestTimesQ63011` (
+    `ServerNo` INT NOT NULL,
+    `sID` VARCHAR(40) NOT NULL,
+    `nTimes` INT NOT NULL DEFAULT 0,
+    `dLastComplete` CHAR(17) NOT NULL DEFAULT '',
+    PRIMARY KEY (`ServerNo`, `sID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ============================================================================
+-- TABLAS AUXILIARES DE GAMEPLAY (World00_Character.bak)
+-- ============================================================================
+
+CREATE TABLE IF NOT EXISTS `QuestItemFix` (
+    `QuestID` INT NOT NULL,
+    `ItemID` INT NOT NULL,
+    PRIMARY KEY (`QuestID`, `ItemID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS `deleted_item` (
+    `nItemKey` BIGINT NOT NULL,
+    `nStorageType` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `nOwner` BIGINT NOT NULL DEFAULT 0,
+    `nStorage` SMALLINT NOT NULL DEFAULT 0,
+    `nItemID` INT NOT NULL DEFAULT 0,
+    `nFlags` INT NOT NULL DEFAULT 0,
+    `dDate` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    KEY `idx_deleted_item_owner` (`nOwner`),
+    KEY `idx_deleted_item_key` (`nItemKey`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS `removeskill` (
+    `nCharNo` INT NOT NULL,
+    `skillno` INT NOT NULL,
+    `dDate` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (`nCharNo`, `skillno`, `dDate`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS `skilldata` (
+    `ID` INT NOT NULL,
+    `BuyPrice` BIGINT NOT NULL DEFAULT 0,
+    `BuyFame` INT NOT NULL DEFAULT 0,
+    PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+
+CREATE TABLE IF NOT EXISTS `tUserMergeYet` (
+    `nuserno` INT NOT NULL,
+    PRIMARY KEY (`nuserno`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS `tTEMP_ItemClass` (
+    `nItemKey` BIGINT NOT NULL,
+    `nItemID` INT NOT NULL,
+    `nOptionType` BIGINT NOT NULL,
+    `nCount` INT NOT NULL,
+    PRIMARY KEY (`nItemKey`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ============================================================================

@@ -37,6 +37,7 @@ func NewServer(cfg *Config, charRepo database.CharacterRepository, transfers *da
 	}
 
 	s.tcpServer = network.NewTCPServer(cfg.BindAddr, onConnect, handler.HandlePacket)
+	s.tcpServer.SetOnDisconnect(handler.OnClientDisconnect)
 	return s
 }
 
@@ -51,4 +52,14 @@ func (s *Server) Start() error {
 func (s *Server) Stop() {
 	log.Printf("[ZoneServer] Shutting down Zone Server...")
 	s.tcpServer.Stop()
+}
+
+// SetAccountRepo sets the MySQLAccountRepository for session logging and telemetry.
+func (s *Server) SetAccountRepo(repo *database.MySQLAccountRepository) {
+	s.handler.SetAccountRepo(repo)
+}
+
+// Handler returns the zone packet handler.
+func (s *Server) Handler() *Handler {
+	return s.handler
 }

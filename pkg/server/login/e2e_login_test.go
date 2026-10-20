@@ -249,3 +249,67 @@ func TestE2ELoginServiceFlow(t *testing.T) {
 	}
 	t.Logf("Escenario 2 Verificado: Servidor rechazó contraseña errónea con PROTO_NC_USER_LOGINFAIL_ACK (0x%04X)", errCode)
 }
+
+func TestLoginService_HeartbeatAndLogout(t *testing.T) {
+	testPort := 19011
+	cfg := &login.Config{
+		BindAddr: fmt.Sprintf("127.0.0.1:%d", testPort),
+		Port:     testPort,
+	}
+
+	repo := database.NewMemoryAccountRepository()
+	wm := login.NewWorldManager()
+	transfers := database.NewTransferManager(nil)
+
+	srv := login.NewServer(cfg, repo, wm, transfers)
+	if err := srv.Start(); err != nil {
+		t.Fatalf("Failed to start login server: %v", err)
+	}
+	defer srv.Stop()
+
+	conn, err := net.Dial("tcp", fmt.Sprintf("127.0.0.1:%d", testPort))
+	if err != nil {
+		t.Fatalf("Failed to connect: %v", err)
+	}
+	defer conn.Close()
+
+	// Leer handshake inicial
+	hs, err := readServerPacket(conn)
+	if err != nil {
+		t.Fatalf("Failed to read handshake: %v", err)
+	}
+	off, _ := hs.Reader.ReadInt16()
+	nc, _ := crypto.NewNetCrypto(off)
+	client := &mockClient{conn: conn, crypto: nc}
+
+	// 1. Probar Heartbeat (0x0804 -> 0x0805)
+	hbReq := protocol.NewPacketWriter(protocol.PROTO_NC_MISC_HEARTBEAT_REQ)
+	if err := client.sendPacket(hbReq); err != nil {
+		t.Fatalf("Failed to send heartbeat req: %v", err)
+	}
+
+	hbAck, err := readServerPacket(conn)
+	if err != nil {
+		t.Fatalf("Failed to read heartbeat ack: %v", err)
+	}
+	if hbAck.OpCode != protocol.PROTO_NC_MISC_HEARTBEAT_ACK {
+		t.Fatalf("Expected OpCode 0x%04X (PROTO_NC_MISC_HEARTBEAT_ACK), got 0x%04X",
+			protocol.PROTO_NC_MISC_HEARTBEAT_ACK, hbAck.OpCode)
+	}
+	t.Logf("Heartbeat verificado exitosamente (OpCode: 0x%04X)", hbAck.OpCode)
+
+	// 2. Probar Normal Logout (0x0C18)
+	logoutCmd := protocol.NewPacketWriter(protocol.PROTO_NC_USER_NORMALLOGOUT_CMD)
+	if err := client.sendPacket(logoutCmd); err != nil {
+		t.Fatalf("Failed to send logout cmd: %v", err)
+	}
+
+	// El servidor debe cerrar la conexión
+	_ = conn.SetReadDeadline(time.Now().Add(1 * time.Second))
+	_, err = readServerPacket(conn)
+	if err == nil {
+		t.Errorf("Expected connection to be closed after PROTO_NC_USER_NORMALLOGOUT_CMD")
+	} else {
+		t.Logf("Desconexión limpia verificada tras PROTO_NC_USER_NORMALLOGOUT_CMD: %v", err)
+	}
+}

@@ -7,6 +7,7 @@ import (
 	"os"
 	"os/signal"
 	"syscall"
+	"time"
 
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/iFeddy/XelionCore/pkg/config"
@@ -64,14 +65,26 @@ func main() {
 	}
 
 	loginCfg := &login.Config{
-		BindAddr: fmt.Sprintf("%s:%d", cfg.LoginHost, cfg.LoginPort),
-		Port:     int(cfg.LoginPort),
+		BindAddr:      fmt.Sprintf("%s:%d", cfg.LoginHost, cfg.LoginPort),
+		Port:          int(cfg.LoginPort),
+		ClientVersion: cfg.ClientVersion,
 	}
 
 	srv := login.NewServer(loginCfg, repo, wm, transfers)
 	if err := srv.Start(); err != nil {
 		log.Fatalf("[LoginService] Fatal error starting server: %v", err)
 	}
+
+	// Telemetría periódica oficial de concurrentes en tSameTimeChar (p_SameTimeChar_Add)
+	telemetryTicker := time.NewTicker(60 * time.Second)
+	defer telemetryTicker.Stop()
+	go func() {
+		for range telemetryTicker.C {
+			for _, w := range wm.WorldsList() {
+				_, _ = repo.AddSameTimeChar(w.ID, 0)
+			}
+		}
+	}()
 
 	sigChan := make(chan os.Signal, 1)
 	signal.Notify(sigChan, os.Interrupt, syscall.SIGTERM)

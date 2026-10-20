@@ -1,6 +1,8 @@
 package zone
 
 import (
+	"time"
+
 	"github.com/iFeddy/XelionCore/pkg/data/classparam"
 	"github.com/iFeddy/XelionCore/pkg/database"
 	"github.com/iFeddy/XelionCore/pkg/network"
@@ -72,6 +74,7 @@ type ZonePlayer struct {
 	Int         byte
 	Spr         byte
 	LevelParam  classparam.LevelParam
+	LoginTime   time.Time
 }
 
 // NewZonePlayer inicializa un ZonePlayer cargando sus stats oficiales desde ClassParam.
@@ -123,6 +126,7 @@ func NewZonePlayer(client *network.Client, ch *database.Character, classStore *c
 		Char:        ch,
 		State:       1,    // Normal
 		Rotation:    0x55, // 85 grados
+		LoginTime:   time.Now(),
 		StonesHP:    maxStonesHP,
 		StonesSP:    maxStonesSP,
 		MaxStonesHP: maxStonesHP,

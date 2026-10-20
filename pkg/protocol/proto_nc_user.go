@@ -50,6 +50,11 @@ func New_PROTO_NC_USER_CLIENT_RIGHTVERSION_CHECK_ACK() *PacketWriter {
 	return pw
 }
 
+// New_PROTO_NC_MISC_HEARTBEAT_ACK construye la respuesta oficial de keep-alive heartbeat (0x0805).
+func New_PROTO_NC_MISC_HEARTBEAT_ACK() *PacketWriter {
+	return NewPacketWriter(PROTO_NC_MISC_HEARTBEAT_ACK)
+}
+
 // New_PROTO_NC_USER_CLIENT_WRONGVERSION_CHECK_ACK construye la respuesta de versión incorrecta (0x0C02).
 func New_PROTO_NC_USER_CLIENT_WRONGVERSION_CHECK_ACK() *PacketWriter {
 	pw := NewPacketWriter(PROTO_NC_USER_CLIENT_WRONGVERSION_CHECK_ACK)

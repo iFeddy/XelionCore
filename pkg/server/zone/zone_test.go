@@ -339,3 +339,130 @@ func TestZoneServer_Phase1_ChecksumVerification(t *testing.T) {
 	}
 }
 
+func TestZoneServer_ReportsAndLogoutLog(t *testing.T) {
+	cfg := &Config{
+		BindAddr: "127.0.0.1:19213",
+		Port:     19213,
+		IP:       "127.0.0.1",
+		MapID:    0,
+	}
+
+	charRepo := database.NewMemoryCharacterRepository()
+	transfers := database.NewTransferManager(nil)
+	classStore, _ := classparam.Load(filepath.Join("..", "..", "data", "World", "ClassParam"))
+	fieldStore, _ := field.Load(filepath.Join("..", "..", "data", "World", "Map"))
+
+	srv := NewServer(cfg, charRepo, transfers, classStore, fieldStore, nil)
+	if err := srv.Start(); err != nil {
+		t.Fatalf("failed to start zone server: %v", err)
+	}
+	defer srv.Stop()
+
+	char := &database.Character{
+		ID:        201,
+		AccountID: 10,
+		Name:      "ReporterHero",
+		Slot:      0,
+		Job:       byte(protocol.Job_Fighter),
+		Level:     5,
+		Male:      true,
+		XPos:      5600,
+		YPos:      8800,
+		CurHP:     100,
+		CurSP:     50,
+	}
+	_ = charRepo.CreateCharacter(char)
+	transfers.CreateZoneTransfer(10, "User10", char.Name, char.ID, 33445, 0, "127.0.0.1")
+
+	conn, err := net.DialTimeout("tcp", "127.0.0.1:19213", 2*time.Second)
+	if err != nil {
+		t.Fatalf("failed to connect: %v", err)
+	}
+	defer conn.Close()
+
+	hsPkt, _ := readServerPacket(conn)
+	xorPos, _ := hsPkt.Reader.ReadInt16()
+	clientCrypto, _ := crypto.NewNetCrypto(xorPos)
+
+	// Login to Zone
+	req := protocol.NewPacketWriter(protocol.PROTO_NC_MAP_LOGIN_REQ)
+	req.WriteUint16(33445)
+	req.WriteString(char.Name, 16)
+	_ = sendClientPacket(conn, req, clientCrypto)
+
+	// Consumir paquetes iniciales (LoadMap, LoginComplete)
+	_, _ = readServerPacket(conn) // LoadMap
+	_, _ = readServerPacket(conn) // LoginComplete
+
+	// 1. Probar PROTO_NC_DATA_REPORT_ADD_REQ (0x8007)
+	repPkt := protocol.NewPacketWriter(protocol.PROTO_NC_DATA_REPORT_ADD_REQ)
+	repPkt.WriteUint32(10) // dwReporter
+	repPkt.WriteUint16(1)  // hReporter
+	repPkt.WriteByte(0)    // nWorldNo
+	repPkt.WriteString(char.Name, 20)
+	repPkt.WriteString("Offender", 20)
+	repPkt.WriteString("Abuse", 16)
+	repPkt.WriteString("Harassment in town", 256)
+	repPkt.WriteUint16(12)
+	repPkt.WriteString("chat message", 12)
+
+	if err := sendClientPacket(conn, repPkt, clientCrypto); err != nil {
+		t.Fatalf("Failed to send report add: %v", err)
+	}
+
+	var ackPkt *protocol.Packet
+	for i := 0; i < 20; i++ {
+		p, err := readServerPacket(conn)
+		if err != nil {
+			t.Fatalf("Failed to read server packet: %v", err)
+		}
+		if p.OpCode == protocol.PROTO_NC_DATA_REPORT_ADD_ACK {
+			ackPkt = p
+			break
+		}
+	}
+	if ackPkt == nil {
+		t.Fatalf("Did not receive PROTO_NC_DATA_REPORT_ADD_ACK")
+	}
+	t.Logf("PROTO_NC_DATA_REPORT_ADD_ACK verificado exitosamente (0x%04X)", ackPkt.OpCode)
+
+	// 2. Probar PROTO_NC_DATA_REPORT_CANCEL_REQ (0x8009)
+	cancelPkt := protocol.NewPacketWriter(protocol.PROTO_NC_DATA_REPORT_CANCEL_REQ)
+	cancelPkt.WriteInt32(100) // RegNumber
+	cancelPkt.WriteUint16(1)  // hReporter
+	if err := sendClientPacket(conn, cancelPkt, clientCrypto); err != nil {
+		t.Fatalf("Failed to send report cancel: %v", err)
+	}
+
+	var cancelAck *protocol.Packet
+	for i := 0; i < 20; i++ {
+		p, err := readServerPacket(conn)
+		if err != nil {
+			t.Fatalf("Failed to read server packet: %v", err)
+		}
+		if p.OpCode == protocol.PROTO_NC_DATA_REPORT_CANCEL_ACK {
+			cancelAck = p
+			break
+		}
+	}
+	if cancelAck == nil {
+		t.Fatalf("Did not receive PROTO_NC_DATA_REPORT_CANCEL_ACK")
+	}
+	t.Logf("PROTO_NC_DATA_REPORT_CANCEL_ACK verificado exitosamente (0x%04X)", cancelAck.OpCode)
+
+	// 3. Probar desconexión y conteo de jugadores activos
+	activeBefore := srv.Handler().ActivePlayersCount()
+	if activeBefore == 0 {
+		t.Errorf("Expected at least 1 active player before disconnect")
+	}
+
+	conn.Close()
+	time.Sleep(50 * time.Millisecond)
+
+	activeAfter := srv.Handler().ActivePlayersCount()
+	if activeAfter != 0 {
+		t.Errorf("Expected 0 active players after disconnect, got %d", activeAfter)
+	}
+	t.Logf("Desconexión limpia y actualización de CCU verificada")
+}
+

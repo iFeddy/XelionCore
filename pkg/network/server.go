@@ -15,6 +15,7 @@ type TCPServer struct {
 	listener      net.Listener
 	clients       sync.Map
 	onConnect     func(*Client)
+	onDisconnect  func(*Client)
 	packetHandler func(*Client, *protocol.Packet)
 	wg            sync.WaitGroup
 	quit          chan struct{}
@@ -28,6 +29,11 @@ func NewTCPServer(addr string, onConnect func(*Client), packetHandler func(*Clie
 		packetHandler: packetHandler,
 		quit:          make(chan struct{}),
 	}
+}
+
+// SetOnDisconnect sets a callback invoked when a client connection terminates.
+func (s *TCPServer) SetOnDisconnect(fn func(*Client)) {
+	s.onDisconnect = fn
 }
 
 // Start begins listening and serving connections.
@@ -63,6 +69,9 @@ func (s *TCPServer) acceptLoop() {
 		client, err := NewClient(conn, func(c *Client) {
 			s.clients.Delete(c.RemoteAddr())
 			log.Printf("[%s] client disconnected", c.RemoteAddr())
+			if s.onDisconnect != nil {
+				s.onDisconnect(c)
+			}
 		})
 		if err != nil {
 			log.Printf("[TCPServer] failed to initialize client crypto: %v", err)

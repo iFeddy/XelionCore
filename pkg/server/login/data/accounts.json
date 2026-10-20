@@ -1,0 +1,24 @@
+{
+  "next_id": 2,
+  "accounts": [
+    {
+      "id": 1,
+      "username": "admin",
+      "password": "admin",
+      "admin": 2,
+      "banned": false,
+      "t_user": {
+        "nUserNo": 1,
+        "sUserID": "admin",
+        "sUserPW": "admin",
+        "sUserName": "admin",
+        "bIsBlock": 0,
+        "bIsDelete": 0,
+        "nAuthID": 100,
+        "sUserIP": "",
+        "dCreateDate": "2026-10-19T21:33:53.391156-03:00",
+        "dLoginDate": "0001-01-01T00:00:00Z"
+      }
+    }
+  ]
+}
