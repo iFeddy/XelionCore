@@ -86,7 +86,16 @@ func (h *Handler) OnClientDisconnect(client *network.Client) {
 		if player.CurrentMap != nil {
 			player.CurrentMap.RemovePlayer(player)
 		}
-		_ = h.charRepo.UpdateCharacter(player.Char)
+
+		if player.Char != nil {
+			mapID := player.Char.TownName
+			if player.CurrentMap != nil && player.CurrentMap.MapID != "" {
+				mapID = player.CurrentMap.MapID
+			}
+			_ = h.charRepo.SaveCharLocation(player.Char.ID, mapID, player.Char.XPos, player.Char.YPos, player.Rotation)
+			_ = h.charRepo.SaveCharStats(player.Char.ID, int16(player.Char.CurHP), int16(player.Char.CurSP), player.StonesHP, player.StonesSP)
+			_ = h.charRepo.UpdateCharacter(player.Char)
+		}
 
 		// Persistir registro oficial de desconexión y tiempo jugado en tLogout (usp_Log_setLogout)
 		if h.accountRepo != nil && player.Char != nil {
@@ -262,14 +271,34 @@ func (h *Handler) sendInGameChunk(p *ZonePlayer) {
 	// struct PROTO_NC_CHAR_CLIENT_PASSIVE_CMD {
 	//     unsigned short number; // 2 bytes
 	// }
+	skills, _ := h.charRepo.GetCharacterSkills(p.Char.ID)
+	var activeSkills []*database.CharacterSkill
+	var passiveCount uint16
+	for _, sk := range skills {
+		activeSkills = append(activeSkills, sk)
+	}
+
 	passiveSkills := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_CLIENT_PASSIVE_CMD)
-	passiveSkills.WriteUint16(0) // number = 0
+	passiveSkills.WriteUint16(passiveCount)
 	_ = p.Client.SendPacket(passiveSkills)
 
 	// 8. PROTO_NC_CHAR_CLIENT_SKILL_CMD (0x103D):
 	// En el binario oficial Zone.exe (so_charskilldata), si el personaje no tiene
 	// skills aprendidas (nMaxNum == 0), el servidor oficial NO envía 0x103D.
-	// Si tuviera skills activas, se enviaría aquí.
+	// Si tuviera skills activas, se envía aquí.
+	if len(activeSkills) > 0 {
+		skillPkt := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_CLIENT_SKILL_CMD)
+		skillPkt.WriteByte(0)                          // restempow
+		skillPkt.WriteByte(0)                          // PartMark
+		skillPkt.WriteUint16(uint16(len(activeSkills))) // nMaxNum
+		skillPkt.WriteUint32(uint32(p.Char.ID))        // chrregnum
+		skillPkt.WriteUint16(uint16(len(activeSkills))) // number
+		for _, sk := range activeSkills {
+			skillPkt.WriteUint16(sk.SkillNo)
+			skillPkt.WriteByte(sk.SkillLevel)
+		}
+		_ = p.Client.SendPacket(skillPkt)
+	}
 
 	// 9. PROTO_NC_CHAR_CLIENT_GAME_CMD (0x1048, wire len = 6, payload = 4)
 	// struct PROTO_NC_CHAR_CLIENT_GAME_CMD {
@@ -289,23 +318,32 @@ func (h *Handler) sendInGameChunk(p *ZonePlayer) {
 	// }
 	// The 4 official boxes sent on login: 8 (Equip), 9 (Inventory), 12 (House), 15 (Emotions)
 	charItems, _ := h.charRepo.GetCharacterItems(p.Char.ID)
-	var invenItems []*database.Item
+	itemsByBox := make(map[uint8][]*database.Item)
 	for _, it := range charItems {
-		if it.StorageType == 9 {
-			invenItems = append(invenItems, it)
+		boxType := it.StorageType
+		if boxType == 0 {
+			boxType = 8
+		}
+		itemsByBox[boxType] = append(itemsByBox[boxType], it)
+		if boxType == 8 {
+			if p.Char.Equips == nil {
+				p.Char.Equips = make(map[byte]uint16)
+			}
+			p.Char.Equips[byte(it.Storage)] = it.ItemID
 		}
 	}
 
 	boxes := []uint8{8, 9, 12, 15}
 	for _, box := range boxes {
+		items := itemsByBox[box]
 		itemPkt := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_CLIENT_ITEM_CMD)
-		if box == 9 && len(invenItems) > 0 {
-			itemPkt.WriteByte(byte(len(invenItems))) // numofitem
-			itemPkt.WriteByte(9)                     // box 9
-			itemPkt.WriteByte(1)                     // flag = 1
-			for _, it := range invenItems {
+		if len(items) > 0 {
+			itemPkt.WriteByte(byte(len(items))) // numofitem
+			itemPkt.WriteByte(box)              // box
+			itemPkt.WriteByte(1)                // flag = 1
+			for _, it := range items {
 				itemPkt.WriteByte(8)                // datasize: 2 (location) + 2 (itemid) + 4 (amount) = 8
-				itemPkt.WriteByte(byte(it.Storage)) // Pos (slot 0..23)
+				itemPkt.WriteByte(byte(it.Storage)) // Pos (slot)
 				itemPkt.WriteByte(0x24)             // Type (0x24 = normal inventory item)
 				itemPkt.WriteUint16(it.ItemID)      // ItemID
 				amt := uint32(it.Flags)

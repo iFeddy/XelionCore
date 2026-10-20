@@ -250,6 +250,21 @@ type CharacterRepository interface {
 	GetCharacterOptions(charNo int) (*CharacterOptions, error)
 	SaveCharacterOption(charNo int, optType string, data []byte) error
 
+	// Official Zone item routines (tItem - p_Item_*)
+	CreateItem(item *Item) error
+	DeleteItem(itemKey int64) error
+	SetItemStorage(itemKey int64, storageType byte, storageSlot int16) error
+	ExchangeItemStorage(itemKey1 int64, storageType1 byte, storageSlot1 int16, itemKey2 int64, storageType2 byte, storageSlot2 int16) error
+	GetItemsByStorage(charNo int, storageType byte) ([]*Item, error)
+
+	// Official Zone character state & stats routines (tCharacter - p_Char_*)
+	AddCharMoney(charNo int, amount int64) error
+	SubCharMoney(charNo int, amount int64) (bool, error)
+	SaveCharLocation(charNo int, mapName string, x, y int, rotation byte) error
+	SaveCharStats(charNo int, hp, sp, hps, sps int16) error
+	SaveCharLevelExp(charNo int, level int16, exp int64) error
+	SaveCharFreeStats(charNo int, str, con, dex, intel, men, freePoints byte) error
+
 	// Official friend routines (tFriend - p_Friend_Get, p_Friend_Set, p_Friend_Del)
 	GetFriends(charNo int) ([]*FriendInfo, error)
 	AddFriend(charNo, friendCharNo int) error
@@ -602,6 +617,190 @@ func (r *MemoryCharacterRepository) SaveCharacterItem(item *Item) error {
 		return ErrCharacterNotFound
 	}
 	ch.Items = append(ch.Items, item)
+	r.save()
+	return nil
+}
+
+func (r *MemoryCharacterRepository) CreateItem(item *Item) error {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	ch, exists := r.characters[item.Owner]
+	if !exists {
+		return ErrCharacterNotFound
+	}
+	if item.ItemKey == 0 {
+		item.ItemKey = int64(time.Now().UnixNano())
+	}
+	if item.Date.IsZero() {
+		item.Date = time.Now()
+	}
+	ch.Items = append(ch.Items, item)
+	r.save()
+	return nil
+}
+
+func (r *MemoryCharacterRepository) DeleteItem(itemKey int64) error {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	for _, ch := range r.characters {
+		for i, it := range ch.Items {
+			if it.ItemKey == itemKey {
+				ch.Items = append(ch.Items[:i], ch.Items[i+1:]...)
+				r.save()
+				return nil
+			}
+		}
+	}
+	return nil
+}
+
+func (r *MemoryCharacterRepository) SetItemStorage(itemKey int64, storageType byte, storageSlot int16) error {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	for _, ch := range r.characters {
+		for _, it := range ch.Items {
+			if it.ItemKey == itemKey {
+				it.StorageType = storageType
+				it.Storage = storageSlot
+				r.save()
+				return nil
+			}
+		}
+	}
+	return nil
+}
+
+func (r *MemoryCharacterRepository) ExchangeItemStorage(itemKey1 int64, storageType1 byte, storageSlot1 int16, itemKey2 int64, storageType2 byte, storageSlot2 int16) error {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	var it1, it2 *Item
+	for _, ch := range r.characters {
+		for _, it := range ch.Items {
+			if it.ItemKey == itemKey1 {
+				it1 = it
+			}
+			if it.ItemKey == itemKey2 {
+				it2 = it
+			}
+		}
+	}
+	if it1 != nil {
+		it1.StorageType = storageType1
+		it1.Storage = storageSlot1
+	}
+	if it2 != nil {
+		it2.StorageType = storageType2
+		it2.Storage = storageSlot2
+	}
+	r.save()
+	return nil
+}
+
+func (r *MemoryCharacterRepository) GetItemsByStorage(charNo int, storageType byte) ([]*Item, error) {
+	r.mu.RLock()
+	defer r.mu.RUnlock()
+	ch, exists := r.characters[charNo]
+	if !exists {
+		return nil, ErrCharacterNotFound
+	}
+	var res []*Item
+	for _, it := range ch.Items {
+		if it.StorageType == storageType {
+			res = append(res, it)
+		}
+	}
+	return res, nil
+}
+
+func (r *MemoryCharacterRepository) AddCharMoney(charNo int, amount int64) error {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	ch, exists := r.characters[charNo]
+	if !exists {
+		return ErrCharacterNotFound
+	}
+	ch.TCharacterState.Money += amount
+	ch.Sync()
+	r.save()
+	return nil
+}
+
+func (r *MemoryCharacterRepository) SubCharMoney(charNo int, amount int64) (bool, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	ch, exists := r.characters[charNo]
+	if !exists {
+		return false, ErrCharacterNotFound
+	}
+	if ch.TCharacterState.Money < amount {
+		return false, nil
+	}
+	ch.TCharacterState.Money -= amount
+	ch.Sync()
+	r.save()
+	return true, nil
+}
+
+func (r *MemoryCharacterRepository) SaveCharLocation(charNo int, mapName string, x, y int, rotation byte) error {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	ch, exists := r.characters[charNo]
+	if !exists {
+		return ErrCharacterNotFound
+	}
+	ch.TownName = mapName
+	ch.XPos = x
+	ch.YPos = y
+	ch.TCharacterState.XPos = x
+	ch.TCharacterState.YPos = y
+	ch.TCharacterState.Rotation = rotation
+	ch.Sync()
+	r.save()
+	return nil
+}
+
+func (r *MemoryCharacterRepository) SaveCharStats(charNo int, hp, sp, hps, sps int16) error {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	ch, exists := r.characters[charNo]
+	if !exists {
+		return ErrCharacterNotFound
+	}
+	ch.CurHP = int(hp)
+	ch.CurSP = int(sp)
+	ch.TCharacterState.HP = int(hp)
+	ch.TCharacterState.SP = int(sp)
+	ch.TCharacterState.HPStones = hps
+	ch.TCharacterState.SPStones = sps
+	ch.Sync()
+	r.save()
+	return nil
+}
+
+func (r *MemoryCharacterRepository) SaveCharLevelExp(charNo int, level int16, exp int64) error {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	ch, exists := r.characters[charNo]
+	if !exists {
+		return ErrCharacterNotFound
+	}
+	ch.Level = byte(level)
+	ch.TCharacter.Level = byte(level)
+	ch.TCharacterState.Exp = exp
+	ch.Sync()
+	r.save()
+	return nil
+}
+
+func (r *MemoryCharacterRepository) SaveCharFreeStats(charNo int, str, con, dex, intel, men, freePoints byte) error {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	ch, exists := r.characters[charNo]
+	if !exists {
+		return ErrCharacterNotFound
+	}
+	ch.TCharacterState.Fame = int(freePoints)
+	ch.Sync()
 	r.save()
 	return nil
 }

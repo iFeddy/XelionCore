@@ -595,10 +595,10 @@ func (r *MySQLCharacterRepository) UpdateCharacter(ch *Character) error {
 	return nil
 }
 
-// getCharacterEquips obtiene el mapa de slots y IDs equipados (nStorageType = 0).
+// getCharacterEquips obtiene el mapa de slots y IDs equipados (nStorageType = 0 o 8).
 func (r *MySQLCharacterRepository) getCharacterEquips(charNo int) (map[byte]uint16, error) {
 	rows, err := r.db.Query(`
-		SELECT nStorage, nItemID FROM tItem WHERE nOwner = ? AND nStorageType = 0;
+		SELECT nStorage, nItemID FROM tItem WHERE nOwner = ? AND (nStorageType = 0 OR nStorageType = 8);
 	`, charNo)
 	if err != nil {
 		return nil, fmt.Errorf("error fetching equips for char %d: %w", charNo, err)
@@ -703,6 +703,180 @@ func (r *MySQLCharacterRepository) SaveCharacterItem(item *Item) error {
 	id, err := res.LastInsertId()
 	if err == nil {
 		item.ItemKey = id
+	}
+	return nil
+}
+
+// CreateItem inserta un nuevo ítem en tItem implementando con fidelidad p_Item_Create.
+func (r *MySQLCharacterRepository) CreateItem(item *Item) error {
+	var res sql.Result
+	var err error
+	if item.ItemKey > 0 {
+		res, err = r.db.Exec(`
+			INSERT INTO tItem (nItemKey, nOwner, nStorageType, nStorage, nItemID, nFlags, dDate)
+			VALUES (?, ?, ?, ?, ?, ?, NOW());
+		`, item.ItemKey, item.Owner, item.StorageType, item.Storage, item.ItemID, item.Flags)
+	} else {
+		res, err = r.db.Exec(`
+			INSERT INTO tItem (nOwner, nStorageType, nStorage, nItemID, nFlags, dDate)
+			VALUES (?, ?, ?, ?, ?, NOW());
+		`, item.Owner, item.StorageType, item.Storage, item.ItemID, item.Flags)
+	}
+	if err != nil {
+		return fmt.Errorf("error creating item for char %d: %w", item.Owner, err)
+	}
+	if item.ItemKey == 0 {
+		id, err := res.LastInsertId()
+		if err == nil {
+			item.ItemKey = id
+		}
+	}
+	return nil
+}
+
+// DeleteItem elimina un ítem de tItem implementando p_Item_Delete.
+func (r *MySQLCharacterRepository) DeleteItem(itemKey int64) error {
+	_, err := r.db.Exec(`DELETE FROM tItem WHERE nItemKey = ?;`, itemKey)
+	if err != nil {
+		return fmt.Errorf("error deleting item %d: %w", itemKey, err)
+	}
+	return nil
+}
+
+// SetItemStorage actualiza el tipo de almacenamiento y slot de un ítem (p_Item_SetStorage).
+func (r *MySQLCharacterRepository) SetItemStorage(itemKey int64, storageType byte, storageSlot int16) error {
+	_, err := r.db.Exec(`
+		UPDATE tItem SET nStorageType = ?, nStorage = ? WHERE nItemKey = ?;
+	`, storageType, storageSlot, itemKey)
+	if err != nil {
+		return fmt.Errorf("error setting item storage for item %d: %w", itemKey, err)
+	}
+	return nil
+}
+
+// ExchangeItemStorage intercambia los slots de dos ítems atómicamente (p_Item_ExchangeStorage).
+// Utiliza el slot de intercambio temporal oficial (nStorageType = 11).
+func (r *MySQLCharacterRepository) ExchangeItemStorage(itemKey1 int64, storageType1 byte, storageSlot1 int16, itemKey2 int64, storageType2 byte, storageSlot2 int16) error {
+	tx, err := r.db.Begin()
+	if err != nil {
+		return fmt.Errorf("error starting transaction for exchange: %w", err)
+	}
+	defer tx.Rollback()
+
+	// Paso 1: Mover item 1 a almacenamiento temporal 11
+	if _, err := tx.Exec(`UPDATE tItem SET nStorageType = 11 WHERE nItemKey = ?;`, itemKey1); err != nil {
+		return fmt.Errorf("exchange step 1 failed: %w", err)
+	}
+
+	// Paso 2: Mover item 2 a destino de item 2
+	if _, err := tx.Exec(`UPDATE tItem SET nStorageType = ?, nStorage = ? WHERE nItemKey = ?;`, storageType2, storageSlot2, itemKey2); err != nil {
+		return fmt.Errorf("exchange step 2 failed: %w", err)
+	}
+
+	// Paso 3: Mover item 1 a destino de item 1
+	if _, err := tx.Exec(`UPDATE tItem SET nStorageType = ?, nStorage = ? WHERE nItemKey = ?;`, storageType1, storageSlot1, itemKey1); err != nil {
+		return fmt.Errorf("exchange step 3 failed: %w", err)
+	}
+
+	return tx.Commit()
+}
+
+// GetItemsByStorage obtiene todos los ítems de un tipo de almacenamiento específico (p_Item_GetListType).
+func (r *MySQLCharacterRepository) GetItemsByStorage(charNo int, storageType byte) ([]*Item, error) {
+	rows, err := r.db.Query(`
+		SELECT nItemKey, nStorageType, nOwner, nStorage, nItemID, nFlags, dDate
+		FROM tItem
+		WHERE nOwner = ? AND nStorageType = ?
+		ORDER BY nStorage ASC;
+	`, charNo, storageType)
+	if err != nil {
+		return nil, fmt.Errorf("error querying items by storage for char %d: %w", charNo, err)
+	}
+	defer rows.Close()
+
+	var items []*Item
+	for rows.Next() {
+		it := &Item{}
+		if err := rows.Scan(&it.ItemKey, &it.StorageType, &it.Owner, &it.Storage, &it.ItemID, &it.Flags, &it.Date); err != nil {
+			return nil, fmt.Errorf("error scanning storage item: %w", err)
+		}
+		items = append(items, it)
+	}
+	return items, nil
+}
+
+// AddCharMoney añade dinero a un personaje implementando p_Char_MoneyAdd.
+func (r *MySQLCharacterRepository) AddCharMoney(charNo int, amount int64) error {
+	_, err := r.db.Exec(`UPDATE tCharacter SET nMoney = nMoney + ? WHERE nCharNo = ?;`, amount, charNo)
+	if err != nil {
+		return fmt.Errorf("error adding money to char %d: %w", charNo, err)
+	}
+	return nil
+}
+
+// SubCharMoney deduce dinero a un personaje si dispone de fondos suficientes (p_Char_MoneySub).
+func (r *MySQLCharacterRepository) SubCharMoney(charNo int, amount int64) (bool, error) {
+	res, err := r.db.Exec(`
+		UPDATE tCharacter SET nMoney = nMoney - ? WHERE nCharNo = ? AND nMoney >= ?;
+	`, amount, charNo, amount)
+	if err != nil {
+		return false, fmt.Errorf("error deducting money from char %d: %w", charNo, err)
+	}
+	affected, err := res.RowsAffected()
+	if err != nil {
+		return false, err
+	}
+	return affected > 0, nil
+}
+
+// SaveCharLocation guarda la posición y orientación de un personaje (p_Char_SaveLocation).
+func (r *MySQLCharacterRepository) SaveCharLocation(charNo int, mapName string, x, y int, rotation byte) error {
+	_, err := r.db.Exec(`
+		UPDATE tCharacter 
+		SET sLoginZone = ?, nLoginZoneX = ?, nLoginZoneY = ?, nLoginZoneD = ?
+		WHERE nCharNo = ?;
+	`, mapName, x, y, rotation, charNo)
+	if err != nil {
+		return fmt.Errorf("error saving location for char %d: %w", charNo, err)
+	}
+	return nil
+}
+
+// SaveCharStats guarda las estadísticas vitales de un personaje (p_Char_SaveStat).
+func (r *MySQLCharacterRepository) SaveCharStats(charNo int, hp, sp, hps, sps int16) error {
+	_, err := r.db.Exec(`
+		UPDATE tCharacter 
+		SET nHP = ?, nSP = ?, nHPS = ?, nSPS = ?
+		WHERE nCharNo = ?;
+	`, hp, sp, hps, sps, charNo)
+	if err != nil {
+		return fmt.Errorf("error saving stats for char %d: %w", charNo, err)
+	}
+	return nil
+}
+
+// SaveCharLevelExp actualiza nivel y experiencia de un personaje (p_Char_SetLevelExp).
+func (r *MySQLCharacterRepository) SaveCharLevelExp(charNo int, level int16, exp int64) error {
+	_, err := r.db.Exec(`
+		UPDATE tCharacter 
+		SET nLevel = ?, nExp = ?
+		WHERE nCharNo = ?;
+	`, level, exp, charNo)
+	if err != nil {
+		return fmt.Errorf("error saving level/exp for char %d: %w", charNo, err)
+	}
+	return nil
+}
+
+// SaveCharFreeStats actualiza la distribución de puntos de atributos (p_Char_StatPoint_Inc).
+func (r *MySQLCharacterRepository) SaveCharFreeStats(charNo int, str, con, dex, intel, men, freePoints byte) error {
+	_, err := r.db.Exec(`
+		UPDATE tCharacter 
+		SET nStrength = ?, nConstitute = ?, nDexterity = ?, nIntelligence = ?, nMentalPower = ?, nRedistributePoint = ?
+		WHERE nCharNo = ?;
+	`, str, con, dex, intel, men, freePoints, charNo)
+	if err != nil {
+		return fmt.Errorf("error saving free stats for char %d: %w", charNo, err)
 	}
 	return nil
 }

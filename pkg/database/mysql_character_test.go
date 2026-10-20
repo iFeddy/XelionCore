@@ -286,3 +286,159 @@ func TestMySQLCharacterRepository_StarterItemsAndShortcuts(t *testing.T) {
 		t.Fatalf("Character options game mismatch: got %+v", opts.Game)
 	}
 }
+
+func TestMySQLCharacterRepository_ZonePersistence(t *testing.T) {
+	db, repo := setupTestCharDB(t)
+	defer db.Close()
+
+	testUserNo := 1
+	testCharName := "ZonePersistenceKnight"
+
+	// Limpieza previa
+	_, _ = db.Exec("DELETE FROM tCharacter WHERE sID = ?", testCharName)
+
+	ch := &database.Character{
+		AccountID: testUserNo,
+		Name:      testCharName,
+		Slot:      5,
+		Job:       1,
+		Level:     1,
+		Male:      true,
+		TownName:  "RouN",
+		CurHP:     100,
+		CurSP:     50,
+	}
+
+	if err := repo.CreateCharacter(ch); err != nil {
+		t.Fatalf("Failed to create character: %v", err)
+	}
+	defer func() {
+		_, _ = db.Exec("DELETE FROM tCharacter WHERE nCharNo = ?", ch.ID)
+	}()
+
+	// 1. Test CreateItem & GetItemsByStorage
+	item1 := &database.Item{
+		StorageType: 9, // Inventory
+		Owner:       ch.ID,
+		Storage:     0,
+		ItemID:      1001,
+		Flags:       5,
+	}
+	if err := repo.CreateItem(item1); err != nil {
+		t.Fatalf("Failed to create item1: %v", err)
+	}
+	if item1.ItemKey == 0 {
+		t.Fatalf("Expected non-zero ItemKey")
+	}
+
+	item2 := &database.Item{
+		StorageType: 9,
+		Owner:       ch.ID,
+		Storage:     1,
+		ItemID:      1002,
+		Flags:       1,
+	}
+	if err := repo.CreateItem(item2); err != nil {
+		t.Fatalf("Failed to create item2: %v", err)
+	}
+
+	invenItems, err := repo.GetItemsByStorage(ch.ID, 9)
+	if err != nil {
+		t.Fatalf("Failed to get items by storage: %v", err)
+	}
+	if len(invenItems) != 2 {
+		t.Fatalf("Expected 2 inventory items, got %d", len(invenItems))
+	}
+
+	// 2. Test SetItemStorage (e.g. equip item to box 8 slot 1)
+	if err := repo.SetItemStorage(item1.ItemKey, 8, 1); err != nil {
+		t.Fatalf("Failed to set item storage: %v", err)
+	}
+	equipItems, err := repo.GetItemsByStorage(ch.ID, 8)
+	if err != nil || len(equipItems) != 1 || equipItems[0].Storage != 1 {
+		t.Fatalf("Expected 1 equip item in slot 1, got %+v (err=%v)", equipItems, err)
+	}
+
+	// 3. Test ExchangeItemStorage
+	// Move item1 back to box 9 slot 0, then exchange item1 (slot 0) and item2 (slot 1)
+	_ = repo.SetItemStorage(item1.ItemKey, 9, 0)
+	if err := repo.ExchangeItemStorage(item1.ItemKey, 9, 1, item2.ItemKey, 9, 0); err != nil {
+		t.Fatalf("Failed to exchange items: %v", err)
+	}
+	updatedInven, _ := repo.GetItemsByStorage(ch.ID, 9)
+	for _, it := range updatedInven {
+		if it.ItemKey == item1.ItemKey && it.Storage != 1 {
+			t.Fatalf("Expected item1 in slot 1, got %d", it.Storage)
+		}
+		if it.ItemKey == item2.ItemKey && it.Storage != 0 {
+			t.Fatalf("Expected item2 in slot 0, got %d", it.Storage)
+		}
+	}
+
+	// 4. Test DeleteItem
+	if err := repo.DeleteItem(item1.ItemKey); err != nil {
+		t.Fatalf("Failed to delete item: %v", err)
+	}
+	afterDelete, _ := repo.GetItemsByStorage(ch.ID, 9)
+	if len(afterDelete) != 1 || afterDelete[0].ItemKey != item2.ItemKey {
+		t.Fatalf("Expected only item2 remaining, got %d items", len(afterDelete))
+	}
+
+	// 5. Test AddCharMoney & SubCharMoney
+	if err := repo.AddCharMoney(ch.ID, 5000); err != nil {
+		t.Fatalf("Failed to add money: %v", err)
+	}
+	// Verify current money
+	chFetched, err := repo.GetCharacterByID(ch.ID)
+	if err != nil || chFetched.TCharacterState.Money != 5000 {
+		t.Fatalf("Expected 5000 money, got %d (err=%v)", chFetched.TCharacterState.Money, err)
+	}
+
+	// Overdraft deduction should be rejected
+	ok, err := repo.SubCharMoney(ch.ID, 10000)
+	if err != nil || ok {
+		t.Fatalf("Expected overdraft deduction to return ok=false, got ok=%v, err=%v", ok, err)
+	}
+
+	// Valid deduction
+	ok, err = repo.SubCharMoney(ch.ID, 2000)
+	if err != nil || !ok {
+		t.Fatalf("Expected successful deduction, got ok=%v, err=%v", ok, err)
+	}
+	chFetched2, _ := repo.GetCharacterByID(ch.ID)
+	if chFetched2.TCharacterState.Money != 3000 {
+		t.Fatalf("Expected 3000 money remaining, got %d", chFetched2.TCharacterState.Money)
+	}
+
+	// 6. Test SaveCharLocation
+	if err := repo.SaveCharLocation(ch.ID, "Eld", 1500, 2500, 0x88); err != nil {
+		t.Fatalf("Failed to save location: %v", err)
+	}
+	chLoc, _ := repo.GetCharacterByID(ch.ID)
+	if chLoc.TownName != "Eld" || chLoc.XPos != 1500 || chLoc.YPos != 2500 {
+		t.Fatalf("Expected location Eld (1500, 2500), got %s (%d, %d)", chLoc.TownName, chLoc.XPos, chLoc.YPos)
+	}
+
+	// 7. Test SaveCharStats
+	if err := repo.SaveCharStats(ch.ID, 250, 180, 15, 7); err != nil {
+		t.Fatalf("Failed to save stats: %v", err)
+	}
+	chStats, _ := repo.GetCharacterByID(ch.ID)
+	if chStats.CurHP != 250 || chStats.CurSP != 180 {
+		t.Fatalf("Expected HP=250 SP=180, got HP=%d SP=%d", chStats.CurHP, chStats.CurSP)
+	}
+
+	// 8. Test SaveCharLevelExp
+	if err := repo.SaveCharLevelExp(ch.ID, 10, 50000); err != nil {
+		t.Fatalf("Failed to save level exp: %v", err)
+	}
+	chLvl, _ := repo.GetCharacterByID(ch.ID)
+	if chLvl.Level != 10 || chLvl.TCharacterState.Exp != 50000 {
+		t.Fatalf("Expected Level 10, Exp 50000, got Lvl=%d Exp=%d", chLvl.Level, chLvl.TCharacterState.Exp)
+	}
+
+	// 9. Test SaveCharFreeStats
+	if err := repo.SaveCharFreeStats(ch.ID, 15, 12, 10, 5, 8, 3); err != nil {
+		t.Fatalf("Failed to save free stats: %v", err)
+	}
+}
