@@ -11,6 +11,7 @@ import (
 	"github.com/iFeddy/XelionCore/pkg/crypto"
 	"github.com/iFeddy/XelionCore/pkg/data/classparam"
 	"github.com/iFeddy/XelionCore/pkg/data/field"
+	"github.com/iFeddy/XelionCore/pkg/data/npc"
 	"github.com/iFeddy/XelionCore/pkg/data/shn"
 	"github.com/iFeddy/XelionCore/pkg/database"
 	"github.com/iFeddy/XelionCore/pkg/protocol"
@@ -480,5 +481,297 @@ func TestZoneServer_ReportsAndLogoutLog(t *testing.T) {
 		t.Errorf("Expected 0 active players after disconnect, got %d", activeAfter)
 	}
 	t.Logf("Desconexión limpia y actualización de CCU verificada")
+}
+
+func TestZoneServer_Phase1_NPCSpawnsAndGateWarps(t *testing.T) {
+	dataDir := filepath.Join("..", "..", "..", "data")
+	classDir := filepath.Join(dataDir, "World", "ClassParam")
+	mapDir := filepath.Join(dataDir, "World", "Map")
+	npcDir := filepath.Join(dataDir, "World", "NPC")
+
+	classStore, err := classparam.Load(classDir)
+	if err != nil {
+		t.Fatalf("failed to load classparam: %v", err)
+	}
+
+	fieldStore, err := field.Load(mapDir)
+	if err != nil {
+		t.Fatalf("failed to load field: %v", err)
+	}
+
+	npcStore, err := npc.Load(npcDir)
+	if err != nil {
+		t.Fatalf("failed to load npc: %v", err)
+	}
+
+	mobInfoSHN, err := shn.ReadFile(filepath.Join(dataDir, "MobInfo.shn"))
+	if err != nil {
+		t.Fatalf("failed to load MobInfo.shn: %v", err)
+	}
+
+	charRepo := database.NewMemoryCharacterRepositoryWithFile("")
+	transfers := database.NewTransferManager()
+
+	testChar := &database.Character{
+		ID:        99,
+		AccountID: 1,
+		Name:      "WarpHero",
+		Slot:      0,
+		Job:       1,
+		Level:     1,
+		TownName:  "RouN",
+		XPos:      6208,
+		YPos:      6405,
+		CurHP:     100,
+		CurSP:     50,
+	}
+	if err := charRepo.CreateCharacter(testChar); err != nil {
+		t.Fatalf("failed to create test char: %v", err)
+	}
+
+	cfg := &Config{
+		BindAddr: "127.0.0.1:19214",
+		Port:     19214,
+		IP:       "127.0.0.1",
+		MapID:    0,
+	}
+
+	srv := NewServer(cfg, charRepo, transfers, classStore, fieldStore, nil)
+	ds := &DataStore{
+		ClassStore: classStore,
+		FieldStore: fieldStore,
+		NPCStore:   npcStore,
+		MobInfoSHN: mobInfoSHN,
+	}
+	srv.SetDataStore(ds)
+
+	if err := srv.Start(); err != nil {
+		t.Fatalf("failed to start zone server: %v", err)
+	}
+	defer srv.Stop()
+
+	// Preparar transfer key
+	randomID := uint16(44556)
+	transfers.CreateZoneTransfer(1, "TestUser", testChar.Name, testChar.ID, randomID, 0, "127.0.0.1")
+
+	// Conectar cliente TCP
+	conn, err := net.DialTimeout("tcp", "127.0.0.1:19214", 2*time.Second)
+	if err != nil {
+		t.Fatalf("failed to connect to zone: %v", err)
+	}
+	defer conn.Close()
+
+	// Leer XOR key
+	xorPkt, err := readServerPacket(conn)
+	if err != nil {
+		t.Fatalf("failed to read XOR key: %v", err)
+	}
+	xorPos, _ := xorPkt.Reader.ReadInt16()
+	clientCrypto, err := crypto.NewNetCrypto(xorPos)
+	if err != nil {
+		t.Fatalf("failed to init crypto: %v", err)
+	}
+
+	// Enviar Login Req
+	transKeyPkt := protocol.NewPacketWriter(protocol.PROTO_NC_MAP_LOGIN_REQ)
+	transKeyPkt.WriteUint16(randomID)
+	transKeyPkt.WriteString(testChar.Name, 16)
+	if err := sendClientPacket(conn, transKeyPkt, clientCrypto); err != nil {
+		t.Fatalf("failed to send transfer key: %v", err)
+	}
+
+	// Consumir chunk inicial (0x1038, 0x1039, etc.)
+	var mapLoginAckReceived bool
+	for i := 0; i < 20; i++ {
+		p, err := readServerPacket(conn)
+		if err != nil {
+			t.Fatalf("failed to read chunk packet: %v", err)
+		}
+		if p.OpCode == protocol.PROTO_NC_CHAR_MAPLOGIN_ACK {
+			mapLoginAckReceived = true
+			break
+		}
+	}
+	if !mapLoginAckReceived {
+		t.Fatalf("Did not receive PROTO_NC_CHAR_MAPLOGIN_ACK in chunk")
+	}
+
+	// Enviar PROTO_NC_MAP_LOGINCOMPLETE_CMD (0x1803)
+	readyPkt := protocol.NewPacketWriter(protocol.PROTO_NC_MAP_LOGINCOMPLETE_CMD)
+	if err := sendClientPacket(conn, readyPkt, clientCrypto); err != nil {
+		t.Fatalf("failed to send ready pkt: %v", err)
+	}
+
+	// Leer paquetes tras LoginComplete: debe llegar PROTO_NC_BRIEFINFO_MOB_CMD (0x1C09)
+	var mobPkt *protocol.Packet
+	for i := 0; i < 10; i++ {
+		p, err := readServerPacket(conn)
+		if err != nil {
+			t.Fatalf("failed to read post-login packet: %v", err)
+		}
+		if p.OpCode == protocol.PROTO_NC_BRIEFINFO_MOB_CMD {
+			mobPkt = p
+			break
+		}
+	}
+
+	if mobPkt == nil {
+		t.Fatalf("Expected PROTO_NC_BRIEFINFO_MOB_CMD (0x1C09) containing map NPCs")
+	}
+
+	mobCount, err := mobPkt.Reader.ReadByte()
+	if err != nil || mobCount == 0 {
+		t.Fatalf("Expected at least 1 NPC in RouN, got %d (err=%v)", mobCount, err)
+	}
+	t.Logf("PROTO_NC_BRIEFINFO_MOB_CMD recibido con %d NPCs/Gates en RouN", mobCount)
+
+	// Validar que se enviaron los campos oficiales de 149 bytes de PROTO_NC_BRIEFINFO_REGENMOB_CMD
+	// y encontrar un NPC interactivo y un Gate
+	var (
+		foundSmithHandle uint16
+		foundSmithMobID  uint16
+		foundGateWhere   string
+	)
+
+	rouMap := srv.Handler().mapManager.GetOrCreateMap("RouN")
+	for _, n := range rouMap.GetAllNPCs() {
+		if n.Name == "RouSmithJames" {
+			foundSmithHandle = n.Handle
+			foundSmithMobID = n.MobID
+		}
+		if n.IsGate && n.GateToWhere == "GateRou1" {
+			foundGateWhere = n.GateToWhere
+		}
+	}
+
+	if foundSmithHandle == 0 || foundSmithMobID != 28 {
+		t.Fatalf("Expected RouSmithJames with MobID=28, got handle=%d, mobid=%d", foundSmithHandle, foundSmithMobID)
+	}
+	if foundGateWhere != "GateRou1" {
+		t.Fatalf("Expected GateRou1 on RouN")
+	}
+	t.Logf("NPC RouSmithJames verificado (Handle: %d, MobID: %d), GateRou1 verificado", foundSmithHandle, foundSmithMobID)
+
+	// 1. Probar clic en NPC (PROTO_NC_ACT_NPCCLICK_CMD, 0x200A)
+	clickPkt := protocol.NewPacketWriter(protocol.PROTO_NC_ACT_NPCCLICK_CMD)
+	clickPkt.WriteUint16(foundSmithHandle)
+	if err := sendClientPacket(conn, clickPkt, clientCrypto); err != nil {
+		t.Fatalf("failed to send NPC click: %v", err)
+	}
+
+	// Debe responder con PROTO_NC_ACT_NPCMENUOPEN_REQ (0x201C) con MobID=28
+	var openReqPkt *protocol.Packet
+	for i := 0; i < 5; i++ {
+		p, err := readServerPacket(conn)
+		if err != nil {
+			t.Fatalf("failed to read NPC click response: %v", err)
+		}
+		if p.OpCode == protocol.PROTO_NC_ACT_NPCMENUOPEN_REQ {
+			openReqPkt = p
+			break
+		}
+	}
+	if openReqPkt == nil {
+		t.Fatalf("Expected PROTO_NC_ACT_NPCMENUOPEN_REQ (0x201C)")
+	}
+	receivedMobID, _ := openReqPkt.Reader.ReadUint16()
+	if receivedMobID != 28 {
+		t.Fatalf("Expected NPCMENUOPEN_REQ with mobid 28, got %d", receivedMobID)
+	}
+	t.Logf("PROTO_NC_ACT_NPCMENUOPEN_REQ (0x201C) recibido exitosamente con MobID %d", receivedMobID)
+
+	// 2. Responder con PROTO_NC_ACT_NPCMENUOPEN_ACK (0x201D)
+	menuAckPkt := protocol.NewPacketWriter(protocol.PROTO_NC_ACT_NPCMENUOPEN_ACK)
+	menuAckPkt.WriteByte(0) // OK
+	if err := sendClientPacket(conn, menuAckPkt, clientCrypto); err != nil {
+		t.Fatalf("failed to send NPCMENUOPEN_ACK: %v", err)
+	}
+
+	// 3. Probar Warp mediante Gate (PROTO_NC_ACT_AUTO_WAY_FINDING_USE_GATE_REQ, 0x2070)
+	// Posicionar al jugador cerca de GateRou1 (6477, 10579)
+	player, ok := srv.Handler().getPlayer(srv.Handler().ActivePlayersSnapshot()[0].Client)
+	if !ok || player == nil {
+		t.Fatalf("Failed to retrieve ZonePlayer")
+	}
+	player.Char.XPos = 6477
+	player.Char.YPos = 10575
+
+	gateReq := protocol.NewPacketWriter(protocol.PROTO_NC_ACT_AUTO_WAY_FINDING_USE_GATE_REQ)
+	if err := sendClientPacket(conn, gateReq, clientCrypto); err != nil {
+		t.Fatalf("failed to send use gate request: %v", err)
+	}
+
+	// Debe responder con PROTO_NC_ACT_AUTO_WAY_FINDING_USE_GATE_ACK (0x2071)
+	var gateAckPkt *protocol.Packet
+	for i := 0; i < 10; i++ {
+		p, err := readServerPacket(conn)
+		if err != nil {
+			t.Fatalf("failed to read gate ack: %v", err)
+		}
+		if p.OpCode == protocol.PROTO_NC_ACT_AUTO_WAY_FINDING_USE_GATE_ACK {
+			gateAckPkt = p
+			break
+		}
+	}
+	if gateAckPkt == nil {
+		t.Fatalf("Expected PROTO_NC_ACT_AUTO_WAY_FINDING_USE_GATE_ACK (0x2071)")
+	}
+	gateErr, _ := gateAckPkt.Reader.ReadUint16()
+	if gateErr != 0 {
+		t.Fatalf("Expected gate ack error code 0, got %d", gateErr)
+	}
+
+	// Validar que el jugador fue teletransportado a RouCos02 (Sand Hill) según LinkTable.json
+	time.Sleep(50 * time.Millisecond)
+	if player.CurrentMap.MapID != "RouCos02" {
+		t.Fatalf("Expected player in map RouCos02, got %s", player.CurrentMap.MapID)
+	}
+	if player.Char.XPos != 17418 || player.Char.YPos != 13832 {
+		t.Fatalf("Expected position (17418, 13832), got (%d, %d)", player.Char.XPos, player.Char.YPos)
+	}
+	t.Logf("Warp por Gate exitoso a %s (%d, %d)", player.CurrentMap.MapID, player.Char.XPos, player.Char.YPos)
+
+	// Validar que se persistió la ubicación en base de datos
+	persistedChar, err := charRepo.GetCharacterByID(testChar.ID)
+	if err != nil || persistedChar == nil {
+		t.Fatalf("Failed to fetch persisted char %d: %v", testChar.ID, err)
+	}
+	if persistedChar.TownName != "RouCos02" || persistedChar.XPos != 17418 {
+		t.Fatalf("Expected persisted location RouCos02 (17418), got %s (%d)", persistedChar.TownName, persistedChar.XPos)
+	}
+	t.Logf("Persistencia de ubicación de Warp en base de datos validada")
+
+	// 4. Probar Multi Link Select (PROTO_NC_MAP_MULTY_LINK_SELECT_REQ, 0x181F)
+	// Teletransportar de regreso a RouN
+	multiPkt := protocol.NewPacketWriter(protocol.PROTO_NC_MAP_MULTY_LINK_SELECT_REQ)
+	multiPkt.WriteString("RouN", 12)
+	if err := sendClientPacket(conn, multiPkt, clientCrypto); err != nil {
+		t.Fatalf("failed to send multi link select: %v", err)
+	}
+
+	var multiAck *protocol.Packet
+	for i := 0; i < 15; i++ {
+		p, err := readServerPacket(conn)
+		if err != nil {
+			t.Fatalf("failed to read multi link ack: %v", err)
+		}
+		if p.OpCode == protocol.PROTO_NC_MAP_MULTY_LINK_SELECT_ACK {
+			multiAck = p
+			break
+		}
+	}
+	if multiAck == nil {
+		t.Fatalf("Expected PROTO_NC_MAP_MULTY_LINK_SELECT_ACK (0x1820)")
+	}
+	multiErr, _ := multiAck.Reader.ReadUint16()
+	if multiErr != 0 {
+		t.Fatalf("Expected multi link err=0, got %d", multiErr)
+	}
+
+	time.Sleep(50 * time.Millisecond)
+	if player.CurrentMap.MapID != "RouN" {
+		t.Fatalf("Expected player back in RouN, got %s", player.CurrentMap.MapID)
+	}
+	t.Logf("Multi link warp de regreso a RouN verificado exitosamente")
 }
 

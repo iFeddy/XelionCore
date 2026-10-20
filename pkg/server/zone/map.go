@@ -2,12 +2,31 @@ package zone
 
 import (
 	"log"
+	"math"
 	"strings"
 	"sync"
 
 	"github.com/iFeddy/XelionCore/pkg/data/field"
+	"github.com/iFeddy/XelionCore/pkg/data/npc"
+	"github.com/iFeddy/XelionCore/pkg/data/shn"
 	"github.com/iFeddy/XelionCore/pkg/protocol"
 )
+
+// ZoneNPC representa un NPC o Gate activo en una instancia de mapa según la definición oficial.
+type ZoneNPC struct {
+	Handle      uint16
+	MobID       uint16
+	Name        string
+	Map         string
+	X           int32
+	Y           int32
+	Direct      int16
+	Menu        uint8
+	Role        string
+	RoleArg     string
+	IsGate      bool
+	GateToWhere string
+}
 
 // ZoneMap manages the players and entities inside a single map instance.
 type ZoneMap struct {
@@ -20,6 +39,8 @@ type ZoneMap struct {
 	Height    int
 	nextObjID uint16
 	players   map[uint16]*ZonePlayer
+	npcs      map[uint16]*ZoneNPC
+	gates     []*ZoneNPC
 }
 
 // NewZoneMap creates a new map instance with real metadata.
@@ -31,6 +52,7 @@ func NewZoneMap(id uint16, mapID, name string) *ZoneMap {
 		ShortName: mapID,
 		nextObjID: 1,
 		players:   make(map[uint16]*ZonePlayer),
+		npcs:      make(map[uint16]*ZoneNPC),
 	}
 }
 
@@ -38,6 +60,8 @@ func NewZoneMap(id uint16, mapID, name string) *ZoneMap {
 type MapManager struct {
 	mu         sync.RWMutex
 	fieldStore *field.Store
+	npcStore   *npc.Store
+	mobMap     map[string]uint16 // InxName -> MobID
 	maps       map[string]*ZoneMap
 }
 
@@ -45,8 +69,87 @@ type MapManager struct {
 func NewMapManager(fieldStore *field.Store) *MapManager {
 	return &MapManager{
 		fieldStore: fieldStore,
+		mobMap:     make(map[string]uint16),
 		maps:       make(map[string]*ZoneMap),
 	}
+}
+
+// SetNPCStore configures the NPC store and builds the MobID mapping from MobInfo.shn.
+func (mm *MapManager) SetNPCStore(npcStore *npc.Store, mobInfoSHN *shn.File) {
+	mm.mu.Lock()
+	defer mm.mu.Unlock()
+
+	mm.npcStore = npcStore
+	if mobInfoSHN != nil {
+		for _, row := range mobInfoSHN.Rows {
+			name := strings.TrimSpace(row.GetString("InxName"))
+			id := row.GetUint16("ID")
+			if name != "" && id > 0 {
+				mm.mobMap[strings.ToLower(name)] = id
+			}
+		}
+		log.Printf("[Zone] Indexed %d monsters/NPCs from MobInfo.shn.", len(mm.mobMap))
+	}
+
+	for _, zMap := range mm.maps {
+		mm.loadMapNPCs(zMap)
+	}
+}
+
+func (mm *MapManager) resolveMobID(mobName string) uint16 {
+	k := strings.ToLower(strings.TrimSpace(mobName))
+	if id, ok := mm.mobMap[k]; ok {
+		return id
+	}
+	return 1
+}
+
+func (mm *MapManager) loadMapNPCs(zMap *ZoneMap) {
+	if mm.npcStore == nil {
+		return
+	}
+	zMap.mu.Lock()
+	defer zMap.mu.Unlock()
+
+	npcs := mm.npcStore.GetNPCs(zMap.MapID, true)
+	if len(npcs) == 0 {
+		return
+	}
+
+	zMap.npcs = make(map[uint16]*ZoneNPC)
+	zMap.gates = nil
+
+	for _, n := range npcs {
+		mobID := mm.resolveMobID(n.MobName)
+		handle := zMap.nextObjID
+		zMap.nextObjID++
+
+		isGate := n.Role == "Gate" || n.Role == "IDGate" || strings.Contains(strings.ToLower(n.MobName), "gate")
+		gateToWhere := ""
+		if isGate {
+			gateToWhere = n.RoleArg
+		}
+
+		zNPC := &ZoneNPC{
+			Handle:      handle,
+			MobID:       mobID,
+			Name:        n.MobName,
+			Map:         zMap.MapID,
+			X:           n.X,
+			Y:           n.Y,
+			Direct:      n.Direct,
+			Menu:        n.Menu,
+			Role:        n.Role,
+			RoleArg:     n.RoleArg,
+			IsGate:      isGate,
+			GateToWhere: gateToWhere,
+		}
+		zMap.npcs[handle] = zNPC
+		if isGate {
+			zMap.gates = append(zMap.gates, zNPC)
+		}
+	}
+	log.Printf("[Zone][Map %s] Loaded %d NPCs (%d gates) into world.", zMap.MapID, len(zMap.npcs), len(zMap.gates))
 }
 
 // GetOrCreateMap retrieves an existing active map or instantiates one from field definitions.
@@ -90,10 +193,13 @@ func (mm *MapManager) GetOrCreateMap(mapID string) *ZoneMap {
 		Height:    height,
 		nextObjID: 1,
 		players:   make(map[uint16]*ZonePlayer),
+		npcs:      make(map[uint16]*ZoneNPC),
 	}
 	mm.maps[key] = zMap
 	log.Printf("[Zone] Initialized dynamic map '%s' (Serial: %d, Name: '%s', Size: %dx%d)",
 		normID, serial, name, width, height)
+
+	mm.loadMapNPCs(zMap)
 	return zMap
 }
 
@@ -144,6 +250,101 @@ func (m *ZoneMap) AddPlayer(p *ZonePlayer) {
 	spawnSelf := protocol.NewPacketWriter(protocol.PROTO_NC_BRIEFINFO_LOGINCHARACTER_CMD)
 	p.WriteCharacterDisplay(spawnSelf)
 	m.Broadcast(spawnSelf, p.MapObjectID)
+
+	// 3. Send all NPCs and Gates on the map (PROTO_NC_BRIEFINFO_MOB_CMD, 0x1C09)
+	m.SendNPCs(p)
+}
+
+// SendNPCs transmits all map NPCs and Gates to a player using official PROTO_NC_BRIEFINFO_MOB_CMD (0x1C09).
+func (m *ZoneMap) SendNPCs(p *ZonePlayer) {
+	m.mu.RLock()
+	defer m.mu.RUnlock()
+
+	if len(m.npcs) == 0 {
+		return
+	}
+
+	chunkSize := 100
+	npcList := make([]*ZoneNPC, 0, len(m.npcs))
+	for _, npc := range m.npcs {
+		npcList = append(npcList, npc)
+	}
+
+	for i := 0; i < len(npcList); i += chunkSize {
+		end := i + chunkSize
+		if end > len(npcList) {
+			end = len(npcList)
+		}
+		chunk := npcList[i:end]
+
+		pw := protocol.NewPacketWriter(protocol.PROTO_NC_BRIEFINFO_MOB_CMD)
+		pw.WriteByte(byte(len(chunk))) // mobnum (1 byte)
+		for _, npc := range chunk {
+			pw.WriteUint16(npc.Handle)     // 0x00: handle (2 bytes)
+			pw.WriteByte(1)                // 0x02: mode (1 byte, 1=idle/normal)
+			pw.WriteUint16(npc.MobID)      // 0x03: mobid (2 bytes)
+			pw.WriteInt32(npc.X)           // 0x05: coord.x (4 bytes)
+			pw.WriteInt32(npc.Y)           // 0x09: coord.y (4 bytes)
+			pw.WriteByte(byte(npc.Direct)) // 0x0D: coord.dir (1 byte)
+			if npc.IsGate {
+				pw.WriteByte(1)                     // 0x0E: flagstate = 1 (gate)
+				pw.WriteString(npc.GateToWhere, 12) // 0x0F: gate2where (12 bytes)
+				pw.Fill(87, 0)                      // 0x1B: remaining of 99 bytes flag
+			} else {
+				pw.WriteByte(0) // 0x0E: flagstate = 0
+				pw.Fill(99, 0)  // 0x0F: abstatebit (99 bytes)
+			}
+			pw.WriteString("", 32) // 0x72: sAnimation (32 bytes)
+			pw.WriteByte(0)        // 0x92: nAnimationLevel (1 byte)
+			pw.WriteByte(0)        // 0x93: nKQTeamType (1 byte)
+			pw.WriteByte(0)        // 0x94: bRegenAni (1 byte)
+		}
+		_ = p.Client.SendPacket(pw)
+	}
+}
+
+// GetNPC retrieves an active NPC on this map by its handle.
+func (m *ZoneMap) GetNPC(handle uint16) (*ZoneNPC, bool) {
+	m.mu.RLock()
+	defer m.mu.RUnlock()
+	npc, ok := m.npcs[handle]
+	return npc, ok
+}
+
+// GetAllNPCs returns a snapshot of all active NPCs on this map.
+func (m *ZoneMap) GetAllNPCs() []*ZoneNPC {
+	m.mu.RLock()
+	defer m.mu.RUnlock()
+	list := make([]*ZoneNPC, 0, len(m.npcs))
+	for _, n := range m.npcs {
+		list = append(list, n)
+	}
+	return list
+}
+
+// GetGates returns all gate NPCs configured on this map.
+func (m *ZoneMap) GetGates() []*ZoneNPC {
+	m.mu.RLock()
+	defer m.mu.RUnlock()
+	list := make([]*ZoneNPC, len(m.gates))
+	copy(list, m.gates)
+	return list
+}
+
+// FindGateNear searches for a gate within maxDist of the specified coordinates.
+func (m *ZoneMap) FindGateNear(x, y int, maxDist float64) (*ZoneNPC, bool) {
+	m.mu.RLock()
+	defer m.mu.RUnlock()
+
+	for _, g := range m.gates {
+		dx := float64(int(g.X) - x)
+		dy := float64(int(g.Y) - y)
+		dist := math.Sqrt(dx*dx + dy*dy)
+		if dist <= maxDist {
+			return g, true
+		}
+	}
+	return nil, false
 }
 
 // RemovePlayer removes a player from the map and informs others.

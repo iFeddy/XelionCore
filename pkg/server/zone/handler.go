@@ -9,6 +9,7 @@ import (
 	"github.com/iFeddy/XelionCore/pkg/data/classparam"
 	"github.com/iFeddy/XelionCore/pkg/data/field"
 	"github.com/iFeddy/XelionCore/pkg/data/item"
+	"github.com/iFeddy/XelionCore/pkg/data/npc"
 	"github.com/iFeddy/XelionCore/pkg/data/shn"
 	"github.com/iFeddy/XelionCore/pkg/database"
 	"github.com/iFeddy/XelionCore/pkg/network"
@@ -24,6 +25,8 @@ type Handler struct {
 	dataStore   *DataStore
 	classStore  *classparam.Store
 	fieldStore  *field.Store
+	npcStore    *npc.Store
+	mobInfoSHN  *shn.File
 	chkEngine   *shn.ChecksumEngine
 	itemStore   *item.Store
 	players     map[*network.Client]*ZonePlayer
@@ -80,6 +83,22 @@ func (h *Handler) HandlePacket(client *network.Client, pkt *protocol.Packet) {
 		h.handleReportGet(client, pkt)
 	case protocol.PROTO_NC_ACT_ENDOFTRADE_CMD:
 		// 0x200B (sp_NC_ACT_ENDOFTRADE_CMD en Zone.pdb): si el jugador no está en un trade activo, se ignora silenciosamente.
+	case protocol.PROTO_NC_ACT_NPCCLICK_CMD:
+		h.handleNPCClick(client, pkt)
+	case protocol.PROTO_NC_ACT_NPCMENUOPEN_ACK:
+		h.handleNPCMenuOpenAck(client, pkt)
+	case protocol.PROTO_NC_ACT_NPC_ACTION_CMD:
+		h.handleNPCActionCmd(client, pkt)
+	case protocol.PROTO_NC_ACT_NPC_MENU_CMD:
+		h.handleNPCMenuCmd(client, pkt)
+	case protocol.PROTO_NC_ACT_AUTO_WAY_FINDING_USE_GATE_REQ:
+		h.handleUseGate(client, pkt)
+	case protocol.PROTO_NC_MAP_MULTY_LINK_SELECT_REQ:
+		h.handleMultyLinkSelect(client, pkt)
+	case protocol.PROTO_NC_MAP_TOWNPORTAL_REQ:
+		h.handleTownPortal(client, pkt)
+	case protocol.PROTO_NC_MAP_WING_FLY_REQ:
+		h.handleWingFly(client, pkt)
 	case protocol.PROTO_NC_ITEM_REWARDINVENOPEN_REQ:
 		h.handleRewardInvenOpen(client, pkt)
 	case protocol.PROTO_NC_ITEM_CHARGEDINVENOPEN_REQ:
@@ -501,6 +520,13 @@ func (h *Handler) handleMoveRun(client *network.Client, pkt *protocol.Packet) {
 	}
 
 	player.CurrentMap.MovePlayerCmd(player, int(fromX), int(fromY), int(toX), int(toY), false)
+
+	// Verificar activación de Gate si el jugador corrió hacia el portal
+	if time.Since(player.LastWarpTime) >= 3*time.Second {
+		if gate, found := player.CurrentMap.FindGateNear(int(toX), int(toY), 180.0); found && gate.GateToWhere != "" {
+			h.triggerGateWarp(player, gate.GateToWhere)
+		}
+	}
 }
 
 func (h *Handler) handleStop(client *network.Client, pkt *protocol.Packet) {
@@ -516,6 +542,13 @@ func (h *Handler) handleStop(client *network.Client, pkt *protocol.Packet) {
 	newY, _ := pkt.Reader.ReadInt32()
 
 	player.CurrentMap.StopPlayer(player, int(newX), int(newY))
+
+	// Verificar si el jugador pisó la zona de activación de un portal/gate
+	if time.Since(player.LastWarpTime) >= 3*time.Second {
+		if gate, found := player.CurrentMap.FindGateNear(int(newX), int(newY), 180.0); found && gate.GateToWhere != "" {
+			h.triggerGateWarp(player, gate.GateToWhere)
+		}
+	}
 }
 
 func (h *Handler) handleJump(client *network.Client, pkt *protocol.Packet) {
@@ -866,5 +899,212 @@ func (h *Handler) SetDataStore(ds *DataStore) {
 		if ds.ChkEngine != nil {
 			h.chkEngine = ds.ChkEngine
 		}
+		if ds.NPCStore != nil {
+			h.npcStore = ds.NPCStore
+		}
+		if ds.MobInfoSHN != nil {
+			h.mobInfoSHN = ds.MobInfoSHN
+		}
+		h.mapManager.SetNPCStore(ds.NPCStore, ds.MobInfoSHN)
 	}
+}
+
+// handleNPCClick procesa 0x200A (PROTO_NC_ACT_NPCCLICK_CMD -> sp_NC_ACT_NPCCLICK_CMD en Zone.pdb).
+func (h *Handler) handleNPCClick(client *network.Client, pkt *protocol.Packet) {
+	player, ok := h.getPlayer(client)
+	if !ok || player == nil || player.CurrentMap == nil {
+		return
+	}
+
+	npcHandle, err := pkt.Reader.ReadUint16()
+	if err != nil {
+		return
+	}
+
+	npc, found := player.CurrentMap.GetNPC(npcHandle)
+	if !found || npc == nil {
+		log.Printf("[Zone][%s] Clicked unknown NPC handle: %d", client.RemoteAddr(), npcHandle)
+		return
+	}
+
+	log.Printf("[Zone][%s] Player '%s' clicked NPC '%s' (Handle: %d, MobID: %d, Role: %s, RoleArg: %s)",
+		client.RemoteAddr(), player.Char.Name, npc.Name, npc.Handle, npc.MobID, npc.Role, npc.RoleArg)
+
+	// Si es un Gate / Portal, ejecutar la transición
+	if npc.IsGate && npc.GateToWhere != "" {
+		h.triggerGateWarp(player, npc.GateToWhere)
+		return
+	}
+
+	// PROTO_NC_ACT_NPCMENUOPEN_REQ (0x201C, wire len = 4, payload = 2)
+	// struct PROTO_NC_ACT_NPCMENUOPEN_REQ { unsigned short mobid; };
+	openReq := protocol.NewPacketWriter(protocol.PROTO_NC_ACT_NPCMENUOPEN_REQ)
+	openReq.WriteUint16(npc.MobID)
+	_ = client.SendPacket(openReq)
+}
+
+// handleNPCMenuOpenAck procesa 0x201D (PROTO_NC_ACT_NPCMENUOPEN_ACK -> sp_NC_ACT_NPCMENUOPEN_ACK en Zone.pdb).
+func (h *Handler) handleNPCMenuOpenAck(client *network.Client, pkt *protocol.Packet) {
+	player, ok := h.getPlayer(client)
+	if !ok || player == nil {
+		return
+	}
+	ack, _ := pkt.Reader.ReadByte()
+	log.Printf("[Zone][%s] Player '%s' opened NPC menu (Ack: %d)",
+		client.RemoteAddr(), player.Char.Name, ack)
+}
+
+// handleNPCActionCmd procesa 0x2072 (PROTO_NC_ACT_NPC_ACTION_CMD -> sp_NC_ACT_NPC_ACTION_CMD en Zone.pdb).
+func (h *Handler) handleNPCActionCmd(client *network.Client, pkt *protocol.Packet) {
+	player, ok := h.getPlayer(client)
+	if !ok || player == nil {
+		return
+	}
+	nType, _ := pkt.Reader.ReadByte()
+	nNPCHandle, _ := pkt.Reader.ReadUint16()
+	nECode, _ := pkt.Reader.ReadUint32()
+	log.Printf("[Zone][%s] NPC action command received: Type=%d, NPCHandle=%d, ECode=%d",
+		client.RemoteAddr(), nType, nNPCHandle, nECode)
+}
+
+// handleNPCMenuCmd procesa 0x2073 (PROTO_NC_ACT_NPC_MENU_CMD -> sp_NC_ACT_NPC_MENU_CMD en Zone.pdb).
+func (h *Handler) handleNPCMenuCmd(client *network.Client, pkt *protocol.Packet) {
+	player, ok := h.getPlayer(client)
+	if !ok || player == nil {
+		return
+	}
+	ack, _ := pkt.Reader.ReadByte()
+	log.Printf("[Zone][%s] NPC menu response received: Ack=%d", client.RemoteAddr(), ack)
+}
+
+// handleUseGate procesa 0x2070 (PROTO_NC_ACT_AUTO_WAY_FINDING_USE_GATE_REQ -> sp_NC_ACT_AUTO_WAY_FINDING_USE_GATE_REQ en Zone.pdb).
+func (h *Handler) handleUseGate(client *network.Client, pkt *protocol.Packet) {
+	player, ok := h.getPlayer(client)
+	if !ok || player == nil || player.CurrentMap == nil {
+		return
+	}
+
+	// PROTO_NC_ACT_AUTO_WAY_FINDING_USE_GATE_ACK (0x2071, nError: 0)
+	ack := protocol.NewPacketWriter(protocol.PROTO_NC_ACT_AUTO_WAY_FINDING_USE_GATE_ACK)
+	ack.WriteUint16(0) // OK
+	_ = client.SendPacket(ack)
+
+	// Buscar el gate más cercano
+	gate, found := player.CurrentMap.FindGateNear(player.Char.XPos, player.Char.YPos, 350.0)
+	if found && gate != nil && gate.GateToWhere != "" {
+		h.triggerGateWarp(player, gate.GateToWhere)
+	}
+}
+
+// triggerGateWarp consulta LinkTable.json y ejecuta la teletransportación oficial entre mapas.
+func (h *Handler) triggerGateWarp(player *ZonePlayer, gateArg string) {
+	if player == nil || player.Client == nil || h.dataStore == nil || h.dataStore.NPCStore == nil {
+		return
+	}
+
+	if time.Since(player.LastWarpTime) < 3*time.Second {
+		return
+	}
+
+	link, found := h.dataStore.NPCStore.GetLinkByArg(gateArg)
+	if !found {
+		log.Printf("[Zone][%s] Gate '%s' not found in LinkTable", player.Client.RemoteAddr(), gateArg)
+		return
+	}
+
+	log.Printf("[Zone][%s] Gate '%s' activated -> Warping to %s (%d, %d, Dir: %d)",
+		player.Client.RemoteAddr(), gateArg, link.MapServer, link.X, link.Y, link.Direct)
+
+	h.WarpPlayer(player, link.MapServer, int(link.X), int(link.Y), byte(link.Direct))
+}
+
+// WarpPlayer traslada al jugador entre mapas oficiales, actualizando mapas, coordenadas y persistencia.
+func (h *Handler) WarpPlayer(player *ZonePlayer, targetMapID string, x, y int, rotation byte) {
+	if player == nil || player.Client == nil {
+		return
+	}
+
+	targetMapID = strings.TrimSpace(targetMapID)
+	if targetMapID == "" {
+		targetMapID = "RouN"
+	}
+
+	oldMap := player.CurrentMap
+	if oldMap != nil {
+		oldMap.RemovePlayer(player)
+	}
+
+	newMap := h.mapManager.GetOrCreateMap(targetMapID)
+	player.CurrentMap = newMap
+	player.Char.TownName = newMap.MapID
+	player.Char.XPos = x
+	player.Char.YPos = y
+	player.Rotation = rotation
+	player.LastWarpTime = time.Now()
+
+	_ = h.charRepo.SaveCharLocation(player.Char.ID, newMap.MapID, x, y, rotation)
+
+	log.Printf("[Zone][%s] Player '%s' entering new map '%s' (%d, %d, Dir: %d)",
+		player.Client.RemoteAddr(), player.Char.Name, newMap.MapID, x, y, rotation)
+
+	newMap.AssignObjectID(player)
+	h.sendInGameChunk(player)
+}
+
+// handleMultyLinkSelect procesa 0x181F (PROTO_NC_MAP_MULTY_LINK_SELECT_REQ -> sp_NC_MAP_MULTY_LINK_SELECT_REQ en Zone.pdb).
+func (h *Handler) handleMultyLinkSelect(client *network.Client, pkt *protocol.Packet) {
+	player, ok := h.getPlayer(client)
+	if !ok || player == nil {
+		return
+	}
+
+	linkMapName, err := pkt.Reader.ReadString(12)
+	if err != nil {
+		return
+	}
+	destMap := strings.TrimRight(linkMapName, "\x00")
+
+	// PROTO_NC_MAP_MULTY_LINK_SELECT_ACK (0x1820, wire len = 4, payload = 2)
+	ack := protocol.NewPacketWriter(protocol.PROTO_NC_MAP_MULTY_LINK_SELECT_ACK)
+	ack.WriteUint16(0) // OK
+	_ = client.SendPacket(ack)
+
+	spawnX := 6208
+	spawnY := 6405
+	if h.fieldStore != nil {
+		if f, ok := h.fieldStore.GetField(destMap); ok && f != nil && len(f.Respawn.Spots) > 0 {
+			spawnX = f.Respawn.Spots[0].X
+			spawnY = f.Respawn.Spots[0].Y
+		}
+	}
+
+	h.WarpPlayer(player, destMap, spawnX, spawnY, 0x55)
+}
+
+// handleTownPortal procesa 0x181A (PROTO_NC_MAP_TOWNPORTAL_REQ -> sp_NC_MAP_TOWNPORTAL_REQ en Zone.pdb).
+func (h *Handler) handleTownPortal(client *network.Client, pkt *protocol.Packet) {
+	player, ok := h.getPlayer(client)
+	if !ok || player == nil {
+		return
+	}
+
+	portalIndex, _ := pkt.Reader.ReadByte()
+	log.Printf("[Zone][%s] Town portal request (Index: %d) from '%s'",
+		client.RemoteAddr(), portalIndex, player.Char.Name)
+
+	h.WarpPlayer(player, "RouN", 6208, 6405, 0x55)
+}
+
+// handleWingFly procesa 0x1816 (PROTO_NC_MAP_WING_FLY_REQ -> sp_NC_MAP_WING_FLY_REQ en Zone.pdb).
+func (h *Handler) handleWingFly(client *network.Client, pkt *protocol.Packet) {
+	player, ok := h.getPlayer(client)
+	if !ok || player == nil {
+		return
+	}
+
+	where, _ := pkt.Reader.ReadByte()
+	log.Printf("[Zone][%s] Wing fly request (Where: %d) from '%s'",
+		client.RemoteAddr(), where, player.Char.Name)
+
+	h.WarpPlayer(player, "RouN", 6208, 6405, 0x55)
 }

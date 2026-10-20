@@ -73,8 +73,9 @@ type ZonePlayer struct {
 	Dex         byte
 	Int         byte
 	Spr         byte
-	LevelParam  classparam.LevelParam
-	LoginTime   time.Time
+	LevelParam   classparam.LevelParam
+	LoginTime    time.Time
+	LastWarpTime time.Time
 }
 
 // NewZonePlayer inicializa un ZonePlayer cargando sus stats oficiales desde ClassParam.
