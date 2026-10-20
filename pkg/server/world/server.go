@@ -55,6 +55,7 @@ func NewServer(
 			handler.partyMgr.UnregisterOnline(c.CharacterID)
 			handler.friendMgr.BroadcastLogout(c.CharacterID, c.Username)
 			handler.guildMgr.UnregisterOnline(c.CharacterID)
+			handler.kqMgr.UnregisterOnline(c.CharacterID)
 		}
 	})
 	return s

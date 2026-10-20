@@ -19,6 +19,7 @@ type Handler struct {
 	partyMgr  *PartyManager
 	friendMgr *FriendManager
 	guildMgr  *GuildManager
+	kqMgr     *KQManager
 	zoneIP    string
 	zonePort  uint16
 }
@@ -40,6 +41,12 @@ func NewHandler(
 	pm := NewPartyManager()
 	fm := NewFriendManager(charRepo, pm)
 	gm := NewGuildManager(charRepo)
+	var km *KQManager
+	if dataStore != nil {
+		km = NewKQManager(dataStore.KingdomQuest)
+	} else {
+		km = NewKQManager(nil)
+	}
 	return &Handler{
 		charRepo:  charRepo,
 		transfers: transfers,
@@ -47,6 +54,7 @@ func NewHandler(
 		partyMgr:  pm,
 		friendMgr: fm,
 		guildMgr:  gm,
+		kqMgr:     km,
 		zoneIP:    zoneIP,
 		zonePort:  zonePort,
 	}
@@ -229,6 +237,36 @@ func (h *Handler) HandlePacket(client *network.Client, pkt *protocol.Packet) {
 		lenByte, _ := pkt.Reader.ReadByte()
 		msgBytes, _ := pkt.Reader.ReadBytes(int(lenByte))
 		h.guildMgr.HandleAcademyChat(client, string(msgBytes))
+
+	// Subsistema Oficial de Kingdom Quests (KQ - Dept: 22)
+	case protocol.PROTO_NC_KQ_LIST_REQ:
+		h.kqMgr.HandleList(client)
+
+	case protocol.PROTO_NC_KQ_STATUS_REQ:
+		handle, _ := pkt.Reader.ReadUint32()
+		h.kqMgr.HandleStatus(client, handle)
+
+	case protocol.PROTO_NC_KQ_JOIN_REQ:
+		handle, _ := pkt.Reader.ReadUint32()
+		var level, class byte = 1, 1
+		ch, err := h.charRepo.GetCharacterByID(client.CharacterID)
+		if err == nil && ch != nil {
+			level = ch.Level
+			class = ch.Job
+		}
+		h.kqMgr.HandleJoin(client, handle, level, class)
+
+	case protocol.PROTO_NC_KQ_JOIN_CANCEL_REQ:
+		handle, _ := pkt.Reader.ReadUint32()
+		h.kqMgr.HandleJoinCancel(client, handle)
+
+	case protocol.PROTO_NC_KQ_JOIN_LIST_REQ:
+		handle, _ := pkt.Reader.ReadUint32()
+		h.kqMgr.HandleJoinList(client, handle)
+
+	case protocol.PROTO_NC_KQ_TEAM_SELECT_REQ:
+		teamType, _ := pkt.Reader.ReadByte()
+		h.kqMgr.HandleTeamSelect(client, teamType)
 
 	default:
 		log.Printf("[World][%s] Unhandled OpCode: 0x%04X (Dept=%d, Cmd=%d)",
@@ -726,26 +764,20 @@ func (h *Handler) handleGotIngame(client *network.Client, pkt *protocol.Packet) 
 	log.Printf("[World][%s] Player '%s' entering in-game zone (0x%04X). Dispatching official in-game ACKs...",
 		client.RemoteAddr(), client.Username, pkt.OpCode)
 
-	// 1. Packet PROTO_NC_KQ_LIST_TIME_ACK (0x581C) con timestamp Unix dinámico del servidor
-	p1 := protocol.NewPacketWriter(protocol.PROTO_NC_KQ_LIST_TIME_ACK)
-	p1.WriteUint32(uint32(time.Now().Unix()))
-	_ = client.SendPacket(p1)
+	// 1. Registrar en KQManager y despachar reloj y lista oficial de Kingdom Quests
+	h.kqMgr.RegisterOnline(client, client.CharacterID)
+	h.kqMgr.HandleList(client)
 
-	// 2. Packet PROTO_NC_KQ_LIST_COUNT_ACK (0x581D) - 0 Kingdom Quests activas iniciales
-	p2 := protocol.NewPacketWriter(protocol.PROTO_NC_KQ_LIST_COUNT_ACK)
-	p2.WriteInt16(0)
-	_ = client.SendPacket(p2)
-
-	// 3. Despachar lista oficial de amigos del jugador desde tFriend (0x5407)
+	// 2. Despachar lista oficial de amigos del jugador desde tFriend (0x5407)
 	h.friendMgr.SendFriendList(client)
 	h.friendMgr.BroadcastLogin(client, client.Username, "RouN")
 
-	// 4. Registrar en GuildManager y enviar información de gremio si pertenece a uno
+	// 3. Registrar en GuildManager y enviar información de gremio si pertenece a uno
 	h.guildMgr.RegisterOnline(client, client.CharacterID, client.Username)
 	h.guildMgr.HandleMyGuildInfo(client)
 	h.guildMgr.HandleMemberList(client)
 
-	// 5. Packet PROTO_NC_MISC_TIME_SYNC_ACK (0x0845 / Dept:2, Cmd:69) - Sincronización oficial del reloj
+	// 4. Packet PROTO_NC_MISC_TIME_SYNC_ACK (0x0845 / Dept:2, Cmd:69) - Sincronización oficial del reloj
 	p4 := protocol.NewPacketWriter(protocol.PROTO_NC_MISC_TIME_SYNC_ACK)
 	now := time.Now()
 	millis := uint32(now.Hour()*3600000 + now.Minute()*60000 + now.Second()*1000 + now.Nanosecond()/1000000)
