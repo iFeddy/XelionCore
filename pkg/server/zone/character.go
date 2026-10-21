@@ -57,23 +57,23 @@ func JobToClassName(job byte) string {
 
 // ZonePlayer representa a un jugador autenticado y activo en una instancia de ZoneServer.
 type ZonePlayer struct {
-	Client      *network.Client
-	Char        *database.Character
-	CurrentMap  *ZoneMap
-	MapObjectID uint16
-	State       byte // 1=Normal, 2=Player, 3=Dead, 4=Resting, 5=Vendor, 6=Mount
-	Rotation    byte
-	StonesHP    int16
-	StonesSP    int16
-	MaxStonesHP int16
-	MaxStonesSP int16
-	MaxHP       int
-	MaxSP       int
-	Str         byte
-	End         byte
-	Dex         byte
-	Int         byte
-	Spr         byte
+	Client       *network.Client
+	Char         *database.Character
+	CurrentMap   *ZoneMap
+	MapObjectID  uint16
+	State        byte // 1=Normal, 2=Player, 3=Dead, 4=Resting, 5=Vendor, 6=Mount
+	Rotation     byte
+	StonesHP     int16
+	StonesSP     int16
+	MaxStonesHP  int16
+	MaxStonesSP  int16
+	MaxHP        int
+	MaxSP        int
+	Str          byte
+	End          byte
+	Dex          byte
+	Int          byte
+	Spr          byte
 	LevelParam   classparam.LevelParam
 	EquipMinWC   uint32
 	EquipMaxWC   uint32
@@ -102,11 +102,15 @@ func NewZonePlayer(client *network.Client, ch *database.Character, classStore *c
 		}
 	}
 
-	maxHP := lp.MaxHP
+	// Calcular el MaxHP real: Vida base de la clase + bonus por Constitución distribuida
+	// VER DE DONDE SALE EL PLUS DE VIDA POR CONSTITUCIÓN, SI ES 3 O 5.
+	maxHP := lp.MaxHP + (int(ch.TCharacter.Constitute) * 3)
 	if maxHP <= 0 {
 		maxHP = 52
 	}
-	maxSP := lp.MaxSP
+
+	// Calcular el MaxSP real: Maná base de la clase + bonus por MentalPower distribuido
+	maxSP := lp.MaxSP + (int(ch.TCharacter.MentalPower) * 3)
 	if maxSP <= 0 {
 		maxSP = 10
 	}
@@ -154,11 +158,11 @@ func NewZonePlayer(client *network.Client, ch *database.Character, classStore *c
 		MaxStonesSP: maxStonesSP,
 		MaxHP:       maxHP,
 		MaxSP:       maxSP,
-		Str:         0,
-		End:         0,
-		Dex:         0,
-		Int:         0,
-		Spr:         0,
+		Str:         byte(ch.TCharacter.Strength),
+		End:         byte(ch.TCharacter.Constitute),
+		Dex:         byte(ch.TCharacter.Dexterity),
+		Int:         byte(ch.TCharacter.Intelligence),
+		Spr:         byte(ch.TCharacter.MentalPower),
 		LevelParam:  lp,
 	}
 }
@@ -235,20 +239,20 @@ func (p *ZonePlayer) WriteEquipment(pw *protocol.PacketWriter) {
 
 // WriteDetailedInfo serializa PROTO_NC_CHAR_BASE_CMD (105 bytes oficiales en PDB).
 func (p *ZonePlayer) WriteDetailedInfo(pw *protocol.PacketWriter) {
-	pw.WriteUint32(uint32(p.Char.ID))                          // chrregnum
-	pw.WriteString(p.Char.Name, 20)                            // charid (Name5: 20 bytes)
-	pw.WriteByte(p.Char.Slot)                                  // slotno
-	pw.WriteByte(p.Char.Level)                                 // Level
-	pw.WriteUint64(uint64(p.Char.TCharacterState.Exp))         // Experience
-	pw.WriteUint16(0)                                          // CurPwrStone
-	pw.WriteUint16(0)                                          // CurGrdStone
-	pw.WriteUint16(uint16(p.StonesHP))                         // CurHPStone
-	pw.WriteUint16(uint16(p.StonesSP))                         // CurSPStone
-	pw.WriteUint32(uint32(p.Char.CurHP))                       // CurHP
-	pw.WriteUint32(uint32(p.Char.CurSP))                       // CurSP
-	pw.WriteUint32(0)                                          // CurLP
-	pw.WriteUint32(uint32(p.Char.TCharacterState.Fame))        // fame
-	pw.WriteUint64(uint64(p.Char.TCharacterState.Money))       // Cen (money)
+	pw.WriteUint32(uint32(p.Char.ID))                    // chrregnum
+	pw.WriteString(p.Char.Name, 20)                      // charid (Name5: 20 bytes)
+	pw.WriteByte(p.Char.Slot)                            // slotno
+	pw.WriteByte(p.Char.Level)                           // Level
+	pw.WriteUint64(uint64(p.Char.TCharacterState.Exp))   // Experience
+	pw.WriteUint16(0)                                    // CurPwrStone
+	pw.WriteUint16(0)                                    // CurGrdStone
+	pw.WriteUint16(uint16(p.StonesHP))                   // CurHPStone
+	pw.WriteUint16(uint16(p.StonesSP))                   // CurSPStone
+	pw.WriteUint32(uint32(p.Char.CurHP))                 // CurHP
+	pw.WriteUint32(uint32(p.Char.CurSP))                 // CurSP
+	pw.WriteUint32(0)                                    // CurLP
+	pw.WriteUint32(uint32(p.Char.TCharacterState.Fame))  // fame
+	pw.WriteUint64(uint64(p.Char.TCharacterState.Money)) // Cen (money)
 
 	// logininfo: PROTO_NC_CHAR_BASE_CMD::LoginLocation (21 bytes)
 	shortName := p.Char.TownName
@@ -271,34 +275,35 @@ func (p *ZonePlayer) WriteDetailedInfo(pw *protocol.PacketWriter) {
 	pw.WriteByte(p.Spr) // MentalPower
 	pw.WriteByte(0)     // RedistributePoint
 
-	pw.WriteByte(0)       // pkyellowtime
-	pw.WriteUint32(0)     // pkcount
-	pw.WriteUint16(0)     // prisonmin
-	pw.WriteByte(0)       // adminlevel
-	pw.Fill(4, 0)         // flags (4 bytes)
+	pw.WriteByte(0)   // pkyellowtime
+	pw.WriteUint32(0) // pkcount
+	pw.WriteUint16(0) // prisonmin
+	pw.WriteByte(0)   // adminlevel
+	pw.Fill(4, 0)     // flags (4 bytes)
 }
 
 // WriteDetailedInfoExtra serializa PROTO_NC_CHAR_MAPLOGIN_ACK (242 bytes oficiales en PDB).
 func (p *ZonePlayer) WriteDetailedInfoExtra(pw *protocol.PacketWriter, levelUp bool) {
+	i
 	if !levelUp {
 		pw.WriteUint16(p.MapObjectID) // charhandle (2 bytes)
 	}
 
 	// CHAR_PARAMETER_DATA (232 bytes)
-	pw.WriteUint64(0)                               // PrevExp
-	pw.WriteUint64(uint64(280))                     // NextExp
-	pw.WriteUint32(uint32(p.LevelParam.Strength))   // Strength.base
-	pw.WriteUint32(uint32(p.LevelParam.Strength + int(p.Str))) // Strength.change
-	pw.WriteUint32(uint32(p.LevelParam.Constitution)) // Constitute.base
+	pw.WriteUint64(0)                                              // PrevExp
+	pw.WriteUint64(uint64(280))                                    // NextExp
+	pw.WriteUint32(uint32(p.LevelParam.Strength))                  // Strength.base
+	pw.WriteUint32(uint32(p.LevelParam.Strength + int(p.Str)))     // Strength.change
+	pw.WriteUint32(uint32(p.LevelParam.Constitution))              // Constitute.base
 	pw.WriteUint32(uint32(p.LevelParam.Constitution + int(p.End))) // Constitute.change
-	pw.WriteUint32(uint32(p.LevelParam.Dexterity))  // Dexterity.base
-	pw.WriteUint32(uint32(p.LevelParam.Dexterity + int(p.Dex))) // Dexterity.change
-	pw.WriteUint32(uint32(p.LevelParam.Intelligence)) // Intelligence.base
+	pw.WriteUint32(uint32(p.LevelParam.Dexterity))                 // Dexterity.base
+	pw.WriteUint32(uint32(p.LevelParam.Dexterity + int(p.Dex)))    // Dexterity.change
+	pw.WriteUint32(uint32(p.LevelParam.Intelligence))              // Intelligence.base
 	pw.WriteUint32(uint32(p.LevelParam.Intelligence + int(p.Int))) // Intelligence.change
-	pw.WriteUint32(uint32(p.LevelParam.Wizdom))       // Wizdom.base
-	pw.WriteUint32(0)                               // Wizdom.change
-	pw.WriteUint32(uint32(p.LevelParam.MentalPower))  // MentalPower.base
-	pw.WriteUint32(uint32(p.LevelParam.MentalPower + int(p.Spr))) // MentalPower.change
+	pw.WriteUint32(uint32(p.LevelParam.Wizdom))                    // Wizdom.base
+	pw.WriteUint32(0)                                              // Wizdom.change
+	pw.WriteUint32(uint32(p.LevelParam.MentalPower))               // MentalPower.base
+	pw.WriteUint32(uint32(p.LevelParam.MentalPower + int(p.Spr)))  // MentalPower.change
 
 	baseWC := uint32(15)
 	baseMA := uint32(5)
@@ -328,10 +333,10 @@ func (p *ZonePlayer) WriteDetailedInfoExtra(pw *protocol.PacketWriter, levelUp b
 	pw.WriteUint32(baseTB)                // MB.base
 	pw.WriteUint32(baseTB + p.EquipTB)    // MB.change
 
-	pw.WriteUint32(uint32(p.MaxHP)) // MaxHp
-	pw.WriteUint32(uint32(p.MaxSP)) // MaxSp
-	pw.WriteUint32(0)               // MaxLp
-	pw.WriteUint32(0)               // MaxAp
+	pw.WriteUint32(uint32(p.MaxHP))       // MaxHp
+	pw.WriteUint32(uint32(p.MaxSP))       // MaxSp
+	pw.WriteUint32(0)                     // MaxLp
+	pw.WriteUint32(0)                     // MaxAp
 	pw.WriteUint32(uint32(p.MaxStonesHP)) // MaxHPStone
 	pw.WriteUint32(uint32(p.MaxStonesSP)) // MaxSPStone
 
@@ -375,20 +380,20 @@ func (p *ZonePlayer) WriteCharacterDisplay(pw *protocol.PacketWriter) {
 	pw.WriteByte(p.Char.Job)          // 0x020 (32): chrclass (1)
 	p.WriteLook(pw)                   // 0x021 (33): PROTO_AVATAR_SHAPE_INFO (4)
 	// 0x025 (37): shapedata (45 bytes = equip 43 bytes + 2 bytes padding)
-	p.WriteEquipment(pw)              // 43 bytes
-	pw.WriteUint16(0)                 // 2 bytes pad
-	pw.WriteUint16(0)                 // 0x052 (82): polymorph (2)
-	pw.Fill(3, 0)                     // 0x054 (84): STOPEMOTICON_DESCRIPT emoticon (3)
-	pw.Fill(4, 0)                     // 0x057 (87): CHARTITLE_BRIEFINFO chartitle (4)
-	pw.Fill(99, 0)                    // 0x05b (91): ABNORMAL_STATE_BIT abstatebit (99)
-	pw.WriteUint32(0)                 // 0x0be (190): myguild (4)
-	pw.WriteByte(0)                   // 0x0c2 (194): type (1)
-	pw.WriteByte(0)                   // 0x0c3 (195): isGuildAcademyMember (1)
-	pw.WriteByte(1)                   // 0x0c4 (196): IsAutoPick (1)
-	pw.WriteByte(p.Char.Level)        // 0x0c5 (197): Level (1)
-	pw.WriteString("", 32)            // 0x0c6 (198): sAnimation (32)
-	pw.WriteUint16(0)                 // 0x0e6 (230): nMoverHnd (2)
-	pw.WriteByte(0)                   // 0x0e8 (232): nMoverSlot (1)
-	pw.WriteByte(0)                   // 0x0e9 (233): nKQTeamType (1)
-	pw.WriteByte(0)                   // 0x0ea (234): IsUseItemMinimon (1)
+	p.WriteEquipment(pw)       // 43 bytes
+	pw.WriteUint16(0)          // 2 bytes pad
+	pw.WriteUint16(0)          // 0x052 (82): polymorph (2)
+	pw.Fill(3, 0)              // 0x054 (84): STOPEMOTICON_DESCRIPT emoticon (3)
+	pw.Fill(4, 0)              // 0x057 (87): CHARTITLE_BRIEFINFO chartitle (4)
+	pw.Fill(99, 0)             // 0x05b (91): ABNORMAL_STATE_BIT abstatebit (99)
+	pw.WriteUint32(0)          // 0x0be (190): myguild (4)
+	pw.WriteByte(0)            // 0x0c2 (194): type (1)
+	pw.WriteByte(0)            // 0x0c3 (195): isGuildAcademyMember (1)
+	pw.WriteByte(1)            // 0x0c4 (196): IsAutoPick (1)
+	pw.WriteByte(p.Char.Level) // 0x0c5 (197): Level (1)
+	pw.WriteString("", 32)     // 0x0c6 (198): sAnimation (32)
+	pw.WriteUint16(0)          // 0x0e6 (230): nMoverHnd (2)
+	pw.WriteByte(0)            // 0x0e8 (232): nMoverSlot (1)
+	pw.WriteByte(0)            // 0x0e9 (233): nKQTeamType (1)
+	pw.WriteByte(0)            // 0x0ea (234): IsUseItemMinimon (1)
 }

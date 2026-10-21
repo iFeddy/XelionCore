@@ -25,10 +25,11 @@ func NewMySQLCharacterRepository(db *sql.DB) *MySQLCharacterRepository {
 func (r *MySQLCharacterRepository) GetCharactersByAccount(accountID int) ([]*Character, error) {
 	query := `
 		SELECT 
-			c.nCharNo, c.nUserNo, c.sID, c.nSlotNo, c.nLevel, c.sLoginZone,
-			c.nLoginZoneX, c.nLoginZoneY, c.nLoginZoneD,
-			c.nHP, c.nSP, c.nHPS, c.nSPS, c.nMoney, c.nExp, c.nFame,
-			s.nClass, s.nRace, s.nGender, s.nHairType, s.nHairColor, s.nFaceShape
+            c.nCharNo, c.nUserNo, c.sID, c.nSlotNo, c.nLevel, c.sLoginZone,
+            c.nLoginZoneX, c.nLoginZoneY, c.nLoginZoneD,
+            c.nHP, c.nSP, c.nHPS, c.nSPS, c.nMoney, c.nExp, c.nFame,
+            c.nStrength, c.nConstitute, c.nDexterity, c.nIntelligence, c.nMentalPower, c.nRedistributePoint,
+            s.nClass, s.nRace, s.nGender, s.nHairType, s.nHairColor, s.nFaceShape
 		FROM tCharacter c
 		INNER JOIN tCharacterShape s ON c.nCharNo = s.nCharNo
 		WHERE c.nUserNo = ? AND c.bDeleted = 0
@@ -64,6 +65,12 @@ func (r *MySQLCharacterRepository) GetCharactersByAccount(accountID int) ([]*Cha
 			money      int64
 			exp        int64
 			fame       int
+			str        int
+			con        int
+			dex        int
+			intel      int
+			men        int
+			freePoints int
 			class      byte
 			race       byte
 			gender     byte
@@ -76,6 +83,7 @@ func (r *MySQLCharacterRepository) GetCharactersByAccount(accountID int) ([]*Cha
 			&charNo, &userNo, &sID, &slotNo, &level, &loginZone,
 			&zoneX, &zoneY, &zoneD,
 			&hp, &sp, &hps, &sps, &money, &exp, &fame,
+			&str, &con, &dex, &intel, &men, &freePoints,
 			&class, &race, &gender, &hairType, &hairColor, &faceShape,
 		)
 		if err != nil {
@@ -106,6 +114,12 @@ func (r *MySQLCharacterRepository) GetCharactersByAccount(accountID int) ([]*Cha
 		ch.TCharacter.Class = class
 		ch.TCharacter.Level = byte(level)
 		ch.TCharacter.IsDelete = 0
+		ch.TCharacter.Strength = str
+		ch.TCharacter.Constitute = con
+		ch.TCharacter.Dexterity = dex
+		ch.TCharacter.Intelligence = intel
+		ch.TCharacter.MentalPower = men
+		ch.TCharacter.RedistributePoint = freePoints
 
 		ch.TCharacterShape.CharNo = charNo
 		ch.TCharacterShape.Gender = gender
@@ -142,9 +156,10 @@ func (r *MySQLCharacterRepository) GetCharacterByName(name string) (*Character, 
 	query := `
 		SELECT 
 			c.nCharNo, c.nUserNo, c.sID, c.nSlotNo, c.nLevel, c.sLoginZone,
-			c.nLoginZoneX, c.nLoginZoneY, c.nLoginZoneD,
-			c.nHP, c.nSP, c.nHPS, c.nSPS, c.nMoney, c.nExp, c.nFame,
-			s.nClass, s.nRace, s.nGender, s.nHairType, s.nHairColor, s.nFaceShape
+            c.nLoginZoneX, c.nLoginZoneY, c.nLoginZoneD,
+            c.nHP, c.nSP, c.nHPS, c.nSPS, c.nMoney, c.nExp, c.nFame,
+            c.nStrength, c.nConstitute, c.nDexterity, c.nIntelligence, c.nMentalPower, c.nRedistributePoint,
+            s.nClass, s.nRace, s.nGender, s.nHairType, s.nHairColor, s.nFaceShape
 		FROM tCharacter c
 		INNER JOIN tCharacterShape s ON c.nCharNo = s.nCharNo
 		WHERE LOWER(c.sID) = LOWER(?) AND c.bDeleted = 0
@@ -169,6 +184,12 @@ func (r *MySQLCharacterRepository) GetCharacterByName(name string) (*Character, 
 		money      int64
 		exp        int64
 		fame       int
+		str        int
+		con        int
+		dex        int
+		intel      int
+		men        int
+		freePoints int
 		class      byte
 		race       byte
 		gender     byte
@@ -181,6 +202,7 @@ func (r *MySQLCharacterRepository) GetCharacterByName(name string) (*Character, 
 		&charNo, &userNo, &sID, &slotNo, &level, &loginZone,
 		&zoneX, &zoneY, &zoneD,
 		&hp, &sp, &hps, &sps, &money, &exp, &fame,
+		&str, &con, &dex, &intel, &men, &freePoints,
 		&class, &race, &gender, &hairType, &hairColor, &faceShape,
 	)
 	if err != nil {
@@ -212,6 +234,12 @@ func (r *MySQLCharacterRepository) GetCharacterByName(name string) (*Character, 
 	ch.TCharacter.Slot = slotNo
 	ch.TCharacter.Class = class
 	ch.TCharacter.Level = byte(level)
+	ch.TCharacter.Strength = str
+	ch.TCharacter.Constitute = con
+	ch.TCharacter.Dexterity = dex
+	ch.TCharacter.Intelligence = intel
+	ch.TCharacter.MentalPower = men
+	ch.TCharacter.RedistributePoint = freePoints
 
 	ch.TCharacterShape.CharNo = charNo
 	ch.TCharacterShape.Gender = gender
@@ -243,10 +271,11 @@ func (r *MySQLCharacterRepository) GetCharacterByName(name string) (*Character, 
 func (r *MySQLCharacterRepository) GetCharacterByID(id int) (*Character, error) {
 	query := `
 		SELECT 
-			c.nCharNo, c.nUserNo, c.sID, c.nSlotNo, c.nLevel, c.sLoginZone,
-			c.nLoginZoneX, c.nLoginZoneY, c.nLoginZoneD,
-			c.nHP, c.nSP, c.nHPS, c.nSPS, c.nMoney, c.nExp, c.nFame,
-			s.nClass, s.nRace, s.nGender, s.nHairType, s.nHairColor, s.nFaceShape
+			   c.nCharNo, c.nUserNo, c.sID, c.nSlotNo, c.nLevel, c.sLoginZone,
+            c.nLoginZoneX, c.nLoginZoneY, c.nLoginZoneD,
+            c.nHP, c.nSP, c.nHPS, c.nSPS, c.nMoney, c.nExp, c.nFame,
+            c.nStrength, c.nConstitute, c.nDexterity, c.nIntelligence, c.nMentalPower, c.nRedistributePoint,
+            s.nClass, s.nRace, s.nGender, s.nHairType, s.nHairColor, s.nFaceShape
 		FROM tCharacter c
 		INNER JOIN tCharacterShape s ON c.nCharNo = s.nCharNo
 		WHERE c.nCharNo = ? AND c.bDeleted = 0
@@ -271,6 +300,12 @@ func (r *MySQLCharacterRepository) GetCharacterByID(id int) (*Character, error) 
 		money      int64
 		exp        int64
 		fame       int
+		str        int
+		con        int
+		dex        int
+		intel      int
+		men        int
+		freePoints int
 		class      byte
 		race       byte
 		gender     byte
@@ -283,6 +318,7 @@ func (r *MySQLCharacterRepository) GetCharacterByID(id int) (*Character, error) 
 		&charNo, &userNo, &sID, &slotNo, &level, &loginZone,
 		&zoneX, &zoneY, &zoneD,
 		&hp, &sp, &hps, &sps, &money, &exp, &fame,
+		&str, &con, &dex, &intel, &men, &freePoints,
 		&class, &race, &gender, &hairType, &hairColor, &faceShape,
 	)
 	if err != nil {
@@ -314,6 +350,12 @@ func (r *MySQLCharacterRepository) GetCharacterByID(id int) (*Character, error) 
 	ch.TCharacter.Slot = slotNo
 	ch.TCharacter.Class = class
 	ch.TCharacter.Level = byte(level)
+	ch.TCharacter.Strength = str
+	ch.TCharacter.Constitute = con
+	ch.TCharacter.Dexterity = dex
+	ch.TCharacter.Intelligence = intel
+	ch.TCharacter.MentalPower = men
+	ch.TCharacter.RedistributePoint = freePoints
 
 	ch.TCharacterShape.CharNo = charNo
 	ch.TCharacterShape.Gender = gender

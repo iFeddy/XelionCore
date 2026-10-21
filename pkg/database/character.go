@@ -22,13 +22,19 @@ var (
 
 // TCharacter represents the canonical tCharacter table from World00_Character.bak.
 type TCharacter struct {
-	CharNo   int    `json:"nCharNo"`
-	UserNo   int    `json:"nUserNo"`
-	CharName string `json:"sCharName"`
-	Slot     byte   `json:"nSlot"`
-	Class    byte   `json:"nClass"`
-	Level    byte   `json:"nLevel"`
-	IsDelete int    `json:"bIsDelete"` // 0 = Active, 1 = Soft Deleted
+	CharNo            int    `json:"nCharNo"`
+	UserNo            int    `json:"nUserNo"`
+	CharName          string `json:"sCharName"`
+	Slot              byte   `json:"nSlot"`
+	Class             byte   `json:"nClass"`
+	Level             byte   `json:"nLevel"`
+	IsDelete          int    `json:"bIsDelete"` // 0 = Active, 1 = Soft Deleted
+	Strength          int    `json:"nStrength"`
+	Constitute        int    `json:"nConstitute"`
+	Dexterity         int    `json:"nDexterity"`
+	Intelligence      int    `json:"nIntelligence"`
+	MentalPower       int    `json:"nMentalPower"`
+	RedistributePoint int    `json:"nRedistributePoint"`
 }
 
 // TCharacterShape represents the appearance table tCharacterShape.
@@ -58,9 +64,9 @@ type TCharacterState struct {
 
 // TCharacterKeyMap represents the quickbar settings from tCharacterKeyMap.
 type TCharacterKeyMap struct {
-	CharNo         int    `json:"nCharNo"`
-	QuickBar       []byte `json:"sQuickBar"`
-	QuickBarState  []byte `json:"sQuickBarState"`
+	CharNo        int    `json:"nCharNo"`
+	QuickBar      []byte `json:"sQuickBar"`
+	QuickBarState []byte `json:"sQuickBarState"`
 }
 
 // TCharacterShortCut represents shortcut settings from tCharacterShortCut.
@@ -96,22 +102,22 @@ type Character struct {
 	Equips map[byte]uint16 `json:"equips"`
 
 	// Flat convenience fields for rapid gameplay access
-	ID        int    `json:"id"`
-	AccountID int    `json:"account_id"`
-	Name      string `json:"name"`
-	Slot      byte   `json:"slot"`
-	Job       byte   `json:"job"`
-	Level     byte   `json:"level"`
-	Male      bool   `json:"male"`
-	Hair      byte   `json:"hair"`
-	HairColor byte   `json:"hair_color"`
-	Face      byte   `json:"face"`
-	Map       uint16 `json:"map"`
-	XPos      int    `json:"x_pos"`
-	YPos      int    `json:"y_pos"`
-	CurHP     int    `json:"cur_hp"`
-	CurSP     int    `json:"cur_sp"`
-	TownName  string `json:"town_name"`
+	ID        int               `json:"id"`
+	AccountID int               `json:"account_id"`
+	Name      string            `json:"name"`
+	Slot      byte              `json:"slot"`
+	Job       byte              `json:"job"`
+	Level     byte              `json:"level"`
+	Male      bool              `json:"male"`
+	Hair      byte              `json:"hair"`
+	HairColor byte              `json:"hair_color"`
+	Face      byte              `json:"face"`
+	Map       uint16            `json:"map"`
+	XPos      int               `json:"x_pos"`
+	YPos      int               `json:"y_pos"`
+	CurHP     int               `json:"cur_hp"`
+	CurSP     int               `json:"cur_sp"`
+	TownName  string            `json:"town_name"`
 	Items     []*Item           `json:"items"`
 	Shortcuts []*Shortcut       `json:"shortcuts"`
 	Skills    []*CharacterSkill `json:"skills"`
@@ -393,18 +399,18 @@ type charStore struct {
 
 // MemoryCharacterRepository provides thread-safe character storage with JSON persistence.
 type MemoryCharacterRepository struct {
-	mu         sync.RWMutex
-	filePath   string
-	characters map[int]*Character // Key: Character.ID
-	options    map[int]*CharacterOptions // Key: Character.ID
-	friends    map[int][]int             // Key: Character.ID -> Friend CharIDs
-	points     map[int]int               // Key: Character.ID -> Friend Points
-	guilds     map[int]*GuildData        // Key: GuildID
-	members    map[int][]*GuildMemberData // Key: GuildID -> Members
-	academies  map[int]*GuildAcademyData // Key: GuildID
+	mu          sync.RWMutex
+	filePath    string
+	characters  map[int]*Character                // Key: Character.ID
+	options     map[int]*CharacterOptions         // Key: Character.ID
+	friends     map[int][]int                     // Key: Character.ID -> Friend CharIDs
+	points      map[int]int                       // Key: Character.ID -> Friend Points
+	guilds      map[int]*GuildData                // Key: GuildID
+	members     map[int][]*GuildMemberData        // Key: GuildID -> Members
+	academies   map[int]*GuildAcademyData         // Key: GuildID
 	acadMembers map[int][]*GuildAcademyMemberData // Key: GuildID -> Academy Members
 	nextGuildID int
-	nextID     int
+	nextID      int
 }
 
 // NewMemoryCharacterRepositoryWithFile initializes a character repository with a custom file path (or empty for in-memory).
