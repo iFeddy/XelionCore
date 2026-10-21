@@ -17,6 +17,7 @@ var (
 	ErrCharacterExists   = errors.New("character name already exists")
 	ErrSlotInUse         = errors.New("character slot already in use")
 	ErrSlotOutOfRange    = errors.New("character slot out of range (0-5)")
+	ErrItemNotFound      = errors.New("item not found")
 )
 
 // TCharacter represents the canonical tCharacter table from World00_Character.bak.
@@ -255,6 +256,7 @@ type CharacterRepository interface {
 	DeleteItem(itemKey int64) error
 	SetItemStorage(itemKey int64, storageType byte, storageSlot int16) error
 	ExchangeItemStorage(itemKey1 int64, storageType1 byte, storageSlot1 int16, itemKey2 int64, storageType2 byte, storageSlot2 int16) error
+	ArrangeInventory(charNo int, itemKeys []int64) error
 	UpdateItemFlags(itemKey int64, flags int) error
 	GetItemsByStorage(charNo int, storageType byte) ([]*Item, error)
 
@@ -710,6 +712,41 @@ func (r *MemoryCharacterRepository) ExchangeItemStorage(itemKey1 int64, storageT
 	if it2 != nil {
 		it2.StorageType = storageType2
 		it2.Storage = storageSlot2
+	}
+	r.save()
+	return nil
+}
+
+func (r *MemoryCharacterRepository) ArrangeInventory(charNo int, itemKeys []int64) error {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	ch, exists := r.characters[charNo]
+	if !exists {
+		return ErrCharacterNotFound
+	}
+
+	byKey := make(map[int64]*Item, len(itemKeys))
+	for _, it := range ch.Items {
+		if it != nil && it.StorageType == 9 {
+			byKey[it.ItemKey] = it
+		}
+	}
+	if len(byKey) != len(itemKeys) {
+		return fmt.Errorf("arrange inventory: %w", ErrItemNotFound)
+	}
+	seen := make(map[int64]struct{}, len(itemKeys))
+	for _, key := range itemKeys {
+		if _, ok := byKey[key]; !ok {
+			return fmt.Errorf("arrange inventory: %w", ErrItemNotFound)
+		}
+		if _, duplicate := seen[key]; duplicate {
+			return fmt.Errorf("arrange inventory: duplicate item key %d", key)
+		}
+		seen[key] = struct{}{}
+	}
+	for slot, key := range itemKeys {
+		byKey[key].StorageType = 9
+		byKey[key].Storage = int16(slot)
 	}
 	r.save()
 	return nil

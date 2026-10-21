@@ -2,6 +2,7 @@ package zone
 
 import (
 	"log"
+	"sort"
 	"strings"
 	"sync"
 	"time"
@@ -1519,6 +1520,13 @@ func (h *Handler) handleItemRingEquip(client *network.Client, pkt *protocol.Pack
 
 func (h *Handler) equipItemToSlot(player *ZonePlayer, srcItem *database.Item, invenSlot byte, equipSlot byte) {
 	client := player.Client
+	if !h.canEquipItem(player, srcItem) {
+		ack := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_EQUIP_ACK)
+		ack.WriteUint16(0x0282)
+		_ = client.SendPacket(ack)
+		return
+	}
+
 	dstEquip := h.findItemAt(player.Char.ID, 8, int16(equipSlot))
 	invenLoc := (uint16(9) << 10) | (uint16(invenSlot) & 0x03FF)
 	equipLoc := (uint16(8) << 10) | (uint16(equipSlot) & 0x03FF)
@@ -1547,6 +1555,56 @@ func (h *Handler) equipItemToSlot(player *ZonePlayer, srcItem *database.Item, in
 	ack := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_EQUIP_ACK)
 	ack.WriteUint16(0x0281) // Éxito oficial en Zone.exe (0x0281)
 	_ = client.SendPacket(ack)
+}
+
+func (h *Handler) canEquipItem(player *ZonePlayer, item *database.Item) bool {
+	if player == nil || player.Char == nil || item == nil {
+		return false
+	}
+	if h.itemStore == nil {
+		if player.Client != nil {
+			log.Printf("[Zone][%s] cannot validate equipment item %d: official item data is not loaded",
+				player.Client.RemoteAddr(), item.ItemID)
+		}
+		return false
+	}
+	info, ok := h.itemStore.GetItemInfo(item.ItemID)
+	if !ok || info == nil || uint32(player.Char.Level) < info.DemandLv {
+		return false
+	}
+	allowed, known := h.itemStore.CanUseItemByClassID(item.ItemID, player.Char.Job)
+	return known && allowed
+}
+
+func sortInventoryItems(items []*database.Item, store *item.Store) {
+	sort.SliceStable(items, func(i, j int) bool {
+		leftOrder, leftGrade, leftID := int(^uint(0)>>1), uint32(0), items[i].ItemID
+		rightOrder, rightGrade, rightID := int(^uint(0)>>1), uint32(0), items[j].ItemID
+		if store != nil {
+			if info, ok := store.GetItemInfo(items[i].ItemID); ok && info != nil {
+				if info.SortOrder >= 0 {
+					leftOrder = info.SortOrder
+				}
+				leftGrade = info.Grade
+			}
+			if info, ok := store.GetItemInfo(items[j].ItemID); ok && info != nil {
+				if info.SortOrder >= 0 {
+					rightOrder = info.SortOrder
+				}
+				rightGrade = info.Grade
+			}
+		}
+		if leftOrder != rightOrder {
+			return leftOrder < rightOrder
+		}
+		if leftGrade != rightGrade {
+			return leftGrade < rightGrade
+		}
+		if leftID != rightID {
+			return leftID < rightID
+		}
+		return items[i].Storage < items[j].Storage
+	})
 }
 
 // handleItemUnequip implementa sp_NC_ITEM_UNEQUIP_REQ (0x3012) y gds_NC_ITEMDB_UNEQUIPSUC_ACK (Zone.exe VA 0x53B0A0):
@@ -1842,12 +1900,47 @@ func (h *Handler) handleItemUse(client *network.Client, pkt *protocol.Packet) {
 }
 
 // handleAutoArrangeInven implementa sp_NC_ITEM_AUTO_ARRANGE_INVEN_REQ (0x304A, Zone.exe VA 0x51C360):
-//   - Ordena los ítems del inventario (Box 9) por ItemID ascendente en slots contiguos desde 0
-//   - Envía PROTO_NC_ITEM_AUTO_ARRANGE_INVEN_ACK (0x304B) con err = 0x30A8
+//   - Ordena los ítems de Box 9 por la categoría oficial ItemSort.shn y los criterios de ItemInfo.shn
+//   - Compacta las posiciones desde el slot 0 y envía el ACK oficial 0x30A8
 func (h *Handler) handleAutoArrangeInven(client *network.Client, pkt *protocol.Packet) {
 	player, ok := h.getPlayer(client)
 	if !ok || player == nil || player.Char == nil || h.charRepo == nil {
 		return
+	}
+
+	items, err := h.charRepo.GetCharacterItems(player.Char.ID)
+	if err != nil {
+		log.Printf("[Zone][%s] auto-arrange: failed to load inventory for character %d: %v",
+			client.RemoteAddr(), player.Char.ID, err)
+		return
+	}
+	inventory := make([]*database.Item, 0, len(items))
+	for _, it := range items {
+		if it != nil && it.StorageType == 9 {
+			inventory = append(inventory, it)
+		}
+	}
+	sortInventoryItems(inventory, h.itemStore)
+
+	itemKeys := make([]int64, len(inventory))
+	oldSlots := make([]int16, len(inventory))
+	for i, it := range inventory {
+		itemKeys[i] = it.ItemKey
+		oldSlots[i] = it.Storage
+	}
+	if err := h.charRepo.ArrangeInventory(player.Char.ID, itemKeys); err != nil {
+		log.Printf("[Zone][%s] auto-arrange: failed to persist inventory for character %d: %v",
+			client.RemoteAddr(), player.Char.ID, err)
+		return
+	}
+
+	for _, slot := range oldSlots {
+		h.sendCellChange(client, 9, slot, nil, 0xFFFF)
+	}
+	for slot, it := range inventory {
+		it.Storage = int16(slot)
+		it.StorageType = 9
+		h.sendCellChange(client, 9, int16(slot), it, 0xFFFF)
 	}
 
 	ack := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_AUTO_ARRANGE_INVEN_ACK)

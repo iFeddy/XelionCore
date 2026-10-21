@@ -35,7 +35,7 @@ func TestZoneServer_Phase2_InventoryEquipConsumablesAndSoulstones(t *testing.T) 
 	charRepo := database.NewMemoryCharacterRepositoryWithFile("")
 	transfers := database.NewTransferManager()
 
-	char := &database.Character{ID: 300, AccountID: 1, Name: "InvHero", Job: 1, Level: 1, TownName: "RouN", XPos: 6208, YPos: 6405, CurHP: 10, CurSP: 5}
+	char := &database.Character{ID: 300, AccountID: 1, Name: "InvHero", Job: 1, Level: 2, TownName: "RouN", XPos: 6208, YPos: 6405, CurHP: 10, CurSP: 5}
 	if err := charRepo.CreateCharacter(char); err != nil {
 		t.Fatal(err)
 	}
@@ -43,6 +43,7 @@ func TestZoneServer_Phase2_InventoryEquipConsumablesAndSoulstones(t *testing.T) 
 	_ = charRepo.CreateItem(&database.Item{StorageType: 9, Owner: char.ID, Storage: 1, ItemID: 2, Flags: 10})
 
 	srv := NewServer(&Config{BindAddr: "127.0.0.1:19220", Port: 19220, IP: "127.0.0.1"}, charRepo, transfers, classStore, fieldStore, nil)
+	srv.SetItemStore(loadOfficialItemStore(t))
 	if err := srv.Start(); err != nil {
 		t.Fatal(err)
 	}
@@ -92,9 +93,9 @@ func TestZoneServer_Phase2_InventoryEquipConsumablesAndSoulstones(t *testing.T) 
 		t.Fatalf("reloc err 0x%04X", e)
 	}
 
-	// Unequip (0x3012) slot 12 -> inven 0 -> 0x3011 err 0x0281
+	// Unequip (0x3012) helmet slot 1 -> inven 0 -> 0x3011 err 0x0281
 	uq := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_UNEQUIP_REQ)
-	uq.WriteByte(12)
+	uq.WriteByte(1)
 	uq.WriteByte(0)
 	_ = sendClientPacket(conn, uq, nc)
 	if e, _ := waitOpCode(t, conn, protocol.PROTO_NC_ITEM_EQUIP_ACK).Reader.ReadUint16(); e != 0x0281 {
@@ -134,8 +135,31 @@ func TestZoneServer_Phase2_InventoryEquipConsumablesAndSoulstones(t *testing.T) 
 	waitOpCode(t, conn, protocol.PROTO_NC_BAT_SPCHANGE_CMD)
 
 	// Auto arrange (0x304A) -> 0x304B err 0x30A8
+	if err := charRepo.CreateItem(&database.Item{
+		StorageType: 9,
+		Owner:       char.ID,
+		Storage:     20,
+		ItemID:      4,
+		Flags:       1,
+	}); err != nil {
+		t.Fatal(err)
+	}
 	_ = sendClientPacket(conn, protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_AUTO_ARRANGE_INVEN_REQ), nc)
 	if e, _ := waitOpCode(t, conn, protocol.PROTO_NC_ITEM_AUTO_ARRANGE_INVEN_ACK).Reader.ReadUint16(); e != 0x30A8 {
 		t.Fatalf("arrange err 0x%04X", e)
+	}
+	arranged, err := charRepo.GetCharacterItems(char.ID)
+	if err != nil {
+		t.Fatal(err)
+	}
+	nextSlot := int16(0)
+	for _, it := range arranged {
+		if it.StorageType != 9 {
+			continue
+		}
+		if it.Storage != nextSlot {
+			t.Fatalf("inventory not compacted: expected slot %d, got %d", nextSlot, it.Storage)
+		}
+		nextSlot++
 	}
 }

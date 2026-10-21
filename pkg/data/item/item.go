@@ -180,6 +180,7 @@ type ItemInfo struct {
 	ID        uint16
 	InxName   string
 	Name      string
+	SortOrder int
 	Type      uint32
 	Class     uint8
 	MaxLot    uint32
@@ -226,6 +227,8 @@ type Store struct {
 	itemsByID     map[uint16]*ItemInfo
 	itemsByName   map[string]*ItemInfo
 	useEffects    map[string]*ItemUseEffect
+	useClasses    map[uint32]map[string]bool
+	classPrefixes map[byte]string
 }
 
 // NewStore initializes a new empty Item store.
@@ -238,6 +241,8 @@ func NewStore() *Store {
 		itemsByID:     make(map[uint16]*ItemInfo),
 		itemsByName:   make(map[string]*ItemInfo),
 		useEffects:    make(map[string]*ItemUseEffect),
+		useClasses:    make(map[uint32]map[string]bool),
+		classPrefixes: make(map[byte]string),
 	}
 }
 
@@ -351,7 +356,6 @@ func (s *Store) Options() []ItemOptionEntry {
 	return res
 }
 
-
 // LoadItemInfoSHN loads official item definitions from ItemInfo.shn.
 func (s *Store) LoadItemInfoSHN(filePath string) error {
 	file, err := shn.ReadFile(filePath)
@@ -371,6 +375,7 @@ func (s *Store) LoadItemInfoSHN(filePath string) error {
 			ID:        id,
 			InxName:   inxName,
 			Name:      strings.TrimSpace(row.GetString("Name")),
+			SortOrder: -1,
 			Type:      uint32(row.GetInt("Type")),
 			Class:     cls,
 			MaxLot:    uint32(row.GetInt("MaxLot")),
@@ -406,6 +411,101 @@ func (s *Store) LoadItemInfoSHN(filePath string) error {
 	s.mu.Unlock()
 
 	return nil
+}
+
+// LoadInventoryDataSHN loads official inventory sorting and class eligibility data.
+func (s *Store) LoadInventoryDataSHN(itemInfoServerPath, itemSortPath, useClassTypeInfoPath, classNamePath string) error {
+	itemSort, err := shn.ReadFile(itemSortPath)
+	if err != nil {
+		return fmt.Errorf("read %s: %w", itemSortPath, err)
+	}
+	sortOrder := make(map[string]int, itemSort.RecordCount)
+	for i, row := range itemSort.Rows {
+		name := strings.ToLower(strings.TrimSpace(row.GetString("ItemSort_Index")))
+		if name != "" {
+			sortOrder[name] = i
+		}
+	}
+
+	itemInfoServer, err := shn.ReadFile(itemInfoServerPath)
+	if err != nil {
+		return fmt.Errorf("read %s: %w", itemInfoServerPath, err)
+	}
+	itemOrders := make(map[uint16]int, itemInfoServer.RecordCount)
+	for _, row := range itemInfoServer.Rows {
+		category := strings.ToLower(strings.TrimSpace(row.GetString("ItemSort_Index")))
+		order, ok := sortOrder[category]
+		if ok {
+			itemOrders[row.GetUint16("ID")] = order
+		}
+	}
+
+	useClassInfo, err := shn.ReadFile(useClassTypeInfoPath)
+	if err != nil {
+		return fmt.Errorf("read %s: %w", useClassTypeInfoPath, err)
+	}
+	classColumns := make([]string, 0, len(useClassInfo.Columns)-1)
+	for _, column := range useClassInfo.Columns {
+		if column.Name != "" && column.Name != "UseClass" {
+			classColumns = append(classColumns, column.Name)
+		}
+	}
+	useClasses := make(map[uint32]map[string]bool, useClassInfo.RecordCount)
+	for _, row := range useClassInfo.Rows {
+		useClass := uint32(row.GetInt("UseClass"))
+		allowed := make(map[string]bool, len(classColumns))
+		for _, class := range classColumns {
+			allowed[strings.ToLower(class)] = row.GetByte(class) != 0
+		}
+		useClasses[useClass] = allowed
+	}
+
+	classNameInfo, err := shn.ReadFile(classNamePath)
+	if err != nil {
+		return fmt.Errorf("read %s: %w", classNamePath, err)
+	}
+	classPrefixes := make(map[byte]string, classNameInfo.RecordCount)
+	for _, row := range classNameInfo.Rows {
+		classID := row.GetByte("ClassID")
+		prefix := strings.TrimSpace(row.GetString("acPrefix"))
+		if prefix != "" && prefix != "-" {
+			classPrefixes[classID] = prefix
+		}
+	}
+
+	s.mu.Lock()
+	defer s.mu.Unlock()
+	for id, order := range itemOrders {
+		if info, ok := s.itemsByID[id]; ok {
+			info.SortOrder = order
+		}
+	}
+	s.useClasses = useClasses
+	s.classPrefixes = classPrefixes
+	return nil
+}
+
+// CanUseItemByClassID checks eligibility using the official ClassName class ID.
+func (s *Store) CanUseItemByClassID(itemID uint16, classID byte) (bool, bool) {
+	if s == nil {
+		return false, false
+	}
+	s.mu.RLock()
+	defer s.mu.RUnlock()
+	info, ok := s.itemsByID[itemID]
+	if !ok {
+		return false, false
+	}
+	prefix, ok := s.classPrefixes[classID]
+	if !ok {
+		return false, false
+	}
+	classes, ok := s.useClasses[info.UseClass]
+	if !ok {
+		return false, false
+	}
+	allowed, ok := classes[strings.ToLower(prefix)]
+	return allowed, ok
 }
 
 // LoadItemUseEffectSHN loads official consumable recovery/buff definitions from ItemUseEffect.shn.

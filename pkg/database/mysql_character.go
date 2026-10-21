@@ -781,6 +781,100 @@ func (r *MySQLCharacterRepository) ExchangeItemStorage(itemKey1 int64, storageTy
 	return tx.Commit()
 }
 
+// ArrangeInventory reassigns every ordered item to a contiguous inventory slot.
+func (r *MySQLCharacterRepository) ArrangeInventory(charNo int, itemKeys []int64) error {
+	tx, err := r.db.Begin()
+	if err != nil {
+		return fmt.Errorf("error starting inventory arrange transaction: %w", err)
+	}
+	defer tx.Rollback()
+
+	seen := make(map[int64]struct{}, len(itemKeys))
+	for _, itemKey := range itemKeys {
+		if _, duplicate := seen[itemKey]; duplicate {
+			return fmt.Errorf("arrange inventory: duplicate item key %d", itemKey)
+		}
+		seen[itemKey] = struct{}{}
+	}
+
+	rows, err := tx.Query(`
+		SELECT nItemKey FROM tItem
+		WHERE nOwner = ? AND nStorageType = 9
+		FOR UPDATE;
+	`, charNo)
+	if err != nil {
+		return fmt.Errorf("lock character %d inventory for arrangement: %w", charNo, err)
+	}
+	storedItems := make(map[int64]struct{}, len(itemKeys))
+	for rows.Next() {
+		var itemKey int64
+		if err := rows.Scan(&itemKey); err != nil {
+			rows.Close()
+			return fmt.Errorf("read character %d inventory for arrangement: %w", charNo, err)
+		}
+		storedItems[itemKey] = struct{}{}
+	}
+	if err := rows.Err(); err != nil {
+		rows.Close()
+		return fmt.Errorf("read character %d inventory for arrangement: %w", charNo, err)
+	}
+	if err := rows.Close(); err != nil {
+		return fmt.Errorf("close character %d inventory query: %w", charNo, err)
+	}
+	if len(storedItems) != len(itemKeys) {
+		return fmt.Errorf("character %d inventory changed before arrangement: %w", charNo, ErrItemNotFound)
+	}
+	for _, itemKey := range itemKeys {
+		if _, ok := storedItems[itemKey]; !ok {
+			return fmt.Errorf("item %d is not in character %d inventory: %w", itemKey, charNo, ErrItemNotFound)
+		}
+	}
+
+	var temporaryItem int64
+	err = tx.QueryRow(`
+		SELECT nItemKey FROM tItem
+		WHERE nOwner = ? AND nStorageType = 11
+		LIMIT 1
+		FOR UPDATE;
+	`, charNo).Scan(&temporaryItem)
+	if err != nil && err != sql.ErrNoRows {
+		return fmt.Errorf("check temporary item storage for character %d: %w", charNo, err)
+	}
+	if err == nil {
+		return fmt.Errorf("character %d has items in temporary storage", charNo)
+	}
+
+	for _, itemKey := range itemKeys {
+		result, err := tx.Exec(`
+			UPDATE tItem SET nStorageType = 11
+			WHERE nItemKey = ? AND nOwner = ? AND nStorageType = 9;
+		`, itemKey, charNo)
+		if err != nil {
+			return fmt.Errorf("move item %d to inventory arrange temporary storage: %w", itemKey, err)
+		}
+		affected, err := result.RowsAffected()
+		if err != nil {
+			return fmt.Errorf("check item %d inventory arrange update: %w", itemKey, err)
+		}
+		if affected != 1 {
+			return fmt.Errorf("arrange inventory item %d: %w", itemKey, ErrItemNotFound)
+		}
+	}
+
+	for slot, itemKey := range itemKeys {
+		if _, err := tx.Exec(`
+			UPDATE tItem SET nStorageType = 9, nStorage = ?
+			WHERE nItemKey = ? AND nOwner = ? AND nStorageType = 11;
+		`, slot, itemKey, charNo); err != nil {
+			return fmt.Errorf("assign item %d to inventory slot %d: %w", itemKey, slot, err)
+		}
+	}
+	if err := tx.Commit(); err != nil {
+		return fmt.Errorf("commit inventory arrange transaction: %w", err)
+	}
+	return nil
+}
+
 // UpdateItemFlags actualiza la cantidad/lot (nFlags) de un ítem existente en tItem.
 func (r *MySQLCharacterRepository) UpdateItemFlags(itemKey int64, flags int) error {
 	_, err := r.db.Exec(`UPDATE tItem SET nFlags = ? WHERE nItemKey = ?;`, flags, itemKey)

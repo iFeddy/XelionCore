@@ -74,6 +74,16 @@ func LoadAllData(dataDir string) (*DataStore, error) {
 	} else {
 		log.Printf("[Zone][Data] Loaded 14999 item definitions from ItemInfo.shn.")
 	}
+	if err := ds.ItemStore.LoadInventoryDataSHN(
+		filepath.Join(dataDir, "ItemInfoServer.shn"),
+		filepath.Join(dataDir, "ItemSort.shn"),
+		filepath.Join(dataDir, "UseClassTypeInfo.shn"),
+		filepath.Join(dataDir, "ClassName.shn"),
+	); err != nil {
+		log.Printf("[Zone][Data] Warning: inventory item data load error: %v", err)
+	} else {
+		log.Printf("[Zone][Data] Loaded official inventory sort order and class-use matrix.")
+	}
 	useEffPath := filepath.Join(dataDir, "ItemUseEffect.shn")
 	if err := ds.ItemStore.LoadItemUseEffectSHN(useEffPath); err != nil {
 		log.Printf("[Zone][Data] Warning: ItemUseEffect.shn load error: %v", err)
