@@ -255,6 +255,7 @@ type CharacterRepository interface {
 	DeleteItem(itemKey int64) error
 	SetItemStorage(itemKey int64, storageType byte, storageSlot int16) error
 	ExchangeItemStorage(itemKey1 int64, storageType1 byte, storageSlot1 int16, itemKey2 int64, storageType2 byte, storageSlot2 int16) error
+	UpdateItemFlags(itemKey int64, flags int) error
 	GetItemsByStorage(charNo int, storageType byte) ([]*Item, error)
 
 	// Official Zone character state & stats routines (tCharacter - p_Char_*)
@@ -609,12 +610,30 @@ func (r *MemoryCharacterRepository) GetCharacterSkills(charNo int) ([]*Character
 	return res, nil
 }
 
+func (r *MemoryCharacterRepository) nextItemKeyLocked() int64 {
+	var maxKey int64 = 1000
+	for _, ch := range r.characters {
+		for _, it := range ch.Items {
+			if it != nil && it.ItemKey >= maxKey {
+				maxKey = it.ItemKey + 1
+			}
+		}
+	}
+	return maxKey
+}
+
 func (r *MemoryCharacterRepository) SaveCharacterItem(item *Item) error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	ch, exists := r.characters[item.Owner]
 	if !exists {
 		return ErrCharacterNotFound
+	}
+	if item.ItemKey == 0 {
+		item.ItemKey = r.nextItemKeyLocked()
+	}
+	if item.Date.IsZero() {
+		item.Date = time.Now()
 	}
 	ch.Items = append(ch.Items, item)
 	r.save()
@@ -629,7 +648,7 @@ func (r *MemoryCharacterRepository) CreateItem(item *Item) error {
 		return ErrCharacterNotFound
 	}
 	if item.ItemKey == 0 {
-		item.ItemKey = int64(time.Now().UnixNano())
+		item.ItemKey = r.nextItemKeyLocked()
 	}
 	if item.Date.IsZero() {
 		item.Date = time.Now()
@@ -693,6 +712,21 @@ func (r *MemoryCharacterRepository) ExchangeItemStorage(itemKey1 int64, storageT
 		it2.Storage = storageSlot2
 	}
 	r.save()
+	return nil
+}
+
+func (r *MemoryCharacterRepository) UpdateItemFlags(itemKey int64, flags int) error {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	for _, ch := range r.characters {
+		for _, it := range ch.Items {
+			if it.ItemKey == itemKey {
+				it.Flags = int32(flags)
+				r.save()
+				return nil
+			}
+		}
+	}
 	return nil
 }
 

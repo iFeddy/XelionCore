@@ -4,6 +4,7 @@ import (
 	"time"
 
 	"github.com/iFeddy/XelionCore/pkg/data/classparam"
+	"github.com/iFeddy/XelionCore/pkg/data/item"
 	"github.com/iFeddy/XelionCore/pkg/database"
 	"github.com/iFeddy/XelionCore/pkg/network"
 	"github.com/iFeddy/XelionCore/pkg/protocol"
@@ -74,6 +75,14 @@ type ZonePlayer struct {
 	Int         byte
 	Spr         byte
 	LevelParam   classparam.LevelParam
+	EquipMinWC   uint32
+	EquipMaxWC   uint32
+	EquipAC      uint32
+	EquipMinMA   uint32
+	EquipMaxMA   uint32
+	EquipMR      uint32
+	EquipTH      uint32
+	EquipTB      uint32
 	LoginTime    time.Time
 	LastWarpTime time.Time
 }
@@ -122,14 +131,25 @@ func NewZonePlayer(client *network.Client, ch *database.Character, classStore *c
 		maxStonesSP = 7
 	}
 
+	stonesHP := ch.TCharacterState.HPStones
+	if stonesHP <= 0 {
+		stonesHP = maxStonesHP
+		ch.TCharacterState.HPStones = stonesHP
+	}
+	stonesSP := ch.TCharacterState.SPStones
+	if stonesSP <= 0 {
+		stonesSP = maxStonesSP
+		ch.TCharacterState.SPStones = stonesSP
+	}
+
 	return &ZonePlayer{
 		Client:      client,
 		Char:        ch,
 		State:       1,    // Normal
 		Rotation:    0x55, // 85 grados
 		LoginTime:   time.Now(),
-		StonesHP:    maxStonesHP,
-		StonesSP:    maxStonesSP,
+		StonesHP:    stonesHP,
+		StonesSP:    stonesSP,
 		MaxStonesHP: maxStonesHP,
 		MaxStonesSP: maxStonesSP,
 		MaxHP:       maxHP,
@@ -140,6 +160,38 @@ func NewZonePlayer(client *network.Client, ch *database.Character, classStore *c
 		Int:         0,
 		Spr:         0,
 		LevelParam:  lp,
+	}
+}
+
+// RecalculateEquipmentStats suma los atributos oficiales de los ítems equipados desde ItemInfo.shn (so_RecalcEquipParam).
+func (p *ZonePlayer) RecalculateEquipmentStats(itemStore *item.Store) {
+	p.EquipMinWC = 0
+	p.EquipMaxWC = 0
+	p.EquipAC = 0
+	p.EquipMinMA = 0
+	p.EquipMaxMA = 0
+	p.EquipMR = 0
+	p.EquipTH = 0
+	p.EquipTB = 0
+
+	if p.Char == nil || p.Char.Equips == nil || itemStore == nil {
+		return
+	}
+
+	for _, itemID := range p.Char.Equips {
+		if itemID == 0 || itemID == 0xFFFF {
+			continue
+		}
+		if info, ok := itemStore.GetItemInfo(itemID); ok && info != nil {
+			p.EquipMinWC += info.MinWC
+			p.EquipMaxWC += info.MaxWC
+			p.EquipAC += info.AC
+			p.EquipMinMA += info.MinMA
+			p.EquipMaxMA += info.MaxMA
+			p.EquipMR += info.MR
+			p.EquipTH += info.TH
+			p.EquipTB += info.TB
+		}
 	}
 }
 
@@ -248,33 +300,33 @@ func (p *ZonePlayer) WriteDetailedInfoExtra(pw *protocol.PacketWriter, levelUp b
 	pw.WriteUint32(uint32(p.LevelParam.MentalPower))  // MentalPower.base
 	pw.WriteUint32(uint32(p.LevelParam.MentalPower + int(p.Spr))) // MentalPower.change
 
-	weaponDmg := uint32(15)
-	magicDmg := uint32(5)
-	weaponDef := uint32(10)
-	aim := uint32(10)
-	evasion := uint32(5)
-	magicDef := uint32(5)
+	baseWC := uint32(15)
+	baseMA := uint32(5)
+	baseAC := uint32(10)
+	baseTH := uint32(10)
+	baseTB := uint32(5)
+	baseMR := uint32(5)
 
-	pw.WriteUint32(weaponDmg) // WClow.base
-	pw.WriteUint32(weaponDmg) // WClow.change
-	pw.WriteUint32(magicDmg)  // WChigh.base
-	pw.WriteUint32(magicDmg)  // WChigh.change
-	pw.WriteUint32(weaponDef) // AC.base
-	pw.WriteUint32(weaponDef) // AC.change
-	pw.WriteUint32(aim)       // TH.base
-	pw.WriteUint32(aim)       // TH.change
-	pw.WriteUint32(evasion)   // TB.base
-	pw.WriteUint32(evasion)   // TB.change
-	pw.WriteUint32(weaponDmg) // MAlow.base
-	pw.WriteUint32(weaponDmg) // MAlow.change
-	pw.WriteUint32(magicDmg)  // MAhigh.base
-	pw.WriteUint32(magicDmg)  // MAhigh.change
-	pw.WriteUint32(magicDef)  // MR.base
-	pw.WriteUint32(magicDef)  // MR.change
-	pw.WriteUint32(aim)       // MH.base
-	pw.WriteUint32(aim)       // MH.change
-	pw.WriteUint32(evasion)   // MB.base
-	pw.WriteUint32(evasion)   // MB.change
+	pw.WriteUint32(baseWC)                // WClow.base
+	pw.WriteUint32(baseWC + p.EquipMinWC) // WClow.change
+	pw.WriteUint32(baseWC)                // WChigh.base
+	pw.WriteUint32(baseWC + p.EquipMaxWC) // WChigh.change
+	pw.WriteUint32(baseAC)                // AC.base
+	pw.WriteUint32(baseAC + p.EquipAC)    // AC.change
+	pw.WriteUint32(baseTH)                // TH.base
+	pw.WriteUint32(baseTH + p.EquipTH)    // TH.change
+	pw.WriteUint32(baseTB)                // TB.base
+	pw.WriteUint32(baseTB + p.EquipTB)    // TB.change
+	pw.WriteUint32(baseMA)                // MAlow.base
+	pw.WriteUint32(baseMA + p.EquipMinMA) // MAlow.change
+	pw.WriteUint32(baseMA)                // MAhigh.base
+	pw.WriteUint32(baseMA + p.EquipMaxMA) // MAhigh.change
+	pw.WriteUint32(baseMR)                // MR.base
+	pw.WriteUint32(baseMR + p.EquipMR)    // MR.change
+	pw.WriteUint32(baseTH)                // MH.base
+	pw.WriteUint32(baseTH + p.EquipTH)    // MH.change
+	pw.WriteUint32(baseTB)                // MB.base
+	pw.WriteUint32(baseTB + p.EquipTB)    // MB.change
 
 	pw.WriteUint32(uint32(p.MaxHP)) // MaxHp
 	pw.WriteUint32(uint32(p.MaxSP)) // MaxSp

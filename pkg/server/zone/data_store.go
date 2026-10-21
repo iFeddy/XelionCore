@@ -66,13 +66,19 @@ func LoadAllData(dataDir string) (*DataStore, error) {
 		log.Printf("[Zone][Data] Loaded %d field definitions.", ds.FieldStore.FieldCount())
 	}
 
-	// 3. Item Store (ItemInfo.shn + World/Item JSONs)
+	// 3. Item Store (ItemInfo.shn + ItemUseEffect.shn + World/Item JSONs)
 	ds.ItemStore = item.NewStore()
 	itemShnPath := filepath.Join(dataDir, "ItemInfo.shn")
 	if err := ds.ItemStore.LoadItemInfoSHN(itemShnPath); err != nil {
 		log.Printf("[Zone][Data] Warning: ItemInfo.shn load error: %v", err)
 	} else {
 		log.Printf("[Zone][Data] Loaded 14999 item definitions from ItemInfo.shn.")
+	}
+	useEffPath := filepath.Join(dataDir, "ItemUseEffect.shn")
+	if err := ds.ItemStore.LoadItemUseEffectSHN(useEffPath); err != nil {
+		log.Printf("[Zone][Data] Warning: ItemUseEffect.shn load error: %v", err)
+	} else {
+		log.Printf("[Zone][Data] Loaded consumable recovery effects from ItemUseEffect.shn.")
 	}
 	if err := ds.ItemStore.LoadDir(filepath.Join(dataDir, "World", "Item")); err != nil {
 		log.Printf("[Zone][Data] Warning: World/Item JSON load error: %v", err)

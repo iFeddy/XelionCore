@@ -28,31 +28,46 @@ type ZoneNPC struct {
 	GateToWhere string
 }
 
+// ZoneDroppedItem representa un ítem tirado en el suelo del mapa según PROTO_NC_BRIEFINFO_DROPEDITEM_CMD (0x1C0A).
+type ZoneDroppedItem struct {
+	Handle        uint16
+	ItemID        uint16
+	Lot           uint32
+	Flags         int
+	X             int32
+	Y             int32
+	DropMobHandle uint16
+	Attr          uint8
+	OwnerCharID   int
+}
+
 // ZoneMap manages the players and entities inside a single map instance.
 type ZoneMap struct {
-	mu        sync.RWMutex
-	ID        uint16
-	MapID     string
-	Name      string
-	ShortName string
-	Width     int
-	Height    int
-	nextObjID uint16
-	players   map[uint16]*ZonePlayer
-	npcs      map[uint16]*ZoneNPC
-	gates     []*ZoneNPC
+	mu           sync.RWMutex
+	ID           uint16
+	MapID        string
+	Name         string
+	ShortName    string
+	Width        int
+	Height       int
+	nextObjID    uint16
+	players      map[uint16]*ZonePlayer
+	npcs         map[uint16]*ZoneNPC
+	gates        []*ZoneNPC
+	droppedItems map[uint16]*ZoneDroppedItem
 }
 
 // NewZoneMap creates a new map instance with real metadata.
 func NewZoneMap(id uint16, mapID, name string) *ZoneMap {
 	return &ZoneMap{
-		ID:        id,
-		MapID:     mapID,
-		Name:      name,
-		ShortName: mapID,
-		nextObjID: 1,
-		players:   make(map[uint16]*ZonePlayer),
-		npcs:      make(map[uint16]*ZoneNPC),
+		ID:           id,
+		MapID:        mapID,
+		Name:         name,
+		ShortName:    mapID,
+		nextObjID:    1,
+		players:      make(map[uint16]*ZonePlayer),
+		npcs:         make(map[uint16]*ZoneNPC),
+		droppedItems: make(map[uint16]*ZoneDroppedItem),
 	}
 }
 
@@ -185,15 +200,16 @@ func (mm *MapManager) GetOrCreateMap(mapID string) *ZoneMap {
 	}
 
 	zMap := &ZoneMap{
-		ID:        serial,
-		MapID:     normID,
-		Name:      name,
-		ShortName: normID,
-		Width:     width,
-		Height:    height,
-		nextObjID: 1,
-		players:   make(map[uint16]*ZonePlayer),
-		npcs:      make(map[uint16]*ZoneNPC),
+		ID:           serial,
+		MapID:        normID,
+		Name:         name,
+		ShortName:    normID,
+		Width:        width,
+		Height:       height,
+		nextObjID:    1,
+		players:      make(map[uint16]*ZonePlayer),
+		npcs:         make(map[uint16]*ZoneNPC),
+		droppedItems: make(map[uint16]*ZoneDroppedItem),
 	}
 	mm.maps[key] = zMap
 	log.Printf("[Zone] Initialized dynamic map '%s' (Serial: %d, Name: '%s', Size: %dx%d)",
@@ -253,6 +269,86 @@ func (m *ZoneMap) AddPlayer(p *ZonePlayer) {
 
 	// 3. Send all NPCs and Gates on the map (PROTO_NC_BRIEFINFO_MOB_CMD, 0x1C09)
 	m.SendNPCs(p)
+
+	// 4. Send all dropped items on the field (PROTO_NC_BRIEFINFO_ITEMONFIELD_CMD, 0x1C0B)
+	m.SendDroppedItems(p)
+}
+
+// SpawnDroppedItem spawns an item on the ground and broadcasts PROTO_NC_BRIEFINFO_DROPEDITEM_CMD (0x1C0A, 15 bytes).
+func (m *ZoneMap) SpawnDroppedItem(itemID uint16, lot uint32, flags int, x, y int32, dropMobHandle uint16, ownerCharID int) *ZoneDroppedItem {
+	m.mu.Lock()
+	handle := m.nextObjID
+	m.nextObjID++
+	di := &ZoneDroppedItem{
+		Handle:        handle,
+		ItemID:        itemID,
+		Lot:           lot,
+		Flags:         flags,
+		X:             x,
+		Y:             y,
+		DropMobHandle: dropMobHandle,
+		Attr:          0x01,
+		OwnerCharID:   ownerCharID,
+	}
+	if m.droppedItems == nil {
+		m.droppedItems = make(map[uint16]*ZoneDroppedItem)
+	}
+	m.droppedItems[handle] = di
+	m.mu.Unlock()
+
+	// PROTO_NC_BRIEFINFO_DROPEDITEM_CMD (0x1C0A, 15 bytes)
+	pw := protocol.NewPacketWriter(protocol.PROTO_NC_BRIEFINFO_DROPEDITEM_CMD)
+	pw.WriteUint16(di.Handle)        // 0x00: handle (2B)
+	pw.WriteUint16(di.ItemID)        // 0x02: itemid (2B)
+	pw.WriteInt32(di.X)              // 0x04: location.x (4B)
+	pw.WriteInt32(di.Y)              // 0x08: location.y (4B)
+	pw.WriteUint16(di.DropMobHandle) // 0x0C: dropmobhandle (2B)
+	pw.WriteByte(di.Attr)            // 0x0E: attr (1B)
+	m.Broadcast(pw, 0)
+
+	return di
+}
+
+// ConsumeDroppedItem removes a dropped item from the map and broadcasts PROTO_NC_BRIEFINFO_BRIEFINFODELETE_CMD (0x1C0E).
+func (m *ZoneMap) ConsumeDroppedItem(handle uint16) (*ZoneDroppedItem, bool) {
+	m.mu.Lock()
+	di, ok := m.droppedItems[handle]
+	if ok {
+		delete(m.droppedItems, handle)
+	}
+	m.mu.Unlock()
+
+	if !ok || di == nil {
+		return nil, false
+	}
+
+	delPkt := protocol.NewPacketWriter(protocol.PROTO_NC_BRIEFINFO_BRIEFINFODELETE_CMD)
+	delPkt.WriteUint16(handle)
+	m.Broadcast(delPkt, 0)
+
+	return di, true
+}
+
+// SendDroppedItems transmits all dropped items on the field to a joining player using PROTO_NC_BRIEFINFO_ITEMONFIELD_CMD (0x1C0B).
+func (m *ZoneMap) SendDroppedItems(p *ZonePlayer) {
+	m.mu.RLock()
+	defer m.mu.RUnlock()
+
+	if len(m.droppedItems) == 0 {
+		return
+	}
+
+	pw := protocol.NewPacketWriter(protocol.PROTO_NC_BRIEFINFO_ITEMONFIELD_CMD)
+	pw.WriteByte(byte(len(m.droppedItems)))
+	for _, di := range m.droppedItems {
+		pw.WriteUint16(di.Handle)
+		pw.WriteUint16(di.ItemID)
+		pw.WriteInt32(di.X)
+		pw.WriteInt32(di.Y)
+		pw.WriteUint16(di.DropMobHandle)
+		pw.WriteByte(di.Attr)
+	}
+	_ = p.Client.SendPacket(pw)
 }
 
 // SendNPCs transmits all map NPCs and Gates to a player using official PROTO_NC_BRIEFINFO_MOB_CMD (0x1C09).

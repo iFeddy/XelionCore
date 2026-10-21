@@ -781,6 +781,15 @@ func (r *MySQLCharacterRepository) ExchangeItemStorage(itemKey1 int64, storageTy
 	return tx.Commit()
 }
 
+// UpdateItemFlags actualiza la cantidad/lot (nFlags) de un ítem existente en tItem.
+func (r *MySQLCharacterRepository) UpdateItemFlags(itemKey int64, flags int) error {
+	_, err := r.db.Exec(`UPDATE tItem SET nFlags = ? WHERE nItemKey = ?;`, flags, itemKey)
+	if err != nil {
+		return fmt.Errorf("error updating item flags for itemKey %d: %w", itemKey, err)
+	}
+	return nil
+}
+
 // GetItemsByStorage obtiene todos los ítems de un tipo de almacenamiento específico (p_Item_GetListType).
 func (r *MySQLCharacterRepository) GetItemsByStorage(charNo int, storageType byte) ([]*Item, error) {
 	rows, err := r.db.Query(`

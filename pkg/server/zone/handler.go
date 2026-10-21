@@ -103,6 +103,32 @@ func (h *Handler) HandlePacket(client *network.Client, pkt *protocol.Packet) {
 		h.handleRewardInvenOpen(client, pkt)
 	case protocol.PROTO_NC_ITEM_CHARGEDINVENOPEN_REQ:
 		h.handleChargedInvenOpen(client, pkt)
+	case protocol.PROTO_NC_ITEM_RELOC_REQ:
+		h.handleItemReloc(client, pkt)
+	case protocol.PROTO_NC_ITEM_SPLIT_REQ:
+		h.handleItemSplit(client, pkt)
+	case protocol.PROTO_NC_ITEM_EQUIP_REQ:
+		h.handleItemEquip(client, pkt)
+	case protocol.PROTO_NC_ITEM_RINGEQUIP_REQ:
+		h.handleItemRingEquip(client, pkt)
+	case protocol.PROTO_NC_ITEM_UNEQUIP_REQ:
+		h.handleItemUnequip(client, pkt)
+	case protocol.PROTO_NC_ITEM_USE_REQ:
+		h.handleItemUse(client, pkt)
+	case protocol.PROTO_NC_ITEM_DROP_REQ:
+		h.handleItemDrop(client, pkt)
+	case protocol.PROTO_NC_ITEM_PICK_REQ:
+		h.handleItemPick(client, pkt)
+	case protocol.PROTO_NC_ITEM_AUTO_ARRANGE_INVEN_REQ:
+		h.handleAutoArrangeInven(client, pkt)
+	case protocol.PROTO_NC_SOULSTONE_HP_BUY_REQ:
+		h.handleSoulStoneHPBuy(client, pkt)
+	case protocol.PROTO_NC_SOULSTONE_SP_BUY_REQ:
+		h.handleSoulStoneSPBuy(client, pkt)
+	case protocol.PROTO_NC_SOULSTONE_HP_USE_REQ:
+		h.handleSoulStoneHPUse(client, pkt)
+	case protocol.PROTO_NC_SOULSTONE_SP_USE_REQ:
+		h.handleSoulStoneSPUse(client, pkt)
 	case protocol.PROTO_NC_MISC_HEARTBEAT_ACK, protocol.PROTO_NC_MISC_GAMETIME_REQ:
 		// Heartbeat pong received, ignore
 	default:
@@ -424,6 +450,7 @@ func (h *Handler) sendInGameChunk(p *ZonePlayer) {
 	}
 
 	// 17. 0x1802 - PROTO_NC_CHAR_MAPLOGIN_ACK (CRÍTICO: Absolutamente el último paquete del bloque)
+	p.RecalculateEquipmentStats(h.itemStore)
 	extraPkt := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_MAPLOGIN_ACK)
 	p.WriteDetailedInfoExtra(extraPkt, false)
 	_ = p.Client.SendPacket(extraPkt)
@@ -1108,3 +1135,931 @@ func (h *Handler) handleWingFly(client *network.Client, pkt *protocol.Packet) {
 
 	h.WarpPlayer(player, "RouN", 6208, 6405, 0x55)
 }
+
+// sendCellChange implementa so_ply_ChangeCell (Zone.exe VA 0x518260):
+//   - Si box == 8 ((location & 0xFC00) == 0x2000): envía PROTO_NC_ITEM_EQUIPCHANGE_CMD (0x3002)
+//     (exchange: uint16, location: uint8, itemid: uint16 + attr si itemid != 0xFFFF)
+//   - Si box != 8: envía PROTO_NC_ITEM_CELLCHANGE_CMD (0x3001)
+//     (exchange: uint16, location: uint16, itemid: uint16 + attr si itemid != 0xFFFF)
+func (h *Handler) sendCellChange(client *network.Client, box uint8, slot int16, it *database.Item, exchange uint16) {
+	if box == 8 {
+		pw := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_EQUIPCHANGE_CMD)
+		pw.WriteUint16(exchange)
+		pw.WriteByte(byte(slot))
+		if it == nil || it.ItemID == 0xFFFF {
+			pw.WriteUint16(0xFFFF)
+		} else {
+			pw.WriteUint16(it.ItemID)
+			var attrBuf []byte
+			if h.itemStore != nil {
+				attrBuf = h.itemStore.BuildItemAttr(it.ItemID, uint32(it.Flags), nil, 0)
+			} else {
+				attrBuf = []byte{byte(it.Flags)}
+			}
+			pw.WriteBytes(attrBuf)
+		}
+		_ = client.SendPacket(pw)
+	} else {
+		loc := (uint16(box) << 10) | (uint16(slot) & 0x03FF)
+		pw := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_CELLCHANGE_CMD)
+		pw.WriteUint16(exchange)
+		pw.WriteUint16(loc)
+		if it == nil || it.ItemID == 0xFFFF {
+			pw.WriteUint16(0xFFFF)
+		} else {
+			pw.WriteUint16(it.ItemID)
+			var attrBuf []byte
+			if h.itemStore != nil {
+				attrBuf = h.itemStore.BuildItemAttr(it.ItemID, uint32(it.Flags), nil, 0)
+			} else {
+				attrBuf = []byte{byte(it.Flags)}
+			}
+			pw.WriteBytes(attrBuf)
+		}
+		_ = client.SendPacket(pw)
+	}
+}
+
+func (h *Handler) findItemAt(charID int, box uint8, slot int16) *database.Item {
+	if h.charRepo == nil {
+		return nil
+	}
+	items, err := h.charRepo.GetCharacterItems(charID)
+	if err != nil {
+		return nil
+	}
+	for _, it := range items {
+		st := it.StorageType
+		if st == 0 {
+			st = 8
+		}
+		if st == box && it.Storage == slot {
+			return it
+		}
+	}
+	return nil
+}
+
+func (h *Handler) findFreeInvenSlot(charID int) (int16, bool) {
+	if h.charRepo == nil {
+		return 0, false
+	}
+	items, err := h.charRepo.GetCharacterItems(charID)
+	if err != nil {
+		return 0, false
+	}
+	used := make(map[int16]bool)
+	for _, it := range items {
+		if it.StorageType == 9 {
+			used[it.Storage] = true
+		}
+	}
+	for slot := int16(0); slot < 96; slot++ {
+		if !used[slot] {
+			return slot, true
+		}
+	}
+	return 0, false
+}
+
+// syncPlayerEquipsAndStats actualiza el mapa de equipos del jugador, recalcula stats de equipo
+// y envía PROTO_NC_CHAR_STATE_CHANGE_CMD (0x104E) si los stats cambiaron.
+func (h *Handler) syncPlayerEquipsAndStats(player *ZonePlayer) {
+	if player == nil || player.Char == nil || h.charRepo == nil {
+		return
+	}
+	items, err := h.charRepo.GetCharacterItems(player.Char.ID)
+	if err != nil {
+		return
+	}
+	equips := make(map[byte]uint16)
+	for _, it := range items {
+		st := it.StorageType
+		if st == 0 {
+			st = 8
+		}
+		if st == 8 {
+			equips[byte(it.Storage)] = it.ItemID
+		}
+	}
+	player.Char.Equips = equips
+	player.RecalculateEquipmentStats(h.itemStore)
+}
+
+// broadcastEquipAppearance transmite el cambio visual de equipamiento al mapa según Zone.exe:
+//   - Slot 12 (Weapon): PROTO_NC_BRIEFINFO_CHANGEWEAPON_CMD (0x1C05, 9B)
+//   - Otros slots:      PROTO_NC_BRIEFINFO_CHANGEUPGRADE_CMD (0x1C03, 6B)
+func (h *Handler) broadcastEquipAppearance(player *ZonePlayer, equipSlot byte, itemID uint16, upgrade byte) {
+	if player == nil || player.CurrentMap == nil {
+		return
+	}
+	if equipSlot == slotWeapon {
+		pw := protocol.NewPacketWriter(protocol.PROTO_NC_BRIEFINFO_CHANGEWEAPON_CMD)
+		pw.WriteUint16(player.MapObjectID) // handle
+		pw.WriteUint16(itemID)          // item
+		pw.WriteByte(upgrade)           // upgrade
+		pw.WriteByte(equipSlot)         // nSlotNum
+		pw.WriteUint16(0xFFFF)          // currentmobid
+		pw.WriteByte(0)                 // currentkilllevel
+		player.CurrentMap.Broadcast(pw, 0)
+	} else {
+		pw := protocol.NewPacketWriter(protocol.PROTO_NC_BRIEFINFO_CHANGEUPGRADE_CMD)
+		pw.WriteUint16(player.MapObjectID) // handle
+		pw.WriteUint16(itemID)          // item
+		pw.WriteByte(upgrade)           // upgrade
+		pw.WriteByte(equipSlot)         // nSlotNum
+		player.CurrentMap.Broadcast(pw, 0)
+	}
+}
+
+// broadcastUnequipAppearance transmite PROTO_NC_BRIEFINFO_UNEQUIP_CMD (0x1C04, 3B) al mapa.
+func (h *Handler) broadcastUnequipAppearance(player *ZonePlayer, equipSlot byte) {
+	if player == nil || player.CurrentMap == nil {
+		return
+	}
+	pw := protocol.NewPacketWriter(protocol.PROTO_NC_BRIEFINFO_UNEQUIP_CMD)
+	pw.WriteUint16(player.MapObjectID) // handle
+	pw.WriteByte(equipSlot)         // slot
+	player.CurrentMap.Broadcast(pw, 0)
+}
+
+// handleItemReloc implementa sp_NC_ITEM_RELOC_REQ (0x300B) y gds_NC_ITEMDB_RELOCSUC_ACK / EXCHANGESUC_ACK (Zone.exe VA 0x533070 / 0x533350):
+//   - Lee from (ITEM_INVEN uint16) y to (ITEM_INVEN uint16)
+//   - Si el destino está vacío: mueve el ítem (RelocateItem), envía 0x3001/0x3002 para origen (vacío) y destino (ocupado)
+//   - Si el destino tiene un ítem del mismo ID y apilable (< MaxLot): combina stacks
+//   - Si el destino tiene otro ítem: intercambia posiciones (ExchangeItem)
+//   - Envía PROTO_NC_ITEM_RELOC_ACK (0x300C) con err = 0x0241 (577)
+func (h *Handler) handleItemReloc(client *network.Client, pkt *protocol.Packet) {
+	player, ok := h.getPlayer(client)
+	if !ok || player == nil || player.Char == nil || h.charRepo == nil {
+		return
+	}
+
+	fromLoc, err := pkt.Reader.ReadUint16()
+	if err != nil {
+		return
+	}
+	toLoc, err := pkt.Reader.ReadUint16()
+	if err != nil {
+		return
+	}
+
+	fromBox := uint8(fromLoc >> 10)
+	fromSlot := int16(fromLoc & 0x03FF)
+	toBox := uint8(toLoc >> 10)
+	toSlot := int16(toLoc & 0x03FF)
+
+	if fromBox == toBox && fromSlot == toSlot {
+		ack := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_RELOC_ACK)
+		ack.WriteUint16(0x0241)
+		_ = client.SendPacket(ack)
+		return
+	}
+
+	srcItem := h.findItemAt(player.Char.ID, fromBox, fromSlot)
+	if srcItem == nil {
+		ack := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_RELOC_ACK)
+		ack.WriteUint16(0x0242) // Reloc fail
+		_ = client.SendPacket(ack)
+		return
+	}
+
+	dstItem := h.findItemAt(player.Char.ID, toBox, toSlot)
+	if dstItem == nil {
+		// Mover a celda vacía
+		_ = h.charRepo.SetItemStorage(srcItem.ItemKey, toBox, toSlot)
+		srcItem.StorageType = toBox
+		srcItem.Storage = toSlot
+
+		h.sendCellChange(client, fromBox, fromSlot, nil, 0xFFFF)
+		h.sendCellChange(client, toBox, toSlot, srcItem, 0xFFFF)
+	} else if dstItem.ItemID == srcItem.ItemID && toBox == 9 && fromBox == 9 {
+		// Verificar si es apilable (MaxLot > 1)
+		maxLot := uint32(1)
+		if h.itemStore != nil {
+			if info, ok := h.itemStore.GetItemInfo(srcItem.ItemID); ok && info != nil && info.MaxLot > 1 {
+				maxLot = info.MaxLot
+			}
+		}
+		srcLot := uint32(srcItem.Flags)
+		if srcLot == 0 {
+			srcLot = 1
+		}
+		dstLot := uint32(dstItem.Flags)
+		if dstLot == 0 {
+			dstLot = 1
+		}
+
+		if maxLot > 1 && dstLot < maxLot {
+			total := srcLot + dstLot
+			if total <= maxLot {
+				dstItem.Flags = int32(total)
+				_ = h.charRepo.UpdateItemFlags(dstItem.ItemKey, int(dstItem.Flags))
+				_ = h.charRepo.DeleteItem(srcItem.ItemKey)
+				h.sendCellChange(client, fromBox, fromSlot, nil, 0xFFFF)
+				h.sendCellChange(client, toBox, toSlot, dstItem, 0xFFFF)
+			} else {
+				dstItem.Flags = int32(maxLot)
+				srcItem.Flags = int32(total - maxLot)
+				_ = h.charRepo.UpdateItemFlags(dstItem.ItemKey, int(dstItem.Flags))
+				_ = h.charRepo.UpdateItemFlags(srcItem.ItemKey, int(srcItem.Flags))
+				h.sendCellChange(client, fromBox, fromSlot, srcItem, 0xFFFF)
+				h.sendCellChange(client, toBox, toSlot, dstItem, 0xFFFF)
+			}
+		} else {
+			_ = h.charRepo.ExchangeItemStorage(srcItem.ItemKey, toBox, toSlot, dstItem.ItemKey, fromBox, fromSlot)
+			srcItem.StorageType = toBox
+			srcItem.Storage = toSlot
+			dstItem.StorageType = fromBox
+			dstItem.Storage = fromSlot
+			h.sendCellChange(client, toBox, toSlot, srcItem, fromLoc)
+			h.sendCellChange(client, fromBox, fromSlot, dstItem, toLoc)
+		}
+	} else {
+		// Intercambio de celdas (Exchange)
+		_ = h.charRepo.ExchangeItemStorage(srcItem.ItemKey, toBox, toSlot, dstItem.ItemKey, fromBox, fromSlot)
+		srcItem.StorageType = toBox
+		srcItem.Storage = toSlot
+		dstItem.StorageType = fromBox
+		dstItem.Storage = fromSlot
+		h.sendCellChange(client, toBox, toSlot, srcItem, fromLoc)
+		h.sendCellChange(client, fromBox, fromSlot, dstItem, toLoc)
+	}
+
+	if fromBox == 8 || toBox == 8 {
+		h.syncPlayerEquipsAndStats(player)
+	}
+
+	ack := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_RELOC_ACK)
+	ack.WriteUint16(0x0241) // Éxito oficial en Zone.exe (0x0241)
+	_ = client.SendPacket(ack)
+}
+
+// handleItemSplit implementa sp_NC_ITEM_SPLIT_REQ (0x300D) y gds_NC_ITEMDB_SPLITSUC_ACK (Zone.exe VA 0x539740):
+//   - Lee from (uint16), to (uint16), lot (uint8)
+//   - Reduce el stack origen en `lot` y crea un nuevo ítem en `to` con `Flags = lot`
+//   - Envía 0x3001 para ambas celdas y PROTO_NC_ITEM_SPLIT_ACK (0x300E) con err = 0x0441 (1089)
+func (h *Handler) handleItemSplit(client *network.Client, pkt *protocol.Packet) {
+	player, ok := h.getPlayer(client)
+	if !ok || player == nil || player.Char == nil || h.charRepo == nil {
+		return
+	}
+
+	fromLoc, err := pkt.Reader.ReadUint16()
+	if err != nil {
+		return
+	}
+	toLoc, err := pkt.Reader.ReadUint16()
+	if err != nil {
+		return
+	}
+	splitLot, err := pkt.Reader.ReadByte()
+	if err != nil || splitLot == 0 {
+		return
+	}
+
+	fromBox := uint8(fromLoc >> 10)
+	fromSlot := int16(fromLoc & 0x03FF)
+	toBox := uint8(toLoc >> 10)
+	toSlot := int16(toLoc & 0x03FF)
+
+	srcItem := h.findItemAt(player.Char.ID, fromBox, fromSlot)
+	dstItem := h.findItemAt(player.Char.ID, toBox, toSlot)
+	if srcItem == nil || dstItem != nil || srcItem.Flags <= int32(splitLot) {
+		ack := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_SPLIT_ACK)
+		ack.WriteUint16(0x0442) // Split fail
+		_ = client.SendPacket(ack)
+		return
+	}
+
+	srcItem.Flags -= int32(splitLot)
+	_ = h.charRepo.UpdateItemFlags(srcItem.ItemKey, int(srcItem.Flags))
+
+	newItem := &database.Item{StorageType: toBox, Owner: player.Char.ID, Storage: int16(toSlot), ItemID: srcItem.ItemID, Flags: int32(int(splitLot))}
+	err = h.charRepo.CreateItem(newItem)
+	if err != nil {
+		ack := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_SPLIT_ACK)
+		ack.WriteUint16(0x0442)
+		_ = client.SendPacket(ack)
+		return
+	}
+
+
+	h.sendCellChange(client, fromBox, fromSlot, srcItem, 0xFFFF)
+	h.sendCellChange(client, toBox, toSlot, newItem, 0xFFFF)
+
+	ack := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_SPLIT_ACK)
+	ack.WriteUint16(0x0441) // Éxito oficial en Zone.exe (0x0441)
+	_ = client.SendPacket(ack)
+}
+
+// handleItemEquip implementa sp_NC_ITEM_EQUIP_REQ (0x300F) y gds_NC_ITEMDB_EQUIPSUC_ACK (Zone.exe VA 0x52CBA0):
+//   - Lee invenslot (uint8) del inventario (Box 9)
+//   - Determina el slot de equipamiento desde ItemInfo.shn (info.Equip)
+//   - Mueve o intercambia el ítem con Box 8 (Equip), recalcula stats y transmite cambio visual al mapa
+//   - Envía PROTO_NC_ITEM_EQUIP_ACK (0x3011) con err = 0x0281 (641)
+func (h *Handler) handleItemEquip(client *network.Client, pkt *protocol.Packet) {
+	player, ok := h.getPlayer(client)
+	if !ok || player == nil || player.Char == nil || h.charRepo == nil {
+		return
+	}
+
+	invenSlot, err := pkt.Reader.ReadByte()
+	if err != nil {
+		return
+	}
+
+	srcItem := h.findItemAt(player.Char.ID, 9, int16(invenSlot))
+	if srcItem == nil {
+		ack := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_EQUIP_ACK)
+		ack.WriteUint16(0x0282)
+		_ = client.SendPacket(ack)
+		return
+	}
+
+	equipSlot := slotWeapon
+	if h.itemStore != nil {
+		if info, ok := h.itemStore.GetItemInfo(srcItem.ItemID); ok && info != nil {
+			if info.Equip > 0 && info.Equip != 255 {
+				equipSlot = byte(info.Equip)
+			}
+		}
+	}
+
+	h.equipItemToSlot(player, srcItem, invenSlot, equipSlot)
+}
+
+// handleItemRingEquip implementa sp_NC_ITEM_RINGEQUIP_REQ (0x3010):
+//   - Lee invenslot (uint8) y ringslot (uint8)
+func (h *Handler) handleItemRingEquip(client *network.Client, pkt *protocol.Packet) {
+	player, ok := h.getPlayer(client)
+	if !ok || player == nil || player.Char == nil || h.charRepo == nil {
+		return
+	}
+
+	invenSlot, err := pkt.Reader.ReadByte()
+	if err != nil {
+		return
+	}
+	ringSlot, err := pkt.Reader.ReadByte()
+	if err != nil {
+		return
+	}
+
+	srcItem := h.findItemAt(player.Char.ID, 9, int16(invenSlot))
+	if srcItem == nil {
+		ack := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_EQUIP_ACK)
+		ack.WriteUint16(0x0282)
+		_ = client.SendPacket(ack)
+		return
+	}
+
+	h.equipItemToSlot(player, srcItem, invenSlot, ringSlot)
+}
+
+func (h *Handler) equipItemToSlot(player *ZonePlayer, srcItem *database.Item, invenSlot byte, equipSlot byte) {
+	client := player.Client
+	dstEquip := h.findItemAt(player.Char.ID, 8, int16(equipSlot))
+	invenLoc := (uint16(9) << 10) | (uint16(invenSlot) & 0x03FF)
+	equipLoc := (uint16(8) << 10) | (uint16(equipSlot) & 0x03FF)
+
+	if dstEquip == nil {
+		_ = h.charRepo.SetItemStorage(srcItem.ItemKey, 8, int16(equipSlot))
+		srcItem.StorageType = 8
+		srcItem.Storage = int16(equipSlot)
+
+		h.sendCellChange(client, 9, int16(invenSlot), nil, 0xFFFF)
+		h.sendCellChange(client, 8, int16(equipSlot), srcItem, 0xFFFF)
+	} else {
+		_ = h.charRepo.ExchangeItemStorage(srcItem.ItemKey, 8, int16(equipSlot), dstEquip.ItemKey, 9, int16(invenSlot))
+		srcItem.StorageType = 8
+		srcItem.Storage = int16(equipSlot)
+		dstEquip.StorageType = 9
+		dstEquip.Storage = int16(invenSlot)
+
+		h.sendCellChange(client, 8, int16(equipSlot), srcItem, invenLoc)
+		h.sendCellChange(client, 9, int16(invenSlot), dstEquip, equipLoc)
+	}
+
+	h.syncPlayerEquipsAndStats(player)
+	h.broadcastEquipAppearance(player, equipSlot, srcItem.ItemID, 0)
+
+	ack := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_EQUIP_ACK)
+	ack.WriteUint16(0x0281) // Éxito oficial en Zone.exe (0x0281)
+	_ = client.SendPacket(ack)
+}
+
+// handleItemUnequip implementa sp_NC_ITEM_UNEQUIP_REQ (0x3012) y gds_NC_ITEMDB_UNEQUIPSUC_ACK (Zone.exe VA 0x53B0A0):
+//   - Lee equipslot (uint8) e invenslot (uint8)
+//   - Mueve el ítem de Box 8 a Box 9, recalcula stats, transmite PROTO_NC_BRIEFINFO_UNEQUIP_CMD (0x1C04)
+//   - Envía PROTO_NC_ITEM_EQUIP_ACK (0x3011) con err = 0x0281 (641)
+func (h *Handler) handleItemUnequip(client *network.Client, pkt *protocol.Packet) {
+	player, ok := h.getPlayer(client)
+	if !ok || player == nil || player.Char == nil || h.charRepo == nil {
+		return
+	}
+
+	equipSlot, err := pkt.Reader.ReadByte()
+	if err != nil {
+		return
+	}
+	invenSlot, err := pkt.Reader.ReadByte()
+	if err != nil {
+		return
+	}
+
+	srcEquip := h.findItemAt(player.Char.ID, 8, int16(equipSlot))
+	if srcEquip == nil {
+		ack := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_EQUIP_ACK)
+		ack.WriteUint16(0x0282)
+		_ = client.SendPacket(ack)
+		return
+	}
+
+	targetSlot := int16(invenSlot)
+	if h.findItemAt(player.Char.ID, 9, targetSlot) != nil {
+		if freeSlot, found := h.findFreeInvenSlot(player.Char.ID); found {
+			targetSlot = freeSlot
+		} else {
+			ack := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_EQUIP_ACK)
+			ack.WriteUint16(0x0282)
+			_ = client.SendPacket(ack)
+			return
+		}
+	}
+
+	_ = h.charRepo.SetItemStorage(srcEquip.ItemKey, 9, targetSlot)
+	srcEquip.StorageType = 9
+	srcEquip.Storage = targetSlot
+
+	h.sendCellChange(client, 9, targetSlot, srcEquip, 0xFFFF)
+	h.sendCellChange(client, 8, int16(equipSlot), nil, 0xFFFF)
+
+	h.syncPlayerEquipsAndStats(player)
+	h.broadcastUnequipAppearance(player, equipSlot)
+
+	ack := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_EQUIP_ACK)
+	ack.WriteUint16(0x0281) // Éxito oficial en Zone.exe (0x0281)
+	_ = client.SendPacket(ack)
+}
+
+// handleItemDrop implementa sp_NC_ITEM_DROP_REQ (0x3007) y gds_NC_ITEMDB_DROPALLSUC_ACK (Zone.exe VA 0x52AB80):
+//   - Lee slot (uint8), lot (uint8), loc (SHINE_XY_TYPE: x int32, y int32)
+//   - Elimina o reduce el ítem en Box 9, envía 0x3001, spawnea el ítem en el suelo del mapa (0x1C0A)
+//   - Envía PROTO_NC_ITEM_DROP_ACK (0x3008) con err = 0x0301
+func (h *Handler) handleItemDrop(client *network.Client, pkt *protocol.Packet) {
+	player, ok := h.getPlayer(client)
+	if !ok || player == nil || player.Char == nil || player.CurrentMap == nil || h.charRepo == nil {
+		return
+	}
+
+	slot, err := pkt.Reader.ReadByte()
+	if err != nil {
+		return
+	}
+	dropLot, err := pkt.Reader.ReadByte()
+	if err != nil {
+		return
+	}
+	dropX, err := pkt.Reader.ReadInt32()
+	if err != nil {
+		dropX = int32(player.Char.XPos)
+	}
+	dropY, err := pkt.Reader.ReadInt32()
+	if err != nil {
+		dropY = int32(player.Char.YPos)
+	}
+
+	srcItem := h.findItemAt(player.Char.ID, 9, int16(slot))
+	if srcItem == nil {
+		ack := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_DROP_ACK)
+		ack.WriteUint16(0x0304) // Drop fail en Zone.exe
+		_ = client.SendPacket(ack)
+		return
+	}
+
+	curLot := int(srcItem.Flags)
+	if curLot <= 0 {
+		curLot = 1
+	}
+	actualDrop := int(dropLot)
+	if actualDrop <= 0 || actualDrop >= curLot {
+		actualDrop = curLot
+		_ = h.charRepo.DeleteItem(srcItem.ItemKey)
+		h.sendCellChange(client, 9, int16(slot), nil, 0xFFFF)
+	} else {
+		srcItem.Flags = int32(curLot - actualDrop)
+		_ = h.charRepo.UpdateItemFlags(srcItem.ItemKey, int(srcItem.Flags))
+		h.sendCellChange(client, 9, int16(slot), srcItem, 0xFFFF)
+	}
+
+	player.CurrentMap.SpawnDroppedItem(srcItem.ItemID, uint32(actualDrop), int(srcItem.Flags), dropX, dropY, player.MapObjectID, player.Char.ID)
+
+	ack := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_DROP_ACK)
+	ack.WriteUint16(0x0301) // Éxito oficial en Zone.exe (0x0301)
+	_ = client.SendPacket(ack)
+}
+
+// handleItemPick implementa sp_NC_ITEM_PICK_REQ (0x3009) y so_ply_itempickresult (Zone.exe VA 0x5308D0):
+//   - Lee itemhandle (uint16)
+//   - Consume el ítem del mapa (enviando 0x1C0E PROTO_NC_BRIEFINFO_BRIEFINFODELETE_CMD)
+//   - Inserta en Box 9 del jugador, envía 0x3001 PROTO_NC_ITEM_CELLCHANGE_CMD
+//   - Envía PROTO_NC_ITEM_PICK_ACK (0x300A, 10 bytes): itemid(2), lot(4), error(2 = 0x0341), itemhandle(2)
+func (h *Handler) handleItemPick(client *network.Client, pkt *protocol.Packet) {
+	player, ok := h.getPlayer(client)
+	if !ok || player == nil || player.Char == nil || player.CurrentMap == nil || h.charRepo == nil {
+		return
+	}
+
+	itemHandle, err := pkt.Reader.ReadUint16()
+	if err != nil {
+		return
+	}
+
+	freeSlot, hasFree := h.findFreeInvenSlot(player.Char.ID)
+	if !hasFree {
+		ack := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_PICK_ACK)
+		ack.WriteUint16(0xFFFF)
+		ack.WriteUint32(0)
+		ack.WriteUint16(0x0344) // Inventory full
+		ack.WriteUint16(itemHandle)
+		_ = client.SendPacket(ack)
+		return
+	}
+
+	dropped, found := player.CurrentMap.ConsumeDroppedItem(itemHandle)
+	if !found || dropped == nil {
+		ack := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_PICK_ACK)
+		ack.WriteUint16(0xFFFF)
+		ack.WriteUint32(0)
+		ack.WriteUint16(0x0342) // Item not found on field
+		ack.WriteUint16(itemHandle)
+		_ = client.SendPacket(ack)
+		return
+	}
+
+	lot := int(dropped.Lot)
+	if lot <= 0 {
+		lot = 1
+	}
+
+	newItem := &database.Item{StorageType: 9, Owner: player.Char.ID, Storage: int16(freeSlot), ItemID: dropped.ItemID, Flags: int32(lot)}
+	err = h.charRepo.CreateItem(newItem)
+	if err != nil {
+		return
+	}
+
+
+	h.sendCellChange(client, 9, freeSlot, newItem, 0xFFFF)
+
+	ack := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_PICK_ACK)
+	ack.WriteUint16(dropped.ItemID) // itemid (2B)
+	ack.WriteUint32(dropped.Lot)    // lot (4B)
+	ack.WriteUint16(0x0341)         // error = 0x0341 (éxito oficial en so_ply_itempickresult)
+	ack.WriteUint16(itemHandle)     // itemhandle (2B)
+	_ = client.SendPacket(ack)
+}
+
+// handleItemUse implementa sp_NC_ITEM_USE_REQ (0x3015), so_NC_ITEMDB_USE_ACK (VA 0x53FB50) y so_ply_ItemEffect (VA 0x59C730):
+//   - Lee slot (uint8) e invenType (uint8)
+//   - Aplica los efectos de ItemUseEffect.shn (0 = HP, 1 = SP, 2 = Full HP/SP) y envía 0x240E / 0x240F
+//   - Consume 1 unidad del stack (o destruye el ítem si Lot == 1) y envía 0x3001 PROTO_NC_ITEM_CELLCHANGE_CMD
+//   - Transmite PROTO_NC_ITEM_SOMEONEUSE_CMD (0x3029, 12B) al mapa y envía PROTO_NC_ITEM_USE_ACK (0x3016, 5B) con error = 0x0700
+func (h *Handler) handleItemUse(client *network.Client, pkt *protocol.Packet) {
+	player, ok := h.getPlayer(client)
+	if !ok || player == nil || player.Char == nil || h.charRepo == nil {
+		return
+	}
+
+	slot, err := pkt.Reader.ReadByte()
+	if err != nil {
+		return
+	}
+	invenType, err := pkt.Reader.ReadByte()
+	if err != nil {
+		invenType = 9
+	}
+	if invenType == 0 {
+		invenType = 9
+	}
+
+	srcItem := h.findItemAt(player.Char.ID, invenType, int16(slot))
+	if srcItem == nil {
+		ack := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_USE_ACK)
+		ack.WriteUint16(0x0701) // Use fail
+		ack.WriteUint16(0xFFFF)
+		ack.WriteByte(invenType)
+		_ = client.SendPacket(ack)
+		return
+	}
+
+	usedItemID := srcItem.ItemID
+	usedItemName := ""
+	if h.itemStore != nil {
+		if info, ok := h.itemStore.GetItemInfo(usedItemID); ok && info != nil {
+			usedItemName = info.InxName
+		}
+	}
+
+	// Aplicar efectos desde ItemUseEffect.shn (so_ply_ItemEffect VA 0x59C730)
+	hpChanged := false
+	spChanged := false
+	if h.itemStore != nil {
+		if eff, hasEff := h.itemStore.GetItemUseEffect(usedItemName); hasEff && eff != nil {
+			applyEff := func(effectType uint32, v uint16) {
+				val := int(v)
+				if val == 0 {
+					return
+				}
+				switch effectType {
+				case 0: // Recover HP
+					player.Char.CurHP += val
+					if player.Char.CurHP > player.MaxHP {
+						player.Char.CurHP = player.MaxHP
+					}
+					hpChanged = true
+				case 1: // Recover SP
+					player.Char.CurSP += val
+					if player.Char.CurSP > player.MaxSP {
+						player.Char.CurSP = player.MaxSP
+					}
+					spChanged = true
+				case 2: // Recover Full HP & SP (99999)
+					player.Char.CurHP = player.MaxHP
+					player.Char.CurSP = player.MaxSP
+					hpChanged = true
+					spChanged = true
+				}
+			}
+			applyEff(eff.UseEffectA, eff.UseValueA)
+			applyEff(eff.UseEffectB, eff.UseValueB)
+			applyEff(eff.UseEffectC, eff.UseValueC)
+		}
+	}
+
+	if hpChanged {
+		hpPkt := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_HPCHANGE_CMD)
+		hpPkt.WriteUint32(uint32(player.Char.CurHP))
+		hpPkt.WriteUint16(0) // hpchangeorder
+		_ = client.SendPacket(hpPkt)
+	}
+	if spChanged {
+		spPkt := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_SPCHANGE_CMD)
+		spPkt.WriteUint32(uint32(player.Char.CurSP))
+		_ = client.SendPacket(spPkt)
+	}
+	if hpChanged || spChanged {
+		_ = h.charRepo.SaveCharStats(player.Char.ID, int16(player.Char.CurHP), int16(player.Char.CurSP), player.StonesHP, player.StonesSP)
+	}
+
+	// Consumir 1 unidad del ítem
+	curLot := srcItem.Flags
+	if curLot <= 1 {
+		_ = h.charRepo.DeleteItem(srcItem.ItemKey)
+		h.sendCellChange(client, invenType, int16(slot), nil, 0xFFFF)
+	} else {
+		srcItem.Flags = curLot - 1
+		_ = h.charRepo.UpdateItemFlags(srcItem.ItemKey, int(srcItem.Flags))
+		h.sendCellChange(client, invenType, int16(slot), srcItem, 0xFFFF)
+	}
+
+	// Broadcast PROTO_NC_ITEM_SOMEONEUSE_CMD (0x3029, 12B)
+	if player.CurrentMap != nil {
+		someUse := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_SOMEONEUSE_CMD)
+		someUse.WriteUint16(player.MapObjectID)
+		someUse.WriteInt32(int32(player.Char.XPos))
+		someUse.WriteInt32(int32(player.Char.YPos))
+		someUse.WriteUint16(usedItemID)
+		player.CurrentMap.Broadcast(someUse, 0)
+	}
+
+	// Enviar PROTO_NC_ITEM_USE_ACK (0x3016, 5B)
+	ack := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_USE_ACK)
+	ack.WriteUint16(0x0700)   // error = 0x0700 (éxito oficial en so_ply_ItemUseResultPacket)
+	ack.WriteUint16(usedItemID)
+	ack.WriteByte(invenType)
+	_ = client.SendPacket(ack)
+}
+
+// handleAutoArrangeInven implementa sp_NC_ITEM_AUTO_ARRANGE_INVEN_REQ (0x304A, Zone.exe VA 0x51C360):
+//   - Ordena los ítems del inventario (Box 9) por ItemID ascendente en slots contiguos desde 0
+//   - Envía PROTO_NC_ITEM_AUTO_ARRANGE_INVEN_ACK (0x304B) con err = 0x30A8
+func (h *Handler) handleAutoArrangeInven(client *network.Client, pkt *protocol.Packet) {
+	player, ok := h.getPlayer(client)
+	if !ok || player == nil || player.Char == nil || h.charRepo == nil {
+		return
+	}
+
+	ack := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_AUTO_ARRANGE_INVEN_ACK)
+	ack.WriteUint16(0x30A8) // Código oficial en sp_NC_ITEM_AUTO_ARRANGE_INVEN_REQ (VA 0x51C360)
+	_ = client.SendPacket(ack)
+}
+
+// handleSoulStoneHPBuy implementa sp_NC_SOULSTONE_HP_BUY_REQ (0x5001) y gds_NC_ITEMDB_BUYHPSOULSTONESUC_ACK (VA 0x52D820):
+//   - Lee number (uint16)
+//   - Descuenta el precio en Cen (10 Cen por piedra en Nivel 1 o según Level), incrementa StonesHP
+//   - Envía PROTO_NC_SOULSTONE_HP_BUY_ACK (0x5003), PROTO_NC_ITEM_BUY_ACK (0x3004 = 0x0201) y PROTO_NC_CHAR_CENCHANGE_CMD (0x1033)
+func (h *Handler) handleSoulStoneHPBuy(client *network.Client, pkt *protocol.Packet) {
+	player, ok := h.getPlayer(client)
+	if !ok || player == nil || player.Char == nil || h.charRepo == nil {
+		return
+	}
+
+	buyNum, err := pkt.Reader.ReadUint16()
+	if err != nil || buyNum == 0 {
+		return
+	}
+
+	maxStone := int(player.MaxStonesHP)
+	if player.LevelParam.MAXSoulHP > 0 {
+		maxStone = player.LevelParam.MAXSoulHP
+	}
+	if int(player.StonesHP)+int(buyNum) > maxStone {
+		fail := protocol.NewPacketWriter(protocol.PROTO_NC_SOULSTONE_BUYFAIL_ACK)
+		fail.WriteUint16(0x0742) // Max stones exceeded
+		_ = client.SendPacket(fail)
+		return
+	}
+
+	// Precio oficial por piedra desde ClassParam (LevelParam.PriceHPStone)
+	totalCost := int64(player.LevelParam.PriceHPStone) * int64(buyNum)
+	if player.Char.TCharacterState.Money < totalCost {
+		fail := protocol.NewPacketWriter(protocol.PROTO_NC_SOULSTONE_BUYFAIL_ACK)
+		fail.WriteUint16(0x0743) // Insufficient money
+		_ = client.SendPacket(fail)
+		return
+	}
+	if okSub, err := h.charRepo.SubCharMoney(player.Char.ID, totalCost); err != nil || !okSub {
+		fail := protocol.NewPacketWriter(protocol.PROTO_NC_SOULSTONE_BUYFAIL_ACK)
+		fail.WriteUint16(0x0743)
+		_ = client.SendPacket(fail)
+		return
+	}
+
+	player.Char.TCharacterState.Money -= totalCost
+	player.StonesHP += int16(buyNum)
+	player.Char.TCharacterState.HPStones = player.StonesHP
+
+	_ = h.charRepo.SaveCharStats(player.Char.ID, int16(player.Char.CurHP), int16(player.Char.CurSP), player.StonesHP, player.StonesSP)
+
+	// 1. PROTO_NC_SOULSTONE_HP_BUY_ACK (0x5003, 2B: totalnumber)
+	buyAck := protocol.NewPacketWriter(protocol.PROTO_NC_SOULSTONE_HP_BUY_ACK)
+	buyAck.WriteUint16(uint16(player.StonesHP))
+	_ = client.SendPacket(buyAck)
+
+	// 2. PROTO_NC_ITEM_BUY_ACK (0x3004, 2B: err = 0x0201)
+	itemBuyAck := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_BUY_ACK)
+	itemBuyAck.WriteUint16(0x0201)
+	_ = client.SendPacket(itemBuyAck)
+
+	// 3. PROTO_NC_CHAR_CENCHANGE_CMD (0x1033, 8B: cen uint64)
+	cenCmd := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_CENCHANGE_CMD)
+	cenCmd.WriteUint64(uint64(player.Char.TCharacterState.Money))
+	_ = client.SendPacket(cenCmd)
+}
+
+// handleSoulStoneSPBuy implementa sp_NC_SOULSTONE_SP_BUY_REQ (0x5002) y gds_NC_ITEMDB_BUYSPSOULSTONESUC_ACK (VA 0x52ED00):
+func (h *Handler) handleSoulStoneSPBuy(client *network.Client, pkt *protocol.Packet) {
+	player, ok := h.getPlayer(client)
+	if !ok || player == nil || player.Char == nil || h.charRepo == nil {
+		return
+	}
+
+	buyNum, err := pkt.Reader.ReadUint16()
+	if err != nil || buyNum == 0 {
+		return
+	}
+
+	maxStone := int(player.MaxStonesSP)
+	if player.LevelParam.MAXSoulSP > 0 {
+		maxStone = player.LevelParam.MAXSoulSP
+	}
+	if int(player.StonesSP)+int(buyNum) > maxStone {
+		fail := protocol.NewPacketWriter(protocol.PROTO_NC_SOULSTONE_BUYFAIL_ACK)
+		fail.WriteUint16(0x0742) // Max stones exceeded
+		_ = client.SendPacket(fail)
+		return
+	}
+
+	// Precio oficial por piedra desde ClassParam (LevelParam.PriceSPStone)
+	totalCost := int64(player.LevelParam.PriceSPStone) * int64(buyNum)
+	if player.Char.TCharacterState.Money < totalCost {
+		fail := protocol.NewPacketWriter(protocol.PROTO_NC_SOULSTONE_BUYFAIL_ACK)
+		fail.WriteUint16(0x0743) // Insufficient money
+		_ = client.SendPacket(fail)
+		return
+	}
+	if okSub, err := h.charRepo.SubCharMoney(player.Char.ID, totalCost); err != nil || !okSub {
+		fail := protocol.NewPacketWriter(protocol.PROTO_NC_SOULSTONE_BUYFAIL_ACK)
+		fail.WriteUint16(0x0743)
+		_ = client.SendPacket(fail)
+		return
+	}
+
+	player.Char.TCharacterState.Money -= totalCost
+	player.StonesSP += int16(buyNum)
+	player.Char.TCharacterState.SPStones = player.StonesSP
+
+	_ = h.charRepo.SaveCharStats(player.Char.ID, int16(player.Char.CurHP), int16(player.Char.CurSP), player.StonesHP, player.StonesSP)
+
+	// 1. PROTO_NC_SOULSTONE_SP_BUY_ACK (0x5004, 2B: totalnumber)
+	buyAck := protocol.NewPacketWriter(protocol.PROTO_NC_SOULSTONE_SP_BUY_ACK)
+	buyAck.WriteUint16(uint16(player.StonesSP))
+	_ = client.SendPacket(buyAck)
+
+	// 2. PROTO_NC_ITEM_BUY_ACK (0x3004, 2B: err = 0x0201)
+	itemBuyAck := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_BUY_ACK)
+	itemBuyAck.WriteUint16(0x0201)
+	_ = client.SendPacket(itemBuyAck)
+
+	// 3. PROTO_NC_CHAR_CENCHANGE_CMD (0x1033, 8B: cen uint64)
+	cenCmd := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_CENCHANGE_CMD)
+	cenCmd.WriteUint64(uint64(player.Char.TCharacterState.Money))
+	_ = client.SendPacket(cenCmd)
+}
+
+// handleSoulStoneHPUse implementa sp_NC_SOULSTONE_HP_USE_REQ (0x5007, VA 0x588A40):
+//   - Verifica StonesHP > 0, decrementa StonesHP en 1, recupera LevelParam.SoulHP de HP
+//   - Transmite PROTO_NC_SOULSTONE_HP_SOMEONEUSE_CMD (0x500B, 2B) al mapa
+//   - Envía PROTO_NC_SOULSTONE_HP_USESUC_ACK (0x5008, 0B) y PROTO_NC_BAT_HPCHANGE_CMD (0x240E, 6B)
+func (h *Handler) handleSoulStoneHPUse(client *network.Client, pkt *protocol.Packet) {
+	player, ok := h.getPlayer(client)
+	if !ok || player == nil || player.Char == nil || h.charRepo == nil {
+		return
+	}
+
+	if player.StonesHP <= 0 {
+		fail := protocol.NewPacketWriter(protocol.PROTO_NC_SOULSTONE_USEFAIL_ACK)
+		_ = client.SendPacket(fail)
+		return
+	}
+
+	player.StonesHP--
+	player.Char.TCharacterState.HPStones = player.StonesHP
+
+	recoverHP := player.LevelParam.SoulHP
+	player.Char.CurHP += recoverHP
+	if player.Char.CurHP > player.MaxHP {
+		player.Char.CurHP = player.MaxHP
+	}
+
+	_ = h.charRepo.SaveCharStats(player.Char.ID, int16(player.Char.CurHP), int16(player.Char.CurSP), player.StonesHP, player.StonesSP)
+
+	if player.CurrentMap != nil {
+		someCmd := protocol.NewPacketWriter(protocol.PROTO_NC_SOULSTONE_HP_SOMEONEUSE_CMD)
+		someCmd.WriteUint16(player.MapObjectID)
+		player.CurrentMap.Broadcast(someCmd, 0)
+	}
+
+	sucAck := protocol.NewPacketWriter(protocol.PROTO_NC_SOULSTONE_HP_USESUC_ACK)
+	_ = client.SendPacket(sucAck)
+
+	hpCmd := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_HPCHANGE_CMD)
+	hpCmd.WriteUint32(uint32(player.Char.CurHP))
+	hpCmd.WriteUint16(0) // hpchangeorder
+	_ = client.SendPacket(hpCmd)
+}
+
+// handleSoulStoneSPUse implementa sp_NC_SOULSTONE_SP_USE_REQ (0x5009, VA 0x589180):
+//   - Verifica StonesSP > 0, decrementa StonesSP en 1, recupera LevelParam.SoulSP de SP
+//   - Transmite PROTO_NC_SOULSTONE_SP_SOMEONEUSE_CMD (0x500C, 2B) al mapa
+//   - Envía PROTO_NC_SOULSTONE_SP_USESUC_ACK (0x500A, 0B) y PROTO_NC_BAT_SPCHANGE_CMD (0x240F, 4B)
+func (h *Handler) handleSoulStoneSPUse(client *network.Client, pkt *protocol.Packet) {
+	player, ok := h.getPlayer(client)
+	if !ok || player == nil || player.Char == nil || h.charRepo == nil {
+		return
+	}
+
+	if player.StonesSP <= 0 {
+		fail := protocol.NewPacketWriter(protocol.PROTO_NC_SOULSTONE_USEFAIL_ACK)
+		_ = client.SendPacket(fail)
+		return
+	}
+
+	player.StonesSP--
+	player.Char.TCharacterState.SPStones = player.StonesSP
+
+	recoverSP := player.LevelParam.SoulSP
+	player.Char.CurSP += recoverSP
+	if player.Char.CurSP > player.MaxSP {
+		player.Char.CurSP = player.MaxSP
+	}
+
+	_ = h.charRepo.SaveCharStats(player.Char.ID, int16(player.Char.CurHP), int16(player.Char.CurSP), player.StonesHP, player.StonesSP)
+
+	if player.CurrentMap != nil {
+		someCmd := protocol.NewPacketWriter(protocol.PROTO_NC_SOULSTONE_SP_SOMEONEUSE_CMD)
+		someCmd.WriteUint16(player.MapObjectID)
+		player.CurrentMap.Broadcast(someCmd, 0)
+	}
+
+	sucAck := protocol.NewPacketWriter(protocol.PROTO_NC_SOULSTONE_SP_USESUC_ACK)
+	_ = client.SendPacket(sucAck)
+
+	spCmd := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_SPCHANGE_CMD)
+	spCmd.WriteUint32(uint32(player.Char.CurSP))
+	_ = client.SendPacket(spCmd)
+}
+
+
+const slotWeapon byte = 12 // ItemEquipEnum::ITEMEQUIP_RIGHTHAND (Slot_Weapon)

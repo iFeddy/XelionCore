@@ -175,6 +175,46 @@ type TreasureContainer struct {
 	Rewards     []TreasureRewardItem `json:"rewards"`
 }
 
+// ItemInfo holds the official item definition parsed from ItemInfo.shn.
+type ItemInfo struct {
+	ID        uint16
+	InxName   string
+	Name      string
+	Type      uint32
+	Class     uint8
+	MaxLot    uint32
+	Equip     uint8
+	TwoHand   bool
+	AtkSpeed  uint32
+	DemandLv  uint32
+	Grade     uint32
+	MinWC     uint32
+	MaxWC     uint32
+	AC        uint32
+	MinMA     uint32
+	MaxMA     uint32
+	MR        uint32
+	TH        uint32
+	TB        uint32
+	UseClass  uint32
+	BuyPrice  uint32
+	SellPrice uint32
+	UpLimit   uint8
+}
+
+// ItemUseEffect holds the official consumable recovery/buff effect parsed from ItemUseEffect.shn.
+type ItemUseEffect struct {
+	ItemIndex       string
+	UseEffectA      uint32
+	UseValueA       uint16
+	UseEffectB      uint32
+	UseValueB       uint16
+	UseEffectC      uint32
+	UseValueC       uint16
+	UseAbstateName  string
+	UseAbstateIndex uint32
+}
+
 // Store holds the parsed item configurations for ZoneService.
 type Store struct {
 	mu            sync.RWMutex
@@ -183,6 +223,9 @@ type Store struct {
 	randomOptions map[string]RandomOptionEntry
 	containers    map[string]TreasureContainer
 	itemClasses   map[uint16]uint8
+	itemsByID     map[uint16]*ItemInfo
+	itemsByName   map[string]*ItemInfo
+	useEffects    map[string]*ItemUseEffect
 }
 
 // NewStore initializes a new empty Item store.
@@ -192,6 +235,9 @@ func NewStore() *Store {
 		randomOptions: make(map[string]RandomOptionEntry),
 		containers:    make(map[string]TreasureContainer),
 		itemClasses:   make(map[uint16]uint8),
+		itemsByID:     make(map[uint16]*ItemInfo),
+		itemsByName:   make(map[string]*ItemInfo),
+		useEffects:    make(map[string]*ItemUseEffect),
 	}
 }
 
@@ -314,18 +360,118 @@ func (s *Store) LoadItemInfoSHN(filePath string) error {
 	}
 
 	classes := make(map[uint16]uint8, file.RecordCount)
+	byID := make(map[uint16]*ItemInfo, file.RecordCount)
+	byName := make(map[string]*ItemInfo, file.RecordCount)
+
 	for _, row := range file.Rows {
 		id := row.GetUint16("ID")
-		if id > 0 {
-			classes[id] = uint8(row.GetInt("Class"))
+		inxName := strings.TrimSpace(row.GetString("InxName"))
+		cls := uint8(row.GetInt("Class"))
+		info := &ItemInfo{
+			ID:        id,
+			InxName:   inxName,
+			Name:      strings.TrimSpace(row.GetString("Name")),
+			Type:      uint32(row.GetInt("Type")),
+			Class:     cls,
+			MaxLot:    uint32(row.GetInt("MaxLot")),
+			Equip:     uint8(row.GetInt("Equip")),
+			TwoHand:   row.GetByte("TwoHand") != 0,
+			AtkSpeed:  uint32(row.GetInt("AtkSpeed")),
+			DemandLv:  uint32(row.GetInt("DemandLv")),
+			Grade:     uint32(row.GetInt("Grade")),
+			MinWC:     uint32(row.GetInt("MinWC")),
+			MaxWC:     uint32(row.GetInt("MaxWC")),
+			AC:        uint32(row.GetInt("AC")),
+			MinMA:     uint32(row.GetInt("MinMA")),
+			MaxMA:     uint32(row.GetInt("MaxMA")),
+			MR:        uint32(row.GetInt("MR")),
+			TH:        uint32(row.GetInt("TH")),
+			TB:        uint32(row.GetInt("TB")),
+			UseClass:  uint32(row.GetInt("UseClass")),
+			BuyPrice:  uint32(row.GetInt("BuyPrice")),
+			SellPrice: uint32(row.GetInt("SellPrice")),
+			UpLimit:   row.GetByte("UpLimit"),
+		}
+		classes[id] = cls
+		byID[id] = info
+		if inxName != "" {
+			byName[strings.ToLower(inxName)] = info
 		}
 	}
 
 	s.mu.Lock()
 	s.itemClasses = classes
+	s.itemsByID = byID
+	s.itemsByName = byName
 	s.mu.Unlock()
 
 	return nil
+}
+
+// LoadItemUseEffectSHN loads official consumable recovery/buff definitions from ItemUseEffect.shn.
+func (s *Store) LoadItemUseEffectSHN(filePath string) error {
+	file, err := shn.ReadFile(filePath)
+	if err != nil {
+		return fmt.Errorf("read %s: %w", filePath, err)
+	}
+
+	effects := make(map[string]*ItemUseEffect, file.RecordCount)
+	for _, row := range file.Rows {
+		idx := strings.TrimSpace(row.GetString("ItemIndex"))
+		if idx == "" {
+			continue
+		}
+		effects[strings.ToLower(idx)] = &ItemUseEffect{
+			ItemIndex:       idx,
+			UseEffectA:      uint32(row.GetInt("UseEffectA")),
+			UseValueA:       row.GetUint16("UseValueA"),
+			UseEffectB:      uint32(row.GetInt("UseEffectB")),
+			UseValueB:       row.GetUint16("UseValueB"),
+			UseEffectC:      uint32(row.GetInt("UseEffectC")),
+			UseValueC:       row.GetUint16("UseValueC"),
+			UseAbstateName:  strings.TrimSpace(row.GetString("UseAbstateName")),
+			UseAbstateIndex: uint32(row.GetInt("UseAbstateIndex")),
+		}
+	}
+
+	s.mu.Lock()
+	s.useEffects = effects
+	s.mu.Unlock()
+
+	return nil
+}
+
+// GetItemInfo returns the full ItemInfo for a given itemID.
+func (s *Store) GetItemInfo(itemID uint16) (*ItemInfo, bool) {
+	if s == nil {
+		return nil, false
+	}
+	s.mu.RLock()
+	defer s.mu.RUnlock()
+	info, ok := s.itemsByID[itemID]
+	return info, ok
+}
+
+// GetItemInfoByName returns the full ItemInfo for a given InxName (case-insensitive).
+func (s *Store) GetItemInfoByName(inxName string) (*ItemInfo, bool) {
+	if s == nil {
+		return nil, false
+	}
+	s.mu.RLock()
+	defer s.mu.RUnlock()
+	info, ok := s.itemsByName[strings.ToLower(strings.TrimSpace(inxName))]
+	return info, ok
+}
+
+// GetItemUseEffect returns the consumable recovery/buff effect for an item InxName (case-insensitive).
+func (s *Store) GetItemUseEffect(inxName string) (*ItemUseEffect, bool) {
+	if s == nil {
+		return nil, false
+	}
+	s.mu.RLock()
+	defer s.mu.RUnlock()
+	eff, ok := s.useEffects[strings.ToLower(strings.TrimSpace(inxName))]
+	return eff, ok
 }
 
 // GetItemClass returns the official ItemClass for a given itemID.
