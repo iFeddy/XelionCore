@@ -284,7 +284,7 @@ func (p *ZonePlayer) WriteDetailedInfo(pw *protocol.PacketWriter) {
 
 // WriteDetailedInfoExtra serializa PROTO_NC_CHAR_MAPLOGIN_ACK (242 bytes oficiales en PDB).
 func (p *ZonePlayer) WriteDetailedInfoExtra(pw *protocol.PacketWriter, levelUp bool) {
-	i
+
 	if !levelUp {
 		pw.WriteUint16(p.MapObjectID) // charhandle (2 bytes)
 	}

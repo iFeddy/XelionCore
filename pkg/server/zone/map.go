@@ -262,6 +262,11 @@ func (m *ZoneMap) AddPlayer(p *ZonePlayer) {
 		_ = p.Client.SendPacket(spawnOthers)
 	}
 
+	hpUpdate := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_HPCHANGE_CMD)
+	hpUpdate.WriteUint32(uint32(p.Char.CurHP))
+	hpUpdate.WriteUint16(0)
+	_ = p.Client.SendPacket(hpUpdate)
+
 	// 2. Broadcast the joining player to all other players (PROTO_NC_BRIEFINFO_LOGINCHARACTER_CMD)
 	spawnSelf := protocol.NewPacketWriter(protocol.PROTO_NC_BRIEFINFO_LOGINCHARACTER_CMD)
 	p.WriteCharacterDisplay(spawnSelf)
