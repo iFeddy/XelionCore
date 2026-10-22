@@ -3,7 +3,6 @@ package protocol
 // Constantes oficiales de paquetes de red extraídos directamente de los PDBs oficiales.
 // Nomenclatura 100% idéntica a la documentación oficial (docs/Servicios/Login.md).
 
-
 // PROTO_NC_USER_CLIENT_VERSION_CHECK_REQ (0x0C65 - Dept: 3, Cmd: 101, Size: 64 bytes)
 type PROTO_NC_USER_CLIENT_VERSION_CHECK_REQ_DATA struct {
 	VersionKey string // sVersionKey[64]
@@ -18,9 +17,9 @@ type PROTO_NC_USER_US_LOGIN_REQ_DATA struct {
 
 // PROTO_NC_USER_LOGIN_ACK_WorldInfo representa cada mundo en PROTO_NC_USER_LOGIN_ACK (18 bytes)
 type PROTO_NC_USER_LOGIN_ACK_WorldInfo struct {
-	WorldNo     uint8    // worldno (1 byte)
-	WorldName   string   // worldname[16] (16 bytes)
-	WorldStatus uint8    // worldstatus (1 byte)
+	WorldNo     uint8  // worldno (1 byte)
+	WorldName   string // worldname[16] (16 bytes)
+	WorldStatus uint8  // worldstatus (1 byte)
 }
 
 // PROTO_NC_USER_LOGINFAIL_ACK (0x0C09 - Dept: 3, Cmd: 9, Size: 2 bytes)
@@ -35,16 +34,17 @@ type PROTO_NC_USER_WORLDSELECT_REQ_DATA struct {
 
 // PROTO_NC_USER_WORLDSELECT_ACK (0x0C0C - Dept: 3, Cmd: 12, Size: 83 bytes)
 type PROTO_NC_USER_WORLDSELECT_ACK_DATA struct {
-	WorldStatus uint8       // worldstatus (1 byte)
-	IP          string      // ip[16] (16 bytes)
-	Port        uint16      // port (2 bytes)
-	Token       string      // validate_new[32] (64 bytes transfer token)
+	WorldStatus uint8  // worldstatus (1 byte)
+	IP          string // ip[16] (16 bytes)
+	Port        uint16 // port (2 bytes)
+	Token       string // validate_new[32] (64 bytes transfer token)
 }
 
 // Funciones constructoras de paquetes oficiales
 
 // New_PROTO_NC_USER_CLIENT_RIGHTVERSION_CHECK_ACK construye la respuesta de versión correcta (0x0C67).
 func New_PROTO_NC_USER_CLIENT_RIGHTVERSION_CHECK_ACK() *PacketWriter {
+	//pw := NewPacketWriter(PROTO_NC_USER_CLIENT_VERSION_CHECK_ACK)
 	pw := NewPacketWriter(PROTO_NC_USER_CLIENT_RIGHTVERSION_CHECK_ACK)
 	pw.WriteByte(0) // XTrapServerKeyLength = 0 (sin XTrap activo)
 	return pw
@@ -73,6 +73,8 @@ func New_PROTO_NC_USER_LOGINFAIL_ACK(errCode uint16) *PacketWriter {
 // struct PROTO_NC_USER_LOGIN_ACK { unsigned char numofworld; WorldInfo worldinfo[0]; };
 func New_PROTO_NC_USER_LOGIN_ACK(opCode uint16, worlds []PROTO_NC_USER_LOGIN_ACK_WorldInfo) *PacketWriter {
 	pw := NewPacketWriter(opCode)
+
+	//pw.WriteUint16(0) // ReturnCode = 0 (Success / OK)
 	pw.WriteByte(uint8(len(worlds)))
 
 	for _, w := range worlds {

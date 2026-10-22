@@ -56,8 +56,9 @@ func (h *Handler) HandlePacket(client *network.Client, pkt *protocol.Packet) {
 	case protocol.PROTO_NC_USER_NORMALLOGOUT_CMD:
 		h.handle_PROTO_NC_USER_NORMALLOGOUT_CMD(client, pkt)
 	default:
-		log.Printf("[%s] OpCode no manejado en LoginService: 0x%04X (Dept=%d, Cmd=%d)",
-			client.RemoteAddr(), pkt.OpCode, pkt.Header, pkt.Type)
+		log.Printf("[%s] OpCode no manejado en LoginService: 0x%04X (Dept=%d, Cmd=%d) Len=%d\n%s",
+			client.RemoteAddr(), pkt.OpCode, pkt.Header, pkt.Type, len(pkt.Raw),
+			hex.Dump(pkt.Raw))
 	}
 }
 
@@ -116,7 +117,35 @@ func (h *Handler) handle_PROTO_NC_USER_US_LOGIN_REQ(client *network.Client, pkt 
 	)
 
 	rem := pkt.Reader.Remaining()
-	if rem >= 292 {
+
+	// Si el paquete tiene ~351 bytes (PROTO_NC_USER_LOGIN_REQ 0x0C01) NA2026
+	if rem >= 340 {
+		// 1. Saltar padding inicial de sesión (32 bytes)
+		if _, err = pkt.Reader.ReadBytes(32); err != nil {
+			log.Printf("[%s] Error leyendo padding inicial: %v", client.RemoteAddr(), err)
+			h.send_PROTO_NC_USER_LOGINFAIL_ACK(client, protocol.ErrException)
+			return
+		}
+		// 2. Leer usuario (260 bytes)
+		username, err = pkt.Reader.ReadString(260)
+		if err != nil {
+			log.Printf("[%s] Error leyendo sUserName: %v", client.RemoteAddr(), err)
+			h.send_PROTO_NC_USER_LOGINFAIL_ACK(client, protocol.ErrException)
+			return
+		}
+		// 3. Leer password hash MD5 (32 bytes)
+		password, err = pkt.Reader.ReadString(32)
+		if err != nil {
+			log.Printf("[%s] Error leyendo sPassword: %v", client.RemoteAddr(), err)
+			h.send_PROTO_NC_USER_LOGINFAIL_ACK(client, protocol.ErrException)
+			return
+		}
+		// 4. Leer client string / spawnApps restante si existe (ej. "Original")
+		if pkt.Reader.Remaining() > 0 {
+			spawnApps, _ = pkt.Reader.ReadString(pkt.Reader.Remaining())
+		}
+	} else if rem >= 292 {
+		// Estructura US_LOGIN clásica sin padding inicial
 		username, err = pkt.Reader.ReadString(260)
 		if err != nil {
 			log.Printf("[%s] Error leyendo sUserName: %v", client.RemoteAddr(), err)
@@ -145,8 +174,9 @@ func (h *Handler) handle_PROTO_NC_USER_US_LOGIN_REQ(client *network.Client, pkt 
 		username, _ = pkt.Reader.ReadString(rem)
 	}
 
-	username = strings.TrimSpace(username)
-	password = strings.TrimSpace(password)
+	username = strings.TrimSpace(strings.Trim(username, "\x00"))
+	password = strings.TrimSpace(strings.Trim(password, "\x00"))
+	spawnApps = strings.TrimSpace(strings.Trim(spawnApps, "\x00"))
 	clientIP := client.RemoteIP()
 
 	log.Printf("[%s] Intento de login para usuario '%s' (spawnapps: '%s')", client.RemoteAddr(), username, spawnApps)
@@ -314,6 +344,7 @@ func (h *Handler) handle_PROTO_NC_USER_WORLDSELECT_REQ(client *network.Client, p
 // send_PROTO_NC_USER_LOGIN_ACK emite el listado de mundos activos (0x0C0A / 0x0C1C).
 func (h *Handler) send_PROTO_NC_USER_LOGIN_ACK(client *network.Client, isResend bool) {
 	opCode := uint16(protocol.PROTO_NC_USER_LOGIN_ACK)
+	//opCode := uint16(0x0C02)
 	if isResend {
 		opCode = protocol.PROTO_NC_USER_WORLDSTATUS_ACK
 	}
