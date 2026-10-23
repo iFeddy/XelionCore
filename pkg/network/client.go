@@ -6,6 +6,7 @@ import (
 	"io"
 	"log"
 	"net"
+	"os"
 	"sync"
 	"sync/atomic"
 
@@ -91,6 +92,13 @@ func (c *Client) SendPacket(pw *protocol.PacketWriter) error {
 	defer c.sendMu.Unlock()
 
 	wire := pw.BuildWirePacket()
+	if PacketTrace {
+		n := len(wire)
+		if n > 12 {
+			n = 12
+		}
+		log.Printf("[%s][PacketTrace] SEND len=%d head=% X", c.remoteAddr, len(wire), wire[:n])
+	}
 	_, err := c.conn.Write(wire)
 	return err
 }
@@ -158,3 +166,6 @@ func (c *Client) StartReadLoop(packetHandler func(*Client, *protocol.Packet)) {
 		packetHandler(c, pkt)
 	}
 }
+
+// PacketTrace habilita el log de cada paquete enviado/recibido (desactivar con XELION_PACKET_TRACE=0).
+var PacketTrace = os.Getenv("XELION_PACKET_TRACE") != "0"

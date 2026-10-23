@@ -159,6 +159,9 @@ func (mm *MapManager) loadMapNPCs(zMap *ZoneMap) {
 			IsGate:      isGate,
 			GateToWhere: gateToWhere,
 		}
+		_, resolved := mm.mobMap[strings.ToLower(strings.TrimSpace(n.MobName))]
+		log.Printf("[Zone][Map %s][NPCDebug] handle=%d mob=%q mobID=%d resolved=%t pos=(%d,%d) dir=%d->%d role=%q arg=%q gate=%t",
+			zMap.MapID, handle, n.MobName, mobID, resolved, n.X, n.Y, n.Direct, byte(n.Direct), n.Role, n.RoleArg, isGate)
 		zMap.npcs[handle] = zNPC
 		if isGate {
 			zMap.gates = append(zMap.gates, zNPC)
@@ -400,6 +403,8 @@ func (m *ZoneMap) SendNPCs(p *ZonePlayer) {
 			pw.WriteByte(0)        // 0x93: nKQTeamType (1 byte)
 			pw.WriteByte(0)        // 0x94: bRegenAni (1 byte)
 		}
+		log.Printf("[Zone][Map %s][NPCDebug] Sending PROTO_NC_BRIEFINFO_MOB_CMD to '%s': %d mobs (expected payload %d bytes)",
+			m.MapID, p.Char.Name, len(chunk), 1+len(chunk)*149)
 		_ = p.Client.SendPacket(pw)
 	}
 }

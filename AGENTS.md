@@ -81,3 +81,22 @@ Todos los archivos de configuración y datos del mundo de `Zone.exe` han sido mo
 | **Quest Parser** | `data/World/Quest/QuestParser.json` | `pkg/data/questparser` | Mapeo de IDs de clases de misiones (`gQuestParserData`). |
 | **Scripts & Lua** | `data/Script/*.json` y `data/LuaScript/` | `pkg/data/script`, `pkg/script/lua` | Lógica de eventos, diálogos y scripts de misiones ejecutados en runtime Lua. |
 | **SHN Tables** | `../AstraServer/Server/9Data/Shine/` | `pkg/data/shn` | Universo binario de datos oficiales (189 SHNs). |
+
+---
+
+## 6. Índices de Código (leer ANTES de explorar el proyecto)
+
+Para ubicar código, **leer primero** el índice correspondiente en [docs/Indices/](docs/Indices/) (firmas unc/	ype con n° de línea) y luego abrir solo el rango necesario con StartLine/EndLine. No listar ni leer carpetas completas a ciegas.
+
+| Tarea | Índice |
+| :--- | :--- |
+| Character / WorldService / base de datos | [Character.md](docs/Indices/Character.md) |
+| ZoneService | [Zone.md](docs/Indices/Zone.md) |
+| Cargadores de datos / Lua | [Data.md](docs/Indices/Data.md) |
+| Structs de paquetes `PROTO_NC_*` | [Protocol.md](docs/Indices/Protocol.md) |
+| LoginService | [Login.md](docs/Indices/Login.md) |
+| config / crypto / logger / network | [Core.md](docs/Indices/Core.md) |
+
+- Los índices son solo de ubicación; la verdad técnica sigue siendo `docs/Servicios/`.
+- Tras agregar o mover funciones/archivos, regenerar con `powershell -File scripts/gen_indices.ps1`.
+

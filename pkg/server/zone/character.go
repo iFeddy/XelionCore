@@ -85,6 +85,7 @@ type ZonePlayer struct {
 	EquipTB      uint32
 	LoginTime    time.Time
 	LastWarpTime time.Time
+	LoggingOut   bool // true entre PROTO_NC_CHAR_LOGOUTREADY_CMD y PROTO_NC_CHAR_LOGOUTCANCEL_CMD
 }
 
 // NewZonePlayer inicializa un ZonePlayer cargando sus stats oficiales desde ClassParam.

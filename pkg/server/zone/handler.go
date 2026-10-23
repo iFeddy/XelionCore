@@ -49,6 +49,9 @@ func NewHandler(charRepo database.CharacterRepository, transfers *database.Trans
 
 // HandlePacket routes packets to their specific handlers using official PROTO_NC_* opcodes.
 func (h *Handler) HandlePacket(client *network.Client, pkt *protocol.Packet) {
+	if network.PacketTrace {
+		log.Printf("[Zone][%s][PacketTrace] RECV opcode=0x%04X len=%d", client.RemoteAddr(), pkt.OpCode, len(pkt.Raw))
+	}
 	switch pkt.OpCode {
 	case protocol.PROTO_NC_MAP_LOGIN_REQ:
 		h.handleTransferKey(client, pkt)
@@ -130,6 +133,12 @@ func (h *Handler) HandlePacket(client *network.Client, pkt *protocol.Packet) {
 		h.handleSoulStoneHPUse(client, pkt)
 	case protocol.PROTO_NC_SOULSTONE_SP_USE_REQ:
 		h.handleSoulStoneSPUse(client, pkt)
+	case protocol.PROTO_NC_CHAR_LOGOUTREADY_CMD:
+		h.handleLogoutReady(client, pkt)
+	case protocol.PROTO_NC_CHAR_LOGOUTCANCEL_CMD:
+		h.handleLogoutCancel(client, pkt)
+	case protocol.PROTO_NC_USER_NORMALLOGOUT_CMD:
+		h.handleNormalLogout(client, pkt)
 	case protocol.PROTO_NC_MISC_HEARTBEAT_ACK, protocol.PROTO_NC_MISC_GAMETIME_REQ:
 		// Heartbeat pong received, ignore
 	default:
@@ -2156,3 +2165,36 @@ func (h *Handler) handleSoulStoneSPUse(client *network.Client, pkt *protocol.Pac
 
 
 const slotWeapon byte = 12 // ItemEquipEnum::ITEMEQUIP_RIGHTHAND (Slot_Weapon)
+
+// handleLogoutReady implementa sp_NC_CHAR_LOGOUTREADY_CMD (0x1071, C2S, sin payload).
+// El cliente inicia la cuenta regresiva de salida a la selección de personaje.
+func (h *Handler) handleLogoutReady(client *network.Client, pkt *protocol.Packet) {
+	player, ok := h.getPlayer(client)
+	if !ok || player == nil {
+		return
+	}
+	player.LoggingOut = true
+	log.Printf("[Zone][%s] PROTO_NC_CHAR_LOGOUTREADY_CMD: '%s' inició la cuenta regresiva de salida.",
+		client.RemoteAddr(), player.Char.Name)
+}
+
+// handleLogoutCancel implementa sp_NC_CHAR_LOGOUTCANCEL_CMD (0x1072, C2S, sin payload).
+// El cliente canceló la cuenta regresiva de salida.
+func (h *Handler) handleLogoutCancel(client *network.Client, pkt *protocol.Packet) {
+	player, ok := h.getPlayer(client)
+	if !ok || player == nil {
+		return
+	}
+	player.LoggingOut = false
+	log.Printf("[Zone][%s] PROTO_NC_CHAR_LOGOUTCANCEL_CMD: '%s' canceló la salida.",
+		client.RemoteAddr(), player.Char.Name)
+}
+
+// handleNormalLogout implementa PROTO_NC_USER_NORMALLOGOUT_CMD (0x0C18, struct { unsigned char LogoutType; }).
+// Persiste el personaje, lo retira del mapa (broadcast de BRIEFINFO_LEAVE_CMD) y registra tLogout.
+// OnClientDisconnect es idempotente (h.players), por lo que el cierre posterior del socket no duplica nada.
+func (h *Handler) handleNormalLogout(client *network.Client, pkt *protocol.Packet) {
+	logoutType, _ := pkt.Reader.ReadByte()
+	log.Printf("[Zone][%s] PROTO_NC_USER_NORMALLOGOUT_CMD recibido (LogoutType=%d).", client.RemoteAddr(), logoutType)
+	h.OnClientDisconnect(client)
+}
