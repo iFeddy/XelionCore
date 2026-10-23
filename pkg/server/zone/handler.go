@@ -2196,5 +2196,10 @@ func (h *Handler) handleLogoutCancel(client *network.Client, pkt *protocol.Packe
 func (h *Handler) handleNormalLogout(client *network.Client, pkt *protocol.Packet) {
 	logoutType, _ := pkt.Reader.ReadByte()
 	log.Printf("[Zone][%s] PROTO_NC_USER_NORMALLOGOUT_CMD recibido (LogoutType=%d).", client.RemoteAddr(), logoutType)
+
+	if err := client.SendPacket(protocol.New_PROTO_NC_USER_WILL_WORLD_SELECT_ACK()); err != nil {
+		log.Printf("[Zone][%s] Error enviando PROTO_NC_USER_WILL_WORLD_SELECT_ACK: %v", client.RemoteAddr(), err)
+	}
+
 	h.OnClientDisconnect(client)
 }

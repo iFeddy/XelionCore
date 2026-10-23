@@ -26243,6 +26243,8 @@ struct PROTO_NC_USER_NORMALLOGOUT_CMD {
 | :--- | :--- | :--- | :--- | :--- |
 | `0x000` | `0` | `unsigned char` | `LogoutType` | Campo de paquete oficial extraído de PDB TPI |
 
+Al recibir este comando, Zone persiste y retira al personaje del mapa y responde al cliente con `PROTO_NC_USER_WILL_WORLD_SELECT_ACK` (`0x0C34`, error `0` y OTP vacío), señalando el retorno a la selección de mundos.
+
 ### `PROTO_NC_USER_POSSIBLE_NEW_CONNECT_CMD`
 
 - **Tamaño Total en Memoria:** `6 bytes` (`0x6`)

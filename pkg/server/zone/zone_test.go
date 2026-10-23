@@ -14,8 +14,78 @@ import (
 	"github.com/iFeddy/XelionCore/pkg/data/npc"
 	"github.com/iFeddy/XelionCore/pkg/data/shn"
 	"github.com/iFeddy/XelionCore/pkg/database"
+	"github.com/iFeddy/XelionCore/pkg/network"
 	"github.com/iFeddy/XelionCore/pkg/protocol"
 )
+
+func TestHandler_NormalLogoutReturnsToWorldSelect(t *testing.T) {
+	charRepo := database.NewMemoryCharacterRepositoryWithFile("")
+	char := &database.Character{
+		ID:        23,
+		AccountID: 1,
+		Name:      "LogoutHero",
+		TownName:  "RouN",
+		CurHP:     52,
+		CurSP:     10,
+	}
+	if err := charRepo.CreateCharacter(char); err != nil {
+		t.Fatalf("failed to create character: %v", err)
+	}
+
+	h := NewHandler(charRepo, nil, nil, nil, nil)
+	clientConn, serverConn := net.Pipe()
+	defer clientConn.Close()
+	defer serverConn.Close()
+
+	client, err := network.NewClient(serverConn, nil)
+	if err != nil {
+		t.Fatalf("failed to create network client: %v", err)
+	}
+	h.players[client] = &ZonePlayer{Client: client, Char: char}
+
+	req := protocol.NewPacketWriter(protocol.PROTO_NC_USER_NORMALLOGOUT_CMD)
+	req.WriteByte(0)
+	pkt := protocol.NewPacket(req.Data())
+
+	done := make(chan struct{})
+	go func() {
+		h.HandlePacket(client, pkt)
+		close(done)
+	}()
+
+	resp, err := readServerPacket(clientConn)
+	if err != nil {
+		t.Fatalf("failed to read logout response: %v", err)
+	}
+	if resp.OpCode != protocol.PROTO_NC_USER_WILL_WORLD_SELECT_ACK {
+		t.Fatalf("expected PROTO_NC_USER_WILL_WORLD_SELECT_ACK (0x%04X), got 0x%04X",
+			protocol.PROTO_NC_USER_WILL_WORLD_SELECT_ACK, resp.OpCode)
+	}
+	if resp.Reader.Remaining() != 34 {
+		t.Fatalf("expected 34-byte logout response payload, got %d bytes", resp.Reader.Remaining())
+	}
+	errCode, err := resp.Reader.ReadUint16()
+	if err != nil {
+		t.Fatalf("failed to read world-select response error code: %v", err)
+	}
+	if errCode != 0 {
+		t.Fatalf("expected successful world-select response, got error code %d", errCode)
+	}
+	otp, err := resp.Reader.ReadBytes(32)
+	if err != nil {
+		t.Fatalf("failed to read world-select OTP: %v", err)
+	}
+	for i, b := range otp {
+		if b != 0 {
+			t.Fatalf("expected empty OTP, byte %d was 0x%02X", i, b)
+		}
+	}
+
+	<-done
+	if _, ok := h.getPlayer(client); ok {
+		t.Fatal("expected logged-out character to be removed from active players")
+	}
+}
 
 func readServerPacket(r io.Reader) (*protocol.Packet, error) {
 	lenBuf := make([]byte, 1)
@@ -774,4 +844,3 @@ func TestZoneServer_Phase1_NPCSpawnsAndGateWarps(t *testing.T) {
 	}
 	t.Logf("Multi link warp de regreso a RouN verificado exitosamente")
 }
-
