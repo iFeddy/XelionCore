@@ -1,0 +1,45 @@
+================================================================================
+PCAP: 20261024_192000_create_char_success.pcap (Total TCP segments: 6)
+================================================================================
+
+--------------------------------------------------------------------------------
+Connection: Client 192.168.0.15:58406 <---> Server 34.159.88.99:6666 (1 segments)
+--------------------------------------------------------------------------------
+[#001][1792880419.113] S2C (Server -> Client) WIRE LEN=6
+    RAW: 00 04 30 30 30 31
+
+--------------------------------------------------------------------------------
+Connection: Client 192.168.0.15:52877 <---> Server 162.19.147.96:9310 (5 segments)
+--------------------------------------------------------------------------------
+[#001][1792880427.063] C2S (Client -> Server) WIRE LEN=29
+    RAW: 1C 21 36 DB 5B 79 DE 2D EC A2 93 C1 67 6B 76 B1 F0 8B EC DB 6C 6D 66 AD C0 BA 89 14 78
+    S2C FRAMED [OpCode=0x3621 Dept=13 Cmd=545 Size=28]:
+        0000:  21 36 DB 5B 79 DE 2D EC A2 93 C1 67 6B 76 B1 F0   |!6.[y.-....gkv..|
+        0010:  8B EC DB 6C 6D 66 AD C0 BA 89 14 78               |...lmf.....x|
+
+[#002][1792880427.412] S2C (Server -> Client) WIRE LEN=6
+    RAW: 00 00 00 00 00 00
+
+[#003][1792880427.412] S2C (Server -> Client) WIRE LEN=165
+    RAW: A4 06 14 01 74 34 0D 00 54 72 6F 6E 69 63 58 65 6C 69 6F 6E 00 00 00 00 00 00 00 00 01 00 00 52 6F 75 00 00 00 00 00 00 00 00 00 00 FF FF FF FF 85 04 00 00 FF FF FF FF A0 32 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF 00 00 F0 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF 00 00 F0 FF FF FF FF 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 AA 19 50 1A 00 00 00 00 00 00 00 00 00 00 00
+    S2C FRAMED [OpCode=0x1406 Dept=5 Cmd=6 Size=164]:
+        0000:  06 14 01 74 34 0D 00 54 72 6F 6E 69 63 58 65 6C   |...t4..TronicXel|
+        0010:  69 6F 6E 00 00 00 00 00 00 00 00 01 00 00 52 6F   |ion...........Ro|
+        0020:  75 00 00 00 00 00 00 00 00 00 00 FF FF FF FF 85   |u...............|
+        0030:  04 00 00 FF FF FF FF A0 32 FF FF FF FF FF FF FF   |........2.......|
+        0040:  FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF   |................|
+        0050:  FF FF FF FF FF FF FF FF FF FF FF 00 00 F0 FF FF   |................|
+        0060:  FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF   |................|
+        0070:  FF FF FF FF FF FF FF FF FF FF 00 00 F0 FF FF FF   |................|
+        0080:  FF 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00   |................|
+        0090:  00 00 00 00 00 AA 19 50 1A 00 00 00 00 00 00 00   |.......P........|
+        00A0:  00 00 00 00                                       |....|
+
+[#004][1792880427.428] C2S (Client -> Server) WIRE LEN=13
+    RAW: 0C 1C 85 10 F8 0F 25 7D 60 DF F6 FE 6E
+    S2C FRAMED [OpCode=0x851C Dept=33 Cmd=284 Size=12]:
+        0000:  1C 85 10 F8 0F 25 7D 60 DF F6 FE 6E               |.....%}`...n|
+
+[#005][1792880427.733] S2C (Server -> Client) WIRE LEN=6
+    RAW: 00 00 00 00 00 00
+

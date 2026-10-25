@@ -107,6 +107,98 @@ func WriteBasicCharInfo(ch *database.Character, pw *protocol.PacketWriter) {
 	pw.WriteByte(0)
 }
 
+// WriteNA2026CharInfo serializa un personaje en el formato de 161 bytes exactos
+// requerido por el cliente Fiesta Online NA2026 dentro del paquete unificado 0x0C0F.
+// Recuperado byte a byte de la captura oficial 20261025_112800_enter_char_and_click_back_to_world.pcap.
+func WriteNA2026CharInfo(ch *database.Character, pw *protocol.PacketWriter) {
+	// 0x00..0x04 (4 bytes): uint32 ChrID
+	pw.WriteUint32(uint32(ch.ID))
+
+	// 0x04..0x18 (20 bytes): char[20] Name (null-padded)
+	pw.WriteString(ch.Name, 20)
+
+	// 0x18..0x1A (2 bytes): uint16 Level
+	pw.WriteUint16(uint16(ch.Level))
+
+	// 0x1A..0x1B (1 byte): uint8 Slot
+	pw.WriteByte(ch.Slot)
+
+	// 0x1B..0x27 (12 bytes): char[12] MapName
+	mapShortName := ch.TownName
+	if mapShortName == "" {
+		mapShortName = "Rou"
+	}
+	pw.WriteString(mapShortName, 12)
+
+	// 0x27..0x2C (5 bytes): delinfo / flags (0x00, 0x00, 0x00, 0x00, 0x00)
+	pw.WriteBytes([]byte{0x00, 0x00, 0x00, 0x00, 0x00})
+
+	// 0x2C..0x30 (4 bytes): shape (race:2, chrclass:5, gender:1, hairtype, haircolor, faceshape)
+	genderBit := byte(0)
+	if ch.Male {
+		genderBit = 1
+	}
+	shapeByte0 := byte((1 & 0x03) | ((ch.Job & 0x1F) << 2) | ((genderBit & 0x01) << 7))
+	pw.WriteByte(shapeByte0)
+	pw.WriteByte(ch.Hair)
+	pw.WriteByte(ch.HairColor)
+	pw.WriteByte(ch.Face)
+
+	// 0x30..0x58 (40 bytes): 20 slots de equipamiento (cada slot uint16, 0xFFFF si vacío)
+	writeEquipSlot := func(slot byte) {
+		itemID := ch.GetEquip(slot)
+		if itemID == 0 {
+			pw.WriteUint16(0xFFFF)
+		} else {
+			pw.WriteUint16(itemID)
+		}
+	}
+
+	writeEquipSlot(SlotHelm)          // Equ_Head
+	pw.WriteUint16(0xFFFF)            // Equ_Mouth
+	writeEquipSlot(SlotWeapon)        // Equ_RightHand
+	writeEquipSlot(SlotArmor)         // Equ_Body
+	writeEquipSlot(SlotWeapon2)       // Equ_LeftHand
+	writeEquipSlot(SlotPants)         // Equ_Pant
+	writeEquipSlot(SlotBoots)         // Equ_Boot
+	writeEquipSlot(SlotCostumeBoots)  // Equ_AccBoot
+	writeEquipSlot(SlotCostumePants)  // Equ_AccPant
+	writeEquipSlot(SlotCostumeArmor)  // Equ_AccBody
+	writeEquipSlot(SlotCostumeHelm)   // Equ_AccHeadA
+	pw.WriteUint16(0xFFFF)            // Equ_MiniMon_R
+	writeEquipSlot(SlotGlasses)       // Equ_Eye
+	writeEquipSlot(SlotCostumeShield) // Equ_AccLeftHand
+	writeEquipSlot(SlotCostumeWeapon) // Equ_AccRightHand
+	writeEquipSlot(SlotWing)          // Equ_AccBack
+	pw.WriteUint16(0xFFFF)            // Equ_CosEff
+	writeEquipSlot(SlotTail)          // Equ_AccHip
+	writeEquipSlot(SlotPet)           // Equ_Minimon
+	pw.WriteUint16(0xFFFF)            // Equ_AccShield
+
+	// 0x58..0x5B (3 bytes): upgrade flags
+	pw.WriteBytes([]byte{0x00, 0x00, 0xF0})
+
+	// 0x5B..0x77 (28 bytes): 14 slots de costume/equip adicionales (0xFFFF)
+	for i := 0; i < 14; i++ {
+		pw.WriteUint16(0xFFFF)
+	}
+
+	// 0x77..0x7A (3 bytes): upgrade secundario
+	pw.WriteBytes([]byte{0x00, 0x00, 0xF0})
+
+	// 0x7A..0x7E (4 bytes): slots adicionales
+	pw.WriteBytes([]byte{0xFF, 0xFF, 0xFF, 0xFF})
+
+	// 0x7E..0x92 (20 bytes): zeroes
+	pw.WriteBytes(make([]byte, 20))
+
+	// 0x92..0x96 (4 bytes): Timestamp / Date
+	pw.WriteBytes([]byte{0xAA, 0x19, 0x54, 0x79})
+
+	// 0x96..0xA1 (11 bytes): Tail matching capture
+	pw.WriteBytes([]byte{0x00, 0x64, 0x00, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x00})
+}
+
 // GetBeginnerWeapon returns the starter weapon ID for a given job.
 func GetBeginnerWeapon(job protocol.Job) (slot byte, itemID uint16) {
 	switch job {

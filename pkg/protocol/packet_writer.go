@@ -20,6 +20,14 @@ func NewPacketWriter(opCode uint16) *PacketWriter {
 	return pw
 }
 
+// NewDataWriter creates a PacketWriter without an initial OpCode (for raw sub-payloads/chunks).
+func NewDataWriter() *PacketWriter {
+	return &PacketWriter{
+		opCode: 0,
+		buf:    make([]byte, 0, 64),
+	}
+}
+
 // OpCode returns the packet's OpCode.
 func (pw *PacketWriter) OpCode() uint16 {
 	return pw.opCode

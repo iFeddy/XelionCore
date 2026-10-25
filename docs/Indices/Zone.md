@@ -1,6 +1,9 @@
-﻿# Ãndice: ZoneService
+# Índice: ZoneService
 
-> Generado automÃ¡ticamente por scripts/gen_indices.ps1. Solo firmas con nÂ° de lÃ­nea: abrir el archivo con StartLine/EndLine. No reemplaza a docs/Servicios/. Protocolos en pkg/protocol.
+> Generado automáticamente por scripts/gen_indices. Solo firmas con n° de línea: abrir el archivo con StartLine/EndLine. No reemplaza a docs/Servicios/. Protocolos en pkg/protocol.
+
+## cmd/ZoneService/main.go
+- L19: `func main()`
 
 ## pkg/server/zone/character.go
 - L39: `func JobToClassName(job byte) string`
@@ -146,7 +149,3 @@
 - L342: `func TestZoneServer_Phase1_ChecksumVerification(t *testing.T)`
 - L429: `func TestZoneServer_ReportsAndLogoutLog(t *testing.T)`
 - L556: `func TestZoneServer_Phase1_NPCSpawnsAndGateWarps(t *testing.T)`
-
-## cmd/ZoneService/main.go
-- L19: `func main()`
-

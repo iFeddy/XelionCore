@@ -69,19 +69,32 @@ func (h *Handler) HandlePacket(client *network.Client, pkt *protocol.Packet) {
 	case protocol.PROTO_NC_MISC_GAMETIME_REQ:
 		h.handleGameTime(client, pkt)
 
-	case protocol.PROTO_NC_MISC_WORLD_CLIENT_KEY_REQ:
+	case protocol.PROTO_NC_MISC_WORLD_CLIENT_KEY_REQ, protocol.PROTO_NC_USER_NA2026_WORLD_CLIENT_KEY_REQ:
 		h.handleWorldClientKey(client, pkt)
 
-	case protocol.PROTO_NC_USER_BACKTOWORLDLIST_REQ:
+	case protocol.PROTO_NC_USER_NA2026_BACK_TO_WORLD_REQ:
 		h.handleBackToWorldSelect(client, pkt)
+
+	case protocol.PROTO_NC_USER_BACKTOWORLDLIST_REQ: // 0x0C33: Legacy BackToWorld / NA2026 Post-create
+		if client.ClientYear != 2026 {
+			h.handleBackToWorldSelect(client, pkt)
+		}
+
+	case protocol.PROTO_NC_USER_NA2026_PRE_CREATE_CHAR_REQ:
+		// Cliente NA2026 abre el menú de creación de personaje (0x0C30 -> responde 0x0C32 con sesión)
+		if client.RandomID == 0 {
+			client.RandomID = 0x7B2A
+		}
+		ack := protocol.New_PROTO_NC_USER_NA2026_PRE_CREATE_CHAR_ACK(client.RandomID)
+		_ = client.SendPacket(ack)
 
 	case protocol.PROTO_NC_CHAR_LOGIN_REQ:
 		h.handleCharSelect(client, pkt)
 
-	case protocol.PROTO_NC_CHAR_CREATE_REQ:
+	case protocol.PROTO_NC_CHAR_CREATE_REQ, protocol.PROTO_NC_AVATAR_CREATEDATASUC_ACK:
 		h.handleCreateCharacter(client, pkt)
 
-	case protocol.PROTO_NC_CHAR_DELETE_REQ:
+	case protocol.PROTO_NC_CHAR_DELETE_REQ, protocol.PROTO_NC_AVATAR_ERASEDATASUC_ACK:
 		h.handleDeleteCharacter(client, pkt)
 
 	case protocol.PROTO_NC_CHAR_INGAME_REQ:
@@ -286,14 +299,33 @@ func (h *Handler) handleGameTime(client *network.Client, pkt *protocol.Packet) {
 // Soporta la estructura oficial PROTO_NC_USER_LOGINWORLD_REQ (320 bytes payload):
 //   - char user[256] /* Name256Byte */
 //   - unsigned short validate_new[32] (64 bytes)
+// y el formato NA2026 PROTO_NC_USER_NA2026_WORLD_CLIENT_KEY_REQ (0x0C0E - 82 bytes payload):
+//   - char user[18]
+//   - char validate_new[64]
 func (h *Handler) handleWorldClientKey(client *network.Client, pkt *protocol.Packet) {
-	log.Printf("[World][%s] Received PROTO_NC_USER_LOGINWORLD_REQ (len %d)",
-		client.RemoteAddr(), len(pkt.Raw))
+	log.Printf("[World][%s] Received login packet (OpCode: 0x%04X, len %d)",
+		client.RemoteAddr(), pkt.OpCode, len(pkt.Raw))
 
 	var username string
 	var token string
+	rem := pkt.Reader.Remaining()
 
-	if pkt.Reader.Remaining() >= 256 {
+	isNA2026 := pkt.OpCode == protocol.PROTO_NC_USER_NA2026_WORLD_CLIENT_KEY_REQ ||
+		pkt.OpCode == protocol.PROTO_NC_USER_WILLLOGIN_ACK ||
+		rem == 82 || rem == 84
+
+	if isNA2026 {
+		client.ClientYear = 2026
+		client.ClientVersion = 2026
+
+		uBytes, _ := pkt.Reader.ReadBytes(18)
+		username = strings.TrimRight(string(uBytes), "\x00")
+		username = strings.TrimSpace(username)
+
+		tBytes, _ := pkt.Reader.ReadBytes(64)
+		token = strings.TrimRight(string(tBytes), "\x00")
+		token = strings.TrimSpace(token)
+	} else if rem >= 256 {
 		uBytes, _ := pkt.Reader.ReadBytes(256)
 		username = strings.TrimRight(string(uBytes), "\x00")
 		username = strings.TrimSpace(username)
@@ -303,7 +335,7 @@ func (h *Handler) handleWorldClientKey(client *network.Client, pkt *protocol.Pac
 			token = strings.TrimRight(string(tBytes), "\x00")
 			token = strings.TrimSpace(token)
 		}
-	} else if pkt.Reader.Remaining() >= 18+32 {
+	} else if rem >= 18+32 {
 		// Fallback para paquetes heredados/mockeados en tests
 		_ = pkt.Reader.Skip(18)
 		token, _ = pkt.Reader.ReadString(32)
@@ -327,7 +359,33 @@ func (h *Handler) handleWorldClientKey(client *network.Client, pkt *protocol.Pac
 	log.Printf("[World][%s] Authenticated user '%s' (AccountID: %d)",
 		client.RemoteAddr(), client.Username, client.AccountID)
 
-	// Enviar lista de personajes disponibles
+	if isNA2026 {
+		// En NA2026, la lista de personajes viaja unificada dentro del paquete 0x0C0F
+		chars, err := h.charRepo.GetCharactersByAccount(client.AccountID)
+		if err != nil {
+			log.Printf("[World][%s] Error loading characters for account %d: %v",
+				client.RemoteAddr(), client.AccountID, err)
+			h.sendError(client, protocol.ErrDatabaseError)
+			return
+		}
+
+		if client.RandomID == 0 {
+			client.RandomID = uint16(rand.Intn(65534) + 1)
+		}
+
+		charBuf := protocol.NewDataWriter()
+		for _, ch := range chars {
+			WriteNA2026CharInfo(ch, charBuf)
+		}
+
+		ackPkt := protocol.New_PROTO_NC_USER_NA2026_WORLD_LOGIN_ACK(client.RandomID, byte(len(chars)), h.zoneIP, 9350, charBuf.Data())
+		_ = client.SendPacket(ackPkt)
+		log.Printf("[World][%s] Sent NA2026 World Login ACK (0x0C0F) with %d character(s) to '%s'",
+			client.RemoteAddr(), len(chars), client.Username)
+		return
+	}
+
+	// Enviar lista de personajes disponibles (Legacy 0x0C14)
 	h.sendCharacterList(client)
 }
 
@@ -540,7 +598,11 @@ func (h *Handler) handleCreateCharacter(client *network.Client, pkt *protocol.Pa
 
 	// Enviar respuesta oficial de confirmación PROTO_NC_CHAR_CREATE_ACK (0x1406)
 	resp := protocol.New_PROTO_NC_CHAR_CREATE_ACK(func(pw *protocol.PacketWriter) {
-		WriteBasicCharInfo(newChar, pw)
+		if client.ClientYear == 2026 {
+			WriteNA2026CharInfo(newChar, pw)
+		} else {
+			WriteBasicCharInfo(newChar, pw)
+		}
 	})
 	_ = client.SendPacket(resp)
 }
@@ -569,7 +631,16 @@ func (h *Handler) handleDeleteCharacter(client *network.Client, pkt *protocol.Pa
 }
 
 // handleBackToWorldSelect procesa la solicitud de volver a la selección de mundos.
+// En NA2026 responde con 0x0C23 conteniendo el token de sesión para reingresar al LoginService sin reautenticar.
 func (h *Handler) handleBackToWorldSelect(client *network.Client, pkt *protocol.Packet) {
+	if pkt.OpCode == protocol.PROTO_NC_USER_NA2026_BACK_TO_WORLD_REQ || client.ClientYear == 2026 {
+		token := h.transfers.CreateTransfer(client.AccountID, client.Username, client.Admin, client.RemoteAddr())
+		resp := protocol.New_PROTO_NC_USER_NA2026_BACK_TO_WORLD_ACK(token)
+		_ = client.SendPacket(resp)
+		log.Printf("[World][%s] Sent NA2026 Back to World ACK (0x0C23) with token '%s'", client.RemoteAddr(), token)
+		return
+	}
+
 	resp := protocol.New_PROTO_NC_USER_BACKTOWORLDLIST_ACK()
 	_ = client.SendPacket(resp)
 }

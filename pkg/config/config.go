@@ -98,8 +98,8 @@ func Load(envPath ...string) (*Config, error) {
 		DBName:     getEnv("DB_NAME", getEnv("DB_DATABASE", "xelion_online")),
 	}
 
-	// Cargar mundos indexados dinámicamente: WORLD_0_NAME, WORLD_1_NAME, etc.
-	for i := 0; i < 255; i++ {
+	// Cargar mundos indexados dinámicamente: WORLD_0_NAME, WORLD_1_NAME, etc. (hasta 16 mundos)
+	for i := 0; i <= 16; i++ {
 		nameKey := fmt.Sprintf("WORLD_%d_NAME", i)
 		name := getEnv(nameKey, "")
 		if name == "" {
@@ -116,7 +116,7 @@ func Load(envPath ...string) (*Config, error) {
 					})
 				}
 			}
-			break
+			continue
 		}
 
 		ipKey := fmt.Sprintf("WORLD_%d_IP", i)

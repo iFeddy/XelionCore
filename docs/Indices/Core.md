@@ -1,6 +1,6 @@
-﻿# Ãndice: config/crypto/logger/network
+# Índice: config/crypto/logger/network
 
-> Generado automÃ¡ticamente por scripts/gen_indices.ps1. Solo firmas con nÂ° de lÃ­nea: abrir el archivo con StartLine/EndLine. No reemplaza a docs/Servicios/. 
+> Generado automáticamente por scripts/gen_indices. Solo firmas con n° de línea: abrir el archivo con StartLine/EndLine. No reemplaza a docs/Servicios/. 
 
 ## pkg/config/config.go
 - L12: `type WorldConfig struct`
@@ -25,15 +25,15 @@
 - L15: `func InitSessionLogger(serviceName string) (*os.File, error)`
 
 ## pkg/network/client.go
-- L17: `type Client struct`
-- L40: `func NewClient(conn net.Conn, onClose func(*Client)) (*Client, error)`
-- L58: `func (c *Client) RemoteAddr() string`
-- L63: `func (c *Client) RemoteIP() string`
-- L72: `func (c *Client) XorOffset() int16`
-- L80: `func (c *Client) Crypto() *crypto.NetCrypto`
-- L85: `func (c *Client) SendPacket(pw *protocol.PacketWriter) error`
-- L99: `func (c *Client) Close()`
-- L109: `func (c *Client) StartReadLoop(packetHandler func(*Client, *protocol.Packet))`
+- L18: `type Client struct`
+- L41: `func NewClient(conn net.Conn, onClose func(*Client)) (*Client, error)`
+- L59: `func (c *Client) RemoteAddr() string`
+- L64: `func (c *Client) RemoteIP() string`
+- L73: `func (c *Client) XorOffset() int16`
+- L81: `func (c *Client) Crypto() *crypto.NetCrypto`
+- L86: `func (c *Client) SendPacket(pw *protocol.PacketWriter) error`
+- L107: `func (c *Client) Close()`
+- L117: `func (c *Client) StartReadLoop(packetHandler func(*Client, *protocol.Packet))`
 
 ## pkg/network/server.go
 - L13: `type TCPServer struct`
@@ -42,4 +42,3 @@
 - L40: `func (s *TCPServer) Start() error`
 - L54: `func (s *TCPServer) acceptLoop()`
 - L103: `func (s *TCPServer) Stop()`
-

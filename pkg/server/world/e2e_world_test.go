@@ -114,6 +114,8 @@ func TestE2EWorldServiceFlow(t *testing.T) {
 	// Simular token emitido por LoginService
 	testAccountID := 1
 	testUsername := "admin"
+	// Liberar slot 5 si está ocupado para garantizar un slot libre en el test
+	_ = charRepo.DeleteCharacter(testAccountID, 5)
 	transferToken := transfers.CreateTransfer(testAccountID, testUsername, 1, "127.0.0.1")
 
 	// Conectar cliente de prueba
@@ -160,7 +162,7 @@ func TestE2EWorldServiceFlow(t *testing.T) {
 	initialCharCount, _ := pkt.Reader.ReadByte()
 	t.Logf("Paso 2: Autenticación World exitosa, recibida lista de personajes (%d activos)", initialCharCount)
 
-	existingChars, _ := charRepo.GetCharactersByAccount(1)
+	existingChars, _ := charRepo.GetCharactersByAccount(testAccountID)
 	usedSlots := make(map[byte]bool)
 	for _, c := range existingChars {
 		usedSlots[c.Slot] = true

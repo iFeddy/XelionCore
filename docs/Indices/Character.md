@@ -1,167 +1,9 @@
-﻿# Ãndice: WorldService / Character
+# Índice: WorldService / Character
 
-> Generado automÃ¡ticamente por scripts/gen_indices.ps1. Solo firmas con nÂ° de lÃ­nea: abrir el archivo con StartLine/EndLine. No reemplaza a docs/Servicios/. Equivale a WorldManager+Character.
+> Generado automáticamente por scripts/gen_indices. Solo firmas con n° de línea: abrir el archivo con StartLine/EndLine. No reemplaza a docs/Servicios/. Equivale a WorldManager+Character.
 
-## pkg/server/world/e2e_world_test.go
-- L22: `func readServerPacket(r io.Reader) (*protocol.Packet, error)`
-- L47: `func sendClientPacket(w io.Writer, pw *protocol.PacketWriter, nc *crypto.NetCrypto) error`
-- L70: `func TestE2EWorldServiceFlow(t *testing.T)`
-
-## pkg/server/world/friend_manager.go
-- L14: `type FriendManager struct`
-- L22: `func NewFriendManager(repo database.CharacterRepository, pm *PartyManager) *FriendManager`
-- L31: `func (fm *FriendManager) SendFriendList(client *network.Client)`
-- L69: `func (fm *FriendManager) RequestFriend(requester *network.Client, targetName string)`
-- L106: `func (fm *FriendManager) AcceptFriend(target *network.Client)`
-- L142: `func (fm *FriendManager) DeleteFriend(client *network.Client, friendName string)`
-- L170: `func (fm *FriendManager) SendFriendPoints(client *network.Client)`
-- L180: `func (fm *FriendManager) BroadcastLogin(client *network.Client, charName, mapName string)`
-- L198: `func (fm *FriendManager) BroadcastLogout(charID int, charName string)`
-
-## pkg/server/world/friend_test.go
-- L12: `func TestFriendManager_FullFlow(t *testing.T)`
-
-## pkg/server/world/guild_manager.go
-- L16: `type GuildOnlinePlayer struct`
-- L23: `type GuildPendingInvite struct`
-- L32: `type GuildManager struct`
-- L41: `func NewGuildManager(repo database.CharacterRepository) *GuildManager`
-- L51: `func (gm *GuildManager) RegisterOnline(client *network.Client, charID int, charName string)`
-- L70: `func (gm *GuildManager) UnregisterOnline(charID int)`
-- L89: `func (gm *GuildManager) BroadcastToGuild(guildID int, packet *protocol.PacketWriter, excludeCharID int)`
-- L109: `func (gm *GuildManager) BroadcastToAcademy(guildID int, packet *protocol.PacketWriter, excludeCharID int)`
-- L133: `func (gm *GuildManager) HandleGuildList(client *network.Client, partMask byte)`
-- L159: `func (gm *GuildManager) HandleGuildMake(client *network.Client, name, password string, guildType byte)`
-- L187: `func (gm *GuildManager) HandleMyGuildInfo(client *network.Client)`
-- L224: `func (gm *GuildManager) HandleMemberList(client *network.Client)`
-- L267: `func (gm *GuildManager) HandleInvite(client *network.Client, targetName string)`
-- L306: `func (gm *GuildManager) HandleJoinAck(client *network.Client, guildName string, joinAck byte)`
-- L358: `func (gm *GuildManager) HandleLeave(client *network.Client)`
-- L383: `func (gm *GuildManager) HandleVanish(client *network.Client, targetName string)`
-- L408: `func (gm *GuildManager) HandleGrade(client *network.Client, targetName string, newGrade byte)`
-- L433: `func (gm *GuildManager) HandleNotify(client *network.Client, notify string)`
-- L453: `func (gm *GuildManager) HandleDismiss(client *network.Client)`
-- L473: `func (gm *GuildManager) HandleChat(client *network.Client, msg string)`
-- L491: `func (gm *GuildManager) HandleAcademyList(client *network.Client, partMask byte)`
-- L515: `func (gm *GuildManager) HandleAcademyMyInfo(client *network.Client)`
-- L547: `func (gm *GuildManager) HandleAcademyMemberList(client *network.Client)`
-- L586: `func (gm *GuildManager) HandleAcademyJoin(client *network.Client, guildName string)`
-- L639: `func (gm *GuildManager) HandleAcademyLeave(client *network.Client)`
-- L659: `func (gm *GuildManager) HandleAcademyChat(client *network.Client, msg string)`
-
-## pkg/server/world/guild_test.go
-- L14: `func TestGuildManager_FullFlow(t *testing.T)`
-- L199: `func TestGuildProtocol_PacketStructures(t *testing.T)`
-
-## pkg/server/world/handler.go
-- L15: `type Handler struct`
-- L28: `func NewHandler(`
-- L64: `func (h *Handler) HandlePacket(client *network.Client, pkt *protocol.Packet)`
-- L278: `func (h *Handler) handleGameTime(client *network.Client, pkt *protocol.Packet)`
-- L289: `func (h *Handler) handleWorldClientKey(client *network.Client, pkt *protocol.Packet)`
-- L335: `func (h *Handler) sendCharacterList(client *network.Client)`
-- L363: `func (h *Handler) handleCreateCharacter(client *network.Client, pkt *protocol.Packet)`
-- L549: `func (h *Handler) handleDeleteCharacter(client *network.Client, pkt *protocol.Packet)`
-- L572: `func (h *Handler) handleBackToWorldSelect(client *network.Client, pkt *protocol.Packet)`
-- L578: `func (h *Handler) handleCharSelect(client *network.Client, pkt *protocol.Packet)`
-- L648: `func (h *Handler) sendCharOptionDataImprove(client *network.Client, charNo int)`
-- L690: `func (h *Handler) sendError(client *network.Client, errCode protocol.ServerError)`
-- L696: `func (h *Handler) sendCharCreationError(client *network.Client, errCode protocol.CreateCharError)`
-- L701: `func (h *Handler) getActiveCharNo(client *network.Client) int`
-- L712: `func (h *Handler) handleGetQuickBar(client *network.Client, pkt *protocol.Packet)`
-- L724: `func (h *Handler) handleGetQuickBarState(client *network.Client, pkt *protocol.Packet)`
-- L736: `func (h *Handler) handleGetGameSettings(client *network.Client, pkt *protocol.Packet)`
-- L748: `func (h *Handler) handleGetClientSettings(client *network.Client, pkt *protocol.Packet)`
-- L760: `func (h *Handler) handleGetShortCuts(client *network.Client, pkt *protocol.Packet)`
-- L772: `func (h *Handler) handleSaveSettings(client *network.Client, pkt *protocol.Packet)`
-- L807: `func (h *Handler) handlePrisonGet(client *network.Client, pkt *protocol.Packet)`
-- L813: `func (h *Handler) handleGotIngame(client *network.Client, pkt *protocol.Packet)`
-
-## pkg/server/world/handler_test.go
-- L14: `func TestWriteBasicCharInfo(t *testing.T)`
-- L40: `func TestCharacterRepositoryOperations(t *testing.T)`
-- L98: `func readPacketFromConn(r io.Reader) (uint16, []byte, error)`
-- L123: `func setupTestHandler() (*Handler, *database.MemoryCharacterRepository, *database.TransferManager)`
-- L156: `func TestHandler_GameTime(t *testing.T)`
-- L189: `func TestHandler_CreateCharacter_BadNameRejected(t *testing.T)`
-- L236: `func TestHandler_CreateCharacter_Success(t *testing.T)`
-- L293: `func TestHandler_CharSelect_ZoneHandover(t *testing.T)`
-- L379: `func TestHandler_DeleteCharacter_Flow(t *testing.T)`
-- L437: `func TestHandler_BackToWorldSelect(t *testing.T)`
-
-## pkg/server/world/kq_manager.go
-- L15: `type KQParticipant struct`
-- L25: `type KQInstance struct`
-- L41: `type KQManager struct`
-- L50: `func NewKQManager(kqSHN *shn.File) *KQManager`
-- L67: `func (km *KQManager) loadFromSHN(f *shn.File)`
-- L118: `func (km *KQManager) loadDefaults()`
-- L156: `func (km *KQManager) RegisterOnline(client *network.Client, charID int)`
-- L163: `func (km *KQManager) UnregisterOnline(charID int)`
-- L178: `func (km *KQManager) BroadcastToOnline(packet *protocol.PacketWriter)`
-- L189: `func (km *KQManager) HandleList(client *network.Client)`
-- L237: `func (km *KQManager) HandleStatus(client *network.Client, handle uint32)`
-- L256: `func (km *KQManager) HandleJoin(client *network.Client, handle uint32, charLevel, charClass byte)`
-- L323: `func (km *KQManager) HandleJoinCancel(client *network.Client, handle uint32)`
-- L355: `func (km *KQManager) HandleJoinList(client *network.Client, handle uint32)`
-- L379: `func (km *KQManager) HandleTeamSelect(client *network.Client, teamType byte)`
-
-## pkg/server/world/kq_test.go
-- L13: `func TestKQManager_FullFlow(t *testing.T)`
-- L79: `func TestKQProtocol_PacketStructures(t *testing.T)`
-
-## pkg/server/world/packet_helper.go
-- L30: `func WriteBasicCharInfo(ch *database.Character, pw *protocol.PacketWriter)`
-- L111: `func GetBeginnerWeapon(job protocol.Job) (slot byte, itemID uint16)`
-
-## pkg/server/world/party_manager.go
-- L13: `type PartyMember struct`
-- L23: `type Party struct`
-- L33: `type PartyFinderAd struct`
-- L41: `type PartyManager struct`
-- L52: `func NewPartyManager() *PartyManager`
-- L64: `func (pm *PartyManager) RegisterOnline(client *network.Client, charID int, charName string, classID, level byte)`
-- L79: `func (pm *PartyManager) UnregisterOnline(charID int)`
-- L131: `func (pm *PartyManager) InviteMember(inviter *network.Client, targetName string)`
-- L192: `func (pm *PartyManager) AcceptInvite(target *network.Client)`
-- L263: `func (pm *PartyManager) RejectInvite(target *network.Client)`
-- L283: `func (pm *PartyManager) LeaveParty(client *network.Client)`
-- L328: `func (pm *PartyManager) KickMember(master *network.Client, targetName string)`
-- L375: `func (pm *PartyManager) ChangeMaster(master *network.Client, newMasterName string)`
-- L414: `func (pm *PartyManager) SetLooting(master *network.Client, lootType, itemGrade byte)`
-- L440: `func (pm *PartyManager) AddFinderAd(client *network.Client, purpose string)`
-- L475: `func (pm *PartyManager) DeleteFinderAd(client *network.Client)`
-- L491: `func (pm *PartyManager) ListFinderAds(client *network.Client)`
-- L513: `func (pm *PartyManager) broadcastMemberListLocked(party *Party)`
-- L535: `func (pm *PartyManager) dissolvePartyLocked(party *Party)`
-
-## pkg/server/world/party_test.go
-- L11: `func TestPartyManager_FullFlow(t *testing.T)`
-
-## pkg/server/world/server.go
-- L12: `type Config struct`
-- L22: `type Server struct`
-- L29: `func NewServer(`
-- L65: `func (s *Server) Start() error`
-- L72: `func (s *Server) Stop()`
-
-## pkg/server/world/static_data.go
-- L15: `type StarterItem struct`
-- L22: `type StarterShortcut struct`
-- L29: `type MaxShape struct`
-- L36: `type DefaultClassData struct`
-- L56: `type DefaultCharacterDataStore struct`
-- L61: `func LoadDefaultCharacterData(filePath string) (*DefaultCharacterDataStore, error)`
-- L76: `func (s *DefaultCharacterDataStore) GetClassData(classID byte) (DefaultClassData, bool)`
-- L83: `type BadNameFilter struct`
-- L89: `func LoadBadNameFilter(filePath string) (*BadNameFilter, error)`
-- L111: `func (f *BadNameFilter) IsBadName(name string) bool`
-- L134: `type WorldDataStore struct`
-- L181: `func LoadWorldDataStore(dataDir string) (*WorldDataStore, error)`
-- L300: `func (s *WorldDataStore) ValidateAppearance(classID byte, hair, hairColor, face byte) bool`
-
-## pkg/server/world/static_data_test.go
-- L9: `func TestLoadWorldDataStore_AllFiles(t *testing.T)`
+## cmd/WorldService/main.go
+- L18: `func main()`
 
 ## pkg/database/account.go
 - L6: `type TUser struct`
@@ -366,9 +208,172 @@
 - L47: `func NewTransferManager(db ...*sql.DB) *TransferManager`
 - L59: `func (tm *TransferManager) CreateTransfer(accountID int, username string, admin byte, hostIP string) string`
 - L97: `func (tm *TransferManager) ConsumeTransfer(token string, raw []byte, username ...string) (*ClientTransfer, bool)`
-- L151: `func (tm *TransferManager) CreateZoneTransfer(accountID int, username, charName string, charID int, randomID uint16, admin byte, hostIP stri`
-- L180: `func (tm *TransferManager) ConsumeZoneTransfer(charName string, randomID uint16, raw []byte) (*ZoneTransfer, bool)`
+- L174: `func (tm *TransferManager) CreateZoneTransfer(accountID int, username, charName string, charID int, randomID uint16, admin byte, hostIP stri`
+- L203: `func (tm *TransferManager) ConsumeZoneTransfer(charName string, randomID uint16, raw []byte) (*ZoneTransfer, bool)`
 
-## cmd/WorldService/main.go
-- L18: `func main()`
+## pkg/server/world/e2e_world_test.go
+- L22: `func readServerPacket(r io.Reader) (*protocol.Packet, error)`
+- L47: `func sendClientPacket(w io.Writer, pw *protocol.PacketWriter, nc *crypto.NetCrypto) error`
+- L70: `func TestE2EWorldServiceFlow(t *testing.T)`
 
+## pkg/server/world/friend_manager.go
+- L14: `type FriendManager struct`
+- L22: `func NewFriendManager(repo database.CharacterRepository, pm *PartyManager) *FriendManager`
+- L31: `func (fm *FriendManager) SendFriendList(client *network.Client)`
+- L69: `func (fm *FriendManager) RequestFriend(requester *network.Client, targetName string)`
+- L106: `func (fm *FriendManager) AcceptFriend(target *network.Client)`
+- L142: `func (fm *FriendManager) DeleteFriend(client *network.Client, friendName string)`
+- L170: `func (fm *FriendManager) SendFriendPoints(client *network.Client)`
+- L180: `func (fm *FriendManager) BroadcastLogin(client *network.Client, charName, mapName string)`
+- L198: `func (fm *FriendManager) BroadcastLogout(charID int, charName string)`
+
+## pkg/server/world/friend_test.go
+- L12: `func TestFriendManager_FullFlow(t *testing.T)`
+
+## pkg/server/world/guild_manager.go
+- L16: `type GuildOnlinePlayer struct`
+- L23: `type GuildPendingInvite struct`
+- L32: `type GuildManager struct`
+- L41: `func NewGuildManager(repo database.CharacterRepository) *GuildManager`
+- L51: `func (gm *GuildManager) RegisterOnline(client *network.Client, charID int, charName string)`
+- L70: `func (gm *GuildManager) UnregisterOnline(charID int)`
+- L89: `func (gm *GuildManager) BroadcastToGuild(guildID int, packet *protocol.PacketWriter, excludeCharID int)`
+- L109: `func (gm *GuildManager) BroadcastToAcademy(guildID int, packet *protocol.PacketWriter, excludeCharID int)`
+- L133: `func (gm *GuildManager) HandleGuildList(client *network.Client, partMask byte)`
+- L159: `func (gm *GuildManager) HandleGuildMake(client *network.Client, name, password string, guildType byte)`
+- L187: `func (gm *GuildManager) HandleMyGuildInfo(client *network.Client)`
+- L224: `func (gm *GuildManager) HandleMemberList(client *network.Client)`
+- L267: `func (gm *GuildManager) HandleInvite(client *network.Client, targetName string)`
+- L306: `func (gm *GuildManager) HandleJoinAck(client *network.Client, guildName string, joinAck byte)`
+- L358: `func (gm *GuildManager) HandleLeave(client *network.Client)`
+- L383: `func (gm *GuildManager) HandleVanish(client *network.Client, targetName string)`
+- L408: `func (gm *GuildManager) HandleGrade(client *network.Client, targetName string, newGrade byte)`
+- L433: `func (gm *GuildManager) HandleNotify(client *network.Client, notify string)`
+- L453: `func (gm *GuildManager) HandleDismiss(client *network.Client)`
+- L473: `func (gm *GuildManager) HandleChat(client *network.Client, msg string)`
+- L491: `func (gm *GuildManager) HandleAcademyList(client *network.Client, partMask byte)`
+- L515: `func (gm *GuildManager) HandleAcademyMyInfo(client *network.Client)`
+- L547: `func (gm *GuildManager) HandleAcademyMemberList(client *network.Client)`
+- L586: `func (gm *GuildManager) HandleAcademyJoin(client *network.Client, guildName string)`
+- L639: `func (gm *GuildManager) HandleAcademyLeave(client *network.Client)`
+- L659: `func (gm *GuildManager) HandleAcademyChat(client *network.Client, msg string)`
+
+## pkg/server/world/guild_test.go
+- L14: `func TestGuildManager_FullFlow(t *testing.T)`
+- L199: `func TestGuildProtocol_PacketStructures(t *testing.T)`
+
+## pkg/server/world/handler.go
+- L15: `type Handler struct`
+- L28: `func NewHandler(`
+- L64: `func (h *Handler) HandlePacket(client *network.Client, pkt *protocol.Packet)`
+- L291: `func (h *Handler) handleGameTime(client *network.Client, pkt *protocol.Packet)`
+- L305: `func (h *Handler) handleWorldClientKey(client *network.Client, pkt *protocol.Packet)`
+- L393: `func (h *Handler) sendCharacterList(client *network.Client)`
+- L421: `func (h *Handler) handleCreateCharacter(client *network.Client, pkt *protocol.Packet)`
+- L611: `func (h *Handler) handleDeleteCharacter(client *network.Client, pkt *protocol.Packet)`
+- L635: `func (h *Handler) handleBackToWorldSelect(client *network.Client, pkt *protocol.Packet)`
+- L649: `func (h *Handler) handleCharSelect(client *network.Client, pkt *protocol.Packet)`
+- L719: `func (h *Handler) sendCharOptionDataImprove(client *network.Client, charNo int)`
+- L761: `func (h *Handler) sendError(client *network.Client, errCode protocol.ServerError)`
+- L767: `func (h *Handler) sendCharCreationError(client *network.Client, errCode protocol.CreateCharError)`
+- L772: `func (h *Handler) getActiveCharNo(client *network.Client) int`
+- L783: `func (h *Handler) handleGetQuickBar(client *network.Client, pkt *protocol.Packet)`
+- L795: `func (h *Handler) handleGetQuickBarState(client *network.Client, pkt *protocol.Packet)`
+- L807: `func (h *Handler) handleGetGameSettings(client *network.Client, pkt *protocol.Packet)`
+- L819: `func (h *Handler) handleGetClientSettings(client *network.Client, pkt *protocol.Packet)`
+- L831: `func (h *Handler) handleGetShortCuts(client *network.Client, pkt *protocol.Packet)`
+- L843: `func (h *Handler) handleSaveSettings(client *network.Client, pkt *protocol.Packet)`
+- L878: `func (h *Handler) handlePrisonGet(client *network.Client, pkt *protocol.Packet)`
+- L884: `func (h *Handler) handleGotIngame(client *network.Client, pkt *protocol.Packet)`
+
+## pkg/server/world/handler_test.go
+- L14: `func TestWriteNA2026CharInfo(t *testing.T)`
+- L39: `func TestWriteBasicCharInfo(t *testing.T)`
+- L65: `func TestCharacterRepositoryOperations(t *testing.T)`
+- L123: `func readPacketFromConn(r io.Reader) (uint16, []byte, error)`
+- L148: `func setupTestHandler() (*Handler, *database.MemoryCharacterRepository, *database.TransferManager)`
+- L181: `func TestHandler_GameTime(t *testing.T)`
+- L214: `func TestHandler_CreateCharacter_BadNameRejected(t *testing.T)`
+- L261: `func TestHandler_CreateCharacter_Success(t *testing.T)`
+- L318: `func TestHandler_CharSelect_ZoneHandover(t *testing.T)`
+- L404: `func TestHandler_DeleteCharacter_Flow(t *testing.T)`
+- L462: `func TestHandler_BackToWorldSelect(t *testing.T)`
+- L492: `func TestHandler_NA2026_WorldLogin(t *testing.T)`
+- L552: `func TestHandler_NA2026_BackToWorldSelect(t *testing.T)`
+
+## pkg/server/world/kq_manager.go
+- L15: `type KQParticipant struct`
+- L25: `type KQInstance struct`
+- L41: `type KQManager struct`
+- L50: `func NewKQManager(kqSHN *shn.File) *KQManager`
+- L67: `func (km *KQManager) loadFromSHN(f *shn.File)`
+- L118: `func (km *KQManager) loadDefaults()`
+- L156: `func (km *KQManager) RegisterOnline(client *network.Client, charID int)`
+- L163: `func (km *KQManager) UnregisterOnline(charID int)`
+- L178: `func (km *KQManager) BroadcastToOnline(packet *protocol.PacketWriter)`
+- L189: `func (km *KQManager) HandleList(client *network.Client)`
+- L237: `func (km *KQManager) HandleStatus(client *network.Client, handle uint32)`
+- L256: `func (km *KQManager) HandleJoin(client *network.Client, handle uint32, charLevel, charClass byte)`
+- L323: `func (km *KQManager) HandleJoinCancel(client *network.Client, handle uint32)`
+- L355: `func (km *KQManager) HandleJoinList(client *network.Client, handle uint32)`
+- L379: `func (km *KQManager) HandleTeamSelect(client *network.Client, teamType byte)`
+
+## pkg/server/world/kq_test.go
+- L13: `func TestKQManager_FullFlow(t *testing.T)`
+- L79: `func TestKQProtocol_PacketStructures(t *testing.T)`
+
+## pkg/server/world/packet_helper.go
+- L30: `func WriteBasicCharInfo(ch *database.Character, pw *protocol.PacketWriter)`
+- L113: `func WriteNA2026CharInfo(ch *database.Character, pw *protocol.PacketWriter)`
+- L203: `func GetBeginnerWeapon(job protocol.Job) (slot byte, itemID uint16)`
+
+## pkg/server/world/party_manager.go
+- L13: `type PartyMember struct`
+- L23: `type Party struct`
+- L33: `type PartyFinderAd struct`
+- L41: `type PartyManager struct`
+- L52: `func NewPartyManager() *PartyManager`
+- L64: `func (pm *PartyManager) RegisterOnline(client *network.Client, charID int, charName string, classID, level byte)`
+- L79: `func (pm *PartyManager) UnregisterOnline(charID int)`
+- L131: `func (pm *PartyManager) InviteMember(inviter *network.Client, targetName string)`
+- L192: `func (pm *PartyManager) AcceptInvite(target *network.Client)`
+- L263: `func (pm *PartyManager) RejectInvite(target *network.Client)`
+- L283: `func (pm *PartyManager) LeaveParty(client *network.Client)`
+- L328: `func (pm *PartyManager) KickMember(master *network.Client, targetName string)`
+- L375: `func (pm *PartyManager) ChangeMaster(master *network.Client, newMasterName string)`
+- L414: `func (pm *PartyManager) SetLooting(master *network.Client, lootType, itemGrade byte)`
+- L440: `func (pm *PartyManager) AddFinderAd(client *network.Client, purpose string)`
+- L475: `func (pm *PartyManager) DeleteFinderAd(client *network.Client)`
+- L491: `func (pm *PartyManager) ListFinderAds(client *network.Client)`
+- L513: `func (pm *PartyManager) broadcastMemberListLocked(party *Party)`
+- L535: `func (pm *PartyManager) dissolvePartyLocked(party *Party)`
+
+## pkg/server/world/party_test.go
+- L11: `func TestPartyManager_FullFlow(t *testing.T)`
+
+## pkg/server/world/server.go
+- L13: `type Config struct`
+- L23: `type Server struct`
+- L31: `func NewServer(`
+- L67: `func (s *Server) Start() error`
+- L78: `func (s *Server) Stop()`
+- L86: `func (s *Server) startAuxPort9350()`
+- L106: `func (s *Server) handleAuxClient(conn net.Conn)`
+
+## pkg/server/world/static_data.go
+- L15: `type StarterItem struct`
+- L22: `type StarterShortcut struct`
+- L29: `type MaxShape struct`
+- L36: `type DefaultClassData struct`
+- L56: `type DefaultCharacterDataStore struct`
+- L61: `func LoadDefaultCharacterData(filePath string) (*DefaultCharacterDataStore, error)`
+- L76: `func (s *DefaultCharacterDataStore) GetClassData(classID byte) (DefaultClassData, bool)`
+- L83: `type BadNameFilter struct`
+- L89: `func LoadBadNameFilter(filePath string) (*BadNameFilter, error)`
+- L111: `func (f *BadNameFilter) IsBadName(name string) bool`
+- L134: `type WorldDataStore struct`
+- L181: `func LoadWorldDataStore(dataDir string) (*WorldDataStore, error)`
+- L300: `func (s *WorldDataStore) ValidateAppearance(classID byte, hair, hairColor, face byte) bool`
+
+## pkg/server/world/static_data_test.go
+- L9: `func TestLoadWorldDataStore_AllFiles(t *testing.T)`

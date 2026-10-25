@@ -11,6 +11,31 @@ import (
 	"github.com/iFeddy/XelionCore/pkg/protocol"
 )
 
+func TestWriteNA2026CharInfo(t *testing.T) {
+	ch := &database.Character{
+		ID:        865397,
+		AccountID: 1,
+		Name:      "TronicXelion",
+		Slot:      0,
+		Job:       5,
+		Level:     1,
+		Male:      true,
+		Hair:      5,
+		HairColor: 12,
+		Face:      5,
+		TownName:  "Rou",
+		Equips:    map[byte]uint16{SlotWeapon: 12966},
+	}
+
+	pw := protocol.NewDataWriter()
+	WriteNA2026CharInfo(ch, pw)
+
+	data := pw.Data()
+	if len(data) != 161 {
+		t.Fatalf("expected exactly 161 bytes for NA2026 character info, got %d", len(data))
+	}
+}
+
 func TestWriteBasicCharInfo(t *testing.T) {
 	ch := &database.Character{
 		ID:        1,
@@ -102,7 +127,7 @@ func readPacketFromConn(r io.Reader) (uint16, []byte, error) {
 	}
 
 	packetLen := int(lenBuf[0])
-	if packetLen == 0xFF {
+	if packetLen == 0x00 || packetLen == 0xFF {
 		extLen := make([]byte, 2)
 		if _, err := io.ReadFull(r, extLen); err != nil {
 			return 0, nil, err
@@ -461,5 +486,102 @@ func TestHandler_BackToWorldSelect(t *testing.T) {
 	if opCode != protocol.PROTO_NC_USER_BACKTOWORLDLIST_ACK {
 		t.Fatalf("expected PROTO_NC_USER_BACKTOWORLDLIST_ACK (0x%04X), got 0x%04X",
 			protocol.PROTO_NC_USER_BACKTOWORLDLIST_ACK, opCode)
+	}
+}
+
+func TestHandler_NA2026_WorldLogin(t *testing.T) {
+	h, repo, transfers := setupTestHandler()
+	clientConn, serverConn := net.Pipe()
+	defer clientConn.Close()
+	defer serverConn.Close()
+
+	client, err := network.NewClient(serverConn, nil)
+	if err != nil {
+		t.Fatalf("failed to create client: %v", err)
+	}
+
+	// Crear 2 personajes para la cuenta 1
+	_ = repo.CreateCharacter(&database.Character{
+		AccountID: 1,
+		Name:      "TronicXelion",
+		Slot:      0,
+		Job:       5,
+		Level:     1,
+		Male:      true,
+		TownName:  "Rou",
+	})
+	_ = repo.CreateCharacter(&database.Character{
+		AccountID: 1,
+		Name:      "SecondHero",
+		Slot:      1,
+		Job:       1,
+		Level:     10,
+		Male:      false,
+		TownName:  "Rou",
+	})
+
+	token := transfers.CreateTransfer(1, "tronicv2", 0, "192.168.0.15")
+
+	// Construir paquete 0x0C0E NA2026: OpCode(2B) + sUserName[18] + Token[64] = 84 bytes
+	pw := protocol.NewPacketWriter(protocol.PROTO_NC_USER_NA2026_WORLD_CLIENT_KEY_REQ)
+	pw.WriteString("tronicv2", 18)
+	pw.WriteString(token, 64)
+
+	pkt := protocol.NewPacket(pw.Data())
+	go h.HandlePacket(client, pkt)
+
+	// Debe responder con 0x0C0F conteniendo la lista de personajes unificada (22 bytes header + 2 * 161 bytes char = 344 bytes body)
+	opCode1, data1, err := readPacketFromConn(clientConn)
+	if err != nil {
+		t.Fatalf("failed to read response 1: %v", err)
+	}
+	if opCode1 != protocol.PROTO_NC_USER_NA2026_WORLD_LOGIN_ACK {
+		t.Fatalf("expected 0x0C0F, got 0x%04X", opCode1)
+	}
+	if len(data1) != 22+2*161 {
+		t.Fatalf("expected 344 bytes body for 0x0C0F with 2 characters, got %d", len(data1))
+	}
+	if data1[2] != 2 {
+		t.Fatalf("expected charCount byte at offset 2 to be 2, got %d", data1[2])
+	}
+	if data1[3] != 0x0C {
+		t.Fatalf("expected maxSlots byte at offset 3 to be 0x0C, got 0x%02X", data1[3])
+	}
+}
+
+func TestHandler_NA2026_BackToWorldSelect(t *testing.T) {
+	h, _, _ := setupTestHandler()
+	clientConn, serverConn := net.Pipe()
+	defer clientConn.Close()
+	defer serverConn.Close()
+
+	client, err := network.NewClient(serverConn, nil)
+	if err != nil {
+		t.Fatalf("failed to create client: %v", err)
+	}
+	client.AccountID = 1
+	client.Username = "tronicv2"
+	client.IsAuthenticated = true
+	client.ClientYear = 2026
+
+	// Paquete 0x0C22 (2 bytes: 22 0C)
+	pkt := &protocol.Packet{
+		OpCode: protocol.PROTO_NC_USER_NA2026_BACK_TO_WORLD_REQ,
+		Header: protocol.ExtractHeader(protocol.PROTO_NC_USER_NA2026_BACK_TO_WORLD_REQ),
+		Type:   protocol.ExtractType(protocol.PROTO_NC_USER_NA2026_BACK_TO_WORLD_REQ),
+	}
+
+	go h.HandlePacket(client, pkt)
+
+	opCode, data, err := readPacketFromConn(clientConn)
+	if err != nil {
+		t.Fatalf("failed to read response: %v", err)
+	}
+	if opCode != protocol.PROTO_NC_USER_NA2026_BACK_TO_WORLD_ACK {
+		t.Fatalf("expected 0x0C23, got 0x%04X", opCode)
+	}
+	// Body de 0x0C23 = 2 bytes (handle 58 1E) + 32 bytes ASCII token = 34 bytes
+	if len(data) != 34 {
+		t.Fatalf("expected 34 bytes body (36 payload) for 0x0C23, got %d", len(data))
 	}
 }

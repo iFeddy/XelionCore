@@ -4,6 +4,7 @@ import (
 	"crypto/md5"
 	"encoding/hex"
 	"errors"
+	"fmt"
 	"log"
 	"strings"
 
@@ -41,20 +42,31 @@ func (h *Handler) SetClientVersion(ver string) {
 // HandlePacket enruta cada paquete entrante según su OpCode oficial PROTO_NC_*.
 func (h *Handler) HandlePacket(client *network.Client, pkt *protocol.Packet) {
 	switch pkt.OpCode {
-	case protocol.PROTO_NC_USER_CLIENT_VERSION_CHECK_REQ:
+	case protocol.PROTO_NC_USER_CLIENT_VERSION_CHECK_REQ, protocol.PROTO_NC_USER_NA2026_VERSION_CHECK_REQ:
 		h.handle_PROTO_NC_USER_CLIENT_VERSION_CHECK_REQ(client, pkt)
-	case protocol.PROTO_NC_USER_US_LOGIN_REQ, protocol.PROTO_NC_USER_LOGIN_REQ, protocol.PROTO_NC_USER_LOGIN_WITH_OTP_REQ, protocol.PROTO_NC_USER_LOGIN_WITH_OTP_LEGACY:
+	case protocol.PROTO_NC_USER_US_LOGIN_REQ, protocol.PROTO_NC_USER_LOGIN_REQ, protocol.PROTO_NC_USER_LOGIN_WITH_OTP_REQ, protocol.PROTO_NC_USER_LOGIN_WITH_OTP_LEGACY, protocol.PROTO_NC_USER_NA2026_LOGIN_REQ:
 		h.handle_PROTO_NC_USER_US_LOGIN_REQ(client, pkt)
 	case protocol.PROTO_NC_USER_FILE_CHECK_REQ:
 		h.handle_PROTO_NC_USER_FILE_CHECK_REQ(client, pkt)
 	case protocol.PROTO_NC_USER_WORLDSTATUS_REQ:
 		h.handle_PROTO_NC_USER_WORLDSTATUS_REQ(client, pkt)
-	case protocol.PROTO_NC_USER_WORLDSELECT_REQ:
+	case protocol.PROTO_NC_USER_WORLDSELECT_REQ, protocol.PROTO_NC_USER_NA2026_WORLDSELECT_REQ, protocol.PROTO_NC_USER_LOGINWORLDFAIL_ACK:
 		h.handle_PROTO_NC_USER_WORLDSELECT_REQ(client, pkt)
+	case protocol.PROTO_NC_USER_NA2026_SESSION_PING:
+		h.handle_PROTO_NC_USER_NA2026_SESSION_PING(client, pkt)
+	case protocol.PROTO_NC_USER_NA2026_TOS_ACCEPT_HASH_REQ:
+		h.handle_PROTO_NC_USER_NA2026_TOS_ACCEPT_HASH_REQ(client, pkt)
+	case protocol.PROTO_NC_USER_NA2026_TOS_CONFIRM_REQ:
+		h.handle_PROTO_NC_USER_NA2026_TOS_CONFIRM_REQ(client, pkt)
 	case protocol.PROTO_NC_MISC_HEARTBEAT_REQ:
 		h.handle_PROTO_NC_MISC_HEARTBEAT_REQ(client, pkt)
 	case protocol.PROTO_NC_USER_NORMALLOGOUT_CMD:
-		h.handle_PROTO_NC_USER_NORMALLOGOUT_CMD(client, pkt)
+		// En NA2026, si el cliente ya está autenticado, 0x0C18 se usa para solicitar/refrescar la lista de mundos tras TOS
+		if client.IsAuthenticated {
+			h.handle_PROTO_NC_USER_WORLDSTATUS_REQ(client, pkt)
+		} else {
+			h.handle_PROTO_NC_USER_NORMALLOGOUT_CMD(client, pkt)
+		}
 	default:
 		log.Printf("[%s] OpCode no manejado en LoginService: 0x%04X (Dept=%d, Cmd=%d) Len=%d\n%s",
 			client.RemoteAddr(), pkt.OpCode, pkt.Header, pkt.Type, len(pkt.Raw),
@@ -62,10 +74,39 @@ func (h *Handler) HandlePacket(client *network.Client, pkt *protocol.Packet) {
 	}
 }
 
-// handle_PROTO_NC_USER_CLIENT_VERSION_CHECK_REQ procesa el handshake de versión del cliente (0x0C65).
+// handle_PROTO_NC_USER_CLIENT_VERSION_CHECK_REQ procesa el handshake de versión del cliente (0x0C65 o 0x0C2C en NA2026).
 func (h *Handler) handle_PROTO_NC_USER_CLIENT_VERSION_CHECK_REQ(client *network.Client, pkt *protocol.Packet) {
 	rem := pkt.Reader.Remaining()
 	var versionKey string
+
+	// En NA2026 el opcode es 0x0C2C y envía 32 bytes de hash MD5 ASCII
+	if pkt.OpCode == protocol.PROTO_NC_USER_NA2026_VERSION_CHECK_REQ {
+		client.ClientYear = 2026
+		client.ClientVersion = 2026
+		if rem >= 32 {
+			s, _ := pkt.Reader.ReadString(32)
+			versionKey = strings.TrimSpace(s)
+		} else if rem > 0 {
+			s, _ := pkt.Reader.ReadString(rem)
+			versionKey = strings.TrimSpace(s)
+		}
+		log.Printf("[%s] PROTO_NC_USER_NA2026_VERSION_CHECK_REQ (0x0C2C) recibido (Hash='%s')", client.RemoteAddr(), versionKey)
+
+		// Validar versión contra CLIENT_VERSION en .ENV
+		if h.clientVersion != "" && !matchClientVersion(h.clientVersion, versionKey) {
+			log.Printf("[%s] Versión NA2026 no coincide: '%s' (Esperada en .ENV: '%s'). Rechazando conexión con ACK de error.",
+				client.RemoteAddr(), versionKey, h.clientVersion)
+			resp := protocol.New_PROTO_NC_USER_NA2026_VERSION_CHECK_ACK(1) // Status != 0 indica versión incorrecta
+			_ = client.SendPacket(resp)
+			client.Close()
+			return
+		}
+
+		// Versión correcta: responder con 0x0C2D (3 bytes wire: 2D 0C 00)
+		resp := protocol.New_PROTO_NC_USER_NA2026_VERSION_CHECK_ACK(0)
+		_ = client.SendPacket(resp)
+		return
+	}
 
 	if rem >= 64 {
 		// Estructura oficial C++: char sVersionKey[64]
@@ -83,6 +124,7 @@ func (h *Handler) handle_PROTO_NC_USER_CLIENT_VERSION_CHECK_REQ(client *network.
 		ver, _ := pkt.Reader.ReadUint16()
 		client.ClientYear = year
 		client.ClientVersion = ver
+		versionKey = fmt.Sprintf("%d%02d", year, ver)
 	} else if rem > 0 {
 		versionKey, _ = pkt.Reader.ReadString(rem)
 		versionKey = strings.TrimSpace(versionKey)
@@ -90,9 +132,9 @@ func (h *Handler) handle_PROTO_NC_USER_CLIENT_VERSION_CHECK_REQ(client *network.
 
 	log.Printf("[%s] PROTO_NC_USER_CLIENT_VERSION_CHECK_REQ recibido (Key='%s')", client.RemoteAddr(), versionKey)
 
-	// Validar versión si está configurada (ClientVersionKeyInfo.txt)
-	if h.clientVersion != "" && versionKey != "" && versionKey != h.clientVersion {
-		log.Printf("[%s] Versión de cliente no coincide: '%s' (Esperada: '%s'). Rechazando conexión.",
+	// Validar versión si está configurada en .ENV (CLIENT_VERSION)
+	if h.clientVersion != "" && !matchClientVersion(h.clientVersion, versionKey) {
+		log.Printf("[%s] Versión de cliente no coincide: '%s' (Esperada en .ENV: '%s'). Rechazando conexión.",
 			client.RemoteAddr(), versionKey, h.clientVersion)
 		_ = client.SendPacket(protocol.New_PROTO_NC_USER_CLIENT_WRONGVERSION_CHECK_ACK())
 		client.Close()
@@ -104,6 +146,21 @@ func (h *Handler) handle_PROTO_NC_USER_CLIENT_VERSION_CHECK_REQ(client *network.
 	if err := client.SendPacket(resp); err != nil {
 		log.Printf("[%s] Error enviando PROTO_NC_USER_CLIENT_RIGHTVERSION_CHECK_ACK: %v", client.RemoteAddr(), err)
 	}
+}
+
+// matchClientVersion compara la versión configurada (que puede contener múltiples versiones separadas por coma)
+// con la versión reportada por el cliente.
+func matchClientVersion(configured, received string) bool {
+	if configured == "" {
+		return true
+	}
+	parts := strings.Split(configured, ",")
+	for _, p := range parts {
+		if strings.TrimSpace(p) == received {
+			return true
+		}
+	}
+	return false
 }
 
 // handle_PROTO_NC_USER_US_LOGIN_REQ procesa la solicitud de autenticación (0x0C5A / 0x0C03 / 0x0C37 / 0x0C38).
@@ -119,7 +176,9 @@ func (h *Handler) handle_PROTO_NC_USER_US_LOGIN_REQ(client *network.Client, pkt 
 	rem := pkt.Reader.Remaining()
 
 	// Si el paquete tiene ~351 bytes (PROTO_NC_USER_LOGIN_REQ 0x0C01) NA2026
-	if rem >= 340 {
+	if pkt.OpCode == protocol.PROTO_NC_USER_NA2026_LOGIN_REQ || rem >= 340 {
+		client.ClientYear = 2026
+		client.ClientVersion = 2026
 		// 1. Saltar padding inicial de sesión (32 bytes)
 		if _, err = pkt.Reader.ReadBytes(32); err != nil {
 			log.Printf("[%s] Error leyendo padding inicial: %v", client.RemoteAddr(), err)
@@ -275,8 +334,38 @@ func (h *Handler) handle_PROTO_NC_USER_US_LOGIN_REQ(client *network.Client, pkt 
 	log.Printf("[%s] Autenticación oficial exitosa para '%s' (UserNo: %d, AuthID: %d)",
 		client.RemoteAddr(), client.Username, client.AccountID, client.Admin)
 
-	// 6. Enviar listado de mundos oficiales (PROTO_NC_USER_LOGIN_ACK 0x0C0A)
+	// 6. Enviar secuencia oficial de autenticación:
+	// Si el cliente conectó con NA2026 (0x0C01), enviar la secuencia oficial capturada:
+	// 0x0C40 (OK) -> 0x0C47 -> 0x0C06 (Mundos) -> 0x0C3E (Tokens)
+	if pkt.OpCode == protocol.PROTO_NC_USER_NA2026_LOGIN_REQ {
+		_ = client.SendPacket(protocol.New_PROTO_NC_USER_NA2026_AUTH_SUCCESS_ACK())
+		_ = client.SendPacket(protocol.New_PROTO_NC_USER_NA2026_PRE_WORLDS_ACK())
+		h.send_PROTO_NC_USER_LOGIN_ACK(client, false)
+		_ = client.SendPacket(protocol.New_PROTO_NC_USER_NA2026_ACCOUNT_TOKEN_ACK(acc.ID))
+		return
+	}
+
+	// Flujo legacy estándar (0x0C0A)
 	h.send_PROTO_NC_USER_LOGIN_ACK(client, false)
+}
+
+// handle_PROTO_NC_USER_NA2026_SESSION_PING responde al ping de sesión en ventana de TOS (0x0C34 -> 0x0C35).
+func (h *Handler) handle_PROTO_NC_USER_NA2026_SESSION_PING(client *network.Client, pkt *protocol.Packet) {
+	rem := pkt.Reader.Remaining()
+	data, _ := pkt.Reader.ReadBytes(rem)
+	resp := protocol.New_PROTO_NC_USER_NA2026_SESSION_PONG(data)
+	_ = client.SendPacket(resp)
+}
+
+// handle_PROTO_NC_USER_NA2026_TOS_ACCEPT_HASH_REQ procesa la aceptación de términos (0x0C3F).
+func (h *Handler) handle_PROTO_NC_USER_NA2026_TOS_ACCEPT_HASH_REQ(client *network.Client, pkt *protocol.Packet) {
+	log.Printf("[%s] PROTO_NC_USER_NA2026_TOS_ACCEPT_HASH_REQ (0x0C3F) recibido y registrado", client.RemoteAddr())
+}
+
+// handle_PROTO_NC_USER_NA2026_TOS_CONFIRM_REQ procesa la confirmación de lectura de TOS (0x0C41).
+func (h *Handler) handle_PROTO_NC_USER_NA2026_TOS_CONFIRM_REQ(client *network.Client, pkt *protocol.Packet) {
+	log.Printf("[%s] PROTO_NC_USER_NA2026_TOS_CONFIRM_REQ (0x0C41) recibido. Enviando listado de mundos activo.", client.RemoteAddr())
+	h.send_PROTO_NC_USER_LOGIN_ACK(client, true)
 }
 
 // handle_PROTO_NC_MISC_HEARTBEAT_REQ procesa el keep-alive heartbeat del cliente (0x0804).
@@ -320,8 +409,20 @@ func (h *Handler) handle_PROTO_NC_USER_WORLDSELECT_REQ(client *network.Client, p
 
 	world, exists := h.worldManager.GetWorld(worldID)
 	if !exists {
-		log.Printf("[%s] Usuario '%s' seleccionó un mundo inexistente: %d", client.RemoteAddr(), client.Username, worldID)
-		return
+		// Fallback automático al mundo principal (World 8 para NA2026 o World 0) si el ID solicitado no está explícitamente registrado
+		if w8, ok := h.worldManager.GetWorld(8); ok {
+			world = w8
+			exists = true
+		} else if w0, ok := h.worldManager.GetWorld(0); ok {
+			world = w0
+			exists = true
+		} else if len(h.worldManager.WorldsList()) > 0 {
+			world = h.worldManager.WorldsList()[0]
+			exists = true
+		} else {
+			log.Printf("[%s] Usuario '%s' seleccionó un mundo inexistente: %d", client.RemoteAddr(), client.Username, worldID)
+			return
+		}
 	}
 
 	if world.Status == protocol.WorldStatus_Maintenance || world.Status == protocol.WorldStatus_Offline {
@@ -336,17 +437,34 @@ func (h *Handler) handle_PROTO_NC_USER_WORLDSELECT_REQ(client *network.Client, p
 	log.Printf("[%s] Transfiriendo '%s' a World '%s' (%s:%d)",
 		client.RemoteAddr(), client.Username, world.Name, world.IP, world.Port)
 
-	// Respuesta oficial: PROTO_NC_USER_WORLDSELECT_ACK (0x0C0C, 83 bytes)
+	// Si el cliente usa NA2026 (0x0C0A o 0x0C15), responder con 0x0C0B (86 bytes)
+	if pkt.OpCode == protocol.PROTO_NC_USER_NA2026_WORLDSELECT_REQ || pkt.OpCode == protocol.PROTO_NC_USER_LOGINWORLDFAIL_ACK || client.ClientYear == 2026 {
+		resp := protocol.New_PROTO_NC_USER_NA2026_WORLDSELECT_ACK(byte(world.Status), world.IP, world.Port, token, worldID)
+		_ = client.SendPacket(resp)
+		return
+	}
+
+	// Respuesta oficial legacy: PROTO_NC_USER_WORLDSELECT_ACK (0x0C0C, 83 bytes)
 	resp := protocol.New_PROTO_NC_USER_WORLDSELECT_ACK(byte(world.Status), world.IP, world.Port, token)
 	_ = client.SendPacket(resp)
 }
 
-// send_PROTO_NC_USER_LOGIN_ACK emite el listado de mundos activos (0x0C0A / 0x0C1C).
+// send_PROTO_NC_USER_LOGIN_ACK emite el listado de mundos activos (0x0C0A / 0x0C1C en legacy, o 0x0C06 / 0x0C19 en NA2026).
 func (h *Handler) send_PROTO_NC_USER_LOGIN_ACK(client *network.Client, isResend bool) {
-	opCode := uint16(protocol.PROTO_NC_USER_LOGIN_ACK)
-	//opCode := uint16(0x0C02)
-	if isResend {
-		opCode = protocol.PROTO_NC_USER_WORLDSTATUS_ACK
+	// Determinar si el cliente es NA2026 según el año/versión negociado o la estructura de login
+	isNA2026 := client.ClientYear == 2026 || client.ClientVersion == 2026
+
+	var opCode uint16
+	if isNA2026 {
+		opCode = protocol.PROTO_NC_USER_NA2026_LOGIN_ACK // 0x0C06
+		if isResend {
+			opCode = protocol.PROTO_NC_USER_NA2026_WORLDSTATUS_ACK // 0x0C19
+		}
+	} else {
+		opCode = protocol.PROTO_NC_USER_LOGIN_ACK // 0x0C0A
+		if isResend {
+			opCode = protocol.PROTO_NC_USER_WORLDSTATUS_ACK // 0x0C1C
+		}
 	}
 
 	worlds := h.worldManager.WorldsList()
@@ -359,12 +477,26 @@ func (h *Handler) send_PROTO_NC_USER_LOGIN_ACK(client *network.Client, isResend 
 		})
 	}
 
+	if isNA2026 {
+		// Para el cliente NA2026, aseguramos la estructura oficial de 16 mundos con World 8 (Enid ES / Xelion) activo
+		worldInfos = protocol.BuildNA2026OfficialWorldList(worldInfos)
+	}
+
 	resp := protocol.New_PROTO_NC_USER_LOGIN_ACK(opCode, worldInfos)
 	_ = client.SendPacket(resp)
 }
 
-// send_PROTO_NC_USER_LOGINFAIL_ACK emite el paquete oficial de rechazo de login (0x0C09).
+// send_PROTO_NC_USER_LOGINFAIL_ACK emite el paquete oficial de rechazo de login (0x0C09 o 0x0C07 en NA2026).
 func (h *Handler) send_PROTO_NC_USER_LOGINFAIL_ACK(client *network.Client, errCode protocol.ServerError) {
+	if client.ClientYear == 2026 || client.ClientVersion == 2026 {
+		// En NA2026 se envía 0x0C07 con uint16 (0x0045)
+		respNA := protocol.NewPacketWriter(protocol.PROTO_NC_USER_NA2026_LOGINFAIL_ACK)
+		respNA.WriteUint16(0x0045) // Código oficial capturado en wrong_pass
+		_ = client.SendPacket(respNA)
+		return
+	}
+
+	// Estándar oficial legacy 0x0C09
 	resp := protocol.New_PROTO_NC_USER_LOGINFAIL_ACK(uint16(errCode))
 	_ = client.SendPacket(resp)
 }

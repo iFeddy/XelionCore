@@ -142,6 +142,29 @@ func (tm *TransferManager) ConsumeTransfer(token string, raw []byte, username ..
 				CreatedAt: createdAt,
 			}, true
 		}
+
+		// Fallback: Si el token vino con padding o formato alterado pero se proveyó el username
+		if len(username) > 0 && username[0] != "" {
+			queryUser := `
+				SELECT sToken, nUserNo, sUserID, nAuthID, sIP, dCreatedAt 
+				FROM tTransferToken 
+				WHERE sUserID = ? AND dCreatedAt >= NOW() - INTERVAL 120 SECOND
+				ORDER BY dCreatedAt DESC
+				LIMIT 1;
+			`
+			err = tm.db.QueryRow(queryUser, username[0]).Scan(&sTok, &userNo, &userID, &authID, &ip, &createdAt)
+			if err == nil {
+				_, _ = tm.db.Exec("DELETE FROM tTransferToken WHERE sToken = ?", sTok)
+				return &ClientTransfer{
+					Token:     sTok,
+					AccountID: userNo,
+					Username:  userID,
+					Admin:     authID,
+					HostIP:    ip,
+					CreatedAt: createdAt,
+				}, true
+			}
+		}
 	}
 
 	return nil, false

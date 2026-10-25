@@ -418,10 +418,30 @@ const (
 	PROTO_NC_USER_CLIENT_WRONGVERSION_CHECK_ACK uint16 = (3 << 10) | 102 // 0x0C66
 	PROTO_NC_USER_CLIENT_RIGHTVERSION_CHECK_ACK uint16 = (3 << 10) | 103 // 0x0C67
 
-	//NA2026
-	//PROTO_NC_USER_LOGIN_REQ                uint16 = (3 << 10) | 1  // 0x0C01
-	//PROTO_NC_USER_CLIENT_VERSION_CHECK_REQ uint16 = (3 << 10) | 44 // 0x0C2C
-	//PROTO_NC_USER_CLIENT_VERSION_CHECK_ACK uint16 = (3 << 10) | 45 // 0x0C2D
+	// Opcodes oficiales para el cliente NA2026
+	PROTO_NC_USER_NA2026_LOGIN_REQ               uint16 = (3 << 10) | 1   // 0x0C01
+	PROTO_NC_USER_NA2026_LOGIN_ACK               uint16 = (3 << 10) | 6   // 0x0C06 (World list inicial)
+	PROTO_NC_USER_NA2026_LOGINFAIL_ACK           uint16 = (3 << 10) | 7   // 0x0C07
+	PROTO_NC_USER_NA2026_WORLDSELECT_REQ         uint16 = (3 << 10) | 10  // 0x0C0A
+	PROTO_NC_USER_NA2026_WORLDSELECT_ACK         uint16 = (3 << 10) | 11  // 0x0C0B
+	PROTO_NC_USER_NA2026_WORLD_CLIENT_KEY_REQ    uint16 = (3 << 10) | 14  // 0x0C0E (World login handshake en NA2026)
+	PROTO_NC_USER_NA2026_WORLD_LOGIN_ACK         uint16 = (3 << 10) | 15  // 0x0C0F (World login ACK en NA2026)
+	PROTO_NC_USER_NA2026_WORLDSTATUS_REQ         uint16 = (3 << 10) | 24  // 0x0C18
+	PROTO_NC_USER_NA2026_WORLDSTATUS_ACK         uint16 = (3 << 10) | 25  // 0x0C19
+	PROTO_NC_USER_NA2026_BACK_TO_WORLD_REQ       uint16 = (3 << 10) | 34  // 0x0C22 (Click 'Atrás' en selección de personajes)
+	PROTO_NC_USER_NA2026_BACK_TO_WORLD_ACK       uint16 = (3 << 10) | 35  // 0x0C23 (Token de retorno a LoginService)
+	PROTO_NC_USER_NA2026_VERSION_CHECK_REQ       uint16 = (3 << 10) | 44  // 0x0C2C
+	PROTO_NC_USER_NA2026_VERSION_CHECK_ACK       uint16 = (3 << 10) | 45  // 0x0C2D
+	PROTO_NC_USER_NA2026_PRE_CREATE_CHAR_REQ     uint16 = (3 << 10) | 48  // 0x0C30 (Click 'Crear Personaje' en NA2026)
+	PROTO_NC_USER_NA2026_PRE_CREATE_CHAR_ACK     uint16 = (3 << 10) | 50  // 0x0C32 (Confirmación para abrir creador en NA2026)
+	PROTO_NC_USER_NA2026_POST_CREATE_CHAR_CMD    uint16 = (3 << 10) | 51  // 0x0C33 (Post-creación sync en NA2026)
+	PROTO_NC_USER_NA2026_SESSION_PING            uint16 = (3 << 10) | 52  // 0x0C34
+	PROTO_NC_USER_NA2026_SESSION_PONG            uint16 = (3 << 10) | 53  // 0x0C35
+	PROTO_NC_USER_NA2026_ACCOUNT_TOKEN_ACK       uint16 = (3 << 10) | 62  // 0x0C3E
+	PROTO_NC_USER_NA2026_TOS_ACCEPT_HASH_REQ     uint16 = (3 << 10) | 63  // 0x0C3F
+	PROTO_NC_USER_NA2026_AUTH_SUCCESS_ACK        uint16 = (3 << 10) | 64  // 0x0C40
+	PROTO_NC_USER_NA2026_TOS_CONFIRM_REQ         uint16 = (3 << 10) | 65  // 0x0C41
+	PROTO_NC_USER_NA2026_PRE_WORLDS_ACK          uint16 = (3 << 10) | 71  // 0x0C47
 
 	// ========================================================================
 	// Departamento 04: NC_CHAR (Selección de Personaje y Datos In-Game)

@@ -1,6 +1,6 @@
-﻿# Ãndice: pkg/data (cargadores de datos)
+# Índice: pkg/data (cargadores de datos)
 
-> Generado automÃ¡ticamente por scripts/gen_indices.ps1. Solo firmas con nÂ° de lÃ­nea: abrir el archivo con StartLine/EndLine. No reemplaza a docs/Servicios/. Datos JSON en data/.
+> Generado automáticamente por scripts/gen_indices. Solo firmas con n° de línea: abrir el archivo con StartLine/EndLine. No reemplaza a docs/Servicios/. Datos JSON en data/.
 
 ## pkg/data/abstate/abstate.go
 - L12: `type LevelConfig struct`
@@ -322,4 +322,3 @@
 - L11: `func TestLuaEngine_InitAndCommon(t *testing.T)`
 - L65: `func TestMobBehavior_LoadAllLua(t *testing.T)`
 - L97: `func TestMigratedScenarios_LoadAllLua(t *testing.T)`
-

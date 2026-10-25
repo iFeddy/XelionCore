@@ -64,6 +64,20 @@ func main() {
 		})
 	}
 
+	// Asegurar que World ID 8 (utilizado por el cliente NA2026 para servidores ES/Xelion) esté disponible y apunte al WorldService
+	if _, ok := wm.GetWorld(8); !ok && len(wm.WorldsList()) > 0 {
+		primaryWorld := wm.WorldsList()[0]
+		wm.AddWorld(&login.World{
+			ID:     8,
+			Name:   primaryWorld.Name,
+			Status: protocol.WorldStatus_Low,
+			IP:     primaryWorld.IP,
+			Port:   primaryWorld.Port,
+		})
+		log.Printf("[LoginService] Auto-registrado World ID 8 ('%s' -> %s:%d) para compatibilidad con cliente NA2026",
+			primaryWorld.Name, primaryWorld.IP, primaryWorld.Port)
+	}
+
 	loginCfg := &login.Config{
 		BindAddr:      fmt.Sprintf("%s:%d", cfg.LoginHost, cfg.LoginPort),
 		Port:          int(cfg.LoginPort),

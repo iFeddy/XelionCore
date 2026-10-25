@@ -1,6 +1,9 @@
-﻿# Ãndice: LoginService
+# Índice: LoginService
 
-> Generado automÃ¡ticamente por scripts/gen_indices.ps1. Solo firmas con nÂ° de lÃ­nea: abrir el archivo con StartLine/EndLine. No reemplaza a docs/Servicios/. 
+> Generado automáticamente por scripts/gen_indices. Solo firmas con n° de línea: abrir el archivo con StartLine/EndLine. No reemplaza a docs/Servicios/. 
+
+## cmd/LoginService/main.go
+- L20: `func main()`
 
 ## pkg/server/login/e2e_login_test.go
 - L20: `type mockClient struct`
@@ -10,20 +13,30 @@
 - L253: `func TestLoginService_HeartbeatAndLogout(t *testing.T)`
 
 ## pkg/server/login/handler.go
-- L17: `type Handler struct`
-- L25: `func NewHandler(repo database.AccountRepository, wm *WorldManager, tm *database.TransferManager) *Handler`
-- L37: `func (h *Handler) SetClientVersion(ver string)`
-- L42: `func (h *Handler) HandlePacket(client *network.Client, pkt *protocol.Packet)`
-- L66: `func (h *Handler) handle_PROTO_NC_USER_CLIENT_VERSION_CHECK_REQ(client *network.Client, pkt *protocol.Packet)`
-- L111: `func (h *Handler) handle_PROTO_NC_USER_US_LOGIN_REQ(client *network.Client, pkt *protocol.Packet)`
-- L283: `func (h *Handler) handle_PROTO_NC_MISC_HEARTBEAT_REQ(client *network.Client, pkt *protocol.Packet)`
-- L288: `func (h *Handler) handle_PROTO_NC_USER_NORMALLOGOUT_CMD(client *network.Client, pkt *protocol.Packet)`
-- L294: `func (h *Handler) handle_PROTO_NC_USER_FILE_CHECK_REQ(client *network.Client, pkt *protocol.Packet)`
-- L300: `func (h *Handler) handle_PROTO_NC_USER_WORLDSTATUS_REQ(client *network.Client, pkt *protocol.Packet)`
-- L309: `func (h *Handler) handle_PROTO_NC_USER_WORLDSELECT_REQ(client *network.Client, pkt *protocol.Packet)`
-- L345: `func (h *Handler) send_PROTO_NC_USER_LOGIN_ACK(client *network.Client, isResend bool)`
-- L367: `func (h *Handler) send_PROTO_NC_USER_LOGINFAIL_ACK(client *network.Client, errCode protocol.ServerError)`
-- L372: `func md5Hash(text string) string`
+- L18: `type Handler struct`
+- L26: `func NewHandler(repo database.AccountRepository, wm *WorldManager, tm *database.TransferManager) *Handler`
+- L38: `func (h *Handler) SetClientVersion(ver string)`
+- L43: `func (h *Handler) HandlePacket(client *network.Client, pkt *protocol.Packet)`
+- L78: `func (h *Handler) handle_PROTO_NC_USER_CLIENT_VERSION_CHECK_REQ(client *network.Client, pkt *protocol.Packet)`
+- L153: `func matchClientVersion(configured, received string) bool`
+- L168: `func (h *Handler) handle_PROTO_NC_USER_US_LOGIN_REQ(client *network.Client, pkt *protocol.Packet)`
+- L353: `func (h *Handler) handle_PROTO_NC_USER_NA2026_SESSION_PING(client *network.Client, pkt *protocol.Packet)`
+- L361: `func (h *Handler) handle_PROTO_NC_USER_NA2026_TOS_ACCEPT_HASH_REQ(client *network.Client, pkt *protocol.Packet)`
+- L366: `func (h *Handler) handle_PROTO_NC_USER_NA2026_TOS_CONFIRM_REQ(client *network.Client, pkt *protocol.Packet)`
+- L372: `func (h *Handler) handle_PROTO_NC_MISC_HEARTBEAT_REQ(client *network.Client, pkt *protocol.Packet)`
+- L377: `func (h *Handler) handle_PROTO_NC_USER_NORMALLOGOUT_CMD(client *network.Client, pkt *protocol.Packet)`
+- L383: `func (h *Handler) handle_PROTO_NC_USER_FILE_CHECK_REQ(client *network.Client, pkt *protocol.Packet)`
+- L389: `func (h *Handler) handle_PROTO_NC_USER_WORLDSTATUS_REQ(client *network.Client, pkt *protocol.Packet)`
+- L398: `func (h *Handler) handle_PROTO_NC_USER_WORLDSELECT_REQ(client *network.Client, pkt *protocol.Packet)`
+- L453: `func (h *Handler) send_PROTO_NC_USER_LOGIN_ACK(client *network.Client, isResend bool)`
+- L490: `func (h *Handler) send_PROTO_NC_USER_LOGINFAIL_ACK(client *network.Client, errCode protocol.ServerError)`
+- L504: `func md5Hash(text string) string`
+
+## pkg/server/login/na2026_test.go
+- L13: `func TestNA2026_LoginFlow(t *testing.T)`
+- L128: `func TestLogin_VersionValidationMismatch(t *testing.T)`
+- L213: `func readServerPacket(conn net.Conn) (*protocol.Packet, error)`
+- L241: `func sendClientPacket(conn net.Conn, pw *protocol.PacketWriter, nc *crypto.NetCrypto) error`
 
 ## pkg/server/login/server.go
 - L12: `type Config struct`
@@ -40,7 +53,3 @@
 - L52: `func (wm *WorldManager) GetWorld(id byte) (*World, bool)`
 - L60: `func (wm *WorldManager) WorldsList() []*World`
 - L71: `func GenerateTransferToken() string`
-
-## cmd/LoginService/main.go
-- L20: `func main()`
-

@@ -1,15 +1,15 @@
-﻿# Ãndice: pkg/protocol
+# Índice: pkg/protocol
 
-> Generado automÃ¡ticamente por scripts/gen_indices.ps1. Solo firmas con nÂ° de lÃ­nea: abrir el archivo con StartLine/EndLine. No reemplaza a docs/Servicios/. 
+> Generado automáticamente por scripts/gen_indices. Solo firmas con n° de línea: abrir el archivo con StartLine/EndLine. No reemplaza a docs/Servicios/. 
 
 ## pkg/protocol/opcodes.go
 - L12: `func MakeOpCode(dept uint8, cmd uint16) uint16`
 - L17: `func ExtractHeader(opcode uint16) uint8`
 - L22: `func ExtractType(opcode uint16) uint16`
-- L2962: `type ServerError uint16`
-- L2978: `type WorldStatus uint8`
-- L2993: `type CreateCharError uint16`
-- L3004: `type Job byte`
+- L2982: `type ServerError uint16`
+- L2998: `type WorldStatus uint8`
+- L3013: `type CreateCharError uint16`
+- L3024: `type Job byte`
 
 ## pkg/protocol/packet.go
 - L6: `type Packet struct`
@@ -39,20 +39,21 @@
 ## pkg/protocol/packet_writer.go
 - L8: `type PacketWriter struct`
 - L14: `func NewPacketWriter(opCode uint16) *PacketWriter`
-- L24: `func (pw *PacketWriter) OpCode() uint16`
-- L29: `func (pw *PacketWriter) WriteByte(b byte)`
-- L34: `func (pw *PacketWriter) WriteBool(v bool)`
-- L43: `func (pw *PacketWriter) WriteUint16(v uint16)`
-- L50: `func (pw *PacketWriter) WriteInt16(v int16)`
-- L55: `func (pw *PacketWriter) WriteUint32(v uint32)`
-- L62: `func (pw *PacketWriter) WriteInt32(v int32)`
-- L67: `func (pw *PacketWriter) WriteUint64(v uint64)`
-- L74: `func (pw *PacketWriter) WriteInt64(v int64)`
-- L79: `func (pw *PacketWriter) WriteBytes(b []byte)`
-- L84: `func (pw *PacketWriter) WriteString(s string, fixedLen int)`
-- L96: `func (pw *PacketWriter) Fill(count int, b byte)`
-- L103: `func (pw *PacketWriter) Data() []byte`
-- L112: `func (pw *PacketWriter) BuildWirePacket() []byte`
+- L24: `func NewDataWriter() *PacketWriter`
+- L32: `func (pw *PacketWriter) OpCode() uint16`
+- L37: `func (pw *PacketWriter) WriteByte(b byte)`
+- L42: `func (pw *PacketWriter) WriteBool(v bool)`
+- L51: `func (pw *PacketWriter) WriteUint16(v uint16)`
+- L58: `func (pw *PacketWriter) WriteInt16(v int16)`
+- L63: `func (pw *PacketWriter) WriteUint32(v uint32)`
+- L70: `func (pw *PacketWriter) WriteInt32(v int32)`
+- L75: `func (pw *PacketWriter) WriteUint64(v uint64)`
+- L82: `func (pw *PacketWriter) WriteInt64(v int64)`
+- L87: `func (pw *PacketWriter) WriteBytes(b []byte)`
+- L92: `func (pw *PacketWriter) WriteString(s string, fixedLen int)`
+- L104: `func (pw *PacketWriter) Fill(count int, b byte)`
+- L111: `func (pw *PacketWriter) Data() []byte`
+- L120: `func (pw *PacketWriter) BuildWirePacket() []byte`
 
 ## pkg/protocol/proto_nc_char.go
 - L6: `func New_PROTO_NC_CHAR_CREATE_FAIL_ACK(errorCode uint16) *PacketWriter`
@@ -177,19 +178,29 @@
 - L26: `func New_PROTO_NC_DATA_REPORT_GET_ACK(hReporter uint16, errCode uint16, regNumber int32, result uint8, remark string) *PacketWriter`
 
 ## pkg/protocol/proto_nc_user.go
-- L7: `type PROTO_NC_USER_CLIENT_VERSION_CHECK_REQ_DATA struct`
-- L12: `type PROTO_NC_USER_US_LOGIN_REQ_DATA struct`
-- L19: `type PROTO_NC_USER_LOGIN_ACK_WorldInfo struct`
-- L26: `type PROTO_NC_USER_LOGINFAIL_ACK_DATA struct`
-- L31: `type PROTO_NC_USER_WORLDSELECT_REQ_DATA struct`
-- L36: `type PROTO_NC_USER_WORLDSELECT_ACK_DATA struct`
-- L46: `func New_PROTO_NC_USER_CLIENT_RIGHTVERSION_CHECK_ACK() *PacketWriter`
-- L54: `func New_PROTO_NC_MISC_HEARTBEAT_ACK() *PacketWriter`
-- L59: `func New_PROTO_NC_USER_CLIENT_WRONGVERSION_CHECK_ACK() *PacketWriter`
-- L65: `func New_PROTO_NC_USER_LOGINFAIL_ACK(errCode uint16) *PacketWriter`
-- L74: `func New_PROTO_NC_USER_LOGIN_ACK(opCode uint16, worlds []PROTO_NC_USER_LOGIN_ACK_WorldInfo) *PacketWriter`
-- L90: `func New_PROTO_NC_USER_WORLDSELECT_ACK(status uint8, ip string, port uint16, token string) *PacketWriter`
-- L104: `func New_PROTO_NC_USER_FILE_CHECK_ACK(allow bool) *PacketWriter`
+- L9: `type PROTO_NC_USER_CLIENT_VERSION_CHECK_REQ_DATA struct`
+- L14: `type PROTO_NC_USER_US_LOGIN_REQ_DATA struct`
+- L21: `type PROTO_NC_USER_LOGIN_ACK_WorldInfo struct`
+- L28: `type PROTO_NC_USER_LOGINFAIL_ACK_DATA struct`
+- L33: `type PROTO_NC_USER_WORLDSELECT_REQ_DATA struct`
+- L38: `type PROTO_NC_USER_WORLDSELECT_ACK_DATA struct`
+- L48: `func New_PROTO_NC_USER_CLIENT_RIGHTVERSION_CHECK_ACK() *PacketWriter`
+- L55: `func New_PROTO_NC_USER_NA2026_VERSION_CHECK_ACK(bSuccess byte) *PacketWriter`
+- L62: `func New_PROTO_NC_USER_NA2026_AUTH_SUCCESS_ACK() *PacketWriter`
+- L69: `func New_PROTO_NC_USER_NA2026_PRE_WORLDS_ACK() *PacketWriter`
+- L76: `func New_PROTO_NC_USER_NA2026_ACCOUNT_TOKEN_ACK(accountID int) *PacketWriter`
+- L89: `func New_PROTO_NC_USER_NA2026_SESSION_PONG(data []byte) *PacketWriter`
+- L100: `func New_PROTO_NC_USER_NA2026_WORLDSELECT_ACK(status uint8, ip string, port uint16, token string, worldNo byte) *PacketWriter`
+- L114: `func New_PROTO_NC_USER_NA2026_WORLD_LOGIN_ACK(randomID uint16, charCount byte, ip string, port uint16, charData ...[]byte) *PacketWriter`
+- L131: `func New_PROTO_NC_USER_NA2026_BACK_TO_WORLD_ACK(token string) *PacketWriter`
+- L139: `func New_PROTO_NC_USER_NA2026_PRE_CREATE_CHAR_ACK(randomID uint16) *PacketWriter`
+- L147: `func New_PROTO_NC_MISC_HEARTBEAT_ACK() *PacketWriter`
+- L152: `func New_PROTO_NC_USER_CLIENT_WRONGVERSION_CHECK_ACK() *PacketWriter`
+- L158: `func New_PROTO_NC_USER_LOGINFAIL_ACK(errCode uint16) *PacketWriter`
+- L186: `func BuildNA2026OfficialWorldList(configured []PROTO_NC_USER_LOGIN_ACK_WorldInfo) []PROTO_NC_USER_LOGIN_ACK_WorldInfo`
+- L221: `func New_PROTO_NC_USER_LOGIN_ACK(opCode uint16, worlds []PROTO_NC_USER_LOGIN_ACK_WorldInfo) *PacketWriter`
+- L240: `func New_PROTO_NC_USER_WORLDSELECT_ACK(status uint8, ip string, port uint16, token string) *PacketWriter`
+- L254: `func New_PROTO_NC_USER_FILE_CHECK_ACK(allow bool) *PacketWriter`
 
 ## pkg/protocol/proto_nc_zone.go
 - L9: `func New_PROTO_NC_MAP_LOGINFAIL_ACK(errCode uint16, wrongDataFileIndex byte) *PacketWriter`
@@ -200,4 +211,3 @@
 - L46: `type PROTO_NC_CHAR_ZONE_CHARDATA_REQ_DATA struct`
 - L55: `type PROTO_NC_MAP_LOGIN_REQ_DATA struct`
 - L62: `func Read_PROTO_NC_MAP_LOGIN_REQ(pr *PacketReader) (*PROTO_NC_MAP_LOGIN_REQ_DATA, error)`
-
