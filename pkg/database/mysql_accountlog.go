@@ -135,29 +135,48 @@ func (r *MySQLAccountRepository) EventL20Get(userNo int) (int, error) {
 
 // EventL20Set registra la entrega del premio nivel 20 en tEvent_L20 mediante p_Event_L20_Set.
 func (r *MySQLAccountRepository) EventL20Set(userNo int, charNo int, worldNo uint8, eventNo uint8, eventPoint int) error {
+	return r.EventL20SetFull(userNo, "", eventNo, worldNo, charNo, eventPoint)
+}
+
+// EventL20SetFull registra los datos completos de PROTO_NC_MISC_EVENT_L20_DB_REQ mediante p_Event_L20_Set.
+func (r *MySQLAccountRepository) EventL20SetFull(userNo int, userID string, eventNo uint8, worldNo uint8, charNo int, eventPoint int) error {
 	var nRet int
-	err := r.db.QueryRow("CALL p_Event_L20_Set(?, '', ?, ?, @r)", userNo, worldNo, charNo).Scan(&nRet)
+	err := r.db.QueryRow("CALL p_Event_L20_Set(?, ?, ?, ?, ?, ?, @r)",
+		userNo, userID, eventNo, worldNo, charNo, eventPoint).Scan(&nRet)
 	if err != nil {
 		return fmt.Errorf("p_Event_L20_Set failed: %w", err)
+	}
+	if nRet != 0 {
+		return fmt.Errorf("p_Event_L20_Set returned error code %d", nRet)
 	}
 	return nil
 }
 
 // EventiPadSetTicket acumula boletos de sorteo según tiempo de juego mediante usp_EventiPad_setTicket.
-func (r *MySQLAccountRepository) EventiPadSetTicket(userNo int) error {
+func (r *MySQLAccountRepository) EventiPadSetTicket(userNo int, playTime ...uint16) error {
+	pt := uint16(60)
+	if len(playTime) > 0 {
+		pt = playTime[0]
+	}
 	var nRet int
-	err := r.db.QueryRow("CALL usp_EventiPad_setTicket(?, 60, @r)", userNo).Scan(&nRet)
+	err := r.db.QueryRow("CALL usp_EventiPad_setTicket(?, ?, @r)", userNo, pt).Scan(&nRet)
 	if err != nil {
 		return fmt.Errorf("usp_EventiPad_setTicket failed: %w", err)
 	}
 	return nil
 }
 
-// AddHackScanLog audita alteraciones binarias o detección de trampas en tHackScanLog mediante p_HackScan_Add.
+// AddHackScanLog audita alteraciones binarias o detección de trampas en tHackScanLog mediante p_HackScan_AddFull.
 func (r *MySQLAccountRepository) AddHackScanLog(userNo int, worldNo uint8, charNo int, ip, charID, desc string) error {
-	_, err := r.db.Exec("CALL p_HackScan_Add(?, ?, ?, 1, ?)", userNo, charNo, worldNo, desc)
+	return r.AddHackScanLogFull(userNo, worldNo, charNo, 1, ip, charID, desc)
+}
+
+// AddHackScanLogFull registra un informe completo de trampas con IP y CharID en tHackScanLog mediante p_HackScan_AddFull.
+func (r *MySQLAccountRepository) AddHackScanLogFull(userNo int, worldNo uint8, charNo int, hackType int16, ip, charID, desc string) error {
+	_, err := r.db.Exec("CALL p_HackScan_AddFull(?, ?, ?, ?, ?, ?, ?)",
+		userNo, worldNo, charNo, hackType, ip, charID, desc)
 	if err != nil {
-		return fmt.Errorf("p_HackScan_Add failed: %w", err)
+		return fmt.Errorf("p_HackScan_AddFull failed: %w", err)
 	}
 	return nil
 }

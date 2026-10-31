@@ -39,11 +39,30 @@ func (r *MySQLAccountRepository) UseCash(userNo int, cashType uint8, cash int, r
 
 // AddCashEventL20 acredita el bono cultural o evento nivel 20 mediante usp_Event_addCash.
 func (r *MySQLAccountRepository) AddCashEventL20(userNo int, cash int) error {
-	_, err := r.db.Exec("CALL usp_Event_addCash(?, 0, ?)", userNo, cash)
+	return r.AddEventCashByUserID(fmt.Sprintf("%d", userNo), int64(cash))
+}
+
+// AddEventCashByUserID acredita saldo de evento a un usuario mediante usp_Event_addCash oficial ({CALL usp_Event_addCash(?,?,?)}).
+func (r *MySQLAccountRepository) AddEventCashByUserID(userID string, cash int64) error {
+	var ret int
+	err := r.db.QueryRow("CALL usp_Event_addCash(?, ?, @ret)", userID, cash).Scan(&ret)
 	if err != nil {
 		return fmt.Errorf("usp_Event_addCash failed: %w", err)
 	}
+	if ret != 0 {
+		return fmt.Errorf("usp_Event_addCash returned error code %d", ret)
+	}
 	return nil
+}
+
+// RedeemMunsangEvent procesa el canje de cupón Munsang mediante usp_Event_DoneMunsang.
+func (r *MySQLAccountRepository) RedeemMunsangEvent(userNo int, questID uint16) (uint16, error) {
+	var ret int
+	err := r.db.QueryRow("CALL usp_Event_DoneMunsang(?, ?, @ret)", userNo, questID).Scan(&ret)
+	if err != nil {
+		return 0, fmt.Errorf("usp_Event_DoneMunsang failed: %w", err)
+	}
+	return uint16(ret), nil
 }
 
 // SetSerialKey asocia un cupón serial o clave a una cuenta mediante usp_Item_setSerialKey.

@@ -1,6 +1,7 @@
 package world
 
 import (
+	"fmt"
 	"log"
 	"math/rand"
 	"strings"
@@ -732,9 +733,9 @@ func (h *Handler) handleReturnCheck(client *network.Client, pkt *protocol.Packet
 	var lastSec int32
 	if h.logRepo != nil && userNo > 0 {
 		diff, err := h.logRepo.GetDateDiffLastLogout(int(userNo))
-		if err == nil && diff >= 30 {
+		if err == nil && diff >= 30*24*3600 {
 			isReturn = 1
-			lastSec = int32(diff * 86400)
+			lastSec = int32(diff)
 		}
 	}
 
@@ -753,7 +754,7 @@ func (h *Handler) handleSetReturn(client *network.Client, pkt *protocol.Packet) 
 	}
 
 	if h.accountRepo != nil && userNo > 0 {
-		_ = h.accountRepo.SetReturnUserItem(userNo, 1)
+		_ = h.accountRepo.SetReturnUserItem(userNo)
 		log.Printf("[World][%s] Paquete de retorno acreditado para UserNo %d", client.RemoteAddr(), userNo)
 	}
 }
@@ -774,7 +775,7 @@ func (h *Handler) handleLogoutLastDay(client *network.Client, pkt *protocol.Pack
 	if h.logRepo != nil && userNo > 0 {
 		diff, err := h.logRepo.GetDateDiffLastLogout(int(userNo))
 		if err == nil {
-			lastSec = int32(diff * 86400)
+			lastSec = int32(diff)
 		}
 	}
 
@@ -784,40 +785,90 @@ func (h *Handler) handleLogoutLastDay(client *network.Client, pkt *protocol.Pack
 
 // handleWebDBKey procesa la solicitud de token SSO para ItemShop Web (0x081D).
 func (h *Handler) handleWebDBKey(client *network.Client, pkt *protocol.Packet) {
+	var handle uint16
+	userNo := uint32(client.AccountID)
+	if pkt.Reader.Remaining() >= 6 {
+		handle, _ = pkt.Reader.ReadUint16()
+		u, _ := pkt.Reader.ReadUint32()
+		if u > 0 {
+			userNo = u
+		}
+	}
+
 	var key string
-	if h.accountRepo != nil && client.AccountID > 0 {
-		k, err := h.accountRepo.GetWebKey(client.AccountID)
-		if err == nil {
+	var errCode uint16 = 0
+	if h.accountRepo != nil && userNo > 0 {
+		k, err := h.accountRepo.GetOrIssueWebKey(int(userNo), "")
+		if err != nil {
+			errCode = 1
+		} else {
 			key = k
 		}
 	}
+
 	pw := protocol.NewPacketWriter(protocol.PROTO_NC_MISC_WEB_DB_KEY_ACK)
-	pw.WriteString(key, 40)
+	pw.WriteUint16(errCode)
+	pw.WriteUint16(handle)
+	pw.WriteUint32(userNo)
+	pw.WriteString(key, 32)
 	_ = client.SendPacket(pw)
 }
 
 // handleConnectFromWhere procesa la verificación de origen de conexión y PC Bang (0x082F).
 func (h *Handler) handleConnectFromWhere(client *network.Client, pkt *protocol.Packet) {
+	var hZone uint16
+	var zoneHeader []byte
+	var connectIPStr string = client.RemoteIP()
+
+	rem := pkt.Reader.Remaining()
+	if rem >= 12 {
+		hZone, _ = pkt.Reader.ReadUint16()
+		zoneHeader, _ = pkt.Reader.ReadBytes(6)
+		ipBytes, _ := pkt.Reader.ReadBytes(4)
+		if len(ipBytes) == 4 && (ipBytes[0] != 0 || ipBytes[1] != 0 || ipBytes[2] != 0 || ipBytes[3] != 0) {
+			connectIPStr = fmt.Sprintf("%d.%d.%d.%d", ipBytes[0], ipBytes[1], ipBytes[2], ipBytes[3])
+		}
+	} else if rem >= 10 {
+		zoneHeader, _ = pkt.Reader.ReadBytes(6)
+		ipBytes, _ := pkt.Reader.ReadBytes(4)
+		if len(ipBytes) == 4 && (ipBytes[0] != 0 || ipBytes[1] != 0 || ipBytes[2] != 0 || ipBytes[3] != 0) {
+			connectIPStr = fmt.Sprintf("%d.%d.%d.%d", ipBytes[0], ipBytes[1], ipBytes[2], ipBytes[3])
+		}
+	}
+
+	if len(zoneHeader) < 6 {
+		zoneHeader = make([]byte, 6)
+	}
+
 	var isPcbang bool
 	if h.accountRepo != nil {
-		pc, _ := h.accountRepo.CheckPcbangIP(client.RemoteIP())
+		pc, _ := h.accountRepo.CheckPcbangIP(connectIPStr)
 		isPcbang = pc
 	}
-	pw := protocol.NewPacketWriter(protocol.PROTO_NC_MISC_CONNECTFROMWHERE_DB_ACK)
-	pw.WriteUint16(0) // ErrorCode = 0
+
+	var connectFrom uint8 = 0
 	if isPcbang {
-		pw.WriteByte(1)
-	} else {
-		pw.WriteByte(0)
+		connectFrom = 1
 	}
-	pw.WriteString("US", 3)
-	pw.Fill(3, 0)
+
+	pw := protocol.NewPacketWriter(protocol.PROTO_NC_MISC_CONNECTFROMWHERE_DB_ACK)
+	pw.WriteUint16(hZone)
+	pw.WriteBytes(zoneHeader)
+	pw.WriteByte(connectFrom)
 	_ = client.SendPacket(pw)
 }
 
 // handleEventHit3AddCash procesa la acreditación de cash por evento (0x0820).
 func (h *Handler) handleEventHit3AddCash(client *network.Client, pkt *protocol.Packet) {
-	if pkt.Reader.Remaining() >= 8 {
+	rem := pkt.Reader.Remaining()
+	if rem >= 28 {
+		userIDStr, _ := pkt.Reader.ReadString(20)
+		addCash, _ := pkt.Reader.ReadUint64()
+		userIDStr = strings.TrimSpace(userIDStr)
+		if h.shopRepo != nil && userIDStr != "" && addCash > 0 {
+			_ = h.shopRepo.AddEventCashByUserID(userIDStr, int64(addCash))
+		}
+	} else if rem >= 8 {
 		userNo, _ := pkt.Reader.ReadUint32()
 		cash, _ := pkt.Reader.ReadUint32()
 		if h.shopRepo != nil && userNo > 0 && cash > 0 {
@@ -828,25 +879,69 @@ func (h *Handler) handleEventHit3AddCash(client *network.Client, pkt *protocol.P
 
 // handleEventDoneMunsang procesa la validación y canje de cupón cultural Munsang (0x0838).
 func (h *Handler) handleEventDoneMunsang(client *network.Client, pkt *protocol.Packet) {
-	if pkt.Reader.Remaining() >= 4 {
-		userNo, _ := pkt.Reader.ReadUint32()
-		if h.shopRepo != nil && userNo > 0 {
-			_ = h.shopRepo.SetSerialKey(int(userNo), 10001)
-			_ = h.shopRepo.AddCash(int(userNo), 0, 500, "EventMunsang")
-		}
+	rem := pkt.Reader.Remaining()
+	var (
+		userNo  uint32
+		charNo  uint32
+		worldNo uint8
+		hZone   uint16
+		questID uint16
+		nError  uint16
+	)
 
-		pw := protocol.NewPacketWriter(protocol.PROTO_NC_MISC_EVENT_DONE_MUNSANG_ACC2WM)
-		pw.WriteUint16(0) // nError
-		pw.WriteUint32(userNo)
-		pw.WriteUint32(500)
-		_ = client.SendPacket(pw)
+	if rem >= 13 {
+		userNo, _ = pkt.Reader.ReadUint32()
+		charNo, _ = pkt.Reader.ReadUint32()
+		worldNo, _ = pkt.Reader.ReadByte()
+		hZone, _ = pkt.Reader.ReadUint16()
+		questID, _ = pkt.Reader.ReadUint16()
+	} else if rem >= 4 {
+		userNo, _ = pkt.Reader.ReadUint32()
 	}
+
+	if h.shopRepo != nil && userNo > 0 {
+		errCode, err := h.shopRepo.RedeemMunsangEvent(int(userNo), questID)
+		if err == nil {
+			nError = errCode
+		} else {
+			nError = 5445 // Código de fallo oficial de Account.exe (0x1545)
+		}
+	}
+
+	pw := protocol.NewPacketWriter(protocol.PROTO_NC_MISC_EVENT_DONE_MUNSANG_ACC2WM)
+	pw.WriteUint32(userNo)
+	pw.WriteUint32(charNo)
+	pw.WriteByte(worldNo)
+	pw.WriteUint16(nError)
+	pw.WriteUint16(hZone)
+	pw.WriteUint16(questID)
+	_ = client.SendPacket(pw)
 }
 
 // handleEventL20 procesa el registro y verificación del evento Nivel 20 (0x082C).
 func (h *Handler) handleEventL20(client *network.Client, pkt *protocol.Packet) {
-	var userNo uint32
-	if pkt.Reader.Remaining() >= 4 {
+	rem := pkt.Reader.Remaining()
+	var (
+		wmHandle   uint16
+		userID     string
+		userNo     uint32
+		eventNo    uint8 = 1
+		worldNo    uint8 = h.worldID
+		charNo     uint32
+		eventPoint uint32
+		nError     uint16
+	)
+
+	if rem >= 272 {
+		wmHandle, _ = pkt.Reader.ReadUint16()
+		uID, _ := pkt.Reader.ReadString(256)
+		userID = strings.TrimSpace(uID)
+		userNo, _ = pkt.Reader.ReadUint32()
+		eventNo, _ = pkt.Reader.ReadByte()
+		worldNo, _ = pkt.Reader.ReadByte()
+		charNo, _ = pkt.Reader.ReadUint32()
+		eventPoint, _ = pkt.Reader.ReadUint32()
+	} else if rem >= 4 {
 		u, _ := pkt.Reader.ReadUint32()
 		userNo = u
 	} else if client.AccountID > 0 {
@@ -854,19 +949,31 @@ func (h *Handler) handleEventL20(client *network.Client, pkt *protocol.Packet) {
 	}
 
 	if h.logRepo != nil && userNo > 0 {
-		_ = h.logRepo.EventL20Set(int(userNo), client.CharacterID, h.worldID, 1, 100)
+		err := h.logRepo.EventL20SetFull(int(userNo), userID, eventNo, worldNo, int(charNo), int(eventPoint))
+		if err != nil {
+			nError = 1
+		}
 	}
 
 	pw := protocol.NewPacketWriter(protocol.PROTO_NC_MISC_EVENT_L20_DB_ACK)
-	pw.WriteUint16(0)
+	pw.WriteUint16(wmHandle)
 	pw.WriteUint32(userNo)
-	pw.WriteByte(1)
+	pw.WriteByte(eventNo)
+	pw.WriteUint32(charNo)
+	pw.WriteUint16(nError)
 	_ = client.SendPacket(pw)
 }
 
 // handleEventLongTimePlay procesa el otorgamiento de boletos por tiempo de juego (0x0843).
 func (h *Handler) handleEventLongTimePlay(client *network.Client, pkt *protocol.Packet) {
-	if pkt.Reader.Remaining() >= 4 {
+	rem := pkt.Reader.Remaining()
+	if rem >= 6 {
+		userNo, _ := pkt.Reader.ReadUint32()
+		playTime, _ := pkt.Reader.ReadUint16()
+		if h.logRepo != nil && userNo > 0 {
+			_ = h.logRepo.EventiPadSetTicket(int(userNo), playTime)
+		}
+	} else if rem >= 4 {
 		userNo, _ := pkt.Reader.ReadUint32()
 		if h.logRepo != nil && userNo > 0 {
 			_ = h.logRepo.EventiPadSetTicket(int(userNo))

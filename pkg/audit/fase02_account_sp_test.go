@@ -417,8 +417,8 @@ func TestFase02_Cash_Operations(t *testing.T) {
 		t.Fatalf("UseCash excesivo debio retornar -1, obtenido %d", ret)
 	}
 
-	// 5. usp_Event_addCash 150
-	err = db.QueryRow("CALL usp_Event_addCash(?, 150, 'EVENT_TEST', @ret)", testUserNo).Scan(&ret)
+	// 5. usp_Event_addCash 150 (Firma oficial ODBC de 3 parámetros en Account.md: {CALL usp_Event_addCash(?,?,?)})
+	err = db.QueryRow("CALL usp_Event_addCash(?, 150, @ret)", testUserNo).Scan(&ret)
 	if err != nil || ret != 0 {
 		t.Fatalf("usp_Event_addCash fallo: %v, ret=%d", err, ret)
 	}
@@ -592,9 +592,9 @@ func TestFase02_ReturnUser_And_SerialKey(t *testing.T) {
 		VALUES (?, 'return_user', ?, 'retuser', 0, 0, 1, '127.0.0.1', NOW())
 	`, testUserNo, passHash)
 
-	// 1. usp_ReturnUser_SetUserItem
+	// 1. usp_ReturnUser_SetUserItem (Firma oficial de 2 parámetros en Account.bak / Account.md: {CALL usp_ReturnUser_SetUserItem(?,?)})
 	var ret int
-	err := db.QueryRow("CALL usp_ReturnUser_SetUserItem(?, 30001, @ret)", testUserNo).Scan(&ret)
+	err := db.QueryRow("CALL usp_ReturnUser_SetUserItem(?, @ret)", testUserNo).Scan(&ret)
 	if err != nil || ret != 0 {
 		t.Fatalf("usp_ReturnUser_SetUserItem fallo: %v, ret=%d", err, ret)
 	}

@@ -423,9 +423,9 @@ func TestFase03_Event_L20(t *testing.T) {
 		t.Errorf("Se esperaba nRet=-1 para usuario sin premio, obtenido nRet=%d, err=%v", nRet, err)
 	}
 
-	// 2. Otorgar premio
+	// 2. Otorgar premio (Firma oficial de PROTO_NC_MISC_EVENT_L20_DB_REQ / AccountLog.exe 0x00402aa0)
 	var setResult int
-	err = db.QueryRow("CALL p_Event_L20_Set(?, ?, 1, 1001, @out_set)", userNo, userID).Scan(&setResult)
+	err = db.QueryRow("CALL p_Event_L20_Set(?, ?, 1, 1, 1001, 100, @out_set)", userNo, userID).Scan(&setResult)
 	if err != nil || setResult != 0 {
 		t.Fatalf("Error en p_Event_L20_Set: res=%d, err=%v", setResult, err)
 	}

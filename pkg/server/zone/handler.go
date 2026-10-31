@@ -232,12 +232,13 @@ func (h *Handler) handleTransferKey(client *network.Client, pkt *protocol.Packet
 			log.Printf("[Zone][%s] DataFileCheck FAILED at index %d (%s): client hash='%s', server expected='%s'",
 				client.RemoteAddr(), wrongIdx, fileName, clientHash, expectedHash)
 
-			// Persistir el incidente en tHackScanLog mediante CALL p_HackScan_Add
+			// Persistir el incidente en tHackScanLog mediante CALL p_HackScan_AddFull oficial
 			if h.accountRepo != nil {
-				_ = h.accountRepo.AddHackScanLog(
+				_ = h.accountRepo.AddHackScanLogFull(
 					0,
 					h.worldID,
 					0,
+					1, // hackType = 1 (SHN Checksum mismatch)
 					client.RemoteIP(),
 					charName,
 					fmt.Sprintf("SHN Checksum mismatch at index %d (%s)", wrongIdx, fileName),

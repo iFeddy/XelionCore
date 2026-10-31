@@ -162,17 +162,6 @@ func TestE2ELoginServiceFlow(t *testing.T) {
 	}
 	t.Logf("Paso 2: Versión validada exitosamente (0x%04X)", verAck.OpCode)
 
-	// 3b. Recibir: PROTO_NC_MISC_SEED_ACK (0x0807, 2B seed oficial)
-	seedAck, err := readServerPacket(conn)
-	if err != nil {
-		t.Fatalf("Failed to read seed ack: %v", err)
-	}
-	if seedAck.OpCode != protocol.PROTO_NC_MISC_SEED_ACK {
-		t.Fatalf("Expected OpCode 0x%04X (PROTO_NC_MISC_SEED_ACK), got 0x%04X",
-			protocol.PROTO_NC_MISC_SEED_ACK, seedAck.OpCode)
-	}
-	t.Logf("Paso 2b: Seed ACK recibido exitosamente (0x%04X)", seedAck.OpCode)
-
 	// 4. Enviar Login oficial: PROTO_NC_USER_US_LOGIN_REQ (0x0C5A, 316 bytes)
 	loginReq := protocol.NewPacketWriter(protocol.PROTO_NC_USER_US_LOGIN_REQ)
 	loginReq.WriteString("admin", 260)
@@ -437,12 +426,11 @@ func TestLoginService_MultiRegion_OTP_WrongVersion_DynamicWorlds(t *testing.T) {
 		verPkt.WriteString(activeVerKey, 64)
 		_ = client.sendPacket(verPkt)
 		_, _ = readServerPacket(conn) // 0x0C67
-		_, _ = readServerPacket(conn) // 0x0807
 
-		// Enviar PROTO_NC_USER_LOGIN_REQ (0x0C06, 272B)
+		// Enviar PROTO_NC_USER_LOGIN_REQ (0x0C06, 272B: User[256], Password[16])
 		loginReq := protocol.NewPacketWriter(protocol.PROTO_NC_USER_LOGIN_REQ)
-		loginReq.WriteString("admin", 20)
-		loginReq.WriteString("admin", 252)
+		loginReq.WriteString("admin", 256)
+		loginReq.WriteString("admin", 16)
 		_ = client.sendPacket(loginReq)
 
 		loginAck, err := readServerPacket(conn)
@@ -493,7 +481,6 @@ func TestLoginService_MultiRegion_OTP_WrongVersion_DynamicWorlds(t *testing.T) {
 		verPkt.WriteString(activeVerKey, 64)
 		_ = client.sendPacket(verPkt)
 		_, _ = readServerPacket(conn) // 0x0C67
-		_, _ = readServerPacket(conn) // 0x0807
 
 		// Enviar PROTO_NC_USER_LOGIN_WITH_OTP_REQ (0x0C37, 32B)
 		otpReq := protocol.NewPacketWriter(protocol.PROTO_NC_USER_LOGIN_WITH_OTP_REQ)

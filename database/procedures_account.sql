@@ -401,27 +401,44 @@ DELIMITER ;
 
 -- ----------------------------------------------------------------------------
 -- 14. usp_Event_addCash
+-- Firma ODBC oficial en Account.pdb: {CALL usp_Event_addCash(?,?,?)}
+-- CSQLPAccount::usp_Event_addCash(char* sUserID, __int64 nCash) (Account.exe 0x0040257d)
 -- ----------------------------------------------------------------------------
 DROP PROCEDURE IF EXISTS `usp_Event_addCash`;
 DELIMITER $$
 CREATE PROCEDURE `usp_Event_addCash`(
-    IN in_nUserNo INT,
-    IN in_nCash INT,
-    IN in_sRef VARCHAR(50),
+    IN in_sUserID VARCHAR(60),
+    IN in_nCash BIGINT,
     OUT out_nRet INT
 )
 BEGIN
-    START TRANSACTION;
+    DECLARE v_userNo INT DEFAULT 0;
 
-    INSERT INTO tCash (userNo, cashType, cash, status)
-    VALUES (in_nUserNo, 1, in_nCash, 0)
-    ON DUPLICATE KEY UPDATE cash = cash + VALUES(cash), status = 0;
+    SET out_nRet = -1;
 
-    INSERT INTO tCashLog (userNo, logType, cashType, cash, reference)
-    VALUES (in_nUserNo, 1, 1, in_nCash, in_sRef);
+    SELECT nUserNo INTO v_userNo
+    FROM tUser
+    WHERE (LOWER(sUserID) = LOWER(in_sUserID) OR CAST(nUserNo AS CHAR) = in_sUserID) AND bIsDelete = 0
+    LIMIT 1;
 
-    COMMIT;
-    SET out_nRet = 0;
+    IF (v_userNo IS NULL OR v_userNo = 0) AND in_sUserID REGEXP '^[0-9]+$' THEN
+        SET v_userNo = CAST(in_sUserID AS SIGNED);
+    END IF;
+
+    IF v_userNo IS NOT NULL AND v_userNo > 0 AND in_nCash > 0 THEN
+        START TRANSACTION;
+
+        INSERT INTO tCash (userNo, cashType, cash, status)
+        VALUES (v_userNo, 1, CAST(in_nCash AS SIGNED), 0)
+        ON DUPLICATE KEY UPDATE cash = cash + VALUES(cash), status = 0;
+
+        INSERT INTO tCashLog (userNo, logType, cashType, cash, reference)
+        VALUES (v_userNo, 1, 1, CAST(in_nCash AS SIGNED), 'EVENT_HIT3');
+
+        COMMIT;
+        SET out_nRet = 0;
+    END IF;
+
     SELECT out_nRet AS nRet;
 END$$
 DELIMITER ;
@@ -1206,31 +1223,41 @@ DELIMITER ;
 
 -- ----------------------------------------------------------------------------
 -- 41. usp_ReturnUser_SetUserItem
+-- Firma ODBC oficial en Account.pdb / Account.bak: {CALL usp_ReturnUser_SetUserItem(?,?)}
+-- El ítem y cantidad provienen de tAccountEventReward (sEventCode = 'RETURN_USER')
 -- ----------------------------------------------------------------------------
 DROP PROCEDURE IF EXISTS `usp_ReturnUser_SetUserItem`;
 DELIMITER $$
 CREATE PROCEDURE `usp_ReturnUser_SetUserItem`(
     IN in_nUserNo INT,
-    IN in_nItemNo INT,
     OUT out_nRet INT
 )
 BEGIN
-    DECLARE v_item INT;
-    SET v_item = IFNULL(in_nItemNo, 30001);
-    IF v_item <= 0 THEN
-        SET v_item = 30001;
+    DECLARE v_enabled TINYINT DEFAULT 0;
+    DECLARE v_item INT DEFAULT 0;
+    DECLARE v_amount INT DEFAULT 1;
+
+    SET out_nRet = -1;
+
+    SELECT bEnabled, nItemNo, GREATEST(1, nItemAmount)
+    INTO v_enabled, v_item, v_amount
+    FROM tAccountEventReward
+    WHERE sEventCode = 'RETURN_USER'
+    LIMIT 1;
+
+    IF v_enabled = 1 AND v_item > 0 AND in_nUserNo > 0 THEN
+        START TRANSACTION;
+
+        INSERT INTO tChargeItem (userNo, orderNo, goodsNo, amount, isDraw, registerDate)
+        VALUES (in_nUserNo, 0, v_item, v_amount, 0, NOW());
+
+        INSERT INTO tReturnUser (dDate, nUserNo, nItemNo)
+        VALUES (NOW(), in_nUserNo, v_item);
+
+        COMMIT;
+        SET out_nRet = 0;
     END IF;
 
-    START TRANSACTION;
-
-    INSERT INTO tChargeItem (userNo, orderNo, goodsNo, amount, isDraw, registerDate)
-    VALUES (in_nUserNo, 0, v_item, 1, 0, NOW());
-
-    INSERT INTO tReturnUser (dDate, nUserNo, nItemNo)
-    VALUES (NOW(), in_nUserNo, v_item);
-
-    COMMIT;
-    SET out_nRet = 0;
     SELECT out_nRet AS nRet;
 END$$
 DELIMITER ;
@@ -2354,5 +2381,286 @@ BEGIN
     END IF;
 
     SELECT v_ret AS nRet;
+END$$
+DELIMITER ;
+
+-- ----------------------------------------------------------------------------
+-- 76. usp_User_getByUserNo
+-- Consulta tipada de perfil tUser por clave primaria entera nUserNo
+-- ----------------------------------------------------------------------------
+DROP PROCEDURE IF EXISTS `usp_User_getByUserNo`;
+DELIMITER $$
+CREATE PROCEDURE `usp_User_getByUserNo`(
+    IN in_nUserNo INT
+)
+BEGIN
+    SELECT nUserNo, sUserID, sUserPW, sUserName, bIsBlock, bIsDelete, nAuthID, sUserIP, dDate
+    FROM tUser
+    WHERE nUserNo = in_nUserNo
+    LIMIT 1;
+END$$
+DELIMITER ;
+
+-- ----------------------------------------------------------------------------
+-- 77. usp_UserKey_GetOrIssue
+-- Obtiene clave SSO activa de tUserKey o registra una nueva para WEB_DB_KEY_REQ (0x081D)
+-- ----------------------------------------------------------------------------
+DROP PROCEDURE IF EXISTS `usp_UserKey_GetOrIssue`;
+DELIMITER $$
+CREATE PROCEDURE `usp_UserKey_GetOrIssue`(
+    IN in_nUserNo INT,
+    IN in_sCandidateKey VARCHAR(65),
+    OUT out_sWebKey VARCHAR(65),
+    OUT out_nRet INT
+)
+BEGIN
+    SET out_sWebKey = NULL;
+    SET out_nRet = -1;
+
+    SELECT sWebKey INTO out_sWebKey
+    FROM tUserKey
+    WHERE nUserNo = in_nUserNo AND (dExpireDate IS NULL OR dExpireDate > NOW()) AND sWebKey <> ''
+    ORDER BY dExpireDate DESC
+    LIMIT 1;
+
+    IF out_sWebKey IS NOT NULL AND out_sWebKey <> '' THEN
+        SET out_nRet = 0;
+    ELSEIF in_nUserNo > 0 AND in_sCandidateKey <> '' AND EXISTS(SELECT 1 FROM tUser WHERE nUserNo = in_nUserNo AND bIsDelete = 0) THEN
+        INSERT INTO tUserKey (nUserNo, sWebKey, dIssueDate, dExpireDate)
+        VALUES (in_nUserNo, in_sCandidateKey, NOW(), NOW() + INTERVAL 1 HOUR)
+        ON DUPLICATE KEY UPDATE
+            sWebKey = VALUES(sWebKey),
+            dIssueDate = NOW(),
+            dExpireDate = NOW() + INTERVAL 1 HOUR;
+
+        SET out_sWebKey = in_sCandidateKey;
+        SET out_nRet = 0;
+    ELSE
+        SET out_sWebKey = '';
+        SET out_nRet = -1;
+    END IF;
+
+    SELECT out_nRet AS nRet, out_sWebKey AS sWebKey;
+END$$
+DELIMITER ;
+
+-- ----------------------------------------------------------------------------
+-- 78. usp_UserKey_AuthenticateToken
+-- Autenticación de sesión por token Outspark (0x0C20 LogonToken[65]) contra tUserKey + tUser
+-- ----------------------------------------------------------------------------
+DROP PROCEDURE IF EXISTS `usp_UserKey_AuthenticateToken`;
+DELIMITER $$
+CREATE PROCEDURE `usp_UserKey_AuthenticateToken`(
+    IN in_sToken VARCHAR(65),
+    IN in_sUserIP VARCHAR(30)
+)
+BEGIN
+    DECLARE v_userNo INT DEFAULT 0;
+    DECLARE v_userID VARCHAR(60) DEFAULT '';
+    DECLARE v_isBlock TINYINT DEFAULT 0;
+    DECLARE v_isDelete TINYINT DEFAULT 0;
+    DECLARE v_authID TINYINT DEFAULT 0;
+    DECLARE v_isLoginAble TINYINT DEFAULT 0;
+    DECLARE v_blockRet INT DEFAULT 0;
+    DECLARE v_result INT DEFAULT -1;
+
+    IF in_sToken IS NOT NULL AND in_sToken <> '' THEN
+        SELECT u.nUserNo, u.sUserID, u.bIsBlock, u.bIsDelete, u.nAuthID
+        INTO v_userNo, v_userID, v_isBlock, v_isDelete, v_authID
+        FROM tUserKey k
+        JOIN tUser u ON u.nUserNo = k.nUserNo
+        WHERE k.sWebKey = in_sToken
+          AND (k.dExpireDate IS NULL OR k.dExpireDate > NOW())
+        LIMIT 1;
+    END IF;
+
+    IF v_userNo IS NULL OR v_userNo = 0 OR v_isDelete = 1 THEN
+        SET v_result = -1;
+    ELSE
+        IF v_isBlock = 1 THEN
+            UPDATE tUserBlock
+            SET bStatus = 0
+            WHERE nUserNo = v_userNo
+              AND bStatus = 1
+              AND dEndDate IS NOT NULL
+              AND dEndDate <= NOW()
+              AND nType <> 99;
+
+            SELECT COUNT(*) INTO v_blockRet
+            FROM tUserBlock
+            WHERE nUserNo = v_userNo AND bStatus = 1;
+
+            IF v_blockRet = 0 THEN
+                UPDATE tUser SET bIsBlock = 0 WHERE nUserNo = v_userNo;
+                SET v_isBlock = 0;
+            ELSE
+                UPDATE tUser SET bIsBlock = 1 WHERE nUserNo = v_userNo;
+                SET v_isBlock = 1;
+            END IF;
+        END IF;
+
+        IF v_isBlock = 1 THEN
+            SET v_result = -3;
+        ELSE
+            SELECT bIsLoginAble INTO v_isLoginAble FROM tUserAuth WHERE nAuthID = v_authID LIMIT 1;
+            IF v_isLoginAble IS NULL OR v_isLoginAble = 0 THEN
+                SET v_result = -4;
+            ELSE
+                SET v_result = 0;
+            END IF;
+        END IF;
+    END IF;
+
+    SELECT v_result AS nResult, IFNULL(v_userNo, 0) AS nUserNo, IFNULL(v_userID, '') AS sUserID, IFNULL(v_authID, 0) AS nAuthID;
+END$$
+DELIMITER ;
+
+-- ----------------------------------------------------------------------------
+-- 79. usp_User_checkPasswordS2S
+-- Verificación S2S completa (0x0C07/0x0C39/0x0C3E/0x0C4B/0x0C53/0x0C5B)
+-- ----------------------------------------------------------------------------
+DROP PROCEDURE IF EXISTS `usp_User_checkPasswordS2S`;
+DELIMITER $$
+CREATE PROCEDURE `usp_User_checkPasswordS2S`(
+    IN in_sUserID VARCHAR(260),
+    IN in_sUserPW VARCHAR(36),
+    IN in_bAllowEmail TINYINT
+)
+BEGIN
+    DECLARE v_userNo INT DEFAULT 0;
+    DECLARE v_realUserID VARCHAR(60) DEFAULT '';
+    DECLARE v_dbPW VARCHAR(32) DEFAULT '';
+    DECLARE v_isBlock TINYINT DEFAULT 0;
+    DECLARE v_isDelete TINYINT DEFAULT 0;
+    DECLARE v_authID TINYINT DEFAULT 0;
+    DECLARE v_isLoginAble TINYINT DEFAULT 0;
+    DECLARE v_blockRet INT DEFAULT 0;
+    DECLARE v_result INT DEFAULT -1;
+
+    SELECT nUserNo, sUserID, sUserPW, bIsBlock, bIsDelete, nAuthID
+    INTO v_userNo, v_realUserID, v_dbPW, v_isBlock, v_isDelete, v_authID
+    FROM tUser
+    WHERE LOWER(sUserID) = LOWER(in_sUserID)
+    LIMIT 1;
+
+    IF (v_userNo IS NULL OR v_userNo = 0) AND in_bAllowEmail = 1 THEN
+        SELECT u.nUserNo, u.sUserID, u.sUserPW, u.bIsBlock, u.bIsDelete, u.nAuthID
+        INTO v_userNo, v_realUserID, v_dbPW, v_isBlock, v_isDelete, v_authID
+        FROM tUser u
+        JOIN tUserOption o ON u.nUserNo = o.nUserNo
+        WHERE LOWER(o.sEmail) = LOWER(in_sUserID) AND u.bIsDelete = 0
+        LIMIT 1;
+    END IF;
+
+    IF v_userNo IS NULL OR v_userNo = 0 OR v_isDelete = 1 THEN
+        SET v_result = -1;
+    ELSEIF LOWER(v_dbPW) <> LOWER(in_sUserPW) AND v_dbPW <> in_sUserPW THEN
+        SET v_result = -2;
+    ELSE
+        IF v_isBlock = 1 THEN
+            UPDATE tUserBlock
+            SET bStatus = 0
+            WHERE nUserNo = v_userNo
+              AND bStatus = 1
+              AND dEndDate IS NOT NULL
+              AND dEndDate <= NOW()
+              AND nType <> 99;
+
+            SELECT COUNT(*) INTO v_blockRet
+            FROM tUserBlock
+            WHERE nUserNo = v_userNo AND bStatus = 1;
+
+            IF v_blockRet = 0 THEN
+                UPDATE tUser SET bIsBlock = 0 WHERE nUserNo = v_userNo;
+                SET v_isBlock = 0;
+            ELSE
+                UPDATE tUser SET bIsBlock = 1 WHERE nUserNo = v_userNo;
+                SET v_isBlock = 1;
+            END IF;
+        END IF;
+
+        SELECT IFNULL(bIsLoginAble, 0) INTO v_isLoginAble
+        FROM tUserAuth
+        WHERE nAuthID = v_authID
+        LIMIT 1;
+
+        IF v_isBlock = 1 THEN
+            SET v_result = -3;
+        ELSEIF v_isLoginAble = 0 THEN
+            SET v_result = -4;
+        ELSE
+            SET v_result = 0;
+        END IF;
+    END IF;
+
+    SELECT
+        v_result AS nResult,
+        IFNULL(v_userNo, 0) AS nUserNo,
+        IFNULL(v_realUserID, '') AS sUserID,
+        IFNULL(v_authID, 0) AS nAuthID,
+        IFNULL(v_isBlock, 0) AS bIsBlock,
+        IFNULL(v_isLoginAble, 0) AS bIsLoginAble;
+END$$
+DELIMITER ;
+
+-- ----------------------------------------------------------------------------
+-- 80. usp_Event_DoneMunsang
+-- Evento cultural Munsang (0x0838 -> 0x0839 Account.exe 0x00402cb0)
+-- Retorna 0x1545 (5445) si inactivo/duplicado/inválido, o 0x1540 (5440) si acreditado
+-- ----------------------------------------------------------------------------
+DROP PROCEDURE IF EXISTS `usp_Event_DoneMunsang`;
+DELIMITER $$
+CREATE PROCEDURE `usp_Event_DoneMunsang`(
+    IN in_nUserNo INT,
+    IN in_nQuestID SMALLINT UNSIGNED,
+    OUT out_nError SMALLINT UNSIGNED
+)
+BEGIN
+    DECLARE v_enabled TINYINT DEFAULT 0;
+    DECLARE v_itemNo INT DEFAULT 0;
+    DECLARE v_itemAmount INT DEFAULT 1;
+    DECLARE v_cashType TINYINT UNSIGNED DEFAULT 1;
+    DECLARE v_cashAmount INT DEFAULT 0;
+    DECLARE v_cfgQuestID SMALLINT UNSIGNED DEFAULT 0;
+
+    -- 0x1545 = 5445 (código oficial en Account.exe 0x00402d0a cuando el evento no aplica)
+    SET out_nError = 5445;
+
+    SELECT bEnabled, nItemNo, GREATEST(1, nItemAmount), nCashType, nCashAmount, nQuestID
+    INTO v_enabled, v_itemNo, v_itemAmount, v_cashType, v_cashAmount, v_cfgQuestID
+    FROM tAccountEventReward
+    WHERE sEventCode = 'MUNSANG'
+    LIMIT 1;
+
+    IF v_enabled = 1
+       AND in_nUserNo > 0
+       AND (v_cfgQuestID = 0 OR v_cfgQuestID = in_nQuestID)
+       AND EXISTS(SELECT 1 FROM tUser WHERE nUserNo = in_nUserNo AND bIsDelete = 0)
+       AND NOT EXISTS(SELECT 1 FROM tAccountEventRedeem WHERE sEventCode = 'MUNSANG' AND nUserNo = in_nUserNo AND nQuestID = in_nQuestID) THEN
+
+        START TRANSACTION;
+
+        INSERT INTO tAccountEventRedeem (sEventCode, nUserNo, nQuestID, dRedeemedAt)
+        VALUES ('MUNSANG', in_nUserNo, in_nQuestID, NOW());
+
+        IF v_itemNo > 0 THEN
+            INSERT INTO tChargeItem (userNo, orderNo, goodsNo, amount, isDraw, registerDate)
+            VALUES (in_nUserNo, 0, v_itemNo, v_itemAmount, 0, NOW());
+        END IF;
+
+        IF v_cashAmount > 0 THEN
+            INSERT INTO tCash (userNo, cashType, cash, status)
+            VALUES (in_nUserNo, v_cashType, v_cashAmount, 0)
+            ON DUPLICATE KEY UPDATE cash = cash + VALUES(cash), status = 0;
+
+            INSERT INTO tCashLog (userNo, logType, cashType, cash, reference)
+            VALUES (in_nUserNo, 1, v_cashType, v_cashAmount, 'EVENT_MUNSANG');
+        END IF;
+
+        COMMIT;
+        SET out_nError = 5440; -- 0x1540 éxito en departamento 0x15
+    END IF;
+
+    SELECT out_nError AS nError;
 END$$
 DELIMITER ;

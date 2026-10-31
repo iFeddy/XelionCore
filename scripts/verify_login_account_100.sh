@@ -59,12 +59,15 @@ run_control "6" "Verificación de los 49 SHNs Oficiales y Persistencia en tHackS
 # 9.7 Control 7: Prueba E2E Integral con Verificación Forense en MySQL
 run_control "7" "E2E Integral con Verificación Forense en MySQL (Handshake -> Login -> World -> OTP -> Re-Login -> Cash -> Logout)" "^TestFase07_Control7"
 
+# 9.8 Control 8: Cero Hardcode y Fidelidad Binaria PDB (Cero números mágicos, 100% SPs oficiales)
+run_control "8" "Cero Hardcode y Fidelidad Binaria PDB (Zero Magic Literals, 100% SP Remediation)" "^TestFase08_Control8"
+
 echo -e "${BLUE}${BOLD}======================================================================${NC}"
 echo -e "${BLUE}${BOLD}   RESUMEN FINAL DE LA AUDITORÍA DE COMPLETITUD                       ${NC}"
 echo -e "${BLUE}${BOLD}======================================================================${NC}"
 
 if [ ${FAIL_COUNT} -eq 0 ]; then
-    echo -e "${GREEN}${BOLD}>>> TODOS LOS 7 CONTROLES OBLIGATORIOS PASARON EN VERDE (100% PASS) <<<${NC}"
+    echo -e "${GREEN}${BOLD}>>> TODOS LOS 8 CONTROLES OBLIGATORIOS PASARON EN VERDE (100% PASS) <<<${NC}"
     echo -e "${GREEN}${BOLD}>>> XelionCore cumple con el 100% de fidelidad binaria, PDB y DB.    <<<${NC}"
     echo -e "${BLUE}${BOLD}======================================================================${NC}"
     exit 0

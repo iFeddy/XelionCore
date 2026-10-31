@@ -339,3 +339,102 @@ BEGIN
     SELECT LAST_INSERT_ID() AS nLogNo;
 END$$
 DELIMITER ;
+
+-- ----------------------------------------------------------------------------
+-- 14. usp_WorldServer_Heartbeat
+-- Registra enlace/latido S2S de un WorldServer (0x0802 S2SCONNECTION_REQ)
+-- ----------------------------------------------------------------------------
+DROP PROCEDURE IF EXISTS `usp_WorldServer_Heartbeat`;
+DELIMITER $$
+CREATE PROCEDURE `usp_WorldServer_Heartbeat`(
+    IN in_worldNo TINYINT UNSIGNED
+)
+BEGIN
+    DECLARE v_exists INT DEFAULT 0;
+
+    SELECT COUNT(*) INTO v_exists
+    FROM tWorldServer
+    WHERE nWorldNo = in_worldNo;
+
+    IF v_exists > 0 THEN
+        UPDATE tWorldServer
+        SET dLastHeartbeat = NOW()
+        WHERE nWorldNo = in_worldNo;
+    END IF;
+
+    SELECT v_exists AS bExists;
+END$$
+DELIMITER ;
+
+-- ----------------------------------------------------------------------------
+-- 15. usp_WorldServer_UpdateCCUWithMax
+-- Actualiza NumOfUser y MaxOfUser reales desde PROTO_NC_MISC_USER_COUNT_CMD (0x0808)
+-- ----------------------------------------------------------------------------
+DROP PROCEDURE IF EXISTS `usp_WorldServer_UpdateCCUWithMax`;
+DELIMITER $$
+CREATE PROCEDURE `usp_WorldServer_UpdateCCUWithMax`(
+    IN in_worldNo TINYINT UNSIGNED,
+    IN in_ccu INT,
+    IN in_maxUser INT
+)
+BEGIN
+    IF in_maxUser > 0 THEN
+        UPDATE tWorldServer
+        SET nCurrentCCU = in_ccu,
+            nMaxUser = in_maxUser,
+            dLastHeartbeat = NOW()
+        WHERE nWorldNo = in_worldNo;
+    ELSE
+        UPDATE tWorldServer
+        SET nCurrentCCU = in_ccu,
+            dLastHeartbeat = NOW()
+        WHERE nWorldNo = in_worldNo;
+    END IF;
+
+    SELECT 0 AS nRet;
+END$$
+DELIMITER ;
+
+-- ----------------------------------------------------------------------------
+-- 16. usp_WorldServer_SetMaintenanceAll
+-- Marca mantenimiento global y cierra sesiones activas (0x0823 START_THE_BOOM_CMD)
+-- ----------------------------------------------------------------------------
+DROP PROCEDURE IF EXISTS `usp_WorldServer_SetMaintenanceAll`;
+DELIMITER $$
+CREATE PROCEDURE `usp_WorldServer_SetMaintenanceAll`(
+    IN in_bMaintenance TINYINT
+)
+BEGIN
+    UPDATE tWorldServer
+    SET bIsMaintenance = IF(in_bMaintenance <> 0, 1, 0);
+
+    IF in_bMaintenance <> 0 THEN
+        DELETE FROM tActiveAccountSession;
+    END IF;
+
+    SELECT 0 AS nRet;
+END$$
+DELIMITER ;
+
+-- ----------------------------------------------------------------------------
+-- 17. p_HackScan_AddFull
+-- Registra detección completa de PROTO_NC_MISC_HACK_SCAN_STORE_DB_CMD (0x0835) o SHN check
+-- ----------------------------------------------------------------------------
+DROP PROCEDURE IF EXISTS `p_HackScan_AddFull`;
+DELIMITER $$
+CREATE PROCEDURE `p_HackScan_AddFull`(
+    IN in_nUserNo INT,
+    IN in_nWorldNo TINYINT UNSIGNED,
+    IN in_nCharNo INT,
+    IN in_nHackType SMALLINT,
+    IN in_sIP VARCHAR(30),
+    IN in_sCharID VARCHAR(32),
+    IN in_sDetail VARCHAR(255)
+)
+BEGIN
+    INSERT INTO tHackScanLog (nUserNo, nCharNo, nWorldNo, nHackType, sIP, sCharID, sDetail, dDate)
+    VALUES (in_nUserNo, in_nCharNo, in_nWorldNo, in_nHackType, IFNULL(in_sIP, ''), IFNULL(in_sCharID, ''), IFNULL(in_sDetail, ''), NOW());
+
+    SELECT LAST_INSERT_ID() AS nLogNo;
+END$$
+DELIMITER ;

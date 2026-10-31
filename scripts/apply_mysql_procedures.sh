@@ -45,6 +45,9 @@ run_sql_file "$DIR/database/procedures_accountlog.sql" "Stored Procedures de Acc
 run_sql_file "$DIR/database/procedures_statistics.sql" "Stored Procedures de StatisticsData (18 SPs)"
 
 # 5. Stored Procedures Operacionales de LoginSession
-run_sql_file "$DIR/database/procedures_login_session.sql" "Stored Procedures de LoginSession (13 SPs)"
+run_sql_file "$DIR/database/procedures_login_session.sql" "Stored Procedures de LoginSession (17 SPs)"
 
-echo "=== Aplicación completada exitosamente. Total 134 Stored Procedures cargados. ==="
+# 6. Semillas Oficiales Idempotentes (FOUS, tUserAuth, tWorldServer, tAccountEventReward)
+run_sql_file "$DIR/database/seed_login_world.sql" "Semillas Oficiales (seed_login_world.sql)"
+
+echo "=== Aplicación completada exitosamente. Total 143 Stored Procedures cargados. ==="

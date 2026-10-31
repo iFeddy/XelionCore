@@ -64,3 +64,14 @@ ON DUPLICATE KEY UPDATE `sUserID` = `sUserID`;
 INSERT INTO `tUserOption` (`nUserNo`, `sEmail`)
 VALUES (2, 'test@xelion.online')
 ON DUPLICATE KEY UPDATE `sEmail` = VALUES(`sEmail`);
+
+-- 6. tAccountEventReward: Configuración en BD de recompensas de eventos de cuenta (cero hardcode en Go)
+-- RETURN_USER: ítem 30001 oficial de Account_all_procedures.sql (usp_ReturnUser_SetUserItem)
+-- MUNSANG: deshabilitado por defecto (0x1545 en Account.exe), gobernable desde MySQL
+INSERT INTO `tAccountEventReward` (
+    `sEventCode`, `bEnabled`, `nItemNo`, `nItemAmount`, `nCashType`, `nCashAmount`, `nQuestID`
+) VALUES
+('RETURN_USER', 1, 30001, 1, 1, 0, 0),
+('MUNSANG', 0, 0, 0, 1, 0, 0)
+ON DUPLICATE KEY UPDATE
+    `sEventCode` = `sEventCode`;

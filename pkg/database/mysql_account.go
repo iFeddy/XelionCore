@@ -2,6 +2,7 @@ package database
 
 import (
 	"crypto/md5"
+	"crypto/rand"
 	"database/sql"
 	"encoding/hex"
 	"fmt"
@@ -336,13 +337,181 @@ func (r *MySQLAccountRepository) GetReturnUserDateDiffLastLog(userNo int) (int64
 	return diffSec, nil
 }
 
-// SetReturnUserItem entrega el paquete de retorno mediante usp_ReturnUser_SetUserItem.
-func (r *MySQLAccountRepository) SetReturnUserItem(userNo int, itemNo int) error {
-	_, err := r.db.Exec("CALL usp_ReturnUser_SetUserItem(?, ?, @ret)", userNo, itemNo)
+// SetReturnUserItem entrega el paquete de retorno mediante usp_ReturnUser_SetUserItem oficial.
+func (r *MySQLAccountRepository) SetReturnUserItem(userNo int, itemNo ...int) error {
+	var ret int
+	err := r.db.QueryRow("CALL usp_ReturnUser_SetUserItem(?, @ret)", userNo).Scan(&ret)
 	if err != nil {
 		return fmt.Errorf("usp_ReturnUser_SetUserItem failed: %w", err)
 	}
+	if ret != 0 {
+		return fmt.Errorf("usp_ReturnUser_SetUserItem returned code %d", ret)
+	}
 	return nil
+}
+
+// LoginOutspark autentica un usuario mediante su LogonToken de Outspark invocando usp_UserKey_AuthenticateToken.
+func (r *MySQLAccountRepository) LoginOutspark(token string, ip string) (*Account, error) {
+	var (
+		outUserNo int
+		outAdmin  byte
+		outBlock  byte
+		nRet      int
+	)
+	err := r.db.QueryRow("CALL usp_UserKey_AuthenticateToken(?, ?, @u, @a, @b, @r)", token, ip).
+		Scan(&outUserNo, &outAdmin, &outBlock, &nRet)
+	if err != nil {
+		return nil, fmt.Errorf("usp_UserKey_AuthenticateToken failed: %w", err)
+	}
+	if nRet != 0 || outUserNo <= 0 {
+		return nil, fmt.Errorf("outspark authentication failed (ret=%d)", nRet)
+	}
+	if outBlock != 0 {
+		return nil, ErrAccountBlocked
+	}
+
+	acc, err := r.GetAccountByUserNo(outUserNo)
+	if err != nil {
+		return &Account{
+			ID:     outUserNo,
+			Admin:  outAdmin,
+			Banned: false,
+		}, nil
+	}
+	acc.Admin = outAdmin
+	return acc, nil
+}
+
+// CheckPasswordS2S valida credenciales S2S invocando usp_User_checkPasswordS2S oficial.
+func (r *MySQLAccountRepository) CheckPasswordS2S(userID, userPW string, allowEmail bool) (int, int, string, byte, byte, byte, error) {
+	pwHash := strings.ToLower(userPW)
+	if len(pwHash) != 32 {
+		h := md5.Sum([]byte(userPW))
+		pwHash = hex.EncodeToString(h[:])
+	}
+
+	allowEmailInt := 0
+	if allowEmail {
+		allowEmailInt = 1
+	}
+
+	var (
+		nRet      int
+		outUserNo int
+		outUserID string
+		outAdmin  byte
+		outActive byte
+		outBlock  byte
+	)
+	err := r.db.QueryRow("CALL usp_User_checkPasswordS2S(?, ?, ?)",
+		userID, pwHash, allowEmailInt).Scan(&nRet, &outUserNo, &outUserID, &outAdmin, &outActive, &outBlock)
+	if err != nil {
+		return 0, -1, "", 0, 0, 0, fmt.Errorf("usp_User_checkPasswordS2S failed: %w", err)
+	}
+	return outUserNo, nRet, outUserID, outAdmin, outActive, outBlock, nil
+}
+
+// GetAccountByUserNo recupera los datos completos de una cuenta por nUserNo mediante usp_User_getByUserNo.
+func (r *MySQLAccountRepository) GetAccountByUserNo(userNo int) (*Account, error) {
+	var (
+		no         int
+		userID     string
+		userPW     string
+		userName   string
+		isBlock    int
+		isDelete   int
+		authID     byte
+		userIP     string
+		createDate time.Time
+	)
+
+	err := r.db.QueryRow("CALL usp_User_getByUserNo(?)", userNo).
+		Scan(&no, &userID, &userPW, &userName, &isBlock, &isDelete, &authID, &userIP, &createDate)
+	if err != nil {
+		if err == sql.ErrNoRows {
+			return nil, ErrAccountNotFound
+		}
+		return nil, fmt.Errorf("usp_User_getByUserNo failed: %w", err)
+	}
+
+	acc := &Account{
+		ID:       no,
+		Username: userID,
+		Password: userPW,
+		Admin:    authID,
+		Banned:   isBlock != 0 || isDelete != 0,
+		TUser: TUser{
+			UserNo:     no,
+			UserID:     userID,
+			UserPW:     userPW,
+			UserName:   userName,
+			IsBlock:    isBlock,
+			IsDelete:   isDelete,
+			AuthID:     authID,
+			UserIP:     userIP,
+			CreateDate: createDate,
+		},
+	}
+	acc.Sync()
+	return acc, nil
+}
+
+// CreateAccountWithIP registra un nuevo usuario persistiendo la IP real del cliente mediante usp_User_insert.
+func (r *MySQLAccountRepository) CreateAccountWithIP(username, password, ip string) (*Account, error) {
+	pwHash := strings.ToLower(password)
+	if len(pwHash) != 32 {
+		h := md5.Sum([]byte(password))
+		pwHash = hex.EncodeToString(h[:])
+	}
+
+	if ip == "" {
+		ip = "127.0.0.1"
+	}
+
+	var ret, newUserNo int
+	err := r.db.QueryRow("CALL usp_User_insert(?, ?, '', '', '', ?, ?, '', '', '', 0, '', 1, 'ONSON', 1, @out_userNo)",
+		username, pwHash, username, ip).Scan(&ret, &newUserNo)
+	if err != nil {
+		return nil, fmt.Errorf("usp_User_insert failed: %w", err)
+	}
+	if ret != 0 {
+		return nil, ErrAccountExists
+	}
+
+	_, _ = r.db.Exec("CALL usp_User_insertOption(?, '', '', '', '', '')", newUserNo)
+
+	acc := &Account{
+		ID:       newUserNo,
+		Username: username,
+		Password: pwHash,
+		Admin:    1,
+		Banned:   false,
+	}
+	acc.Sync()
+	return acc, nil
+}
+
+// GetOrIssueWebKey obtiene o genera una clave WebDB de 64 caracteres en tUserKey mediante usp_UserKey_GetOrIssue.
+func (r *MySQLAccountRepository) GetOrIssueWebKey(userNo int, candidateKey string) (string, error) {
+	if candidateKey == "" {
+		b := make([]byte, 16)
+		_, _ = rand.Read(b)
+		candidateKey = hex.EncodeToString(b)
+	}
+
+	var (
+		key string
+		ret int
+	)
+	err := r.db.QueryRow("CALL usp_UserKey_GetOrIssue(?, ?, @key, @ret)", userNo, candidateKey).
+		Scan(&ret, &key)
+	if err != nil {
+		return "", fmt.Errorf("usp_UserKey_GetOrIssue failed: %w", err)
+	}
+	if ret != 0 || key == "" {
+		return "", fmt.Errorf("failed to get or issue web key (ret=%d)", ret)
+	}
+	return key, nil
 }
 
 // GetTutorialIsSkip consulta si el usuario puede omitir el tutorial mediante usp_Tutorial_getIsSkip.

@@ -34,14 +34,19 @@ type AccountRepository interface {
 	// Extensiones y subsistemas de cuenta
 	CheckPcbangIP(ip string) (bool, error)
 	GetWebKey(userNo int) (string, error)
+	GetOrIssueWebKey(userNo int, candidateKey string) (string, error)
 	GetPlayRemainTime(userNo int) (int, error)
 	SetPlayRemainTime(userNo int, remainSec int) error
 	GetUserDateDiffCreated(userNo int) (int64, error)
 	GetReturnUserDateDiffLastLog(userNo int) (int64, error)
-	SetReturnUserItem(userNo int, itemNo int) error
+	SetReturnUserItem(userNo int, itemNo ...int) error
 	GetTutorialIsSkip(userNo int) (bool, error)
 	GetTutorialCharInfo(userNo int) (int, error)
 	SetTutorialCharInfo(userNo int, step int) error
+	LoginOutspark(token string, ip string) (*Account, error)
+	CheckPasswordS2S(userID, userPW string, allowEmail bool) (int, int, string, byte, byte, byte, error)
+	GetAccountByUserNo(userNo int) (*Account, error)
+	CreateAccountWithIP(username, password, ip string) (*Account, error)
 }
 
 // AccountShopRepository define las operaciones de Cash, ItemShop y cupones.
@@ -50,6 +55,8 @@ type AccountShopRepository interface {
 	AddCash(userNo int, cashType uint8, cash int, reference string) error
 	UseCash(userNo int, cashType uint8, cash int, reference string) error
 	AddCashEventL20(userNo int, cash int) error
+	AddEventCashByUserID(userID string, cash int64) error
+	RedeemMunsangEvent(userNo int, questID uint16) (uint16, error)
 	SetSerialKey(userNo int, serialKey int64) error
 	GetChargedItems(userNo int) ([]*ChargedItem, error)
 	InsertChargedItem(item *ChargedItem) (int64, error)
@@ -71,8 +78,10 @@ type AccountLogRepository interface {
 	AddSameTimeCharClass(worldNo uint8, classVal uint8, level uint16, count int) error
 	EventL20Get(userNo int) (int, error)
 	EventL20Set(userNo int, charNo int, worldNo uint8, eventNo uint8, eventPoint int) error
-	EventiPadSetTicket(userNo int) error
+	EventL20SetFull(userNo int, userID string, eventNo uint8, worldNo uint8, charNo int, eventPoint int) error
+	EventiPadSetTicket(userNo int, playTime ...uint16) error
 	AddHackScanLog(userNo int, worldNo uint8, charNo int, ip, charID, desc string) error
+	AddHackScanLogFull(userNo int, worldNo uint8, charNo int, hackType int16, ip, charID, desc string) error
 	AddSyslog(opCode uint16, userNo int, userID string, ip string, worldNo uint8, ccu int, errorCode uint16) error
 }
 
@@ -83,6 +92,9 @@ type LoginSessionRepository interface {
 	GetWorldServerList() ([]*WorldServerInfo, error)
 	GetWorldServerByNo(worldNo uint8) (*WorldServerInfo, error)
 	UpdateWorldServerCCU(worldNo uint8, ccu int) error
+	UpdateWorldServerCCUWithMax(worldNo uint8, ccu int, maxUser int) error
+	WorldServerHeartbeat(worldNo uint8) error
+	SetMaintenanceAll(maintenance bool) error
 	RegisterLoginSession(userNo int, userID, ip string) (bool, error)
 	IssueWorldToken(userNo int, worldNo uint8, token [64]byte) error
 	ConsumeWorldToken(worldNo uint8, token [64]byte, ip string) (int, string, error)

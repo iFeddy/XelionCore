@@ -224,6 +224,7 @@ BEGIN
         SELECT bRewarded INTO out_bRewarded
         FROM tEvent_L20
         WHERE nUserNo = in_nUserNo
+        ORDER BY nRowNo DESC
         LIMIT 1;
         SET out_nRet = 0;
     ELSE
@@ -237,24 +238,39 @@ DELIMITER ;
 
 -- ----------------------------------------------------------------------------
 -- 10. p_Event_L20_Set
+-- Persiste el payload completo de PROTO_NC_MISC_EVENT_L20_DB_REQ (AccountLog.exe 0x00402aa0)
 -- ----------------------------------------------------------------------------
 DROP PROCEDURE IF EXISTS `p_Event_L20_Set`;
 DELIMITER $$
 CREATE PROCEDURE `p_Event_L20_Set`(
     IN in_nUserNo INT,
     IN in_sUserID VARCHAR(60),
-    IN in_nWorldNo TINYINT,
+    IN in_nEventNo TINYINT UNSIGNED,
+    IN in_nWorldNo TINYINT UNSIGNED,
     IN in_nCharNo INT,
+    IN in_nEventPoint INT,
     OUT out_nRet INT
 )
 BEGIN
-    SET out_nRet = 0;
+    DECLARE v_resolvedID VARCHAR(60) DEFAULT '';
 
-    IF EXISTS(SELECT 1 FROM tEvent_L20 WHERE nUserNo = in_nUserNo) THEN
+    SET out_nRet = 0;
+    SET v_resolvedID = IFNULL(in_sUserID, '');
+
+    IF v_resolvedID = '' AND in_nUserNo > 0 THEN
+        SELECT IFNULL(sUserID, '') INTO v_resolvedID
+        FROM tUser
+        WHERE nUserNo = in_nUserNo
+        LIMIT 1;
+    END IF;
+
+    IF in_nUserNo <= 0 THEN
+        SET out_nRet = -2;
+    ELSEIF EXISTS(SELECT 1 FROM tEvent_L20 WHERE nUserNo = in_nUserNo AND nEventNo = in_nEventNo AND bRewarded = 1) THEN
         SET out_nRet = -1;
     ELSE
-        INSERT INTO tEvent_L20 (nUserNo, sUserID, nWorldNo, nCharNo, bRewarded, dDate)
-        VALUES (in_nUserNo, in_sUserID, in_nWorldNo, in_nCharNo, 1, NOW());
+        INSERT INTO tEvent_L20 (nUserNo, sUserID, nEventNo, nWorldNo, nCharNo, nEventPoint, bRewarded, dDate)
+        VALUES (in_nUserNo, v_resolvedID, in_nEventNo, in_nWorldNo, in_nCharNo, in_nEventPoint, 1, NOW());
 
         SET out_nRet = 0;
     END IF;

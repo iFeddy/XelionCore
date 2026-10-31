@@ -5,7 +5,6 @@ import (
 	"crypto/rand"
 	"encoding/hex"
 	"errors"
-	"fmt"
 	"log"
 	"strings"
 
@@ -223,9 +222,6 @@ func (h *Handler) handle_PROTO_NC_USER_CLIENT_VERSION_CHECK_REQ(client *network.
 
 	// 1. Responder con éxito de versión: PROTO_NC_USER_CLIENT_RIGHTVERSION_CHECK_ACK (0x0C67, 1B)
 	_ = client.SendPacket(protocol.New_PROTO_NC_USER_CLIENT_RIGHTVERSION_CHECK_ACK())
-
-	// 2. Enviar inmediatamente PROTO_NC_MISC_SEED_ACK (0x0807, 2B seed para cifrado XOR)
-	_ = client.SendPacket(protocol.New_PROTO_NC_MISC_SEED_ACK(0x1234))
 }
 
 // handle_PROTO_NC_USER_XTRAP_REQ procesa la verificación de archivos/XTrap (0x0C04).
@@ -273,13 +269,13 @@ func (h *Handler) handle_PROTO_NC_USER_US_LOGIN_REQ(client *network.Client, pkt 
 	h.executeLoginPipeline(client, acc, username, password, clientIP, err)
 }
 
-// handle_PROTO_NC_USER_LOGIN_REQ procesa el login internacional oficial (0x0C06, 272 bytes).
+// handle_PROTO_NC_USER_LOGIN_REQ procesa el login internacional oficial (0x0C06, 272 bytes: User[256], Password[16]).
 func (h *Handler) handle_PROTO_NC_USER_LOGIN_REQ(client *network.Client, pkt *protocol.Packet) {
 	var username, password string
 	rem := pkt.Reader.Remaining()
 	if rem >= 272 {
-		username, _ = pkt.Reader.ReadString(20)
-		password, _ = pkt.Reader.ReadString(252)
+		username, _ = pkt.Reader.ReadString(256)
+		password, _ = pkt.Reader.ReadString(16)
 	} else if rem >= 32 {
 		username, _ = pkt.Reader.ReadString(16)
 		password, _ = pkt.Reader.ReadString(rem - 16)
@@ -347,9 +343,18 @@ func (h *Handler) handle_PROTO_NC_USER_LOGIN_WITH_OTP_REQ(client *network.Client
 func (h *Handler) handle_PROTO_NC_USER_LOGIN_NETMARBLE_REQ(client *network.Client, pkt *protocol.Packet) {
 	rem := pkt.Reader.Remaining()
 	var uniID, userID string
-	if rem >= 60 {
+	if rem >= 278 {
+		_, _ = pkt.Reader.ReadUint16() // Netpacketheader
+		uniID, _ = pkt.Reader.ReadString(20)
+		userID, _ = pkt.Reader.ReadString(256)
+	} else if rem >= 60 {
 		uniID, _ = pkt.Reader.ReadString(30)
 		userID, _ = pkt.Reader.ReadString(30)
+	} else if rem >= 2 {
+		cpLen, _ := pkt.Reader.ReadUint16()
+		if int(cpLen) <= pkt.Reader.Remaining() {
+			userID, _ = pkt.Reader.ReadString(int(cpLen))
+		}
 	} else {
 		userID, _ = pkt.Reader.ReadString(rem)
 	}
@@ -371,40 +376,31 @@ func (h *Handler) handle_PROTO_NC_USER_LOGIN_NETMARBLE_REQ(client *network.Clien
 	h.executeLoginPipeline(client, acc, userID, "", clientIP, err)
 }
 
-// handle_PROTO_NC_USER_LOGIN_OUTSPARK_REQ procesa el login de plataforma Outspark (0x0C20, 85 bytes).
+// handle_PROTO_NC_USER_LOGIN_OUTSPARK_REQ procesa el login de plataforma Outspark (0x0C20, 85 bytes: LogonToken[65], Spawnapps[20]).
 func (h *Handler) handle_PROTO_NC_USER_LOGIN_OUTSPARK_REQ(client *network.Client, pkt *protocol.Packet) {
-	userNo, _ := pkt.Reader.ReadInt32()
-	token, _ := pkt.Reader.ReadString(81)
+	rem := pkt.Reader.Remaining()
+	var token string
+	if rem >= 85 {
+		token, _ = pkt.Reader.ReadString(65)
+		_, _ = pkt.Reader.ReadString(20) // spawnapps
+	} else if rem >= 65 {
+		token, _ = pkt.Reader.ReadString(65)
+	} else {
+		token, _ = pkt.Reader.ReadString(rem)
+	}
+
 	token = strings.TrimSpace(token)
 	clientIP := client.RemoteIP()
 
-	log.Printf("[%s] PROTO_NC_USER_LOGIN_OUTSPARK_REQ para UserNo %d", client.RemoteAddr(), userNo)
+	log.Printf("[%s] PROTO_NC_USER_LOGIN_OUTSPARK_REQ (Token length: %d)", client.RemoteAddr(), len(token))
 
 	if h.repo == nil {
 		h.send_PROTO_NC_USER_LOGINFAIL_ACK(client, protocol.ErrInvalidCredentials)
 		return
 	}
 
-	webKey, err := h.repo.GetWebKey(int(userNo))
-	if err != nil || webKey != token {
-		log.Printf("[%s] Fallo de validación de clave web Outspark para UserNo %d", client.RemoteAddr(), userNo)
-		h.send_PROTO_NC_USER_LOGINFAIL_ACK(client, protocol.ErrInvalidCredentials)
-		return
-	}
-
-	blockInfo, err := h.repo.CheckBlock(int(userNo))
-	if err != nil || (blockInfo != nil && blockInfo.IsBlock != 0) {
-		h.send_PROTO_NC_USER_LOGINFAIL_ACK(client, protocol.ErrBlocked)
-		return
-	}
-
-	acc, err := h.repo.GetAccountByUsername(fmt.Sprintf("%d", userNo))
-	if err != nil {
-		h.send_PROTO_NC_USER_LOGINFAIL_ACK(client, protocol.ErrDatabase)
-		return
-	}
-
-	h.executeLoginPipeline(client, acc, acc.Username, "", clientIP, nil)
+	acc, err := h.repo.LoginOutspark(token, clientIP)
+	h.executeLoginPipeline(client, acc, token, "", clientIP, err)
 }
 
 // ============================================================================
@@ -438,29 +434,130 @@ func (h *Handler) handle_PROTO_NC_USER_PASSWORD_CHECK_REQ(client *network.Client
 func (h *Handler) handleGenericPasswordCheck(client *network.Client, pkt *protocol.Packet, ackOpCode uint16) {
 	rem := pkt.Reader.Remaining()
 	var username, password string
-	if rem >= 20 {
-		username, _ = pkt.Reader.ReadString(20)
-		if pkt.Reader.Remaining() >= 32 {
-			password, _ = pkt.Reader.ReadString(32)
+
+	switch pkt.OpCode {
+	case protocol.PROTO_NC_USER_TW_PASSWORD_CHECK_REQ: // 0x0C3E (102B)
+		if rem >= 102 {
+			_, _ = pkt.Reader.ReadUint16() // Netpacketheader
+			username, _ = pkt.Reader.ReadString(64)
+			password, _ = pkt.Reader.ReadString(36)
+		} else {
+			username, _ = pkt.Reader.ReadString(rem)
 		}
-	} else {
-		username, _ = pkt.Reader.ReadString(rem)
+	case protocol.PROTO_NC_USER_JP_PASSWORD_CHECK_REQ: // 0x0C4B (336B)
+		if rem >= 336 {
+			_, _ = pkt.Reader.ReadUint16() // Netpacketheader
+			username, _ = pkt.Reader.ReadString(24)
+			password, _ = pkt.Reader.ReadString(36)
+			_, _ = pkt.Reader.ReadString(254) // channel
+			_, _ = pkt.Reader.ReadString(20)  // ip
+		} else {
+			username, _ = pkt.Reader.ReadString(rem)
+		}
+	case protocol.PROTO_NC_USER_US_PASSWORD_CHECK_REQ: // 0x0C5B (338B)
+		if rem >= 338 {
+			_, _ = pkt.Reader.ReadUint16() // Netpacketheader
+			username, _ = pkt.Reader.ReadString(260)
+			password, _ = pkt.Reader.ReadString(36)
+			_, _ = pkt.Reader.ReadString(20) // ip
+			_, _ = pkt.Reader.ReadString(20) // spawnapps
+		} else {
+			username, _ = pkt.Reader.ReadString(rem)
+		}
+	default: // 0x0C07, 0x0C39 (GER), 0x0C53 (CH) - 274B
+		if rem >= 274 {
+			_, _ = pkt.Reader.ReadUint16() // Netpacketheader
+			username, _ = pkt.Reader.ReadString(256)
+			password, _ = pkt.Reader.ReadString(16)
+		} else if rem >= 20 {
+			username, _ = pkt.Reader.ReadString(20)
+			if pkt.Reader.Remaining() >= 32 {
+				password, _ = pkt.Reader.ReadString(32)
+			}
+		} else {
+			username, _ = pkt.Reader.ReadString(rem)
+		}
 	}
 
 	username = strings.TrimSpace(username)
 	password = strings.TrimSpace(password)
-	clientIP := client.RemoteIP()
 
-	var nResult uint16
+	var (
+		userNo    int
+		nRet      int
+		outUserID string
+		admin     byte
+		active    byte = 1
+		block     byte
+	)
+
 	if h.repo != nil {
-		_, err := h.repo.LoginGame(username, password, clientIP)
-		if err != nil {
-			nResult = 1
+		uNo, ret, uID, adm, act, blk, err := h.repo.CheckPasswordS2S(username, password, true)
+		if err == nil {
+			userNo = uNo
+			nRet = ret
+			outUserID = uID
+			admin = adm
+			active = act
+			block = blk
+		} else {
+			nRet = -1
 		}
 	}
 
+	if outUserID == "" {
+		outUserID = username
+	}
+
 	pw := protocol.NewPacketWriter(ackOpCode)
-	pw.WriteUint16(nResult)
+	switch ackOpCode {
+	case protocol.PROTO_NC_USER_TW_PASSWORD_CHECK_ACK: // 8B
+		pw.WriteUint16(0) // Netpacketheader
+		if nRet == 0 {
+			pw.WriteUint16(0)
+		} else {
+			pw.WriteUint16(1)
+		}
+		pw.WriteUint32(uint32(userNo))
+
+	case protocol.PROTO_NC_USER_JP_PASSWORD_CHECK_ACK: // 306B
+		pw.WriteUint16(0) // Netpacketheader
+		if nRet == 0 {
+			pw.WriteUint16(0)
+		} else {
+			pw.WriteUint16(1)
+		}
+		pw.WriteUint32(uint32(userNo))
+		pw.WriteString(outUserID, 24)
+		pw.Fill(254, 0) // channel
+		pw.WriteString(client.RemoteIP(), 20)
+
+	case protocol.PROTO_NC_USER_US_PASSWORD_CHECK_ACK: // 353B
+		pw.WriteUint16(0) // Netpacketheader
+		if nRet == 0 {
+			pw.WriteUint16(0)
+		} else {
+			pw.WriteUint16(1)
+		}
+		pw.WriteUint32(uint32(userNo))
+		pw.WriteString(outUserID, 260)
+		pw.WriteString(password, 36)
+		pw.WriteString(client.RemoteIP(), 20)
+		pw.WriteByte(admin)
+		pw.WriteUint32(uint32(block))
+		pw.WriteUint32(uint32(active))
+		pw.Fill(20, 0) // spawnapps
+
+	default: // 0x0C08, 0x0C3A (GER), 0x0C54 (CH) - 287B
+		pw.WriteUint16(0) // Netpacketheader
+		pw.WriteString(outUserID, 256)
+		pw.WriteString(password, 16)
+		pw.WriteUint32(uint32(userNo))
+		pw.WriteByte(admin)
+		pw.WriteUint32(uint32(block))
+		pw.WriteUint32(uint32(active))
+	}
+
 	_ = client.SendPacket(pw)
 }
 
@@ -469,35 +566,118 @@ func (h *Handler) handleGenericPasswordCheck(client *network.Client, pkt *protoc
 // ============================================================================
 
 func (h *Handler) handle_PROTO_NC_USER_IS_IP_BLOCK_REQ(client *network.Client, pkt *protocol.Packet) {
-	h.respondIPBlock(client, protocol.PROTO_NC_USER_IS_IP_BLOCK_ACK)
+	h.respondIPBlock(client, pkt, protocol.PROTO_NC_USER_IS_IP_BLOCK_ACK)
 }
 
 func (h *Handler) handle_PROTO_NC_USER_GER_IS_IP_BLOCK_REQ(client *network.Client, pkt *protocol.Packet) {
-	h.respondIPBlock(client, protocol.PROTO_NC_USER_GER_IS_IP_BLOCK_ACK)
+	h.respondIPBlock(client, pkt, protocol.PROTO_NC_USER_GER_IS_IP_BLOCK_ACK)
 }
 
 func (h *Handler) handle_PROTO_NC_USER_TW_IS_IP_BLOCK_REQ(client *network.Client, pkt *protocol.Packet) {
-	h.respondIPBlock(client, protocol.PROTO_NC_USER_TW_IS_IP_BLOCK_ACK)
+	h.respondIPBlock(client, pkt, protocol.PROTO_NC_USER_TW_IS_IP_BLOCK_ACK)
 }
 
 func (h *Handler) handle_PROTO_NC_USER_JP_IS_IP_BLOCK_REQ(client *network.Client, pkt *protocol.Packet) {
-	h.respondIPBlock(client, protocol.PROTO_NC_USER_JP_IS_IP_BLOCK_ACK)
+	h.respondIPBlock(client, pkt, protocol.PROTO_NC_USER_JP_IS_IP_BLOCK_ACK)
 }
 
 func (h *Handler) handle_PROTO_NC_USER_US_IS_IP_BLOCK_REQ(client *network.Client, pkt *protocol.Packet) {
-	h.respondIPBlock(client, protocol.PROTO_NC_USER_US_IS_IP_BLOCK_ACK)
+	h.respondIPBlock(client, pkt, protocol.PROTO_NC_USER_US_IS_IP_BLOCK_ACK)
 }
 
-func (h *Handler) respondIPBlock(client *network.Client, ackOpCode uint16) {
+func (h *Handler) respondIPBlock(client *network.Client, pkt *protocol.Packet, ackOpCode uint16) {
+	rem := pkt.Reader.Remaining()
+	var userNo uint32
+	var clientHandle uint16
+	ip := client.RemoteIP()
+
+	switch pkt.OpCode {
+	case protocol.PROTO_NC_USER_IS_IP_BLOCK_REQ: // 298B (LoginData 272B + UserNo 4B + Handle 2B + IP 20B)
+		if rem >= 298 {
+			_, _ = pkt.Reader.ReadBytes(272)
+			userNo, _ = pkt.Reader.ReadUint32()
+			clientHandle, _ = pkt.Reader.ReadUint16()
+			sIP, _ := pkt.Reader.ReadString(20)
+			if s := strings.TrimSpace(sIP); s != "" {
+				ip = s
+			}
+		}
+	case protocol.PROTO_NC_USER_GER_IS_IP_BLOCK_REQ: // 313B (LoginData 287B + UserNo 4B + Handle 2B + IP 20B)
+		if rem >= 313 {
+			_, _ = pkt.Reader.ReadBytes(287)
+			userNo, _ = pkt.Reader.ReadUint32()
+			clientHandle, _ = pkt.Reader.ReadUint16()
+			sIP, _ := pkt.Reader.ReadString(20)
+			if s := strings.TrimSpace(sIP); s != "" {
+				ip = s
+			}
+		}
+	case protocol.PROTO_NC_USER_TW_IS_IP_BLOCK_REQ: // 34B (LoginData 8B + UserNo 4B + Handle 2B + IP 20B)
+		if rem >= 34 {
+			_, _ = pkt.Reader.ReadBytes(8)
+			userNo, _ = pkt.Reader.ReadUint32()
+			clientHandle, _ = pkt.Reader.ReadUint16()
+			sIP, _ := pkt.Reader.ReadString(20)
+			if s := strings.TrimSpace(sIP); s != "" {
+				ip = s
+			}
+		}
+	case protocol.PROTO_NC_USER_JP_IS_IP_BLOCK_REQ: // 332B (LoginData 306B + UserNo 4B + Handle 2B + IP 20B)
+		if rem >= 332 {
+			_, _ = pkt.Reader.ReadBytes(306)
+			userNo, _ = pkt.Reader.ReadUint32()
+			clientHandle, _ = pkt.Reader.ReadUint16()
+			sIP, _ := pkt.Reader.ReadString(20)
+			if s := strings.TrimSpace(sIP); s != "" {
+				ip = s
+			}
+		}
+	case protocol.PROTO_NC_USER_US_IS_IP_BLOCK_REQ: // 379B (LoginData 353B + UserNo 4B + Handle 2B + IP 20B)
+		if rem >= 379 {
+			_, _ = pkt.Reader.ReadBytes(353)
+			userNo, _ = pkt.Reader.ReadUint32()
+			clientHandle, _ = pkt.Reader.ReadUint16()
+			sIP, _ := pkt.Reader.ReadString(20)
+			if s := strings.TrimSpace(sIP); s != "" {
+				ip = s
+			}
+		}
+	}
+
 	var isBlocked uint8
 	if h.repo != nil {
-		b, err := h.repo.IsIPBlocked(0, client.RemoteIP())
+		b, err := h.repo.IsIPBlocked(int(userNo), ip)
 		if err == nil && b {
 			isBlocked = 1
 		}
 	}
+
 	pw := protocol.NewPacketWriter(ackOpCode)
-	pw.WriteByte(isBlocked)
+	switch ackOpCode {
+	case protocol.PROTO_NC_USER_IS_IP_BLOCK_ACK: // 275B (LoginData 272B + Handle 2B + Block 1B)
+		pw.Fill(272, 0)
+		pw.WriteUint16(clientHandle)
+		pw.WriteByte(isBlocked)
+	case protocol.PROTO_NC_USER_GER_IS_IP_BLOCK_ACK: // 290B (LoginData 287B + Handle 2B + Block 1B)
+		pw.Fill(287, 0)
+		pw.WriteUint16(clientHandle)
+		pw.WriteByte(isBlocked)
+	case protocol.PROTO_NC_USER_TW_IS_IP_BLOCK_ACK: // 11B (LoginData 8B + Handle 2B + Block 1B)
+		pw.Fill(8, 0)
+		pw.WriteUint16(clientHandle)
+		pw.WriteByte(isBlocked)
+	case protocol.PROTO_NC_USER_JP_IS_IP_BLOCK_ACK: // 309B (LoginData 306B + Handle 2B + Block 1B)
+		pw.Fill(306, 0)
+		pw.WriteUint16(clientHandle)
+		pw.WriteByte(isBlocked)
+	case protocol.PROTO_NC_USER_US_IS_IP_BLOCK_ACK: // 356B (LoginData 353B + Handle 2B + Block 1B)
+		pw.Fill(353, 0)
+		pw.WriteUint16(clientHandle)
+		pw.WriteByte(isBlocked)
+	default:
+		pw.WriteByte(isBlocked)
+	}
+
 	_ = client.SendPacket(pw)
 }
 
@@ -640,20 +820,48 @@ func (h *Handler) handle_PROTO_NC_MISC_S2SCONNECTION_RDY(client *network.Client,
 }
 
 func (h *Handler) handle_PROTO_NC_MISC_S2SCONNECTION_REQ(client *network.Client, pkt *protocol.Packet) {
-	_ = client.SendPacket(protocol.New_PROTO_NC_MISC_S2SCONNECTION_ACK(1, 0))
+	rem := pkt.Reader.Remaining()
+	var echoData uint8 = 1
+	var serverFromWorldNum uint8 = 0
+	if rem >= 7 {
+		echoData, _ = pkt.Reader.ReadByte()
+		_, _ = pkt.Reader.ReadByte() // ServerToID
+		_, _ = pkt.Reader.ReadByte() // ServerFromID
+		serverFromWorldNum, _ = pkt.Reader.ReadByte()
+		_, _ = pkt.Reader.ReadByte() // ServerFromZoneNum
+		_, _ = pkt.Reader.ReadUint16() // Key
+	} else if rem >= 1 {
+		echoData, _ = pkt.Reader.ReadByte()
+	}
+
+	if h.sessionRepo != nil && serverFromWorldNum > 0 {
+		_ = h.sessionRepo.WorldServerHeartbeat(serverFromWorldNum)
+	}
+
+	_ = client.SendPacket(protocol.New_PROTO_NC_MISC_S2SCONNECTION_ACK(echoData, 0))
 }
 
 func (h *Handler) handle_PROTO_NC_MISC_USER_COUNT_CMD(client *network.Client, pkt *protocol.Packet) {
-	worldID, err := pkt.Reader.ReadByte()
-	if err != nil {
-		return
-	}
-	userCount, err := pkt.Reader.ReadUint16()
-	if err != nil {
-		return
-	}
-	if h.sessionRepo != nil {
-		_ = h.sessionRepo.UpdateWorldServerCCU(worldID, int(userCount))
+	rem := pkt.Reader.Remaining()
+	if rem >= 5 {
+		worldID, _ := pkt.Reader.ReadByte()
+		userCount, _ := pkt.Reader.ReadUint16()
+		maxUser, _ := pkt.Reader.ReadUint16()
+		if h.sessionRepo != nil {
+			_ = h.sessionRepo.UpdateWorldServerCCUWithMax(worldID, int(userCount), int(maxUser))
+		}
+	} else if rem >= 4 {
+		userCount, _ := pkt.Reader.ReadUint16()
+		maxUser, _ := pkt.Reader.ReadUint16()
+		if h.sessionRepo != nil {
+			_ = h.sessionRepo.UpdateWorldServerCCUWithMax(1, int(userCount), int(maxUser))
+		}
+	} else if rem >= 3 {
+		worldID, _ := pkt.Reader.ReadByte()
+		userCount, _ := pkt.Reader.ReadUint16()
+		if h.sessionRepo != nil {
+			_ = h.sessionRepo.UpdateWorldServerCCU(worldID, int(userCount))
+		}
 	}
 }
 
@@ -666,7 +874,10 @@ func (h *Handler) handle_PROTO_NC_MISC_DELIVER_WM_LOGIN_ALDB_CMD(client *network
 }
 
 func (h *Handler) handle_PROTO_NC_MISC_START_THE_BOOM_CMD(client *network.Client, pkt *protocol.Packet) {
-	log.Printf("[%s] START_THE_BOOM_CMD recibido. Iniciando apagado ordenado.", client.RemoteAddr())
+	log.Printf("[%s] START_THE_BOOM_CMD recibido. Activando mantenimiento general en tWorldServer.", client.RemoteAddr())
+	if h.sessionRepo != nil {
+		_ = h.sessionRepo.SetMaintenanceAll(true)
+	}
 }
 
 // ============================================================================
@@ -724,7 +935,7 @@ func (h *Handler) handle_PROTO_NC_USER_RETURN_CHECK_REQ(client *network.Client, 
 func (h *Handler) handle_PROTO_NC_USER_SET_RETURN_CMD(client *network.Client, pkt *protocol.Packet) {
 	userNo, _ := pkt.Reader.ReadUint32()
 	if h.repo != nil {
-		_ = h.repo.SetReturnUserItem(int(userNo), 30001)
+		_ = h.repo.SetReturnUserItem(int(userNo))
 	}
 }
 

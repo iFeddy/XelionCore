@@ -113,6 +113,40 @@ func (r *MySQLAccountRepository) UpdateWorldServerCCU(worldNo uint8, ccu int) er
 	return nil
 }
 
+// UpdateWorldServerCCUWithMax actualiza la concurrencia y límite máximo reportado por el mundo mediante usp_WorldServer_UpdateCCUWithMax.
+func (r *MySQLAccountRepository) UpdateWorldServerCCUWithMax(worldNo uint8, ccu int, maxUser int) error {
+	var ret int
+	err := r.db.QueryRow("CALL usp_WorldServer_UpdateCCUWithMax(?, ?, ?)", worldNo, ccu, maxUser).Scan(&ret)
+	if err != nil {
+		return fmt.Errorf("usp_WorldServer_UpdateCCUWithMax failed: %w", err)
+	}
+	return nil
+}
+
+// WorldServerHeartbeat renueva la marca temporal de latido S2S mediante usp_WorldServer_Heartbeat.
+func (r *MySQLAccountRepository) WorldServerHeartbeat(worldNo uint8) error {
+	var ret int
+	err := r.db.QueryRow("CALL usp_WorldServer_Heartbeat(?)", worldNo).Scan(&ret)
+	if err != nil {
+		return fmt.Errorf("usp_WorldServer_Heartbeat failed: %w", err)
+	}
+	return nil
+}
+
+// SetMaintenanceAll establece el modo de mantenimiento para todos los mundos mediante usp_WorldServer_SetMaintenanceAll.
+func (r *MySQLAccountRepository) SetMaintenanceAll(maintenance bool) error {
+	maintVal := 0
+	if maintenance {
+		maintVal = 1
+	}
+	var ret int
+	err := r.db.QueryRow("CALL usp_WorldServer_SetMaintenanceAll(?)", maintVal).Scan(&ret)
+	if err != nil {
+		return fmt.Errorf("usp_WorldServer_SetMaintenanceAll failed: %w", err)
+	}
+	return nil
+}
+
 // RegisterLoginSession registra la sesión en tActiveAccountSession mediante usp_Session_RegisterLogin.
 // Devuelve true si existía una sesión previa activa que debe ser expulsada (KICKOFFFROMWORLD_CMD).
 func (r *MySQLAccountRepository) RegisterLoginSession(userNo int, userID, ip string) (bool, error) {
