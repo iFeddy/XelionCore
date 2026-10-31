@@ -163,8 +163,8 @@ func (r *MySQLAccountRepository) AddHackScanLog(userNo int, worldNo uint8, charN
 }
 
 // AddSyslog registra eventos de infraestructura en tSyslog mediante p_Syslog_Add.
-func (r *MySQLAccountRepository) AddSyslog(serverID uint8, logType uint8, desc string, ip string) error {
-	_, err := r.db.Exec("CALL p_Syslog_Add(?, 0, ?, ?, ?, 0, 0)", logType, desc, ip, serverID)
+func (r *MySQLAccountRepository) AddSyslog(opCode uint16, userNo int, userID string, ip string, worldNo uint8, ccu int, errorCode uint16) error {
+	_, err := r.db.Exec("CALL p_Syslog_Add(?, ?, ?, ?, ?, ?, ?)", opCode, userNo, userID, ip, worldNo, ccu, errorCode)
 	if err != nil {
 		return fmt.Errorf("p_Syslog_Add failed: %w", err)
 	}

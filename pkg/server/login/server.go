@@ -43,6 +43,7 @@ func NewServer(cfg *Config, repo database.AccountRepository, wm *WorldManager, t
 	}
 
 	s.tcpServer = network.NewTCPServer(cfg.BindAddr, nil, handler.HandlePacket)
+	s.tcpServer.SetOnDisconnect(handler.OnClientDisconnect)
 
 	return s
 }

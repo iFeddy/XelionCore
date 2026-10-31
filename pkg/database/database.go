@@ -73,11 +73,12 @@ type AccountLogRepository interface {
 	EventL20Set(userNo int, charNo int, worldNo uint8, eventNo uint8, eventPoint int) error
 	EventiPadSetTicket(userNo int) error
 	AddHackScanLog(userNo int, worldNo uint8, charNo int, ip, charID, desc string) error
-	AddSyslog(serverID uint8, logType uint8, desc string, ip string) error
+	AddSyslog(opCode uint16, userNo int, userID string, ip string, worldNo uint8, ccu int, errorCode uint16) error
 }
 
 // LoginSessionRepository define las operaciones de tokens de mundo, versión, OTP y topología de mundos.
 type LoginSessionRepository interface {
+	SyncClientVersionKey(key string) error
 	GetClientVersionKey() (string, error)
 	GetWorldServerList() ([]*WorldServerInfo, error)
 	GetWorldServerByNo(worldNo uint8) (*WorldServerInfo, error)

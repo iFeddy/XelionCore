@@ -138,6 +138,7 @@ type WorldServerInfo struct {
 	WorldStatus   uint8  `json:"worldStatus"`
 	CurrentCCU    int    `json:"currentCCU"`
 	MaxUser       int    `json:"maxUser"`
+	UserRatable   int    `json:"userRatable"`
 	IsMaintenance bool   `json:"isMaintenance"`
 }
 

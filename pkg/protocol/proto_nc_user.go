@@ -50,14 +50,79 @@ func New_PROTO_NC_USER_CLIENT_RIGHTVERSION_CHECK_ACK() *PacketWriter {
 	return pw
 }
 
+// New_PROTO_NC_MISC_SEED_ACK construye la respuesta de semilla para el cifrado XOR (0x0807, 2 bytes).
+func New_PROTO_NC_MISC_SEED_ACK(seed uint16) *PacketWriter {
+	pw := NewPacketWriter(PROTO_NC_MISC_SEED_ACK)
+	pw.WriteUint16(seed)
+	return pw
+}
+
 // New_PROTO_NC_MISC_HEARTBEAT_ACK construye la respuesta oficial de keep-alive heartbeat (0x0805).
 func New_PROTO_NC_MISC_HEARTBEAT_ACK() *PacketWriter {
 	return NewPacketWriter(PROTO_NC_MISC_HEARTBEAT_ACK)
 }
 
+// New_PROTO_NC_MISC_S2SCONNECTION_ACK construye la confirmación de enlace S2S (0x0803, 3 bytes).
+func New_PROTO_NC_MISC_S2SCONNECTION_ACK(echoData uint8, errCode uint16) *PacketWriter {
+	pw := NewPacketWriter(PROTO_NC_MISC_S2SCONNECTION_ACK)
+	pw.WriteByte(echoData)
+	pw.WriteUint16(errCode)
+	return pw
+}
+
 // New_PROTO_NC_USER_CLIENT_WRONGVERSION_CHECK_ACK construye la respuesta de versión incorrecta (0x0C02).
 func New_PROTO_NC_USER_CLIENT_WRONGVERSION_CHECK_ACK() *PacketWriter {
 	pw := NewPacketWriter(PROTO_NC_USER_CLIENT_WRONGVERSION_CHECK_ACK)
+	pw.WriteByte(0)
+	return pw
+}
+
+// New_PROTO_NC_USER_TUTORIAL_CAN_SKIP_CMD construye el comando oficial de omisión de tutorial (0x0C5F, 1 byte).
+func New_PROTO_NC_USER_TUTORIAL_CAN_SKIP_CMD(canSkip bool) *PacketWriter {
+	pw := NewPacketWriter(PROTO_NC_USER_TUTORIAL_CAN_SKIP_CMD)
+	if canSkip {
+		pw.WriteByte(1)
+	} else {
+		pw.WriteByte(0)
+	}
+	return pw
+}
+
+// New_PROTO_NC_USER_CREATE_OTP_ACK construye la respuesta de creación de OTP (0x0C36, 36 bytes).
+func New_PROTO_NC_USER_CREATE_OTP_ACK(clientHandle uint16, errCode uint16, otp [32]byte) *PacketWriter {
+	pw := NewPacketWriter(PROTO_NC_USER_CREATE_OTP_ACK)
+	pw.WriteUint16(clientHandle)
+	pw.WriteUint16(errCode)
+	pw.WriteBytes(otp[:])
+	return pw
+}
+
+// New_PROTO_NC_USER_RETURN_CHECK_ACK construye la respuesta de verificación de retorno (0x0C61, 11 bytes).
+func New_PROTO_NC_USER_RETURN_CHECK_ACK(handle uint16, userNo uint32, returnUser byte, lastSec int32) *PacketWriter {
+	pw := NewPacketWriter(PROTO_NC_USER_RETURN_CHECK_ACK)
+	pw.WriteUint16(handle)
+	pw.WriteUint32(userNo)
+	pw.WriteByte(returnUser)
+	pw.WriteInt32(lastSec)
+	return pw
+}
+
+// New_PROTO_NC_USER_LOGOUT_LAST_DAY_ACK construye la respuesta de último logout (0x0C63, 10 bytes).
+func New_PROTO_NC_USER_LOGOUT_LAST_DAY_ACK(handle uint16, userNo uint32, lastSec int32) *PacketWriter {
+	pw := NewPacketWriter(PROTO_NC_USER_LOGOUT_LAST_DAY_ACK)
+	pw.WriteUint16(handle)
+	pw.WriteUint32(userNo)
+	pw.WriteInt32(lastSec)
+	return pw
+}
+
+// New_PROTO_NC_USER_WORLDSELECT_ACK_64 construye la respuesta de selección de mundo con token exacto de 64B (0x0C0C, 83 bytes).
+func New_PROTO_NC_USER_WORLDSELECT_ACK_64(status uint8, ip string, port uint16, token [64]byte) *PacketWriter {
+	pw := NewPacketWriter(PROTO_NC_USER_WORLDSELECT_ACK)
+	pw.WriteByte(status)
+	pw.WriteString(ip, 16)
+	pw.WriteUint16(port)
+	pw.WriteBytes(token[:])
 	return pw
 }
 

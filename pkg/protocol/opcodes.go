@@ -2964,6 +2964,7 @@ const (
 	ErrDatabaseError      ServerError = 0x46 // DB Error
 	ErrBlocked            ServerError = 0x47 // The ID has been blocked
 	ErrServerMaintenance  ServerError = 0x48 // World server maintenance
+	ErrServerFull         ServerError = 0x48 // World server full / maintenance
 	ErrTimeout            ServerError = 0x49 // Timeout
 	ErrLoginFailed        ServerError = 0x4A // Login Failed
 	ErrAgreementMissing   ServerError = 0x4B // Please accept the agreement

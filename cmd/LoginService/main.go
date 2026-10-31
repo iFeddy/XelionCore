@@ -7,7 +7,7 @@ import (
 	"os"
 	"os/signal"
 	"syscall"
-	"time"
+	"strings"
 
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/iFeddy/XelionCore/pkg/config"
@@ -50,13 +50,26 @@ func main() {
 	repo := database.NewMySQLAccountRepository(db)
 	transfers := database.NewTransferManager(db)
 
-	wm := login.NewWorldManager()
+	// Sincronizar ClientVersionKeyInfo con FOUS si está disponible
+	for _, p := range []string{"ClientVersionKeyInfo.txt", "../AstraServer/Server/Login/ClientVersionKeyInfo.txt"} {
+		if data, err := os.ReadFile(p); err == nil {
+			vKey := strings.TrimSpace(string(data))
+			if vKey != "" {
+				log.Printf("[LoginService] Sincronizando clave oficial desde '%s': '%s' -> FOUS", p, vKey)
+				_ = repo.SyncClientVersionKey(vKey)
+				break
+			}
+		}
+	}
+
+	// WorldManager con consulta dinámica contra tWorldServer en MySQL
+	wm := login.NewWorldManager(repo)
 	for _, w := range cfg.Worlds {
-		log.Printf("[LoginService] Registering World ID %d: '%s' -> %s:%d", w.ID, w.Name, w.IP, w.Port)
+		log.Printf("[LoginService] Verificando World ID %d: '%s' -> %s:%d", w.ID, w.Name, w.IP, w.Port)
 		wm.AddWorld(&login.World{
 			ID:     w.ID,
 			Name:   w.Name,
-			Status: protocol.WorldStatus_Low, // Estado inicial Online / Activo
+			Status: protocol.WorldStatus_Low,
 			IP:     w.IP,
 			Port:   w.Port,
 		})
@@ -72,17 +85,6 @@ func main() {
 	if err := srv.Start(); err != nil {
 		log.Fatalf("[LoginService] Fatal error starting server: %v", err)
 	}
-
-	// Telemetría periódica oficial de concurrentes en tSameTimeChar (p_SameTimeChar_Add)
-	telemetryTicker := time.NewTicker(60 * time.Second)
-	defer telemetryTicker.Stop()
-	go func() {
-		for range telemetryTicker.C {
-			for _, w := range wm.WorldsList() {
-				_, _ = repo.AddSameTimeChar(w.ID, 0)
-			}
-		}
-	}()
 
 	sigChan := make(chan os.Signal, 1)
 	signal.Notify(sigChan, os.Interrupt, syscall.SIGTERM)

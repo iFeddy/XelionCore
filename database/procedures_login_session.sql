@@ -217,11 +217,16 @@ CREATE PROCEDURE `usp_Session_CreateOTP`(
     IN in_otp32 CHAR(32)
 )
 BEGIN
-    UPDATE tActiveAccountSession
-    SET sOTP = in_otp32,
+    DECLARE v_userID VARCHAR(60) DEFAULT '';
+
+    SELECT sUserID INTO v_userID FROM tUser WHERE nUserNo = in_userNo LIMIT 1;
+
+    INSERT INTO tActiveAccountSession (nUserNo, sUserID, sOTP, dOTPExpire, nState, dLoginTime, dUpdatedAt)
+    VALUES (in_userNo, v_userID, in_otp32, NOW() + INTERVAL 300 SECOND, 0, NOW(), NOW())
+    ON DUPLICATE KEY UPDATE
+        sOTP = in_otp32,
         dOTPExpire = NOW() + INTERVAL 300 SECOND,
-        dUpdatedAt = NOW()
-    WHERE nUserNo = in_userNo;
+        dUpdatedAt = NOW();
 
     SELECT 0 AS nRet;
 END$$

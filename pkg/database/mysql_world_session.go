@@ -5,6 +5,15 @@ import (
 	"fmt"
 )
 
+// SyncClientVersionKey sincroniza la clave de versión oficial de cliente en FOUS mediante usp_Version_SyncClientKey.
+func (r *MySQLAccountRepository) SyncClientVersionKey(key string) error {
+	_, err := r.db.Exec("CALL usp_Version_SyncClientKey(?)", key)
+	if err != nil {
+		return fmt.Errorf("usp_Version_SyncClientKey failed: %w", err)
+	}
+	return nil
+}
+
 // GetClientVersionKey obtiene la versión oficial esperada desde FOUS mediante usp_Version_GetClientKey.
 func (r *MySQLAccountRepository) GetClientVersionKey() (string, error) {
 	var key string
@@ -50,6 +59,7 @@ func (r *MySQLAccountRepository) GetWorldServerList() ([]*WorldServerInfo, error
 			WorldStatus:   worldStatus,
 			CurrentCCU:    currentCCU,
 			MaxUser:       maxUser,
+			UserRatable:   userRatable,
 			IsMaintenance: isMaintenance,
 		})
 	}
@@ -88,6 +98,7 @@ func (r *MySQLAccountRepository) GetWorldServerByNo(worldNo uint8) (*WorldServer
 		WorldStatus:   worldStatus,
 		CurrentCCU:    currentCCU,
 		MaxUser:       maxUser,
+		UserRatable:   userRatable,
 		IsMaintenance: isMaintenance,
 	}, nil
 }

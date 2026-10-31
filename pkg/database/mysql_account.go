@@ -293,18 +293,23 @@ func (r *MySQLAccountRepository) GetWebKey(userNo int) (string, error) {
 }
 
 // GetPlayRemainTime recupera el saldo de minutos restantes para menores mediante p_UserPlayRemainTime_Get_FromAccount.
+// Devuelve -1 si el usuario no tiene restricción de menor (no es teenager).
 func (r *MySQLAccountRepository) GetPlayRemainTime(userNo int) (int, error) {
-	var remainTime int
-	err := r.db.QueryRow("CALL p_UserPlayRemainTime_Get_FromAccount(?, @r)", userNo).Scan(&remainTime)
+	var nRet, remainSec, isTeenager int
+	err := r.db.QueryRow("CALL p_UserPlayRemainTime_Get_FromAccount(?, @rem, @teen, @ret)", userNo).
+		Scan(&nRet, &remainSec, &isTeenager)
 	if err != nil {
-		return 0, fmt.Errorf("p_UserPlayRemainTime_Get_FromAccount failed: %w", err)
+		return -1, fmt.Errorf("p_UserPlayRemainTime_Get_FromAccount failed: %w", err)
 	}
-	return remainTime, nil
+	if nRet != 0 || isTeenager == 0 {
+		return -1, nil // No es teenager / sin restricción
+	}
+	return remainSec, nil
 }
 
 // SetPlayRemainTime establece el saldo de minutos para menores mediante p_UserPlayRemainTime_Set_FromAccount.
 func (r *MySQLAccountRepository) SetPlayRemainTime(userNo int, remainSec int) error {
-	_, err := r.db.Exec("CALL p_UserPlayRemainTime_Set_FromAccount(?, ?)", userNo, remainSec)
+	_, err := r.db.Exec("CALL p_UserPlayRemainTime_Set_FromAccount(?, ?, @rem, @ret)", userNo, remainSec)
 	if err != nil {
 		return fmt.Errorf("p_UserPlayRemainTime_Set_FromAccount failed: %w", err)
 	}
