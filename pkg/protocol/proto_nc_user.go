@@ -169,3 +169,17 @@ func New_PROTO_NC_USER_XTRAP_ACK(allow bool) *PacketWriter {
 	pw.WriteBool(allow)
 	return pw
 }
+
+// New_PROTO_NC_USER_KICKOFFFROMWORLD_CMD construye el comando oficial de expulsión de sesión duplicada (0x0C16, 4 bytes).
+func New_PROTO_NC_USER_KICKOFFFROMWORLD_CMD(userNo uint32) *PacketWriter {
+	pw := NewPacketWriter(PROTO_NC_USER_KICKOFFFROMWORLD_CMD)
+	pw.WriteUint32(userNo)
+	return pw
+}
+
+// New_PROTO_NC_USER_CONNECTCUT_CMD construye el comando oficial de corte de conexión (0x0C17, 2 bytes).
+func New_PROTO_NC_USER_CONNECTCUT_CMD(reason uint16) *PacketWriter {
+	pw := NewPacketWriter(PROTO_NC_USER_CONNECTCUT_CMD)
+	pw.WriteUint16(reason)
+	return pw
+}

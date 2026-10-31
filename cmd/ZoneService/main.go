@@ -93,14 +93,24 @@ func main() {
 			_, _ = accountRepo.AddSameTimeChar(0, count)
 
 			players := srv.Handler().ActivePlayersSnapshot()
-			classCounts := make(map[byte]int)
+			type classLevelKey struct {
+				worldNo byte
+				job     byte
+				level   byte
+			}
+			classLevelCounts := make(map[classLevelKey]int)
 			for _, p := range players {
 				if p != nil && p.Char != nil {
-					classCounts[p.Char.Job]++
+					k := classLevelKey{
+						worldNo: p.WorldNo,
+						job:     p.Char.Job,
+						level:   p.Char.Level,
+					}
+					classLevelCounts[k]++
 				}
 			}
-			for classVal, c := range classCounts {
-				_ = accountRepo.AddSameTimeCharClass(0, classVal, 1, c)
+			for k, c := range classLevelCounts {
+				_ = accountRepo.AddSameTimeCharClass(k.worldNo, k.job, uint16(k.level), c)
 			}
 		}
 	}()

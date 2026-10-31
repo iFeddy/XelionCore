@@ -604,6 +604,11 @@ func (h *Handler) handle_PROTO_NC_USER_NORMALLOGOUT_CMD(client *network.Client, 
 // OnClientDisconnect realiza el cierre ordenado de sesión y registro de auditoría en MySQL.
 func (h *Handler) OnClientDisconnect(client *network.Client) {
 	if client.IsAuthenticated {
+		if client.IsTransferring {
+			// El cliente está traspasándose a WorldServer, no cerramos la sesión en tActiveAccountSession
+			client.IsAuthenticated = false
+			return
+		}
 		var playMin uint16
 		if h.sessionRepo != nil {
 			m, err := h.sessionRepo.CloseSessionAndGetPlayMin(client.AccountID)

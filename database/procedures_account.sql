@@ -281,7 +281,7 @@ BEGIN
 
     SELECT isDraw INTO v_isDraw
     FROM tChargeItem
-    WHERE rowNo = in_rowNo AND userNo = in_userNo
+    WHERE rowNo = in_rowNo AND (in_userNo = 0 OR userNo = in_userNo)
     LIMIT 1;
 
     IF v_isDraw IS NULL THEN
@@ -294,9 +294,9 @@ BEGIN
         INSERT INTO tChargeItemDelLog (rowNo, userNo, orderNo, goodsNo, amount, registerDate, deleteDate)
         SELECT rowNo, userNo, orderNo, goodsNo, amount, registerDate, NOW()
         FROM tChargeItem
-        WHERE rowNo = in_rowNo AND userNo = in_userNo;
+        WHERE rowNo = in_rowNo AND (in_userNo = 0 OR userNo = in_userNo);
 
-        DELETE FROM tChargeItem WHERE rowNo = in_rowNo AND userNo = in_userNo;
+        DELETE FROM tChargeItem WHERE rowNo = in_rowNo AND (in_userNo = 0 OR userNo = in_userNo);
 
         IF ROW_COUNT() = 1 THEN
             SET out_RET = 1;
@@ -328,7 +328,7 @@ BEGIN
 
     SELECT isDraw INTO v_isDraw
     FROM tChargeItem
-    WHERE rowNo = in_rowNo AND userNo = in_userNo
+    WHERE rowNo = in_rowNo AND (in_userNo = 0 OR userNo = in_userNo)
     LIMIT 1;
 
     IF v_isDraw IS NULL THEN
@@ -338,7 +338,7 @@ BEGIN
     ELSE
         UPDATE tChargeItem
         SET isDraw = 1, drawDate = NOW()
-        WHERE rowNo = in_rowNo AND userNo = in_userNo;
+        WHERE rowNo = in_rowNo AND (in_userNo = 0 OR userNo = in_userNo);
 
         IF ROW_COUNT() = 1 THEN
             SET out_RET = 1;

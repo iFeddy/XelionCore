@@ -103,12 +103,21 @@ func NewChecksumEngine(dirs ...string) (*ChecksumEngine, error) {
 		dirs = []string{"data", "data/View"}
 	}
 
+	var allDirs []string
+	for _, d := range dirs {
+		allDirs = append(allDirs, d)
+		viewSub := filepath.Join(d, "View")
+		if fi, err := os.Stat(viewSub); err == nil && fi.IsDir() {
+			allDirs = append(allDirs, viewSub)
+		}
+	}
+
 	engine := &ChecksumEngine{}
 
 	for idx, filename := range ChecksumFileList {
-		path, err := findFileCaseInsensitive(filename, dirs)
+		path, err := findFileCaseInsensitive(filename, allDirs)
 		if err != nil {
-			return nil, fmt.Errorf("failed to locate anti-cheat SHN %s (index %d) in dirs %v: %w", filename, idx, dirs, err)
+			return nil, fmt.Errorf("failed to locate anti-cheat SHN %s (index %d) in dirs %v: %w", filename, idx, allDirs, err)
 		}
 
 		data, err := os.ReadFile(path)

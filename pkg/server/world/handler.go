@@ -4,6 +4,7 @@ import (
 	"log"
 	"math/rand"
 	"strings"
+	"sync"
 	"time"
 
 	"github.com/iFeddy/XelionCore/pkg/database"
@@ -13,15 +14,22 @@ import (
 
 // Handler despacha los paquetes de red del World Server (WorldManager + Character unificados).
 type Handler struct {
-	charRepo  database.CharacterRepository
-	transfers *database.TransferManager
-	dataStore *WorldDataStore
-	partyMgr  *PartyManager
-	friendMgr *FriendManager
-	guildMgr  *GuildManager
-	kqMgr     *KQManager
-	zoneIP    string
-	zonePort  uint16
+	worldID       byte
+	charRepo      database.CharacterRepository
+	accountRepo   database.AccountRepository
+	shopRepo      database.AccountShopRepository
+	sessionRepo   database.LoginSessionRepository
+	logRepo       database.AccountLogRepository
+	transfers     *database.TransferManager
+	dataStore     *WorldDataStore
+	partyMgr      *PartyManager
+	friendMgr     *FriendManager
+	guildMgr      *GuildManager
+	kqMgr         *KQManager
+	zoneIP        string
+	zonePort      uint16
+	activeClients map[int]*network.Client
+	mu            sync.Mutex
 }
 
 // NewHandler inicializa un nuevo despachador de paquetes para WorldService.
@@ -48,15 +56,53 @@ func NewHandler(
 		km = NewKQManager(nil)
 	}
 	return &Handler{
-		charRepo:  charRepo,
-		transfers: transfers,
-		dataStore: dataStore,
-		partyMgr:  pm,
-		friendMgr: fm,
-		guildMgr:  gm,
-		kqMgr:     km,
-		zoneIP:    zoneIP,
-		zonePort:  zonePort,
+		charRepo:      charRepo,
+		transfers:     transfers,
+		dataStore:     dataStore,
+		partyMgr:      pm,
+		friendMgr:     fm,
+		guildMgr:      gm,
+		kqMgr:         km,
+		zoneIP:        zoneIP,
+		zonePort:      zonePort,
+		activeClients: make(map[int]*network.Client),
+	}
+}
+
+// SetAccountRepo vincula los repositorios de cuenta, logs y sesiones.
+func (h *Handler) SetAccountRepo(repo database.AccountRepository) {
+	h.accountRepo = repo
+	if s, ok := repo.(database.LoginSessionRepository); ok {
+		h.sessionRepo = s
+	}
+	if l, ok := repo.(database.AccountLogRepository); ok {
+		h.logRepo = l
+	}
+	if sh, ok := repo.(database.AccountShopRepository); ok {
+		h.shopRepo = sh
+	}
+}
+
+// SetWorldID asigna el ID de mundo correspondiente a este WorldServer.
+func (h *Handler) SetWorldID(id byte) {
+	h.worldID = id
+}
+
+// ActivePlayersCount retorna la cantidad de clientes activos en WorldService.
+func (h *Handler) ActivePlayersCount() int {
+	h.mu.Lock()
+	defer h.mu.Unlock()
+	return len(h.activeClients)
+}
+
+// OnClientDisconnect limpia la sesión activa en el mapa de concurrencia.
+func (h *Handler) OnClientDisconnect(client *network.Client) {
+	if client.AccountID > 0 {
+		h.mu.Lock()
+		if h.activeClients[client.AccountID] == client {
+			delete(h.activeClients, client.AccountID)
+		}
+		h.mu.Unlock()
 	}
 }
 
@@ -72,8 +118,35 @@ func (h *Handler) HandlePacket(client *network.Client, pkt *protocol.Packet) {
 	case protocol.PROTO_NC_MISC_WORLD_CLIENT_KEY_REQ:
 		h.handleWorldClientKey(client, pkt)
 
-	case protocol.PROTO_NC_USER_BACKTOWORLDLIST_REQ:
+	case protocol.PROTO_NC_USER_WILL_WORLD_SELECT_REQ:
 		h.handleBackToWorldSelect(client, pkt)
+
+	case protocol.PROTO_NC_USER_RETURN_CHECK_REQ:
+		h.handleReturnCheck(client, pkt)
+
+	case protocol.PROTO_NC_USER_SET_RETURN_CMD:
+		h.handleSetReturn(client, pkt)
+
+	case protocol.PROTO_NC_USER_LOGOUT_LAST_DAY_REQ:
+		h.handleLogoutLastDay(client, pkt)
+
+	case protocol.PROTO_NC_MISC_WEB_DB_KEY_REQ:
+		h.handleWebDBKey(client, pkt)
+
+	case protocol.PROTO_NC_MISC_CONNECTFROMWHERE_DB_REQ:
+		h.handleConnectFromWhere(client, pkt)
+
+	case protocol.PROTO_NC_MISC_EVENT_HIT3_ADD_CASH:
+		h.handleEventHit3AddCash(client, pkt)
+
+	case protocol.PROTO_NC_MISC_EVENT_DONE_MUNSANG_WM2ACC:
+		h.handleEventDoneMunsang(client, pkt)
+
+	case protocol.PROTO_NC_MISC_EVENT_L20_DB_REQ:
+		h.handleEventL20(client, pkt)
+
+	case protocol.PROTO_NC_MISC_EVENT_LONG_TIME_PLAY_CMD:
+		h.handleEventLongTimePlay(client, pkt)
 
 	case protocol.PROTO_NC_CHAR_LOGIN_REQ:
 		h.handleCharSelect(client, pkt)
@@ -291,37 +364,82 @@ func (h *Handler) handleWorldClientKey(client *network.Client, pkt *protocol.Pac
 		client.RemoteAddr(), len(pkt.Raw))
 
 	var username string
-	var token string
+	var token64 [64]byte
 
-	if pkt.Reader.Remaining() >= 256 {
+	if pkt.Reader.Remaining() >= 320 {
 		uBytes, _ := pkt.Reader.ReadBytes(256)
 		username = strings.TrimRight(string(uBytes), "\x00")
 		username = strings.TrimSpace(username)
 
-		if pkt.Reader.Remaining() >= 32 {
-			tBytes, _ := pkt.Reader.ReadBytes(32)
-			token = strings.TrimRight(string(tBytes), "\x00")
-			token = strings.TrimSpace(token)
-		}
+		tBytes, _ := pkt.Reader.ReadBytes(64)
+		copy(token64[:], tBytes)
+	} else if pkt.Reader.Remaining() >= 64 {
+		tBytes, _ := pkt.Reader.ReadBytes(64)
+		copy(token64[:], tBytes)
 	} else if pkt.Reader.Remaining() >= 18+32 {
-		// Fallback para paquetes heredados/mockeados en tests
 		_ = pkt.Reader.Skip(18)
-		token, _ = pkt.Reader.ReadString(32)
-		token = strings.TrimSpace(token)
+		tBytes, _ := pkt.Reader.ReadBytes(32)
+		copy(token64[:32], tBytes)
 	}
 
-	transfer, ok := h.transfers.ConsumeTransfer(token, pkt.Raw, username)
-	if !ok {
-		log.Printf("[World][%s] Transfer token '%s' (user: '%s') not found or expired",
-			client.RemoteAddr(), token, username)
+	var authenticated bool
+	var userNo int
+	var admin byte
+
+	// 1. Validar token oficial de 64 bytes contra MySQL (usp_Session_ConsumeWorldToken)
+	if h.sessionRepo != nil {
+		uNo, uID, err := h.sessionRepo.ConsumeWorldToken(h.worldID, token64, client.RemoteIP())
+		if err == nil && uNo > 0 {
+			authenticated = true
+			userNo = uNo
+			if username == "" {
+				username = uID
+			}
+			if h.accountRepo != nil {
+				acc, err := h.accountRepo.GetAccountByUsername(username)
+				if err == nil && acc != nil {
+					admin = acc.Admin
+				}
+			}
+		}
+	}
+
+	// 2. Fallback de soporte para tests en memoria (TransferManager)
+	if !authenticated && h.transfers != nil {
+		tokenStr := strings.TrimRight(string(token64[:32]), "\x00")
+		tokenStr = strings.TrimSpace(tokenStr)
+		transfer, ok := h.transfers.ConsumeTransfer(tokenStr, pkt.Raw, username)
+		if ok && transfer != nil {
+			authenticated = true
+			userNo = transfer.AccountID
+			username = transfer.Username
+			admin = transfer.Admin
+		}
+	}
+
+	if !authenticated {
+		log.Printf("[World][%s] World token verification failed for user '%s'", client.RemoteAddr(), username)
 		h.sendError(client, protocol.ErrInvalidCredentials)
 		client.Close()
 		return
 	}
 
-	client.AccountID = transfer.AccountID
-	client.Username = transfer.Username
-	client.Admin = transfer.Admin
+	// 3. Expulsión limpia de sesión previa duplicada (KICKOFFFROMWORLD_CMD / CONNECTCUT_CMD)
+	h.mu.Lock()
+	if prevClient, exists := h.activeClients[userNo]; exists && prevClient != nil && prevClient != client {
+		log.Printf("[World][%s] Sesión previa activa detectada para UserNo %d, expulsando de WorldServer",
+			client.RemoteAddr(), userNo)
+		_ = prevClient.SendPacket(protocol.New_PROTO_NC_USER_KICKOFFFROMWORLD_CMD(uint32(userNo)))
+		_ = prevClient.SendPacket(protocol.New_PROTO_NC_USER_CONNECTCUT_CMD(1))
+		prevClient.Close()
+		delete(h.activeClients, userNo)
+	}
+	h.activeClients[userNo] = client
+	h.mu.Unlock()
+
+	client.AccountID = userNo
+	client.Username = username
+	client.Admin = admin
 	client.IsAuthenticated = true
 
 	log.Printf("[World][%s] Authenticated user '%s' (AccountID: %d)",
@@ -568,10 +686,192 @@ func (h *Handler) handleDeleteCharacter(client *network.Client, pkt *protocol.Pa
 	_ = client.SendPacket(resp)
 }
 
-// handleBackToWorldSelect procesa la solicitud de volver a la selección de mundos.
+// handleBackToWorldSelect procesa la solicitud de volver a la selección de mundos
+// generando un One-Time Password criptográfico oficial de 32 bytes (Name8 sOTP)
+// y emitiendo PROTO_NC_USER_WILL_WORLD_SELECT_ACK (0x0C34).
 func (h *Handler) handleBackToWorldSelect(client *network.Client, pkt *protocol.Packet) {
-	resp := protocol.New_PROTO_NC_USER_BACKTOWORLDLIST_ACK()
+	if !client.IsAuthenticated || client.AccountID <= 0 {
+		resp := protocol.New_PROTO_NC_USER_WILL_WORLD_SELECT_ACK([32]byte{})
+		_ = client.SendPacket(resp)
+		return
+	}
+
+	var otp [32]byte
+	const hexChars = "0123456789abcdef"
+	for i := 0; i < 32; i++ {
+		otp[i] = hexChars[rand.Intn(len(hexChars))]
+	}
+
+	if h.sessionRepo != nil {
+		err := h.sessionRepo.CreateOTP(client.AccountID, otp)
+		if err != nil {
+			log.Printf("[World][%s] Error persistiendo sOTP en tActiveAccountSession para UserNo %d: %v",
+				client.RemoteAddr(), client.AccountID, err)
+		} else {
+			log.Printf("[World][%s] Generado sOTP de 32 bytes para UserNo %d", client.RemoteAddr(), client.AccountID)
+		}
+	}
+
+	resp := protocol.New_PROTO_NC_USER_WILL_WORLD_SELECT_ACK(otp)
 	_ = client.SendPacket(resp)
+}
+
+// handleReturnCheck procesa la consulta de usuario que retorna (0x0C60).
+func (h *Handler) handleReturnCheck(client *network.Client, pkt *protocol.Packet) {
+	var handle uint16
+	userNo := uint32(client.AccountID)
+	if pkt.Reader.Remaining() >= 6 {
+		handle, _ = pkt.Reader.ReadUint16()
+		u, err := pkt.Reader.ReadUint32()
+		if err == nil && u > 0 {
+			userNo = u
+		}
+	}
+
+	var isReturn byte
+	var lastSec int32
+	if h.logRepo != nil && userNo > 0 {
+		diff, err := h.logRepo.GetDateDiffLastLogout(int(userNo))
+		if err == nil && diff >= 30 {
+			isReturn = 1
+			lastSec = int32(diff * 86400)
+		}
+	}
+
+	resp := protocol.New_PROTO_NC_USER_RETURN_CHECK_ACK(handle, userNo, isReturn, lastSec)
+	_ = client.SendPacket(resp)
+}
+
+// handleSetReturn procesa la confirmación de reclamo de paquete de retorno (0x0C64).
+func (h *Handler) handleSetReturn(client *network.Client, pkt *protocol.Packet) {
+	userNo := client.AccountID
+	if pkt.Reader.Remaining() >= 4 {
+		u, err := pkt.Reader.ReadUint32()
+		if err == nil && u > 0 {
+			userNo = int(u)
+		}
+	}
+
+	if h.accountRepo != nil && userNo > 0 {
+		_ = h.accountRepo.SetReturnUserItem(userNo, 1)
+		log.Printf("[World][%s] Paquete de retorno acreditado para UserNo %d", client.RemoteAddr(), userNo)
+	}
+}
+
+// handleLogoutLastDay procesa la consulta de días desde la última desconexión (0x0C62).
+func (h *Handler) handleLogoutLastDay(client *network.Client, pkt *protocol.Packet) {
+	var handle uint16
+	userNo := uint32(client.AccountID)
+	if pkt.Reader.Remaining() >= 6 {
+		handle, _ = pkt.Reader.ReadUint16()
+		u, err := pkt.Reader.ReadUint32()
+		if err == nil && u > 0 {
+			userNo = u
+		}
+	}
+
+	var lastSec int32
+	if h.logRepo != nil && userNo > 0 {
+		diff, err := h.logRepo.GetDateDiffLastLogout(int(userNo))
+		if err == nil {
+			lastSec = int32(diff * 86400)
+		}
+	}
+
+	resp := protocol.New_PROTO_NC_USER_LOGOUT_LAST_DAY_ACK(handle, userNo, lastSec)
+	_ = client.SendPacket(resp)
+}
+
+// handleWebDBKey procesa la solicitud de token SSO para ItemShop Web (0x081D).
+func (h *Handler) handleWebDBKey(client *network.Client, pkt *protocol.Packet) {
+	var key string
+	if h.accountRepo != nil && client.AccountID > 0 {
+		k, err := h.accountRepo.GetWebKey(client.AccountID)
+		if err == nil {
+			key = k
+		}
+	}
+	pw := protocol.NewPacketWriter(protocol.PROTO_NC_MISC_WEB_DB_KEY_ACK)
+	pw.WriteString(key, 40)
+	_ = client.SendPacket(pw)
+}
+
+// handleConnectFromWhere procesa la verificación de origen de conexión y PC Bang (0x082F).
+func (h *Handler) handleConnectFromWhere(client *network.Client, pkt *protocol.Packet) {
+	var isPcbang bool
+	if h.accountRepo != nil {
+		pc, _ := h.accountRepo.CheckPcbangIP(client.RemoteIP())
+		isPcbang = pc
+	}
+	pw := protocol.NewPacketWriter(protocol.PROTO_NC_MISC_CONNECTFROMWHERE_DB_ACK)
+	pw.WriteUint16(0) // ErrorCode = 0
+	if isPcbang {
+		pw.WriteByte(1)
+	} else {
+		pw.WriteByte(0)
+	}
+	pw.WriteString("US", 3)
+	pw.Fill(3, 0)
+	_ = client.SendPacket(pw)
+}
+
+// handleEventHit3AddCash procesa la acreditación de cash por evento (0x0820).
+func (h *Handler) handleEventHit3AddCash(client *network.Client, pkt *protocol.Packet) {
+	if pkt.Reader.Remaining() >= 8 {
+		userNo, _ := pkt.Reader.ReadUint32()
+		cash, _ := pkt.Reader.ReadUint32()
+		if h.shopRepo != nil && userNo > 0 && cash > 0 {
+			_ = h.shopRepo.AddCash(int(userNo), 0, int(cash), "EventHit3")
+		}
+	}
+}
+
+// handleEventDoneMunsang procesa la validación y canje de cupón cultural Munsang (0x0838).
+func (h *Handler) handleEventDoneMunsang(client *network.Client, pkt *protocol.Packet) {
+	if pkt.Reader.Remaining() >= 4 {
+		userNo, _ := pkt.Reader.ReadUint32()
+		if h.shopRepo != nil && userNo > 0 {
+			_ = h.shopRepo.SetSerialKey(int(userNo), 10001)
+			_ = h.shopRepo.AddCash(int(userNo), 0, 500, "EventMunsang")
+		}
+
+		pw := protocol.NewPacketWriter(protocol.PROTO_NC_MISC_EVENT_DONE_MUNSANG_ACC2WM)
+		pw.WriteUint16(0) // nError
+		pw.WriteUint32(userNo)
+		pw.WriteUint32(500)
+		_ = client.SendPacket(pw)
+	}
+}
+
+// handleEventL20 procesa el registro y verificación del evento Nivel 20 (0x082C).
+func (h *Handler) handleEventL20(client *network.Client, pkt *protocol.Packet) {
+	var userNo uint32
+	if pkt.Reader.Remaining() >= 4 {
+		u, _ := pkt.Reader.ReadUint32()
+		userNo = u
+	} else if client.AccountID > 0 {
+		userNo = uint32(client.AccountID)
+	}
+
+	if h.logRepo != nil && userNo > 0 {
+		_ = h.logRepo.EventL20Set(int(userNo), client.CharacterID, h.worldID, 1, 100)
+	}
+
+	pw := protocol.NewPacketWriter(protocol.PROTO_NC_MISC_EVENT_L20_DB_ACK)
+	pw.WriteUint16(0)
+	pw.WriteUint32(userNo)
+	pw.WriteByte(1)
+	_ = client.SendPacket(pw)
+}
+
+// handleEventLongTimePlay procesa el otorgamiento de boletos por tiempo de juego (0x0843).
+func (h *Handler) handleEventLongTimePlay(client *network.Client, pkt *protocol.Packet) {
+	if pkt.Reader.Remaining() >= 4 {
+		userNo, _ := pkt.Reader.ReadUint32()
+		if h.logRepo != nil && userNo > 0 {
+			_ = h.logRepo.EventiPadSetTicket(int(userNo))
+		}
+	}
 }
 
 // handleCharSelect procesa la selección de un personaje y entrega el traspaso oficial hacia ZoneServer.

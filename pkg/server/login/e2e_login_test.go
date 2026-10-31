@@ -457,6 +457,9 @@ func TestLoginService_MultiRegion_OTP_WrongVersion_DynamicWorlds(t *testing.T) {
 	// Test 3: Login con OTP (0x0C37, 32B) y emisión de token de mundo (64B)
 	// ------------------------------------------------------------------------
 	t.Run("LoginWithOTP_0x0C37", func(t *testing.T) {
+		// Esperar a que la desconexión del test anterior finalice
+		time.Sleep(50 * time.Millisecond)
+
 		// Generar un OTP de 32 bytes para admin (UserNo = 1)
 		var testOTP [32]byte
 		copy(testOTP[:], "0123456789abcdef0123456789abcdef")

@@ -1,6 +1,7 @@
 package zone
 
 import (
+	"fmt"
 	"log"
 	"sort"
 	"strings"
@@ -19,6 +20,7 @@ import (
 
 // Handler processes incoming packets for the Zone Server.
 type Handler struct {
+	worldID     byte
 	mu          sync.RWMutex
 	charRepo    database.CharacterRepository
 	accountRepo *database.MySQLAccountRepository
@@ -104,6 +106,8 @@ func (h *Handler) HandlePacket(client *network.Client, pkt *protocol.Packet) {
 		h.handleRewardInvenOpen(client, pkt)
 	case protocol.PROTO_NC_ITEM_CHARGEDINVENOPEN_REQ:
 		h.handleChargedInvenOpen(client, pkt)
+	case protocol.PROTO_NC_ITEM_CHARGED_WITHDRAW_REQ:
+		h.handleChargedWithdraw(client, pkt)
 	case protocol.PROTO_NC_ITEM_RELOC_REQ:
 		h.handleItemReloc(client, pkt)
 	case protocol.PROTO_NC_ITEM_SPLIT_REQ:
@@ -166,7 +170,10 @@ func (h *Handler) OnClientDisconnect(client *network.Client) {
 			if playMin < 1 {
 				playMin = 1
 			}
-			worldNo := uint8(0)
+			worldNo := player.WorldNo
+			if worldNo == 0 && h.worldID != 0 {
+				worldNo = h.worldID
+			}
 			_ = h.accountRepo.LogLogout(
 				worldNo,
 				player.Char.AccountID,
@@ -176,8 +183,17 @@ func (h *Handler) OnClientDisconnect(client *network.Client) {
 				player.Char.TCharacterState.Exp,
 				playMin,
 			)
-			log.Printf("[Zone][%s] Logout registrado en tLogout: '%s' (User: %d, Char: %d, PlayTime: %d min)",
-				client.RemoteAddr(), player.Char.Name, player.Char.AccountID, player.Char.ID, playMin)
+
+			// Cerrar sesión en tActiveAccountSession y registrar en tAccountLog + tSyslog (0xC803)
+			playMinReal, err := h.accountRepo.CloseSessionAndGetPlayMin(player.Char.AccountID)
+			if err != nil || playMinReal == 0 {
+				playMinReal = uint16(playMin)
+			}
+			_ = h.accountRepo.LogAccount(player.Char.Name, 2, player.Char.AccountID, playMinReal, "", worldNo, 0, client.RemoteIP())
+			_ = h.accountRepo.AddSyslog(0xC803, player.Char.AccountID, player.Char.Name, client.RemoteIP(), worldNo, 0, 0)
+
+			log.Printf("[Zone][%s] Logout registrado en tLogout: '%s' (User: %d, Char: %d, World: %d, PlayTime: %d min)",
+				client.RemoteAddr(), player.Char.Name, player.Char.AccountID, player.Char.ID, worldNo, playMin)
 		}
 	}
 }
@@ -216,6 +232,18 @@ func (h *Handler) handleTransferKey(client *network.Client, pkt *protocol.Packet
 			log.Printf("[Zone][%s] DataFileCheck FAILED at index %d (%s): client hash='%s', server expected='%s'",
 				client.RemoteAddr(), wrongIdx, fileName, clientHash, expectedHash)
 
+			// Persistir el incidente en tHackScanLog mediante CALL p_HackScan_Add
+			if h.accountRepo != nil {
+				_ = h.accountRepo.AddHackScanLog(
+					0,
+					h.worldID,
+					0,
+					client.RemoteIP(),
+					charName,
+					fmt.Sprintf("SHN Checksum mismatch at index %d (%s)", wrongIdx, fileName),
+				)
+			}
+
 			// Error oficial en Zone.exe (0x00452727): código 0x0147 (327 decimal) + nWrongDataFileIndex (1 byte)
 			failPkt := protocol.New_PROTO_NC_MAP_LOGINFAIL_ACK(0x0147, byte(wrongIdx))
 			_ = client.SendPacket(failPkt)
@@ -249,6 +277,7 @@ func (h *Handler) handleTransferKey(client *network.Client, pkt *protocol.Packet
 	}
 
 	player := NewZonePlayer(client, char, h.classStore)
+	player.WorldNo = h.worldID
 	mapID := char.TownName
 	if mapID == "" {
 		mapID = "RouN"
@@ -907,6 +936,43 @@ func (h *Handler) handleChargedInvenOpen(client *network.Client, pkt *protocol.P
 		ack.WriteUint32(database.PackShineDateTime(ci.RegisterDate)) // 0x0C: ItemRegisterDate (ShineDateTime, 4 bytes)
 	}
 	_ = client.SendPacket(ack)
+}
+
+// handleChargedWithdraw retira un ítem premium hacia el inventario mediante usp_Charge_ItemDraw.
+func (h *Handler) handleChargedWithdraw(client *network.Client, pkt *protocol.Packet) {
+	player, ok := h.getPlayer(client)
+	if !ok || player == nil || player.Char == nil {
+		return
+	}
+
+	itemOrderNo, err := pkt.Reader.ReadUint32()
+	if err != nil {
+		return
+	}
+
+	var errCode uint16 = 0
+	if h.accountRepo != nil {
+		err := h.accountRepo.DrawChargedItem(int64(itemOrderNo))
+		if err != nil {
+			log.Printf("[Zone][%s] DrawChargedItem %d failed: %v", client.RemoteAddr(), itemOrderNo, err)
+			errCode = 1
+		} else {
+			log.Printf("[Zone][%s] DrawChargedItem %d exitoso para usuario %d",
+				client.RemoteAddr(), itemOrderNo, player.Char.AccountID)
+		}
+	}
+
+	ack := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_CHARGED_WITHDRAW_ACK)
+	ack.WriteUint32(itemOrderNo)
+	ack.WriteUint16(errCode)
+	_ = client.SendPacket(ack)
+}
+
+// SetWorldID asigna el worldNo para auditoría oficial y telemetría.
+func (h *Handler) SetWorldID(id byte) {
+	h.mu.Lock()
+	defer h.mu.Unlock()
+	h.worldID = id
 }
 
 // SetDataStore sets the entire loaded game data store for the zone handler.

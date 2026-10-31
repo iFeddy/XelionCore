@@ -7,6 +7,7 @@ import (
 	"os"
 	"os/signal"
 	"syscall"
+	"time"
 
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/iFeddy/XelionCore/pkg/config"
@@ -44,6 +45,7 @@ func main() {
 	log.Printf("[WorldService] Connected to MySQL database '%s' at %s:%d", cfg.DBName, cfg.DBHost, cfg.DBPort)
 
 	charRepo := database.NewMySQLCharacterRepository(db)
+	accountRepo := database.NewMySQLAccountRepository(db)
 	transfers := database.NewTransferManager(db)
 
 	// Cargar todos los archivos SHN y configuraciones estáticas oficiales (22 WorldManager + 4 Character + Checksums)
@@ -73,12 +75,27 @@ func main() {
 			ZonePort: zonePort,
 		}
 
-		srv := world.NewServer(worldCfg, charRepo, transfers, dataStore)
+		srv := world.NewServer(worldCfg, charRepo, transfers, dataStore, accountRepo)
 		if err := srv.Start(); err != nil {
 			log.Fatalf("[WorldService] Fatal error starting world '%s': %v", w.Name, err)
 		}
 		worldServers = append(worldServers, srv)
 	}
+
+	// Telemetría periódica oficial y actualización de CCU real en tWorldServer / tSameTimeChar
+	ccuTicker := time.NewTicker(30 * time.Second)
+	defer ccuTicker.Stop()
+	go func() {
+		for range ccuTicker.C {
+			for _, ws := range worldServers {
+				ccu := ws.Handler().ActivePlayersCount()
+				worldID := ws.Config().ID
+				_ = accountRepo.UpdateWorldServerCCU(worldID, ccu)
+				_, _ = accountRepo.AddSameTimeChar(worldID, ccu)
+				_ = accountRepo.AddSyslog(0xC811, 0, "", "", worldID, ccu, 0)
+			}
+		}
+	}()
 
 	sigChan := make(chan os.Signal, 1)
 	signal.Notify(sigChan, os.Interrupt, syscall.SIGTERM)

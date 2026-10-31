@@ -98,7 +98,7 @@ func (r *MySQLAccountRepository) InsertChargedItem(item *ChargedItem) (int64, er
 	if err != nil {
 		return 0, fmt.Errorf("usp_Charge_ItemInsert failed: %w", err)
 	}
-	if ret != 0 {
+	if ret != 1 {
 		return 0, fmt.Errorf("usp_Charge_ItemInsert failed with code %d", ret)
 	}
 	return int64(item.OrderNo), nil
@@ -111,7 +111,7 @@ func (r *MySQLAccountRepository) DrawChargedItem(rowNo int64) error {
 	if err != nil {
 		return fmt.Errorf("usp_Charge_ItemDraw failed: %w", err)
 	}
-	if ret != 0 {
+	if ret != 1 {
 		return fmt.Errorf("usp_Charge_ItemDraw failed with code %d", ret)
 	}
 	return nil
@@ -124,7 +124,7 @@ func (r *MySQLAccountRepository) DeleteChargedItem(rowNo int64) error {
 	if err != nil {
 		return fmt.Errorf("usp_Charge_ItemDel failed: %w", err)
 	}
-	if ret != 0 {
+	if ret != 1 {
 		return fmt.Errorf("usp_Charge_ItemDel failed with code %d", ret)
 	}
 	return nil

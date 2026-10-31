@@ -31,6 +31,7 @@ func NewServer(
 	charRepo database.CharacterRepository,
 	transfers *database.TransferManager,
 	dataStore *WorldDataStore,
+	accountRepo ...database.AccountRepository,
 ) *Server {
 	if cfg.BindAddr == "" {
 		cfg.BindAddr = fmt.Sprintf("0.0.0.0:%d", cfg.Port)
@@ -43,6 +44,10 @@ func NewServer(
 	}
 
 	handler := NewHandler(charRepo, transfers, dataStore, cfg.ZoneIP, cfg.ZonePort)
+	handler.SetWorldID(cfg.ID)
+	if len(accountRepo) > 0 && accountRepo[0] != nil {
+		handler.SetAccountRepo(accountRepo[0])
+	}
 
 	s := &Server{
 		config:  cfg,
@@ -51,6 +56,7 @@ func NewServer(
 
 	s.tcpServer = network.NewTCPServer(cfg.BindAddr, nil, handler.HandlePacket)
 	s.tcpServer.SetOnDisconnect(func(c *network.Client) {
+		handler.OnClientDisconnect(c)
 		if c.CharacterID > 0 {
 			handler.partyMgr.UnregisterOnline(c.CharacterID)
 			handler.friendMgr.BroadcastLogout(c.CharacterID, c.Username)
@@ -59,6 +65,21 @@ func NewServer(
 		}
 	})
 	return s
+}
+
+// SetAccountRepo configura el repositorio oficial de Account/AccountLog/Session.
+func (s *Server) SetAccountRepo(repo database.AccountRepository) {
+	s.handler.SetAccountRepo(repo)
+}
+
+// Handler retorna el despachador de red de WorldServer.
+func (s *Server) Handler() *Handler {
+	return s.handler
+}
+
+// Config retorna la configuración del servidor de mundo.
+func (s *Server) Config() *Config {
+	return s.config
 }
 
 // Start listens and begins accepting World client connections.

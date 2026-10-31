@@ -61,6 +61,7 @@ type ZonePlayer struct {
 	Char         *database.Character
 	CurrentMap   *ZoneMap
 	MapObjectID  uint16
+	WorldNo      byte
 	State        byte // 1=Normal, 2=Player, 3=Dead, 4=Resting, 5=Vendor, 6=Mount
 	Rotation     byte
 	StonesHP     int16
