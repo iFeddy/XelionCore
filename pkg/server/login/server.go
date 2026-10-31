@@ -10,9 +10,8 @@ import (
 
 // Config contains runtime settings for the Login Server.
 type Config struct {
-	BindAddr      string `json:"bind_addr"` // e.g. "0.0.0.0:9010"
-	Port          int    `json:"port"`      // e.g. 9010
-	ClientVersion string `json:"client_version"`
+	BindAddr string `json:"bind_addr"` // e.g. "0.0.0.0:9010"
+	Port     int    `json:"port"`      // e.g. 9010
 }
 
 // Server encapsulates the Login Server components.
@@ -31,9 +30,6 @@ func NewServer(cfg *Config, repo database.AccountRepository, wm *WorldManager, t
 	}
 
 	handler := NewHandler(repo, wm, tm)
-	if cfg.ClientVersion != "" {
-		handler.SetClientVersion(cfg.ClientVersion)
-	}
 
 	s := &Server{
 		config:       cfg,

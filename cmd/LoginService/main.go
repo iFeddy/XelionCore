@@ -6,14 +6,13 @@ import (
 	"log"
 	"os"
 	"os/signal"
-	"syscall"
 	"strings"
+	"syscall"
 
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/iFeddy/XelionCore/pkg/config"
 	"github.com/iFeddy/XelionCore/pkg/database"
 	"github.com/iFeddy/XelionCore/pkg/logger"
-	"github.com/iFeddy/XelionCore/pkg/protocol"
 	"github.com/iFeddy/XelionCore/pkg/server/login"
 )
 
@@ -34,7 +33,7 @@ func main() {
 		log.Fatalf("[LoginService] Failed to load configuration: %v", err)
 	}
 
-	log.Printf("[LoginService] Binding on %s:%d (Client Version: %s)", cfg.LoginHost, cfg.LoginPort, cfg.ClientVersion)
+	log.Printf("[LoginService] Binding on %s:%d", cfg.LoginHost, cfg.LoginPort)
 
 	db, err := sql.Open("mysql", cfg.DSN())
 	if err != nil {
@@ -50,35 +49,27 @@ func main() {
 	repo := database.NewMySQLAccountRepository(db)
 	transfers := database.NewTransferManager(db)
 
-	// Sincronizar ClientVersionKeyInfo con FOUS si está disponible
-	for _, p := range []string{"ClientVersionKeyInfo.txt", "../AstraServer/Server/Login/ClientVersionKeyInfo.txt"} {
-		if data, err := os.ReadFile(p); err == nil {
-			vKey := strings.TrimSpace(string(data))
-			if vKey != "" {
-				log.Printf("[LoginService] Sincronizando clave oficial desde '%s': '%s' -> FOUS", p, vKey)
-				_ = repo.SyncClientVersionKey(vKey)
-				break
-			}
-		}
+	// Validar versión obligatoria desde MySQL (FOUS.GameVersionKey)
+	vKey, err := repo.GetClientVersionKey()
+	if err != nil || strings.TrimSpace(vKey) == "" {
+		log.Fatalf("[LoginService] FOUS.GameVersionKey es obligatoria en MySQL y no está disponible: %v", err)
 	}
+	log.Printf("[LoginService] Client Version Key activa en MySQL (FOUS): '%s'", strings.TrimSpace(vKey))
 
-	// WorldManager con consulta dinámica contra tWorldServer en MySQL
+	// WorldManager gobernado 100% desde tWorldServer en MySQL
 	wm := login.NewWorldManager(repo)
-	for _, w := range cfg.Worlds {
-		log.Printf("[LoginService] Verificando World ID %d: '%s' -> %s:%d", w.ID, w.Name, w.IP, w.Port)
-		wm.AddWorld(&login.World{
-			ID:     w.ID,
-			Name:   w.Name,
-			Status: protocol.WorldStatus_Low,
-			IP:     w.IP,
-			Port:   w.Port,
-		})
+	worlds, err := repo.GetWorldServerList()
+	if err != nil {
+		log.Fatalf("[LoginService] Error leyendo tWorldServer desde MySQL: %v", err)
+	}
+	for _, w := range worlds {
+		log.Printf("[LoginService] Mundo en tWorldServer -> ID %d: '%s' (%s:%d, Maintenance=%v)",
+			w.WorldNo, w.WorldName, w.WorldIP, w.WorldPort, w.IsMaintenance)
 	}
 
 	loginCfg := &login.Config{
-		BindAddr:      fmt.Sprintf("%s:%d", cfg.LoginHost, cfg.LoginPort),
-		Port:          int(cfg.LoginPort),
-		ClientVersion: cfg.ClientVersion,
+		BindAddr: fmt.Sprintf("%s:%d", cfg.LoginHost, cfg.LoginPort),
+		Port:     int(cfg.LoginPort),
 	}
 
 	srv := login.NewServer(loginCfg, repo, wm, transfers)

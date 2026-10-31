@@ -55,29 +55,34 @@ func main() {
 	}
 	log.Printf("[WorldService] WorldDataStore loaded successfully (%d SHN files loaded in memory)", len(dataStore.LoadedFiles))
 
-	var worldServers []*world.Server
-	for _, w := range cfg.Worlds {
-		zoneIP := w.ZoneIP
-		if zoneIP == "" {
-			zoneIP = "127.0.0.1"
-		}
-		zonePort := w.ZonePort
-		if zonePort == 0 {
-			zonePort = 9210
-		}
+	dbWorlds, err := accountRepo.GetWorldServerList()
+	if err != nil || len(dbWorlds) == 0 {
+		log.Fatalf("[WorldService] No se encontraron mundos configurados en tWorldServer (MySQL): %v", err)
+	}
 
+	zoneIP := cfg.ZoneIP
+	if zoneIP == "" {
+		zoneIP = "127.0.0.1"
+	}
+	zonePort := cfg.ZonePort
+	if zonePort == 0 {
+		zonePort = 9210
+	}
+
+	var worldServers []*world.Server
+	for _, w := range dbWorlds {
 		worldCfg := &world.Config{
-			ID:       w.ID,
-			Name:     w.Name,
-			BindAddr: fmt.Sprintf("0.0.0.0:%d", w.Port),
-			Port:     int(w.Port),
+			ID:       w.WorldNo,
+			Name:     w.WorldName,
+			BindAddr: fmt.Sprintf("0.0.0.0:%d", w.WorldPort),
+			Port:     int(w.WorldPort),
 			ZoneIP:   zoneIP,
 			ZonePort: zonePort,
 		}
 
 		srv := world.NewServer(worldCfg, charRepo, transfers, dataStore, accountRepo)
 		if err := srv.Start(); err != nil {
-			log.Fatalf("[WorldService] Fatal error starting world '%s': %v", w.Name, err)
+			log.Fatalf("[WorldService] Fatal error starting world '%s': %v", w.WorldName, err)
 		}
 		worldServers = append(worldServers, srv)
 	}

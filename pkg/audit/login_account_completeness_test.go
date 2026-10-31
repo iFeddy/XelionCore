@@ -24,29 +24,16 @@ import (
 // CONTROL 6 (Sección 9.6): Verificación Real de los 49 Archivos .shn + tHackScanLog
 // =============================================================================
 func TestFase07_Control6_SHNChecksumsAndHackScanLog(t *testing.T) {
-	// 1. Localizar la carpeta oficial de datos SHN
-	candidatePaths := []string{
-		"../AstraServer/Server/9Data/Shine",
-		"../../AstraServer/Server/9Data/Shine",
-		"/Users/fedemac/Desktop/Xelion Online/AstraServer/Server/9Data/Shine",
+	// 1. Localizar la carpeta oficial de datos SHN dentro del repositorio (data/ y data/View/)
+	shnDir := filepath.Join(findRepoRoot(t), "data")
+	viewDir := filepath.Join(shnDir, "View")
+
+	if _, err := os.Stat(filepath.Join(shnDir, "Abstate.shn")); err != nil {
+		t.Fatalf("No se encontró Abstate.shn en '%s': %v", shnDir, err)
 	}
 
-	var shnDir string
-	for _, p := range candidatePaths {
-		if fi, err := os.Stat(p); err == nil && fi.IsDir() {
-			if _, err := os.Stat(filepath.Join(p, "Abstate.shn")); err == nil {
-				shnDir = p
-				break
-			}
-		}
-	}
-
-	if shnDir == "" {
-		t.Fatalf("No se encontró el directorio oficial de SHNs en ninguna de las rutas: %v", candidatePaths)
-	}
-
-	// 2. Instanciar ChecksumEngine oficial con los 49 archivos
-	engine, err := shn.NewChecksumEngine(shnDir)
+	// 2. Instanciar ChecksumEngine oficial con los 49 archivos desde data/ y data/View/
+	engine, err := shn.NewChecksumEngine(shnDir, viewDir)
 	if err != nil {
 		t.Fatalf("Fallo inicializando ChecksumEngine con '%s': %v", shnDir, err)
 	}
@@ -136,15 +123,16 @@ func TestFase07_Control7_FullE2E_ForensicMySQL(t *testing.T) {
 	transfers := database.NewTransferManager(db)
 	wm := login.NewWorldManager(accountRepo)
 
-	loginPort := 19020
-	loginCfg := &login.Config{
-		BindAddr:      fmt.Sprintf("127.0.0.1:%d", loginPort),
-		Port:          loginPort,
-		ClientVersion: "10022024000000",
+	activeVerKey, err := accountRepo.GetClientVersionKey()
+	if err != nil || activeVerKey == "" {
+		t.Fatalf("Fallo obteniendo FOUS.GameVersionKey desde MySQL: %v", err)
 	}
 
-	// Sincronizar versión oficial en FOUS
-	_ = accountRepo.SyncClientVersionKey(loginCfg.ClientVersion)
+	loginPort := 19020
+	loginCfg := &login.Config{
+		BindAddr: fmt.Sprintf("127.0.0.1:%d", loginPort),
+		Port:     loginPort,
+	}
 
 	loginSrv := login.NewServer(loginCfg, accountRepo, wm, transfers)
 	if err := loginSrv.Start(); err != nil {
@@ -230,7 +218,7 @@ func TestFase07_Control7_FullE2E_ForensicMySQL(t *testing.T) {
 
 		// 1. Version check válido
 		verReq := protocol.NewPacketWriter(protocol.PROTO_NC_USER_CLIENT_VERSION_CHECK_REQ)
-		verReq.WriteString("10022024000000", 64)
+		verReq.WriteString(activeVerKey, 64)
 		_ = client.sendPacket(verReq)
 
 		rightAck, _ := auditReadServerPacket(conn) // 0x0C67
@@ -380,7 +368,7 @@ func TestFase07_Control7_FullE2E_ForensicMySQL(t *testing.T) {
 
 		// Version check
 		verPkt := protocol.NewPacketWriter(protocol.PROTO_NC_USER_CLIENT_VERSION_CHECK_REQ)
-		verPkt.WriteString("10022024000000", 64)
+		verPkt.WriteString(activeVerKey, 64)
 		_ = loginClient.sendPacket(verPkt)
 		_, _ = auditReadServerPacket(loginConn) // 0x0C67
 		_, _ = auditReadServerPacket(loginConn) // 0x0807
@@ -408,7 +396,7 @@ func TestFase07_Control7_FullE2E_ForensicMySQL(t *testing.T) {
 		loginClient2 := &auditMockClient{conn: loginConn2, crypto: nc3}
 
 		verPkt2 := protocol.NewPacketWriter(protocol.PROTO_NC_USER_CLIENT_VERSION_CHECK_REQ)
-		verPkt2.WriteString("10022024000000", 64)
+		verPkt2.WriteString(activeVerKey, 64)
 		_ = loginClient2.sendPacket(verPkt2)
 		_, _ = auditReadServerPacket(loginConn2)
 		_, _ = auditReadServerPacket(loginConn2)

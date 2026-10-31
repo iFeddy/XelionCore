@@ -17,12 +17,11 @@ import (
 // Handler procesa el 100% de los paquetes entrantes para LoginService respetando estrictamente
 // la arquitectura unificada y las estructuras oficiales de red (docs/Servicios/Login.md, Account.md, AccountLog.md).
 type Handler struct {
-	repo          database.AccountRepository
-	logRepo       database.AccountLogRepository
-	sessionRepo   database.LoginSessionRepository
-	worldManager  *WorldManager
-	transfers     *database.TransferManager
-	clientVersion string
+	repo         database.AccountRepository
+	logRepo      database.AccountLogRepository
+	sessionRepo  database.LoginSessionRepository
+	worldManager *WorldManager
+	transfers    *database.TransferManager
 }
 
 // NewHandler inicializa el despachador de protocolos oficiales de LoginService.
@@ -47,11 +46,6 @@ func NewHandler(repo database.AccountRepository, wm *WorldManager, tm *database.
 		worldManager: wm,
 		transfers:    tm,
 	}
-}
-
-// SetClientVersion configura la versión oficial esperada del cliente (ClientVersionKeyInfo.txt).
-func (h *Handler) SetClientVersion(ver string) {
-	h.clientVersion = strings.TrimSpace(ver)
 }
 
 // HandlePacket enruta cada paquete entrante según su OpCode oficial PROTO_NC_*.
@@ -200,16 +194,27 @@ func (h *Handler) handle_PROTO_NC_USER_CLIENT_VERSION_CHECK_REQ(client *network.
 
 	log.Printf("[%s] PROTO_NC_USER_CLIENT_VERSION_CHECK_REQ recibido (Key='%s')", client.RemoteAddr(), versionKey)
 
-	// Resolver versión esperada dinámicamente desde MySQL (FOUS) o configuración
-	expectedVer := h.clientVersion
-	if h.sessionRepo != nil {
-		if dbKey, err := h.sessionRepo.GetClientVersionKey(); err == nil && dbKey != "" {
-			expectedVer = strings.TrimSpace(dbKey)
-		}
+	// Resolver versión esperada obligatoriamente desde MySQL (FOUS.GameVersionKey)
+	if h.sessionRepo == nil {
+		log.Printf("[%s] Repositorio de sesión no disponible para leer FOUS.GameVersionKey. Enviando 0x0C02 y rechazando.",
+			client.RemoteAddr())
+		_ = client.SendPacket(protocol.New_PROTO_NC_USER_CLIENT_WRONGVERSION_CHECK_ACK())
+		client.Close()
+		return
 	}
 
-	if expectedVer != "" && versionKey != "" && versionKey != expectedVer {
-		log.Printf("[%s] Versión de cliente no coincide: '%s' (Esperada: '%s'). Enviando 0x0C02 y rechazando.",
+	dbKey, err := h.sessionRepo.GetClientVersionKey()
+	expectedVer := strings.TrimSpace(dbKey)
+	if err != nil || expectedVer == "" {
+		log.Printf("[%s] Error o clave vacía en FOUS.GameVersionKey (err=%v). Enviando 0x0C02 y rechazando.",
+			client.RemoteAddr(), err)
+		_ = client.SendPacket(protocol.New_PROTO_NC_USER_CLIENT_WRONGVERSION_CHECK_ACK())
+		client.Close()
+		return
+	}
+
+	if versionKey == "" || versionKey != expectedVer {
+		log.Printf("[%s] Versión de cliente no coincide: '%s' (Esperada en FOUS: '%s'). Enviando 0x0C02 y rechazando.",
 			client.RemoteAddr(), versionKey, expectedVer)
 		_ = client.SendPacket(protocol.New_PROTO_NC_USER_CLIENT_WRONGVERSION_CHECK_ACK())
 		client.Close()

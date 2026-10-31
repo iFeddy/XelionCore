@@ -6,11 +6,11 @@
 
 USE `xelion_online`;
 
--- 1. FOUS: Sincronizado con ClientVersionKeyInfo.txt (10022024000000)
+-- 1. FOUS: Clave de versión del cliente (sin pisar clave personalizada existente)
 INSERT INTO `FOUS` (`GameAccountTitle`, `GameAccountGameServerReference`, `GameAccountKey`, `GameVersionKey`)
-VALUES ('FiestaOnline', 0, 0, '10022024000000')
+VALUES ('FiestaOnline', 0, 0, '3dca91289ab564b3ce1f5c8ca1b362a6')
 ON DUPLICATE KEY UPDATE
-    `GameVersionKey` = '10022024000000';
+    `GameAccountTitle` = `GameAccountTitle`;
 
 -- 2. tUserAuth: Niveles oficiales de privilegios y autorización de login
 INSERT INTO `tUserAuth` (`nAuthID`, `sAuthName`, `bIsLoginAble`) VALUES
@@ -30,18 +30,15 @@ INSERT INTO `Auto_Account_Creation` (`Allow_Creation`)
 SELECT 1
 WHERE NOT EXISTS (SELECT 1 FROM `Auto_Account_Creation`);
 
--- 4. tWorldServer: Configuración de mundos 0 y 1 gobernados 100% por MySQL
+-- 4. tWorldServer: Configuración de mundos gobernados 100% por MySQL (sin pisar ediciones manuales)
 INSERT INTO `tWorldServer` (
     `nWorldNo`, `sWorldName`, `sWorldIP`, `nWorldPort`, 
     `nMaxUser`, `nUserRatable`, `bIsMaintenance`, `nCurrentCCU`, `dLastHeartbeat`
 ) VALUES
-(0, 'Xelion', '127.0.0.1', 9014, 1500, 100, 0, 0, NOW()),
+(0, 'Xelion', '192.168.0.4', 9014, 1500, 100, 0, 0, NOW()),
 (1, 'Bijou', '127.0.0.1', 9015, 1500, 100, 0, 0, NOW())
 ON DUPLICATE KEY UPDATE
-    `sWorldName` = VALUES(`sWorldName`),
-    `nMaxUser` = VALUES(`nMaxUser`),
-    `nUserRatable` = VALUES(`nUserRatable`),
-    `bIsMaintenance` = VALUES(`bIsMaintenance`);
+    `nWorldNo` = `nWorldNo`;
 
 -- 5. Cuentas base iniciales (admin y test) sin pisar cuentas existentes
 -- admin / admin -> MD5: 21232f297a57a5a743894a0e4a801fc3

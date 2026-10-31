@@ -280,7 +280,7 @@ func TestFase01_Control1(t *testing.T) {
 		}
 	}
 
-	// Invariante 4.7: FOUS poblado con GameVersionKey = '10022024000000'
+	// Invariante 4.7: FOUS poblado con GameVersionKey no vacío
 	var gameVerKey string
 	err = db.QueryRow(`
 		SELECT GameVersionKey 
@@ -289,8 +289,8 @@ func TestFase01_Control1(t *testing.T) {
 	`).Scan(&gameVerKey)
 	if err != nil {
 		t.Errorf("[Fase 01] Error leyendo FOUS.GameVersionKey: %v", err)
-	} else if gameVerKey != "10022024000000" {
-		t.Errorf("[Fase 01] FOUS.GameVersionKey esperado '10022024000000', actual: '%s'", gameVerKey)
+	} else if strings.TrimSpace(gameVerKey) == "" {
+		t.Errorf("[Fase 01] FOUS.GameVersionKey no debe estar vacío")
 	}
 
 	// Invariante 4.8: tIPBlock con columnas generadas nIPStartNum y nIPEndNum

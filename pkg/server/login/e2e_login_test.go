@@ -140,9 +140,13 @@ func TestE2ELoginServiceFlow(t *testing.T) {
 	}
 	client := &mockClient{conn: conn, crypto: nc}
 
-	// 2. Enviar versión: PROTO_NC_USER_CLIENT_VERSION_CHECK_REQ (0x0C65)
+	// 2. Enviar versión activa en FOUS: PROTO_NC_USER_CLIENT_VERSION_CHECK_REQ (0x0C65)
+	activeVerKey, err := repo.GetClientVersionKey()
+	if err != nil || activeVerKey == "" {
+		t.Fatalf("Failed to read FOUS.GameVersionKey from MySQL: %v", err)
+	}
 	verReq := protocol.NewPacketWriter(protocol.PROTO_NC_USER_CLIENT_VERSION_CHECK_REQ)
-	verReq.WriteString("10022024000000", 64)
+	verReq.WriteString(activeVerKey, 64)
 	if err := client.sendPacket(verReq); err != nil {
 		t.Fatalf("Failed to send version check req: %v", err)
 	}
@@ -352,11 +356,15 @@ func TestLoginService_MultiRegion_OTP_WrongVersion_DynamicWorlds(t *testing.T) {
 	// WorldManager con lectura dinámica desde MySQL tWorldServer
 	wm := login.NewWorldManager(repo)
 
+	activeVerKey, err := repo.GetClientVersionKey()
+	if err != nil || activeVerKey == "" {
+		t.Fatalf("Failed to read FOUS.GameVersionKey from MySQL: %v", err)
+	}
+
 	testPort := 19012
 	loginCfg := &login.Config{
-		BindAddr:      fmt.Sprintf("127.0.0.1:%d", testPort),
-		Port:          testPort,
-		ClientVersion: "10022024000000",
+		BindAddr: fmt.Sprintf("127.0.0.1:%d", testPort),
+		Port:     testPort,
 	}
 
 	srv := login.NewServer(loginCfg, repo, wm, transfers)
@@ -426,7 +434,7 @@ func TestLoginService_MultiRegion_OTP_WrongVersion_DynamicWorlds(t *testing.T) {
 
 		// Version Check correcto
 		verPkt := protocol.NewPacketWriter(protocol.PROTO_NC_USER_CLIENT_VERSION_CHECK_REQ)
-		verPkt.WriteString("10022024000000", 64)
+		verPkt.WriteString(activeVerKey, 64)
 		_ = client.sendPacket(verPkt)
 		_, _ = readServerPacket(conn) // 0x0C67
 		_, _ = readServerPacket(conn) // 0x0807
@@ -482,7 +490,7 @@ func TestLoginService_MultiRegion_OTP_WrongVersion_DynamicWorlds(t *testing.T) {
 
 		// Version Check
 		verPkt := protocol.NewPacketWriter(protocol.PROTO_NC_USER_CLIENT_VERSION_CHECK_REQ)
-		verPkt.WriteString("10022024000000", 64)
+		verPkt.WriteString(activeVerKey, 64)
 		_ = client.sendPacket(verPkt)
 		_, _ = readServerPacket(conn) // 0x0C67
 		_, _ = readServerPacket(conn) // 0x0807

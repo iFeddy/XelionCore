@@ -46,14 +46,12 @@ func main() {
 	log.Printf("[Zone] Connected to MySQL database '%s' at %s:%d", cfg.DBName, cfg.DBHost, cfg.DBPort)
 
 	zonePort := 9210
+	if cfg.ZonePort > 0 {
+		zonePort = int(cfg.ZonePort)
+	}
 	zoneIP := "127.0.0.1"
-	if len(cfg.Worlds) > 0 {
-		if cfg.Worlds[0].ZonePort > 0 {
-			zonePort = int(cfg.Worlds[0].ZonePort)
-		}
-		if cfg.Worlds[0].ZoneIP != "" {
-			zoneIP = cfg.Worlds[0].ZoneIP
-		}
+	if cfg.ZoneIP != "" {
+		zoneIP = cfg.ZoneIP
 	}
 
 	zoneCfg := &zone.Config{

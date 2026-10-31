@@ -15,7 +15,7 @@ Desarrollar un emulador del servidor oficial de Fiesta Online en Go (`XelionCore
    - **Estructuras y Paquetes de Red:** [docs/Servicios/](docs/Servicios/) (generados directamente desde los flujos TPI de los PDBs oficiales).
    - **Bases de Datos y Tablas:** [docs/TablasLegacy.md](docs/TablasLegacy.md) (176 tablas oficiales con sus tipos exactos, PKs y FKs).
    - **Procedimientos Almacenados:** [docs/ProcedimientosLegacy.md](docs/ProcedimientosLegacy.md) y [docs/sql/procedures/](docs/sql/procedures/) (573 stored procedures recuperados byte a byte de los `.bak`).
-   - **Archivos de Datos del Juego:** `../AstraServer/Server/9Data/Shine/` (archivos `.shn` y scripts `.txt`).
+   - **Archivos de Datos del Juego:** `data/` (archivos `.shn` en `data/` y `data/View/`, junto con los recursos JSON y Lua modernizados; `../AstraServer/` queda exclusivamente como guía de referencia).
 3. **Codificación de Protocolo (OpCodes):**
    - La cabecera `NETCOMMAND` oficial es una unión bitfield de 16 bits:
      * `command`: **10 bits** (Tail / Comando: valores 0 a 1023, máscara `0x3FF`).
@@ -48,7 +48,7 @@ En el legado (`AstraServer`), los servidores se comunicaban mediante complejas c
 
 1. **`LoginService`:**
    - Unifica la recepción de clientes de `Login.exe` con la validación de cuenta de `Account.exe` y el registro de auditoría de `AccountLog.exe`.
-   - Lee `ClientVersionKeyInfo.txt` para el handshake inicial (`0x0C65` / `0x0C67`).
+   - Valida la versión del cliente obligatoriamente contra `FOUS.GameVersionKey` en MySQL para el handshake inicial (`0x0C65` / `0x0C67`) y gobierna el listado de mundos desde `tWorldServer`.
 2. **`WorldService`:**
    - Unifica la coordinación global de `WorldManager.exe` con la persistencia de personajes de `Character.exe`.
 3. **`ZoneService`:**
@@ -80,4 +80,4 @@ Todos los archivos de configuración y datos del mundo de `Zone.exe` han sido mo
 | **Misc** | `data/World/Misc/` (`RecallCoord.json`, `StealthMatrix.json`, `SkillMechanics.json`, `MobChat.json`) | `pkg/data/misc` | Pergaminos de retorno, capas de invisibilidad, totems/trampas y diálogos de monstruos. |
 | **Quest Parser** | `data/World/Quest/QuestParser.json` | `pkg/data/questparser` | Mapeo de IDs de clases de misiones (`gQuestParserData`). |
 | **Scripts & Lua** | `data/Script/*.json` y `data/LuaScript/` | `pkg/data/script`, `pkg/script/lua` | Lógica de eventos, diálogos y scripts de misiones ejecutados en runtime Lua. |
-| **SHN Tables** | `../AstraServer/Server/9Data/Shine/` | `pkg/data/shn` | Universo binario de datos oficiales (189 SHNs). |
+| **SHN Tables** | `data/*.shn` y `data/View/*.shn` | `pkg/data/shn` | Universo binario de datos oficiales (189 SHNs). |
