@@ -123,13 +123,13 @@ func TestE2EWorldServiceFlow(t *testing.T) {
 	}
 	defer conn.Close()
 
-	// 1. Recibir Handshake (PROTO_NC_MISC_SEED_CMD)
+	// 1. Recibir Handshake (PROTO_NC_MISC_SEED_ACK)
 	pkt, err := readServerPacket(conn)
 	if err != nil {
 		t.Fatalf("failed to read handshake: %v", err)
 	}
-	if pkt.OpCode != protocol.PROTO_NC_MISC_SEED_CMD {
-		t.Fatalf("expected PROTO_NC_MISC_SEED_CMD (0x%04X), got 0x%04X", protocol.PROTO_NC_MISC_SEED_CMD, pkt.OpCode)
+	if pkt.OpCode != protocol.PROTO_NC_MISC_SEED_ACK {
+		t.Fatalf("expected PROTO_NC_MISC_SEED_ACK (0x%04X), got 0x%04X", protocol.PROTO_NC_MISC_SEED_ACK, pkt.OpCode)
 	}
 	xorPos, _ := pkt.Reader.ReadInt16()
 	clientCrypto, err := crypto.NewNetCrypto(xorPos)

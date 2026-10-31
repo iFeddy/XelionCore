@@ -338,6 +338,7 @@ const (
 	// ========================================================================
 	// Departamento 03: NC_USER (Autenticación de Cuentas y Selección de Mundo)
 	// ========================================================================
+	PROTO_NC_USER_CLIENT_WRONGVERSION_CHECK_ACK             uint16 = ( 3 << 10) | 2   // 0x0C02
 	PROTO_NC_USER_XTRAP_REQ                                 uint16 = ( 3 << 10) | 4   // 0x0C04
 	PROTO_NC_USER_XTRAP_ACK                                 uint16 = ( 3 << 10) | 5   // 0x0C05
 	PROTO_NC_USER_LOGIN_REQ                                 uint16 = ( 3 << 10) | 6   // 0x0C06
@@ -415,7 +416,6 @@ const (
 	PROTO_NC_USER_LOGOUT_LAST_DAY_ACK                       uint16 = ( 3 << 10) | 99  // 0x0C63
 	PROTO_NC_USER_SET_RETURN_CMD                            uint16 = ( 3 << 10) | 100 // 0x0C64
 	PROTO_NC_USER_CLIENT_VERSION_CHECK_REQ                  uint16 = ( 3 << 10) | 101 // 0x0C65
-	PROTO_NC_USER_CLIENT_WRONGVERSION_CHECK_ACK             uint16 = ( 3 << 10) | 102 // 0x0C66
 	PROTO_NC_USER_CLIENT_RIGHTVERSION_CHECK_ACK             uint16 = ( 3 << 10) | 103 // 0x0C67
 
 	// ========================================================================
@@ -3011,19 +3011,14 @@ const (
 // Compatibilidad de Nombres Legacy / Transicionales (Deprecated Aliases)
 // ========================================================================
 const (
-	PROTO_NC_MISC_SEED_CMD                     = PROTO_NC_MISC_SEED_ACK
 	PROTO_NC_MISC_TIME_SYNC_ACK                = PROTO_NC_MISC_SERVER_TIME_NOTIFY_CMD
 	PROTO_NC_MISC_UPDATE_TIME                  = PROTO_NC_MISC_SERVER_TIME_NOTIFY_CMD
 	PROTO_NC_MISC_WORLD_CLIENT_KEY_REQ         = PROTO_NC_USER_LOGINWORLD_REQ
 	PROTO_NC_MISC_WORLD_CLIENT_KEY_ACK         = PROTO_NC_USER_LOGIN_DB
-	PROTO_NC_USER_FILE_CHECK_REQ               = PROTO_NC_USER_XTRAP_REQ
-	PROTO_NC_USER_FILE_CHECK_ACK               = PROTO_NC_USER_XTRAP_ACK
 	PROTO_NC_CHAR_CLIENT_CHARLIST_ACK          = PROTO_NC_USER_LOGINWORLD_ACK
 	PROTO_NC_USER_BACKTOWORLDLIST_REQ          = PROTO_NC_USER_WILL_WORLD_SELECT_REQ
 	PROTO_NC_USER_BACKTOWORLDLIST_ACK          = PROTO_NC_USER_WILL_WORLD_SELECT_ACK
 	PROTO_NC_USER_LOGIN_WITH_OTP_LEGACY        = PROTO_NC_USER_GER_LOGIN_REQ
-	PROTO_NC_USER_WORLDSTATUS_REQ              = PROTO_NC_USER_WORLD_STATUS_REQ
-	PROTO_NC_USER_WORLDSTATUS_ACK              = PROTO_NC_USER_WORLD_STATUS_ACK
 	PROTO_NC_CHAR_SERVER_IP_ACK                = PROTO_NC_CHAR_LOGIN_ACK
 	PROTO_NC_CHAR_POINTS_ACK                   = PROTO_NC_CHAR_STAT_REMAINPOINT_CMD
 	PROTO_NC_CHAR_CREATE_REQ                   = PROTO_NC_AVATAR_CREATE_REQ

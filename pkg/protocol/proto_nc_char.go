@@ -53,16 +53,16 @@ func New_PROTO_NC_CHAR_LOGINFAIL_ACK(errCode uint16) *PacketWriter {
 
 // New_PROTO_NC_USER_WILL_WORLD_SELECT_ACK construye la respuesta oficial para volver a la selección de mundos (OpCode 0x0C34).
 // Struct oficial PDB: PROTO_NC_USER_WILL_WORLD_SELECT_ACK (34 bytes: unsigned short nError, Name8 sOTP)
-func New_PROTO_NC_USER_WILL_WORLD_SELECT_ACK() *PacketWriter {
+func New_PROTO_NC_USER_WILL_WORLD_SELECT_ACK(otp [32]byte) *PacketWriter {
 	pw := NewPacketWriter(PROTO_NC_USER_WILL_WORLD_SELECT_ACK)
 	pw.WriteUint16(0) // nError = 0 (éxito)
-	pw.Fill(32, 0)    // sOTP (vacío)
+	pw.WriteBytes(otp[:])
 	return pw
 }
 
 // New_PROTO_NC_USER_BACKTOWORLDLIST_ACK es un alias retrocompatible para New_PROTO_NC_USER_WILL_WORLD_SELECT_ACK (OpCode 0x0C34).
 func New_PROTO_NC_USER_BACKTOWORLDLIST_ACK() *PacketWriter {
-	return New_PROTO_NC_USER_WILL_WORLD_SELECT_ACK()
+	return New_PROTO_NC_USER_WILL_WORLD_SELECT_ACK([32]byte{})
 }
 
 // New_PROTO_NC_CHAR_OPTION_GET_SHORTCUTDATA_ACK construye la respuesta de accesos directos (OpCode 0x7003).

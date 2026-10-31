@@ -121,14 +121,14 @@ func TestE2ELoginServiceFlow(t *testing.T) {
 	}
 	defer conn.Close()
 
-	// 1. Recibir Handshake inicial: PROTO_NC_MISC_SEED_CMD (0x0807)
+	// 1. Recibir Handshake inicial: PROTO_NC_MISC_SEED_ACK (0x0807)
 	handshakePkt, err := readServerPacket(conn)
 	if err != nil {
 		t.Fatalf("Failed to read initial handshake: %v", err)
 	}
-	if handshakePkt.OpCode != protocol.PROTO_NC_MISC_SEED_CMD {
-		t.Fatalf("Expected OpCode 0x%04X (PROTO_NC_MISC_SEED_CMD), got 0x%04X",
-			protocol.PROTO_NC_MISC_SEED_CMD, handshakePkt.OpCode)
+	if handshakePkt.OpCode != protocol.PROTO_NC_MISC_SEED_ACK {
+		t.Fatalf("Expected OpCode 0x%04X (PROTO_NC_MISC_SEED_ACK), got 0x%04X",
+			protocol.PROTO_NC_MISC_SEED_ACK, handshakePkt.OpCode)
 	}
 	xorOffset, err := handshakePkt.Reader.ReadInt16()
 	if err != nil {

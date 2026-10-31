@@ -98,9 +98,9 @@ func New_PROTO_NC_USER_WORLDSELECT_ACK(status uint8, ip string, port uint16, tok
 	return pw
 }
 
-// New_PROTO_NC_USER_FILE_CHECK_ACK construye la respuesta de verificación de archivos (0x0C05).
-func New_PROTO_NC_USER_FILE_CHECK_ACK(allow bool) *PacketWriter {
-	pw := NewPacketWriter(PROTO_NC_USER_FILE_CHECK_ACK)
+// New_PROTO_NC_USER_XTRAP_ACK construye la respuesta de verificación de XTrap (0x0C05).
+func New_PROTO_NC_USER_XTRAP_ACK(allow bool) *PacketWriter {
+	pw := NewPacketWriter(PROTO_NC_USER_XTRAP_ACK)
 	pw.WriteBool(allow)
 	return pw
 }

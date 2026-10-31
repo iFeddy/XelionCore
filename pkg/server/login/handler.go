@@ -45,10 +45,10 @@ func (h *Handler) HandlePacket(client *network.Client, pkt *protocol.Packet) {
 		h.handle_PROTO_NC_USER_CLIENT_VERSION_CHECK_REQ(client, pkt)
 	case protocol.PROTO_NC_USER_US_LOGIN_REQ, protocol.PROTO_NC_USER_LOGIN_REQ, protocol.PROTO_NC_USER_LOGIN_WITH_OTP_REQ, protocol.PROTO_NC_USER_LOGIN_WITH_OTP_LEGACY:
 		h.handle_PROTO_NC_USER_US_LOGIN_REQ(client, pkt)
-	case protocol.PROTO_NC_USER_FILE_CHECK_REQ:
-		h.handle_PROTO_NC_USER_FILE_CHECK_REQ(client, pkt)
-	case protocol.PROTO_NC_USER_WORLDSTATUS_REQ:
-		h.handle_PROTO_NC_USER_WORLDSTATUS_REQ(client, pkt)
+	case protocol.PROTO_NC_USER_XTRAP_REQ:
+		h.handle_PROTO_NC_USER_XTRAP_REQ(client, pkt)
+	case protocol.PROTO_NC_USER_WORLD_STATUS_REQ:
+		h.handle_PROTO_NC_USER_WORLD_STATUS_REQ(client, pkt)
 	case protocol.PROTO_NC_USER_WORLDSELECT_REQ:
 		h.handle_PROTO_NC_USER_WORLDSELECT_REQ(client, pkt)
 	case protocol.PROTO_NC_MISC_HEARTBEAT_REQ:
@@ -260,14 +260,14 @@ func (h *Handler) handle_PROTO_NC_USER_NORMALLOGOUT_CMD(client *network.Client, 
 	client.Close()
 }
 
-// handle_PROTO_NC_USER_FILE_CHECK_REQ procesa la verificación de archivos del cliente (0x0C04).
-func (h *Handler) handle_PROTO_NC_USER_FILE_CHECK_REQ(client *network.Client, pkt *protocol.Packet) {
-	resp := protocol.New_PROTO_NC_USER_FILE_CHECK_ACK(true)
+// handle_PROTO_NC_USER_XTRAP_REQ procesa la verificación de archivos del cliente (0x0C04).
+func (h *Handler) handle_PROTO_NC_USER_XTRAP_REQ(client *network.Client, pkt *protocol.Packet) {
+	resp := protocol.New_PROTO_NC_USER_XTRAP_ACK(true)
 	_ = client.SendPacket(resp)
 }
 
-// handle_PROTO_NC_USER_WORLDSTATUS_REQ procesa la solicitud de refresco del listado de mundos (0x0C1B).
-func (h *Handler) handle_PROTO_NC_USER_WORLDSTATUS_REQ(client *network.Client, pkt *protocol.Packet) {
+// handle_PROTO_NC_USER_WORLD_STATUS_REQ procesa la solicitud de refresco del listado de mundos (0x0C1B).
+func (h *Handler) handle_PROTO_NC_USER_WORLD_STATUS_REQ(client *network.Client, pkt *protocol.Packet) {
 	if !client.IsAuthenticated {
 		log.Printf("[%s] Refresco de mundos no autenticado rechazado", client.RemoteAddr())
 		return
@@ -315,7 +315,7 @@ func (h *Handler) handle_PROTO_NC_USER_WORLDSELECT_REQ(client *network.Client, p
 func (h *Handler) send_PROTO_NC_USER_LOGIN_ACK(client *network.Client, isResend bool) {
 	opCode := uint16(protocol.PROTO_NC_USER_LOGIN_ACK)
 	if isResend {
-		opCode = protocol.PROTO_NC_USER_WORLDSTATUS_ACK
+		opCode = protocol.PROTO_NC_USER_WORLD_STATUS_ACK
 	}
 
 	worlds := h.worldManager.WorldsList()

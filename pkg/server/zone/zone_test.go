@@ -101,14 +101,14 @@ func TestZoneServer_Phase1_LifecycleAndHandshake(t *testing.T) {
 	}
 	defer conn.Close()
 
-	// 2. Leer Handshake de semilla XOR (PROTO_NC_MISC_SEED_CMD, OpCode 0x0807)
+	// 2. Leer Handshake de semilla XOR (PROTO_NC_MISC_SEED_ACK, OpCode 0x0807)
 	pkt, err := readServerPacket(conn)
 	if err != nil {
 		t.Fatalf("failed to read handshake packet: %v", err)
 	}
 
-	if pkt.OpCode != protocol.PROTO_NC_MISC_SEED_CMD {
-		t.Fatalf("expected PROTO_NC_MISC_SEED_CMD (0x0807), got 0x%04X", pkt.OpCode)
+	if pkt.OpCode != protocol.PROTO_NC_MISC_SEED_ACK {
+		t.Fatalf("expected PROTO_NC_MISC_SEED_ACK (0x0807), got 0x%04X", pkt.OpCode)
 	}
 
 	xorPos, err := pkt.Reader.ReadInt16()

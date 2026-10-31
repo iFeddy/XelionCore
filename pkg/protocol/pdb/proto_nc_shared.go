@@ -1,0 +1,50 @@
+package pdb
+
+// ============================================================================
+// Estructuras oficiales compartidas TPI (ShineCommon)
+// Compiladas por #include común en Account.pdb y AccountLog.pdb
+// Extraídas de docs/Servicios/Account.md y AccountLog.md
+// Fidelidad 100% C++ PDB (#pragma pack(push, 1))
+// ============================================================================
+
+type PROTO_NC_BRIEFINFO_ABSTATE_CHANGE_LIST_CMD [3]byte
+type PROTO_NC_BRIEFINFO_CHANGEDECORATE_CMD [5]byte
+type PROTO_NC_BRIEFINFO_CHANGEUPGRADE_CMD [6]byte
+type PROTO_NC_BRIEFINFO_CHANGEWEAPON_CMD [9]byte
+type PROTO_NC_BRIEFINFO_UNEQUIP_CMD [3]byte
+type PROTO_NC_CHARSAVE_ITEMACTIONCOOLTIME_ACK uint16
+type PROTO_NC_CHAR_ABSTATE_CMD [6]byte
+type PROTO_NC_CHAR_ARENA_CMD uint8
+type PROTO_NC_CHAR_BASE_CMD [105]byte
+type PROTO_NC_CHAR_CHARGEDBUFF_CMD uint16
+type PROTO_NC_CHAR_CHESTINFO_CMD uint16
+type PROTO_NC_CHAR_EMBLEM_CMD uint8
+type PROTO_NC_CHAR_FRIEND_CMD uint16
+type PROTO_NC_CHAR_FRIEND_CMD_INFO [25]byte
+type PROTO_NC_CHAR_GUILD_CMD uint32
+type PROTO_NC_CHAR_HOUSE_CMD uint8
+type PROTO_NC_CHAR_MASPUP_CMD uint8
+type PROTO_NC_CHAR_NEWBIE_GUIDE_VIEW_LIST_CMD uint8
+type PROTO_NC_CHAR_OPTION_GAME [64]byte
+type PROTO_NC_CHAR_OPTION_KEYMAPPING [308]byte
+type PROTO_NC_CHAR_OPTION_SHORTCUTDATA [1024]byte
+type PROTO_NC_CHAR_OPTION_SHORTCUTSIZE [24]byte
+type PROTO_NC_CHAR_OPTION_SOUND uint8
+type PROTO_NC_CHAR_OPTION_VIDEO [60]byte
+type PROTO_NC_CHAR_OPTION_WINDOWPOS [392]byte
+type PROTO_NC_CHAR_PET_CMD uint8
+type PROTO_NC_CHAR_QUEST_DOING_CMD [6]byte
+type PROTO_NC_CHAR_QUEST_READ_CMD [6]byte
+type PROTO_NC_CHAR_QUEST_REPEAT_CMD [6]byte
+type PROTO_NC_CHAR_SEAWAR_CMD uint8
+type PROTO_NC_CHAR_SINGLE_OPTION_CMD [15]byte
+type PROTO_NC_CHAR_SKILL_CMD [9]byte
+type PROTO_NC_CHAR_SKILL_PASSIVE_CMD uint16
+type PROTO_NC_CHAR_WEDDINGDATA_ACK [43]byte
+type PROTO_NC_CHAR_WEDDING_PARTNER_INFO_ACK [14]byte
+type PROTO_NC_CHAT_RESTRICT_DB_LIST_CMD uint16
+type PROTO_NC_GUILD_TOURNAMENT_DB_REWARD_CREATE_REQ [12]byte
+type PROTO_NC_ITEMDB_CHARGED_LIST_ACK [11]byte
+type PROTO_NC_ITEM_BUY_REQ [6]byte
+type PROTO_NC_ITEM_DROP_REQ [14]byte
+type PROTO_NC_ITEM_SELL_REQ [5]byte
