@@ -38,14 +38,15 @@ func (r *MySQLAccountRepository) initAuxiliaryTables() {
 			userNo INT NOT NULL,
 			serialKey BIGINT NOT NULL,
 			registerDate DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-			PRIMARY KEY (userNo)
+			PRIMARY KEY (serialKey),
+			KEY idx_tserialkey_userno (userNo)
 		) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;`,
 
 		`CREATE TABLE IF NOT EXISTS tCash (
 			userNo INT NOT NULL,
 			cashType TINYINT UNSIGNED NOT NULL DEFAULT 0,
 			cash INT NOT NULL DEFAULT 0,
-			status TINYINT UNSIGNED NOT NULL DEFAULT 1,
+			status TINYINT(1) NOT NULL DEFAULT 0,
 			PRIMARY KEY (userNo, cashType)
 		) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;`,
 
@@ -56,7 +57,7 @@ func (r *MySQLAccountRepository) initAuxiliaryTables() {
 			cashType TINYINT UNSIGNED NOT NULL DEFAULT 0,
 			cash INT NOT NULL,
 			reference VARCHAR(50) NOT NULL DEFAULT '',
-			validDate DATETIME DEFAULT NULL,
+			vaildDate DATETIME DEFAULT NULL,
 			issueDate DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
 			PRIMARY KEY (rowNo),
 			KEY idx_tcashlog_userno (userNo)
@@ -69,25 +70,27 @@ func (r *MySQLAccountRepository) initAuxiliaryTables() {
 			userNo INT NOT NULL,
 			charNo INT NOT NULL DEFAULT 0,
 			class TINYINT UNSIGNED NOT NULL DEFAULT 0,
-			level TINYINT UNSIGNED NOT NULL DEFAULT 1,
+			level SMALLINT UNSIGNED NOT NULL DEFAULT 1,
 			experience BIGINT NOT NULL DEFAULT 0,
 			playTime SMALLINT NOT NULL DEFAULT 0,
 			PRIMARY KEY (rowNo),
-			KEY idx_tlogout_userno (userNo)
+			KEY idx_tlogout_user_date (userNo, logDate DESC)
 		) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;`,
 
 		`CREATE TABLE IF NOT EXISTS tReport (
 			nRegNumber INT NOT NULL AUTO_INCREMENT,
-			sReportType VARCHAR(16) NOT NULL DEFAULT '',
-			nReporter INT NOT NULL,
-			sReporterCharID VARCHAR(16) NOT NULL DEFAULT '',
-			sHarmer VARCHAR(16) NOT NULL DEFAULT '',
+			sReportType VARCHAR(20) NOT NULL DEFAULT '',
+			nReporter INT NOT NULL DEFAULT 0,
+			sReporterCharID VARCHAR(20) NOT NULL DEFAULT '',
+			sHarmer VARCHAR(20) NOT NULL DEFAULT '',
 			nWorldNo TINYINT UNSIGNED NOT NULL DEFAULT 0,
-			sReason VARCHAR(512) NOT NULL DEFAULT '',
-			sChatLog TEXT,
+			sReason TEXT,
+			sChatLog MEDIUMTEXT,
 			nResult TINYINT UNSIGNED NOT NULL DEFAULT 0,
-			sRemark VARCHAR(512) NOT NULL DEFAULT '',
+			sRemark TEXT,
 			dReportDate DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+			dDealDate DATETIME DEFAULT NULL,
+			sOperID VARCHAR(20) DEFAULT NULL,
 			PRIMARY KEY (nRegNumber),
 			KEY idx_treport_reporter (nReporter, nWorldNo, dReportDate),
 			KEY idx_treport_harmer (sHarmer, dReportDate)
@@ -116,14 +119,14 @@ func (r *MySQLAccountRepository) initAuxiliaryTables() {
 		`CREATE TABLE IF NOT EXISTS tChargeItem (
 			rowNo INT NOT NULL AUTO_INCREMENT,
 			userNo INT NOT NULL,
-			orderNo INT NOT NULL DEFAULT 0,
-			goodsNo INT NOT NULL,
+			orderNo BIGINT NOT NULL DEFAULT 0,
+			goodsNo INT NOT NULL DEFAULT 0,
 			amount INT NOT NULL DEFAULT 1,
 			registerDate DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
 			isDraw TINYINT UNSIGNED NOT NULL DEFAULT 0,
 			drawDate DATETIME DEFAULT NULL,
 			PRIMARY KEY (rowNo),
-			KEY idx_tchargeitem_userno_draw (userNo, isDraw)
+			KEY idx_tchargeitem_user (userNo, isDraw)
 		) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;`,
 	}
 
@@ -138,7 +141,7 @@ func (r *MySQLAccountRepository) GetAccountByUsername(username string) (*Account
 	query := `
 		SELECT 
 			u.nUserNo, u.sUserID, u.sUserPW, u.sUserName, 
-			u.bIsBlock, u.bIsLoginAble, u.bIsDelete, u.nAuthID, 
+			u.bIsBlock, u.bIsDelete, u.nAuthID, 
 			u.sUserIP, u.dDate,
 			COALESCE(a.bIsLoginAble, 1) as authLoginAble
 		FROM tUser u
@@ -153,7 +156,6 @@ func (r *MySQLAccountRepository) GetAccountByUsername(username string) (*Account
 		userPW        string
 		userName      string
 		isBlock       int
-		isLoginAble   int
 		isDelete      int
 		authID        byte
 		userIP        string
@@ -163,7 +165,7 @@ func (r *MySQLAccountRepository) GetAccountByUsername(username string) (*Account
 
 	err := r.db.QueryRow(query, username).Scan(
 		&userNo, &userID, &userPW, &userName,
-		&isBlock, &isLoginAble, &isDelete, &authID,
+		&isBlock, &isDelete, &authID,
 		&userIP, &dDate, &authLoginAble,
 	)
 
@@ -193,7 +195,7 @@ func (r *MySQLAccountRepository) GetAccountByUsername(username string) (*Account
 		Username: userID,
 		Password: userPW,
 		Admin:    authID,
-		Banned:   isBlock != 0 || isDelete != 0 || isLoginAble == 0 || authLoginAble == 0,
+		Banned:   isBlock != 0 || isDelete != 0 || authLoginAble == 0,
 		TUser: TUser{
 			UserNo:     userNo,
 			UserID:     userID,
@@ -221,8 +223,8 @@ func (r *MySQLAccountRepository) CreateAccount(username, password string) (*Acco
 	}
 
 	query := `
-		INSERT INTO tUser (sUserID, sUserPW, sUserName, bIsBlock, bIsLoginAble, bIsDelete, nAuthID, sUserIP, dDate)
-		VALUES (?, ?, ?, 0, 1, 0, 1, '', NOW());
+		INSERT INTO tUser (sUserID, sUserPW, sUserName, bIsBlock, bIsDelete, nAuthID, sUserIP, dDate)
+		VALUES (?, ?, ?, 0, 0, 1, '', NOW());
 	`
 
 	res, err := r.db.Exec(query, username, pwHash, username)
