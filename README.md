@@ -12,7 +12,7 @@ Diseñado desde cero para resolver el problema de consumo masivo de memoria de l
 * **Criptografía Nativa:** Implementación exacta de la tabla XOR rolling de 499 bytes (`NetCrypto`).
 * **Protocolo Verificado:** Opcodes y estructuras de paquetes alineadas con la versión **NA2016** (TeamNG).
 * **Multiplataforma Real:** Corre nativamente en macOS (Apple Silicon M1/M2/M3/M4 e Intel), servidores Linux (Ubuntu/Debian) y Windows.
-* **Persistencia Flexible:** Incluye un repositorio en memoria (`MemoryAccountRepository`) para arrancar de inmediato sin configurar bases de datos, con soporte para MySQL/MariaDB.
+* **Persistencia Oficial 100% MySQL:** Repositorios de alta fidelidad que operan directamente contra los Stored Procedures oficiales en la base de datos `xelion_online`.
 
 ---
 

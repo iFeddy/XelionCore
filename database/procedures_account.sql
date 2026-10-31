@@ -1938,12 +1938,12 @@ DELIMITER ;
 DROP PROCEDURE IF EXISTS `usp_User_getUser`;
 DELIMITER $$
 CREATE PROCEDURE `usp_User_getUser`(
-    IN in_userNo INT
+    IN in_user VARCHAR(60) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci
 )
 BEGIN
     SELECT nUserNo, sUserID, sUserPW, sUserName, bIsBlock, bIsDelete, nAuthID, sUserIP, dDate
     FROM tUser
-    WHERE nUserNo = in_userNo
+    WHERE sUserID = in_user OR CAST(nUserNo AS CHAR) = in_user
     LIMIT 1;
 END$$
 DELIMITER ;
@@ -1959,7 +1959,7 @@ CREATE PROCEDURE `usp_User_insert`(
     IN in_nAffiliateID VARCHAR(50),
     IN in_szAffiliateSubID VARCHAR(50),
     IN in_szCountryCode VARCHAR(50),
-    IN in_userName VARCHAR(10),
+    IN in_userName VARCHAR(60),
     IN in_userIP VARCHAR(30),
     IN in_eMail VARCHAR(70),
     IN in_juminNo VARCHAR(20),
@@ -1977,9 +1977,9 @@ BEGIN
     SET out_userNo = 0;
 
     IF CHAR_LENGTH(in_userID) < 5 OR CHAR_LENGTH(in_userID) > 20 THEN
-        SELECT -2 AS nRet;
+        SELECT -2 AS nRet, 0 AS userNo;
     ELSEIF EXISTS(SELECT 1 FROM tUser WHERE sUserID = in_userID AND bIsDelete = 0) THEN
-        SELECT -2 AS nRet;
+        SELECT -2 AS nRet, 0 AS userNo;
     ELSE
         START TRANSACTION;
 
@@ -2058,7 +2058,7 @@ DELIMITER $$
 CREATE PROCEDURE `usp_User_insert_Old`(
     IN in_userID VARCHAR(60),
     IN in_userPW VARCHAR(32),
-    IN in_userName VARCHAR(10),
+    IN in_userName VARCHAR(60),
     IN in_userIP VARCHAR(30),
     IN in_eMail VARCHAR(70),
     IN in_juminNo VARCHAR(20),
@@ -2191,7 +2191,7 @@ DELIMITER ;
 DROP PROCEDURE IF EXISTS `usp_User_search`;
 DELIMITER $$
 CREATE PROCEDURE `usp_User_search`(
-    IN in_userName VARCHAR(10),
+    IN in_userName VARCHAR(60),
     IN in_juminNo VARCHAR(20)
 )
 BEGIN

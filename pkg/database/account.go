@@ -108,6 +108,39 @@ func PackShineDateTime(t time.Time) uint32 {
 	return year | (month << 8) | (day << 13) | (hour << 19) | (minute << 25)
 }
 
+// BlockInfo representa el estado detallado de bloqueo de un usuario (usp_User_chkBlock).
+type BlockInfo struct {
+	UserNo    int       `json:"nUserNo"`
+	IsBlock   int       `json:"bIsBlock"`
+	Reason    string    `json:"sReason"`
+	BlockDate time.Time `json:"dBlockDate"`
+}
+
+// TutorialInfo representa el estado de tutorial de un personaje (usp_Tutorial_getCharInfo).
+type TutorialInfo struct {
+	UserNo int `json:"nUserNo"`
+	Step   int `json:"nStep"`
+}
+
+// ItemSell representa un ítem disponible para compra en tienda (usp_Item_getSellItem / VT_ITEM_SELL).
+type ItemSell struct {
+	ItemNo   int    `json:"itemNo"`
+	ItemName string `json:"itemName"`
+	Price    int    `json:"price"`
+}
+
+// WorldServerInfo representa un servidor de mundo registrado en tWorldServer.
+type WorldServerInfo struct {
+	WorldNo       uint8  `json:"worldNo"`
+	WorldName     string `json:"worldName"`
+	WorldIP       string `json:"worldIP"`
+	WorldPort     uint16 `json:"worldPort"`
+	WorldStatus   uint8  `json:"worldStatus"`
+	CurrentCCU    int    `json:"currentCCU"`
+	MaxUser       int    `json:"maxUser"`
+	IsMaintenance bool   `json:"isMaintenance"`
+}
+
 // Sync ensures bidirectional alignment between flat fields and TUser record.
 func (a *Account) Sync() {
 	if a.TUser.UserNo == 0 && a.ID != 0 {
@@ -116,7 +149,7 @@ func (a *Account) Sync() {
 		a.TUser.UserPW = a.Password
 		a.TUser.UserName = a.Username
 		if a.Admin > 0 {
-			a.TUser.AuthID = 100
+			a.TUser.AuthID = a.Admin
 		} else {
 			a.TUser.AuthID = 1
 		}
@@ -132,11 +165,7 @@ func (a *Account) Sync() {
 		a.ID = a.TUser.UserNo
 		a.Username = a.TUser.UserID
 		a.Password = a.TUser.UserPW
-		if a.TUser.AuthID >= 100 {
-			a.Admin = 2
-		} else {
-			a.Admin = 0
-		}
+		a.Admin = a.TUser.AuthID
 		a.Banned = (a.TUser.IsBlock != 0)
 	}
 }

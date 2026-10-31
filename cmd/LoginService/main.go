@@ -36,9 +36,7 @@ func main() {
 
 	log.Printf("[LoginService] Binding on %s:%d (Client Version: %s)", cfg.LoginHost, cfg.LoginPort, cfg.ClientVersion)
 
-	dsn := fmt.Sprintf("%s:%s@tcp(%s:%d)/%s?parseTime=true",
-		cfg.DBUser, cfg.DBPassword, cfg.DBHost, cfg.DBPort, cfg.DBName)
-	db, err := sql.Open("mysql", dsn)
+	db, err := sql.Open("mysql", cfg.DSN())
 	if err != nil {
 		log.Fatalf("[LoginService] Failed to open MySQL: %v", err)
 	}

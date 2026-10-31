@@ -148,3 +148,10 @@ func Load(envPath ...string) (*Config, error) {
 
 	return cfg, nil
 }
+
+// DSN genera la cadena de conexión canónica a MySQL garantizando soporte de
+// parseTime, multiStatements y charset utf8mb4 requeridos por los Stored Procedures.
+func (c *Config) DSN() string {
+	return fmt.Sprintf("%s:%s@tcp(%s:%d)/%s?parseTime=true&multiStatements=true&charset=utf8mb4",
+		c.DBUser, c.DBPassword, c.DBHost, c.DBPort, c.DBName)
+}

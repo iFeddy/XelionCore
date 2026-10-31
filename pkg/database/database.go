@@ -1,147 +1,91 @@
 package database
 
 import (
-	"encoding/json"
 	"errors"
-	"os"
-	"path/filepath"
-	"strings"
-	"sync"
 )
 
 var (
 	ErrAccountNotFound = errors.New("account not found")
 	ErrAccountExists   = errors.New("account already exists")
+	ErrInvalidPassword = errors.New("invalid password")
+	ErrAccountBlocked  = errors.New("account blocked")
 )
 
-// AccountRepository defines operations for user authentication.
+// AccountRepository define las operaciones oficiales de autenticación, perfil y ciclo de vida de cuentas.
 type AccountRepository interface {
+	// Autenticación oficial multirregión
+	LoginGameUS(userID, userPW, ip string) (*Account, error)
+	LoginGame(userID, userPW, ip string) (*Account, error)
+	LoginNetmarble(uniID, userID string) (*Account, error)
+	CheckBlock(userNo int) (*BlockInfo, error)
+
+	// Gestión de cuenta y credenciales
 	GetAccountByUsername(username string) (*Account, error)
 	CreateAccount(username, password string) (*Account, error)
+	UpdatePassword(userNo int, newPassword string) error
+	DeleteAccount(userNo int) error
+	SetDrawComment(userNo int, comment string) error
+	SetChannelLog(userNo int, channelID int) error
+
+	// Auditoría y seguridad
+	IsIPBlocked(userNo int, ip string) (bool, error)
+	LogAccount(userID string, logType uint8, userNo int, playMin uint16, userPW string, worldNo uint8, errorCode uint16, ip string) error
+
+	// Extensiones y subsistemas de cuenta
+	CheckPcbangIP(ip string) (bool, error)
+	GetWebKey(userNo int) (string, error)
+	GetPlayRemainTime(userNo int) (int, error)
+	SetPlayRemainTime(userNo int, remainSec int) error
+	GetUserDateDiffCreated(userNo int) (int64, error)
+	GetReturnUserDateDiffLastLog(userNo int) (int64, error)
+	SetReturnUserItem(userNo int, itemNo int) error
+	GetTutorialIsSkip(userNo int) (bool, error)
+	GetTutorialCharInfo(userNo int) (int, error)
+	SetTutorialCharInfo(userNo int, step int) error
 }
 
-type accountStore struct {
-	NextID   int        `json:"next_id"`
-	Accounts []*Account `json:"accounts"`
+// AccountShopRepository define las operaciones de Cash, ItemShop y cupones.
+type AccountShopRepository interface {
+	GetCash(userNo int, cashType uint8) (int, error)
+	AddCash(userNo int, cashType uint8, cash int, reference string) error
+	UseCash(userNo int, cashType uint8, cash int, reference string) error
+	AddCashEventL20(userNo int, cash int) error
+	SetSerialKey(userNo int, serialKey int64) error
+	GetChargedItems(userNo int) ([]*ChargedItem, error)
+	InsertChargedItem(item *ChargedItem) (int64, error)
+	DrawChargedItem(orderNo int64) error
+	DeleteChargedItem(orderNo int64) error
+	GetItemSell(itemNo int) (*ItemSell, error)
 }
 
-// MemoryAccountRepository is a thread-safe store with JSON persistence for standalone and multi-process runs.
-type MemoryAccountRepository struct {
-	mu       sync.RWMutex
-	filePath string
-	accounts map[string]*Account
-	nextID   int
+// AccountLogRepository define las operaciones de auditoría, logs de sesión, reportes y telemetría.
+type AccountLogRepository interface {
+	IsIPBlocked(userNo int, ip string) (bool, error)
+	LogAccount(userID string, logType uint8, userNo int, playMin uint16, userPW string, worldNo uint8, errorCode uint16, ip string) error
+	LogLogout(worldNo uint8, userNo, charNo int, classVal, level uint8, exp int64, playTime int16) error
+	GetDateDiffLastLogout(userNo int) (int64, error)
+	AddReport(report *Report) (int, error)
+	GetReports(reporterUserNo int, worldNo uint8) ([]*ReportSummary, error)
+	DeleteReport(regNumber int) (int16, error)
+	AddSameTimeChar(worldNo uint8, count int) (int, error)
+	AddSameTimeCharClass(worldNo uint8, classVal uint8, level uint16, count int) error
+	EventL20Get(userNo int) (int, error)
+	EventL20Set(userNo int, charNo int, worldNo uint8, eventNo uint8, eventPoint int) error
+	EventiPadSetTicket(userNo int) error
+	AddHackScanLog(userNo int, worldNo uint8, charNo int, ip, charID, desc string) error
+	AddSyslog(serverID uint8, logType uint8, desc string, ip string) error
 }
 
-// NewMemoryAccountRepository creates an account repository with JSON persistence at data/accounts.json.
-func NewMemoryAccountRepository() *MemoryAccountRepository {
-	filePath := filepath.Join("data", "accounts.json")
-	repo := &MemoryAccountRepository{
-		filePath: filePath,
-		accounts: make(map[string]*Account),
-		nextID:   1,
-	}
-
-	repo.load()
-
-	// Ensure default admin account exists
-	if _, exists := repo.accounts["admin"]; !exists {
-		adminAcc := &Account{
-			ID:       1,
-			Username: "admin",
-			Password: "admin",
-			Admin:    2,
-			Banned:   false,
-		}
-		adminAcc.Sync()
-		repo.accounts["admin"] = adminAcc
-		if repo.nextID <= 1 {
-			repo.nextID = 2
-		}
-		repo.save()
-	}
-
-	return repo
-}
-
-func (r *MemoryAccountRepository) load() {
-	if r.filePath == "" {
-		return
-	}
-	data, err := os.ReadFile(r.filePath)
-	if err != nil {
-		return
-	}
-	var store accountStore
-	if err := json.Unmarshal(data, &store); err == nil {
-		if store.NextID > 0 {
-			r.nextID = store.NextID
-		}
-		for _, acc := range store.Accounts {
-			acc.Sync()
-			r.accounts[strings.ToLower(acc.Username)] = acc
-			if acc.ID >= r.nextID {
-				r.nextID = acc.ID + 1
-			}
-		}
-	}
-}
-
-func (r *MemoryAccountRepository) save() {
-	if r.filePath == "" {
-		return
-	}
-	_ = os.MkdirAll(filepath.Dir(r.filePath), 0755)
-	var list []*Account
-	for _, acc := range r.accounts {
-		acc.Sync()
-		list = append(list, acc)
-	}
-	store := accountStore{
-		NextID:   r.nextID,
-		Accounts: list,
-	}
-	data, err := json.MarshalIndent(store, "", "  ")
-	if err == nil {
-		_ = os.WriteFile(r.filePath, data, 0644)
-	}
-}
-
-func (r *MemoryAccountRepository) GetAccountByUsername(username string) (*Account, error) {
-	r.mu.Lock()
-	defer r.mu.Unlock()
-	r.load()
-
-	acc, exists := r.accounts[strings.ToLower(username)]
-	if !exists {
-		return nil, ErrAccountNotFound
-	}
-	copyAcc := *acc
-	return &copyAcc, nil
-}
-
-func (r *MemoryAccountRepository) CreateAccount(username, password string) (*Account, error) {
-	r.mu.Lock()
-	defer r.mu.Unlock()
-	r.load()
-
-	key := strings.ToLower(username)
-	if _, exists := r.accounts[key]; exists {
-		return nil, ErrAccountExists
-	}
-
-	acc := &Account{
-		ID:       r.nextID,
-		Username: username,
-		Password: password,
-		Admin:    0,
-		Banned:   false,
-	}
-	acc.Sync()
-	r.nextID++
-	r.accounts[key] = acc
-	r.save()
-
-	copyAcc := *acc
-	return &copyAcc, nil
+// LoginSessionRepository define las operaciones de tokens de mundo, versión, OTP y topología de mundos.
+type LoginSessionRepository interface {
+	GetClientVersionKey() (string, error)
+	GetWorldServerList() ([]*WorldServerInfo, error)
+	GetWorldServerByNo(worldNo uint8) (*WorldServerInfo, error)
+	UpdateWorldServerCCU(worldNo uint8, ccu int) error
+	RegisterLoginSession(userNo int, userID, ip string) (bool, error)
+	IssueWorldToken(userNo int, worldNo uint8, token [64]byte) error
+	ConsumeWorldToken(worldNo uint8, token [64]byte, ip string) (int, string, error)
+	CreateOTP(userNo int, otp [32]byte) error
+	ConsumeOTP(otp [32]byte, ip string) (int, string, error)
+	CloseSessionAndGetPlayMin(userNo int) (uint16, error)
 }

@@ -34,9 +34,7 @@ func main() {
 		log.Printf("[Zone] Warning loading config: %v, using defaults", err)
 	}
 
-	dsn := fmt.Sprintf("%s:%s@tcp(%s:%d)/%s?parseTime=true",
-		cfg.DBUser, cfg.DBPassword, cfg.DBHost, cfg.DBPort, cfg.DBName)
-	db, err := sql.Open("mysql", dsn)
+	db, err := sql.Open("mysql", cfg.DSN())
 	if err != nil {
 		log.Fatalf("[Zone] Failed to open MySQL: %v", err)
 	}

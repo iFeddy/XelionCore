@@ -158,11 +158,11 @@ func (h *Handler) handle_PROTO_NC_USER_US_LOGIN_REQ(client *network.Client, pkt 
 	}
 
 	// 1. Verificar si la IP está en el firewall tIPBlock
-	if mysqlRepo, ok := h.repo.(*database.MySQLAccountRepository); ok {
-		blocked, err := mysqlRepo.IsIPBlocked(clientIP)
+	if h.repo != nil {
+		blocked, err := h.repo.IsIPBlocked(0, clientIP)
 		if err == nil && blocked {
 			log.Printf("[%s] IP bloqueada por tIPBlock: %s", client.RemoteAddr(), clientIP)
-			_ = mysqlRepo.LogAccount(username, 2, 0, 0, uint16(protocol.ErrBlocked), clientIP)
+			_ = h.repo.LogAccount(username, 3, 0, 0, "", 0, uint16(protocol.ErrBlocked), clientIP)
 			h.send_PROTO_NC_USER_LOGINFAIL_ACK(client, protocol.ErrBlocked)
 			return
 		}
@@ -173,8 +173,8 @@ func (h *Handler) handle_PROTO_NC_USER_US_LOGIN_REQ(client *network.Client, pkt 
 	if err != nil {
 		if errors.Is(err, database.ErrAccountNotFound) {
 			log.Printf("[%s] Usuario '%s' no encontrado", client.RemoteAddr(), username)
-			if mysqlRepo, ok := h.repo.(*database.MySQLAccountRepository); ok {
-				_ = mysqlRepo.LogAccount(username, 2, 0, 0, uint16(protocol.ErrInvalidCredentials), clientIP)
+			if h.repo != nil {
+				_ = h.repo.LogAccount(username, 3, 0, 0, "", 0, uint16(protocol.ErrInvalidCredentials), clientIP)
 			}
 			h.send_PROTO_NC_USER_LOGINFAIL_ACK(client, protocol.ErrInvalidCredentials)
 			return
@@ -199,8 +199,8 @@ func (h *Handler) handle_PROTO_NC_USER_US_LOGIN_REQ(client *network.Client, pkt 
 
 		if clientPassHash != accPassHash {
 			log.Printf("[%s] Contraseña incorrecta para usuario '%s'", client.RemoteAddr(), username)
-			if mysqlRepo, ok := h.repo.(*database.MySQLAccountRepository); ok {
-				_ = mysqlRepo.LogAccount(username, 2, acc.ID, 0, uint16(protocol.ErrInvalidCredentials), clientIP)
+			if h.repo != nil {
+				_ = h.repo.LogAccount(username, 3, acc.ID, 0, password, 0, uint16(protocol.ErrInvalidCredentials), clientIP)
 			}
 			h.send_PROTO_NC_USER_LOGINFAIL_ACK(client, protocol.ErrInvalidCredentials)
 			return
@@ -210,28 +210,27 @@ func (h *Handler) handle_PROTO_NC_USER_US_LOGIN_REQ(client *network.Client, pkt 
 	// 4. Validar estado de la cuenta (bloqueada, eliminada o sin permisos)
 	if acc.Banned {
 		log.Printf("[%s] Cuenta '%s' bloqueada o inhabilitada", client.RemoteAddr(), username)
-		if mysqlRepo, ok := h.repo.(*database.MySQLAccountRepository); ok {
-			_ = mysqlRepo.LogAccount(username, 2, acc.ID, 0, uint16(protocol.ErrBlocked), clientIP)
+		if h.repo != nil {
+			_ = h.repo.LogAccount(username, 3, acc.ID, 0, "", 0, uint16(protocol.ErrBlocked), clientIP)
 		}
 		h.send_PROTO_NC_USER_LOGINFAIL_ACK(client, protocol.ErrBlocked)
 		return
 	}
 
-	// 5. Autenticación exitosa: registrar auditoría y actualizar sesión en tUser
-	if mysqlRepo, ok := h.repo.(*database.MySQLAccountRepository); ok {
-		_ = mysqlRepo.UpdateLoginSession(acc.ID, clientIP)
-		_ = mysqlRepo.LogAccount(username, 1, acc.ID, 0, 0, clientIP)
+	// 5. Autenticación exitosa: registrar auditoría e ingreso en tAccountLog
+	if h.repo != nil {
+		_ = h.repo.LogAccount(username, 1, acc.ID, 0, "", 0, 0, clientIP)
 
 		// 5a. Detección y premio para jugador retornante (usp_ReturnUser_GetDatediffLastlog & usp_ReturnUser_SetUserItem)
-		diffLastLog, err := mysqlRepo.GetReturnUserDateDiffLastLog(acc.ID)
+		diffLastLog, err := h.repo.GetReturnUserDateDiffLastLog(acc.ID)
 		if err == nil {
 			// Si nunca ha recibido el pack (-1) o pasaron más de 30 días (2592000 seg) desde el último retorno
 			if diffLastLog == -1 || diffLastLog >= 30*24*3600 {
-				diffCreated, errCreated := mysqlRepo.GetUserDateDiffCreated(acc.ID)
+				diffCreated, errCreated := h.repo.GetUserDateDiffCreated(acc.ID)
 				if errCreated == nil && diffCreated >= 30*24*3600 {
 					log.Printf("[%s] Jugador retornante '%s' elegible (Inactivo %d s). Asignando paquete de bienvenida.",
 						client.RemoteAddr(), username, diffLastLog)
-					_ = mysqlRepo.SetReturnUserItem(acc.ID, 30001)
+					_ = h.repo.SetReturnUserItem(acc.ID, 30001)
 				}
 			}
 		}

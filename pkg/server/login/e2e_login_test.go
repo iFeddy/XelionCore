@@ -75,9 +75,7 @@ func TestE2ELoginServiceFlow(t *testing.T) {
 		t.Fatalf("Failed to load config: %v", err)
 	}
 
-	dsn := fmt.Sprintf("%s:%s@tcp(%s:%d)/%s?parseTime=true",
-		cfg.DBUser, cfg.DBPassword, cfg.DBHost, cfg.DBPort, cfg.DBName)
-	db, err := sql.Open("mysql", dsn)
+	db, err := sql.Open("mysql", cfg.DSN())
 	if err != nil {
 		t.Fatalf("Failed to open MySQL: %v", err)
 	}
@@ -251,13 +249,24 @@ func TestE2ELoginServiceFlow(t *testing.T) {
 }
 
 func TestLoginService_HeartbeatAndLogout(t *testing.T) {
+	appCfg, err := config.Load("../../../.env")
+	if err != nil {
+		t.Fatalf("Failed to load config: %v", err)
+	}
+
+	db, err := sql.Open("mysql", appCfg.DSN())
+	if err != nil {
+		t.Fatalf("Failed to open MySQL: %v", err)
+	}
+	defer db.Close()
+
 	testPort := 19011
 	cfg := &login.Config{
 		BindAddr: fmt.Sprintf("127.0.0.1:%d", testPort),
 		Port:     testPort,
 	}
 
-	repo := database.NewMemoryAccountRepository()
+	repo := database.NewMySQLAccountRepository(db)
 	wm := login.NewWorldManager()
 	transfers := database.NewTransferManager(nil)
 

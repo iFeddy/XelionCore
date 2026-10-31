@@ -5,7 +5,6 @@ import (
 	"database/sql"
 	"encoding/hex"
 	"errors"
-	"fmt"
 	"testing"
 
 	_ "github.com/go-sql-driver/mysql"
@@ -19,10 +18,7 @@ func setupTestDB(t *testing.T) (*sql.DB, *database.MySQLAccountRepository) {
 		t.Fatalf("Failed to load config: %v", err)
 	}
 
-	dsn := fmt.Sprintf("%s:%s@tcp(%s:%d)/%s?parseTime=true",
-		cfg.DBUser, cfg.DBPassword, cfg.DBHost, cfg.DBPort, cfg.DBName)
-
-	db, err := sql.Open("mysql", dsn)
+	db, err := sql.Open("mysql", cfg.DSN())
 	if err != nil {
 		t.Fatalf("Failed to connect to MySQL: %v", err)
 	}
@@ -91,7 +87,7 @@ func TestMySQLAccountRepository_LogAccountAndIPBlock(t *testing.T) {
 	defer db.Close()
 
 	// 1. Test LogAccount
-	err := repo.LogAccount("admin", 1, 1, 0, 0, "127.0.0.1")
+	err := repo.LogAccount("admin", 1, 1, 0, "", 0, 0, "127.0.0.1")
 	if err != nil {
 		t.Fatalf("Failed to log account: %v", err)
 	}
@@ -103,7 +99,7 @@ func TestMySQLAccountRepository_LogAccountAndIPBlock(t *testing.T) {
 	}
 
 	// 2. Test IsIPBlocked
-	blocked, err := repo.IsIPBlocked("192.168.1.100")
+	blocked, err := repo.IsIPBlocked(1, "192.168.1.100")
 	if err != nil {
 		t.Fatalf("Failed to check IP block: %v", err)
 	}
@@ -113,7 +109,7 @@ func TestMySQLAccountRepository_LogAccountAndIPBlock(t *testing.T) {
 
 	// Insertar IP temporalmente para validar
 	_, _ = db.Exec("INSERT INTO tIPBlock (sIPStart, sIPEnd, sDesc, dDate) VALUES ('10.0.0.1', '10.0.0.255', 'Test Block', NOW())")
-	blocked, err = repo.IsIPBlocked("10.0.0.50")
+	blocked, err = repo.IsIPBlocked(0, "10.0.0.50")
 	if err != nil || !blocked {
 		t.Errorf("Expected 10.0.0.50 to be blocked, got blocked=%v, err=%v", blocked, err)
 	}

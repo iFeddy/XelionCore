@@ -9,7 +9,13 @@
         "nSlot": 0,
         "nClass": 1,
         "nLevel": 5,
-        "bIsDelete": 0
+        "bIsDelete": 0,
+        "nStrength": 0,
+        "nConstitute": 0,
+        "nDexterity": 0,
+        "nIntelligence": 0,
+        "nMentalPower": 0,
+        "nRedistributePoint": 0
       },
       "t_character_shape": {
         "nCharNo": 1,
