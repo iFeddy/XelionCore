@@ -10,6 +10,7 @@
 
 ```text
 /goal Ejecutá únicamente la FASE 05 (`docs/plan/FASE_05_CHARACTER_SERVICE_SELECCION_CREACION_BORRADO.md`) leyendo como especificación obligatoria las Secciones 4 y 5 de `docs/plan/PLAN_ACCION_WORLDSERVICE_CHARACTER.md` y `docs/Servicios/Character.md`.
+Regla Mandatoria: CERO datos hardcodeados y CERO tablas inventadas. Los stats base y equipamiento inicial se leen obligatoriamente de los JSON de `data/World/ClassParam/<Class>.json` y `data/World/Map/`, mientras que los stats modificados/redistribuidos, slots, niveles e inventario provienen 100% de los Stored Procedures oficiales contra MySQL (`tCharacter`, `tCharacterShape`, `tItem`, etc.).
 Implementá en `pkg/server/world/` el 100% de la lógica oficial de gestión de avatares: listado de personajes (PROTO_NC_CHAR_CHARDATA_REQ/ACK), creación atómica con validación de nombre y equipamiento base desde data/ (PROTO_NC_CHAR_CREATE_REQ/ACK), borrado oficial con soft-delete (PROTO_NC_CHAR_DELETE_REQ/ACK) y selección de avatar (PROTO_NC_CHAR_LOGIN_REQ/ACK) emitiendo el token hacia ZoneServer. Creá `pkg/audit/fase05_world_character_dispatcher_test.go` (Control 5) y pruebas E2E en `pkg/server/world/character_e2e_test.go`.
 No avances a la Fase 06. Al terminar, actualizá el estado de la Fase 5 a "Completado" en `docs/plan/README.md` y hacé un git commit limpio en main.
 ```

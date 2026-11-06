@@ -10,7 +10,8 @@
 
 ```text
 /goal Ejecutá únicamente la FASE 01 (`docs/plan/FASE_01_ESQUEMA_DB_WORLD_CHARACTER.md`) leyendo como especificación obligatoria las Secciones 0, 1 y 2 completas de `docs/plan/PLAN_ACCION_WORLDSERVICE_CHARACTER.md`, `docs/TablasLegacy.md` y respetando `AGENTS.md`.
-Garantizá que las 61 tablas de World00_Character queden 100% creadas en xelion_online con sus tipos exactos y PKs oficiales, agregá las semillas de DefaultCharacterData.txt y TutorialCharacterData.txt en database/seed_character_defaults.sql, aplicá en Podman lerd-mysql, creá pkg/audit/fase01_world_character_schema_test.go y verificá que compile y pase el Control 1 al 100%.
+Regla Mandatoria: CERO datos hardcodeados y CERO tablas inventadas. Toda la información estática del juego proviene de los JSON y SHN de `data/`, y la persistencia relacional se limita estrictamente a las 61 tablas oficiales de `World00_Character` en `xelion_online`.
+Garantizá que las 61 tablas oficiales queden 100% creadas en xelion_online con sus tipos exactos y PKs oficiales, agregá las semillas de DefaultCharacterData.txt y TutorialCharacterData.txt en database/seed_character_defaults.sql, aplicá en Podman lerd-mysql, creá pkg/audit/fase01_world_character_schema_test.go y verificá que compile y pase el Control 1 al 100%.
 No avances a la Fase 02. Al terminar, actualizá el estado de la Fase 1 a "Completado" en `docs/plan/README.md` y hacé un git commit limpio en main.
 ```
 

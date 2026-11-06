@@ -10,6 +10,7 @@
 
 ```text
 /goal Ejecutá únicamente la FASE 06 (`docs/plan/FASE_06_WORLD_COORDINATION_TOPOLOGY_SUBSYSTEMS.md`) leyendo como especificación obligatoria las Secciones de Coordinación de `docs/plan/PLAN_ACCION_WORLDSERVICE_CHARACTER.md` y `docs/Servicios/WorldManager.md`.
+Regla Mandatoria: CERO datos hardcodeados y CERO SQL inline. Los gremios, academia, amigos, parties y filtros de chat persisten y consultan exclusivamente a través de los SPs oficiales en MySQL contra las tablas `tGuild*`, `tFriend*`, `tParty*` y `tSpam*`.
 Implementá en `pkg/server/world/` los subsistemas de coordinación global: chat y mensajería (susurros, canales, gritos, spam filter con tSpamBlockTime), administración de gremios y academia (PROTO_NC_GUILD_*), lista de amigos (PROTO_NC_FRIEND_*), grupos y party (PROTO_NC_PARTY_*), y sincronización de topología S2S con ZoneService. Creá `pkg/audit/fase06_world_social_coverage_test.go` (Control 6) y verificá que compile y pase al 100%.
 No avances a la Fase 07. Al terminar, actualizá el estado de la Fase 6 a "Completado" en `docs/plan/README.md` y hacé un git commit limpio en main.
 ```

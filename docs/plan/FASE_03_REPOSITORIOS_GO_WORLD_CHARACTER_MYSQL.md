@@ -10,6 +10,7 @@
 
 ```text
 /goal Ejecutá únicamente la FASE 03 (`docs/plan/FASE_03_REPOSITORIOS_GO_WORLD_CHARACTER_MYSQL.md`) leyendo como especificación obligatoria las Secciones 3 y 4 de `docs/plan/PLAN_ACCION_WORLDSERVICE_CHARACTER.md` y respetando `AGENTS.md`.
+Regla Mandatoria: CERO datos hardcodeados y CERO SQL inline. Los repositorios de Go interactúan con la base de datos exclusivamente mediante `CALL <StoredProcedure>` contra las 61 tablas oficiales en `xelion_online`. La parametrización estática proviene de `data/`.
 Eliminá el 100% del SQL inline (SELECT, INSERT, UPDATE, DELETE) en `pkg/database/mysql_character.go` y subsistemas asociados, reemplazándolo exclusivamente por llamadas `CALL <SP>` contra MySQL xelion_online. Definí interfaces fuertemente tipadas en `pkg/database/character.go`, adaptá todos los llamadores en el servidor de mundo, creá `pkg/audit/fase03_world_character_ast_test.go` (Control 3 AST) y verificá que compile y pase al 100%.
 No avances a la Fase 04. Al terminar, actualizá el estado de la Fase 3 a "Completado" en `docs/plan/README.md` y hacé un git commit limpio en main.
 ```

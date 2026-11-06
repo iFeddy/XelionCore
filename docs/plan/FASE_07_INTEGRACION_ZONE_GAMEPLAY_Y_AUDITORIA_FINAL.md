@@ -10,6 +10,7 @@
 
 ```text
 /goal Ejecutá únicamente la FASE 07 (`docs/plan/FASE_07_INTEGRACION_ZONE_GAMEPLAY_Y_AUDITORIA_FINAL.md`) leyendo como especificación obligatoria la Sección 5 y Controles de Auditoría de `docs/plan/PLAN_ACCION_WORLDSERVICE_CHARACTER.md`, `docs/Servicios/Zone.md` y `AGENTS.md`.
+Regla Mandatoria: CERO datos hardcodeados y CERO tablas inventadas. Toda la información estática del juego proviene exclusivamente de los JSON y SHN de `data/` (ClassParam, Map, Item, etc.), y toda la persistencia y datos de personajes provienen 100% de los Stored Procedures oficiales y tablas de MySQL.
 Completá la integración transversal WorldService -> ZoneService: traspaso de avatar autenticado mediante token, carga inicial de stats e inventario desde MySQL y data/, verificación de los 54 SHNs de Character y 71 SHNs de WorldManager. Creá `pkg/audit/world_character_completeness_test.go` (Control 7 E2E y Control 8 Cero Hardcode) y el script ejecutable `scripts/verify_world_character_100.sh`. No te detengas hasta que la suite completa pase al 100% (8 controles en [PASS] con Exit 0).
 Al terminar, actualizá el estado de la Fase 7 a "Completado" en `docs/plan/README.md` y hacé un git commit limpio en main.
 ```
