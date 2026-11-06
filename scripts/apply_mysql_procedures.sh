@@ -50,4 +50,8 @@ run_sql_file "$DIR/database/procedures_login_session.sql" "Stored Procedures de 
 # 6. Semillas Oficiales Idempotentes (FOUS, tUserAuth, tWorldServer, tAccountEventReward)
 run_sql_file "$DIR/database/seed_login_world.sql" "Semillas Oficiales (seed_login_world.sql)"
 
+# 7. Esquema Oficial World00_Character y Semillas de Personajes
+run_sql_file "$DIR/database/schema_character.sql" "Esquema World00_Character (schema_character.sql)"
+run_sql_file "$DIR/database/seed_character_defaults.sql" "Semillas de Personajes (seed_character_defaults.sql)"
+
 echo "=== Aplicación completada exitosamente. Total 143 Stored Procedures cargados. ==="

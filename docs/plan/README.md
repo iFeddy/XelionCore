@@ -23,7 +23,7 @@ Esta carpeta divide la ejecución del plan maestro [PLAN_ACCION_WORLDSERVICE_CHA
 
 | Orden | Archivo de Fase | Objetivo Principal | Nivel Recomendado | Control de Auditoría que Activa | Estado |
 | :---: | :--- | :--- | :---: | :--- | :---: |
-| **1** | [FASE_01_ESQUEMA_DB_WORLD_CHARACTER.md](./FASE_01_ESQUEMA_DB_WORLD_CHARACTER.md) | Creación y verificación de las **61 tablas** oficiales de `World00_Character` en MySQL y datos de inicialización | **`Medium`** | **Control 1** (`information_schema.TABLES/COLUMNS`) | Pendiente |
+| **1** | [FASE_01_ESQUEMA_DB_WORLD_CHARACTER.md](./FASE_01_ESQUEMA_DB_WORLD_CHARACTER.md) | Creación y verificación de las **61 tablas** oficiales de `World00_Character` en MySQL y datos de inicialización | **`Medium`** | **Control 1** (`information_schema.TABLES/COLUMNS`) | Completado |
 | **2** | [FASE_02_STORED_PROCEDURES_CHARACTER_PDB.md](./FASE_02_STORED_PROCEDURES_CHARACTER_PDB.md) | Implementación y validación de los **311 Stored Procedures** oficiales de `Character.exe` y `WorldManager.exe` | **`Medium`** *(o `High`)* | **Control 2** (`information_schema.ROUTINES` — 311 SPs) | Pendiente |
 | **3** | [FASE_03_REPOSITORIOS_GO_WORLD_CHARACTER_MYSQL.md](./FASE_03_REPOSITORIOS_GO_WORLD_CHARACTER_MYSQL.md) | Reemplazo total de SQL inline por `CALL` en `pkg/database/mysql_character.go` e interfaces tipadas | **`High`** | **Control 3** (Escaneo AST Go: cero SQL inline) | Pendiente |
 | **4** | [FASE_04_PROTOCOLO_OPCODES_STRUCTS_WORLD_CHARACTER.md](./FASE_04_PROTOCOLO_OPCODES_STRUCTS_WORLD_CHARACTER.md) | Definición estricta de OpCodes y estructuras C++ de los PDBs de `Character` y `WorldManager` | **`Medium`** | **Control 4** (Paridad OpCodes + `sizeof` al byte) | Pendiente |
