@@ -1,0 +1,38 @@
+#!/bin/bash
+# ==============================================================================
+# XelionCore - Script de Aplicación de los 311 Stored Procedures de World00_Character
+# ==============================================================================
+set -e
+
+DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+
+MYSQL_HOST="${MYSQL_HOST:-127.0.0.1}"
+MYSQL_PORT="${MYSQL_PORT:-3306}"
+MYSQL_USER="${MYSQL_USER:-root}"
+MYSQL_PASSWORD="${MYSQL_PASSWORD:-lerd}"
+MYSQL_DATABASE="${MYSQL_DATABASE:-xelion_online}"
+PODMAN_CONTAINER="${PODMAN_CONTAINER:-lerd-mysql}"
+
+run_sql_file() {
+    local file_path="$1"
+    local desc="$2"
+    echo "==> Aplicando $desc: $file_path"
+
+    if command -v mysql >/dev/null 2>&1; then
+        mysql -h "$MYSQL_HOST" -P "$MYSQL_PORT" -u "$MYSQL_USER" -p"$MYSQL_PASSWORD" "$MYSQL_DATABASE" < "$file_path"
+    elif command -v podman >/dev/null 2>&1 && podman ps --format "{{.Names}}" | grep -q "^${PODMAN_CONTAINER}$"; then
+        podman exec -i "$PODMAN_CONTAINER" mysql -u "$MYSQL_USER" -p"$MYSQL_PASSWORD" "$MYSQL_DATABASE" < "$file_path"
+    elif command -v docker >/dev/null 2>&1 && docker ps --format "{{.Names}}" | grep -q "^${PODMAN_CONTAINER}$"; then
+        docker exec -i "$PODMAN_CONTAINER" mysql -u "$MYSQL_USER" -p"$MYSQL_PASSWORD" "$MYSQL_DATABASE" < "$file_path"
+    else
+        echo "ERROR: No se encontró el cliente mysql local ni el contenedor $PODMAN_CONTAINER en podman/docker." >&2
+        exit 1
+    fi
+}
+
+echo "=== Aplicando los 311 Stored Procedures de World00_Character en '$MYSQL_DATABASE' ==="
+
+# Aplicar los 311 Stored Procedures oficiales
+run_sql_file "$DIR/database/procedures_character.sql" "Stored Procedures de World00_Character (311 SPs)"
+
+echo "=== 311 Stored Procedures de World00_Character aplicados exitosamente. ==="

@@ -1,47 +1,46 @@
-# Fase 03 — Repositorios Go 100% `CALL` Stored Procedures (Eliminación de SQL Inline)
+# Fase 03 — Refactorización 100% `CALL <SP>` en `pkg/database` (Cero SQL Inline y Cero Transferencias en Memoria)
 
 - **Nivel recomendado:** `High`
-- **Documento maestro de referencia obligatoria:** [PLAN_ACCION_WORLDSERVICE_CHARACTER.md](./PLAN_ACCION_WORLDSERVICE_CHARACTER.md) (**Sección 3 y 4**) y [`pkg/database/mysql_character.go`](../../pkg/database/mysql_character.go).
-- **Dependencias previas:** Fase 02 completada sobre `main` (311 Stored Procedures aplicados en `xelion_online`).
+- **Documento maestro de referencia obligatoria:** [PLAN_ACCION_WORLDSERVICE_CHARACTER.md](./PLAN_ACCION_WORLDSERVICE_CHARACTER.md) (**Secciones 0, 1-Bugs #6 y #7, 3.1, 3.2, 3.3, 3.4 y 9-Control 3**).
+- **Dependencias previas:** Fases 01, 02 y 02A completadas sobre `main` (`425` SPs pool-safe activos en `xelion_online`).
 
 ---
 
 ## Prompt Listo para Copiar y Pegar
 
 ```text
-/goal Ejecutá únicamente la FASE 03 (`docs/plan/FASE_03_REPOSITORIOS_GO_WORLD_CHARACTER_MYSQL.md`) leyendo como especificación obligatoria las Secciones 3 y 4 de `docs/plan/PLAN_ACCION_WORLDSERVICE_CHARACTER.md` y respetando `AGENTS.md`.
-Regla Mandatoria: CERO datos hardcodeados y CERO SQL inline. Los repositorios de Go interactúan con la base de datos exclusivamente mediante `CALL <StoredProcedure>` contra las 61 tablas oficiales en `xelion_online`. La parametrización estática proviene de `data/`.
-Eliminá el 100% del SQL inline (SELECT, INSERT, UPDATE, DELETE) en `pkg/database/mysql_character.go` y subsistemas asociados, reemplazándolo exclusivamente por llamadas `CALL <SP>` contra MySQL xelion_online. Definí interfaces fuertemente tipadas en `pkg/database/character.go`, adaptá todos los llamadores en el servidor de mundo, creá `pkg/audit/fase03_world_character_ast_test.go` (Control 3 AST) y verificá que compile y pase al 100%.
-No avances a la Fase 04. Al terminar, actualizá el estado de la Fase 3 a "Completado" en `docs/plan/README.md` y hacé un git commit limpio en main.
+/goal Ejecutá únicamente la FASE 03 (`docs/plan/FASE_03_REPOSITORIOS_GO_WORLD_CHARACTER_MYSQL.md`) leyendo obligatoriamente las Secciones 0, 1 (Bugs #6 y #7), 3.1, 3.2, 3.3, 3.4 y 9 (Control 3) de `docs/plan/PLAN_ACCION_WORLDSERVICE_CHARACTER.md` y respetando estrictamente `AGENTS.md`.
+Regla Mandatoria: CERO SQL inline (`SELECT`, `INSERT`, `UPDATE`, `DELETE`, `CREATE TABLE`), CERO nombres de SP inventados y CERO mapas de transferencia en memoria.
+Reemplazá los 50 métodos actuales con SQL inline de `pkg/database/mysql_character.go` por invocaciones atómicas `CALL <SP>(...)` usando exactamente los nombres reales de los 425 SPs en `xelion_online` (Sección 3.4), creá los repositorios modulares tipados para todos los dominios de `World00_Character` (`mysql_character_*.go`), migrando también `TransferManager` (`pkg/database/transfer.go`) para que `ZoneTransfer` y la topología de zonas operen 100% en MySQL vía `CALL usp_Session_IssueZoneTransfer` / `CALL usp_Session_ConsumeZoneTransfer` y `CALL usp_WorldZone_*`. Adaptá los llamadores actuales en `pkg/server/world/` y `pkg/server/zone/`, creá `pkg/audit/fase03_world_character_ast_test.go` (Control 3 AST completo) y dejá todo el workspace compilando y pasando tests al 100%. Al terminar, marcá Fase 03 como "Completado" en `docs/plan/README.md` y hacé `git commit` limpio en `main`. No avances a la Fase 04.
 ```
 
 ---
 
 ## Alcance Exacto (Cero Omisiones)
 
-1. **Definir Interfaces Oficiales en [`pkg/database/character.go`](../../pkg/database/character.go):**
-   - `CharacterRepository`: `GetCharactersByAccount`, `GetCharacterByID`, `GetCharacterLoginData`, `CreateCharacter`, `DeleteCharacter`, `CheckNameExists`, `SaveLogoutData`, `IncreaseStatPoint`.
-   - `ItemRepository`: `GetItemList`, `InsertItem`, `UpdateItemSlot`, `UpdateItemCount`, `DeleteItem`, `SaveItemOptions`.
-   - `SkillRepository`: `GetSkillList`, `InsertSkill`, `UpdateSkill`, `SaveSkillTree`.
-   - `GuildRepository`: `CreateGuild`, `GetGuildInfo`, `AddMember`, `RemoveMember`, `ChangeMemberGrade`, `AddAcademyMember`.
-   - `SocialRepository`: `GetFriendList`, `AddFriend`, `DeleteFriend`, `CreateParty`, `AddPartyMember`, `RemovePartyMember`.
+1. **Definir Interfaces Fuertemente Tipadas por Dominio en [`pkg/database/character.go`](../../pkg/database/character.go):**
+   - Cubrir el 100% de las operaciones requeridas por `WorldService` y `ZoneService` sin type-assertions a tipos concretos en los servidores:
+     * **Avatar & Estado (`CharacterRepository`):** lista por cuenta (`p_Char_GetListOfUserChar` + `p_Item_GetUpgradeEquip` / `p_Item_GetEquip`), búsqueda por nombre/ID (`p_Char_GetCharNo`, `p_Char_GetLoginData`, `p_Char_GetShape`, `p_Char_Find`), alta completa (`p_Char_Create` + `p_Char_CreateSetDefaultData`), baja lógica (`p_Char_Delete`), cambio de nombre (`p_Char_ChangeID`), cambio de clase (`p_Char_ChangeClass`), estilo (`p_Char_SetShape`), login/logout (`p_Char_Login`, `p_Char_Logout`), posición/link (`p_Char_SavePosition`, `p_Char_SaveLink`, `usp_LinkScroll_SetDestMap`), nivel/EXP/dinero/fama (`p_Char_SetLevelAndExp`, `p_Char_AddExp`, `p_Char_MoneyAdd`, `p_Char_MoneySub`, `p_Char_FameAdd/Sub/Set/Get`), stats libres (`p_Char_SetStrength`, `p_Char_SetConstitute`, `p_Char_SetDexterity`, `p_Char_SetIntelligence`, `p_Char_SetMentalPower`, `p_Char_SetRedistributePoint`), estados/buffs/títulos/restExp/autoPick (`p_Char_GetStateAll`, `p_Char_SetStateWithRestTime`, `p_Char_GetChargedBufferAll`, `p_Char_SetChargedBuff`, `p_Char_DelChargedBuff`, `p_Char_GetTitleAll`, `p_Char_AddTitle`, `p_Char_SetTitle`, `usp_Char_GetRestExpExecTime`, `usp_Char_SetRestExpExecTime`, `usp_Char_GetAutoPick`, `usp_Char_SetAutoPick`).
+     * **Inventario, Almacén y Equipamiento (`CharacterItemRepository`):** `p_Item_GetList`, `p_Item_GetStorage`, `p_Item_GetEquip`, `p_Item_GetUpgradeEquip`, `p_Item_Create`, `p_Item_Create_UseEmptyStorage`, `p_Item_Delete`, `p_Item_PositionMove`, `p_Item_MoveStorage`, `p_Item_Exchange`, `p_Item_Merge`, `p_Item_Split_N_Merge`, `p_Item_Upgrade`, `p_Item_SetFlags`, `p_Item_SetData`, `p_Item_GetOptions`, `p_Item_SetOptions`, `p_Item_GetEnchant`, `p_Item_SetEnchant`, `p_Character_getItemActionCoolTime`, `p_Character_setItemActionCoolTime`, `p_User_MoneyAdd/Sub/Get`.
+     * **Habilidades, Misiones, Opciones, Tutorial y Asistencia (`CharacterProgressionRepository`):** `p_Skill_GetAll`, `p_Skill_Create`, `p_Skill_Update`, `p_Skill_SetCoolTime`, `p_Skill_SetPower`, `p_Quest_GetAll`, `p_Quest_GetAllDone`, `p_Quest_GetRepeat`, `p_Quest_Start`, `p_Quest_Add`, `p_Quest_Update`, `p_Quest_Done`, `p_Quest_GiveUp`, `p_Char_GetOptions`, `p_Char_SetOptions`, `p_Char_GetShortCut`, `p_Char_SetShortCut`, `p_Get_Char_Option_Improve_Data`, `p_Get_Char_Option_Improve_Game_Option_Data`, `p_Get_Char_Option_Improve_Key_Map_Data`, `p_Get_Char_Option_Improve_Short_Cut_Data`, `p_Set_Char_Option_Improve_Game_Option_Data`, `p_Set_Char_Option_Improve_Key_Map_Data`, `p_Set_Char_Option_Improve_Short_Cut_Data`, `p_Init_Char_Option_Improve_Game_Option_Data`, `p_Init_Char_Option_Improve_Key_Map_Data`, `p_Attendance_Get`, `p_Attendance_Check`, `p_Attendance_Reward`, `p_Collection_Get`, `p_Collection_Set`.
+     * **Gremios, Academia y Torneos (`GuildRepository`):** `p_Guild_Make`, `p_Guild_Delete`, `p_Guild_Get`, `p_Guild_GetList`, `p_Guild_GetListDetail`, `p_Guild_GetName`, `p_Guild_GetIntro`, `p_Guild_GetNotify`, `p_Guild_SetNotify`, `p_Guild_SetGrade`, `p_Guild_SetMoney`, `p_Guild_GetToken`, `p_Guild_SetToken`, `usp_Guild_TokenSub`, `usp_Guild_getHistoryList`, `usp_Guild_setHistory`, `p_GuildEmblem_Get`, `p_GuildEmblem_Set`, `p_Guild_Member_Get`, `p_Guild_Member_GetAll`, `p_Guild_Member_Join`, `p_Guild_Member_Leave`, `p_Guild_Member_Vanish`, `p_Guild_Member_SetGrade`, `p_Guild_Member_SetFlags`, `usp_GuildAcademy_setAcademy`, `p_GuildAcademy_getGuildAcademyList`, `p_GuildAcademy_getRanking`, `p_Guild_Academy_GetMyNo`, `p_Guild_Academy_Member_GetAll`, `p_Guild_Academy_Member_Join`, `p_Guild_Academy_Member_Leave`, `p_Guild_Academy_Member_Guild_Join`, `p_Guild_Academy_SetMaster`, `p_Guild_Academy_SetNotify`, `p_Set_Guild_Academy_ChatBanTime`, `p_Set_Guild_Academy_Graduate`, `p_Get_Guild_Academy_Graduate_List`, `p_Get_Guild_Academy_Reward_All`, `p_Set_Guild_Academy_Reward_Record`, `p_Del_Guild_Academy_Reward_All`, `p_GuildTournament_Get`, `p_GuildTournament_GetAllTournamentList`, `usp_GuildTournament_Join_New`, `usp_GuildTournament_Join_List`, `usp_GuildTournament_Set_Result`.
+     * **Social, Party, Kingdom Quest, Mascotas y MiniHouse (`WorldSocialRepository`):** `p_Friend_GetAll`, `p_Friend_GetAll2`, `p_Friend_Set`, `p_Friend_Del`, `usp_Character_GetFriendpoint`, `usp_Character_SetFriendpoint`, `p_Party_Create`/`Set`/`Del` *(según SPs reales de `tParty`/`tPartyMember` en `procedures_character.sql`)*, `p_KingdomQuest_GetAll`, `p_KingdomQuest_Get`, `p_KingdomQuest_Set`, `p_KingdomQuest_Del`, `p_HolyPromise_CheckRing`, `p_MasPup_GetAll`, `p_MasPup_SetMaster`, `p_MasPup_SetPupils`, `p_MasPup_DelMaster`, `p_MasPup_DelPupils`, `p_MasPup_DelAll`, `p_Marriage_*`, `p_Prison_*`, `p_Spam_*`, `p_Char_Chat_Restrict*`, `p_Pet_*` / `usp_Pet_*`, `p_Minihouse_*` / `p_MiniHouse_*`.
+     * **Transferencias y Topología S2S (`ZoneTopologyRepository`):** `IssueZoneTransfer` (`CALL usp_Session_IssueZoneTransfer`), `ConsumeZoneTransfer` (`CALL usp_Session_ConsumeZoneTransfer`), `UpsertZoneNode` (`CALL usp_WorldZone_UpsertNode`), `HeartbeatZoneNode` (`CALL usp_WorldZone_Heartbeat`), `GetZoneNodes` (`CALL usp_WorldZone_GetList`), `ResolveMapEndpoint` (`CALL usp_WorldZone_ResolveMapEndpoint`).
 
-2. **Refactorizar [`pkg/database/mysql_character.go`](../../pkg/database/mysql_character.go):**
-   - Eliminar todas las sentencias SQL embebidas (`SELECT ... FROM tCharacter`, `INSERT INTO tItem ...`, etc.).
-   - Migrar cada operación a invocaciones oficiales `CALL <SP>(...)`.
-   - Asegurar manejo correcto de transacciones, escaneo de filas y nulos mediante `sql.NullString` y `sql.NullTime`.
+2. **Refactorizar `pkg/database/mysql_character*.go` y [`pkg/database/transfer.go`](../../pkg/database/transfer.go):**
+   - Dividir limpiamente la implementación MySQL en archivos cohesivos (`mysql_character.go`, `mysql_character_items.go`, `mysql_character_progression.go`, `mysql_character_guild.go`, `mysql_character_social.go`, `mysql_zone_topology.go`) donde **100% de las queries usen `CALL <SP>(...)`** consumidas de manera atómica y cerrando siempre `defer rows.Close()`.
+   - Eliminar por completo los mapas en memoria `transfers` y `zoneTransfers` de [`pkg/database/transfer.go`](../../pkg/database/transfer.go) para que `WorldService` y `ZoneService` compartan estado exclusivamente a través de MySQL `xelion_online`.
+   - Adaptar los tests existentes en [`pkg/database/mysql_character_test.go`](../../pkg/database/mysql_character_test.go), `pkg/server/world/` y `pkg/server/zone/` para correr contra MySQL `xelion_online`.
 
-3. **Crear [`pkg/audit/fase03_world_character_ast_test.go`](../../pkg/audit/fase03_world_character_ast_test.go) (Control 3 AST):**
-   - Analizador de árbol sintáctico (AST) que recorre los archivos `.go` de repositorios de Character verificando que no existan queries SQL inline (`SELECT`, `INSERT`, `UPDATE`, `DELETE`).
-   - Verifica que el 100% de las consultas comiencen con `"CALL "`.
+3. **Crear `pkg/audit/fase03_world_character_ast_test.go` (`Control 3` completo):**
+   - Escanea mediante `go/ast` todos los archivos `pkg/database/mysql_character*.go`, `pkg/database/mysql_zone_topology.go` y `pkg/database/transfer.go`, verificando que **100% de las llamadas a `*sql.DB` / `*sql.Conn` / `*sql.Tx` comiencen con `"CALL "`** (cero `SELECT`, `INSERT`, `UPDATE`, `DELETE`, `CREATE TABLE` inline) y que `TransferManager` no contenga `map[string]*ZoneTransfer` ni `map[string]*ClientTransfer` en memoria.
 
 ---
 
 ## Criterio de Cierre de la Fase 03
 
-1. `go build ./...` -> OK.
-2. `go test -v ./pkg/audit -run "^TestFase03_WorldCharacter_AST"` -> `PASS` (Cero SQL inline).
-3. `go test -v ./pkg/database/...` -> `PASS`.
-4. Marcar Fase 3 como `Completado` en `docs/plan/README.md`.
-5. Ejecutar commit limpio:
-   `git add -A && git commit -m "refactor(database): Fase 03 - migracion 100% a CALL Stored Procedures en repositorios de Character"`
+1. `go build ./...` -> `OK`.
+2. `go test -v ./pkg/database/... ./pkg/audit -run "TestFase01|TestFase02|TestFase03"` -> `PASS`.
+3. `go test ./pkg/server/...` -> `PASS`.
+4. Marcar Fase 03 como `Completado` en `docs/plan/README.md` y ejecutar:
+   `git add -A && git commit -m "refactor(database): Fase 03 - repositorios World/Character 100% CALL MySQL y eliminacion de TransferManager en memoria"`
