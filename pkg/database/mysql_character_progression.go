@@ -3,6 +3,7 @@ package database
 import (
 	"encoding/binary"
 	"fmt"
+	"strings"
 	"time"
 )
 
@@ -81,7 +82,7 @@ func (r *MySQLCharacterRepository) GetCharacterShortcuts(charNo int) ([]*Shortcu
 	var ret int
 	var data []byte
 	row := r.db.QueryRow("CALL p_Char_GetOptShortCutData(?, @out_nRet, @out_sData)", charNo)
-	if err := row.Scan(&ret, &data); err != nil || len(data) == 0 {
+	if err := row.Scan(&ret, &data); err != nil || ret != 1 || len(data) == 0 {
 		return nil, nil
 	}
 
@@ -129,43 +130,223 @@ func (r *MySQLCharacterRepository) SaveCharacterShortcuts(charNo int, shortcuts 
 // GetCharacterOptions recupera todos los bloques binarios de configuración del cliente en tCharacterOptions.
 func (r *MySQLCharacterRepository) GetCharacterOptions(charNo int) (*CharacterOptions, error) {
 	opt := &CharacterOptions{CharNo: charNo}
-	var ret int
 
-	_ = r.db.QueryRow("CALL p_Char_GetOptGame(?, @out_nRet, @out_sData)", charNo).Scan(&ret, &opt.Game)
-	_ = r.db.QueryRow("CALL p_Char_GetOptShortCutData(?, @out_nRet, @out_sData)", charNo).Scan(&ret, &opt.ShortCutData)
-	_ = r.db.QueryRow("CALL p_Char_GetOptShortCutSize(?, @out_nRet, @out_sData)", charNo).Scan(&ret, &opt.ShortCutSize)
-	_ = r.db.QueryRow("CALL p_Char_GetOptSound(?, @out_nRet, @out_sData)", charNo).Scan(&ret, &opt.Sound)
-	_ = r.db.QueryRow("CALL p_Char_GetOptVideo(?, @out_nRet, @out_sData)", charNo).Scan(&ret, &opt.Video)
-	_ = r.db.QueryRow("CALL p_Char_GetOptWindowsPos(?, @out_nRet, @out_sData)", charNo).Scan(&ret, &opt.WindowsPos)
-	_ = r.db.QueryRow("CALL p_Char_GetOptKeyMapping(?, @out_nRet, @out_sData)", charNo).Scan(&ret, &opt.KeyMapping)
+	var ret int
+	var raw []byte
+
+	ret, raw = 0, nil
+	if err := r.db.QueryRow("CALL p_Char_GetOptGame(?, @out_nRet, @out_sData)", charNo).Scan(&ret, &raw); err == nil && ret == 1 {
+		opt.Game = raw
+	}
+	ret, raw = 0, nil
+	if err := r.db.QueryRow("CALL p_Char_GetOptShortCutData(?, @out_nRet, @out_sData)", charNo).Scan(&ret, &raw); err == nil && ret == 1 {
+		opt.ShortCutData = raw
+	}
+	ret, raw = 0, nil
+	if err := r.db.QueryRow("CALL p_Char_GetOptShortCutSize(?, @out_nRet, @out_sData)", charNo).Scan(&ret, &raw); err == nil && ret == 1 {
+		opt.ShortCutSize = raw
+	}
+	ret, raw = 0, nil
+	if err := r.db.QueryRow("CALL p_Char_GetOptSound(?, @out_nRet, @out_sData)", charNo).Scan(&ret, &raw); err == nil && ret == 1 {
+		opt.Sound = raw
+	}
+	ret, raw = 0, nil
+	if err := r.db.QueryRow("CALL p_Char_GetOptVideo(?, @out_nRet, @out_sData)", charNo).Scan(&ret, &raw); err == nil && ret == 1 {
+		opt.Video = raw
+	}
+	ret, raw = 0, nil
+	if err := r.db.QueryRow("CALL p_Char_GetOptWindowsPos(?, @out_nRet, @out_sData)", charNo).Scan(&ret, &raw); err == nil && ret == 1 {
+		opt.WindowsPos = raw
+	}
+	ret, raw = 0, nil
+	if err := r.db.QueryRow("CALL p_Char_GetOptKeyMapping(?, @out_nRet, @out_sData)", charNo).Scan(&ret, &raw); err == nil && ret == 1 {
+		opt.KeyMapping = raw
+	}
 
 	return opt, nil
 }
 
-// SaveCharacterOption persiste un bloque específico de opciones del cliente.
+// SaveCharacterOption persiste un bloque específico de opciones del cliente invocando p_Char_SetOpt*.
 func (r *MySQLCharacterRepository) SaveCharacterOption(charNo int, optType string, data []byte) error {
 	var ret int
 	var err error
-	switch optType {
+	switch strings.ToLower(optType) {
 	case "game":
 		err = r.db.QueryRow("CALL p_Char_SetOptGame(?, ?, @out_nRet)", charNo, data).Scan(&ret)
-	case "shortcut_data":
+	case "shortcut", "shortcutdata", "shortcut_data":
 		err = r.db.QueryRow("CALL p_Char_SetOptShortCutData(?, ?, @out_nRet)", charNo, data).Scan(&ret)
-	case "shortcut_size":
+	case "shortcutsize", "shortcut_size":
 		err = r.db.QueryRow("CALL p_Char_SetOptShortCutSize(?, ?, @out_nRet)", charNo, data).Scan(&ret)
 	case "sound":
 		err = r.db.QueryRow("CALL p_Char_SetOptSound(?, ?, @out_nRet)", charNo, data).Scan(&ret)
 	case "video":
 		err = r.db.QueryRow("CALL p_Char_SetOptVideo(?, ?, @out_nRet)", charNo, data).Scan(&ret)
-	case "windows_pos":
+	case "windowspos", "window_pos", "windows_pos":
 		err = r.db.QueryRow("CALL p_Char_SetOptWindowsPos(?, ?, @out_nRet)", charNo, data).Scan(&ret)
-	case "key_map":
+	case "keymapping", "key_mapping", "key_map":
 		err = r.db.QueryRow("CALL p_Char_SetOptKeyMapping(?, ?, @out_nRet)", charNo, data).Scan(&ret)
 	default:
 		return fmt.Errorf("unknown option type: %s", optType)
 	}
 	if err != nil {
 		return fmt.Errorf("error persisting option %s: %w", optType, err)
+	}
+	return nil
+}
+
+// DeleteCharacterOptions borra el bloque completo de opciones clásicas invocando p_Char_DelOptions.
+func (r *MySQLCharacterRepository) DeleteCharacterOptions(charNo int) error {
+	var ret int
+	err := r.db.QueryRow("CALL p_Char_DelOptions(?, @out_nRet)", charNo).Scan(&ret)
+	if err != nil {
+		return fmt.Errorf("error calling p_Char_DelOptions(%d): %w", charNo, err)
+	}
+	return nil
+}
+
+// GetImproveShortCutList recupera la lista de atajos mejorados NA2016 invocando usp_Character_getShortCutList.
+func (r *MySQLCharacterRepository) GetImproveShortCutList(charNo int) ([]*ImproveShortcutEntry, error) {
+	rows, err := r.db.Query("CALL usp_Character_getShortCutList(?, @out_nRet)", charNo)
+	if err != nil {
+		return nil, fmt.Errorf("error calling usp_Character_getShortCutList(%d): %w", charNo, err)
+	}
+	defer rows.Close()
+
+	var list []*ImproveShortcutEntry
+	for rows.Next() {
+		var slotNo byte
+		var codeNo uint16
+		var value int32
+		if scanErr := rows.Scan(&slotNo, &codeNo, &value); scanErr == nil {
+			list = append(list, &ImproveShortcutEntry{
+				SlotNo: slotNo,
+				CodeNo: codeNo,
+				Value:  value,
+			})
+		}
+	}
+	return list, nil
+}
+
+// SetImproveShortCut persiste una ranura de atajo mejorado NA2016 invocando usp_Character_setShortCut.
+func (r *MySQLCharacterRepository) SetImproveShortCut(charNo int, slotNo byte, codeNo uint16, value int32) error {
+	var ret int
+	err := r.db.QueryRow("CALL usp_Character_setShortCut(?, ?, ?, ?, @out_nRet)", charNo, slotNo, codeNo, value).Scan(&ret)
+	if err != nil {
+		return fmt.Errorf("error calling usp_Character_setShortCut: %w", err)
+	}
+	return nil
+}
+
+// GetImproveKeyMap recupera el mapeo de teclas mejorado NA2016 invocando usp_Character_getKeyMap.
+func (r *MySQLCharacterRepository) GetImproveKeyMap(charNo int) ([]*ImproveKeyMapEntry, error) {
+	rows, err := r.db.Query("CALL usp_Character_getKeyMap(?, @out_nRet)", charNo)
+	if err != nil {
+		return nil, fmt.Errorf("error calling usp_Character_getKeyMap(%d): %w", charNo, err)
+	}
+	defer rows.Close()
+
+	var list []*ImproveKeyMapEntry
+	for rows.Next() {
+		var funcNo uint16
+		var extKey, ascii byte
+		if scanErr := rows.Scan(&funcNo, &extKey, &ascii); scanErr == nil {
+			list = append(list, &ImproveKeyMapEntry{
+				FunctionNo: funcNo,
+				ExtendKey:  extKey,
+				ASCIICode:  ascii,
+			})
+		}
+	}
+	return list, nil
+}
+
+// SetImproveKeyMap persiste una entrada de mapeo de tecla mejorado NA2016 invocando usp_Character_setKeyMap.
+func (r *MySQLCharacterRepository) SetImproveKeyMap(charNo int, funcNo uint16, extendKey, asciiCode byte) error {
+	var ret int
+	err := r.db.QueryRow("CALL usp_Character_setKeyMap(?, ?, ?, ?, @out_nRet)", charNo, funcNo, extendKey, asciiCode).Scan(&ret)
+	if err != nil {
+		return fmt.Errorf("error calling usp_Character_setKeyMap: %w", err)
+	}
+	return nil
+}
+
+// InitImproveKeyMap restablece el mapeo de teclas mejorado desde tKeyMapInit invocando usp_Character_initKeyMap.
+func (r *MySQLCharacterRepository) InitImproveKeyMap(charNo int) error {
+	var ret int
+	err := r.db.QueryRow("CALL usp_Character_initKeyMap(?, @out_nRet)", charNo).Scan(&ret)
+	if err != nil {
+		return fmt.Errorf("error calling usp_Character_initKeyMap(%d): %w", charNo, err)
+	}
+	return nil
+}
+
+// GetImproveGameOptions recupera las opciones de juego mejoradas NA2016 invocando usp_Character_getGameOption.
+func (r *MySQLCharacterRepository) GetImproveGameOptions(charNo int) ([]*ImproveGameOptionEntry, error) {
+	rows, err := r.db.Query("CALL usp_Character_getGameOption(?, @out_nRet)", charNo)
+	if err != nil {
+		return nil, fmt.Errorf("error calling usp_Character_getGameOption(%d): %w", charNo, err)
+	}
+	defer rows.Close()
+
+	var list []*ImproveGameOptionEntry
+	for rows.Next() {
+		var optNo uint16
+		var val byte
+		if scanErr := rows.Scan(&optNo, &val); scanErr == nil {
+			list = append(list, &ImproveGameOptionEntry{
+				OptionNo: optNo,
+				Value:    val,
+			})
+		}
+	}
+	return list, nil
+}
+
+// SetImproveGameOption persiste una opción de juego mejorada NA2016 invocando usp_Character_setGameOption.
+func (r *MySQLCharacterRepository) SetImproveGameOption(charNo int, optionNo uint16, value byte) error {
+	var ret int
+	err := r.db.QueryRow("CALL usp_Character_setGameOption(?, ?, ?, @out_nRet)", charNo, optionNo, value).Scan(&ret)
+	if err != nil {
+		return fmt.Errorf("error calling usp_Character_setGameOption: %w", err)
+	}
+	return nil
+}
+
+// InitImproveGameOptions restablece las opciones de juego mejoradas invocando usp_Character_setGameOptionInit.
+func (r *MySQLCharacterRepository) InitImproveGameOptions(charNo int) error {
+	var ret int
+	err := r.db.QueryRow("CALL usp_Character_setGameOptionInit(?, @out_nRet)", charNo).Scan(&ret)
+	if err != nil {
+		return fmt.Errorf("error calling usp_Character_setGameOptionInit(%d): %w", charNo, err)
+	}
+	return nil
+}
+
+// GetInGameGuideViewList recupera los IDs de guías vistas invocando usp_InGameGuide_getViewList.
+func (r *MySQLCharacterRepository) GetInGameGuideViewList(charNo int) ([]byte, error) {
+	rows, err := r.db.Query("CALL usp_InGameGuide_getViewList(?, @out_nRet)", charNo)
+	if err != nil {
+		return nil, fmt.Errorf("error calling usp_InGameGuide_getViewList(%d): %w", charNo, err)
+	}
+	defer rows.Close()
+
+	var list []byte
+	for rows.Next() {
+		var g int
+		if scanErr := rows.Scan(&g); scanErr == nil {
+			list = append(list, byte(g))
+		}
+	}
+	return list, nil
+}
+
+// SetInGameGuideView registra una guía vista invocando usp_InGameGuide_setGuideNo.
+func (r *MySQLCharacterRepository) SetInGameGuideView(charNo int, guideNo byte) error {
+	var ret int
+	err := r.db.QueryRow("CALL usp_InGameGuide_setGuideNo(?, ?, @out_nRet)", charNo, int(guideNo)).Scan(&ret)
+	if err != nil {
+		return fmt.Errorf("error calling usp_InGameGuide_setGuideNo: %w", err)
 	}
 	return nil
 }
@@ -291,6 +472,16 @@ func (r *MySQLCharacterRepository) SetAttendanceReward(charNo int, rewardID int)
 		return fmt.Errorf("error calling usp_Attendance_setReward: %w", err)
 	}
 	return nil
+}
+
+// SetAttendanceRewardAt registra una recompensa de asistencia para la fecha de evento indicada invocando usp_Attendance_setReward.
+func (r *MySQLCharacterRepository) SetAttendanceRewardAt(charNo int, eventDate time.Time, rewardID int) (int, error) {
+	var ret int
+	err := r.db.QueryRow("CALL usp_Attendance_setReward(?, ?, ?, @out_nRet)", charNo, eventDate, rewardID).Scan(&ret)
+	if err != nil {
+		return -9999, fmt.Errorf("error calling usp_Attendance_setReward: %w", err)
+	}
+	return ret, nil
 }
 
 // GetCollectionCards recupera las cartas de colección del personaje invocando usp_Collection_getCardList.

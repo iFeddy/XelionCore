@@ -9463,6 +9463,15 @@ sp_body: BEGIN
         END IF;
         END IF;
         END IF;
+            UPDATE tCharacterChangeID
+               SET bFlag = 1, sOldID = v_sOldID, sNewID = in_sID, sys_update_date = NOW()
+             WHERE nRowNo = in_nRowNo AND nCharNo = in_nCharNo AND bFlag = 0;
+            IF ROW_COUNT() < 1 THEN
+                SET out_nRet = -3026;
+                ROLLBACK;
+                LEAVE proc_logic;
+            END IF;
+            COMMIT;
         END IF;
     END proc_logic;
     IF IFNULL(@_xc_nested_sp, 0) = 0 THEN
@@ -10046,6 +10055,8 @@ sp_body: BEGIN
         END IF;
         END IF;
         END IF;
+        COMMIT;
+        SET out_nRet = 0;
         END IF;
     END proc_logic;
     IF IFNULL(@_xc_nested_sp, 0) = 0 THEN

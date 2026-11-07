@@ -12,11 +12,12 @@ import (
 )
 
 var (
-	ErrCharacterNotFound = errors.New("character not found")
-	ErrCharacterExists   = errors.New("character name already exists")
-	ErrSlotInUse         = errors.New("character slot already in use")
-	ErrSlotOutOfRange    = errors.New("character slot out of range (0-5)")
-	ErrItemNotFound      = errors.New("item not found")
+	ErrCharacterNotFound      = errors.New("character not found")
+	ErrCharacterExists        = errors.New("character name already exists")
+	ErrSlotInUse              = errors.New("character slot already in use")
+	ErrSlotOutOfRange         = errors.New("character slot out of range (0-5)")
+	ErrCharacterIsGuildMaster = errors.New("character is an active guild master")
+	ErrItemNotFound           = errors.New("item not found")
 )
 
 // TCharacter represents the canonical tCharacter table from World00_Character.bak.
@@ -97,29 +98,80 @@ type Character struct {
 	TCharacterGameOpt   TCharacterGameOption   `json:"t_character_game_option"`
 	TCharacterSingleOpt TCharacterSingleOption `json:"t_character_single_option"`
 
-	// Equips: Slot index -> item ID
+	// Equips: Slot index (ItemEquipEnum) -> item ID
 	Equips map[byte]uint16 `json:"equips"`
+	// EquipUpgrades: Slot index (ItemEquipEnum) -> upgrade level (0..15)
+	EquipUpgrades map[byte]byte `json:"equip_upgrades,omitempty"`
 
 	// Flat convenience fields for rapid gameplay access
-	ID        int               `json:"id"`
-	AccountID int               `json:"account_id"`
-	Name      string            `json:"name"`
-	Slot      byte              `json:"slot"`
-	Job       byte              `json:"job"`
-	Level     byte              `json:"level"`
-	Male      bool              `json:"male"`
-	Hair      byte              `json:"hair"`
-	HairColor byte              `json:"hair_color"`
-	Face      byte              `json:"face"`
-	Map       uint16            `json:"map"`
-	XPos      int               `json:"x_pos"`
-	YPos      int               `json:"y_pos"`
-	CurHP     int               `json:"cur_hp"`
-	CurSP     int               `json:"cur_sp"`
-	TownName  string            `json:"town_name"`
-	Items     []*Item           `json:"items"`
-	Shortcuts []*Shortcut       `json:"shortcuts"`
-	Skills    []*CharacterSkill `json:"skills"`
+	ID               int                      `json:"id"`
+	AccountID        int                      `json:"account_id"`
+	Name             string                   `json:"name"`
+	Slot             byte                     `json:"slot"`
+	Race             byte                     `json:"race"`
+	Job              byte                     `json:"job"`
+	Level            byte                     `json:"level"`
+	AdminLevel       byte                     `json:"admin_level"`
+	CreateWorld      byte                     `json:"create_world"`
+	Male             bool                     `json:"male"`
+	Hair             byte                     `json:"hair"`
+	HairColor        byte                     `json:"hair_color"`
+	Face             byte                     `json:"face"`
+	Map              uint16                   `json:"map"`
+	XPos             int                      `json:"x_pos"`
+	YPos             int                      `json:"y_pos"`
+	CurHP            int                      `json:"cur_hp"`
+	CurSP            int                      `json:"cur_sp"`
+	TownName         string                   `json:"town_name"`
+	DeletedAt        *time.Time               `json:"deleted_at,omitempty"`
+	KQHandle         uint32                   `json:"kq_handle,omitempty"`
+	KQMapName        string                   `json:"kq_map_name,omitempty"`
+	KQX              uint32                   `json:"kq_x,omitempty"`
+	KQY              uint32                   `json:"kq_y,omitempty"`
+	KQDate           uint32                   `json:"kq_date,omitempty"`
+	ChangeID         *CharIDChangeInfo        `json:"change_id,omitempty"`
+	TutorialState    int32                    `json:"tutorial_state"`
+	TutorialStep     byte                     `json:"tutorial_step"`
+	Items            []*Item                  `json:"items"`
+	Shortcuts        []*Shortcut              `json:"shortcuts"`
+	ImproveShortcuts []*ImproveShortcutEntry  `json:"improve_shortcuts,omitempty"`
+	Skills           []*CharacterSkill        `json:"skills"`
+	Quests           []*QuestData             `json:"quests,omitempty"`
+}
+
+// CharIDChangeInfo modela una fila pendiente de tCharacterChangeID (usp_Character_getChangeIDList).
+type CharIDChangeInfo struct {
+	RowNo        uint32 `json:"row_no"`
+	UserNo       int    `json:"user_no"`
+	CharNo       int    `json:"char_no"`
+	NeedChangeID byte   `json:"need_change_id"`
+	Init         byte   `json:"init"`
+}
+
+// ImproveShortcutEntry modela una fila de tCharacterShortCut para el sistema mejorado NA2016 (SHORT_CUT_DATA).
+type ImproveShortcutEntry struct {
+	SlotNo byte   `json:"slot_no"`
+	CodeNo uint16 `json:"code_no"`
+	Value  int32  `json:"value"`
+}
+
+// ImproveKeyMapEntry modela una fila de tCharacterKeyMap para el sistema mejorado NA2016 (KEY_MAP_DATA).
+type ImproveKeyMapEntry struct {
+	FunctionNo uint16 `json:"function_no"`
+	ExtendKey  byte   `json:"extend_key"`
+	ASCIICode  byte   `json:"ascii_code"`
+}
+
+// ImproveGameOptionEntry modela una fila de tCharacterGameOption para el sistema mejorado NA2016 (GAME_OPTION_DATA).
+type ImproveGameOptionEntry struct {
+	OptionNo uint16 `json:"option_no"`
+	Value    byte   `json:"value"`
+}
+
+// PrisonInfo modela una sanción activa en tPrison (p_Prison_Get).
+type PrisonInfo struct {
+	Reason string `json:"reason"`
+	Remark string `json:"remark"`
 }
 
 // Item represents an official tItem database row.
@@ -257,6 +309,9 @@ func (c *Character) Sync() {
 	if c.Equips == nil {
 		c.Equips = make(map[byte]uint16)
 	}
+	if c.EquipUpgrades == nil {
+		c.EquipUpgrades = make(map[byte]byte)
+	}
 
 	// If flat fields are set but canonical tables are empty:
 	if c.TCharacter.CharNo == 0 && c.ID != 0 {
@@ -285,8 +340,12 @@ func (c *Character) Sync() {
 		c.TCharacterState.Rotation = 0x55 // Standard AstraServer/NextGen default (85 deg)
 		c.TCharacterState.HP = c.CurHP
 		c.TCharacterState.SP = c.CurSP
-		c.TCharacterState.HPStones = 15
-		c.TCharacterState.SPStones = 7
+		if c.TCharacterState.HPStones == 0 {
+			c.TCharacterState.HPStones = 15
+		}
+		if c.TCharacterState.SPStones == 0 {
+			c.TCharacterState.SPStones = 7
+		}
 
 		c.TCharacterKeyMap.CharNo = c.ID
 		c.TCharacterShortCut.CharNo = c.ID
@@ -310,7 +369,7 @@ func (c *Character) Sync() {
 		c.CurHP = c.TCharacterState.HP
 		c.CurSP = c.TCharacterState.SP
 		if c.TownName == "" {
-			c.TownName = "Roumen"
+			c.TownName = "RouN"
 		}
 	}
 }
@@ -323,6 +382,16 @@ func (c *Character) GetEquip(slot byte) uint16 {
 		}
 	}
 	return 0xFFFF
+}
+
+// GetEquipUpgrade returns the upgrade nibble (0..15) for an equipped slot, or 0 if none.
+func (c *Character) GetEquipUpgrade(slot byte) byte {
+	if c.EquipUpgrades != nil {
+		if val, exists := c.EquipUpgrades[slot]; exists {
+			return val & 0x0F
+		}
+	}
+	return 0
 }
 
 // CharacterOptions representa las opciones binarias del cliente persistidas en tCharacterOptions.
@@ -377,6 +446,10 @@ type CharacterAvatarRepository interface {
 	AddCharFame(charNo int, fame int) error
 	SubCharFame(charNo int, fame int) error
 	GetCharFame(charNo int) (int, error)
+	GetCharacterChangeIDList(userNo int) ([]*CharIDChangeInfo, error)
+	ExecuteCharacterChangeID(rowNo int, charNo int, newName string, isInit byte, userNo int) (int, error)
+	IsActiveGuildMaster(charNo int) (bool, error)
+	GetPrisonInfo(charNo int) (*PrisonInfo, error)
 }
 
 // CharacterItemRepository gobierna inventario, equipamiento, almacén, opciones y gemas.
@@ -413,6 +486,17 @@ type CharacterProgressionRepository interface {
 	SaveCharacterShortcuts(charNo int, shortcuts []*Shortcut) error
 	GetCharacterOptions(charNo int) (*CharacterOptions, error)
 	SaveCharacterOption(charNo int, optType string, data []byte) error
+	DeleteCharacterOptions(charNo int) error
+	GetImproveShortCutList(charNo int) ([]*ImproveShortcutEntry, error)
+	SetImproveShortCut(charNo int, slotNo byte, codeNo uint16, value int32) error
+	GetImproveKeyMap(charNo int) ([]*ImproveKeyMapEntry, error)
+	SetImproveKeyMap(charNo int, funcNo uint16, extendKey, asciiCode byte) error
+	InitImproveKeyMap(charNo int) error
+	GetImproveGameOptions(charNo int) ([]*ImproveGameOptionEntry, error)
+	SetImproveGameOption(charNo int, optionNo uint16, value byte) error
+	InitImproveGameOptions(charNo int) error
+	GetInGameGuideViewList(charNo int) ([]byte, error)
+	SetInGameGuideView(charNo int, guideNo byte) error
 	GetCharacterQuests(charNo int) ([]*QuestData, error)
 	GetCharacterDoneQuests(charNo int) ([]int, error)
 	AddCharacterQuest(charNo int, questNo int, status byte, data []byte) error
@@ -422,6 +506,7 @@ type CharacterProgressionRepository interface {
 	CheckAttendance(charNo int, dDate time.Time) error
 	GetAttendanceRewards(charNo int) ([]int, error)
 	SetAttendanceReward(charNo int, rewardID int) error
+	SetAttendanceRewardAt(charNo int, eventDate time.Time, rewardID int) (int, error)
 	GetCollectionCards(charNo int) ([]*CollectionCardData, error)
 	SetCollectionCard(charNo int, cardID int16, count int16) error
 	GetTutorialCharInfo(charNo int) (byte, byte, error)
@@ -613,37 +698,51 @@ type MemoryCharacterRepository struct {
 	nextCharID   int
 	nextItemKey  int64
 
-	items       map[int][]*Item
-	shortcuts   map[int][]*Shortcut
-	skills      map[int][]*CharacterSkill
-	options     map[int]*CharacterOptions
-	friends     map[int][]*FriendInfo
-	friendPts   map[int]int
-	guilds      map[int]*GuildData
-	guildMbrs   map[int][]*GuildMemberData
-	academies   map[int]*GuildAcademyData
-	academyMbrs map[int][]*GuildAcademyMemberData
-	zoneNodes   map[uint16]*ZoneNodeInfo
+	items         map[int][]*Item
+	shortcuts     map[int][]*Shortcut
+	improveSC     map[int][]*ImproveShortcutEntry
+	improveKeyMap map[int][]*ImproveKeyMapEntry
+	improveGameOp map[int][]*ImproveGameOptionEntry
+	guides        map[int][]byte
+	changeIDs     map[int][]*CharIDChangeInfo
+	attendRewards map[int]map[int]bool
+	tutorialSkip  map[int]bool
+	skills        map[int][]*CharacterSkill
+	options       map[int]*CharacterOptions
+	friends       map[int][]*FriendInfo
+	friendPts     map[int]int
+	guilds        map[int]*GuildData
+	guildMbrs     map[int][]*GuildMemberData
+	academies     map[int]*GuildAcademyData
+	academyMbrs   map[int][]*GuildAcademyMemberData
+	zoneNodes     map[uint16]*ZoneNodeInfo
 }
 
 func NewMemoryCharacterRepositoryWithFile(filePath string) *MemoryCharacterRepository {
 	repo := &MemoryCharacterRepository{
-		filePath:     filePath,
-		characters:   make(map[int]*Character),
-		charNameToID: make(map[string]int),
-		nextCharID:   1,
-		nextItemKey:  1,
-		items:        make(map[int][]*Item),
-		shortcuts:    make(map[int][]*Shortcut),
-		skills:       make(map[int][]*CharacterSkill),
-		options:      make(map[int]*CharacterOptions),
-		friends:      make(map[int][]*FriendInfo),
-		friendPts:    make(map[int]int),
-		guilds:       make(map[int]*GuildData),
-		guildMbrs:    make(map[int][]*GuildMemberData),
-		academies:    make(map[int]*GuildAcademyData),
-		academyMbrs:  make(map[int][]*GuildAcademyMemberData),
-		zoneNodes:    make(map[uint16]*ZoneNodeInfo),
+		filePath:      filePath,
+		characters:    make(map[int]*Character),
+		charNameToID:  make(map[string]int),
+		nextCharID:    1,
+		nextItemKey:   1,
+		items:         make(map[int][]*Item),
+		shortcuts:     make(map[int][]*Shortcut),
+		improveSC:     make(map[int][]*ImproveShortcutEntry),
+		improveKeyMap: make(map[int][]*ImproveKeyMapEntry),
+		improveGameOp: make(map[int][]*ImproveGameOptionEntry),
+		guides:        make(map[int][]byte),
+		changeIDs:     make(map[int][]*CharIDChangeInfo),
+		attendRewards: make(map[int]map[int]bool),
+		tutorialSkip:  make(map[int]bool),
+		skills:        make(map[int][]*CharacterSkill),
+		options:       make(map[int]*CharacterOptions),
+		friends:       make(map[int][]*FriendInfo),
+		friendPts:     make(map[int]int),
+		guilds:        make(map[int]*GuildData),
+		guildMbrs:     make(map[int][]*GuildMemberData),
+		academies:     make(map[int]*GuildAcademyData),
+		academyMbrs:   make(map[int][]*GuildAcademyMemberData),
+		zoneNodes:     make(map[uint16]*ZoneNodeInfo),
 	}
 	repo.load()
 	return repo
@@ -748,6 +847,35 @@ func (r *MemoryCharacterRepository) CreateCharacter(ch *Character) error {
 
 	r.characters[ch.ID] = ch
 	r.charNameToID[lower] = ch.ID
+	for slot, itemID := range ch.Equips {
+		r.items[ch.ID] = append(r.items[ch.ID], &Item{
+			ItemKey:     r.nextItemKey,
+			Owner:       ch.ID,
+			StorageType: 8,
+			Storage:     int16(slot),
+			ItemID:      itemID,
+			Flags:       0,
+			Date:        time.Now(),
+		})
+		r.nextItemKey++
+	}
+	for _, it := range ch.Items {
+		it.Owner = ch.ID
+		if it.ItemKey == 0 {
+			it.ItemKey = r.nextItemKey
+			r.nextItemKey++
+		}
+		r.items[ch.ID] = append(r.items[ch.ID], it)
+	}
+	if len(ch.Shortcuts) > 0 {
+		r.shortcuts[ch.ID] = append(r.shortcuts[ch.ID], ch.Shortcuts...)
+	}
+	if len(ch.ImproveShortcuts) > 0 {
+		r.improveSC[ch.ID] = append(r.improveSC[ch.ID], ch.ImproveShortcuts...)
+	}
+	if len(ch.Skills) > 0 {
+		r.skills[ch.ID] = append(r.skills[ch.ID], ch.Skills...)
+	}
 	r.save()
 	return nil
 }
@@ -769,6 +897,13 @@ func (r *MemoryCharacterRepository) DeleteCharacter(accountID int, slot byte) er
 	defer r.mu.Unlock()
 	for id, ch := range r.characters {
 		if ch.AccountID == accountID && ch.Slot == slot {
+			for _, mbrs := range r.guildMbrs {
+				for _, m := range mbrs {
+					if m.CharID == id && m.Grade == 0 {
+						return ErrCharacterIsGuildMaster
+					}
+				}
+			}
 			delete(r.charNameToID, strings.ToLower(ch.Name))
 			delete(r.characters, id)
 			r.save()
@@ -785,9 +920,14 @@ func (r *MemoryCharacterRepository) ChangeCharacterName(charNo int, newName stri
 	if !ok {
 		return ErrCharacterNotFound
 	}
+	lowerNew := strings.ToLower(newName)
+	if existingID, exists := r.charNameToID[lowerNew]; exists && existingID != charNo {
+		return ErrCharacterExists
+	}
 	delete(r.charNameToID, strings.ToLower(ch.Name))
 	ch.Name = newName
-	r.charNameToID[strings.ToLower(newName)] = charNo
+	ch.TCharacter.CharName = newName
+	r.charNameToID[lowerNew] = charNo
 	return nil
 }
 
@@ -943,6 +1083,66 @@ func (r *MemoryCharacterRepository) SubCharFame(charNo int, fame int) error {
 
 func (r *MemoryCharacterRepository) GetCharFame(charNo int) (int, error) {
 	return 0, nil
+}
+
+func (r *MemoryCharacterRepository) GetCharacterChangeIDList(userNo int) ([]*CharIDChangeInfo, error) {
+	r.mu.RLock()
+	defer r.mu.RUnlock()
+	return r.changeIDs[userNo], nil
+}
+
+func (r *MemoryCharacterRepository) ExecuteCharacterChangeID(rowNo int, charNo int, newName string, isInit byte, userNo int) (int, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	ch, ok := r.characters[charNo]
+	if !ok {
+		return -3023, nil
+	}
+	if ch.AccountID != userNo {
+		return -3024, nil
+	}
+	lowerNew := strings.ToLower(newName)
+	if _, exists := r.charNameToID[lowerNew]; exists {
+		return -3039, nil
+	}
+	list := r.changeIDs[userNo]
+	found := -1
+	for i, entry := range list {
+		if entry.RowNo == uint32(rowNo) && entry.CharNo == charNo {
+			found = i
+			break
+		}
+	}
+	if found == -1 {
+		return -3024, nil
+	}
+	delete(r.charNameToID, strings.ToLower(ch.Name))
+	ch.Name = newName
+	ch.TCharacter.CharName = newName
+	ch.ChangeID = nil
+	r.charNameToID[lowerNew] = charNo
+	r.changeIDs[userNo] = append(list[:found], list[found+1:]...)
+	if isInit != 0 {
+		delete(r.friends, charNo)
+	}
+	return 0, nil
+}
+
+func (r *MemoryCharacterRepository) IsActiveGuildMaster(charNo int) (bool, error) {
+	r.mu.RLock()
+	defer r.mu.RUnlock()
+	for _, mbrs := range r.guildMbrs {
+		for _, m := range mbrs {
+			if m.CharID == charNo && m.Grade == 0 {
+				return true, nil
+			}
+		}
+	}
+	return false, nil
+}
+
+func (r *MemoryCharacterRepository) GetPrisonInfo(charNo int) (*PrisonInfo, error) {
+	return nil, nil
 }
 
 // Items
@@ -1133,9 +1333,9 @@ func (r *MemoryCharacterRepository) SaveCharacterOption(charNo int, optType stri
 		r.options[charNo] = opt
 	}
 	switch strings.ToLower(optType) {
-	case "shortcut", "shortcutdata":
+	case "shortcut", "shortcutdata", "shortcut_data":
 		opt.ShortCutData = data
-	case "shortcutsize":
+	case "shortcutsize", "shortcut_size":
 		opt.ShortCutSize = data
 	case "game":
 		opt.Game = data
@@ -1143,11 +1343,130 @@ func (r *MemoryCharacterRepository) SaveCharacterOption(charNo int, optType stri
 		opt.Video = data
 	case "sound":
 		opt.Sound = data
-	case "windowspos":
+	case "windowspos", "windows_pos", "window_pos":
 		opt.WindowsPos = data
-	case "keymapping":
+	case "keymapping", "key_mapping", "key_map":
 		opt.KeyMapping = data
+	default:
+		return fmt.Errorf("unknown option type: %s", optType)
 	}
+	return nil
+}
+
+func (r *MemoryCharacterRepository) DeleteCharacterOptions(charNo int) error {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	delete(r.options, charNo)
+	return nil
+}
+
+func (r *MemoryCharacterRepository) GetImproveShortCutList(charNo int) ([]*ImproveShortcutEntry, error) {
+	r.mu.RLock()
+	defer r.mu.RUnlock()
+	var res []*ImproveShortcutEntry
+	for _, e := range r.improveSC[charNo] {
+		if e.CodeNo > 0 {
+			res = append(res, e)
+		}
+	}
+	return res, nil
+}
+
+func (r *MemoryCharacterRepository) SetImproveShortCut(charNo int, slotNo byte, codeNo uint16, value int32) error {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	for _, e := range r.improveSC[charNo] {
+		if e.SlotNo == slotNo {
+			e.CodeNo = codeNo
+			e.Value = value
+			return nil
+		}
+	}
+	r.improveSC[charNo] = append(r.improveSC[charNo], &ImproveShortcutEntry{
+		SlotNo: slotNo,
+		CodeNo: codeNo,
+		Value:  value,
+	})
+	return nil
+}
+
+func (r *MemoryCharacterRepository) GetImproveKeyMap(charNo int) ([]*ImproveKeyMapEntry, error) {
+	r.mu.RLock()
+	defer r.mu.RUnlock()
+	return r.improveKeyMap[charNo], nil
+}
+
+func (r *MemoryCharacterRepository) SetImproveKeyMap(charNo int, funcNo uint16, extendKey, asciiCode byte) error {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	for _, e := range r.improveKeyMap[charNo] {
+		if e.FunctionNo == funcNo {
+			e.ExtendKey = extendKey
+			e.ASCIICode = asciiCode
+			return nil
+		}
+	}
+	r.improveKeyMap[charNo] = append(r.improveKeyMap[charNo], &ImproveKeyMapEntry{
+		FunctionNo: funcNo,
+		ExtendKey:  extendKey,
+		ASCIICode:  asciiCode,
+	})
+	return nil
+}
+
+func (r *MemoryCharacterRepository) InitImproveKeyMap(charNo int) error {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	r.improveKeyMap[charNo] = []*ImproveKeyMapEntry{
+		{FunctionNo: 1, ExtendKey: 0, ASCIICode: 'W'},
+	}
+	return nil
+}
+
+func (r *MemoryCharacterRepository) GetImproveGameOptions(charNo int) ([]*ImproveGameOptionEntry, error) {
+	r.mu.RLock()
+	defer r.mu.RUnlock()
+	return r.improveGameOp[charNo], nil
+}
+
+func (r *MemoryCharacterRepository) SetImproveGameOption(charNo int, optionNo uint16, value byte) error {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	for _, e := range r.improveGameOp[charNo] {
+		if e.OptionNo == optionNo {
+			e.Value = value
+			return nil
+		}
+	}
+	r.improveGameOp[charNo] = append(r.improveGameOp[charNo], &ImproveGameOptionEntry{
+		OptionNo: optionNo,
+		Value:    value,
+	})
+	return nil
+}
+
+func (r *MemoryCharacterRepository) InitImproveGameOptions(charNo int) error {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	delete(r.improveGameOp, charNo)
+	return nil
+}
+
+func (r *MemoryCharacterRepository) GetInGameGuideViewList(charNo int) ([]byte, error) {
+	r.mu.RLock()
+	defer r.mu.RUnlock()
+	return r.guides[charNo], nil
+}
+
+func (r *MemoryCharacterRepository) SetInGameGuideView(charNo int, guideNo byte) error {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	for _, g := range r.guides[charNo] {
+		if g == guideNo {
+			return nil
+		}
+	}
+	r.guides[charNo] = append(r.guides[charNo], guideNo)
 	return nil
 }
 
@@ -1184,7 +1503,21 @@ func (r *MemoryCharacterRepository) GetAttendanceRewards(charNo int) ([]int, err
 }
 
 func (r *MemoryCharacterRepository) SetAttendanceReward(charNo int, rewardID int) error {
-	return nil
+	_, err := r.SetAttendanceRewardAt(charNo, time.Now(), rewardID)
+	return err
+}
+
+func (r *MemoryCharacterRepository) SetAttendanceRewardAt(charNo int, eventDate time.Time, rewardID int) (int, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.attendRewards[charNo] == nil {
+		r.attendRewards[charNo] = make(map[int]bool)
+	}
+	if r.attendRewards[charNo][rewardID] {
+		return -1111, nil
+	}
+	r.attendRewards[charNo][rewardID] = true
+	return 0, nil
 }
 
 func (r *MemoryCharacterRepository) GetCollectionCards(charNo int) ([]*CollectionCardData, error) {
@@ -1196,15 +1529,31 @@ func (r *MemoryCharacterRepository) SetCollectionCard(charNo int, cardID int16, 
 }
 
 func (r *MemoryCharacterRepository) GetTutorialCharInfo(charNo int) (byte, byte, error) {
+	r.mu.RLock()
+	defer r.mu.RUnlock()
+	if ch, ok := r.characters[charNo]; ok {
+		return byte(ch.TutorialState), ch.TutorialStep, nil
+	}
 	return 0, 0, nil
 }
 
 func (r *MemoryCharacterRepository) SetTutorialCharInfo(userNo, charNo int, state, step byte) error {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if ch, ok := r.characters[charNo]; ok {
+		ch.TutorialState = int32(state)
+		ch.TutorialStep = step
+	}
+	if state >= 1 {
+		r.tutorialSkip[userNo] = true
+	}
 	return nil
 }
 
 func (r *MemoryCharacterRepository) GetTutorialIsSkip(userNo int) (bool, error) {
-	return false, nil
+	r.mu.RLock()
+	defer r.mu.RUnlock()
+	return r.tutorialSkip[userNo], nil
 }
 
 // Guild

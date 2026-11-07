@@ -125,8 +125,8 @@ func setupTestHandler() (*Handler, *database.MemoryCharacterRepository, *databas
 	transfers := database.NewTransferManager()
 
 	badNames := &BadNameFilter{
-		exactBadNames: map[string]bool{"forbidden": true},
-		subStrings:    []string{"admin", "gm"},
+		exactBadNames:     map[string]bool{"forbidden": true},
+		substringBadNames: []string{"admin", "gm"},
 	}
 
 	defaultData := &DefaultCharacterDataStore{

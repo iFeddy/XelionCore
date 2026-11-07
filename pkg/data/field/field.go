@@ -287,3 +287,10 @@ func (s *Store) FieldCount() int {
 	defer s.mu.RUnlock()
 	return len(s.fields)
 }
+
+// TutorialMap returns the tutorial map configuration if present.
+func (s *Store) TutorialMap() *TutorialMapEntry {
+	s.mu.RLock()
+	defer s.mu.RUnlock()
+	return s.tutorialMap
+}

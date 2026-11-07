@@ -5,24 +5,47 @@ import (
 	"github.com/iFeddy/XelionCore/pkg/protocol"
 )
 
-// ItemSlot identifiers matching Fiesta client equip slots.
+// ItemSlot and ItemEquip identifiers matching official Fiesta client equip slots (ItemEquipEnum).
 const (
-	SlotHelm          byte = 1
-	SlotCostumeHelm   byte = 2
-	SlotArmor         byte = 7
-	SlotCostumeArmor  byte = 8
-	SlotWing          byte = 9
-	SlotWeapon2       byte = 10
-	SlotCostumeShield byte = 11
-	SlotWeapon        byte = 12
-	SlotCostumeWeapon byte = 13
-	SlotTail          byte = 18
-	SlotPants         byte = 19
-	SlotCostumePants  byte = 20
-	SlotBoots         byte = 21
-	SlotCostumeBoots  byte = 22
-	SlotGlasses       byte = 26
-	SlotPet           byte = 28
+	EquipHead         byte = 1
+	EquipAccHeadB     byte = 2
+	EquipBody         byte = 7
+	EquipAccBody      byte = 8
+	EquipAccBack      byte = 9
+	EquipLeftHand     byte = 10
+	EquipAccLeftHand  byte = 11
+	EquipRightHand    byte = 12
+	EquipAccRightHand byte = 13
+	EquipCosEff       byte = 17
+	EquipAccHip       byte = 18
+	EquipPant         byte = 19
+	EquipAccPant      byte = 20
+	EquipBoot         byte = 21
+	EquipAccBoot      byte = 22
+	EquipMouth        byte = 24
+	EquipMinimon      byte = 25
+	EquipEye          byte = 26
+	EquipAccHeadA     byte = 27
+	EquipMiniMonR     byte = 28
+	EquipAccShield    byte = 29
+
+	// Aliases for compatibility
+	SlotHelm          byte = EquipHead
+	SlotCostumeHelm   byte = EquipAccHeadB
+	SlotArmor         byte = EquipBody
+	SlotCostumeArmor  byte = EquipAccBody
+	SlotWing          byte = EquipAccBack
+	SlotWeapon2       byte = EquipLeftHand
+	SlotCostumeShield byte = EquipAccLeftHand
+	SlotWeapon        byte = EquipRightHand
+	SlotCostumeWeapon byte = EquipAccRightHand
+	SlotTail          byte = EquipAccHip
+	SlotPants         byte = EquipPant
+	SlotCostumePants  byte = EquipAccPant
+	SlotBoots         byte = EquipBoot
+	SlotCostumeBoots  byte = EquipAccBoot
+	SlotGlasses       byte = EquipEye
+	SlotPet           byte = EquipMiniMonR
 )
 
 // WriteBasicCharInfo serializa la información del personaje según el struct oficial
@@ -48,81 +71,127 @@ func WriteBasicCharInfo(ch *database.Character, pw *protocol.PacketWriter) {
 	pw.WriteString(mapShortName, 12)
 
 	// 0x027 (5 bytes): PROTO_AVATAR_DELETE_INFO delinfo (year, month, day, hour, min)
-	pw.WriteBytes([]byte{0, 0, 0, 0, 0})
+	delInfo := [5]byte{0, 0, 0, 0, 0}
+	if ch.DeletedAt != nil && !ch.DeletedAt.IsZero() {
+		delInfo[0] = byte(ch.DeletedAt.Year() - 2000)
+		delInfo[1] = byte(ch.DeletedAt.Month())
+		delInfo[2] = byte(ch.DeletedAt.Day())
+		delInfo[3] = byte(ch.DeletedAt.Hour())
+		delInfo[4] = byte(ch.DeletedAt.Minute())
+	}
+	pw.WriteBytes(delInfo[:])
 
 	// 0x02c (4 bytes): PROTO_AVATAR_SHAPE_INFO shape (race:2, chrclass:5, gender:1, hairtype, haircolor, faceshape)
+	race := ch.Race
+	if race == 0 {
+		if ch.Job == 21 || ch.Job == 26 {
+			race = 2
+		} else {
+			race = 1
+		}
+	}
 	genderBit := byte(0)
 	if ch.Male {
 		genderBit = 1
 	}
-	shapeByte0 := byte((1 & 0x03) | ((ch.Job & 0x1F) << 2) | ((genderBit & 0x01) << 7))
+	shapeByte0 := byte((race & 0x03) | ((ch.Job & 0x1F) << 2) | ((genderBit & 0x01) << 7))
 	pw.WriteByte(shapeByte0)
 	pw.WriteByte(ch.Hair)
 	pw.WriteByte(ch.HairColor)
 	pw.WriteByte(ch.Face)
 
 	// 0x030 (43 bytes): PROTO_EQUIPMENT equip (20 slots * 2 bytes + 3 bytes upgrade)
-	pw.WriteUint16(ch.GetEquip(SlotHelm))          // Equ_Head
-	pw.WriteUint16(0)                             // Equ_Mouth
-	pw.WriteUint16(ch.GetEquip(SlotWeapon))        // Equ_RightHand
-	pw.WriteUint16(ch.GetEquip(SlotArmor))         // Equ_Body
-	pw.WriteUint16(ch.GetEquip(SlotWeapon2))       // Equ_LeftHand
-	pw.WriteUint16(ch.GetEquip(SlotPants))         // Equ_Pant
-	pw.WriteUint16(ch.GetEquip(SlotBoots))         // Equ_Boot
-	pw.WriteUint16(ch.GetEquip(SlotCostumeBoots))  // Equ_AccBoot
-	pw.WriteUint16(ch.GetEquip(SlotCostumePants))  // Equ_AccPant
-	pw.WriteUint16(ch.GetEquip(SlotCostumeArmor))  // Equ_AccBody
-	pw.WriteUint16(ch.GetEquip(SlotCostumeHelm))   // Equ_AccHeadA
-	pw.WriteUint16(0)                             // Equ_MiniMon_R
-	pw.WriteUint16(ch.GetEquip(SlotGlasses))       // Equ_Eye
-	pw.WriteUint16(ch.GetEquip(SlotCostumeShield)) // Equ_AccLeftHand
-	pw.WriteUint16(ch.GetEquip(SlotCostumeWeapon)) // Equ_AccRightHand
-	pw.WriteUint16(ch.GetEquip(SlotWing))          // Equ_AccBack
-	pw.WriteUint16(0)                             // Equ_CosEff
-	pw.WriteUint16(ch.GetEquip(SlotTail))          // Equ_AccHip
-	pw.WriteUint16(ch.GetEquip(SlotPet))           // Equ_Minimon
-	pw.WriteUint16(0)                             // Equ_AccShield
-	pw.WriteBytes([]byte{0, 0, 0})                // upgrade (3 bytes: lefthand, righthand, body, leg, shoes)
+	// Orden oficial Fiesta PDB:
+	// 1. Equ_Head (Slot 1)
+	pw.WriteUint16(ch.GetEquip(EquipHead))
+	// 2. Equ_Mouth (Slot 24)
+	pw.WriteUint16(ch.GetEquip(EquipMouth))
+	// 3. Equ_RightHand (Slot 12)
+	pw.WriteUint16(ch.GetEquip(EquipRightHand))
+	// 4. Equ_Body (Slot 7)
+	pw.WriteUint16(ch.GetEquip(EquipBody))
+	// 5. Equ_LeftHand (Slot 10)
+	pw.WriteUint16(ch.GetEquip(EquipLeftHand))
+	// 6. Equ_Pant (Slot 19)
+	pw.WriteUint16(ch.GetEquip(EquipPant))
+	// 7. Equ_Boot (Slot 21)
+	pw.WriteUint16(ch.GetEquip(EquipBoot))
+	// 8. Equ_AccBoot (Slot 22)
+	pw.WriteUint16(ch.GetEquip(EquipAccBoot))
+	// 9. Equ_AccPant (Slot 20)
+	pw.WriteUint16(ch.GetEquip(EquipAccPant))
+	// 10. Equ_AccBody (Slot 8)
+	pw.WriteUint16(ch.GetEquip(EquipAccBody))
+	// 11. Equ_AccHeadA (Slot 27 / Slot 2)
+	accHead := ch.GetEquip(EquipAccHeadA)
+	if accHead == 0 {
+		accHead = ch.GetEquip(EquipAccHeadB)
+	}
+	pw.WriteUint16(accHead)
+	// 12. Equ_MiniMon_R (Slot 28)
+	pw.WriteUint16(ch.GetEquip(EquipMiniMonR))
+	// 13. Equ_Eye (Slot 26)
+	pw.WriteUint16(ch.GetEquip(EquipEye))
+	// 14. Equ_AccLeftHand (Slot 11)
+	pw.WriteUint16(ch.GetEquip(EquipAccLeftHand))
+	// 15. Equ_AccRightHand (Slot 13)
+	pw.WriteUint16(ch.GetEquip(EquipAccRightHand))
+	// 16. Equ_AccBack (Slot 9)
+	pw.WriteUint16(ch.GetEquip(EquipAccBack))
+	// 17. Equ_CosEff (Slot 17)
+	pw.WriteUint16(ch.GetEquip(EquipCosEff))
+	// 18. Equ_AccHip (Slot 18)
+	pw.WriteUint16(ch.GetEquip(EquipAccHip))
+	// 19. Equ_Minimon (Slot 25)
+	pw.WriteUint16(ch.GetEquip(EquipMinimon))
+	// 20. Equ_AccShield (Slot 29)
+	pw.WriteUint16(ch.GetEquip(EquipAccShield))
+
+	// 3 bytes upgrade bitfield:
+	// b0: (u10 & 0x0F) | ((u12 & 0x0F) << 4) (LeftHand | RightHand)
+	// b1: (u7 & 0x0F)  | ((u19 & 0x0F) << 4) (Body | Leg)
+	// b2: (u21 & 0x0F) (Shoes)
+	u10 := ch.GetEquipUpgrade(EquipLeftHand)
+	u12 := ch.GetEquipUpgrade(EquipRightHand)
+	u7 := ch.GetEquipUpgrade(EquipBody)
+	u19 := ch.GetEquipUpgrade(EquipPant)
+	u21 := ch.GetEquipUpgrade(EquipBoot)
+	b0 := byte((u10 & 0x0F) | ((u12 & 0x0F) << 4))
+	b1 := byte((u7 & 0x0F) | ((u19 & 0x0F) << 4))
+	b2 := byte(u21 & 0x0F)
+	pw.WriteBytes([]byte{b0, b1, b2})
 
 	// 0x05b (4 bytes): unsigned int nKQHandle
-	pw.WriteUint32(0)
+	pw.WriteUint32(ch.KQHandle)
 
 	// 0x05f (12 bytes): Name3 sKQMapName
-	pw.WriteString("", 12)
+	pw.WriteString(ch.KQMapName, 12)
 
 	// 0x06b (8 bytes): SHINE_XY_TYPE nKQCoord (x, y)
-	pw.WriteUint32(0)
-	pw.WriteUint32(0)
+	pw.WriteUint32(ch.KQX)
+	pw.WriteUint32(ch.KQY)
 
 	// 0x073 (4 bytes): SHINE_DATETIME dKQDate
-	pw.WriteUint32(0)
+	pw.WriteUint32(ch.KQDate)
 
 	// 0x077 (6 bytes): CHAR_ID_CHANGE_DATA CharIDChangeData (bNeedChangeID, bInit, nRowNo)
-	pw.WriteByte(0)
-	pw.WriteByte(0)
-	pw.WriteUint32(0)
+	needChange := byte(0)
+	initFlag := byte(0)
+	var rowNo uint32 = 0
+	if ch.ChangeID != nil {
+		if ch.ChangeID.NeedChangeID != 0 {
+			needChange = 1
+		}
+		if ch.ChangeID.Init != 0 {
+			initFlag = 1
+		}
+		rowNo = ch.ChangeID.RowNo
+	}
+	pw.WriteByte(needChange)
+	pw.WriteByte(initFlag)
+	pw.WriteUint32(rowNo)
 
 	// 0x07d (5 bytes): PROTO_TUTORIAL_INFO TutorialInfo (nTutorialState, nTutorialStep)
-	pw.WriteUint32(0)
-	pw.WriteByte(0)
-}
-
-// GetBeginnerWeapon returns the starter weapon ID for a given job.
-func GetBeginnerWeapon(job protocol.Job) (slot byte, itemID uint16) {
-	switch job {
-	case protocol.Job_Archer:
-		return SlotWeapon2, 1250 // Bow
-	case protocol.Job_Fighter:
-		return SlotWeapon, 250 // Sword
-	case protocol.Job_Cleric:
-		return SlotWeapon, 750 // Mace
-	case protocol.Job_Mage:
-		return SlotWeapon, 1750 // Staff
-	case protocol.Job_Trickster:
-		return SlotWeapon, 57363 // Claws
-	case protocol.Job_Crusader:
-		return SlotWeapon, 62923 // Novice Crusader's Blade
-	default:
-		return SlotWeapon, 250
-	}
+	pw.WriteUint32(uint32(ch.TutorialState))
+	pw.WriteByte(ch.TutorialStep)
 }

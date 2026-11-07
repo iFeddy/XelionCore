@@ -30,6 +30,8 @@ type Client struct {
 	IsTransferring  bool
 	Admin           byte
 	RandomID        uint16
+	TutorialChosen  bool
+	TutorialSkip    bool
 
 	closed atomic.Bool
 	sendMu sync.Mutex

@@ -96,8 +96,48 @@ func TestLoadWorldDataStore_AllFiles(t *testing.T) {
 		t.Errorf("expected Premium color=3 (Grade 4) to be rejected at character creation")
 	}
 
-	// Verify Loaded SHN files count (22 WorldManager + 4 Character = 26)
-	if len(store.LoadedFiles) < 26 {
-		t.Errorf("expected at least 26 SHN files loaded in WorldDataStore, got %d", len(store.LoadedFiles))
+	// Verify Loaded SHN files count (74+ unique files)
+	if len(store.LoadedFiles) < 74 {
+		t.Errorf("expected at least 74 SHN files loaded in WorldDataStore, got %d", len(store.LoadedFiles))
+	}
+
+	// Verify ClassParam loaded with all 27 official classes
+	if store.ClassParams == nil {
+		t.Fatal("expected non-nil ClassParams")
+	}
+	if count := store.ClassParams.ClassCount(); count != 27 {
+		t.Errorf("expected 27 classes loaded in ClassParams, got %d", count)
+	}
+
+	// Verify Field and Map store loaded
+	if store.Fields == nil {
+		t.Fatal("expected non-nil Fields")
+	}
+	if store.Fields.FieldCount() == 0 {
+		t.Errorf("expected at least 1 map in Fields store")
+	}
+	if store.Fields.TutorialMap() == nil {
+		t.Errorf("expected valid non-nil TutorialMap")
+	}
+
+	// Verify beauty coupons loaded dynamically from ItemInfo.shn
+	if coupon1 := store.GetStyleCouponID(1); coupon1 != 30490 {
+		t.Errorf("expected HairShop01 coupon ID 30490, got %d", coupon1)
+	}
+	if coupon5 := store.GetStyleCouponID(5); coupon5 != 30494 {
+		t.Errorf("expected HairShop05 coupon ID 30494, got %d", coupon5)
+	}
+
+	// Verify ClassName loaded from ClassName.shn
+	if className := store.GetClassName(1); className != "Fighter" {
+		t.Errorf("expected class 1 name 'Fighter', got '%s'", className)
+	}
+	if className := store.GetClassName(26); className != "Sentinel" {
+		t.Errorf("expected class 26 name 'Sentinel', got '%s'", className)
+	}
+
+	// Verify AttendReward loaded from AttendReward.shn
+	if rew, ok := store.GetAttendReward(0); !ok || rew.ItemID == 0 {
+		t.Errorf("expected valid attend reward at index 0: %+v", rew)
 	}
 }

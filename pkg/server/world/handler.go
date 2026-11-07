@@ -119,8 +119,17 @@ func (h *Handler) HandlePacket(client *network.Client, pkt *protocol.Packet) {
 	case protocol.PROTO_NC_USER_LOGINWORLD_REQ:
 		h.handleWorldClientKey(client, pkt)
 
+	case protocol.PROTO_NC_USER_NORMALLOGOUT_CMD:
+		h.handleNormalLogout(client, pkt)
+
+	case protocol.PROTO_NC_USER_AVATAR_LIST_REQ:
+		h.handleAvatarList(client, pkt)
+
 	case protocol.PROTO_NC_USER_WILL_WORLD_SELECT_REQ:
 		h.handleBackToWorldSelect(client, pkt)
+
+	case protocol.PROTO_NC_USER_CONNECTION_CHANGE_CHAR_ID_REQ:
+		h.handleChangeCharID(client, pkt)
 
 	case protocol.PROTO_NC_USER_RETURN_CHECK_REQ:
 		h.handleReturnCheck(client, pkt)
@@ -152,20 +161,47 @@ func (h *Handler) HandlePacket(client *network.Client, pkt *protocol.Packet) {
 	case protocol.PROTO_NC_CHAR_LOGIN_REQ:
 		h.handleCharSelect(client, pkt)
 
+	case protocol.PROTO_NC_CHAR_SET_STYLE_REQ:
+		h.handleSetStyle(client, pkt)
+
+	case protocol.PROTO_NC_CHAR_SET_STYLE_GET_INFO_REQ:
+		h.handleSetStyleGetInfo(client, pkt)
+
+	case protocol.PROTO_NC_CHAR_NEWBIE_GUIDE_VIEW_SET_CMD:
+		h.handleNewbieGuideViewSet(client, pkt)
+
+	case protocol.PROTO_NC_CHAR_EVENT_ATTENDANCE_REWARD_REQ:
+		h.handleAttendanceReward(client, pkt)
+
+	case protocol.PROTO_NC_CHAR_TUTORIAL_POPUP_ACK:
+		h.handleTutorialPopup(client, pkt)
+
 	case protocol.PROTO_NC_AVATAR_CREATE_REQ:
 		h.handleCreateCharacter(client, pkt)
 
 	case protocol.PROTO_NC_AVATAR_ERASE_REQ:
 		h.handleDeleteCharacter(client, pkt)
 
+	case protocol.PROTO_NC_AVATAR_RENAME_REQ:
+		h.handleRenameCharacter(client, pkt)
+
 	case protocol.PROTO_NC_KQ_LIST_REFRESH_REQ:
 		h.handleGotIngame(client, pkt)
+
+	case protocol.PROTO_NC_CHAR_OPTION_GET_ALL_REQ:
+		h.handleGetAllSettings(client, pkt)
 
 	case protocol.PROTO_NC_CHAR_OPTION_GET_SHORTCUTDATA_REQ:
 		h.handleGetQuickBar(client, pkt)
 
 	case protocol.PROTO_NC_CHAR_OPTION_GET_SHORTCUTSIZE_REQ:
 		h.handleGetQuickBarState(client, pkt)
+
+	case protocol.PROTO_NC_CHAR_OPTION_GET_VIDEO_REQ:
+		h.handleGetVideoSettings(client, pkt)
+
+	case protocol.PROTO_NC_CHAR_OPTION_GET_SOUND_REQ:
+		h.handleGetSoundSettings(client, pkt)
 
 	case protocol.PROTO_NC_CHAR_OPTION_GET_GAME_REQ:
 		h.handleGetGameSettings(client, pkt)
@@ -178,10 +214,30 @@ func (h *Handler) HandlePacket(client *network.Client, pkt *protocol.Packet) {
 
 	case protocol.PROTO_NC_CHAR_OPTION_SET_SHORTCUTDATA_CMD,
 		protocol.PROTO_NC_CHAR_OPTION_SET_SHORTCUTSIZE_CMD,
+		protocol.PROTO_NC_CHAR_OPTION_SET_VIDEO_CMD,
+		protocol.PROTO_NC_CHAR_OPTION_SET_SOUND_CMD,
 		protocol.PROTO_NC_CHAR_OPTION_SET_GAME_CMD,
 		protocol.PROTO_NC_CHAR_OPTION_SET_WINDOWPOS_CMD,
 		protocol.PROTO_NC_CHAR_OPTION_SET_KEYMAPPING_CMD:
 		h.handleSaveSettings(client, pkt)
+
+	case protocol.PROTO_NC_CHAR_OPTION_IMPROVE_SET_SHORTCUTDATA_REQ:
+		h.handleImproveSetShortcut(client, pkt)
+
+	case protocol.PROTO_NC_CHAR_OPTION_IMPROVE_SET_KEYMAP_REQ:
+		h.handleImproveSetKeymap(client, pkt)
+
+	case protocol.PROTO_NC_CHAR_OPTION_IMPROVE_SET_GAMEOPTION_REQ:
+		h.handleImproveSetGameOption(client, pkt)
+
+	case protocol.PROTO_NC_CHAR_OPTION_IMPROVE_INIT_KEYMAP_REQ:
+		h.handleImproveInitKeymap(client, pkt)
+
+	case protocol.PROTO_NC_CHAR_OPTION_IMPROVE_INIT_GAMEOPTION_REQ:
+		h.handleImproveInitGameOption(client, pkt)
+
+	case protocol.PROTO_NC_CHAR_OPTION_LOGIN_BLOCKDATA_ERR:
+		h.handleLoginBlockDataErr(client, pkt)
 
 	case protocol.PROTO_NC_PRISON_GET_REQ:
 		h.handlePrisonGet(client, pkt)
@@ -448,6 +504,13 @@ func (h *Handler) handleWorldClientKey(client *network.Client, pkt *protocol.Pac
 
 	// Enviar lista de personajes disponibles
 	h.sendCharacterList(client)
+
+	// Notificar si la cuenta puede saltarse el tutorial según usp_Tutorial_getIsSkip
+	if progRepo := h.getProgRepo(); progRepo != nil {
+		if canSkip, err := progRepo.GetTutorialIsSkip(client.AccountID); err == nil && canSkip {
+			_ = client.SendPacket(protocol.New_PROTO_NC_USER_TUTORIAL_CAN_SKIP_CMD(true))
+		}
+	}
 }
 
 // sendCharacterList despacha la lista oficial de avatares (PROTO_NC_USER_LOGINWORLD_ACK - 0x0C14).
@@ -550,7 +613,18 @@ func (h *Handler) handleCreateCharacter(client *network.Client, pkt *protocol.Pa
 		return
 	}
 
-	// 4. Cargar parámetros base desde default_character_data.json
+	// 4. Cargar parámetros base desde default_character_data.json o tutorial_character_data.json
+	isTutorial := client.TutorialChosen && !client.TutorialSkip
+	var classData DefaultClassData
+	var exists bool
+
+	if isTutorial && h.dataStore != nil && h.dataStore.TutorialData != nil {
+		classData, exists = h.dataStore.TutorialData.GetTutorialData(classID)
+	}
+	if !exists && h.dataStore != nil && h.dataStore.DefaultData != nil {
+		classData, exists = h.dataStore.DefaultData.GetClassData(classID)
+	}
+
 	startMap := "RouN"
 	startX := 6888
 	startY := 7045
@@ -559,42 +633,67 @@ func (h *Handler) handleCreateCharacter(client *network.Client, pkt *protocol.Pa
 	hpSoul := int16(15)
 	spSoul := int16(7)
 	money := int64(0)
+	initLevel := byte(1)
+	initExp := int64(0)
+	var str, con, dex, intel, men int
 
-	if h.dataStore != nil && h.dataStore.DefaultData != nil {
-		if classData, exists := h.dataStore.DefaultData.GetClassData(classID); exists {
-			if classData.StartMap != "" {
-				startMap = classData.StartMap
+	if exists {
+		startMap = classData.StartMap
+		if isTutorial && h.dataStore != nil && h.dataStore.Fields != nil && h.dataStore.Fields.TutorialMap() != nil {
+			startMap = h.dataStore.Fields.TutorialMap().MapID
+		}
+		if classData.StartX != 0 {
+			startX = classData.StartX
+		}
+		if classData.StartY != 0 {
+			startY = classData.StartY
+		}
+		if classData.HP != 0 {
+			hp = classData.HP
+		}
+		if classData.SP != 0 {
+			sp = classData.SP
+		}
+		if classData.HPSoul != 0 {
+			hpSoul = classData.HPSoul
+		}
+		if classData.SPSoul != 0 {
+			spSoul = classData.SPSoul
+		}
+		money = classData.Money
+		if classData.InitLevel > 0 {
+			initLevel = classData.InitLevel
+		}
+		initExp = classData.InitExp
+
+		// Si es clase avanzada (ej. Sentinel Lv 60), leer stats exactos de ClassParam/<Class>.json
+		if classData.InitLevel > 1 && h.dataStore != nil && h.dataStore.ClassParams != nil {
+			if param, ok := h.dataStore.ClassParams.GetParam(classData.ClassName, int(classData.InitLevel)); ok {
+				hp = param.MaxHP
+				sp = param.MaxSP
+				hpSoul = int16(param.SoulHP)
+				spSoul = int16(param.SoulSP)
+				str = param.Strength
+				con = param.Constitution
+				dex = param.Dexterity
+				intel = param.Intelligence
+				men = param.MentalPower
 			}
-			if classData.StartX != 0 {
-				startX = classData.StartX
-			}
-			if classData.StartY != 0 {
-				startY = classData.StartY
-			}
-			if classData.HP != 0 {
-				hp = classData.HP
-			}
-			if classData.SP != 0 {
-				sp = classData.SP
-			}
-			if classData.HPSoul != 0 {
-				hpSoul = classData.HPSoul
-			}
-			if classData.SPSoul != 0 {
-				spSoul = classData.SPSoul
-			}
-			money = classData.Money
 		}
 	}
 
-	wSlot, wItem := GetBeginnerWeapon(job)
+	race := byte(1)
+	if classID == 21 || classID == 26 {
+		race = 2
+	}
 
 	newChar := &database.Character{
 		AccountID: client.AccountID,
 		Name:      name,
 		Slot:      slot,
 		Job:       classID,
-		Level:     1,
+		Race:      race,
+		Level:     initLevel,
 		Male:      isMale,
 		Hair:      hair,
 		HairColor: color,
@@ -604,48 +703,86 @@ func (h *Handler) handleCreateCharacter(client *network.Client, pkt *protocol.Pa
 		YPos:      startY,
 		CurHP:     hp,
 		CurSP:     sp,
-		Equips:    map[byte]uint16{wSlot: wItem},
+		Equips:    make(map[byte]uint16),
 	}
+	newChar.TCharacter.Strength = str
+	newChar.TCharacter.Constitute = con
+	newChar.TCharacter.Dexterity = dex
+	newChar.TCharacter.Intelligence = intel
+	newChar.TCharacter.MentalPower = men
 	newChar.TCharacterState.Money = money
 	newChar.TCharacterState.HPStones = hpSoul
 	newChar.TCharacterState.SPStones = spSoul
+	newChar.TCharacterState.Exp = initExp
 
-	if h.dataStore != nil && h.dataStore.DefaultData != nil {
-		if classData, exists := h.dataStore.DefaultData.GetClassData(classID); exists {
-			var invenSlot int16 = 0
-			for _, sItem := range classData.StarterItems {
-				if uint16(sItem.ItemID) == wItem {
-					continue // Ya se inserta como arma equipada en slot de arma
-				}
-				amount := sItem.Amount
-				if amount <= 0 {
-					amount = 1
-				}
-				newChar.Items = append(newChar.Items, &database.Item{
-					StorageType: 9, // Inventario / Mochila (Box 9)
-					Storage:     invenSlot,
-					ItemID:      uint16(sItem.ItemID),
-					Flags:       int32(amount),
-				})
-				invenSlot++
-			}
+	// Distribuir ítems iniciales: los de slot de equipo van a Equips, los demás a Items (mochila)
+	var invenSlot int16 = 0
+	itemsToDistribute := classData.StarterItems
+	if isTutorial && len(classData.TutorialItems) > 0 {
+		itemsToDistribute = classData.TutorialItems
+	}
 
-			for _, sc := range classData.Shortcuts {
-				newChar.Shortcuts = append(newChar.Shortcuts, &database.Shortcut{
-					SlotNo:   sc.Slot,
-					CodeType: 1,
-					CodeNo:   int16(sc.CodeNo),
-					Value:    int32(sc.Value),
-				})
-			}
-
-			for _, sk := range classData.StarterSkills {
-				newChar.Skills = append(newChar.Skills, &database.CharacterSkill{
-					SkillNo:    uint16(sk),
-					SkillLevel: 1,
-				})
-			}
+	for _, sItem := range itemsToDistribute {
+		var equipSlot byte
+		if h.dataStore != nil {
+			equipSlot = h.dataStore.GetItemEquipSlot(sItem.ItemID)
 		}
+		if equipSlot > 0 && newChar.Equips[equipSlot] == 0 {
+			newChar.Equips[equipSlot] = sItem.ItemID
+		} else {
+			amount := sItem.Amount
+			if amount <= 0 {
+				amount = 1
+			}
+			newChar.Items = append(newChar.Items, &database.Item{
+				StorageType: 9, // Inventario / Mochila (Box 9)
+				Storage:     invenSlot,
+				ItemID:      sItem.ItemID,
+				Flags:       int32(amount),
+			})
+			invenSlot++
+		}
+	}
+
+	// Fallback para entornos de pruebas unitarias sin ItemInfo.shn cargado
+	if len(newChar.Equips) == 0 {
+		if job == protocol.Job_Archer {
+			newChar.Equips[EquipLeftHand] = 1250
+		} else if job == protocol.Job_Trickster {
+			newChar.Equips[EquipRightHand] = 57363
+		} else if job == protocol.Job_Crusader {
+			newChar.Equips[EquipRightHand] = 62923
+		} else if job == protocol.Job_Cleric {
+			newChar.Equips[EquipRightHand] = 750
+		} else if job == protocol.Job_Mage {
+			newChar.Equips[EquipRightHand] = 1750
+		} else {
+			newChar.Equips[EquipRightHand] = 250
+		}
+	}
+
+	for _, sc := range classData.Shortcuts {
+		newChar.Shortcuts = append(newChar.Shortcuts, &database.Shortcut{
+			SlotNo:   sc.Slot,
+			CodeType: 1,
+			CodeNo:   int16(sc.CodeNo),
+			Value:    int32(sc.Value),
+		})
+	}
+
+	for _, sk := range classData.StarterSkills {
+		newChar.Skills = append(newChar.Skills, &database.CharacterSkill{
+			SkillNo:    uint16(sk),
+			SkillLevel: 1,
+		})
+	}
+
+	for _, qID := range classData.StarterQuests {
+		newChar.Quests = append(newChar.Quests, &database.QuestData{
+			CharNo:  newChar.ID,
+			QuestNo: qID,
+			Status:  1, // Activa
+		})
 	}
 
 	if err := h.charRepo.CreateCharacter(newChar); err != nil {
@@ -675,9 +812,43 @@ func (h *Handler) handleDeleteCharacter(client *network.Client, pkt *protocol.Pa
 		return
 	}
 
+	chars, err := h.charRepo.GetCharactersByAccount(client.AccountID)
+	if err != nil {
+		failResp := protocol.New_PROTO_NC_AVATAR_ERASEFAIL_ACK(0x0001)
+		_ = client.SendPacket(failResp)
+		return
+	}
+
+	var targetChar *database.Character
+	for _, ch := range chars {
+		if ch.Slot == slot {
+			targetChar = ch
+			break
+		}
+	}
+
+	if targetChar == nil {
+		log.Printf("[World][%s] Character in slot %d not found for deletion", client.RemoteAddr(), slot)
+		failResp := protocol.New_PROTO_NC_AVATAR_ERASEFAIL_ACK(0x0001)
+		_ = client.SendPacket(failResp)
+		return
+	}
+
+	// 1. Validar que no sea Maestro de Gremio activo
+	if avatarRepo := h.getAvatarRepo(); avatarRepo != nil {
+		if isGM, err := avatarRepo.IsActiveGuildMaster(targetChar.ID); err == nil && isGM {
+			log.Printf("[World][%s] Cannot delete character '%s' (ID: %d): active Guild Master",
+				client.RemoteAddr(), targetChar.Name, targetChar.ID)
+			failResp := protocol.New_PROTO_NC_AVATAR_ERASEFAIL_ACK(0x0002) // Guild Master error
+			_ = client.SendPacket(failResp)
+			return
+		}
+	}
+
 	if err := h.charRepo.DeleteCharacter(client.AccountID, slot); err != nil {
-		log.Printf("[World][%s] Error deleting character in slot %d: %v", client.RemoteAddr(), slot, err)
-		h.sendError(client, protocol.ErrDatabaseError)
+		log.Printf("[World][%s] Error deleting character '%s' in slot %d: %v", client.RemoteAddr(), targetChar.Name, slot, err)
+		failResp := protocol.New_PROTO_NC_AVATAR_ERASEFAIL_ACK(0x0001)
+		_ = client.SendPacket(failResp)
 		return
 	}
 
@@ -1015,6 +1186,26 @@ func (h *Handler) handleCharSelect(client *network.Client, pkt *protocol.Packet)
 		return
 	}
 
+	// 1. Validar si requiere cambio de ID obligatorio (bNeedChangeID)
+	if selected.ChangeID != nil && selected.ChangeID.NeedChangeID != 0 {
+		log.Printf("[World][%s] Character '%s' (ID: %d) requires name change before login",
+			client.RemoteAddr(), selected.Name, selected.ID)
+		failResp := protocol.New_PROTO_NC_CHAR_LOGINFAIL_ACK(0x000F) // NeedChangeID
+		_ = client.SendPacket(failResp)
+		return
+	}
+
+	// 2. Validar si el personaje se encuentra encarcelado
+	if avatarRepo := h.getAvatarRepo(); avatarRepo != nil {
+		if prison, err := avatarRepo.GetPrisonInfo(selected.ID); err == nil && prison != nil && prison.Reason != "" {
+			log.Printf("[World][%s] Character '%s' (ID: %d) is in prison: %s",
+				client.RemoteAddr(), selected.Name, selected.ID, prison.Reason)
+			failResp := protocol.New_PROTO_NC_CHAR_LOGINFAIL_ACK(uint16(protocol.ErrInvalidCredentials))
+			_ = client.SendPacket(failResp)
+			return
+		}
+	}
+
 	client.CharacterID = selected.ID
 	client.Slot = slot
 	h.partyMgr.RegisterOnline(client, selected.ID, selected.Name, selected.Job, selected.Level)
@@ -1026,6 +1217,30 @@ func (h *Handler) handleCharSelect(client *network.Client, pkt *protocol.Packet)
 	}
 	clientIP := client.RemoteIP()
 
+	// 3. Resolver endpoint de zona para el mapa
+	targetIP := h.zoneIP
+	targetPort := h.zonePort
+	mapName := selected.TownName
+	if mapName == "" {
+		mapName = "RouN"
+	}
+	var zoneNo uint16 = 1
+	if h.dataStore != nil && h.dataStore.Fields != nil {
+		if f, ok := h.dataStore.Fields.GetField(mapName); ok {
+			zoneNo = uint16(f.Fiesta)
+			if zoneNo == 0 {
+				zoneNo = 1
+			}
+		}
+	}
+	if topo := h.getTopoRepo(); topo != nil {
+		if ip, port, ok, err := topo.ResolveMapEndpoint(h.worldID, zoneNo); err == nil && ok && ip != "" {
+			targetIP = ip
+			targetPort = port
+		}
+	}
+
+	// 4. Emitir traspaso y login
 	h.transfers.CreateZoneTransfer(
 		client.AccountID,
 		client.Username,
@@ -1035,12 +1250,16 @@ func (h *Handler) handleCharSelect(client *network.Client, pkt *protocol.Packet)
 		client.Admin,
 		clientIP,
 	)
+	if topo := h.getTopoRepo(); topo != nil {
+		_ = topo.IssueZoneTransfer(h.worldID, zoneNo, client.AccountID, client.Username, selected.ID, selected.Name, randomID, client.Admin, clientIP, mapName, selected.XPos, selected.YPos)
+	}
+	_ = h.charRepo.CharacterLogin(selected.ID)
 
 	log.Printf("[World][%s] Character '%s' (ID: %d) selected. Zone transfer token generated for %s:%d",
-		client.RemoteAddr(), selected.Name, selected.ID, h.zoneIP, h.zonePort)
+		client.RemoteAddr(), selected.Name, selected.ID, targetIP, targetPort)
 
 	// Enviar respuesta oficial PROTO_NC_CHAR_LOGIN_ACK (0x1003) con IP y Puerto de Zone
-	resp := protocol.New_PROTO_NC_CHAR_LOGIN_ACK(h.zoneIP, h.zonePort)
+	resp := protocol.New_PROTO_NC_CHAR_LOGIN_ACK(targetIP, targetPort)
 	_ = client.SendPacket(resp)
 
 	// Enviar configuración de interfaz del personaje (SendToClient_CharOptionData @ 0x00431680, DataType == 2 NA2016):
@@ -1048,23 +1267,72 @@ func (h *Handler) handleCharSelect(client *network.Client, pkt *protocol.Packet)
 	// 2. 0x7033 (PROTO_NC_CHAR_OPTION_IMPROVE_GET_KEYMAP_CMD)
 	// 3. 0x7034 (PROTO_NC_CHAR_OPTION_IMPROVE_GET_GAMEOPTION_CMD)
 	h.sendCharOptionDataImprove(client, selected.ID)
+
+	// 5. Enviar lista de guías de novato vistas si existen registros
+	if progRepo := h.getProgRepo(); progRepo != nil {
+		if guides, err := progRepo.GetInGameGuideViewList(selected.ID); err == nil && len(guides) > 0 {
+			_ = client.SendPacket(protocol.New_PROTO_NC_CHAR_CLIENT_NEWBIE_GUIDE_VIEW_LIST_CMD(guides))
+		}
+	}
 }
 
 // sendCharOptionDataImprove envía automáticamente los paquetes del sistema mejorado de opciones (DataType == 2)
 // justo después de PROTO_NC_CHAR_LOGIN_ACK (0x1003), replicando CWMClientSession::SendToClient_CharOptionData.
 func (h *Handler) sendCharOptionDataImprove(client *network.Client, charNo int) {
+	progRepo := h.getProgRepo()
 	var shortcutEntries []protocol.SHORT_CUT_DATA
-	if shortcuts, err := h.charRepo.GetCharacterShortcuts(charNo); err == nil && len(shortcuts) > 0 {
-		shortcutEntries = make([]protocol.SHORT_CUT_DATA, 0, len(shortcuts))
-		for _, sc := range shortcuts {
-			if sc == nil {
-				continue
+	if progRepo != nil {
+		if scList, err := progRepo.GetImproveShortCutList(charNo); err == nil && len(scList) > 0 {
+			shortcutEntries = make([]protocol.SHORT_CUT_DATA, 0, len(scList))
+			for _, sc := range scList {
+				shortcutEntries = append(shortcutEntries, protocol.SHORT_CUT_DATA{
+					SlotNo: sc.SlotNo,
+					CodeNo: sc.CodeNo,
+					Value:  sc.Value,
+				})
 			}
-			shortcutEntries = append(shortcutEntries, protocol.SHORT_CUT_DATA{
-				SlotNo: sc.SlotNo,
-				CodeNo: uint16(sc.CodeNo),
-				Value:  sc.Value,
-			})
+		}
+	}
+
+	if len(shortcutEntries) == 0 {
+		if shortcuts, err := h.charRepo.GetCharacterShortcuts(charNo); err == nil && len(shortcuts) > 0 {
+			for _, sc := range shortcuts {
+				if sc == nil {
+					continue
+				}
+				shortcutEntries = append(shortcutEntries, protocol.SHORT_CUT_DATA{
+					SlotNo: sc.SlotNo,
+					CodeNo: uint16(sc.CodeNo),
+					Value:  sc.Value,
+				})
+			}
+		}
+	}
+
+	var keyMapEntries []protocol.KEY_MAP_DATA
+	if progRepo != nil {
+		if kmList, err := progRepo.GetImproveKeyMap(charNo); err == nil && len(kmList) > 0 {
+			keyMapEntries = make([]protocol.KEY_MAP_DATA, 0, len(kmList))
+			for _, km := range kmList {
+				keyMapEntries = append(keyMapEntries, protocol.KEY_MAP_DATA{
+					FunctionNo: km.FunctionNo,
+					ExtendKey:  km.ExtendKey,
+					ASCIICode:  km.ASCIICode,
+				})
+			}
+		}
+	}
+
+	var gameOptEntries []protocol.GAME_OPTION_DATA
+	if progRepo != nil {
+		if goList, err := progRepo.GetImproveGameOptions(charNo); err == nil && len(goList) > 0 {
+			gameOptEntries = make([]protocol.GAME_OPTION_DATA, 0, len(goList))
+			for _, goOpt := range goList {
+				gameOptEntries = append(gameOptEntries, protocol.GAME_OPTION_DATA{
+					OptionNo: goOpt.OptionNo,
+					Value:    goOpt.Value,
+				})
+			}
 		}
 	}
 
@@ -1073,10 +1341,10 @@ func (h *Handler) sendCharOptionDataImprove(client *network.Client, charNo int) 
 		if len(shortcutEntries) == 0 && len(opts.ShortCutData) >= 2 && (len(opts.ShortCutData)-2)%7 == 0 {
 			rawShortcutData = opts.ShortCutData
 		}
-		if len(opts.KeyMapping) >= 2 && (len(opts.KeyMapping)-2)%4 == 0 {
+		if len(keyMapEntries) == 0 && len(opts.KeyMapping) >= 2 && (len(opts.KeyMapping)-2)%4 == 0 {
 			rawKeyMapData = opts.KeyMapping
 		}
-		if len(opts.Game) >= 2 && (len(opts.Game)-2)%3 == 0 {
+		if len(gameOptEntries) == 0 && len(opts.Game) >= 2 && (len(opts.Game)-2)%3 == 0 {
 			rawGameOptionData = opts.Game
 		}
 	}
@@ -1086,11 +1354,11 @@ func (h *Handler) sendCharOptionDataImprove(client *network.Client, charNo int) 
 	_ = client.SendPacket(pktShortcut)
 
 	// 2. 0x7033: PROTO_NC_CHAR_OPTION_IMPROVE_GET_KEYMAP_CMD
-	pktKeyMap := protocol.New_PROTO_NC_CHAR_OPTION_IMPROVE_GET_KEYMAP_CMD(nil, rawKeyMapData)
+	pktKeyMap := protocol.New_PROTO_NC_CHAR_OPTION_IMPROVE_GET_KEYMAP_CMD(keyMapEntries, rawKeyMapData)
 	_ = client.SendPacket(pktKeyMap)
 
 	// 3. 0x7034: PROTO_NC_CHAR_OPTION_IMPROVE_GET_GAMEOPTION_CMD
-	pktGameOpt := protocol.New_PROTO_NC_CHAR_OPTION_IMPROVE_GET_GAMEOPTION_CMD(nil, rawGameOptionData)
+	pktGameOpt := protocol.New_PROTO_NC_CHAR_OPTION_IMPROVE_GET_GAMEOPTION_CMD(gameOptEntries, rawGameOptionData)
 	_ = client.SendPacket(pktGameOpt)
 }
 

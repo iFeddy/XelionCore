@@ -260,6 +260,192 @@ func New_PROTO_NC_MISC_GAMETIME_ACK(hour, minute, second byte) *PacketWriter {
 	return pw
 }
 
+// New_PROTO_NC_AVATAR_ERASEFAIL_ACK construye el error oficial de borrado de personaje (OpCode 0x140A).
+// Struct oficial PDB: PROTO_NC_AVATAR_ERASEFAIL_ACK (2 bytes)
+// - err: unsigned short (uint16)
+func New_PROTO_NC_AVATAR_ERASEFAIL_ACK(errCode uint16) *PacketWriter {
+	pw := NewPacketWriter(PROTO_NC_AVATAR_ERASEFAIL_ACK)
+	pw.WriteUint16(errCode)
+	return pw
+}
+
+// New_PROTO_NC_AVATAR_RENAME_ACK construye la respuesta oficial de renombramiento de personaje (OpCode 0x1410).
+// Struct oficial PDB: PROTO_NC_AVATAR_RENAME_ACK (23 bytes)
+// - SlotNo: unsigned char (1 byte)
+// - NewName: Name5 (20 bytes)
+// - Error: unsigned short (2 bytes)
+func New_PROTO_NC_AVATAR_RENAME_ACK(slotNo byte, newName string, errCode uint16) *PacketWriter {
+	pw := NewPacketWriter(PROTO_NC_AVATAR_RENAME_ACK)
+	pw.WriteByte(slotNo)
+	pw.WriteString(newName, 20)
+	pw.WriteUint16(errCode)
+	return pw
+}
+
+// New_PROTO_NC_USER_CONNECTION_CHANGE_CHAR_ID_ACK construye la respuesta oficial de cambio de ID de personaje (OpCode 0xB40C).
+// Struct oficial PDB: PROTO_NC_USER_CONNECTION_CHANGE_CHAR_ID_ACK (23 bytes)
+// - nError: unsigned short (2 bytes)
+// - nSlotNo: unsigned char (1 byte)
+// - sNewID: Name5 (20 bytes)
+func New_PROTO_NC_USER_CONNECTION_CHANGE_CHAR_ID_ACK(errCode uint16, slotNo byte, newName string) *PacketWriter {
+	pw := NewPacketWriter(PROTO_NC_USER_CONNECTION_CHANGE_CHAR_ID_ACK)
+	pw.WriteUint16(errCode)
+	pw.WriteByte(slotNo)
+	pw.WriteString(newName, 20)
+	return pw
+}
+
+// New_PROTO_NC_CHAR_SET_STYLE_GET_INFO_ACK construye la respuesta oficial con cupones de belleza disponibles (OpCode 0x107D).
+// Struct oficial PDB: PROTO_NC_CHAR_SET_STYLE_GET_INFO_ACK (26 bytes)
+// - Error: unsigned short (2 bytes)
+// - Items: STYLE_ITEM_COUNTS[6] (24 bytes: 6 x {uint16 itemID, uint16 count})
+func New_PROTO_NC_CHAR_SET_STYLE_GET_INFO_ACK(errCode uint16, items [6][2]uint16) *PacketWriter {
+	pw := NewPacketWriter(PROTO_NC_CHAR_SET_STYLE_GET_INFO_ACK)
+	pw.WriteUint16(errCode)
+	for i := 0; i < 6; i++ {
+		pw.WriteUint16(items[i][0])
+		pw.WriteUint16(items[i][1])
+	}
+	return pw
+}
+
+// New_PROTO_NC_CHAR_SET_STYLE_ACK construye la respuesta oficial de cambio de apariencia (OpCode 0x1079).
+// Struct oficial PDB: PROTO_NC_CHAR_SET_STYLE_ACK (2 bytes)
+// - Error: unsigned short (2 bytes)
+func New_PROTO_NC_CHAR_SET_STYLE_ACK(errCode uint16) *PacketWriter {
+	pw := NewPacketWriter(PROTO_NC_CHAR_SET_STYLE_ACK)
+	pw.WriteUint16(errCode)
+	return pw
+}
+
+// New_PROTO_NC_CHAR_CLIENT_NEWBIE_GUIDE_VIEW_LIST_CMD construye la lista de guías de novato vistas (OpCode 0x10D9).
+// Struct oficial PDB: PROTO_NC_CHAR_NEWBIE_GUIDE_VIEW_LIST_CMD (1 + N bytes)
+// - nGuideViewNum: unsigned char (1 byte)
+// - nGuideViewList: unsigned char[nGuideViewNum]
+func New_PROTO_NC_CHAR_CLIENT_NEWBIE_GUIDE_VIEW_LIST_CMD(guides []byte) *PacketWriter {
+	pw := NewPacketWriter(PROTO_NC_CHAR_CLIENT_NEWBIE_GUIDE_VIEW_LIST_CMD)
+	pw.WriteByte(byte(len(guides)))
+	if len(guides) > 0 {
+		pw.WriteBytes(guides)
+	}
+	return pw
+}
+
+// New_PROTO_NC_CHAR_EVENT_ATTENDANCE_REWARD_ACK construye la respuesta oficial de recompensa de asistencia (OpCode 0x10F2).
+// Struct oficial PDB: PROTO_NC_CHAR_EVENT_ATTENDANCE_REWARD_ACK (4 bytes)
+// - nIndex: unsigned char (1 byte)
+// - nRewardID: unsigned char (1 byte)
+// - nError: unsigned short (2 bytes)
+func New_PROTO_NC_CHAR_EVENT_ATTENDANCE_REWARD_ACK(index, rewardID byte, errCode uint16) *PacketWriter {
+	pw := NewPacketWriter(PROTO_NC_CHAR_EVENT_ATTENDANCE_REWARD_ACK)
+	pw.WriteByte(index)
+	pw.WriteByte(rewardID)
+	pw.WriteUint16(errCode)
+	return pw
+}
+
+// New_PROTO_NC_CHAR_OPTION_GET_VIDEO_ACK construye la respuesta de opciones de video (OpCode 0x7007).
+// Struct oficial PDB: PROTO_NC_CHAR_OPTION_GET_VIDEO_ACK (61 bytes: 1 byte bSuccess + 60 bytes Data).
+func New_PROTO_NC_CHAR_OPTION_GET_VIDEO_ACK(data []byte) *PacketWriter {
+	pw := NewPacketWriter(PROTO_NC_CHAR_OPTION_GET_VIDEO_ACK)
+	if len(data) > 0 {
+		pw.WriteByte(1)
+		if len(data) >= 60 {
+			pw.WriteBytes(data[:60])
+		} else {
+			pw.WriteBytes(data)
+			pw.Fill(60-len(data), 0)
+		}
+	} else {
+		pw.WriteByte(0)
+		pw.Fill(60, 0)
+	}
+	return pw
+}
+
+// New_PROTO_NC_CHAR_OPTION_GET_SOUND_ACK construye la respuesta de opciones de sonido (OpCode 0x7009).
+// Struct oficial PDB: PROTO_NC_CHAR_OPTION_GET_SOUND_ACK (2 bytes: 1 byte bSuccess + 1 byte Data).
+func New_PROTO_NC_CHAR_OPTION_GET_SOUND_ACK(data []byte) *PacketWriter {
+	pw := NewPacketWriter(PROTO_NC_CHAR_OPTION_GET_SOUND_ACK)
+	if len(data) > 0 {
+		pw.WriteByte(1)
+		pw.WriteByte(data[0])
+	} else {
+		pw.WriteByte(0)
+		pw.WriteByte(0)
+	}
+	return pw
+}
+
+// New_PROTO_NC_CHAR_OPTION_IMPROVE_SET_SHORTCUTDATA_ACK construye la confirmación de guardado de accesos directos mejorados (OpCode 0x7038).
+// Struct oficial PDB: PROTO_NC_CHAR_OPTION_IMPROVE_SET_SHORTCUTDATA_ACK (2 bytes)
+// - nError: unsigned short (2 bytes)
+func New_PROTO_NC_CHAR_OPTION_IMPROVE_SET_SHORTCUTDATA_ACK(errCode uint16) *PacketWriter {
+	pw := NewPacketWriter(PROTO_NC_CHAR_OPTION_IMPROVE_SET_SHORTCUTDATA_ACK)
+	pw.WriteUint16(errCode)
+	return pw
+}
+
+// New_PROTO_NC_CHAR_OPTION_IMPROVE_SET_KEYMAP_ACK construye la confirmación de guardado de mapeo de teclas mejorado (OpCode 0x703A).
+// Struct oficial PDB: PROTO_NC_CHAR_OPTION_IMPROVE_SET_KEYMAP_ACK (2 bytes)
+// - nError: unsigned short (2 bytes)
+func New_PROTO_NC_CHAR_OPTION_IMPROVE_SET_KEYMAP_ACK(errCode uint16) *PacketWriter {
+	pw := NewPacketWriter(PROTO_NC_CHAR_OPTION_IMPROVE_SET_KEYMAP_ACK)
+	pw.WriteUint16(errCode)
+	return pw
+}
+
+// New_PROTO_NC_CHAR_OPTION_IMPROVE_SET_GAMEOPTION_ACK construye la confirmación de guardado de opciones de juego mejoradas (OpCode 0x703C).
+// Struct oficial PDB: PROTO_NC_CHAR_OPTION_IMPROVE_SET_GAMEOPTION_ACK (2 bytes)
+// - nError: unsigned short (2 bytes)
+func New_PROTO_NC_CHAR_OPTION_IMPROVE_SET_GAMEOPTION_ACK(errCode uint16) *PacketWriter {
+	pw := NewPacketWriter(PROTO_NC_CHAR_OPTION_IMPROVE_SET_GAMEOPTION_ACK)
+	pw.WriteUint16(errCode)
+	return pw
+}
+
+// New_PROTO_NC_CHAR_OPTION_IMPROVE_INIT_KEYMAP_ACK construye la respuesta de reseteo a valores de fábrica de teclas (OpCode 0x7044).
+// Struct oficial PDB: PROTO_NC_CHAR_OPTION_IMPROVE_INIT_KEYMAP_ACK (4 + 4*N bytes)
+// - nError: unsigned short (2 bytes)
+// - nKeyMapDataCnt: unsigned short (2 bytes)
+// - KeyMapData: KEY_MAP_DATA[nKeyMapDataCnt] (4 bytes cada uno)
+func New_PROTO_NC_CHAR_OPTION_IMPROVE_INIT_KEYMAP_ACK(errCode uint16, entries []KEY_MAP_DATA) *PacketWriter {
+	pw := NewPacketWriter(PROTO_NC_CHAR_OPTION_IMPROVE_INIT_KEYMAP_ACK)
+	pw.WriteUint16(errCode)
+	pw.WriteUint16(uint16(len(entries)))
+	for _, e := range entries {
+		pw.WriteUint16(e.FunctionNo)
+		pw.WriteByte(e.ExtendKey)
+		pw.WriteByte(e.ASCIICode)
+	}
+	return pw
+}
+
+// New_PROTO_NC_CHAR_OPTION_IMPROVE_INIT_GAMEOPTION_ACK construye la respuesta de reseteo a valores de fábrica de opciones de juego (OpCode 0x7046).
+// Struct oficial PDB: PROTO_NC_CHAR_OPTION_IMPROVE_INIT_GAMEOPTION_ACK (4 + 3*N bytes)
+// - nError: unsigned short (2 bytes)
+// - nGameOptionDataCnt: unsigned short (2 bytes)
+// - GameOptionData: GAME_OPTION_DATA[nGameOptionDataCnt] (3 bytes cada uno)
+func New_PROTO_NC_CHAR_OPTION_IMPROVE_INIT_GAMEOPTION_ACK(errCode uint16, entries []GAME_OPTION_DATA) *PacketWriter {
+	pw := NewPacketWriter(PROTO_NC_CHAR_OPTION_IMPROVE_INIT_GAMEOPTION_ACK)
+	pw.WriteUint16(errCode)
+	pw.WriteUint16(uint16(len(entries)))
+	for _, e := range entries {
+		pw.WriteUint16(e.OptionNo)
+		pw.WriteByte(e.Value)
+	}
+	return pw
+}
+
+// New_PROTO_NC_CHAR_TUTORIAL_POPUP_ACK construye la notificación de diálogo de tutorial (OpCode 0x1111).
+// Struct oficial PDB: PROTO_NC_CHAR_TUTORIAL_POPUP_ACK (1 byte)
+// - bIsSkip: unsigned char (1 byte)
+func New_PROTO_NC_CHAR_TUTORIAL_POPUP_ACK(isSkip bool) *PacketWriter {
+	pw := NewPacketWriter(PROTO_NC_CHAR_TUTORIAL_POPUP_ACK)
+	pw.WriteBool(isSkip)
+	return pw
+}
+
 // ============================================================================
 // Estructuras Oficiales C++ (#pragma pack(push, 1))
 // ============================================================================
