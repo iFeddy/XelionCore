@@ -33,7 +33,7 @@ Regla Mandatoria: CERO SQL inline (`SELECT`/`INSERT`/`UPDATE`/`DELETE`), CERO om
    - Actualizar [`scripts/apply_mysql_procedures.sh`](../../scripts/apply_mysql_procedures.sh) para cargar automáticamente `database/procedures_gamelog.sql` junto con `procedures.sql` y `procedures_character.sql`.
 
 3. **Repositorio Go `GameLogRepository` y Worker Asíncrono `GameLogDispatcher` (`pkg/database/mysql_gamelog.go`):**
-   - Definir la interfaz `GameLogRepository` en `pkg/database/gamelog.go` cubriendo los `27` SPs y helpers tipados para los 44 eventos de [`docs/Servicios/GameLog.md`](../Servicios/GameLog.md) (`AddLog`, `AddType1`..`AddTypeL`, `SetLoginChannel`, `GetLogs`, `GetLogCount`), ejecutando exclusivamente `CALL <SP>(...)`.
+   - Definir la interfaz `GameLogRepository` en `pkg/database/gamelog.go` cubriendo los `27` SPs y helpers tipados para los 44 eventos de [`docs/Servicios/GameLog.md`](../Servicios/GameLog.md) (`AddLog`, `AddType1` a `AddTypeL`, `SetLoginChannel`, `GetLogs`, `GetLogCount`), ejecutando exclusivamente `CALL <SP>`.
    - Implementar `GameLogDispatcher` (cola asíncrona con canal bufferizado configurable, worker pool ligero, métricas de encolado/errores y `Close(ctx)` con drenaje completo antes de cerrar `*sql.DB`) e inyectarlo en `ZoneService` y `WorldService`, además de validar los `49` `.shn` de `ChecksumEngine` requeridos por `GameLog.exe`.
 
 4. **Auditoría Automatizada (`pkg/audit/fase08_gamelog_db_sp_test.go` — Controles 1, 2 y 3):**

@@ -27,7 +27,7 @@ Regla Mandatoria: Nomenclatura 100% idéntica a los PDBs (`PROTO_NC_*`) directam
 2. **Las `44` Estructuras `PROTO_NC_LOG_*` de `docs/Servicios/GameLog.md` (`pkg/protocol/gamelog_structs.go`):**
    - Implementar las **`44` estructuras exactas** listadas en la Sección 2.4 (`PROTO_NC_LOG_GAME_DATA_TYPE_0` a `TYPE_9`, `TYPE_A` a `TYPE_O` y las `19` estructuras especializadas `PROTO_NC_LOG_GAME_*` / `PROTO_NC_LOG_WEDDING_*` / `PROTO_NC_LOG_REGENLOCATESAVE_CMD`) con sus lectores/escritores binarios Little-Endian `#pragma pack(1)` y conectarlas con `GameLogDispatcher` de la Fase 08.
 
-3. **Las `1.293` Estructuras `PROTO_NC_*` y `9` `ShineSendType<...>` de `docs/Servicios/Zone.md` (`pkg/protocol/zone_structs_*.go`):**
+3. **Las `1.293` Estructuras `PROTO_NC_*` y `9` `ShineSendType<PROTO_NC_*>` de `docs/Servicios/Zone.md` (`pkg/protocol/zone_structs_*.go`):**
    - Organizar modularmente por departamento en `pkg/protocol/` (sin crear subpaquetes paralelos) el **100% de las `1.293` estructuras `PROTO_NC_*`** de la Sección 5.1 (incluyendo sub-estructuras anidadas `unnamed-type-*` y tipos compuestos oficiales `SHINE_XY_TYPE`, `MAPPOS`, `CHAR_PARAMETER_DATA`, `PROTO_EQUIPMENT`, `ITEM_INVEN`, `ItemOptionStorage::Element`, etc., reutilizando sin colisión las estructuras ya creadas en Etapa 1 y Etapa 2 cuando comparten definición idéntica en el PDB).
    - Para paquetes con arrays flexibles (`zero-length` o trailing arrays en C++), proveer métodos exactos de `FixedWireSize()` (idéntico al `sizeof` estático de `Zone.pdb`) más serialización/deserialización completa de sus slices dinámicos (`SkillDamage`, `CardBookmarkInfo`, `CardInform`, `MobOfQuest`, etc.).
 

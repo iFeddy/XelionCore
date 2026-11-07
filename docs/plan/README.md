@@ -1,22 +1,25 @@
-# Hoja de Ruta Modular por Fases: `WorldService` y `Character` (100% MySQL + PDB + `data/`)
+# Hoja de Ruta Modular Completa por Fases (`XelionCore` — 100% Fidelidad PDB + `.exe` + `.bak` + `data/` + MySQL)
 
-Esta carpeta divide la ejecución del plan maestro exhaustivo [PLAN_ACCION_WORLDSERVICE_CHARACTER.md](./PLAN_ACCION_WORLDSERVICE_CHARACTER.md) en **8 fases cortas, autónomas y seguras para tu cuota de tokens** (`01`, `02`, **`02A`**, `03`, `04`, `05`, `06` y `07`), trabajando directamente sobre `main`.
+Esta carpeta organiza la ejecución modular, autónoma y segura para la cuota de tokens de las etapas restantes del clúster oficial de Fiesta Online sobre `main`:
 
-> [!NOTE]
-> La **Etapa 1 (`LoginService`, `Account` y `AccountLog`)** fue completada y auditada al 100% (`7/7` + cero hardcode) y se encuentra archivada en [fases_terminadas/](./fases_terminadas/).
+- **Etapa 1 (`LoginService`, `Account`, `AccountLog`, `StatisticsData`):** **Completada y auditada al 100%** (archivada en [fases_terminadas/](./fases_terminadas/)).
+- **Etapa 2 (`WorldService` y `Character` — Fases `01` a `07`):** Gobernada por [PLAN_ACCION_WORLDSERVICE_CHARACTER.md](./PLAN_ACCION_WORLDSERVICE_CHARACTER.md).
+- **Etapa 3 (`ZoneService` y `GameLog` — Fases `08` a `16`):** Gobernada por [PLAN_ACCION_ZONESERVICE_GAMELOG.md](../PLAN_ACCION_ZONESERVICE_GAMELOG.md).
 
 ---
 
 ## Reglas de Seguridad ante Corte de Tokens
 
-1. **Una sesión limpia de chat por cada Fase (o ejecución secuencial con `/goal`):** Cada archivo `FASE_0X_*.md` contiene su prompt exacto y criterios objetivos de cierre.
-2. **Compilación garantizada entre fases:** El orden (`01` -> `02` -> `02A` -> `03` -> `04` -> `05` -> `06` -> `07`) asegura que al terminar cada fase `go build ./...` y todos los tests acumulados (Etapa 1 + Etapa 2) sigan pasando en verde.
+1. **Una sesión limpia de chat por cada Fase (o ejecución secuencial con `/goal`):** Cada archivo `FASE_XX_*.md` contiene su prompt exacto listo para copiar y pegar y criterios objetivos de cierre.
+2. **Compilación garantizada entre fases:** El orden secuencial (`01` -> `02` -> `02A` -> `03`..`07` -> `08`..`16`) asegura que al terminar cada fase `go build ./...` y todos los tests acumulados (`go test -p 1 -count=1 ./...`) sigan pasando en verde.
 3. **Un `git commit` al cerrar cada Fase:** Cada fase termina haciendo commit en `main` **únicamente** cuando pasan al 100% sus controles automáticos.
-4. **Cero Datos Hardcodeados y Cero Omisiones:** Todo nombre de tabla, Stored Procedure, OpCode y struct C++ proviene 1:1 de los PDBs (`WorldManager.md`, `Character.md`), `.bak` (`TablasLegacy.md`, `World00_Character_all_procedures.sql`), binarios `.exe` y recursos `data/` (`.shn`, `.json`, `.txt`).
+4. **Cero Datos Hardcodeados y Cero Omisiones:** Todo nombre de tabla (`176/176`), Stored Procedure, OpCode y struct C++ proviene 1:1 de los PDBs (`Login.md`, `Account.md`, `AccountLog.md`, `WorldManager.md`, `Character.md`, `Zone.md`, `GameLog.md`), `.bak` (`TablasLegacy.md`, `docs/sql/procedures/`), binarios `.exe` y recursos `data/` (`.shn`, `.json`, `.txt`, `BlockInfo`, `AreaBMP`, `LuaScript`).
 
 ---
 
-## Orden de Ejecución y Nivel de Modelo Recomendado
+## Etapa 2: `WorldService` y `Character` (Fases `01` a `07`)
+
+Plan Maestro: [PLAN_ACCION_WORLDSERVICE_CHARACTER.md](./PLAN_ACCION_WORLDSERVICE_CHARACTER.md)
 
 | Orden | Archivo de Fase | Objetivo Principal | Nivel Recomendado | Control de Auditoría que Activa | Estado |
 | :---: | :--- | :--- | :---: | :--- | :---: |
@@ -28,6 +31,24 @@ Esta carpeta divide la ejecución del plan maestro exhaustivo [PLAN_ACCION_WORLD
 | **5** | [FASE_05_CHARACTER_SERVICE_SELECCION_CREACION_BORRADO.md](./FASE_05_CHARACTER_SERVICE_SELECCION_CREACION_BORRADO.md) | Ciclo completo de cuenta/avatares, estilo, opciones `IMPROVE`, tutorial, asistencia y carga de los **`74` `.shn` únicos** (`54 + 71`) sin hardcode | **`High`** | **Control 5A** (Dispatcher Avatar/Char + 74 SHNs) | Pendiente |
 | **6** | [FASE_06_WORLD_COORDINATION_TOPOLOGY_SUBSYSTEMS.md](./FASE_06_WORLD_COORDINATION_TOPOLOGY_SUBSYSTEMS.md) | Cobertura **100% de los `167` handlers C2S** de `WorldManager.pdb`: Chat, Party, Raid, Friends, KQ, Guild/War/Tournament/Emblem, Academy, HolyPromise, Prison, Report y Topología `tWorldZoneNode` | **`High`** | **Control 5B** (`167/167` C2S + S2S) | Pendiente |
 | **7** | [FASE_07_INTEGRACION_ZONE_GAMEPLAY_Y_AUDITORIA_FINAL.md](./FASE_07_INTEGRACION_ZONE_GAMEPLAY_Y_AUDITORIA_FINAL.md) | Traspaso multi-proceso `World <-> Zone`, carga real de los 16 paquetes del In-Game Chunk, portales inter-zona, logout completo y suite final `verify_world_character_100.sh` | **`High`** | **Controles 6, 7 y 8** (`8/8 PASS`, `exit 0`) | Pendiente |
+
+---
+
+## Etapa 3: `ZoneService` y `GameLog` (Fases `08` a `16`)
+
+Plan Maestro: [PLAN_ACCION_ZONESERVICE_GAMELOG.md](../PLAN_ACCION_ZONESERVICE_GAMELOG.md)
+
+| Orden | Archivo de Fase | Objetivo Principal | Nivel Recomendado | Control de Auditoría que Activa | Estado |
+| :---: | :--- | :--- | :---: | :--- | :---: |
+| **8** | [FASE_08_ESQUEMA_PROCEDURES_Y_REPOSITORIO_GAMELOG.md](./FASE_08_ESQUEMA_PROCEDURES_Y_REPOSITORIO_GAMELOG.md) | Retiro de `database/zone_tables.sql`, cierre **`176/176` tablas** en `xelion_online`, **`27` SPs pool-safe** en `database/procedures_gamelog.sql`, `GameLogRepository` (`100% CALL`) y `GameLogDispatcher` asíncrono | **`Medium`** *(o `High`)* | **Controles 1, 2 y 3 (Etapa 3)** | Pendiente |
+| **9** | [FASE_09_PROTOCOLO_OPCODES_Y_STRUCTS_ZONE_GAMELOG.md](./FASE_09_PROTOCOLO_OPCODES_Y_STRUCTS_ZONE_GAMELOG.md) | Registro 100% de los **`245` OpCodes C2S** + S2S, las **`44` structs `PROTO_NC_LOG_*`** (`GameLog.md`) y las **`1.293` structs `PROTO_NC_*`** (`Zone.md`) en `pkg/protocol/` con paridad `sizeof` | **`High`** | **Control 4 (Etapa 3)** | Pendiente |
+| **10** | [FASE_10_UNIVERSO_DATOS_SHN_BLOCKINFO_AREABMP_Y_LUA_API.md](./FASE_10_UNIVERSO_DATOS_SHN_BLOCKINFO_AREABMP_Y_LUA_API.md) | Carga de **`180` `.shn` reales** (`194` rutas) + `49` checksums, paquetes **`pkg/data/blockinfo`** (`301` archivos `.shbd`/`.sbi`/`.aid`/`.bdt`/`.shab`) y **`pkg/data/areabmp`** (`44` `.bmp`), y **`274` funciones C-API `lua_State*`** en `pkg/script/lua/` | **`High`** | **Control 6 (Etapa 3)** | Pendiente |
+| **11** | [FASE_11_MOTOR_ESPACIAL_AOI_COLISIONES_BRIEFINFO_Y_MOVIMIENTO.md](./FASE_11_MOTOR_ESPACIAL_AOI_COLISIONES_BRIEFINFO_Y_MOVIMIENTO.md) | Game Loop determinístico, grilla espacial AOI, `BRIEFINFO`, colisiones `.shbd`/`.sbi`, las **27 clases** en `ClassParam`, movimiento, tiendas `Tent`, recolección `Gather` y monturas `MOVER` | **`High`** | Suite AOI, Colisiones y Movimiento | Pendiente |
+| **12** | [FASE_12_MOTOR_COMBATE_SKILLS_ABSTATE_SOULSTONE_Y_PVP.md](./FASE_12_MOTOR_COMBATE_SKILLS_ABSTATE_SOULSTONE_Y_PVP.md) | Motor de combate físico/mágico (`NC_BAT`), `ActiveSkill`/`PassiveSkill`/campos mágicos (`NC_SKILL`), máquina `AbState`, `SoulStone`, stats libres, muerte/resurrección, PvP/PK y `GameLog` Tipos `2, 8, E` | **`High`** | Suite Combate, Skills y `AbState` | Pendiente |
+| **13** | [FASE_13_MOTOR_MONSTRUOS_IA_MOBBEHAVIOR_DROPS_Y_COLECCION.md](./FASE_13_MOTOR_MONSTRUOS_IA_MOBBEHAVIOR_DROPS_Y_COLECCION.md) | Spawns `MobRegen`, patrullas `MobRoam`, IA `MobBehavior` + Lua `AIScript`, `MobAttackSequence`, EXP Party/Raid, tablas de `Drops`, `AutoPick`, Títulos (`NC_CT`), Cartas (`NC_COLLECT`) y `GameLog` Tipo `6` | **`High`** | Suite IA Monstruos, Drops y Colección | Pendiente |
+| **14** | [FASE_14_ECONOMIA_INVENTARIO_COMERCIO_BOOTH_UPGRADE_Y_CRAFTING.md](./FASE_14_ECONOMIA_INVENTARIO_COMERCIO_BOOTH_UPGRADE_Y_CRAFTING.md) | **`48/48` C2S `NC_ITEM`** + **`62` métodos `iac_*`**, Mercaderes NPC, almacenes, `SafeTrade` (`10` C2S), Kioscos `BOOTH` (`8` C2S), `Upgrade`, `Enchant`, `RandomOption`, `Dismantle`, `Mix`, `Produce` y `GameLog` Tipos `3, 4, 5, 7, B, C, D` | **`High`** | Suite Transaccional Economía y Forja | Pendiente |
+| **15** | [FASE_15_QUESTS_NPCS_LUA_INSTANCIAS_KQ_MINIHOUSE_PETS_Y_CASINO.md](./FASE_15_QUESTS_NPCS_LUA_INSTANCIAS_KQ_MINIHOUSE_PETS_Y_CASINO.md) | Motor `QUEST` (`7` C2S), NPCs/escenarios, instancias Lua (`InstanceDungeon`, `KQ` en mapa, `GuildTournament` en mapa, `Wedding`), `HolyPromise`, `MiniHouse` (`23` C2S), `Pet`, `WeaponTitle` y Casino (`DICE` `9` C2S + `GAMBLE` `18` C2S) | **`High`** | Suite Quests, Lua, MiniHouse, Pets y Casino | Pendiente |
+| **16** | [FASE_16_COORDINACION_S2S_ADMIN_E2E_CLUSTER_Y_AUDITORIA_FINAL.md](./FASE_16_COORDINACION_S2S_ADMIN_E2E_CLUSTER_Y_AUDITORIA_FINAL.md) | Coordinación S2S `Zone <-> World` (**`138` flujos `wms_NC_*`**), multi-nodo `Zone00`..`Zone04`, comandos GM (`AdminLvSet.shn`), cierre **`245/245` C2S** y suite final `scripts/verify_zone_gamelog_100.sh` | **`High`** | **Controles 5, 7 y 8** (`8/8 PASS`, `exit 0`) | Pendiente |
 
 ---
 
