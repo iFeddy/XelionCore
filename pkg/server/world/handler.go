@@ -409,7 +409,7 @@ func (h *Handler) handleWorldClientKey(client *network.Client, pkt *protocol.Pac
 	if !authenticated && h.transfers != nil {
 		tokenStr := strings.TrimRight(string(token64[:32]), "\x00")
 		tokenStr = strings.TrimSpace(tokenStr)
-		transfer, ok := h.transfers.ConsumeTransfer(tokenStr, pkt.Raw, username)
+		transfer, ok := h.transfers.ConsumeTransfer(tokenStr, token64[:], username, h.worldID)
 		if ok && transfer != nil {
 			authenticated = true
 			userNo = transfer.AccountID

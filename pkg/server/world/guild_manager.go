@@ -246,8 +246,8 @@ func (gm *GuildManager) HandleMemberList(client *network.Client) {
 		entries = append(entries, protocol.GuildMemberClientEntry{
 			Name:      m.CharName,
 			Grade:     m.Grade,
-			Flags:     m.Flags,
-			ExpRatio:  m.ExpRatio,
+			Flags:     uint32(m.Flags),
+			ExpRatio:  uint16(m.ExpRatio),
 			Intro:     m.Intro,
 			LogonTime: m.LastLogin,
 			IsOnline:  isOnline,

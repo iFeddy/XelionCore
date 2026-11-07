@@ -757,7 +757,7 @@ func (h *Handler) handle_PROTO_NC_USER_WORLDSELECT_REQ(client *network.Client, p
 	}
 
 	if h.transfers != nil {
-		h.transfers.CreateTransfer(client.AccountID, client.Username, client.Admin, client.RemoteAddr())
+		h.transfers.CreateTransfer(client.AccountID, client.Username, client.Admin, client.RemoteAddr(), tokenBytes[:], worldID)
 	}
 	client.IsTransferring = true
 

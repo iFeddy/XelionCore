@@ -122,6 +122,7 @@ func (fm *FriendManager) AcceptFriend(target *network.Client) {
 		log.Printf("[Friend] Error persisting friendship between %d and %d: %v", requesterID, targetID, err)
 		return
 	}
+	_ = fm.charRepo.AddFriend(targetID, requesterID)
 
 	log.Printf("[Friend] Friendship established between char %d and char %d", requesterID, targetID)
 

@@ -2,15 +2,14 @@ package database
 
 import (
 	"database/sql"
-	"errors"
 	"fmt"
 	"strings"
 	"time"
 )
 
-// MySQLCharacterRepository implementa CharacterRepository interactuando directamente
-// con las tablas oficiales tCharacter, tCharacterShape, tCharacterOptions e tItem
-// replicando con 100% de fidelidad los 8 stored procedures oficiales del CharServer.
+// MySQLCharacterRepository implementa CharacterRepository interactuando 100% mediante
+// Stored Procedures oficiales contra la base de datos xelion_online (World00_Character).
+// Regla Mandatoria: CERO SQL inline (SELECT/INSERT/UPDATE/DELETE) en todo el repositorio.
 type MySQLCharacterRepository struct {
 	db *sql.DB
 }
@@ -20,1629 +19,669 @@ func NewMySQLCharacterRepository(db *sql.DB) *MySQLCharacterRepository {
 	return &MySQLCharacterRepository{db: db}
 }
 
-// GetCharactersByAccount implementa la lógica combinada de p_Char_GetListOfUserChar,
-// p_Char_GetLoginData y p_Item_GetList para obtener todos los personajes activos de una cuenta.
+// GetCharactersByAccount implementa la recuperación de personajes activos de una cuenta
+// invocando p_Char_GetListOfUserChar, p_Char_GetAllData, p_Char_GetShape y p_Item_GetListType.
 func (r *MySQLCharacterRepository) GetCharactersByAccount(accountID int) ([]*Character, error) {
-	query := `
-		SELECT 
-            c.nCharNo, c.nUserNo, c.sID, c.nSlotNo, c.nLevel, c.sLoginZone,
-            c.nLoginZoneX, c.nLoginZoneY, c.nLoginZoneD,
-            c.nHP, c.nSP, c.nHPS, c.nSPS, c.nMoney, c.nExp, c.nFame,
-            c.nStrength, c.nConstitute, c.nDexterity, c.nIntelligence, c.nMentalPower, c.nRedistributePoint,
-            s.nClass, s.nRace, s.nGender, s.nHairType, s.nHairColor, s.nFaceShape
-		FROM tCharacter c
-		INNER JOIN tCharacterShape s ON c.nCharNo = s.nCharNo
-		WHERE c.nUserNo = ? AND c.bDeleted = 0
-		ORDER BY c.nSlotNo ASC;
-	`
-
-	rows, err := r.db.Query(query, accountID)
+	rows, err := r.db.Query("CALL p_Char_GetListOfUserChar(?)", accountID)
 	if err != nil {
-		return nil, fmt.Errorf("error querying characters for user %d: %w", accountID, err)
+		return nil, fmt.Errorf("error calling p_Char_GetListOfUserChar(%d): %w", accountID, err)
 	}
 	defer rows.Close()
 
-	var characters []*Character
+	var charIDs []int
 	for rows.Next() {
-		ch := &Character{
-			Equips: make(map[byte]uint16),
+		var charNo int
+		if err := rows.Scan(&charNo); err != nil {
+			return nil, fmt.Errorf("error scanning charNo from p_Char_GetListOfUserChar: %w", err)
 		}
+		charIDs = append(charIDs, charNo)
+	}
+	if err := rows.Err(); err != nil {
+		return nil, err
+	}
+	_ = rows.Close()
 
-		var (
-			charNo     int
-			userNo     int
-			sID        string
-			slotNo     byte
-			level      uint16
-			loginZone  string
-			zoneX      int
-			zoneY      int
-			zoneD      byte
-			hp         int
-			sp         int
-			hps        int16
-			sps        int16
-			money      int64
-			exp        int64
-			fame       int
-			str        int
-			con        int
-			dex        int
-			intel      int
-			men        int
-			freePoints int
-			class      byte
-			race       byte
-			gender     byte
-			hairType   byte
-			hairColor  byte
-			faceShape  byte
-		)
-
-		err := rows.Scan(
-			&charNo, &userNo, &sID, &slotNo, &level, &loginZone,
-			&zoneX, &zoneY, &zoneD,
-			&hp, &sp, &hps, &sps, &money, &exp, &fame,
-			&str, &con, &dex, &intel, &men, &freePoints,
-			&class, &race, &gender, &hairType, &hairColor, &faceShape,
-		)
+	var characters []*Character
+	for _, id := range charIDs {
+		ch, err := r.GetCharacterByID(id)
 		if err != nil {
-			return nil, fmt.Errorf("error scanning character row: %w", err)
+			continue
 		}
-
-		ch.ID = charNo
-		ch.AccountID = userNo
-		ch.Name = sID
-		ch.Slot = slotNo
-		ch.Job = class
-		ch.Level = byte(level)
-		ch.Male = (gender != 0)
-		ch.Hair = hairType
-		ch.HairColor = hairColor
-		ch.Face = faceShape
-		ch.TownName = loginZone
-		ch.XPos = zoneX
-		ch.YPos = zoneY
-		ch.CurHP = hp
-		ch.CurSP = sp
-
-		// Asignar en tablas canónicas
-		ch.TCharacter.CharNo = charNo
-		ch.TCharacter.UserNo = userNo
-		ch.TCharacter.CharName = sID
-		ch.TCharacter.Slot = slotNo
-		ch.TCharacter.Class = class
-		ch.TCharacter.Level = byte(level)
-		ch.TCharacter.IsDelete = 0
-		ch.TCharacter.Strength = str
-		ch.TCharacter.Constitute = con
-		ch.TCharacter.Dexterity = dex
-		ch.TCharacter.Intelligence = intel
-		ch.TCharacter.MentalPower = men
-		ch.TCharacter.RedistributePoint = freePoints
-
-		ch.TCharacterShape.CharNo = charNo
-		ch.TCharacterShape.Gender = gender
-		ch.TCharacterShape.Hair = hairType
-		ch.TCharacterShape.HairColor = hairColor
-		ch.TCharacterShape.Face = faceShape
-
-		ch.TCharacterState.CharNo = charNo
-		ch.TCharacterState.XPos = zoneX
-		ch.TCharacterState.YPos = zoneY
-		ch.TCharacterState.HP = hp
-		ch.TCharacterState.SP = sp
-		ch.TCharacterState.HPStones = hps
-		ch.TCharacterState.SPStones = sps
-		ch.TCharacterState.Exp = exp
-		ch.TCharacterState.Money = money
-		ch.TCharacterState.Fame = fame
-
-		// Cargar equipamiento desde tItem (nStorageType = 0 es Equip)
-		equips, err := r.getCharacterEquips(charNo)
-		if err != nil {
-			return nil, err
-		}
-		ch.Equips = equips
-
 		characters = append(characters, ch)
 	}
-
 	return characters, nil
 }
 
-// GetCharacterByName busca un personaje activo por su nombre (sID).
+// GetCharacterByName localiza un personaje por su nombre oficial invocando p_Char_GetCharNo.
 func (r *MySQLCharacterRepository) GetCharacterByName(name string) (*Character, error) {
-	query := `
-		SELECT 
-			c.nCharNo, c.nUserNo, c.sID, c.nSlotNo, c.nLevel, c.sLoginZone,
-            c.nLoginZoneX, c.nLoginZoneY, c.nLoginZoneD,
-            c.nHP, c.nSP, c.nHPS, c.nSPS, c.nMoney, c.nExp, c.nFame,
-            c.nStrength, c.nConstitute, c.nDexterity, c.nIntelligence, c.nMentalPower, c.nRedistributePoint,
-            s.nClass, s.nRace, s.nGender, s.nHairType, s.nHairColor, s.nFaceShape
-		FROM tCharacter c
-		INNER JOIN tCharacterShape s ON c.nCharNo = s.nCharNo
-		WHERE LOWER(c.sID) = LOWER(?) AND c.bDeleted = 0
-		LIMIT 1;
-	`
-
-	ch := &Character{Equips: make(map[byte]uint16)}
-	var (
-		charNo     int
-		userNo     int
-		sID        string
-		slotNo     byte
-		level      uint16
-		loginZone  string
-		zoneX      int
-		zoneY      int
-		zoneD      byte
-		hp         int
-		sp         int
-		hps        int16
-		sps        int16
-		money      int64
-		exp        int64
-		fame       int
-		str        int
-		con        int
-		dex        int
-		intel      int
-		men        int
-		freePoints int
-		class      byte
-		race       byte
-		gender     byte
-		hairType   byte
-		hairColor  byte
-		faceShape  byte
-	)
-
-	err := r.db.QueryRow(query, strings.TrimSpace(name)).Scan(
-		&charNo, &userNo, &sID, &slotNo, &level, &loginZone,
-		&zoneX, &zoneY, &zoneD,
-		&hp, &sp, &hps, &sps, &money, &exp, &fame,
-		&str, &con, &dex, &intel, &men, &freePoints,
-		&class, &race, &gender, &hairType, &hairColor, &faceShape,
-	)
-	if err != nil {
-		if errors.Is(err, sql.ErrNoRows) {
-			return nil, ErrCharacterNotFound
-		}
-		return nil, fmt.Errorf("error querying character by name %s: %w", name, err)
+	var charNo int
+	row := r.db.QueryRow("CALL p_Char_GetCharNo(?, @out_nCharNo)", strings.TrimSpace(name))
+	if err := row.Scan(&charNo); err != nil {
+		return nil, fmt.Errorf("error calling p_Char_GetCharNo: %w", err)
 	}
-
-	ch.ID = charNo
-	ch.AccountID = userNo
-	ch.Name = sID
-	ch.Slot = slotNo
-	ch.Job = class
-	ch.Level = byte(level)
-	ch.Male = (gender != 0)
-	ch.Hair = hairType
-	ch.HairColor = hairColor
-	ch.Face = faceShape
-	ch.TownName = loginZone
-	ch.XPos = zoneX
-	ch.YPos = zoneY
-	ch.CurHP = hp
-	ch.CurSP = sp
-
-	ch.TCharacter.CharNo = charNo
-	ch.TCharacter.UserNo = userNo
-	ch.TCharacter.CharName = sID
-	ch.TCharacter.Slot = slotNo
-	ch.TCharacter.Class = class
-	ch.TCharacter.Level = byte(level)
-	ch.TCharacter.Strength = str
-	ch.TCharacter.Constitute = con
-	ch.TCharacter.Dexterity = dex
-	ch.TCharacter.Intelligence = intel
-	ch.TCharacter.MentalPower = men
-	ch.TCharacter.RedistributePoint = freePoints
-
-	ch.TCharacterShape.CharNo = charNo
-	ch.TCharacterShape.Gender = gender
-	ch.TCharacterShape.Hair = hairType
-	ch.TCharacterShape.HairColor = hairColor
-	ch.TCharacterShape.Face = faceShape
-
-	ch.TCharacterState.CharNo = charNo
-	ch.TCharacterState.XPos = zoneX
-	ch.TCharacterState.YPos = zoneY
-	ch.TCharacterState.HP = hp
-	ch.TCharacterState.SP = sp
-	ch.TCharacterState.HPStones = hps
-	ch.TCharacterState.SPStones = sps
-	ch.TCharacterState.Exp = exp
-	ch.TCharacterState.Money = money
-	ch.TCharacterState.Fame = fame
-
-	equips, err := r.getCharacterEquips(charNo)
-	if err != nil {
-		return nil, err
+	if charNo <= 0 {
+		return nil, ErrCharacterNotFound
 	}
-	ch.Equips = equips
-
-	return ch, nil
+	return r.GetCharacterByID(charNo)
 }
 
-// GetCharacterByID busca un personaje activo por su ID único (nCharNo).
+// GetCharacterByID recupera los datos canónicos de un personaje invocando p_Char_GetAllData,
+// p_Char_GetShape y p_Item_GetListType (para equipamiento activo).
 func (r *MySQLCharacterRepository) GetCharacterByID(id int) (*Character, error) {
-	query := `
-		SELECT 
-			   c.nCharNo, c.nUserNo, c.sID, c.nSlotNo, c.nLevel, c.sLoginZone,
-            c.nLoginZoneX, c.nLoginZoneY, c.nLoginZoneD,
-            c.nHP, c.nSP, c.nHPS, c.nSPS, c.nMoney, c.nExp, c.nFame,
-            c.nStrength, c.nConstitute, c.nDexterity, c.nIntelligence, c.nMentalPower, c.nRedistributePoint,
-            s.nClass, s.nRace, s.nGender, s.nHairType, s.nHairColor, s.nFaceShape
-		FROM tCharacter c
-		INNER JOIN tCharacterShape s ON c.nCharNo = s.nCharNo
-		WHERE c.nCharNo = ? AND c.bDeleted = 0
-		LIMIT 1;
-	`
-
-	ch := &Character{Equips: make(map[byte]uint16)}
-	var (
-		charNo     int
-		userNo     int
-		sID        string
-		slotNo     byte
-		level      uint16
-		loginZone  string
-		zoneX      int
-		zoneY      int
-		zoneD      byte
-		hp         int
-		sp         int
-		hps        int16
-		sps        int16
-		money      int64
-		exp        int64
-		fame       int
-		str        int
-		con        int
-		dex        int
-		intel      int
-		men        int
-		freePoints int
-		class      byte
-		race       byte
-		gender     byte
-		hairType   byte
-		hairColor  byte
-		faceShape  byte
-	)
-
-	err := r.db.QueryRow(query, id).Scan(
-		&charNo, &userNo, &sID, &slotNo, &level, &loginZone,
-		&zoneX, &zoneY, &zoneD,
-		&hp, &sp, &hps, &sps, &money, &exp, &fame,
-		&str, &con, &dex, &intel, &men, &freePoints,
-		&class, &race, &gender, &hairType, &hairColor, &faceShape,
-	)
-	if err != nil {
-		if errors.Is(err, sql.ErrNoRows) {
-			return nil, ErrCharacterNotFound
-		}
-		return nil, fmt.Errorf("error querying character by ID %d: %w", id, err)
+	ch := &Character{
+		Equips: make(map[byte]uint16),
 	}
 
-	ch.ID = charNo
+	// 1. Cargar tCharacter canónico
+	rows, err := r.db.Query("CALL p_Char_GetAllData(?)", id)
+	if err != nil {
+		return nil, fmt.Errorf("error calling p_Char_GetAllData(%d): %w", id, err)
+	}
+	defer rows.Close()
+
+	if !rows.Next() {
+		return nil, ErrCharacterNotFound
+	}
+
+	var (
+		userNo, slotNo, level                                                                       int
+		exp, money                                                                                  int64
+		hp, sp, ap, hps, sps, ps, gs, fame, flags, adminLevel                                       int
+		loginZone                                                                                   string
+		loginZoneX, loginZoneY, loginZoneD, prisonMin, pkCount, pkYellowTime                        int
+		strength, constitute, dexterity, intelligence, mentalPower, redistributePoint, playMin, lc int
+		lastLoginDate, createDate                                                                   sql.NullTime
+		createWorld, bDeleted                                                                       int
+		deletedDate                                                                                 sql.NullTime
+		sID                                                                                         string
+	)
+
+	err = rows.Scan(
+		&userNo, &slotNo, &sID, &level, &exp, &hp, &sp, &ap, &hps, &sps, &ps, &gs,
+		&money, &fame, &flags, &adminLevel, &loginZone, &loginZoneX, &loginZoneY, &loginZoneD,
+		&prisonMin, &pkCount, &pkYellowTime, &strength, &constitute, &dexterity, &intelligence,
+		&mentalPower, &redistributePoint, &playMin, &lc, &lastLoginDate, &createDate,
+		&createWorld, &bDeleted, &deletedDate,
+	)
+	if err != nil {
+		return nil, fmt.Errorf("error scanning p_Char_GetAllData: %w", err)
+	}
+	_ = rows.Close()
+
+	if bDeleted != 0 {
+		return nil, ErrCharacterNotFound
+	}
+
+	ch.ID = id
 	ch.AccountID = userNo
 	ch.Name = sID
-	ch.Slot = slotNo
-	ch.Job = class
+	ch.Slot = byte(slotNo)
 	ch.Level = byte(level)
-	ch.Male = (gender != 0)
-	ch.Hair = hairType
-	ch.HairColor = hairColor
-	ch.Face = faceShape
 	ch.TownName = loginZone
-	ch.XPos = zoneX
-	ch.YPos = zoneY
+	ch.XPos = loginZoneX
+	ch.YPos = loginZoneY
 	ch.CurHP = hp
 	ch.CurSP = sp
 
-	ch.TCharacter.CharNo = charNo
-	ch.TCharacter.UserNo = userNo
-	ch.TCharacter.CharName = sID
-	ch.TCharacter.Slot = slotNo
-	ch.TCharacter.Class = class
-	ch.TCharacter.Level = byte(level)
-	ch.TCharacter.Strength = str
-	ch.TCharacter.Constitute = con
-	ch.TCharacter.Dexterity = dex
-	ch.TCharacter.Intelligence = intel
-	ch.TCharacter.MentalPower = men
-	ch.TCharacter.RedistributePoint = freePoints
-
-	ch.TCharacterShape.CharNo = charNo
-	ch.TCharacterShape.Gender = gender
-	ch.TCharacterShape.Hair = hairType
-	ch.TCharacterShape.HairColor = hairColor
-	ch.TCharacterShape.Face = faceShape
-
-	ch.TCharacterState.CharNo = charNo
-	ch.TCharacterState.XPos = zoneX
-	ch.TCharacterState.YPos = zoneY
-	ch.TCharacterState.HP = hp
-	ch.TCharacterState.SP = sp
-	ch.TCharacterState.HPStones = hps
-	ch.TCharacterState.SPStones = sps
-	ch.TCharacterState.Exp = exp
-	ch.TCharacterState.Money = money
-	ch.TCharacterState.Fame = fame
-
-	equips, err := r.getCharacterEquips(charNo)
-	if err != nil {
-		return nil, err
+	ch.TCharacter = TCharacter{
+		CharNo:            id,
+		UserNo:            userNo,
+		CharName:          sID,
+		Slot:              byte(slotNo),
+		Level:             byte(level),
+		IsDelete:          bDeleted,
+		Strength:          strength,
+		Constitute:        constitute,
+		Dexterity:         dexterity,
+		Intelligence:      intelligence,
+		MentalPower:       mentalPower,
+		RedistributePoint: redistributePoint,
 	}
-	ch.Equips = equips
 
+	ch.TCharacterState = TCharacterState{
+		CharNo:   id,
+		XPos:     loginZoneX,
+		YPos:     loginZoneY,
+		Rotation: byte(loginZoneD),
+		HP:       hp,
+		SP:       sp,
+		HPStones: int16(hps),
+		SPStones: int16(sps),
+		Exp:      exp,
+		Money:    money,
+		Fame:     fame,
+	}
+
+	// 2. Cargar tCharacterShape canónico
+	shapeRows, err := r.db.Query("CALL p_Char_GetShape(?)", id)
+	if err == nil {
+		defer shapeRows.Close()
+		if shapeRows.Next() {
+			var race, class, gender, hairType, hairColor, faceShape int
+			if err := shapeRows.Scan(&race, &class, &gender, &hairType, &hairColor, &faceShape); err == nil {
+				ch.Job = byte(class)
+				ch.Male = (gender != 0)
+				ch.Hair = byte(hairType)
+				ch.HairColor = byte(hairColor)
+				ch.Face = byte(faceShape)
+				ch.TCharacter.Class = byte(class)
+				ch.TCharacterShape = TCharacterShape{
+					CharNo:    id,
+					Gender:    byte(gender),
+					Hair:      byte(hairType),
+					HairColor: byte(hairColor),
+					Face:      byte(faceShape),
+				}
+			}
+		}
+		_ = shapeRows.Close()
+	}
+
+	// 3. Cargar equipamiento activo (StorageType = 0)
+	eqRows, err := r.db.Query("CALL p_Item_GetListType(?, ?)", id, 0)
+	if err == nil {
+		defer eqRows.Close()
+		for eqRows.Next() {
+			var itemKey int64
+			var storage int16
+			var itemID, flags int
+			var dDate time.Time
+			if err := eqRows.Scan(&itemKey, &storage, &itemID, &flags, &dDate); err == nil {
+				ch.Equips[byte(storage)] = uint16(itemID)
+			}
+		}
+		_ = eqRows.Close()
+	}
+
+	ch.Sync()
 	return ch, nil
 }
 
-// CreateCharacter implementa fielmente los procedimientos p_Char_Create y p_Char_CreateSetDefaultData
-// realizando la inserción atómica en tCharacter, tCharacterShape, tCharacterOptions e tItem.
+// GetCharacterLoginData recupera datos de sesión de login para un personaje invocando p_Char_GetLoginData.
+func (r *MySQLCharacterRepository) GetCharacterLoginData(charNo int) (*Character, error) {
+	rows, err := r.db.Query("CALL p_Char_GetLoginData(?)", charNo)
+	if err != nil {
+		return nil, fmt.Errorf("error calling p_Char_GetLoginData(%d): %w", charNo, err)
+	}
+	defer rows.Close()
+
+	if !rows.Next() {
+		return nil, ErrCharacterNotFound
+	}
+	_ = rows.Close()
+
+	return r.GetCharacterByID(charNo)
+}
+
+// CreateCharacter crea un avatar oficial ejecutando p_Char_Create y p_Char_CreateSetDefaultData.
 func (r *MySQLCharacterRepository) CreateCharacter(ch *Character) error {
 	if ch.Slot > 5 {
 		return ErrSlotOutOfRange
 	}
-
-	trimmedName := strings.TrimSpace(ch.Name)
-	if trimmedName == "" {
-		return errors.New("character name cannot be empty")
+	if strings.TrimSpace(ch.Name) == "" {
+		return fmt.Errorf("character name cannot be empty")
 	}
 
-	tx, err := r.db.Begin()
-	if err != nil {
-		return fmt.Errorf("failed to begin transaction: %w", err)
-	}
-	defer tx.Rollback()
-
-	// 1. Validar si el slot ya está ocupado en la cuenta (p_Char_Create línea 40)
-	var existingSlotChar int
-	err = tx.QueryRow(
-		"SELECT nCharNo FROM tCharacter WHERE nUserNo = ? AND nSlotNo = ? AND bDeleted = 0 LIMIT 1;",
-		ch.AccountID, ch.Slot,
-	).Scan(&existingSlotChar)
-	if err == nil {
-		return ErrSlotInUse
-	} else if !errors.Is(err, sql.ErrNoRows) {
-		return fmt.Errorf("failed checking slot availability: %w", err)
-	}
-
-	// 2. Validar si el nombre ya existe en el servidor (p_Char_Create línea 47)
-	var existingNameChar int
-	err = tx.QueryRow(
-		"SELECT nCharNo FROM tCharacter WHERE LOWER(sID) = LOWER(?) AND bDeleted = 0 LIMIT 1;",
-		trimmedName,
-	).Scan(&existingNameChar)
-	if err == nil {
-		return ErrCharacterExists
-	} else if !errors.Is(err, sql.ErrNoRows) {
-		return fmt.Errorf("failed checking name uniqueness: %w", err)
-	}
-
-	// Valores iniciales por defecto (p_Char_CreateSetDefaultData)
-	loginZone := ch.TownName
-	if loginZone == "" {
-		loginZone = "RouN"
-	}
-	level := ch.Level
-	if level == 0 {
-		level = 1
-	}
-	hp := ch.CurHP
-	if hp == 0 {
-		hp = 100
-	}
-	sp := ch.CurSP
-	if sp == 0 {
-		sp = 100
-	}
-
-	// 3. Insertar en tCharacter
-	res, err := tx.Exec(`
-		INSERT INTO tCharacter (
-			nUserNo, nSlotNo, sID, nLevel, nHP, nSP, nHPS, nSPS, nMoney,
-			sLoginZone, nLoginZoneX, nLoginZoneY, nLoginZoneD, bDeleted
-		) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 0);
-	`, ch.AccountID, ch.Slot, trimmedName, level, hp, sp, 15, 7, ch.TCharacterState.Money,
-		loginZone, ch.XPos, ch.YPos, 0x55,
-	)
-	if err != nil {
-		return fmt.Errorf("failed inserting into tCharacter: %w", err)
-	}
-
-	charNo64, err := res.LastInsertId()
-	if err != nil {
-		return fmt.Errorf("failed getting inserted charNo: %w", err)
-	}
-	charNo := int(charNo64)
-
-	// 4. Insertar en tCharacterShape (p_Char_Create línea 69)
 	genderByte := byte(0)
 	if ch.Male {
 		genderByte = 1
 	}
-	_, err = tx.Exec(`
-		INSERT INTO tCharacterShape (
-			nCharNo, nClass, nRace, nGender, nHairType, nHairColor, nFaceShape
-		) VALUES (?, ?, ?, ?, ?, ?, ?);
-	`, charNo, ch.Job, 0, genderByte, ch.Hair, ch.HairColor, ch.Face)
-	if err != nil {
-		return fmt.Errorf("failed inserting into tCharacterShape: %w", err)
+
+	var newCharNo int
+	row := r.db.QueryRow(
+		"CALL p_Char_Create(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, @out_nCharNo)",
+		ch.AccountID, 1, 0, ch.Slot, ch.Name, 0, ch.Job, genderByte, ch.Hair, ch.HairColor, ch.Face,
+	)
+	if err := row.Scan(&newCharNo); err != nil {
+		return fmt.Errorf("error calling p_Char_Create: %w", err)
 	}
 
-	// 5. Insertar fila en blanco en tCharacterOptions (p_Char_Create línea 78)
-	_, err = tx.Exec(`INSERT INTO tCharacterOptions (nCharNo) VALUES (?);`, charNo)
-	if err != nil {
-		return fmt.Errorf("failed inserting into tCharacterOptions: %w", err)
+	if newCharNo == -1 {
+		return ErrSlotInUse
+	}
+	if newCharNo == -2 {
+		return ErrCharacterExists
+	}
+	if newCharNo <= 0 {
+		return fmt.Errorf("p_Char_Create failed with code %d", newCharNo)
 	}
 
-	// 6. Insertar equipamiento inicial si fue provisto
-	if ch.Equips != nil {
+	ch.ID = newCharNo
+	ch.TCharacter.CharNo = newCharNo
+	ch.TCharacter.UserNo = ch.AccountID
+	ch.TCharacter.CharName = ch.Name
+	ch.TCharacter.Slot = ch.Slot
+	ch.TCharacter.Class = ch.Job
+	ch.TCharacter.Level = ch.Level
+	ch.TCharacter.IsDelete = 0
+
+	ch.TCharacterShape.CharNo = newCharNo
+	ch.TCharacterShape.Gender = genderByte
+	ch.TCharacterShape.Hair = ch.Hair
+	ch.TCharacterShape.HairColor = ch.HairColor
+	ch.TCharacterShape.Face = ch.Face
+
+	ch.TCharacterState.CharNo = newCharNo
+	ch.TCharacterState.Map = ch.Map
+	ch.TCharacterState.XPos = ch.XPos
+	ch.TCharacterState.YPos = ch.YPos
+	ch.TCharacterState.HP = ch.CurHP
+	ch.TCharacterState.SP = ch.CurSP
+	ch.TCharacterState.HPStones = 15
+	ch.TCharacterState.SPStones = 7
+
+	town := ch.TownName
+	if town == "" {
+		town = "Rou"
+	}
+	hp := ch.CurHP
+	if hp <= 0 {
+		hp = 100
+	}
+	sp := ch.CurSP
+	if sp <= 0 {
+		sp = 50
+	}
+
+	var ret int
+	err := r.db.QueryRow(
+		"CALL p_Char_CreateSetDefaultData(?, ?, ?, ?, ?, ?, ?, ?, ?, @out_nRet)",
+		ch.ID, town, ch.XPos, ch.YPos, hp, sp, 15, 7, 0,
+	).Scan(&ret)
+	if err != nil {
+		return fmt.Errorf("error calling p_Char_CreateSetDefaultData: %w", err)
+	}
+
+	// Persistir equipamiento inicial si fue provisto
+	if len(ch.Equips) > 0 {
 		for slot, itemID := range ch.Equips {
-			if itemID == 0 || itemID == 0xFFFF {
-				continue
-			}
-			_, err = tx.Exec(`
-				INSERT INTO tItem (nStorageType, nOwner, nStorage, nItemID, nFlags, dDate)
-				VALUES (0, ?, ?, ?, 0, NOW());
-			`, charNo, slot, itemID)
-			if err != nil {
-				return fmt.Errorf("failed inserting starter equip item: %w", err)
-			}
+			itemKey := time.Now().UnixNano() + int64(slot)
+			_ = r.CreateItem(&Item{
+				ItemKey:     itemKey,
+				Owner:       ch.ID,
+				StorageType: 0,
+				Storage:     int16(slot),
+				ItemID:      itemID,
+				Flags:       0,
+				Date:        time.Now(),
+			})
 		}
 	}
 
-	// 7. Insertar items de inventario iniciales si fueron provistos
-	if ch.Items != nil {
-		for _, it := range ch.Items {
-			if it == nil || it.ItemID == 0 {
-				continue
+	// Persistir items de inventario iniciales si fueron provistos
+	if len(ch.Items) > 0 {
+		for i, it := range ch.Items {
+			it.Owner = ch.ID
+			if it.ItemKey == 0 {
+				it.ItemKey = time.Now().UnixNano() + int64(100+i)
 			}
-			stType := it.StorageType
-			if stType == 0 {
-				stType = 9 // Default a inventario (Box 9)
-			}
-			_, err = tx.Exec(`
-				INSERT INTO tItem (nStorageType, nOwner, nStorage, nItemID, nFlags, dDate)
-				VALUES (?, ?, ?, ?, ?, NOW());
-			`, stType, charNo, it.Storage, it.ItemID, it.Flags)
-			if err != nil {
-				return fmt.Errorf("failed inserting starter inventory item: %w", err)
-			}
+			_ = r.CreateItem(it)
 		}
 	}
 
-	// 8. Insertar shortcuts iniciales si fueron provistos
-	if ch.Shortcuts != nil {
-		for _, sc := range ch.Shortcuts {
-			if sc == nil {
-				continue
-			}
-			codeType := sc.CodeType
-			if codeType == 0 {
-				codeType = 1
-			}
-			_, err = tx.Exec(`
-				INSERT INTO tCharacterShortCut (nCharNo, nSlotNo, nCodeType, nCodeNo, nValue)
-				VALUES (?, ?, ?, ?, ?);
-			`, charNo, sc.SlotNo, codeType, sc.CodeNo, sc.Value)
-			if err != nil {
-				return fmt.Errorf("failed inserting starter shortcut: %w", err)
-			}
-		}
+	// Persistir shortcuts iniciales si fueron provistos
+	if len(ch.Shortcuts) > 0 {
+		_ = r.SaveCharacterShortcuts(ch.ID, ch.Shortcuts)
 	}
 
-	// 9. Insertar habilidades iniciales si fueron provistas
-	if ch.Skills != nil {
-		for _, sk := range ch.Skills {
-			if sk == nil || sk.SkillNo == 0 {
-				continue
-			}
-			lvl := sk.SkillLevel
-			if lvl == 0 {
-				lvl = 1
-			}
-			_, err = tx.Exec(`
-				INSERT INTO tSkill (nCharNo, nSkillNo, nSkillLevel)
-				VALUES (?, ?, ?);
-			`, charNo, sk.SkillNo, lvl)
-			if err != nil {
-				return fmt.Errorf("failed inserting starter skill: %w", err)
-			}
-		}
+	// Persistir skills iniciales si fueron provistos
+	if len(ch.Skills) > 0 {
+		_ = r.SaveCharacterSkills(ch.ID, ch.Skills)
 	}
 
-	if err := tx.Commit(); err != nil {
-		return fmt.Errorf("failed to commit character creation: %w", err)
-	}
-
-	// Sincronizar identificador asignado
-	ch.ID = charNo
-	ch.TCharacter.CharNo = charNo
-	ch.TCharacterShape.CharNo = charNo
-	ch.TCharacterState.CharNo = charNo
-	ch.TCharacterKeyMap.CharNo = charNo
-	ch.TCharacterShortCut.CharNo = charNo
-	ch.TCharacterGameOpt.CharNo = charNo
-	ch.TCharacterSingleOpt.CharNo = charNo
-
+	ch.Sync()
 	return nil
 }
 
-// DeleteCharacter implementa fielmente p_Char_Delete con soft-delete oficial:
-// marca bDeleted = 1, dDeletedDate = NOW() y renombra el sID con formato 'nombre~YYYYMMDD#0'
-// para liberar el nickname inmediatamente sin perder historial ni registros de auditoría.
-func (r *MySQLCharacterRepository) DeleteCharacter(accountID int, slot byte) error {
-	tx, err := r.db.Begin()
-	if err != nil {
-		return fmt.Errorf("failed to begin transaction: %w", err)
-	}
-	defer tx.Rollback()
-
-	var (
-		charNo int
-		sID    string
-	)
-	err = tx.QueryRow(
-		"SELECT nCharNo, sID FROM tCharacter WHERE nUserNo = ? AND nSlotNo = ? AND bDeleted = 0 LIMIT 1;",
-		accountID, slot,
-	).Scan(&charNo, &sID)
-	if err != nil {
-		if errors.Is(err, sql.ErrNoRows) {
-			return ErrCharacterNotFound
-		}
-		return fmt.Errorf("error finding character to delete: %w", err)
-	}
-
-	// Generar nombre de borrado oficial
-	cleanName := sID
-	if idx := strings.Index(cleanName, "~"); idx != -1 {
-		cleanName = cleanName[:idx]
-	}
-	dateSuffix := time.Now().Format("20060102")
-	changedID := fmt.Sprintf("%s~%s#0", cleanName, dateSuffix)
-
-	_, err = tx.Exec(`
-		UPDATE tCharacter
-		SET bDeleted = 1, dDeletedDate = NOW(), sID = ?
-		WHERE nCharNo = ?;
-	`, changedID, charNo)
-	if err != nil {
-		return fmt.Errorf("failed executing soft delete on tCharacter: %w", err)
-	}
-
-	if err := tx.Commit(); err != nil {
-		return fmt.Errorf("failed to commit character deletion: %w", err)
-	}
-
-	return nil
-}
-
-// UpdateCharacter persiste el estado actual del personaje (HP, SP, posición, dinero, experiencia).
+// UpdateCharacter sincroniza el estado completo del personaje en tCharacter invocando p_Char_SetAllData.
 func (r *MySQLCharacterRepository) UpdateCharacter(ch *Character) error {
-	_, err := r.db.Exec(`
-		UPDATE tCharacter
-		SET nHP = ?, nSP = ?, sLoginZone = ?, nLoginZoneX = ?, nLoginZoneY = ?, nMoney = ?, nExp = ?, nLevel = ?
-		WHERE nCharNo = ? AND bDeleted = 0;
-	`, ch.CurHP, ch.CurSP, ch.TownName, ch.XPos, ch.YPos, ch.TCharacterState.Money, ch.TCharacterState.Exp, ch.Level, ch.ID)
+	ch.Sync()
+	var ret int
+	err := r.db.QueryRow(
+		"CALL p_Char_SetAllData(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, @out_nRet)",
+		ch.ID, ch.AccountID, ch.Slot, ch.Name, ch.Level, ch.TCharacterState.Exp,
+		ch.CurHP, ch.CurSP, 0, ch.TCharacterState.HPStones, ch.TCharacterState.SPStones,
+		0, 0, ch.TCharacterState.Money, ch.TCharacterState.Fame, 0, 0,
+		ch.TownName, ch.XPos, ch.YPos, ch.TCharacterState.Rotation,
+		0, 0, 0,
+		ch.TCharacter.Strength, ch.TCharacter.Constitute, ch.TCharacter.Dexterity,
+		ch.TCharacter.Intelligence, ch.TCharacter.MentalPower, ch.TCharacter.RedistributePoint,
+		0, 0, time.Now(), time.Now(), 1, ch.TCharacter.IsDelete, time.Now(),
+	).Scan(&ret)
 	if err != nil {
-		return fmt.Errorf("error updating character %d: %w", ch.ID, err)
+		return fmt.Errorf("error calling p_Char_SetAllData: %w", err)
 	}
 	return nil
 }
 
-// getCharacterEquips obtiene el mapa de slots y IDs equipados (nStorageType = 0 o 8).
-func (r *MySQLCharacterRepository) getCharacterEquips(charNo int) (map[byte]uint16, error) {
-	rows, err := r.db.Query(`
-		SELECT nStorage, nItemID FROM tItem WHERE nOwner = ? AND (nStorageType = 0 OR nStorageType = 8);
-	`, charNo)
+// DeleteCharacter realiza la baja lógica de un personaje por cuenta y slot ejecutando p_Char_Delete.
+func (r *MySQLCharacterRepository) DeleteCharacter(accountID int, slot byte) error {
+	chars, err := r.GetCharactersByAccount(accountID)
 	if err != nil {
-		return nil, fmt.Errorf("error fetching equips for char %d: %w", charNo, err)
+		return err
 	}
-	defer rows.Close()
-
-	equips := make(map[byte]uint16)
-	for rows.Next() {
-		var (
-			slot   byte
-			itemID uint16
-		)
-		if err := rows.Scan(&slot, &itemID); err != nil {
-			return nil, fmt.Errorf("error scanning equip item: %w", err)
+	var targetID int
+	for _, c := range chars {
+		if c.Slot == slot {
+			targetID = c.ID
+			break
 		}
-		equips[slot] = itemID
 	}
-	return equips, nil
-}
+	if targetID == 0 {
+		return ErrCharacterNotFound
+	}
 
-// GetCharacterItems recupera todos los items asociados a un personaje desde tItem.
-func (r *MySQLCharacterRepository) GetCharacterItems(charNo int) ([]*Item, error) {
-	rows, err := r.db.Query(`
-		SELECT nItemKey, nStorageType, nOwner, nStorage, nItemID, nFlags, dDate
-		FROM tItem
-		WHERE nOwner = ?
-		ORDER BY nStorageType, nStorage;
-	`, charNo)
+	var ret int
+	err = r.db.QueryRow("CALL p_Char_Delete(?, @out_nRet)", targetID).Scan(&ret)
 	if err != nil {
-		return nil, fmt.Errorf("error querying items for char %d: %w", charNo, err)
-	}
-	defer rows.Close()
-
-	var items []*Item
-	for rows.Next() {
-		var it Item
-		if err := rows.Scan(&it.ItemKey, &it.StorageType, &it.Owner, &it.Storage, &it.ItemID, &it.Flags, &it.Date); err != nil {
-			return nil, fmt.Errorf("error scanning item for char %d: %w", charNo, err)
-		}
-		items = append(items, &it)
-	}
-	return items, nil
-}
-
-// GetCharacterShortcuts recupera la barra de atajos oficial desde tCharacterShortCut.
-func (r *MySQLCharacterRepository) GetCharacterShortcuts(charNo int) ([]*Shortcut, error) {
-	rows, err := r.db.Query(`
-		SELECT nCharNo, nSlotNo, nCodeType, nCodeNo, nValue
-		FROM tCharacterShortCut
-		WHERE nCharNo = ?
-		ORDER BY nSlotNo;
-	`, charNo)
-	if err != nil {
-		return nil, fmt.Errorf("error querying shortcuts for char %d: %w", charNo, err)
-	}
-	defer rows.Close()
-
-	var shortcuts []*Shortcut
-	for rows.Next() {
-		var sc Shortcut
-		if err := rows.Scan(&sc.CharNo, &sc.SlotNo, &sc.CodeType, &sc.CodeNo, &sc.Value); err != nil {
-			return nil, fmt.Errorf("error scanning shortcut for char %d: %w", charNo, err)
-		}
-		shortcuts = append(shortcuts, &sc)
-	}
-	return shortcuts, nil
-}
-
-// GetCharacterSkills recupera las habilidades aprendidas desde tSkill.
-func (r *MySQLCharacterRepository) GetCharacterSkills(charNo int) ([]*CharacterSkill, error) {
-	rows, err := r.db.Query(`
-		SELECT nCharNo, nSkillNo, nSkillLevel
-		FROM tSkill
-		WHERE nCharNo = ?
-		ORDER BY nSkillNo;
-	`, charNo)
-	if err != nil {
-		return nil, fmt.Errorf("error querying skills for char %d: %w", charNo, err)
-	}
-	defer rows.Close()
-
-	var skills []*CharacterSkill
-	for rows.Next() {
-		var sk CharacterSkill
-		if err := rows.Scan(&sk.CharNo, &sk.SkillNo, &sk.SkillLevel); err != nil {
-			return nil, fmt.Errorf("error scanning skill for char %d: %w", charNo, err)
-		}
-		skills = append(skills, &sk)
-	}
-	return skills, nil
-}
-
-// SaveCharacterItem persiste un item individual en tItem.
-func (r *MySQLCharacterRepository) SaveCharacterItem(item *Item) error {
-	res, err := r.db.Exec(`
-		INSERT INTO tItem (nStorageType, nOwner, nStorage, nItemID, nFlags, dDate)
-		VALUES (?, ?, ?, ?, ?, NOW());
-	`, item.StorageType, item.Owner, item.Storage, item.ItemID, item.Flags)
-	if err != nil {
-		return fmt.Errorf("error inserting item for char %d: %w", item.Owner, err)
-	}
-	id, err := res.LastInsertId()
-	if err == nil {
-		item.ItemKey = id
+		return fmt.Errorf("error calling p_Char_Delete(%d): %w", targetID, err)
 	}
 	return nil
 }
 
-// CreateItem inserta un nuevo ítem en tItem implementando con fidelidad p_Item_Create.
-func (r *MySQLCharacterRepository) CreateItem(item *Item) error {
-	var res sql.Result
-	var err error
-	if item.ItemKey > 0 {
-		res, err = r.db.Exec(`
-			INSERT INTO tItem (nItemKey, nOwner, nStorageType, nStorage, nItemID, nFlags, dDate)
-			VALUES (?, ?, ?, ?, ?, ?, NOW());
-		`, item.ItemKey, item.Owner, item.StorageType, item.Storage, item.ItemID, item.Flags)
-	} else {
-		res, err = r.db.Exec(`
-			INSERT INTO tItem (nOwner, nStorageType, nStorage, nItemID, nFlags, dDate)
-			VALUES (?, ?, ?, ?, ?, NOW());
-		`, item.Owner, item.StorageType, item.Storage, item.ItemID, item.Flags)
-	}
+// ChangeCharacterName renombra un personaje invocando p_Char_ChangeID.
+func (r *MySQLCharacterRepository) ChangeCharacterName(charNo int, newName string) error {
+	var ret int
+	err := r.db.QueryRow("CALL p_Char_ChangeID(?, ?, @out_nRet)", charNo, newName).Scan(&ret)
 	if err != nil {
-		return fmt.Errorf("error creating item for char %d: %w", item.Owner, err)
+		return fmt.Errorf("error calling p_Char_ChangeID: %w", err)
 	}
-	if item.ItemKey == 0 {
-		id, err := res.LastInsertId()
-		if err == nil {
-			item.ItemKey = id
-		}
+	if ret == 0 {
+		return ErrCharacterNotFound
 	}
 	return nil
 }
 
-// DeleteItem elimina un ítem de tItem implementando p_Item_Delete.
-func (r *MySQLCharacterRepository) DeleteItem(itemKey int64) error {
-	_, err := r.db.Exec(`DELETE FROM tItem WHERE nItemKey = ?;`, itemKey)
+// ChangeCharacterClass actualiza la clase de un personaje invocando p_Char_ChangeClass.
+func (r *MySQLCharacterRepository) ChangeCharacterClass(charNo int, newClass byte) error {
+	_, err := r.db.Exec("CALL p_Char_ChangeClass(?, ?)", charNo, newClass)
 	if err != nil {
-		return fmt.Errorf("error deleting item %d: %w", itemKey, err)
+		return fmt.Errorf("error calling p_Char_ChangeClass: %w", err)
 	}
 	return nil
 }
 
-// SetItemStorage actualiza el tipo de almacenamiento y slot de un ítem (p_Item_SetStorage).
-func (r *MySQLCharacterRepository) SetItemStorage(itemKey int64, storageType byte, storageSlot int16) error {
-	_, err := r.db.Exec(`
-		UPDATE tItem SET nStorageType = ?, nStorage = ? WHERE nItemKey = ?;
-	`, storageType, storageSlot, itemKey)
+// SetCharacterShape actualiza la apariencia física de un personaje invocando p_Char_SetShape.
+func (r *MySQLCharacterRepository) SetCharacterShape(charNo int, race, class, gender, hair, hairColor, face byte) error {
+	var ret int
+	err := r.db.QueryRow("CALL p_Char_SetShape(?, ?, ?, ?, ?, ?, ?, @out_nRet)", charNo, race, class, gender, hair, hairColor, face).Scan(&ret)
 	if err != nil {
-		return fmt.Errorf("error setting item storage for item %d: %w", itemKey, err)
+		return fmt.Errorf("error calling p_Char_SetShape: %w", err)
 	}
 	return nil
 }
 
-// ExchangeItemStorage intercambia los slots de dos ítems atómicamente (p_Item_ExchangeStorage).
-// Utiliza el slot de intercambio temporal oficial (nStorageType = 11).
-func (r *MySQLCharacterRepository) ExchangeItemStorage(itemKey1 int64, storageType1 byte, storageSlot1 int16, itemKey2 int64, storageType2 byte, storageSlot2 int16) error {
-	tx, err := r.db.Begin()
+// CharacterLogin registra el ingreso de sesión de un personaje invocando p_Char_Login.
+func (r *MySQLCharacterRepository) CharacterLogin(charNo int) error {
+	var ret int
+	err := r.db.QueryRow("CALL p_Char_Login(?, @out_nRet)", charNo).Scan(&ret)
 	if err != nil {
-		return fmt.Errorf("error starting transaction for exchange: %w", err)
-	}
-	defer tx.Rollback()
-
-	// Paso 1: Mover item 1 a almacenamiento temporal 11
-	if _, err := tx.Exec(`UPDATE tItem SET nStorageType = 11 WHERE nItemKey = ?;`, itemKey1); err != nil {
-		return fmt.Errorf("exchange step 1 failed: %w", err)
-	}
-
-	// Paso 2: Mover item 2 a destino de item 2
-	if _, err := tx.Exec(`UPDATE tItem SET nStorageType = ?, nStorage = ? WHERE nItemKey = ?;`, storageType2, storageSlot2, itemKey2); err != nil {
-		return fmt.Errorf("exchange step 2 failed: %w", err)
-	}
-
-	// Paso 3: Mover item 1 a destino de item 1
-	if _, err := tx.Exec(`UPDATE tItem SET nStorageType = ?, nStorage = ? WHERE nItemKey = ?;`, storageType1, storageSlot1, itemKey1); err != nil {
-		return fmt.Errorf("exchange step 3 failed: %w", err)
-	}
-
-	return tx.Commit()
-}
-
-// ArrangeInventory reassigns every ordered item to a contiguous inventory slot.
-func (r *MySQLCharacterRepository) ArrangeInventory(charNo int, itemKeys []int64) error {
-	tx, err := r.db.Begin()
-	if err != nil {
-		return fmt.Errorf("error starting inventory arrange transaction: %w", err)
-	}
-	defer tx.Rollback()
-
-	seen := make(map[int64]struct{}, len(itemKeys))
-	for _, itemKey := range itemKeys {
-		if _, duplicate := seen[itemKey]; duplicate {
-			return fmt.Errorf("arrange inventory: duplicate item key %d", itemKey)
-		}
-		seen[itemKey] = struct{}{}
-	}
-
-	rows, err := tx.Query(`
-		SELECT nItemKey FROM tItem
-		WHERE nOwner = ? AND nStorageType = 9
-		FOR UPDATE;
-	`, charNo)
-	if err != nil {
-		return fmt.Errorf("lock character %d inventory for arrangement: %w", charNo, err)
-	}
-	storedItems := make(map[int64]struct{}, len(itemKeys))
-	for rows.Next() {
-		var itemKey int64
-		if err := rows.Scan(&itemKey); err != nil {
-			rows.Close()
-			return fmt.Errorf("read character %d inventory for arrangement: %w", charNo, err)
-		}
-		storedItems[itemKey] = struct{}{}
-	}
-	if err := rows.Err(); err != nil {
-		rows.Close()
-		return fmt.Errorf("read character %d inventory for arrangement: %w", charNo, err)
-	}
-	if err := rows.Close(); err != nil {
-		return fmt.Errorf("close character %d inventory query: %w", charNo, err)
-	}
-	if len(storedItems) != len(itemKeys) {
-		return fmt.Errorf("character %d inventory changed before arrangement: %w", charNo, ErrItemNotFound)
-	}
-	for _, itemKey := range itemKeys {
-		if _, ok := storedItems[itemKey]; !ok {
-			return fmt.Errorf("item %d is not in character %d inventory: %w", itemKey, charNo, ErrItemNotFound)
-		}
-	}
-
-	var temporaryItem int64
-	err = tx.QueryRow(`
-		SELECT nItemKey FROM tItem
-		WHERE nOwner = ? AND nStorageType = 11
-		LIMIT 1
-		FOR UPDATE;
-	`, charNo).Scan(&temporaryItem)
-	if err != nil && err != sql.ErrNoRows {
-		return fmt.Errorf("check temporary item storage for character %d: %w", charNo, err)
-	}
-	if err == nil {
-		return fmt.Errorf("character %d has items in temporary storage", charNo)
-	}
-
-	for _, itemKey := range itemKeys {
-		result, err := tx.Exec(`
-			UPDATE tItem SET nStorageType = 11
-			WHERE nItemKey = ? AND nOwner = ? AND nStorageType = 9;
-		`, itemKey, charNo)
-		if err != nil {
-			return fmt.Errorf("move item %d to inventory arrange temporary storage: %w", itemKey, err)
-		}
-		affected, err := result.RowsAffected()
-		if err != nil {
-			return fmt.Errorf("check item %d inventory arrange update: %w", itemKey, err)
-		}
-		if affected != 1 {
-			return fmt.Errorf("arrange inventory item %d: %w", itemKey, ErrItemNotFound)
-		}
-	}
-
-	for slot, itemKey := range itemKeys {
-		if _, err := tx.Exec(`
-			UPDATE tItem SET nStorageType = 9, nStorage = ?
-			WHERE nItemKey = ? AND nOwner = ? AND nStorageType = 11;
-		`, slot, itemKey, charNo); err != nil {
-			return fmt.Errorf("assign item %d to inventory slot %d: %w", itemKey, slot, err)
-		}
-	}
-	if err := tx.Commit(); err != nil {
-		return fmt.Errorf("commit inventory arrange transaction: %w", err)
+		return fmt.Errorf("error calling p_Char_Login: %w", err)
 	}
 	return nil
 }
 
-// UpdateItemFlags actualiza la cantidad/lot (nFlags) de un ítem existente en tItem.
-func (r *MySQLCharacterRepository) UpdateItemFlags(itemKey int64, flags int) error {
-	_, err := r.db.Exec(`UPDATE tItem SET nFlags = ? WHERE nItemKey = ?;`, flags, itemKey)
+// CharacterLogout registra la salida de sesión y tiempo jugado invocando p_Char_Logout.
+func (r *MySQLCharacterRepository) CharacterLogout(charNo int, playMin int) error {
+	var ret int
+	err := r.db.QueryRow("CALL p_Char_Logout(?, ?, @out_nRet)", charNo, playMin).Scan(&ret)
 	if err != nil {
-		return fmt.Errorf("error updating item flags for itemKey %d: %w", itemKey, err)
+		return fmt.Errorf("error calling p_Char_Logout: %w", err)
 	}
 	return nil
 }
 
-// GetItemsByStorage obtiene todos los ítems de un tipo de almacenamiento específico (p_Item_GetListType).
-func (r *MySQLCharacterRepository) GetItemsByStorage(charNo int, storageType byte) ([]*Item, error) {
-	rows, err := r.db.Query(`
-		SELECT nItemKey, nStorageType, nOwner, nStorage, nItemID, nFlags, dDate
-		FROM tItem
-		WHERE nOwner = ? AND nStorageType = ?
-		ORDER BY nStorage ASC;
-	`, charNo, storageType)
-	if err != nil {
-		return nil, fmt.Errorf("error querying items by storage for char %d: %w", charNo, err)
-	}
-	defer rows.Close()
-
-	var items []*Item
-	for rows.Next() {
-		it := &Item{}
-		if err := rows.Scan(&it.ItemKey, &it.StorageType, &it.Owner, &it.Storage, &it.ItemID, &it.Flags, &it.Date); err != nil {
-			return nil, fmt.Errorf("error scanning storage item: %w", err)
-		}
-		items = append(items, it)
-	}
-	return items, nil
-}
-
-// AddCharMoney añade dinero a un personaje implementando p_Char_MoneyAdd.
-func (r *MySQLCharacterRepository) AddCharMoney(charNo int, amount int64) error {
-	_, err := r.db.Exec(`UPDATE tCharacter SET nMoney = nMoney + ? WHERE nCharNo = ?;`, amount, charNo)
-	if err != nil {
-		return fmt.Errorf("error adding money to char %d: %w", charNo, err)
-	}
-	return nil
-}
-
-// SubCharMoney deduce dinero a un personaje si dispone de fondos suficientes (p_Char_MoneySub).
-func (r *MySQLCharacterRepository) SubCharMoney(charNo int, amount int64) (bool, error) {
-	res, err := r.db.Exec(`
-		UPDATE tCharacter SET nMoney = nMoney - ? WHERE nCharNo = ? AND nMoney >= ?;
-	`, amount, charNo, amount)
-	if err != nil {
-		return false, fmt.Errorf("error deducting money from char %d: %w", charNo, err)
-	}
-	affected, err := res.RowsAffected()
-	if err != nil {
-		return false, err
-	}
-	return affected > 0, nil
-}
-
-// SaveCharLocation guarda la posición y orientación de un personaje (p_Char_SaveLocation).
+// SaveCharLocation persiste la posición y mapa de un personaje invocando p_Char_SaveLocation.
 func (r *MySQLCharacterRepository) SaveCharLocation(charNo int, mapName string, x, y int, rotation byte) error {
-	_, err := r.db.Exec(`
-		UPDATE tCharacter 
-		SET sLoginZone = ?, nLoginZoneX = ?, nLoginZoneY = ?, nLoginZoneD = ?
-		WHERE nCharNo = ?;
-	`, mapName, x, y, rotation, charNo)
+	_, err := r.db.Exec("CALL p_Char_SaveLocation(?, ?, ?, ?, 0, '', 0, 0)", charNo, mapName, x, y)
 	if err != nil {
-		return fmt.Errorf("error saving location for char %d: %w", charNo, err)
+		return fmt.Errorf("error calling p_Char_SaveLocation: %w", err)
 	}
 	return nil
 }
 
-// SaveCharStats guarda las estadísticas vitales de un personaje (p_Char_SaveStat).
+// SaveCharStats persiste los vitales de combate (HP, SP, piedras) invocando p_Char_SaveStat.
 func (r *MySQLCharacterRepository) SaveCharStats(charNo int, hp, sp, hps, sps int16) error {
-	_, err := r.db.Exec(`
-		UPDATE tCharacter 
-		SET nHP = ?, nSP = ?, nHPS = ?, nSPS = ?
-		WHERE nCharNo = ?;
-	`, hp, sp, hps, sps, charNo)
+	_, err := r.db.Exec("CALL p_Char_SaveStat(?, 0, 0, ?, ?, ?, ?)", charNo, hps, sps, hp, sp)
 	if err != nil {
-		return fmt.Errorf("error saving stats for char %d: %w", charNo, err)
+		return fmt.Errorf("error calling p_Char_SaveStat: %w", err)
 	}
 	return nil
 }
 
-// SaveCharLevelExp actualiza nivel y experiencia de un personaje (p_Char_SetLevelExp).
+// SaveCharLevelExp persiste el nivel y la experiencia acumulada invocando p_Char_SetLevelExp.
 func (r *MySQLCharacterRepository) SaveCharLevelExp(charNo int, level int16, exp int64) error {
-	_, err := r.db.Exec(`
-		UPDATE tCharacter 
-		SET nLevel = ?, nExp = ?
-		WHERE nCharNo = ?;
-	`, level, exp, charNo)
+	var ret int
+	err := r.db.QueryRow("CALL p_Char_SetLevelExp(?, ?, ?, @out_nRet)", charNo, level, exp).Scan(&ret)
 	if err != nil {
-		return fmt.Errorf("error saving level/exp for char %d: %w", charNo, err)
+		return fmt.Errorf("error calling p_Char_SetLevelExp: %w", err)
 	}
 	return nil
 }
 
-// SaveCharFreeStats actualiza la distribución de puntos de atributos (p_Char_StatPoint_Inc).
+// AddCharMoney añade dinero a la cuenta del personaje invocando p_Char_MoneyAdd.
+func (r *MySQLCharacterRepository) AddCharMoney(charNo int, amount int64) error {
+	var ret int
+	err := r.db.QueryRow("CALL p_Char_MoneyAdd(?, ?, @out_nRet)", charNo, amount).Scan(&ret)
+	if err != nil {
+		return fmt.Errorf("error calling p_Char_MoneyAdd: %w", err)
+	}
+	return nil
+}
+
+// SubCharMoney descuenta dinero del personaje invocando p_Char_MoneySub.
+func (r *MySQLCharacterRepository) SubCharMoney(charNo int, amount int64) (bool, error) {
+	var ret int
+	err := r.db.QueryRow("CALL p_Char_MoneySub(?, ?, @out_nRet)", charNo, amount).Scan(&ret)
+	if err != nil {
+		return false, fmt.Errorf("error calling p_Char_MoneySub: %w", err)
+	}
+	return ret == 1, nil
+}
+
+// SaveCharFreeStats persiste los puntos de atributos redistribuidos invocando usp_Character_setStatPoint.
 func (r *MySQLCharacterRepository) SaveCharFreeStats(charNo int, str, con, dex, intel, men, freePoints byte) error {
-	_, err := r.db.Exec(`
-		UPDATE tCharacter 
-		SET nStrength = ?, nConstitute = ?, nDexterity = ?, nIntelligence = ?, nMentalPower = ?, nRedistributePoint = ?
-		WHERE nCharNo = ?;
-	`, str, con, dex, intel, men, freePoints, charNo)
+	var ret int
+	err := r.db.QueryRow(
+		"CALL usp_Character_setStatPoint(?, 500, ?, ?, ?, ?, ?, 0, 0, 0, @out_nRet)",
+		charNo, str, con, dex, intel, men,
+	).Scan(&ret)
 	if err != nil {
-		return fmt.Errorf("error saving free stats for char %d: %w", charNo, err)
+		return fmt.Errorf("error calling usp_Character_setStatPoint: %w", err)
 	}
 	return nil
 }
 
-// SaveCharacterShortcuts persiste una lista de atajos en tCharacterShortCut.
-func (r *MySQLCharacterRepository) SaveCharacterShortcuts(charNo int, shortcuts []*Shortcut) error {
-	for _, sc := range shortcuts {
-		_, err := r.db.Exec(`
-			INSERT INTO tCharacterShortCut (nCharNo, nSlotNo, nCodeType, nCodeNo, nValue)
-			VALUES (?, ?, ?, ?, ?)
-			ON DUPLICATE KEY UPDATE nCodeType = VALUES(nCodeType), nCodeNo = VALUES(nCodeNo), nValue = VALUES(nValue), sys_update_date = NOW();
-		`, charNo, sc.SlotNo, sc.CodeType, sc.CodeNo, sc.Value)
-		if err != nil {
-			return fmt.Errorf("error saving shortcut slot %d for char %d: %w", sc.SlotNo, charNo, err)
-		}
-	}
-	return nil
-}
-
-// SaveCharacterSkills persiste habilidades aprendidas en tSkill.
-func (r *MySQLCharacterRepository) SaveCharacterSkills(charNo int, skills []*CharacterSkill) error {
-	for _, sk := range skills {
-		_, err := r.db.Exec(`
-			INSERT INTO tSkill (nCharNo, nSkillNo, nSkillLevel)
-			VALUES (?, ?, ?)
-			ON DUPLICATE KEY UPDATE nSkillLevel = VALUES(nSkillLevel);
-		`, charNo, sk.SkillNo, sk.SkillLevel)
-		if err != nil {
-			return fmt.Errorf("error saving skill %d for char %d: %w", sk.SkillNo, charNo, err)
-		}
-	}
-	return nil
-}
-
-// GetCharacterOptions recupera las opciones binarias persistidas de un personaje en tCharacterOptions
-// (implementa p_Char_GetOptShortCutData, p_Char_GetOptShortCutSize, p_Char_GetOptGame, etc.).
-func (r *MySQLCharacterRepository) GetCharacterOptions(charNo int) (*CharacterOptions, error) {
-	query := `
-		SELECT nCharNo, sShortCutData, sShortCutSize, sVideo, sSound, sGame, sWindowsPos, sKeyMapping
-		FROM tCharacterOptions
-		WHERE nCharNo = ?
-		LIMIT 1;
-	`
-	opts := &CharacterOptions{CharNo: charNo}
-	var (
-		cNo        int
-		scData     []byte
-		scSize     []byte
-		video      []byte
-		sound      []byte
-		game       []byte
-		windowsPos []byte
-		keyMapping []byte
-	)
-
-	err := r.db.QueryRow(query, charNo).Scan(
-		&cNo, &scData, &scSize, &video, &sound, &game, &windowsPos, &keyMapping,
-	)
+// GetCharacterStates obtiene la lista de estados anormales persistidos invocando p_Char_GetStateAll.
+func (r *MySQLCharacterRepository) GetCharacterStates(charNo int) ([]*CharacterStateData, error) {
+	rows, err := r.db.Query("CALL p_Char_GetStateAll(?)", charNo)
 	if err != nil {
-		if errors.Is(err, sql.ErrNoRows) {
-			return opts, nil
-		}
-		return nil, fmt.Errorf("error querying character options for %d: %w", charNo, err)
-	}
-
-	opts.ShortCutData = scData
-	opts.ShortCutSize = scSize
-	opts.Video = video
-	opts.Sound = sound
-	opts.Game = game
-	opts.WindowsPos = windowsPos
-	opts.KeyMapping = keyMapping
-
-	return opts, nil
-}
-
-// SaveCharacterOption guarda una opción binaria en tCharacterOptions según el procedimiento oficial:
-// p_Char_SetOptShortCutData, p_Char_SetOptShortCutSize, p_Char_SetOptGame, etc.
-func (r *MySQLCharacterRepository) SaveCharacterOption(charNo int, optType string, data []byte) error {
-	var colName string
-	switch optType {
-	case "shortcut_data":
-		colName = "sShortCutData"
-	case "shortcut_size":
-		colName = "sShortCutSize"
-	case "game":
-		colName = "sGame"
-	case "sound":
-		colName = "sSound"
-	case "window_pos":
-		colName = "sWindowsPos"
-	case "key_mapping":
-		colName = "sKeyMapping"
-	case "video":
-		colName = "sVideo"
-	default:
-		return fmt.Errorf("unknown character option type: %s", optType)
-	}
-
-	query := fmt.Sprintf(`
-		INSERT INTO tCharacterOptions (nCharNo, %s)
-		VALUES (?, ?)
-		ON DUPLICATE KEY UPDATE %s = VALUES(%s);
-	`, colName, colName, colName)
-
-	_, err := r.db.Exec(query, charNo, data)
-	if err != nil {
-		return fmt.Errorf("error saving %s for char %d: %w", colName, charNo, err)
-	}
-	return nil
-}
-
-// GetFriends recupera la lista oficial de amigos de un personaje (implementa p_Friend_GetAll / p_Friend_Get).
-func (r *MySQLCharacterRepository) GetFriends(charNo int) ([]*FriendInfo, error) {
-	query := `
-		SELECT F.nFriendCharNo, C.sID, S.nClass, C.nLevel, C.sLoginZone, F.nFlags
-		FROM tFriend F
-		INNER JOIN tCharacter C ON F.nFriendCharNo = C.nCharNo AND C.bDeleted = 0
-		INNER JOIN tCharacterShape S ON S.nCharNo = F.nFriendCharNo
-		WHERE F.nCharNo = ?;
-	`
-	rows, err := r.db.Query(query, charNo)
-	if err != nil {
-		return nil, fmt.Errorf("error querying friends for char %d: %w", charNo, err)
+		return nil, fmt.Errorf("error calling p_Char_GetStateAll(%d): %w", charNo, err)
 	}
 	defer rows.Close()
 
-	var friends []*FriendInfo
+	var states []*CharacterStateData
 	for rows.Next() {
-		f := &FriendInfo{}
-		if err := rows.Scan(&f.CharID, &f.CharName, &f.Class, &f.Level, &f.Map, &f.Flags); err != nil {
-			return nil, fmt.Errorf("error scanning friend for char %d: %w", charNo, err)
+		s := &CharacterStateData{CharNo: charNo}
+		if err := rows.Scan(
+			&s.StateNo, &s.StateLevel, &s.StateTime, &s.StateCount,
+			&s.PowerDamage, &s.PowerSP, &s.PowerKeepTime, &s.PowerCoolTime,
+		); err == nil {
+			states = append(states, s)
 		}
-		friends = append(friends, f)
 	}
-	return friends, nil
+	return states, nil
 }
 
-// AddFriend guarda una relación de amistad bidireccional en tFriend (implementa p_Friend_Set).
-func (r *MySQLCharacterRepository) AddFriend(charNo, friendCharNo int) error {
-	tx, err := r.db.Begin()
+// SetCharacterState almacena un estado anormal con tiempo restante invocando p_Char_SetStateWithRestTime.
+func (r *MySQLCharacterRepository) SetCharacterState(charNo int, stateNo int16, level int16, stateTime int, restTime int, count int16, pd, ps, pk, pc byte) error {
+	var ret int
+	err := r.db.QueryRow(
+		"CALL p_Char_SetStateWithRestTime(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, @out_nRet)",
+		charNo, stateNo, level, stateTime, restTime, count, pd, ps, pk, pc,
+	).Scan(&ret)
 	if err != nil {
-		return err
-	}
-	defer tx.Rollback()
-
-	query := `
-		INSERT INTO tFriend (nCharNo, nFriendCharNo, nFlags, dDate)
-		VALUES (?, ?, 0, NOW())
-		ON DUPLICATE KEY UPDATE dDate = NOW();
-	`
-	if _, err := tx.Exec(query, charNo, friendCharNo); err != nil {
-		return fmt.Errorf("error adding friend link (%d -> %d): %w", charNo, friendCharNo, err)
-	}
-	if _, err := tx.Exec(query, friendCharNo, charNo); err != nil {
-		return fmt.Errorf("error adding reverse friend link (%d -> %d): %w", friendCharNo, charNo, err)
-	}
-
-	return tx.Commit()
-}
-
-// RemoveFriend elimina una relación de amistad bidireccional de tFriend (implementa p_Friend_Del).
-func (r *MySQLCharacterRepository) RemoveFriend(charNo, friendCharNo int) error {
-	query := `
-		DELETE FROM tFriend 
-		WHERE (nCharNo = ? AND nFriendCharNo = ?) 
-		   OR (nCharNo = ? AND nFriendCharNo = ?);
-	`
-	_, err := r.db.Exec(query, charNo, friendCharNo, friendCharNo, charNo)
-	if err != nil {
-		return fmt.Errorf("error removing friend link (%d <-> %d): %w", charNo, friendCharNo, err)
+		return fmt.Errorf("error calling p_Char_SetStateWithRestTime: %w", err)
 	}
 	return nil
 }
 
-// GetFriendPoints consulta los puntos de amistad acumulados de un personaje (implementa usp_Character_GetFriendpoint).
-func (r *MySQLCharacterRepository) GetFriendPoints(charNo int) (int, error) {
-	query := `SELECT COALESCE(nFriendPoint, 0) FROM tCharacter WHERE nCharNo = ?;`
-	var points int
-	err := r.db.QueryRow(query, charNo).Scan(&points)
+// GetCharacterTitles recupera los títulos activos invocando p_Char_GetTitleAll.
+func (r *MySQLCharacterRepository) GetCharacterTitles(charNo int) ([]*CharacterTitleData, error) {
+	rows, err := r.db.Query("CALL p_Char_GetTitleAll(?)", charNo)
 	if err != nil {
-		if errors.Is(err, sql.ErrNoRows) {
-			return 0, ErrCharacterNotFound
-		}
-		return 0, err
-	}
-	return points, nil
-}
-
-// SetFriendPoints actualiza los puntos de amistad de un personaje (implementa usp_Character_SetFriendpoint).
-func (r *MySQLCharacterRepository) SetFriendPoints(charNo int, points int) error {
-	query := `UPDATE tCharacter SET nFriendPoint = ? WHERE nCharNo = ?;`
-	_, err := r.db.Exec(query, points, charNo)
-	return err
-}
-
-// CreateGuild crea un nuevo gremio en tGuild e inserta al maestro en tGuildMember (implementa p_Guild_Make).
-func (r *MySQLCharacterRepository) CreateGuild(masterCharID int, name, password string, guildType byte) (int, error) {
-	tx, err := r.db.Begin()
-	if err != nil {
-		return 0, err
-	}
-	defer tx.Rollback()
-
-	// Chequear si existe nombre
-	var exists int
-	err = tx.QueryRow(`SELECT COUNT(*) FROM tGuild WHERE sName = ?;`, name).Scan(&exists)
-	if err != nil {
-		return 0, err
-	}
-	if exists > 0 {
-		return -1, fmt.Errorf("guild name already exists")
-	}
-
-	// Chequear si el char ya pertenece a un gremio
-	err = tx.QueryRow(`SELECT COUNT(*) FROM tGuildMember WHERE nCharNo = ?;`, masterCharID).Scan(&exists)
-	if err != nil {
-		return 0, err
-	}
-	if exists > 0 {
-		return -3, fmt.Errorf("character already in guild")
-	}
-
-	// Insertar tGuild
-	res, err := tx.Exec(`
-		INSERT INTO tGuild (sName, sPassword, nMaxMembers, nType, nGrade, dCreateDate, dNotifyDate, dDismissDate)
-		VALUES (?, ?, 30, ?, 1, NOW(), NOW(), NOW());
-	`, name, password, guildType)
-	if err != nil {
-		return 0, fmt.Errorf("error creating guild: %w", err)
-	}
-
-	guildID64, err := res.LastInsertId()
-	if err != nil {
-		return 0, err
-	}
-	guildID := int(guildID64)
-
-	// Insertar Guild Master en tGuildMember (Grade 0)
-	_, err = tx.Exec(`
-		INSERT INTO tGuildMember (nNo, nCharNo, dJoinDate, nGrade)
-		VALUES (?, ?, NOW(), 0);
-	`, guildID, masterCharID)
-	if err != nil {
-		return 0, fmt.Errorf("error adding guild master: %w", err)
-	}
-
-	// Crear academia asociada por defecto (tGuildAcademy)
-	_, err = tx.Exec(`
-		INSERT INTO tGuildAcademy (nNo, nMasterCharNo, nMaxMember, dNotifyDate, dBuffEndTime)
-		VALUES (?, ?, 50, NOW(), NOW())
-		ON DUPLICATE KEY UPDATE nMasterCharNo = VALUES(nMasterCharNo);
-	`, guildID, masterCharID)
-	if err != nil {
-		return 0, fmt.Errorf("error creating guild academy: %w", err)
-	}
-
-	if err := tx.Commit(); err != nil {
-		return 0, err
-	}
-
-	return guildID, nil
-}
-
-// GetGuild obtiene los datos completos de un gremio por su ID (implementa p_Guild_Get).
-func (r *MySQLCharacterRepository) GetGuild(guildID int) (*GuildData, error) {
-	query := `
-		SELECT nNo, sName, sPassword, nMaxMembers, nMoney, nType, nGrade, nFame, nStoneLevel, nExp,
-		       dCreateDate, nDismissStatus, dDismissDate, sIntro, dNotifyDate, sNotifyCharID, sNotify
-		FROM tGuild
-		WHERE nNo = ?;
-	`
-	g := &GuildData{}
-	var createDate, dismissDate, notifyDate sql.NullTime
-	err := r.db.QueryRow(query, guildID).Scan(
-		&g.ID, &g.Name, &g.Password, &g.MaxMembers, &g.Money, &g.Type, &g.Grade, &g.Fame, &g.StoneLevel, &g.Exp,
-		&createDate, &g.DismissStatus, &dismissDate, &g.Intro, &notifyDate, &g.NotifyCharID, &g.Notify,
-	)
-	if err != nil {
-		if errors.Is(err, sql.ErrNoRows) {
-			return nil, fmt.Errorf("guild not found")
-		}
-		return nil, err
-	}
-	if createDate.Valid {
-		g.CreateDate = createDate.Time
-	}
-	if dismissDate.Valid {
-		g.DismissDate = dismissDate.Time
-	}
-	if notifyDate.Valid {
-		g.NotifyDate = notifyDate.Time
-	}
-	return g, nil
-}
-
-// GetGuildByCharID busca a qué gremio pertenece un personaje (implementa p_Guild_Member_Get).
-func (r *MySQLCharacterRepository) GetGuildByCharID(charID int) (*GuildData, *GuildMemberData, error) {
-	query := `
-		SELECT G.nNo, G.sName, G.sPassword, G.nMaxMembers, G.nMoney, G.nType, G.nGrade, G.nFame, G.nStoneLevel, G.nExp,
-		       G.dCreateDate, G.nDismissStatus, G.dDismissDate, G.sIntro, G.dNotifyDate, G.sNotifyCharID, G.sNotify,
-		       M.dJoinDate, M.nGrade, M.nFlags, M.nExpRatio, M.sIntro,
-		       C.sID, S.nClass, C.nLevel, C.sLoginZone, C.dLastLoginDate
-		FROM tGuildMember M
-		JOIN tGuild G ON M.nNo = G.nNo
-		JOIN tCharacter C ON M.nCharNo = C.nCharNo AND C.bDeleted = 0
-		JOIN tCharacterShape S ON M.nCharNo = S.nCharNo
-		WHERE M.nCharNo = ?;
-	`
-	g := &GuildData{}
-	m := &GuildMemberData{CharID: charID}
-	var createDate, dismissDate, notifyDate, joinDate, lastLogin sql.NullTime
-
-	err := r.db.QueryRow(query, charID).Scan(
-		&g.ID, &g.Name, &g.Password, &g.MaxMembers, &g.Money, &g.Type, &g.Grade, &g.Fame, &g.StoneLevel, &g.Exp,
-		&createDate, &g.DismissStatus, &dismissDate, &g.Intro, &notifyDate, &g.NotifyCharID, &g.Notify,
-		&joinDate, &m.Grade, &m.Flags, &m.ExpRatio, &m.Intro,
-		&m.CharName, &m.Class, &m.Level, &m.Map, &lastLogin,
-	)
-	if err != nil {
-		if errors.Is(err, sql.ErrNoRows) {
-			return nil, nil, nil
-		}
-		return nil, nil, err
-	}
-
-	if createDate.Valid {
-		g.CreateDate = createDate.Time
-	}
-	if dismissDate.Valid {
-		g.DismissDate = dismissDate.Time
-	}
-	if notifyDate.Valid {
-		g.NotifyDate = notifyDate.Time
-	}
-	if joinDate.Valid {
-		m.JoinDate = joinDate.Time
-	}
-	if lastLogin.Valid {
-		m.LastLogin = lastLogin.Time
-	}
-	m.GuildID = g.ID
-
-	return g, m, nil
-}
-
-// GetGuildMembers obtiene todos los miembros de un gremio (implementa p_Guild_Member_GetAll).
-func (r *MySQLCharacterRepository) GetGuildMembers(guildID int) ([]*GuildMemberData, error) {
-	query := `
-		SELECT M.nNo, M.nCharNo, C.sID, M.dJoinDate, M.nGrade, M.nFlags, M.nExpRatio, M.sIntro,
-		       S.nClass, C.nLevel, C.sLoginZone, C.dLastLoginDate
-		FROM tGuildMember M
-		JOIN tCharacter C ON M.nCharNo = C.nCharNo AND C.bDeleted = 0
-		JOIN tCharacterShape S ON M.nCharNo = S.nCharNo
-		WHERE M.nNo = ?
-		ORDER BY M.nGrade ASC, M.dJoinDate ASC;
-	`
-	rows, err := r.db.Query(query, guildID)
-	if err != nil {
-		return nil, err
+		return nil, fmt.Errorf("error calling p_Char_GetTitleAll(%d): %w", charNo, err)
 	}
 	defer rows.Close()
 
-	var list []*GuildMemberData
+	var titles []*CharacterTitleData
 	for rows.Next() {
-		m := &GuildMemberData{GuildID: guildID}
-		var joinDate, lastLogin sql.NullTime
-		err := rows.Scan(
-			&m.GuildID, &m.CharID, &m.CharName, &joinDate, &m.Grade, &m.Flags, &m.ExpRatio, &m.Intro,
-			&m.Class, &m.Level, &m.Map, &lastLogin,
-		)
-		if err != nil {
-			return nil, err
+		var titleType int16
+		var title string
+		if err := rows.Scan(&titleType, &title); err == nil {
+			titles = append(titles, &CharacterTitleData{CharNo: charNo, TitleType: titleType, Title: title})
 		}
-		if joinDate.Valid {
-			m.JoinDate = joinDate.Time
-		}
-		if lastLogin.Valid {
-			m.LastLogin = lastLogin.Time
-		}
-		list = append(list, m)
 	}
-	return list, nil
+	return titles, nil
 }
 
-// GetAllGuilds retorna el resumen de todos los gremios activos para el directorio (implementa p_Guild_GetListDetail).
-func (r *MySQLCharacterRepository) GetAllGuilds() ([]*GuildListItem, error) {
-	query := `
-		SELECT G.nNo, G.sName, COALESCE(C.sID, ''), G.nType, G.nGrade,
-		       (SELECT COUNT(*) FROM tGuildMember WHERE nNo = G.nNo), G.nMaxMembers
-		FROM tGuild G
-		LEFT JOIN tGuildMember M_Master ON G.nNo = M_Master.nNo AND M_Master.nGrade = 0
-		LEFT JOIN tCharacter C ON M_Master.nCharNo = C.nCharNo
-		WHERE G.nDismissStatus = 0
-		ORDER BY G.nNo ASC;
-	`
-	rows, err := r.db.Query(query)
+// SetCharacterTitle asigna un título de personaje invocando p_Char_SetTitle.
+func (r *MySQLCharacterRepository) SetCharacterTitle(charNo int, titleType int16, title string) error {
+	var ret int
+	err := r.db.QueryRow("CALL p_Char_SetTitle(?, ?, 0, 0, @out_nRet)", charNo, titleType).Scan(&ret)
 	if err != nil {
-		return nil, err
+		return fmt.Errorf("error calling p_Char_SetTitle: %w", err)
+	}
+	return nil
+}
+
+// GetChargedBuffs recupera los buffs pagos de tCharacterChargedBuffer invocando p_Char_GetChargedBufferAll.
+func (r *MySQLCharacterRepository) GetChargedBuffs(charNo int) ([]*ChargedBuffData, error) {
+	rows, err := r.db.Query("CALL p_Char_GetChargedBufferAll(?)", charNo)
+	if err != nil {
+		return nil, fmt.Errorf("error calling p_Char_GetChargedBufferAll(%d): %w", charNo, err)
 	}
 	defer rows.Close()
 
-	var list []*GuildListItem
+	var buffs []*ChargedBuffData
 	for rows.Next() {
-		item := &GuildListItem{}
-		err := rows.Scan(
-			&item.GuildID, &item.GuildName, &item.MasterCharName,
-			&item.Type, &item.Grade, &item.MemberCount, &item.MaxMembers,
-		)
-		if err != nil {
-			return nil, err
+		b := &ChargedBuffData{}
+		if err := rows.Scan(&b.Key, &b.ID, &b.UseDate, &b.EndDate); err == nil {
+			buffs = append(buffs, b)
 		}
-		list = append(list, item)
 	}
-	return list, nil
+	return buffs, nil
 }
 
-// AddGuildMember inserta a un jugador en tGuildMember (implementa p_Guild_Member_Join).
-func (r *MySQLCharacterRepository) AddGuildMember(guildID, charID int, grade byte) error {
-	query := `
-		INSERT INTO tGuildMember (nNo, nCharNo, dJoinDate, nGrade)
-		VALUES (?, ?, NOW(), ?);
-	`
-	_, err := r.db.Exec(query, guildID, charID, grade)
-	return err
-}
-
-// RemoveGuildMember elimina a un jugador de tGuildMember (implementa p_Guild_Member_Leave).
-func (r *MySQLCharacterRepository) RemoveGuildMember(guildID, charID int) error {
-	query := `DELETE FROM tGuildMember WHERE nNo = ? AND nCharNo = ?;`
-	_, err := r.db.Exec(query, guildID, charID)
-	return err
-}
-
-// SetGuildMemberGrade cambia el rango de un miembro de gremio (implementa p_Guild_Member_SetGrade).
-func (r *MySQLCharacterRepository) SetGuildMemberGrade(guildID, charID int, grade byte) error {
-	query := `UPDATE tGuildMember SET nGrade = ? WHERE nNo = ? AND nCharNo = ?;`
-	_, err := r.db.Exec(query, grade, guildID, charID)
-	return err
-}
-
-// SetGuildNotify actualiza el mensaje de anuncio del gremio (implementa p_Guild_SetNotify).
-func (r *MySQLCharacterRepository) SetGuildNotify(guildID int, charName, notify string) error {
-	query := `
-		UPDATE tGuild 
-		SET dNotifyDate = NOW(), sNotifyCharID = ?, sNotify = ?
-		WHERE nNo = ?;
-	`
-	_, err := r.db.Exec(query, charName, notify, guildID)
-	return err
-}
-
-// DismissGuild marca el gremio como disuelto y borra los miembros (implementa p_Guild_SetDismiss).
-func (r *MySQLCharacterRepository) DismissGuild(guildID int) error {
-	tx, err := r.db.Begin()
+// SetChargedBuff registra o actualiza un buff pago invocando p_Char_SetChargedBuffer.
+func (r *MySQLCharacterRepository) SetChargedBuff(charNo int, key int, id int16, useDate, endDate time.Time) error {
+	var ret int
+	err := r.db.QueryRow("CALL p_Char_SetChargedBuffer(?, ?, ?, ?, ?, @out_nRet)", charNo, key, id, useDate, endDate).Scan(&ret)
 	if err != nil {
-		return err
+		return fmt.Errorf("error calling p_Char_SetChargedBuffer: %w", err)
 	}
-	defer tx.Rollback()
-
-	if _, err := tx.Exec(`UPDATE tGuild SET nDismissStatus = 1, dDismissDate = NOW() WHERE nNo = ?;`, guildID); err != nil {
-		return err
-	}
-	if _, err := tx.Exec(`DELETE FROM tGuildMember WHERE nNo = ?;`, guildID); err != nil {
-		return err
-	}
-	return tx.Commit()
+	return nil
 }
 
-// CreateGuildAcademy registra la academia del gremio (implementa usp_GuildAcademy_setAcademy).
-func (r *MySQLCharacterRepository) CreateGuildAcademy(guildID, masterCharID int) error {
-	query := `
-		INSERT INTO tGuildAcademy (nNo, nMasterCharNo, nMaxMember, dNotifyDate, dBuffEndTime)
-		VALUES (?, ?, 50, NOW(), NOW())
-		ON DUPLICATE KEY UPDATE nMasterCharNo = VALUES(nMasterCharNo);
-	`
-	_, err := r.db.Exec(query, guildID, masterCharID)
-	return err
-}
-
-// GetGuildAcademy obtiene los datos de la academia de un gremio (implementa usp_GuildAcademy_getGuildAcademyList).
-func (r *MySQLCharacterRepository) GetGuildAcademy(guildID int) (*GuildAcademyData, error) {
-	query := `
-		SELECT A.nNo, A.nMasterCharNo, COALESCE(C.sID, ''), A.nMaxMember, A.nMoney, A.nPoint,
-		       A.dBuffEndTime, A.dNotifyDate, A.sNotify, A.sIntro
-		FROM tGuildAcademy A
-		LEFT JOIN tCharacter C ON A.nMasterCharNo = C.nCharNo
-		WHERE A.nNo = ?;
-	`
-	a := &GuildAcademyData{}
-	var buffTime, notifyDate sql.NullTime
-	err := r.db.QueryRow(query, guildID).Scan(
-		&a.GuildID, &a.MasterCharID, &a.MasterCharName, &a.MaxMember, &a.Money, &a.Point,
-		&buffTime, &notifyDate, &a.Notify, &a.Intro,
-	)
+// DelChargedBuff elimina un buff pago invocando p_Char_DelChargedBuff.
+func (r *MySQLCharacterRepository) DelChargedBuff(charNo int, key int) error {
+	var ret int
+	err := r.db.QueryRow("CALL p_Char_DelChargedBuff(?, ?, @out_nRet)", charNo, key).Scan(&ret)
 	if err != nil {
-		if errors.Is(err, sql.ErrNoRows) {
-			return nil, fmt.Errorf("academy not found")
-		}
-		return nil, err
+		return fmt.Errorf("error calling p_Char_DelChargedBuff: %w", err)
 	}
-	if buffTime.Valid {
-		a.BuffEndTime = buffTime.Time
-	}
-	if notifyDate.Valid {
-		a.NotifyDate = notifyDate.Time
-	}
-	return a, nil
+	return nil
 }
 
-// GetAcademyByCharID busca a qué academia pertenece un aprendiz (implementa usp_GuildAcademy_getGuildNo).
-func (r *MySQLCharacterRepository) GetAcademyByCharID(charID int) (*GuildAcademyData, *GuildAcademyMemberData, error) {
-	query := `
-		SELECT A.nNo, A.nMasterCharNo, COALESCE(C.sID, ''), A.nMaxMember, A.nMoney, A.nPoint,
-		       A.dBuffEndTime, A.dNotifyDate, A.sNotify, A.sIntro,
-		       M.dJoinDate, M.nJoinLevel, M.nGrade,
-		       SC.sID, S.nClass, SC.nLevel, SC.sLoginZone, SC.dLastLoginDate
-		FROM tGuildAcademyMember M
-		JOIN tGuildAcademy A ON M.nNo = A.nNo
-		JOIN tCharacter SC ON M.nCharNo = SC.nCharNo AND SC.bDeleted = 0
-		JOIN tCharacterShape S ON M.nCharNo = S.nCharNo
-		LEFT JOIN tCharacter C ON A.nMasterCharNo = C.nCharNo
-		WHERE M.nCharNo = ?;
-	`
-	a := &GuildAcademyData{}
-	m := &GuildAcademyMemberData{CharID: charID}
-	var buffTime, notifyDate, joinDate, lastLogin sql.NullTime
+// GetRestExpExecTime obtiene la última fecha de ejecución de RestExp invocando usp_Char_GetRestExpExecTime.
+func (r *MySQLCharacterRepository) GetRestExpExecTime(charNo int) (time.Time, error) {
+	var t time.Time
+	row := r.db.QueryRow("CALL usp_Char_GetRestExpExecTime(?, @out_nRet)", charNo)
+	if err := row.Scan(&t); err != nil {
+		return time.Now(), nil
+	}
+	return t, nil
+}
 
-	err := r.db.QueryRow(query, charID).Scan(
-		&a.GuildID, &a.MasterCharID, &a.MasterCharName, &a.MaxMember, &a.Money, &a.Point,
-		&buffTime, &notifyDate, &a.Notify, &a.Intro,
-		&joinDate, &m.JoinLevel, &m.Grade,
-		&m.CharName, &m.Class, &m.Level, &m.Map, &lastLogin,
-	)
+// SetRestExpExecTime actualiza la fecha de RestExp invocando usp_Char_SetRestExpExecTime.
+func (r *MySQLCharacterRepository) SetRestExpExecTime(charNo int, t time.Time) error {
+	var ret int
+	err := r.db.QueryRow("CALL usp_Char_SetRestExpExecTime(?, @out_nRet)", charNo).Scan(&ret)
 	if err != nil {
-		if errors.Is(err, sql.ErrNoRows) {
-			return nil, nil, nil
-		}
-		return nil, nil, err
+		return fmt.Errorf("error calling usp_Char_SetRestExpExecTime: %w", err)
 	}
-
-	if buffTime.Valid {
-		a.BuffEndTime = buffTime.Time
-	}
-	if notifyDate.Valid {
-		a.NotifyDate = notifyDate.Time
-	}
-	if joinDate.Valid {
-		m.JoinDate = joinDate.Time
-	}
-	if lastLogin.Valid {
-		m.LastLogin = lastLogin.Time
-	}
-	m.GuildID = a.GuildID
-
-	return a, m, nil
+	return nil
 }
 
-// GetAcademyMembers retorna los alumnos de la academia (implementa usp_GuildAcademy_getMemberList).
-func (r *MySQLCharacterRepository) GetAcademyMembers(guildID int) ([]*GuildAcademyMemberData, error) {
-	query := `
-		SELECT M.nNo, M.nCharNo, C.sID, M.dJoinDate, M.nJoinLevel, M.nGrade,
-		       S.nClass, C.nLevel, C.sLoginZone, C.dLastLoginDate
-		FROM tGuildAcademyMember M
-		JOIN tCharacter C ON M.nCharNo = C.nCharNo AND C.bDeleted = 0
-		JOIN tCharacterShape S ON M.nCharNo = S.nCharNo
-		WHERE M.nNo = ?
-		ORDER BY M.dJoinDate ASC;
-	`
-	rows, err := r.db.Query(query, guildID)
+// GetAutoPick consulta el estado de recolección automática invocando usp_Char_GetAutoPick.
+func (r *MySQLCharacterRepository) GetAutoPick(charNo int) (bool, error) {
+	var autoPick int
+	row := r.db.QueryRow("CALL usp_Char_GetAutoPick(?, @out_nRet)", charNo)
+	if err := row.Scan(&autoPick); err != nil {
+		return false, nil
+	}
+	return autoPick != 0, nil
+}
+
+// SetAutoPick actualiza el estado de recolección automática invocando usp_Char_SetAutoPick.
+func (r *MySQLCharacterRepository) SetAutoPick(charNo int, autoPick bool) error {
+	val := byte(0)
+	if autoPick {
+		val = 1
+	}
+	var ret int
+	err := r.db.QueryRow("CALL usp_Char_SetAutoPick(?, ?, @out_nRet)", charNo, val).Scan(&ret)
 	if err != nil {
-		return nil, err
+		return fmt.Errorf("error calling usp_Char_SetAutoPick: %w", err)
 	}
-	defer rows.Close()
+	return nil
+}
 
-	var list []*GuildAcademyMemberData
-	for rows.Next() {
-		m := &GuildAcademyMemberData{GuildID: guildID}
-		var joinDate, lastLogin sql.NullTime
-		err := rows.Scan(
-			&m.GuildID, &m.CharID, &m.CharName, &joinDate, &m.JoinLevel, &m.Grade,
-			&m.Class, &m.Level, &m.Map, &lastLogin,
-		)
-		if err != nil {
-			return nil, err
-		}
-		if joinDate.Valid {
-			m.JoinDate = joinDate.Time
-		}
-		if lastLogin.Valid {
-			m.LastLogin = lastLogin.Time
-		}
-		list = append(list, m)
+// SaveCharLink actualiza el mapa de retorno de LinkScroll invocando usp_LinkScroll_SetDestMap.
+func (r *MySQLCharacterRepository) SaveCharLink(charNo int, linkZone string, linkX, linkY int) error {
+	var ret int
+	err := r.db.QueryRow("CALL usp_LinkScroll_SetDestMap(?, ?, @out_nRet)", charNo, linkZone).Scan(&ret)
+	if err != nil {
+		return fmt.Errorf("error calling usp_LinkScroll_SetDestMap: %w", err)
 	}
-	return list, nil
+	return nil
 }
 
-// AddAcademyMember registra a un alumno en tGuildAcademyMember (implementa usp_GuildAcademy_setMember).
-func (r *MySQLCharacterRepository) AddAcademyMember(guildID, charID int, joinLevel byte) error {
-	query := `
-		INSERT INTO tGuildAcademyMember (nNo, nCharNo, nJoinLevel, dJoinDate, nGrade)
-		VALUES (?, ?, ?, NOW(), 0);
-	`
-	_, err := r.db.Exec(query, guildID, charID, joinLevel)
-	return err
+// AddCharExp añade experiencia al personaje invocando p_Char_AddExp.
+func (r *MySQLCharacterRepository) AddCharExp(charNo int, exp int64) error {
+	_, err := r.db.Exec("CALL p_Char_AddExp(?, ?)", charNo, exp)
+	if err != nil {
+		return fmt.Errorf("error calling p_Char_AddExp: %w", err)
+	}
+	return nil
 }
 
-// RemoveAcademyMember remueve a un alumno de tGuildAcademyMember (implementa usp_GuildAcademy_delMember).
-func (r *MySQLCharacterRepository) RemoveAcademyMember(guildID, charID int) error {
-	query := `DELETE FROM tGuildAcademyMember WHERE nNo = ? AND nCharNo = ?;`
-	_, err := r.db.Exec(query, guildID, charID)
-	return err
+// AddCharFame incrementa la fama del personaje invocando p_Char_FameAdd.
+func (r *MySQLCharacterRepository) AddCharFame(charNo int, fame int) error {
+	var ret int
+	err := r.db.QueryRow("CALL p_Char_FameAdd(?, ?, @out_nRet)", charNo, fame).Scan(&ret)
+	if err != nil {
+		return fmt.Errorf("error calling p_Char_FameAdd: %w", err)
+	}
+	return nil
 }
 
-// SetAcademyNotify actualiza el mensaje de la academia (implementa usp_GuildAcademy_setNotify).
-func (r *MySQLCharacterRepository) SetAcademyNotify(guildID int, charName, notify string) error {
-	query := `
-		UPDATE tGuildAcademy
-		SET dNotifyDate = NOW(), sNotify = ?
-		WHERE nNo = ?;
-	`
-	_, err := r.db.Exec(query, notify, guildID)
-	return err
+// SubCharFame decrementa la fama del personaje invocando p_Char_FameSub.
+func (r *MySQLCharacterRepository) SubCharFame(charNo int, fame int) error {
+	var ret int
+	err := r.db.QueryRow("CALL p_Char_FameSub(?, ?, @out_nRet)", charNo, fame).Scan(&ret)
+	if err != nil {
+		return fmt.Errorf("error calling p_Char_FameSub: %w", err)
+	}
+	return nil
+}
+
+// GetCharFame recupera la fama del personaje invocando p_Char_FameGet.
+func (r *MySQLCharacterRepository) GetCharFame(charNo int) (int, error) {
+	var fame, ret int
+	err := r.db.QueryRow("CALL p_Char_FameGet(?, @out_nFame, @out_nRet)", charNo).Scan(&fame, &ret)
+	if err != nil {
+		return 0, fmt.Errorf("error calling p_Char_FameGet: %w", err)
+	}
+	return fame, nil
 }
