@@ -111,3 +111,392 @@ func New_PROTO_NC_PARTY_FINDER_LIST_ACK(entries []PartyFinderEntry) *PacketWrite
 	}
 	return pw
 }
+
+// ============================================================================
+// Estructuras Oficiales C++ (#pragma pack(push, 1))
+// ============================================================================
+
+// PROTO_NC_ACT_PARTYCHAT_ACK (size = 2 bytes)
+type PROTO_NC_ACT_PARTYCHAT_ACK_DATA struct {
+	Error                            uint16               // offset: 0, size: 2 bytes
+}
+
+// PROTO_NC_ACT_PARTYCHAT_ACK_SEND (size = 5 bytes)
+type PROTO_NC_ACT_PARTYCHAT_ACK_SEND struct {
+	Size                             uint8                // offset: 0, size: 1 bytes
+	Netcmd                           uint16               // offset: 1, size: 2 bytes
+	Ack                              uint16               // offset: 3, size: 2 bytes
+}
+
+// PROTO_NC_ACT_PARTYCHAT_CMD (size = 22 bytes)
+type PROTO_NC_ACT_PARTYCHAT_CMD_DATA struct {
+	Talker                           Name5                // offset: 0, size: 20 bytes
+	Chat                             uint16               // offset: 20, size: 2 bytes
+}
+
+// PROTO_NC_ACT_PARTYCHAT_REQ (size = 2 bytes)
+type PROTO_NC_ACT_PARTYCHAT_REQ_DATA struct {
+	ItemLinkDataCount                uint8                // offset: 0, size: 1 bytes
+	Len                              uint8                // offset: 1, size: 1 bytes
+	Content                          [0]byte              // offset: 2, flexible array member
+}
+
+// PROTO_NC_FRIEND_PARTY_CMD (size = 21 bytes)
+type PROTO_NC_FRIEND_PARTY_CMD_DATA struct {
+	Charid                           Name5                // offset: 0, size: 20 bytes
+	Is_party                         uint8                // offset: 20, size: 1 bytes
+}
+
+// PROTO_NC_PARTY_CHANGEMASTER_ACK (size = 22 bytes)
+type PROTO_NC_PARTY_CHANGEMASTER_ACK_DATA struct {
+	Newmaster                        Name5                // offset: 0, size: 20 bytes
+	Err                              uint16               // offset: 20, size: 2 bytes
+}
+
+// PROTO_NC_PARTY_CHANGEMASTER_ACK_SEND (size = 25 bytes)
+type PROTO_NC_PARTY_CHANGEMASTER_ACK_SEND struct {
+	Size                             uint8                // offset: 0, size: 1 bytes
+	Netcmd                           uint16               // offset: 1, size: 2 bytes
+	Ack                              [22]byte             // offset: 3, size: 22 bytes
+}
+
+// PROTO_NC_PARTY_CHANGEMASTER_CMD (size = 6 bytes)
+type PROTO_NC_PARTY_CHANGEMASTER_CMD_DATA struct {
+	Partyregnum                      uint16               // offset: 0, size: 2 bytes
+	Newmaster_chrregnum              uint32               // offset: 2, size: 4 bytes
+}
+
+// PROTO_NC_PARTY_CHANGEMASTER_CMD_SEND (size = 9 bytes)
+type PROTO_NC_PARTY_CHANGEMASTER_CMD_SEND struct {
+	Size                             uint8                // offset: 0, size: 1 bytes
+	Netcmd                           uint16               // offset: 1, size: 2 bytes
+	Cmd                              [6]byte              // offset: 3, size: 6 bytes
+}
+
+// PROTO_NC_PARTY_CHANGEMASTER_REQ (size = 20 bytes)
+type PROTO_NC_PARTY_CHANGEMASTER_REQ_DATA struct {
+	Newmaster                        Name5                // offset: 0, size: 20 bytes
+}
+
+// PROTO_NC_PARTY_DISMISS_ACK_SEND (size = 3 bytes)
+type PROTO_NC_PARTY_DISMISS_ACK_SEND struct {
+	Size                             uint8                // offset: 0, size: 1 bytes
+	Netcmd                           uint16               // offset: 1, size: 2 bytes
+}
+
+// PROTO_NC_PARTY_DISMISS_CMD (size = 2 bytes)
+type PROTO_NC_PARTY_DISMISS_CMD_DATA struct {
+	Partyregnum                      uint16               // offset: 0, size: 2 bytes
+}
+
+// PROTO_NC_PARTY_DISMISS_CMD_SEND (size = 5 bytes)
+type PROTO_NC_PARTY_DISMISS_CMD_SEND struct {
+	Size                             uint8                // offset: 0, size: 1 bytes
+	Netcmd                           uint16               // offset: 1, size: 2 bytes
+	Cmd                              uint16               // offset: 3, size: 2 bytes
+}
+
+// PROTO_NC_PARTY_FINDER_ADD_ACK (size = 2 bytes)
+type PROTO_NC_PARTY_FINDER_ADD_ACK_DATA struct {
+	Error                            uint16               // offset: 0, size: 2 bytes
+}
+
+// PROTO_NC_PARTY_FINDER_ADD_REQ (size = 128 bytes)
+type PROTO_NC_PARTY_FINDER_ADD_REQ_DATA struct {
+	SMsg                             [128]byte            // offset: 0, size: 128 bytes
+}
+
+// PROTO_NC_PARTY_FINDER_DELETE_ACK (size = 2 bytes)
+type PROTO_NC_PARTY_FINDER_DELETE_ACK_DATA struct {
+	Error                            uint16               // offset: 0, size: 2 bytes
+}
+
+// PROTO_NC_PARTY_FINDER_DELETE_REQ (size = 1 bytes)
+type PROTO_NC_PARTY_FINDER_DELETE_REQ_DATA struct {}
+
+// PROTO_NC_PARTY_FINDER_DELETE_YOUR_MSG_CMD (size = 1 bytes)
+type PROTO_NC_PARTY_FINDER_DELETE_YOUR_MSG_CMD_DATA struct {}
+
+// PROTO_NC_PARTY_FINDER_INFO (size = 154 bytes)
+type PROTO_NC_PARTY_FINDER_INFO struct {
+	NPastSecond                      uint16               // offset: 0, size: 2 bytes
+	DRegistTime                      int32                // offset: 2, size: 4 bytes
+	SCharID                          Name5                // offset: 6, size: 20 bytes
+	SMsg                             [128]byte            // offset: 26, size: 128 bytes
+}
+
+// PROTO_NC_PARTY_FINDER_LIST_ACK (size = 8 bytes)
+type PROTO_NC_PARTY_FINDER_LIST_ACK_DATA struct {
+	NPageNo                          uint16               // offset: 0, size: 2 bytes
+	NCountOfOnePage                  uint8                // offset: 2, size: 1 bytes
+	BYouAreRegisted                  uint8                // offset: 3, size: 1 bytes
+	NMaxPages                        uint16               // offset: 4, size: 2 bytes
+	NNumOfList                       uint16               // offset: 6, size: 2 bytes
+	InfoList                         [0]byte              // offset: 8, flexible array member
+}
+
+// PROTO_NC_PARTY_FINDER_LIST_REQ (size = 3 bytes)
+type PROTO_NC_PARTY_FINDER_LIST_REQ_DATA struct {
+	NPageNo                          uint16               // offset: 0, size: 2 bytes
+	NCountOfOnePage                  uint8                // offset: 2, size: 1 bytes
+}
+
+// PROTO_NC_PARTY_FUNDAMENTAL_CMD (size = 66 bytes)
+type PROTO_NC_PARTY_FUNDAMENTAL_CMD_DATA struct {
+	Partyregnum                      uint16               // offset: 0, size: 2 bytes
+	Master                           [32]byte             // offset: 2, size: 32 bytes
+	Member                           [32]byte             // offset: 34, size: 32 bytes
+}
+
+// PROTO_NC_PARTY_FUNDAMENTAL_CMD_SEND (size = 69 bytes)
+type PROTO_NC_PARTY_FUNDAMENTAL_CMD_SEND struct {
+	Size                             uint8                // offset: 0, size: 1 bytes
+	Netcmd                           uint16               // offset: 1, size: 2 bytes
+	Cmd                              [66]byte             // offset: 3, size: 66 bytes
+}
+
+// PROTO_NC_PARTY_ITEM_JOIN_LOOTING_CMD (size = 22 bytes)
+type PROTO_NC_PARTY_ITEM_JOIN_LOOTING_CMD_DATA struct {
+	NItemGrade                       uint8                // offset: 0, size: 1 bytes
+	NLootingType                     uint8                // offset: 1, size: 1 bytes
+	LooterName                       Name5                // offset: 2, size: 20 bytes
+}
+
+// PROTO_NC_PARTY_ITEM_LOOTING_CMD (size = 2 bytes)
+type PROTO_NC_PARTY_ITEM_LOOTING_CMD_DATA struct {
+	LootType                         uint8                // offset: 0, size: 1 bytes
+	ItemGrade                        uint8                // offset: 1, size: 1 bytes
+}
+
+// PROTO_NC_PARTY_ITEM_LOOTING_SET (size = 2 bytes)
+type PROTO_NC_PARTY_ITEM_LOOTING_SET_DATA struct {
+	Lootingtype                      uint8                // offset: 0, size: 1 bytes
+	NItemGrade                       uint8                // offset: 1, size: 1 bytes
+}
+
+// PROTO_NC_PARTY_ITEM_LOOTING_ZONE_CMD (size = 8 bytes)
+type PROTO_NC_PARTY_ITEM_LOOTING_ZONE_CMD_DATA struct {
+	Partyregnum                      uint16               // offset: 0, size: 2 bytes
+	NItemGrade                       uint8                // offset: 2, size: 1 bytes
+	NLootingType                     uint8                // offset: 3, size: 1 bytes
+	LooterNo                         uint32               // offset: 4, size: 4 bytes
+}
+
+// PROTO_NC_PARTY_JOINPROPOSE_REQ (size = 20 bytes)
+type PROTO_NC_PARTY_JOINPROPOSE_REQ_DATA struct {
+	Mastername                       Name5                // offset: 0, size: 20 bytes
+}
+
+// PROTO_NC_PARTY_JOINPROPOSE_REQ_SEND (size = 23 bytes)
+type PROTO_NC_PARTY_JOINPROPOSE_REQ_SEND struct {
+	Size                             uint8                // offset: 0, size: 1 bytes
+	Netcmd                           uint16               // offset: 1, size: 2 bytes
+	Req                              [20]byte             // offset: 3, size: 20 bytes
+}
+
+// PROTO_NC_PARTY_JOIN_ACK (size = 23 bytes)
+type PROTO_NC_PARTY_JOIN_ACK_DATA struct {
+	Memberid                         Name5                // offset: 0, size: 20 bytes
+	Charclass                        uint8                // offset: 20, size: 1 bytes
+	Err                              uint16               // offset: 21, size: 2 bytes
+}
+
+// PROTO_NC_PARTY_JOIN_ACK_SEND (size = 26 bytes)
+type PROTO_NC_PARTY_JOIN_ACK_SEND struct {
+	Size                             uint8                // offset: 0, size: 1 bytes
+	Netcmd                           uint16               // offset: 1, size: 2 bytes
+	Ack                              [23]byte             // offset: 3, size: 23 bytes
+}
+
+// PROTO_NC_PARTY_JOIN_CMD (size = 34 bytes)
+type PROTO_NC_PARTY_JOIN_CMD_DATA struct {
+	Partyregnum                      uint16               // offset: 0, size: 2 bytes
+	Joiner                           [32]byte             // offset: 2, size: 32 bytes
+}
+
+// PROTO_NC_PARTY_JOIN_CMD_SEND (size = 37 bytes)
+type PROTO_NC_PARTY_JOIN_CMD_SEND struct {
+	Size                             uint8                // offset: 0, size: 1 bytes
+	Netcmd                           uint16               // offset: 1, size: 2 bytes
+	Cmd                              [34]byte             // offset: 3, size: 34 bytes
+}
+
+// PROTO_NC_PARTY_JOIN_REQ (size = 20 bytes)
+type PROTO_NC_PARTY_JOIN_REQ_DATA struct {
+	Target                           Name5                // offset: 0, size: 20 bytes
+}
+
+// PROTO_NC_PARTY_KICKOFF_ACK (size = 22 bytes)
+type PROTO_NC_PARTY_KICKOFF_ACK_DATA struct {
+	Memberid                         Name5                // offset: 0, size: 20 bytes
+	Err                              uint16               // offset: 20, size: 2 bytes
+}
+
+// PROTO_NC_PARTY_KICKOFF_ACK_SEND (size = 25 bytes)
+type PROTO_NC_PARTY_KICKOFF_ACK_SEND struct {
+	Size                             uint8                // offset: 0, size: 1 bytes
+	Netcmd                           uint16               // offset: 1, size: 2 bytes
+	Ack                              [22]byte             // offset: 3, size: 22 bytes
+}
+
+// PROTO_NC_PARTY_KICKOFF_CMD (size = 6 bytes)
+type PROTO_NC_PARTY_KICKOFF_CMD_DATA struct {
+	Partyregnum                      uint16               // offset: 0, size: 2 bytes
+	Kickoffmemberregnum              uint32               // offset: 2, size: 4 bytes
+}
+
+// PROTO_NC_PARTY_KICKOFF_CMD_SEND (size = 9 bytes)
+type PROTO_NC_PARTY_KICKOFF_CMD_SEND struct {
+	Size                             uint8                // offset: 0, size: 1 bytes
+	Netcmd                           uint16               // offset: 1, size: 2 bytes
+	Cmd                              [6]byte              // offset: 3, size: 6 bytes
+}
+
+// PROTO_NC_PARTY_KICKOFF_REQ (size = 20 bytes)
+type PROTO_NC_PARTY_KICKOFF_REQ_DATA struct {
+	Member                           Name5                // offset: 0, size: 20 bytes
+}
+
+// PROTO_NC_PARTY_LEAVE_ACK (size = 22 bytes)
+type PROTO_NC_PARTY_LEAVE_ACK_DATA struct {
+	Memberid                         Name5                // offset: 0, size: 20 bytes
+	Err                              uint16               // offset: 20, size: 2 bytes
+}
+
+// PROTO_NC_PARTY_LEAVE_ACK_SEND (size = 25 bytes)
+type PROTO_NC_PARTY_LEAVE_ACK_SEND struct {
+	Size                             uint8                // offset: 0, size: 1 bytes
+	Netcmd                           uint16               // offset: 1, size: 2 bytes
+	Ack                              [22]byte             // offset: 3, size: 22 bytes
+}
+
+// PROTO_NC_PARTY_LEAVE_CMD (size = 33 bytes)
+type PROTO_NC_PARTY_LEAVE_CMD_DATA struct {
+	Partyregnum                      uint16               // offset: 0, size: 2 bytes
+	Leavemember                      [31]byte             // offset: 2, size: 31 bytes
+}
+
+// PROTO_NC_PARTY_LEAVE_CMD_SEND (size = 36 bytes)
+type PROTO_NC_PARTY_LEAVE_CMD_SEND struct {
+	Size                             uint8                // offset: 0, size: 1 bytes
+	Netcmd                           uint16               // offset: 1, size: 2 bytes
+	Cmd                              [33]byte             // offset: 3, size: 33 bytes
+}
+
+// PROTO_NC_PARTY_LEAVE_REQ (size = 1 bytes)
+type PROTO_NC_PARTY_LEAVE_REQ_DATA struct {}
+
+// PROTO_NC_PARTY_LOGININFO_CMD (size = 20 bytes)
+type PROTO_NC_PARTY_LOGININFO_CMD_DATA struct {
+	Memberid                         Name5                // offset: 0, size: 20 bytes
+}
+
+// PROTO_NC_PARTY_LOGININFO_CMD_SEND (size = 23 bytes)
+type PROTO_NC_PARTY_LOGININFO_CMD_SEND struct {
+	Size                             uint8                // offset: 0, size: 1 bytes
+	Netcmd                           uint16               // offset: 1, size: 2 bytes
+	Cmd                              [20]byte             // offset: 3, size: 20 bytes
+}
+
+// PROTO_NC_PARTY_LOGIN_CMD (size = 6 bytes)
+type PROTO_NC_PARTY_LOGIN_CMD_DATA struct {
+	Partyregnum                      uint16               // offset: 0, size: 2 bytes
+	Chrregnum                        uint32               // offset: 2, size: 4 bytes
+}
+
+// PROTO_NC_PARTY_LOGIN_CMD_SEND (size = 9 bytes)
+type PROTO_NC_PARTY_LOGIN_CMD_SEND struct {
+	Size                             uint8                // offset: 0, size: 1 bytes
+	Netcmd                           uint16               // offset: 1, size: 2 bytes
+	Cmd                              [6]byte              // offset: 3, size: 6 bytes
+}
+
+// PROTO_NC_PARTY_LOGOUTINFO_CMD (size = 20 bytes)
+type PROTO_NC_PARTY_LOGOUTINFO_CMD_DATA struct {
+	Memberid                         Name5                // offset: 0, size: 20 bytes
+}
+
+// PROTO_NC_PARTY_LOGOUTINFO_CMD_SEND (size = 23 bytes)
+type PROTO_NC_PARTY_LOGOUTINFO_CMD_SEND struct {
+	Size                             uint8                // offset: 0, size: 1 bytes
+	Netcmd                           uint16               // offset: 1, size: 2 bytes
+	Cmd                              [20]byte             // offset: 3, size: 20 bytes
+}
+
+// PROTO_NC_PARTY_LOGOUT_CMD (size = 6 bytes)
+type PROTO_NC_PARTY_LOGOUT_CMD_DATA struct {
+	Partyregnum                      uint16               // offset: 0, size: 2 bytes
+	Chrregnum                        uint32               // offset: 2, size: 4 bytes
+}
+
+// PROTO_NC_PARTY_LOGOUT_CMD_SEND (size = 9 bytes)
+type PROTO_NC_PARTY_LOGOUT_CMD_SEND struct {
+	Size                             uint8                // offset: 0, size: 1 bytes
+	Netcmd                           uint16               // offset: 1, size: 2 bytes
+	Cmd                              [6]byte              // offset: 3, size: 6 bytes
+}
+
+// PROTO_NC_PARTY_MEMBERINFORM_ACK (size = 3 bytes)
+type PROTO_NC_PARTY_MEMBERINFORM_ACK_DATA struct {
+	PartyRegnum                      uint16               // offset: 0, size: 2 bytes
+	NumberOfMember                   uint8                // offset: 2, size: 1 bytes
+	Member                           [0]byte              // offset: 3, flexible array member
+}
+
+// PROTO_NC_PARTY_MEMBERINFORM_REQ (size = 2 bytes)
+type PROTO_NC_PARTY_MEMBERINFORM_REQ_DATA struct {
+	Partyregnum                      uint16               // offset: 0, size: 2 bytes
+}
+
+// PROTO_NC_PARTY_MEMBER_LIST_CMD (size = 1 bytes)
+type PROTO_NC_PARTY_MEMBER_LIST_CMD_DATA struct {
+	Membercount                      uint8                // offset: 0, size: 1 bytes
+	Memberarray                      [0]byte              // offset: 1, flexible array member
+}
+
+// PROTO_NC_PARTY_MEMBER_LIST_CMD_SEND (size = 114 bytes)
+type PROTO_NC_PARTY_MEMBER_LIST_CMD_SEND struct {
+	Size                             uint8                // offset: 0, size: 1 bytes
+	Netcmd                           uint16               // offset: 1, size: 2 bytes
+	Membercount                      uint8                // offset: 3, size: 1 bytes
+	Memberarray                      [110]byte            // offset: 4, size: 110 bytes
+}
+
+// PROTO_NC_PARTY_SET_LOOTER_ACK (size = 22 bytes)
+type PROTO_NC_PARTY_SET_LOOTER_ACK_DATA struct {
+	SNewLooterCharID                 Name5                // offset: 0, size: 20 bytes
+	NError                           uint16               // offset: 20, size: 2 bytes
+}
+
+// PROTO_NC_PARTY_SET_LOOTER_BROAD_CMD (size = 40 bytes)
+type PROTO_NC_PARTY_SET_LOOTER_BROAD_CMD_DATA struct {
+	SCommandCharID                   Name5                // offset: 0, size: 20 bytes
+	SNewLooterCharID                 Name5                // offset: 20, size: 20 bytes
+}
+
+// PROTO_NC_PARTY_SET_LOOTER_CMD (size = 20 bytes)
+type PROTO_NC_PARTY_SET_LOOTER_CMD_DATA struct {
+	SCommandCharID                   Name5                // offset: 0, size: 20 bytes
+}
+
+// PROTO_NC_PARTY_SET_LOOTER_REQ (size = 20 bytes)
+type PROTO_NC_PARTY_SET_LOOTER_REQ_DATA struct {
+	SNewLooterCharID                 Name5                // offset: 0, size: 20 bytes
+}
+
+// PROTO_NC_PARTY_ZONE_JOIN_CMD (size = 8 bytes)
+type PROTO_NC_PARTY_ZONE_JOIN_CMD_DATA struct {
+	NMasterCharNo                    uint32               // offset: 0, size: 4 bytes
+	NJoinCharNo                      uint32               // offset: 4, size: 4 bytes
+}
+
+// PROTO_NC_PARTY_ZONE_LEAVE_CMD (size = 4 bytes)
+type PROTO_NC_PARTY_ZONE_LEAVE_CMD_DATA struct {
+	NCharNo                          uint32               // offset: 0, size: 4 bytes
+}
+
+// PROTO_NC_PARTY_ZONE_SET_LOOTER_CMD (size = 6 bytes)
+type PROTO_NC_PARTY_ZONE_SET_LOOTER_CMD_DATA struct {
+	NPartyNo                         uint16               // offset: 0, size: 2 bytes
+	NNewLooterCharNo                 uint32               // offset: 2, size: 4 bytes
+}

@@ -203,7 +203,7 @@ func TestZoneServer_Phase1_TransferKeyVerification(t *testing.T) {
 		protocol.PROTO_NC_CHAR_CLIENT_GAME_CMD,          // 10. 0x1048 (0x103D omitido si len(skills)==0)
 		protocol.PROTO_NC_CHAR_CLIENT_ITEM_CMD,          // 14. 0x1047 (Solo Box 15 vacía; 8, 9 y 12 omitidas si vacías)
 		protocol.PROTO_NC_CHAR_CLIENT_CHARTITLE_CMD,     // 15. 0x1049
-		protocol.PROTO_NC_CHAR_MAPLOGIN_ACK,             // 17. 0x1802 (Último paquete del bloque)
+		protocol.PROTO_NC_MAP_LOGIN_ACK,                 // 17. 0x1802 (Último paquete del bloque)
 	}
 
 	for idx, expOp := range expectedOpCodes {
@@ -587,13 +587,13 @@ func TestZoneServer_Phase1_NPCSpawnsAndGateWarps(t *testing.T) {
 		if err != nil {
 			t.Fatalf("failed to read chunk packet: %v", err)
 		}
-		if p.OpCode == protocol.PROTO_NC_CHAR_MAPLOGIN_ACK {
+		if p.OpCode == protocol.PROTO_NC_MAP_LOGIN_ACK {
 			mapLoginAckReceived = true
 			break
 		}
 	}
 	if !mapLoginAckReceived {
-		t.Fatalf("Did not receive PROTO_NC_CHAR_MAPLOGIN_ACK in chunk")
+		t.Fatalf("Did not receive PROTO_NC_MAP_LOGIN_ACK in chunk")
 	}
 
 	// Enviar PROTO_NC_MAP_LOGINCOMPLETE_CMD (0x1803)

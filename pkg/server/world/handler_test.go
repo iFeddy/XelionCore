@@ -27,7 +27,7 @@ func TestWriteBasicCharInfo(t *testing.T) {
 		Equips:    map[byte]uint16{SlotWeapon: 250},
 	}
 
-	pw := protocol.New_PROTO_NC_CHAR_CREATE_ACK(func(pw *protocol.PacketWriter) {
+	pw := protocol.New_PROTO_NC_AVATAR_CREATESUCC_ACK(func(pw *protocol.PacketWriter) {
 		WriteBasicCharInfo(ch, pw)
 	})
 
@@ -201,7 +201,7 @@ func TestHandler_CreateCharacter_BadNameRejected(t *testing.T) {
 	client.IsAuthenticated = true
 
 	// Construir payload con nombre prohibido "AdminGuy"
-	pw := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_CREATE_REQ)
+	pw := protocol.NewPacketWriter(protocol.PROTO_NC_AVATAR_CREATE_REQ)
 	pw.WriteByte(0) // Slot 0
 	pw.WriteString("AdminGuy", 20)
 	pw.WriteByte(byte(1 << 2)) // Job 1 (Fighter)
@@ -222,9 +222,9 @@ func TestHandler_CreateCharacter_BadNameRejected(t *testing.T) {
 		t.Fatalf("failed to read response: %v", err)
 	}
 
-	if opCode != protocol.PROTO_NC_CHAR_CREATE_FAIL_ACK {
-		t.Fatalf("expected PROTO_NC_CHAR_CREATE_FAIL_ACK (0x%04X), got 0x%04X",
-			protocol.PROTO_NC_CHAR_CREATE_FAIL_ACK, opCode)
+	if opCode != protocol.PROTO_NC_AVATAR_CREATEFAIL_ACK {
+		t.Fatalf("expected PROTO_NC_AVATAR_CREATEFAIL_ACK (0x%04X), got 0x%04X",
+			protocol.PROTO_NC_AVATAR_CREATEFAIL_ACK, opCode)
 	}
 
 	errCode := binary.LittleEndian.Uint16(payload[0:2])
@@ -248,7 +248,7 @@ func TestHandler_CreateCharacter_Success(t *testing.T) {
 	client.IsAuthenticated = true
 
 	// Construir payload válido con "Conan"
-	pw := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_CREATE_REQ)
+	pw := protocol.NewPacketWriter(protocol.PROTO_NC_AVATAR_CREATE_REQ)
 	pw.WriteByte(0) // Slot 0
 	pw.WriteString("Conan", 20)
 	pw.WriteByte(byte((1 << 2) | (1 << 7))) // Job 1 (Fighter), Male
@@ -269,9 +269,9 @@ func TestHandler_CreateCharacter_Success(t *testing.T) {
 		t.Fatalf("failed to read response: %v", err)
 	}
 
-	if opCode != protocol.PROTO_NC_CHAR_CREATE_ACK {
-		t.Fatalf("expected PROTO_NC_CHAR_CREATE_ACK (0x%04X), got 0x%04X",
-			protocol.PROTO_NC_CHAR_CREATE_ACK, opCode)
+	if opCode != protocol.PROTO_NC_AVATAR_CREATESUCC_ACK {
+		t.Fatalf("expected PROTO_NC_AVATAR_CREATESUCC_ACK (0x%04X), got 0x%04X",
+			protocol.PROTO_NC_AVATAR_CREATESUCC_ACK, opCode)
 	}
 
 	// Verificar que el personaje fue persistido correctamente
@@ -401,8 +401,8 @@ func TestHandler_DeleteCharacter_Flow(t *testing.T) {
 	}
 	_ = repo.CreateCharacter(ch)
 
-	// Enviar borrado de slot 1 (PROTO_NC_CHAR_DELETE_REQ)
-	pw := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_DELETE_REQ)
+	// Enviar borrado de slot 1 (PROTO_NC_AVATAR_ERASE_REQ)
+	pw := protocol.NewPacketWriter(protocol.PROTO_NC_AVATAR_ERASE_REQ)
 	pw.WriteByte(1)
 
 	wire := pw.BuildWirePacket()
@@ -418,9 +418,9 @@ func TestHandler_DeleteCharacter_Flow(t *testing.T) {
 		t.Fatalf("failed to read response: %v", err)
 	}
 
-	if opCode != protocol.PROTO_NC_CHAR_DELETE_ACK {
-		t.Fatalf("expected PROTO_NC_CHAR_DELETE_ACK (0x%04X), got 0x%04X",
-			protocol.PROTO_NC_CHAR_DELETE_ACK, opCode)
+	if opCode != protocol.PROTO_NC_AVATAR_ERASESUCC_ACK {
+		t.Fatalf("expected PROTO_NC_AVATAR_ERASESUCC_ACK (0x%04X), got 0x%04X",
+			protocol.PROTO_NC_AVATAR_ERASESUCC_ACK, opCode)
 	}
 
 	if payload[0] != 1 {
@@ -446,9 +446,9 @@ func TestHandler_BackToWorldSelect(t *testing.T) {
 	}
 
 	pkt := &protocol.Packet{
-		OpCode: protocol.PROTO_NC_USER_BACKTOWORLDLIST_REQ,
-		Header: protocol.ExtractHeader(protocol.PROTO_NC_USER_BACKTOWORLDLIST_REQ),
-		Type:   protocol.ExtractType(protocol.PROTO_NC_USER_BACKTOWORLDLIST_REQ),
+		OpCode: protocol.PROTO_NC_USER_WILL_WORLD_SELECT_REQ,
+		Header: protocol.ExtractHeader(protocol.PROTO_NC_USER_WILL_WORLD_SELECT_REQ),
+		Type:   protocol.ExtractType(protocol.PROTO_NC_USER_WILL_WORLD_SELECT_REQ),
 	}
 
 	go h.HandlePacket(client, pkt)
@@ -458,8 +458,8 @@ func TestHandler_BackToWorldSelect(t *testing.T) {
 		t.Fatalf("failed to read response: %v", err)
 	}
 
-	if opCode != protocol.PROTO_NC_USER_BACKTOWORLDLIST_ACK {
-		t.Fatalf("expected PROTO_NC_USER_BACKTOWORLDLIST_ACK (0x%04X), got 0x%04X",
-			protocol.PROTO_NC_USER_BACKTOWORLDLIST_ACK, opCode)
+	if opCode != protocol.PROTO_NC_USER_WILL_WORLD_SELECT_ACK {
+		t.Fatalf("expected PROTO_NC_USER_WILL_WORLD_SELECT_ACK (0x%04X), got 0x%04X",
+			protocol.PROTO_NC_USER_WILL_WORLD_SELECT_ACK, opCode)
 	}
 }

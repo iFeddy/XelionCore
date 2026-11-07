@@ -54,7 +54,7 @@ func (h *Handler) HandlePacket(client *network.Client, pkt *protocol.Packet) {
 	switch pkt.OpCode {
 	case protocol.PROTO_NC_MAP_LOGIN_REQ:
 		h.handleTransferKey(client, pkt)
-	case protocol.PROTO_NC_MAP_LOGINCOMPLETE_CMD, protocol.PROTO_NC_CHAR_INGAME_REQ:
+	case protocol.PROTO_NC_MAP_LOGINCOMPLETE_CMD, protocol.PROTO_NC_KQ_LIST_REFRESH_REQ:
 		h.handleClientReady(client, pkt)
 	case protocol.PROTO_NC_ACT_WALK_REQ:
 		h.handleWalk(client, pkt)
@@ -74,9 +74,9 @@ func (h *Handler) HandlePacket(client *network.Client, pkt *protocol.Packet) {
 		h.handleEmoticonStop(client, pkt)
 	case protocol.PROTO_NC_ACT_CHAT_REQ:
 		h.handleChatNormal(client, pkt)
-	case protocol.PROTO_NC_ACT_REST_START_REQ:
+	case protocol.PROTO_NC_ACT_PITCHTENT_REQ:
 		h.handleBeginRest(client, pkt)
-	case protocol.PROTO_NC_ACT_REST_STOP_REQ:
+	case protocol.PROTO_NC_ACT_FOLDTENT_REQ:
 		h.handleEndRest(client, pkt)
 	case protocol.PROTO_NC_DATA_REPORT_ADD_REQ:
 		h.handleReportAdd(client, pkt)
@@ -212,7 +212,7 @@ func (h *Handler) handleTransferKey(client *network.Client, pkt *protocol.Packet
 		return
 	}
 
-	charName := strings.TrimSpace(req.Chardata.Charid)
+	charName := strings.TrimRight(string(req.Chardata.Charid[:]), "\x00")
 	randomID := req.Chardata.Wldmanhandle
 
 	log.Printf("[Zone][%s] PROTO_NC_MAP_LOGIN_REQ received for character '%s' (RandomID: %d, HasChecksums: %v)",
@@ -318,7 +318,7 @@ func (h *Handler) handleTransferKey(client *network.Client, pkt *protocol.Packet
 // 14. 0x1047 (PROTO_NC_CHAR_CLIENT_ITEM_CMD, Box 15)     - Siempre (ActionItem, incluso vacío)
 // 15. 0x1049 (PROTO_NC_CHAR_CLIENT_CHARTITLE_CMD)        - Siempre
 // 16. 0x3801/0x3802/0x3803 (Card Regist)                 - Solo si tiene cartas registradas
-// 17. 0x1802 (PROTO_NC_CHAR_MAPLOGIN_ACK)                - Siempre (último paquete del bloque)
+// 17. 0x1802 (PROTO_NC_MAP_LOGIN_ACK)                    - Siempre (último paquete del bloque)
 func (h *Handler) sendInGameChunk(p *ZonePlayer) {
 	// 1. 0x1038 - PROTO_NC_CHAR_CLIENT_BASE_CMD (Siempre, wire len = 107, payload = 105)
 	infoPkt := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_CLIENT_BASE_CMD)
@@ -480,9 +480,9 @@ func (h *Handler) sendInGameChunk(p *ZonePlayer) {
 		_ = p.Client.SendPacket(cardPkt)
 	}
 
-	// 17. 0x1802 - PROTO_NC_CHAR_MAPLOGIN_ACK (CRÍTICO: Absolutamente el último paquete del bloque)
+	// 17. 0x1802 - PROTO_NC_MAP_LOGIN_ACK (CRÍTICO: Absolutamente el último paquete del bloque)
 	p.RecalculateEquipmentStats(h.itemStore)
-	extraPkt := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_MAPLOGIN_ACK)
+	extraPkt := protocol.NewPacketWriter(protocol.PROTO_NC_MAP_LOGIN_ACK)
 	p.WriteDetailedInfoExtra(extraPkt, false)
 	_ = p.Client.SendPacket(extraPkt)
 }
@@ -688,7 +688,7 @@ func (h *Handler) handleBeginRest(client *network.Client, pkt *protocol.Packet) 
 	}
 
 	player.State = 4 // Resting
-	pw := protocol.NewPacketWriter(protocol.PROTO_NC_ACT_REST_START_ACK)
+	pw := protocol.NewPacketWriter(protocol.PROTO_NC_ACT_PITCHTENT_ACK)
 	pw.WriteUint16(0x0A81) // OK to rest
 	_ = client.SendPacket(pw)
 }
@@ -700,7 +700,7 @@ func (h *Handler) handleEndRest(client *network.Client, pkt *protocol.Packet) {
 	}
 
 	player.State = 1 // Normal
-	pw := protocol.NewPacketWriter(protocol.PROTO_NC_ACT_REST_STOP_ACK)
+	pw := protocol.NewPacketWriter(protocol.PROTO_NC_ACT_FOLDTENT_ACK)
 	pw.WriteUint16(0x0A81)
 	_ = client.SendPacket(pw)
 }

@@ -147,14 +147,14 @@ func TestE2EWorldServiceFlow(t *testing.T) {
 		t.Fatalf("failed to send WorldClientKey: %v", err)
 	}
 
-	// 3. Recibir CharacterList (PROTO_NC_CHAR_CLIENT_CHARLIST_ACK - 0x0C14)
+	// 3. Recibir CharacterList (PROTO_NC_USER_LOGINWORLD_ACK - 0x0C14)
 	pkt, err = readServerPacket(conn)
 	if err != nil {
 		t.Fatalf("failed to read character list: %v", err)
 	}
-	if pkt.OpCode != protocol.PROTO_NC_CHAR_CLIENT_CHARLIST_ACK {
-		t.Fatalf("expected PROTO_NC_CHAR_CLIENT_CHARLIST_ACK (0x%04X), got 0x%04X",
-			protocol.PROTO_NC_CHAR_CLIENT_CHARLIST_ACK, pkt.OpCode)
+	if pkt.OpCode != protocol.PROTO_NC_USER_LOGINWORLD_ACK {
+		t.Fatalf("expected PROTO_NC_USER_LOGINWORLD_ACK (0x%04X), got 0x%04X",
+			protocol.PROTO_NC_USER_LOGINWORLD_ACK, pkt.OpCode)
 	}
 	_ = pkt.Reader.Skip(2) // randomID
 	initialCharCount, _ := pkt.Reader.ReadByte()
@@ -174,7 +174,7 @@ func TestE2EWorldServiceFlow(t *testing.T) {
 	}
 
 	// 4. Probar rechazo de BadNameFilter
-	badReq := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_CREATE_REQ)
+	badReq := protocol.NewPacketWriter(protocol.PROTO_NC_AVATAR_CREATE_REQ)
 	badReq.WriteByte(freeSlot)
 	badReq.WriteString("AdminMaster", 20)
 	badReq.WriteByte(byte(1 << 2)) // Fighter
@@ -187,15 +187,15 @@ func TestE2EWorldServiceFlow(t *testing.T) {
 	if err != nil {
 		t.Fatalf("failed to read bad name rejection: %v", err)
 	}
-	if pkt.OpCode != protocol.PROTO_NC_CHAR_CREATE_FAIL_ACK {
-		t.Fatalf("expected PROTO_NC_CHAR_CREATE_FAIL_ACK (0x%04X), got 0x%04X",
-			protocol.PROTO_NC_CHAR_CREATE_FAIL_ACK, pkt.OpCode)
+	if pkt.OpCode != protocol.PROTO_NC_AVATAR_CREATEFAIL_ACK {
+		t.Fatalf("expected PROTO_NC_AVATAR_CREATEFAIL_ACK (0x%04X), got 0x%04X",
+			protocol.PROTO_NC_AVATAR_CREATEFAIL_ACK, pkt.OpCode)
 	}
 	t.Logf("Paso 3: BadNameFilter oficial bloqueó 'AdminMaster' con 0x1404 correctamente")
 
 	// 5. Crear personaje legítimo: "XelionKnight"
 	charName := fmt.Sprintf("Xel%d", time.Now().Unix()%100000)
-	createReq := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_CREATE_REQ)
+	createReq := protocol.NewPacketWriter(protocol.PROTO_NC_AVATAR_CREATE_REQ)
 	createReq.WriteByte(freeSlot)
 	createReq.WriteString(charName, 20)
 	createReq.WriteByte(byte((1 << 2) | (1 << 7))) // Fighter, Male
@@ -210,9 +210,9 @@ func TestE2EWorldServiceFlow(t *testing.T) {
 	if err != nil {
 		t.Fatalf("failed to read create response: %v", err)
 	}
-	if pkt.OpCode != protocol.PROTO_NC_CHAR_CREATE_ACK {
-		t.Fatalf("expected PROTO_NC_CHAR_CREATE_ACK (0x%04X), got 0x%04X",
-			protocol.PROTO_NC_CHAR_CREATE_ACK, pkt.OpCode)
+	if pkt.OpCode != protocol.PROTO_NC_AVATAR_CREATESUCC_ACK {
+		t.Fatalf("expected PROTO_NC_AVATAR_CREATESUCC_ACK (0x%04X), got 0x%04X",
+			protocol.PROTO_NC_AVATAR_CREATESUCC_ACK, pkt.OpCode)
 	}
 	t.Logf("Paso 4: Creación de personaje '%s' confirmada con 0x1406", charName)
 
@@ -273,8 +273,8 @@ func TestE2EWorldServiceFlow(t *testing.T) {
 	}
 	t.Logf("Paso 7: Token de ZoneTransfer validado y consumido en memoria")
 
-	// 7. Borrar personaje recién creado (PROTO_NC_CHAR_DELETE_REQ)
-	delReq := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_DELETE_REQ)
+	// 7. Borrar personaje recién creado (PROTO_NC_AVATAR_ERASE_REQ)
+	delReq := protocol.NewPacketWriter(protocol.PROTO_NC_AVATAR_ERASE_REQ)
 	delReq.WriteByte(freeSlot)
 	if err := sendClientPacket(conn, delReq, clientCrypto); err != nil {
 		t.Fatalf("failed to send DeleteChar: %v", err)
@@ -284,9 +284,9 @@ func TestE2EWorldServiceFlow(t *testing.T) {
 	if err != nil {
 		t.Fatalf("failed to read delete ACK: %v", err)
 	}
-	if pkt.OpCode != protocol.PROTO_NC_CHAR_DELETE_ACK {
-		t.Fatalf("expected PROTO_NC_CHAR_DELETE_ACK (0x%04X), got 0x%04X",
-			protocol.PROTO_NC_CHAR_DELETE_ACK, pkt.OpCode)
+	if pkt.OpCode != protocol.PROTO_NC_AVATAR_ERASESUCC_ACK {
+		t.Fatalf("expected PROTO_NC_AVATAR_ERASESUCC_ACK (0x%04X), got 0x%04X",
+			protocol.PROTO_NC_AVATAR_ERASESUCC_ACK, pkt.OpCode)
 	}
 	delSlot, _ := pkt.Reader.ReadByte()
 	if delSlot != freeSlot {
@@ -294,8 +294,8 @@ func TestE2EWorldServiceFlow(t *testing.T) {
 	}
 	t.Logf("Paso 8: Soft-delete completado con 0x140C (Slot %d liberado)", freeSlot)
 
-	// 8. Volver a la lista de mundos (PROTO_NC_USER_BACKTOWORLDLIST_REQ)
-	backReq := protocol.NewPacketWriter(protocol.PROTO_NC_USER_BACKTOWORLDLIST_REQ)
+	// 8. Volver a la lista de mundos (PROTO_NC_USER_WILL_WORLD_SELECT_REQ)
+	backReq := protocol.NewPacketWriter(protocol.PROTO_NC_USER_WILL_WORLD_SELECT_REQ)
 	if err := sendClientPacket(conn, backReq, clientCrypto); err != nil {
 		t.Fatalf("failed to send BackToWorld: %v", err)
 	}
@@ -304,9 +304,9 @@ func TestE2EWorldServiceFlow(t *testing.T) {
 	if err != nil {
 		t.Fatalf("failed to read back to world ACK: %v", err)
 	}
-	if pkt.OpCode != protocol.PROTO_NC_USER_BACKTOWORLDLIST_ACK {
-		t.Fatalf("expected PROTO_NC_USER_BACKTOWORLDLIST_ACK (0x%04X), got 0x%04X",
-			protocol.PROTO_NC_USER_BACKTOWORLDLIST_ACK, pkt.OpCode)
+	if pkt.OpCode != protocol.PROTO_NC_USER_WILL_WORLD_SELECT_ACK {
+		t.Fatalf("expected PROTO_NC_USER_WILL_WORLD_SELECT_ACK (0x%04X), got 0x%04X",
+			protocol.PROTO_NC_USER_WILL_WORLD_SELECT_ACK, pkt.OpCode)
 	}
 	t.Logf("Paso 9: Retorno a lista de mundos verificado (0x0C34)")
 }

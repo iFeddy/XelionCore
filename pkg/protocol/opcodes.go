@@ -1229,7 +1229,7 @@ const (
 	PROTO_NC_ITEMDB_CREATEITEMLIST_REQ                      uint16 = (13 << 10) | 77  // 0x344D
 	PROTO_NC_ITEMDB_CREATEITEMLISTSUC_ACK                   uint16 = (13 << 10) | 78  // 0x344E
 	PROTO_NC_ITEMDB_CREATEITEMLISTFAIL_ACK                  uint16 = (13 << 10) | 79  // 0x344F
-	PROTO_NC_ITEMDB_GETFROMCHEST_REQ                        uint16 = (13 << 10) | 80  // 0x3450
+	PROTO_NC_ITEMDB_GETFROMCHEST_REQ                        uint16 = (13 << 10) | 164 // 0x34A4
 	PROTO_NC_ITEMDB_GETFROMCHESTSUC_ACK                     uint16 = (13 << 10) | 81  // 0x3451
 	PROTO_NC_ITEMDB_GETFROMCHESTFAIL_ACK                    uint16 = (13 << 10) | 82  // 0x3452
 	PROTO_NC_ITEMDB_BOOTHTRADE_ALL_REQ                      uint16 = (13 << 10) | 83  // 0x3453
@@ -3009,75 +3009,269 @@ const (
 )
 
 // ========================================================================
-// Compatibilidad de Nombres Legacy / Transicionales (Deprecated Aliases)
+// Dispatcher S2S Oficial de Character.pdb (Protocolos No-OpTool)
 // ========================================================================
 const (
-	PROTO_NC_MISC_TIME_SYNC_ACK                = PROTO_NC_MISC_SERVER_TIME_NOTIFY_CMD
-	PROTO_NC_MISC_UPDATE_TIME                  = PROTO_NC_MISC_SERVER_TIME_NOTIFY_CMD
-	PROTO_NC_MISC_WORLD_CLIENT_KEY_REQ         = PROTO_NC_USER_LOGINWORLD_REQ
-	PROTO_NC_MISC_WORLD_CLIENT_KEY_ACK         = PROTO_NC_USER_LOGIN_DB
-	PROTO_NC_CHAR_CLIENT_CHARLIST_ACK          = PROTO_NC_USER_LOGINWORLD_ACK
-	PROTO_NC_USER_BACKTOWORLDLIST_REQ          = PROTO_NC_USER_WILL_WORLD_SELECT_REQ
-	PROTO_NC_USER_BACKTOWORLDLIST_ACK          = PROTO_NC_USER_WILL_WORLD_SELECT_ACK
-	PROTO_NC_USER_LOGIN_WITH_OTP_LEGACY        = PROTO_NC_USER_GER_LOGIN_REQ
-	PROTO_NC_CHAR_SERVER_IP_ACK                = PROTO_NC_CHAR_LOGIN_ACK
-	PROTO_NC_CHAR_POINTS_ACK                   = PROTO_NC_CHAR_STAT_REMAINPOINT_CMD
-	PROTO_NC_CHAR_CREATE_REQ                   = PROTO_NC_AVATAR_CREATE_REQ
-	PROTO_NC_CHAR_DELETE_REQ                   = PROTO_NC_AVATAR_ERASE_REQ
-	PROTO_NC_CHAR_CREATE_FAIL_ACK              = PROTO_NC_AVATAR_CREATEFAIL_ACK
-	PROTO_NC_CHAR_CREATE_ACK                   = PROTO_NC_AVATAR_CREATESUCC_ACK
-	PROTO_NC_CHAR_DELETE_ACK                   = PROTO_NC_AVATAR_ERASESUCC_ACK
-	PROTO_NC_CHAR_MAPLOGIN_ACK                 = PROTO_NC_MAP_LOGIN_ACK
-	PROTO_NC_MAP_CHANGE_CMD                    = PROTO_NC_MAP_LINKSAME_CMD
-	PROTO_NC_MAP_CHANGE_ZONE_CMD               = PROTO_NC_MAP_LINKOTHER_CMD
-	PROTO_NC_MAP_TELEPORT_REQ                  = PROTO_NC_MAP_TOWNPORTAL_REQ
-	PROTO_NC_MAP_TELEPORT_ACK                  = PROTO_NC_MAP_TOWNPORTAL_ACK
-	PROTO_NC_BRIEFINFO_UNSHARE_EQUIP_ACK       = PROTO_NC_BRIEFINFO_UNEQUIP_CMD
-	PROTO_NC_BRIEFINFO_SHARE_EQUIP_ACK         = PROTO_NC_BRIEFINFO_CHANGEWEAPON_CMD
-	PROTO_NC_BRIEFINFO_CHARACTER_ACK           = PROTO_NC_BRIEFINFO_CHARACTER_CMD
-	PROTO_NC_BRIEFINFO_LEAVE_CMD               = PROTO_NC_BRIEFINFO_BRIEFINFODELETE_CMD
-	PROTO_NC_ACT_CHAT_ACK                      = PROTO_NC_ACT_SOMEONECHAT_CMD
-	PROTO_NC_ACT_GM_NOTICE_ACK                 = PROTO_NC_ACT_NOTICE_CMD
-	PROTO_NC_ACT_STOP_ACK                      = PROTO_NC_ACT_SOMEONESTOP_CMD
-	PROTO_NC_ACT_WALK_ACK                      = PROTO_NC_ACT_SOMEONEMOVEWALK_CMD
-	PROTO_NC_ACT_RUN_ACK                       = PROTO_NC_ACT_SOMEONEMOVERUN_CMD
-	PROTO_NC_ACT_TELEPORT_CMD                  = PROTO_NC_ACT_MOVEFAIL_CMD
-	PROTO_NC_ACT_EMOTE_REQ                     = PROTO_NC_ACT_EMOTICON_CMD
-	PROTO_NC_ACT_JUMP_ACK                      = PROTO_NC_ACT_SOMEEONEJUMP_CMD
-	PROTO_NC_ACT_REST_START_REQ                = PROTO_NC_ACT_PITCHTENT_REQ
-	PROTO_NC_ACT_REST_START_ACK                = PROTO_NC_ACT_PITCHTENT_ACK
-	PROTO_NC_ACT_REST_STOP_REQ                 = PROTO_NC_ACT_FOLDTENT_REQ
-	PROTO_NC_ACT_REST_STOP_ACK                 = PROTO_NC_ACT_FOLDTENT_ACK
-	PROTO_NC_ACT_BLOCK_WALK_ACK                = PROTO_NC_ACT_REINFORCE_STOP_CMD
-	PROTO_NC_ITEM_PREMIUM_LIST_ACK             = PROTO_NC_ITEM_CHARGEDINVENOPEN_ACK
-	PROTO_NC_ITEM_REWARD_LIST_ACK              = PROTO_NC_ITEM_REWARDINVENOPEN_ACK
-	PROTO_NC_FRIEND_LIST_ACK                   = PROTO_NC_FRIEND_LIST_CMD
-	PROTO_NC_CHAR_INGAME_REQ                   = PROTO_NC_KQ_LIST_REFRESH_REQ
-	PROTO_NC_CHAR_INGAME_ACK                   = PROTO_NC_KQ_LIST_TIME_ACK
-	PROTO_NC_KQ_LIST_COUNT_ACK                 = PROTO_NC_KQ_LIST_ADD_ACK
-	PROTO_NC_CHAR_GET_QUICKBAR_REQ             = PROTO_NC_CHAR_OPTION_GET_SHORTCUTDATA_REQ
-	PROTO_NC_CHAR_GET_QUICKBAR_ACK             = PROTO_NC_CHAR_OPTION_GET_SHORTCUTDATA_ACK
-	PROTO_NC_CHAR_GET_QUICKBAR_STATE_REQ       = PROTO_NC_CHAR_OPTION_GET_SHORTCUTSIZE_REQ
-	PROTO_NC_CHAR_GET_QUICKBAR_STATE_ACK       = PROTO_NC_CHAR_OPTION_GET_SHORTCUTSIZE_ACK
-	PROTO_NC_CHAR_GET_GAME_SETTINGS_REQ        = PROTO_NC_CHAR_OPTION_GET_GAME_REQ
-	PROTO_NC_CHAR_GET_GAME_SETTINGS_ACK        = PROTO_NC_CHAR_OPTION_GET_GAME_ACK
-	PROTO_NC_CHAR_GET_CLIENT_SETTINGS_REQ      = PROTO_NC_CHAR_OPTION_GET_WINDOWPOS_REQ
-	PROTO_NC_CHAR_GET_CLIENT_SETTINGS_ACK      = PROTO_NC_CHAR_OPTION_GET_WINDOWPOS_ACK
-	PROTO_NC_CHAR_GET_SHORTCUTS_REQ            = PROTO_NC_CHAR_OPTION_GET_KEYMAPPING_REQ
-	PROTO_NC_CHAR_GET_SHORTCUTS_ACK            = PROTO_NC_CHAR_OPTION_GET_KEYMAPPING_ACK
-	PROTO_NC_CHAR_SAVE_QUICKBAR_REQ            = PROTO_NC_CHAR_OPTION_SET_SHORTCUTDATA_CMD
-	PROTO_NC_CHAR_SAVE_QUICKBAR_STATE_REQ      = PROTO_NC_CHAR_OPTION_SET_SHORTCUTSIZE_CMD
-	PROTO_NC_CHAR_SAVE_GAME_SETTINGS_REQ       = PROTO_NC_CHAR_OPTION_SET_GAME_CMD
-	PROTO_NC_CHAR_SAVE_CLIENT_SETTINGS_REQ     = PROTO_NC_CHAR_OPTION_SET_WINDOWPOS_CMD
-	PROTO_NC_CHAR_SAVE_SHORTCUTS_REQ           = PROTO_NC_CHAR_OPTION_SET_KEYMAPPING_CMD
-	PROTO_NC_SYSTEM_UNKNOWN_REQ                = PROTO_NC_PRISON_GET_REQ
-	PROTO_NC_SYSTEM_UNKNOWN_ACK                = PROTO_NC_PRISON_GET_ACK
-	PROTO_NC_CHAR_LOOK_CMD                     = PROTO_NC_CHAR_CLIENT_SHAPE_CMD
-	PROTO_NC_QUEST_BUSY_LIST_CMD               = PROTO_NC_CHAR_CLIENT_QUEST_DOING_CMD
-	PROTO_NC_QUEST_DONE_LIST_CMD               = PROTO_NC_CHAR_CLIENT_QUEST_DONE_CMD
-	PROTO_NC_SKILL_ACTIVE_LIST_CMD             = PROTO_NC_CHAR_CLIENT_SKILL_CMD
-	PROTO_NC_SKILL_PASSIVE_LIST_CMD            = PROTO_NC_CHAR_CLIENT_PASSIVE_CMD
-	PROTO_NC_ITEM_LIST_CMD                     = PROTO_NC_CHAR_CLIENT_ITEM_CMD
-	PROTO_NC_CHAR_INFO_END_CMD                 = PROTO_NC_CHAR_CLIENT_GAME_CMD
-	PROTO_NC_TITLE_LIST_CMD                    = PROTO_NC_CHAR_CLIENT_CHARTITLE_CMD
+	// Departamento 02 (Character.pdb S2S)
+	PROTO_NC_DEPT2_CMD1                                               uint16 = (  2 << 10) | 1   // 0x0801
+	PROTO_NC_DEPT2_CMD2                                               uint16 = (  2 << 10) | 2   // 0x0802
+	PROTO_NC_DEPT2_CMD3                                               uint16 = (  2 << 10) | 3   // 0x0803
+	PROTO_NC_DEPT2_CMD4                                               uint16 = (  2 << 10) | 4   // 0x0804
+	PROTO_NC_DEPT2_CMD5                                               uint16 = (  2 << 10) | 5   // 0x0805
+	PROTO_NC_DEPT2_CMD18                                              uint16 = (  2 << 10) | 18  // 0x0812
+	PROTO_NC_DEPT2_CMD19                                              uint16 = (  2 << 10) | 19  // 0x0813
+	PROTO_NC_DEPT2_CMD20                                              uint16 = (  2 << 10) | 20  // 0x0814
+	PROTO_NC_DEPT2_CMD21                                              uint16 = (  2 << 10) | 21  // 0x0815
+	PROTO_NC_DEPT2_CMD35                                              uint16 = (  2 << 10) | 35  // 0x0823
+	PROTO_NC_DEPT2_CMD65                                              uint16 = (  2 << 10) | 65  // 0x0841
+	PROTO_NC_DEPT2_CMD71                                              uint16 = (  2 << 10) | 71  // 0x0847
+
+	// Departamento 03 (Character.pdb S2S)
+	PROTO_NC_DEPT3_CMD18                                              uint16 = (  3 << 10) | 18  // 0x0C12
+
+	// Departamento 04 (Character.pdb S2S)
+	PROTO_NC_DEPT4_CMD86                                              uint16 = (  4 << 10) | 86  // 0x1056
+	PROTO_NC_DEPT4_CMD99                                              uint16 = (  4 << 10) | 99  // 0x1063
+	PROTO_NC_DEPT4_CMD112                                             uint16 = (  4 << 10) | 112 // 0x1070
+	PROTO_NC_DEPT4_CMD118                                             uint16 = (  4 << 10) | 118 // 0x1076
+	PROTO_NC_DEPT4_CMD128                                             uint16 = (  4 << 10) | 128 // 0x1080
+	PROTO_NC_DEPT4_CMD153                                             uint16 = (  4 << 10) | 153 // 0x1099
+	PROTO_NC_DEPT4_CMD179                                             uint16 = (  4 << 10) | 179 // 0x10B3
+	PROTO_NC_DEPT4_CMD209                                             uint16 = (  4 << 10) | 209 // 0x10D1
+	PROTO_NC_DEPT4_CMD219                                             uint16 = (  4 << 10) | 219 // 0x10DB
+	PROTO_NC_DEPT4_CMD235                                             uint16 = (  4 << 10) | 235 // 0x10EB
+	PROTO_NC_DEPT4_CMD238                                             uint16 = (  4 << 10) | 238 // 0x10EE
+	PROTO_NC_DEPT4_CMD243                                             uint16 = (  4 << 10) | 243 // 0x10F3
+
+	// Departamento 05 (Character.pdb S2S)
+	PROTO_NC_DEPT5_CMD2                                               uint16 = (  5 << 10) | 2   // 0x1402
+	PROTO_NC_DEPT5_CMD17                                              uint16 = (  5 << 10) | 17  // 0x1411
+	PROTO_NC_DEPT5_CMD19                                              uint16 = (  5 << 10) | 19  // 0x1413
+
+	// Departamento 13 (Character.pdb S2S)
+	PROTO_NC_DEPT13_CMD1                                              uint16 = ( 13 << 10) | 1   // 0x3401
+	PROTO_NC_DEPT13_CMD4                                              uint16 = ( 13 << 10) | 4   // 0x3404
+	PROTO_NC_DEPT13_CMD7                                              uint16 = ( 13 << 10) | 7   // 0x3407
+	PROTO_NC_DEPT13_CMD10                                             uint16 = ( 13 << 10) | 10  // 0x340A
+	PROTO_NC_DEPT13_CMD13                                             uint16 = ( 13 << 10) | 13  // 0x340D
+	PROTO_NC_DEPT13_CMD16                                             uint16 = ( 13 << 10) | 16  // 0x3410
+	PROTO_NC_DEPT13_CMD19                                             uint16 = ( 13 << 10) | 19  // 0x3413
+	PROTO_NC_DEPT13_CMD22                                             uint16 = ( 13 << 10) | 22  // 0x3416
+	PROTO_NC_DEPT13_CMD25                                             uint16 = ( 13 << 10) | 25  // 0x3419
+	PROTO_NC_DEPT13_CMD28                                             uint16 = ( 13 << 10) | 28  // 0x341C
+	PROTO_NC_DEPT13_CMD31                                             uint16 = ( 13 << 10) | 31  // 0x341F
+	PROTO_NC_DEPT13_CMD34                                             uint16 = ( 13 << 10) | 34  // 0x3422
+	PROTO_NC_DEPT13_CMD37                                             uint16 = ( 13 << 10) | 37  // 0x3425
+	PROTO_NC_DEPT13_CMD40                                             uint16 = ( 13 << 10) | 40  // 0x3428
+	PROTO_NC_DEPT13_CMD43                                             uint16 = ( 13 << 10) | 43  // 0x342B
+	PROTO_NC_DEPT13_CMD46                                             uint16 = ( 13 << 10) | 46  // 0x342E
+	PROTO_NC_DEPT13_CMD49                                             uint16 = ( 13 << 10) | 49  // 0x3431
+	PROTO_NC_DEPT13_CMD52                                             uint16 = ( 13 << 10) | 52  // 0x3434
+	PROTO_NC_DEPT13_CMD55                                             uint16 = ( 13 << 10) | 55  // 0x3437
+	PROTO_NC_DEPT13_CMD56                                             uint16 = ( 13 << 10) | 56  // 0x3438
+	PROTO_NC_DEPT13_CMD59                                             uint16 = ( 13 << 10) | 59  // 0x343B
+	PROTO_NC_DEPT13_CMD62                                             uint16 = ( 13 << 10) | 62  // 0x343E
+	PROTO_NC_DEPT13_CMD63                                             uint16 = ( 13 << 10) | 63  // 0x343F
+	PROTO_NC_DEPT13_CMD71                                             uint16 = ( 13 << 10) | 71  // 0x3447
+	PROTO_NC_DEPT13_CMD77                                             uint16 = ( 13 << 10) | 77  // 0x344D
+	PROTO_NC_DEPT13_CMD80                                             uint16 = ( 13 << 10) | 80  // 0x3450
+	PROTO_NC_DEPT13_CMD83                                             uint16 = ( 13 << 10) | 83  // 0x3453
+	PROTO_NC_DEPT13_CMD84                                             uint16 = ( 13 << 10) | 84  // 0x3454
+	PROTO_NC_DEPT13_CMD85                                             uint16 = ( 13 << 10) | 85  // 0x3455
+	PROTO_NC_DEPT13_CMD87                                             uint16 = ( 13 << 10) | 87  // 0x3457
+	PROTO_NC_DEPT13_CMD89                                             uint16 = ( 13 << 10) | 89  // 0x3459
+	PROTO_NC_DEPT13_CMD91                                             uint16 = ( 13 << 10) | 91  // 0x345B
+	PROTO_NC_DEPT13_CMD99                                             uint16 = ( 13 << 10) | 99  // 0x3463
+	PROTO_NC_DEPT13_CMD101                                            uint16 = ( 13 << 10) | 101 // 0x3465
+	PROTO_NC_DEPT13_CMD103                                            uint16 = ( 13 << 10) | 103 // 0x3467
+	PROTO_NC_DEPT13_CMD113                                            uint16 = ( 13 << 10) | 113 // 0x3471
+	PROTO_NC_DEPT13_CMD118                                            uint16 = ( 13 << 10) | 118 // 0x3476
+	PROTO_NC_DEPT13_CMD122                                            uint16 = ( 13 << 10) | 122 // 0x347A
+	PROTO_NC_DEPT13_CMD127                                            uint16 = ( 13 << 10) | 127 // 0x347F
+	PROTO_NC_DEPT13_CMD130                                            uint16 = ( 13 << 10) | 130 // 0x3482
+	PROTO_NC_DEPT13_CMD139                                            uint16 = ( 13 << 10) | 139 // 0x348B
+	PROTO_NC_DEPT13_CMD141                                            uint16 = ( 13 << 10) | 141 // 0x348D
+	PROTO_NC_DEPT13_CMD143                                            uint16 = ( 13 << 10) | 143 // 0x348F
+	PROTO_NC_DEPT13_CMD144                                            uint16 = ( 13 << 10) | 144 // 0x3490
+	PROTO_NC_DEPT13_CMD147                                            uint16 = ( 13 << 10) | 147 // 0x3493
+	PROTO_NC_DEPT13_CMD150                                            uint16 = ( 13 << 10) | 150 // 0x3496
+	PROTO_NC_DEPT13_CMD152                                            uint16 = ( 13 << 10) | 152 // 0x3498
+	PROTO_NC_DEPT13_CMD154                                            uint16 = ( 13 << 10) | 154 // 0x349A
+	PROTO_NC_DEPT13_CMD156                                            uint16 = ( 13 << 10) | 156 // 0x349C
+	PROTO_NC_DEPT13_CMD158                                            uint16 = ( 13 << 10) | 158 // 0x349E
+	PROTO_NC_DEPT13_CMD160                                            uint16 = ( 13 << 10) | 160 // 0x34A0
+	PROTO_NC_DEPT13_CMD162                                            uint16 = ( 13 << 10) | 162 // 0x34A2
+	PROTO_NC_DEPT13_CMD166                                            uint16 = ( 13 << 10) | 166 // 0x34A6
+	PROTO_NC_DEPT13_CMD170                                            uint16 = ( 13 << 10) | 170 // 0x34AA
+	PROTO_NC_DEPT13_CMD172                                            uint16 = ( 13 << 10) | 172 // 0x34AC
+	PROTO_NC_DEPT13_CMD174                                            uint16 = ( 13 << 10) | 174 // 0x34AE
+	PROTO_NC_DEPT13_CMD176                                            uint16 = ( 13 << 10) | 176 // 0x34B0
+	PROTO_NC_DEPT13_CMD177                                            uint16 = ( 13 << 10) | 177 // 0x34B1
+	PROTO_NC_DEPT13_CMD179                                            uint16 = ( 13 << 10) | 179 // 0x34B3
+	PROTO_NC_DEPT13_CMD181                                            uint16 = ( 13 << 10) | 181 // 0x34B5
+	PROTO_NC_DEPT13_CMD183                                            uint16 = ( 13 << 10) | 183 // 0x34B7
+	PROTO_NC_DEPT13_CMD185                                            uint16 = ( 13 << 10) | 185 // 0x34B9
+	PROTO_NC_DEPT13_CMD187                                            uint16 = ( 13 << 10) | 187 // 0x34BB
+	PROTO_NC_DEPT13_CMD189                                            uint16 = ( 13 << 10) | 189 // 0x34BD
+	PROTO_NC_DEPT13_CMD193                                            uint16 = ( 13 << 10) | 193 // 0x34C1
+	PROTO_NC_DEPT13_CMD198                                            uint16 = ( 13 << 10) | 198 // 0x34C6
+	PROTO_NC_DEPT13_CMD200                                            uint16 = ( 13 << 10) | 200 // 0x34C8
+	PROTO_NC_DEPT13_CMD201                                            uint16 = ( 13 << 10) | 201 // 0x34C9
+	PROTO_NC_DEPT13_CMD203                                            uint16 = ( 13 << 10) | 203 // 0x34CB
+	PROTO_NC_DEPT13_CMD207                                            uint16 = ( 13 << 10) | 207 // 0x34CF
+	PROTO_NC_DEPT13_CMD209                                            uint16 = ( 13 << 10) | 209 // 0x34D1
+	PROTO_NC_DEPT13_CMD211                                            uint16 = ( 13 << 10) | 211 // 0x34D3
+
+	// Departamento 16 (Character.pdb S2S)
+	PROTO_NC_DEPT16_CMD1                                              uint16 = ( 16 << 10) | 1   // 0x4001
+	PROTO_NC_DEPT16_CMD3                                              uint16 = ( 16 << 10) | 3   // 0x4003
+	PROTO_NC_DEPT16_CMD4                                              uint16 = ( 16 << 10) | 4   // 0x4004
+	PROTO_NC_DEPT16_CMD5                                              uint16 = ( 16 << 10) | 5   // 0x4005
+	PROTO_NC_DEPT16_CMD7                                              uint16 = ( 16 << 10) | 7   // 0x4007
+	PROTO_NC_DEPT16_CMD9                                              uint16 = ( 16 << 10) | 9   // 0x4009
+	PROTO_NC_DEPT16_CMD11                                             uint16 = ( 16 << 10) | 11  // 0x400B
+	PROTO_NC_DEPT16_CMD13                                             uint16 = ( 16 << 10) | 13  // 0x400D
+	PROTO_NC_DEPT16_CMD24                                             uint16 = ( 16 << 10) | 24  // 0x4018
+	PROTO_NC_DEPT16_CMD26                                             uint16 = ( 16 << 10) | 26  // 0x401A
+	PROTO_NC_DEPT16_CMD28                                             uint16 = ( 16 << 10) | 28  // 0x401C
+	PROTO_NC_DEPT16_CMD34                                             uint16 = ( 16 << 10) | 34  // 0x4022
+	PROTO_NC_DEPT16_CMD35                                             uint16 = ( 16 << 10) | 35  // 0x4023
+	PROTO_NC_DEPT16_CMD39                                             uint16 = ( 16 << 10) | 39  // 0x4027
+	PROTO_NC_DEPT16_CMD49                                             uint16 = ( 16 << 10) | 49  // 0x4031
+	PROTO_NC_DEPT16_CMD53                                             uint16 = ( 16 << 10) | 53  // 0x4035
+
+	// Departamento 17 (Character.pdb S2S)
+	PROTO_NC_DEPT17_CMD3                                              uint16 = ( 17 << 10) | 3   // 0x4403
+	PROTO_NC_DEPT17_CMD5                                              uint16 = ( 17 << 10) | 5   // 0x4405
+	PROTO_NC_DEPT17_CMD9                                              uint16 = ( 17 << 10) | 9   // 0x4409
+	PROTO_NC_DEPT17_CMD24                                             uint16 = ( 17 << 10) | 24  // 0x4418
+	PROTO_NC_DEPT17_CMD26                                             uint16 = ( 17 << 10) | 26  // 0x441A
+
+	// Departamento 18 (Character.pdb S2S)
+	PROTO_NC_DEPT18_CMD1                                              uint16 = ( 18 << 10) | 1   // 0x4801
+	PROTO_NC_DEPT18_CMD11                                             uint16 = ( 18 << 10) | 11  // 0x480B
+	PROTO_NC_DEPT18_CMD18                                             uint16 = ( 18 << 10) | 18  // 0x4812
+
+	// Departamento 21 (Character.pdb S2S)
+	PROTO_NC_DEPT21_CMD16                                             uint16 = ( 21 << 10) | 16  // 0x5410
+	PROTO_NC_DEPT21_CMD18                                             uint16 = ( 21 << 10) | 18  // 0x5412
+	PROTO_NC_DEPT21_CMD20                                             uint16 = ( 21 << 10) | 20  // 0x5414
+
+	// Departamento 23 (Character.pdb S2S)
+	PROTO_NC_DEPT23_CMD5                                              uint16 = ( 23 << 10) | 5   // 0x5C05
+	PROTO_NC_DEPT23_CMD7                                              uint16 = ( 23 << 10) | 7   // 0x5C07
+	PROTO_NC_DEPT23_CMD9                                              uint16 = ( 23 << 10) | 9   // 0x5C09
+	PROTO_NC_DEPT23_CMD11                                             uint16 = ( 23 << 10) | 11  // 0x5C0B
+
+	// Departamento 24 (Character.pdb S2S)
+	PROTO_NC_DEPT24_CMD8                                              uint16 = ( 24 << 10) | 8   // 0x6008
+
+	// Departamento 28 (Character.pdb S2S)
+	PROTO_NC_DEPT28_CMD23                                             uint16 = ( 28 << 10) | 23  // 0x7017
+	PROTO_NC_DEPT28_CMD25                                             uint16 = ( 28 << 10) | 25  // 0x7019
+	PROTO_NC_DEPT28_CMD27                                             uint16 = ( 28 << 10) | 27  // 0x701B
+	PROTO_NC_DEPT28_CMD29                                             uint16 = ( 28 << 10) | 29  // 0x701D
+	PROTO_NC_DEPT28_CMD31                                             uint16 = ( 28 << 10) | 31  // 0x701F
+	PROTO_NC_DEPT28_CMD33                                             uint16 = ( 28 << 10) | 33  // 0x7021
+	PROTO_NC_DEPT28_CMD35                                             uint16 = ( 28 << 10) | 35  // 0x7023
+	PROTO_NC_DEPT28_CMD37                                             uint16 = ( 28 << 10) | 37  // 0x7025
+	PROTO_NC_DEPT28_CMD38                                             uint16 = ( 28 << 10) | 38  // 0x7026
+	PROTO_NC_DEPT28_CMD39                                             uint16 = ( 28 << 10) | 39  // 0x7027
+	PROTO_NC_DEPT28_CMD40                                             uint16 = ( 28 << 10) | 40  // 0x7028
+	PROTO_NC_DEPT28_CMD41                                             uint16 = ( 28 << 10) | 41  // 0x7029
+	PROTO_NC_DEPT28_CMD42                                             uint16 = ( 28 << 10) | 42  // 0x702A
+	PROTO_NC_DEPT28_CMD43                                             uint16 = ( 28 << 10) | 43  // 0x702B
+	PROTO_NC_DEPT28_CMD75                                             uint16 = ( 28 << 10) | 75  // 0x704B
+	PROTO_NC_DEPT28_CMD77                                             uint16 = ( 28 << 10) | 77  // 0x704D
+	PROTO_NC_DEPT28_CMD79                                             uint16 = ( 28 << 10) | 79  // 0x704F
+
+	// Departamento 29 (Character.pdb S2S)
+	PROTO_NC_DEPT29_CMD82                                             uint16 = ( 29 << 10) | 82  // 0x7452
+	PROTO_NC_GUILD_DB_LIST_REQ                                        uint16 = ( 29 << 10) | 86  // 0x7456
+	PROTO_NC_DEPT29_CMD98                                             uint16 = ( 29 << 10) | 98  // 0x7462
+	PROTO_NC_DEPT29_CMD104                                            uint16 = ( 29 << 10) | 104 // 0x7468
+	PROTO_NC_DEPT29_CMD170                                            uint16 = ( 29 << 10) | 170 // 0x74AA
+	PROTO_NC_DEPT29_CMD178                                            uint16 = ( 29 << 10) | 178 // 0x74B2
+	PROTO_NC_DEPT29_CMD186                                            uint16 = ( 29 << 10) | 186 // 0x74BA
+	PROTO_NC_DEPT29_CMD229                                            uint16 = ( 29 << 10) | 229 // 0x74E5
+	PROTO_NC_DEPT29_CMD259                                            uint16 = ( 29 << 10) | 259 // 0x7503
+	PROTO_NC_DEPT29_CMD263                                            uint16 = ( 29 << 10) | 263 // 0x7507
+	PROTO_NC_DEPT29_CMD269                                            uint16 = ( 29 << 10) | 269 // 0x750D
+
+	// Departamento 31 (Character.pdb S2S)
+	PROTO_NC_DEPT31_CMD11                                             uint16 = ( 31 << 10) | 11  // 0x7C0B
+	PROTO_NC_DEPT31_CMD13                                             uint16 = ( 31 << 10) | 13  // 0x7C0D
+	PROTO_NC_DEPT31_CMD14                                             uint16 = ( 31 << 10) | 14  // 0x7C0E
+	PROTO_NC_DEPT31_CMD16                                             uint16 = ( 31 << 10) | 16  // 0x7C10
+
+	// Departamento 35 (Character.pdb S2S)
+	PROTO_NC_DEPT35_CMD89                                             uint16 = ( 35 << 10) | 89  // 0x8C59
+	PROTO_NC_DEPT35_CMD91                                             uint16 = ( 35 << 10) | 91  // 0x8C5B
+	PROTO_NC_DEPT35_CMD93                                             uint16 = ( 35 << 10) | 93  // 0x8C5D
+	PROTO_NC_DEPT35_CMD95                                             uint16 = ( 35 << 10) | 95  // 0x8C5F
+
+	// Departamento 36 (Character.pdb S2S)
+	PROTO_NC_DEPT36_CMD1                                              uint16 = ( 36 << 10) | 1   // 0x9001
+	PROTO_NC_DEPT36_CMD2                                              uint16 = ( 36 << 10) | 2   // 0x9002
+	PROTO_NC_DEPT36_CMD5                                              uint16 = ( 36 << 10) | 5   // 0x9005
+	PROTO_NC_DEPT36_CMD6                                              uint16 = ( 36 << 10) | 6   // 0x9006
+
+	// Departamento 37 (Character.pdb S2S)
+	PROTO_NC_DEPT37_CMD30                                             uint16 = ( 37 << 10) | 30  // 0x941E
+	PROTO_NC_DEPT37_CMD32                                             uint16 = ( 37 << 10) | 32  // 0x9420
+	PROTO_NC_DEPT37_CMD36                                             uint16 = ( 37 << 10) | 36  // 0x9424
+	PROTO_NC_DEPT37_CMD38                                             uint16 = ( 37 << 10) | 38  // 0x9426
+	PROTO_NC_DEPT37_CMD40                                             uint16 = ( 37 << 10) | 40  // 0x9428
+	PROTO_NC_DEPT37_CMD42                                             uint16 = ( 37 << 10) | 42  // 0x942A
+
+	// Departamento 38 (Character.pdb S2S)
+	PROTO_NC_DEPT38_CMD3                                              uint16 = ( 38 << 10) | 3   // 0x9803
+	PROTO_NC_DEPT38_CMD51                                             uint16 = ( 38 << 10) | 51  // 0x9833
+	PROTO_NC_DEPT38_CMD55                                             uint16 = ( 38 << 10) | 55  // 0x9837
+	PROTO_NC_DEPT38_CMD59                                             uint16 = ( 38 << 10) | 59  // 0x983B
+	PROTO_NC_DEPT38_CMD63                                             uint16 = ( 38 << 10) | 63  // 0x983F
+	PROTO_NC_DEPT38_CMD67                                             uint16 = ( 38 << 10) | 67  // 0x9843
+	PROTO_NC_DEPT38_CMD71                                             uint16 = ( 38 << 10) | 71  // 0x9847
+	PROTO_NC_DEPT38_CMD75                                             uint16 = ( 38 << 10) | 75  // 0x984B
+	PROTO_NC_DEPT38_CMD79                                             uint16 = ( 38 << 10) | 79  // 0x984F
+	PROTO_NC_DEPT38_CMD81                                             uint16 = ( 38 << 10) | 81  // 0x9851
+	PROTO_NC_DEPT38_CMD84                                             uint16 = ( 38 << 10) | 84  // 0x9854
+	PROTO_NC_DEPT38_CMD107                                            uint16 = ( 38 << 10) | 107 // 0x986B
+
+	// Departamento 40 (Character.pdb S2S)
+	PROTO_NC_DEPT40_CMD1                                              uint16 = ( 40 << 10) | 1   // 0xA001
+	PROTO_NC_DEPT40_CMD4                                              uint16 = ( 40 << 10) | 4   // 0xA004
+
+	// Departamento 42 (Character.pdb S2S)
+	PROTO_NC_DEPT42_CMD4                                              uint16 = ( 42 << 10) | 4   // 0xA804
+	PROTO_NC_DEPT42_CMD8                                              uint16 = ( 42 << 10) | 8   // 0xA808
+	PROTO_NC_DEPT42_CMD12                                             uint16 = ( 42 << 10) | 12  // 0xA80C
+
+	// Departamento 43 (Character.pdb S2S)
+	PROTO_NC_DEPT43_CMD12                                             uint16 = ( 43 << 10) | 12  // 0xAC0C
+	PROTO_NC_DEPT43_CMD23                                             uint16 = ( 43 << 10) | 23  // 0xAC17
+	PROTO_NC_DEPT43_CMD35                                             uint16 = ( 43 << 10) | 35  // 0xAC23
+	PROTO_NC_DEPT43_CMD37                                             uint16 = ( 43 << 10) | 37  // 0xAC25
+	PROTO_NC_DEPT43_CMD44                                             uint16 = ( 43 << 10) | 44  // 0xAC2C
+
+	// Departamento 45 (Character.pdb S2S)
+	PROTO_NC_DEPT45_CMD10                                             uint16 = ( 45 << 10) | 10  // 0xB40A
+	PROTO_NC_DEPT45_CMD17                                             uint16 = ( 45 << 10) | 17  // 0xB411
+
+	// Departamento 47 (Character.pdb S2S)
+	PROTO_NC_DEPT47_CMD6                                              uint16 = ( 47 << 10) | 6   // 0xBC06
+	PROTO_NC_DEPT47_CMD10                                             uint16 = ( 47 << 10) | 10  // 0xBC0A
+	PROTO_NC_DEPT47_CMD17                                             uint16 = ( 47 << 10) | 17  // 0xBC11
+	PROTO_NC_DEPT47_CMD21                                             uint16 = ( 47 << 10) | 21  // 0xBC15
+	PROTO_NC_DEPT47_CMD25                                             uint16 = ( 47 << 10) | 25  // 0xBC19
+	PROTO_NC_DEPT47_CMD108                                            uint16 = ( 47 << 10) | 108 // 0xBC6C
+	PROTO_NC_DEPT47_CMD120                                            uint16 = ( 47 << 10) | 120 // 0xBC78
+	PROTO_NC_DEPT47_CMD122                                            uint16 = ( 47 << 10) | 122 // 0xBC7A
+	PROTO_NC_DEPT47_CMD211                                            uint16 = ( 47 << 10) | 211 // 0xBCD3
+	PROTO_NC_DEPT47_CMD213                                            uint16 = ( 47 << 10) | 213 // 0xBCD5
+
+	// Departamento 49 (Character.pdb S2S)
+	PROTO_NC_DEPT49_CMD2                                              uint16 = ( 49 << 10) | 2   // 0xC402
+	PROTO_NC_DEPT49_CMD17                                             uint16 = ( 49 << 10) | 17  // 0xC411
+
 )

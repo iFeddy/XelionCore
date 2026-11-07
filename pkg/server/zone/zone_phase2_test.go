@@ -63,7 +63,7 @@ func TestZoneServer_Phase2_InventoryEquipConsumablesAndSoulstones(t *testing.T) 
 	login.WriteUint16(777)
 	login.WriteString(char.Name, 16)
 	_ = sendClientPacket(conn, login, nc)
-	waitOpCode(t, conn, protocol.PROTO_NC_CHAR_MAPLOGIN_ACK)
+	waitOpCode(t, conn, protocol.PROTO_NC_MAP_LOGIN_ACK)
 	_ = sendClientPacket(conn, protocol.NewPacketWriter(protocol.PROTO_NC_MAP_LOGINCOMPLETE_CMD), nc)
 
 	// Equip (0x300F) -> 0x3011 err 0x0281

@@ -116,7 +116,7 @@ func (h *Handler) HandlePacket(client *network.Client, pkt *protocol.Packet) {
 	case protocol.PROTO_NC_MISC_GAMETIME_REQ:
 		h.handleGameTime(client, pkt)
 
-	case protocol.PROTO_NC_MISC_WORLD_CLIENT_KEY_REQ:
+	case protocol.PROTO_NC_USER_LOGINWORLD_REQ:
 		h.handleWorldClientKey(client, pkt)
 
 	case protocol.PROTO_NC_USER_WILL_WORLD_SELECT_REQ:
@@ -152,35 +152,35 @@ func (h *Handler) HandlePacket(client *network.Client, pkt *protocol.Packet) {
 	case protocol.PROTO_NC_CHAR_LOGIN_REQ:
 		h.handleCharSelect(client, pkt)
 
-	case protocol.PROTO_NC_CHAR_CREATE_REQ:
+	case protocol.PROTO_NC_AVATAR_CREATE_REQ:
 		h.handleCreateCharacter(client, pkt)
 
-	case protocol.PROTO_NC_CHAR_DELETE_REQ:
+	case protocol.PROTO_NC_AVATAR_ERASE_REQ:
 		h.handleDeleteCharacter(client, pkt)
 
-	case protocol.PROTO_NC_CHAR_INGAME_REQ:
+	case protocol.PROTO_NC_KQ_LIST_REFRESH_REQ:
 		h.handleGotIngame(client, pkt)
 
-	case protocol.PROTO_NC_CHAR_GET_QUICKBAR_REQ:
+	case protocol.PROTO_NC_CHAR_OPTION_GET_SHORTCUTDATA_REQ:
 		h.handleGetQuickBar(client, pkt)
 
-	case protocol.PROTO_NC_CHAR_GET_QUICKBAR_STATE_REQ:
+	case protocol.PROTO_NC_CHAR_OPTION_GET_SHORTCUTSIZE_REQ:
 		h.handleGetQuickBarState(client, pkt)
 
-	case protocol.PROTO_NC_CHAR_GET_GAME_SETTINGS_REQ:
+	case protocol.PROTO_NC_CHAR_OPTION_GET_GAME_REQ:
 		h.handleGetGameSettings(client, pkt)
 
-	case protocol.PROTO_NC_CHAR_GET_CLIENT_SETTINGS_REQ:
+	case protocol.PROTO_NC_CHAR_OPTION_GET_WINDOWPOS_REQ:
 		h.handleGetClientSettings(client, pkt)
 
-	case protocol.PROTO_NC_CHAR_GET_SHORTCUTS_REQ:
+	case protocol.PROTO_NC_CHAR_OPTION_GET_KEYMAPPING_REQ:
 		h.handleGetShortCuts(client, pkt)
 
-	case protocol.PROTO_NC_CHAR_SAVE_QUICKBAR_REQ,
-		protocol.PROTO_NC_CHAR_SAVE_QUICKBAR_STATE_REQ,
-		protocol.PROTO_NC_CHAR_SAVE_GAME_SETTINGS_REQ,
-		protocol.PROTO_NC_CHAR_SAVE_CLIENT_SETTINGS_REQ,
-		protocol.PROTO_NC_CHAR_SAVE_SHORTCUTS_REQ:
+	case protocol.PROTO_NC_CHAR_OPTION_SET_SHORTCUTDATA_CMD,
+		protocol.PROTO_NC_CHAR_OPTION_SET_SHORTCUTSIZE_CMD,
+		protocol.PROTO_NC_CHAR_OPTION_SET_GAME_CMD,
+		protocol.PROTO_NC_CHAR_OPTION_SET_WINDOWPOS_CMD,
+		protocol.PROTO_NC_CHAR_OPTION_SET_KEYMAPPING_CMD:
 		h.handleSaveSettings(client, pkt)
 
 	case protocol.PROTO_NC_PRISON_GET_REQ:
@@ -450,7 +450,7 @@ func (h *Handler) handleWorldClientKey(client *network.Client, pkt *protocol.Pac
 	h.sendCharacterList(client)
 }
 
-// sendCharacterList despacha la lista oficial de avatares (PROTO_NC_CHAR_CLIENT_CHARLIST_ACK - 0x0C14).
+// sendCharacterList despacha la lista oficial de avatares (PROTO_NC_USER_LOGINWORLD_ACK - 0x0C14).
 func (h *Handler) sendCharacterList(client *network.Client) {
 	chars, err := h.charRepo.GetCharactersByAccount(client.AccountID)
 	if err != nil {
@@ -460,7 +460,7 @@ func (h *Handler) sendCharacterList(client *network.Client) {
 		return
 	}
 
-	pw := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_CLIENT_CHARLIST_ACK)
+	pw := protocol.NewPacketWriter(protocol.PROTO_NC_USER_LOGINWORLD_ACK)
 	if client.RandomID == 0 {
 		client.RandomID = uint16(rand.Intn(65534) + 1)
 	}
@@ -657,8 +657,8 @@ func (h *Handler) handleCreateCharacter(client *network.Client, pkt *protocol.Pa
 	log.Printf("[World][%s] Created character '%s' (ID: %d, Job: %d, Slot: %d) for user '%s'",
 		client.RemoteAddr(), name, newChar.ID, classID, slot, client.Username)
 
-	// Enviar respuesta oficial de confirmación PROTO_NC_CHAR_CREATE_ACK (0x1406)
-	resp := protocol.New_PROTO_NC_CHAR_CREATE_ACK(func(pw *protocol.PacketWriter) {
+	// Enviar respuesta oficial de confirmación PROTO_NC_AVATAR_CREATESUCC_ACK (0x1406)
+	resp := protocol.New_PROTO_NC_AVATAR_CREATESUCC_ACK(func(pw *protocol.PacketWriter) {
 		WriteBasicCharInfo(newChar, pw)
 	})
 	_ = client.SendPacket(resp)
@@ -683,7 +683,7 @@ func (h *Handler) handleDeleteCharacter(client *network.Client, pkt *protocol.Pa
 
 	log.Printf("[World][%s] Soft-deleted character in slot %d for user '%s'", client.RemoteAddr(), slot, client.Username)
 
-	resp := protocol.New_PROTO_NC_CHAR_DELETE_ACK(slot)
+	resp := protocol.New_PROTO_NC_AVATAR_ERASESUCC_ACK(slot)
 	_ = client.SendPacket(resp)
 }
 
@@ -1101,7 +1101,7 @@ func (h *Handler) sendError(client *network.Client, errCode protocol.ServerError
 }
 
 func (h *Handler) sendCharCreationError(client *network.Client, errCode protocol.CreateCharError) {
-	resp := protocol.New_PROTO_NC_CHAR_CREATE_FAIL_ACK(uint16(errCode))
+	resp := protocol.New_PROTO_NC_AVATAR_CREATEFAIL_ACK(uint16(errCode))
 	_ = client.SendPacket(resp)
 }
 
@@ -1187,15 +1187,15 @@ func (h *Handler) handleSaveSettings(client *network.Client, pkt *protocol.Packe
 	var optType string
 
 	switch pkt.OpCode {
-	case protocol.PROTO_NC_CHAR_SAVE_QUICKBAR_REQ:
+	case protocol.PROTO_NC_CHAR_OPTION_SET_SHORTCUTDATA_CMD:
 		optType = "shortcut_data"
-	case protocol.PROTO_NC_CHAR_SAVE_QUICKBAR_STATE_REQ:
+	case protocol.PROTO_NC_CHAR_OPTION_SET_SHORTCUTSIZE_CMD:
 		optType = "shortcut_size"
-	case protocol.PROTO_NC_CHAR_SAVE_GAME_SETTINGS_REQ:
+	case protocol.PROTO_NC_CHAR_OPTION_SET_GAME_CMD:
 		optType = "game"
-	case protocol.PROTO_NC_CHAR_SAVE_CLIENT_SETTINGS_REQ:
+	case protocol.PROTO_NC_CHAR_OPTION_SET_WINDOWPOS_CMD:
 		optType = "window_pos"
-	case protocol.PROTO_NC_CHAR_SAVE_SHORTCUTS_REQ:
+	case protocol.PROTO_NC_CHAR_OPTION_SET_KEYMAPPING_CMD:
 		optType = "key_mapping"
 	default:
 		log.Printf("[World][%s] Unknown save settings OpCode 0x%04X", client.RemoteAddr(), pkt.OpCode)
@@ -1234,8 +1234,8 @@ func (h *Handler) handleGotIngame(client *network.Client, pkt *protocol.Packet) 
 	h.guildMgr.HandleMyGuildInfo(client)
 	h.guildMgr.HandleMemberList(client)
 
-	// 4. Packet PROTO_NC_MISC_TIME_SYNC_ACK (0x0845 / Dept:2, Cmd:69) - Sincronización oficial del reloj
-	p4 := protocol.NewPacketWriter(protocol.PROTO_NC_MISC_TIME_SYNC_ACK)
+	// 4. Packet PROTO_NC_MISC_SERVER_TIME_NOTIFY_CMD (0x0845 / Dept:2, Cmd:69) - Sincronización oficial del reloj
+	p4 := protocol.NewPacketWriter(protocol.PROTO_NC_MISC_SERVER_TIME_NOTIFY_CMD)
 	now := time.Now()
 	millis := uint32(now.Hour()*3600000 + now.Minute()*60000 + now.Second()*1000 + now.Nanosecond()/1000000)
 	p4.WriteUint32(millis)

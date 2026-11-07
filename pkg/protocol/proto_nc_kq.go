@@ -222,3 +222,281 @@ func New_PROTO_NC_KQ_NOTIFY_CMD(msg string) *PacketWriter {
 	pw.WriteBytes(msgBytes)
 	return pw
 }
+
+// ============================================================================
+// Estructuras Oficiales C++ (#pragma pack(push, 1))
+// ============================================================================
+
+// PROTO_NC_CHAR_KQMAP_CMD (size = 28 bytes)
+type PROTO_NC_CHAR_KQMAP_CMD_DATA struct {
+	NKQHandle                        uint32               // offset: 0, size: 4 bytes
+	SKQMapName                       Name3                // offset: 4, size: 12 bytes
+	NKQCoord                         uint64               // offset: 16, size: 8 bytes
+	DKQDate                          uint32               // offset: 24, size: 4 bytes
+}
+
+// PROTO_NC_KQ_JOINER (size = 5 bytes)
+type PROTO_NC_KQ_JOINER struct {
+	Chrregnum                        uint32               // offset: 0, size: 4 bytes
+	NTeamType                        uint8                // offset: 4, size: 1 bytes
+}
+
+// PROTO_NC_KQ_JOINING_ALARM_CMD (size = 9 bytes)
+type PROTO_NC_KQ_JOINING_ALARM_CMD_DATA struct {
+	KQInfo                           uint64               // offset: 0, size: 8 bytes
+	MsgLength                        uint8                // offset: 8, size: 1 bytes
+	Msg                              [0]byte              // offset: 9, flexible array member
+}
+
+// PROTO_NC_KQ_JOINING_ALARM_END_CMD (size = 6 bytes)
+type PROTO_NC_KQ_JOINING_ALARM_END_CMD_DATA struct {
+	NHandle                          uint32               // offset: 0, size: 4 bytes
+	NID                              uint16               // offset: 4, size: 2 bytes
+}
+
+// PROTO_NC_KQ_JOINING_ALARM_LIST (size = 2 bytes)
+type PROTO_NC_KQ_JOINING_ALARM_LIST_DATA struct {
+	NNumOfKQ                         uint16               // offset: 0, size: 2 bytes
+	KQList                           [0]byte              // offset: 2, flexible array member
+}
+
+// PROTO_NC_KQ_JOIN_ACK (size = 6 bytes)
+type PROTO_NC_KQ_JOIN_ACK_DATA struct {
+	Handle                           uint32               // offset: 0, size: 4 bytes
+	Error                            uint16               // offset: 4, size: 2 bytes
+}
+
+// PROTO_NC_KQ_JOIN_CANCEL_ACK (size = 6 bytes)
+type PROTO_NC_KQ_JOIN_CANCEL_ACK_DATA struct {
+	Handle                           uint32               // offset: 0, size: 4 bytes
+	Error                            uint16               // offset: 4, size: 2 bytes
+}
+
+// PROTO_NC_KQ_JOIN_CANCEL_REQ (size = 4 bytes)
+type PROTO_NC_KQ_JOIN_CANCEL_REQ_DATA struct {
+	Handle                           uint32               // offset: 0, size: 4 bytes
+}
+
+// PROTO_NC_KQ_JOIN_LIST_ACK (size = 3 bytes)
+type PROTO_NC_KQ_JOIN_LIST_ACK_DATA struct {
+	NError                           uint16               // offset: 0, size: 2 bytes
+	NNum                             uint8                // offset: 2, size: 1 bytes
+	CharInfoList                     [0]byte              // offset: 3, flexible array member
+}
+
+// PROTO_NC_KQ_JOIN_LIST_REQ (size = 4 bytes)
+type PROTO_NC_KQ_JOIN_LIST_REQ_DATA struct {
+	NHandle                          uint32               // offset: 0, size: 4 bytes
+}
+
+// PROTO_NC_KQ_JOIN_REQ (size = 4 bytes)
+type PROTO_NC_KQ_JOIN_REQ_DATA struct {
+	Handle                           uint32               // offset: 0, size: 4 bytes
+}
+
+// PROTO_NC_KQ_LINK_TO_FORCE_BY_BAN_CMD (size = 52 bytes)
+type PROTO_NC_KQ_LINK_TO_FORCE_BY_BAN_CMD_DATA struct {
+	NCharNum                         uint32               // offset: 0, size: 4 bytes
+	SMapName                         [48]byte             // offset: 4, size: 48 bytes
+}
+
+// PROTO_NC_KQ_LIST_ACK (size = 50 bytes)
+type PROTO_NC_KQ_LIST_ACK_DATA struct {
+	ServerTime                       int32                // offset: 0, size: 4 bytes
+	Tm_ServerTime                    [36]byte             // offset: 4, size: 36 bytes
+	NewStartHandle                   uint32               // offset: 40, size: 4 bytes
+	NewEndHandle                     uint32               // offset: 44, size: 4 bytes
+	NumOfNewQuest                    uint16               // offset: 48, size: 2 bytes
+	NewQuestArray                    [0]byte              // offset: 50, flexible array member
+}
+
+// PROTO_NC_KQ_LIST_ADD_ACK (size = 2 bytes)
+type PROTO_NC_KQ_LIST_ADD_ACK_DATA struct {
+	NumOfAdd                         uint16               // offset: 0, size: 2 bytes
+	AddQuestArray                    [0]byte              // offset: 2, flexible array member
+}
+
+// PROTO_NC_KQ_LIST_DELETE_ACK (size = 2 bytes)
+type PROTO_NC_KQ_LIST_DELETE_ACK_DATA struct {
+	NumOfDelete                      uint16               // offset: 0, size: 2 bytes
+	DeleteQuestArray                 [0]byte              // offset: 2, flexible array member
+}
+
+// PROTO_NC_KQ_LIST_REFRESH_REQ (size = 1 bytes)
+type PROTO_NC_KQ_LIST_REFRESH_REQ_DATA struct {}
+
+// PROTO_NC_KQ_LIST_REQ (size = 8 bytes)
+type PROTO_NC_KQ_LIST_REQ_DATA struct {
+	StartHandle                      uint32               // offset: 0, size: 4 bytes
+	EndHandle                        uint32               // offset: 4, size: 4 bytes
+}
+
+// PROTO_NC_KQ_LIST_TIME_ACK (size = 40 bytes)
+type PROTO_NC_KQ_LIST_TIME_ACK_DATA struct {
+	ServerTime                       int32                // offset: 0, size: 4 bytes
+	Tm_ServerTime                    [36]byte             // offset: 4, size: 36 bytes
+}
+
+// PROTO_NC_KQ_LIST_UPDATE_ACK (size = 2 bytes)
+type PROTO_NC_KQ_LIST_UPDATE_ACK_DATA struct {
+	NumOfUpdate                      uint16               // offset: 0, size: 2 bytes
+	UpdateQuestArray                 [0]byte              // offset: 2, flexible array member
+}
+
+// PROTO_NC_KQ_NOTIFY_CMD (size = 1 bytes)
+type PROTO_NC_KQ_NOTIFY_CMD_DATA struct {
+	MsgLength                        uint8                // offset: 0, size: 1 bytes
+	Msg                              [0]byte              // offset: 1, flexible array member
+}
+
+// PROTO_NC_KQ_PLAYER_DISJOIN_CMD (size = 8 bytes)
+type PROTO_NC_KQ_PLAYER_DISJOIN_CMD_DATA struct {
+	NHandle                          uint32               // offset: 0, size: 4 bytes
+	NCharNum                         uint32               // offset: 4, size: 4 bytes
+}
+
+// PROTO_NC_KQ_SCHEDULE_ACK (size = 10 bytes)
+type PROTO_NC_KQ_SCHEDULE_ACK_DATA struct {
+	NewStartHandle                   uint32               // offset: 0, size: 4 bytes
+	NewEndHandle                     uint32               // offset: 4, size: 4 bytes
+	NumOfNewQuest                    uint16               // offset: 8, size: 2 bytes
+	NewQuestArray                    [0]byte              // offset: 10, flexible array member
+}
+
+// PROTO_NC_KQ_SCHEDULE_REQ (size = 8 bytes)
+type PROTO_NC_KQ_SCHEDULE_REQ_DATA struct {
+	StartHandle                      uint32               // offset: 0, size: 4 bytes
+	EndHandle                        uint32               // offset: 4, size: 4 bytes
+}
+
+// PROTO_NC_KQ_STATUS_ACK (size = 7 bytes)
+type PROTO_NC_KQ_STATUS_ACK_DATA struct {
+	Handle                           uint32               // offset: 0, size: 4 bytes
+	Status                           uint8                // offset: 4, size: 1 bytes
+	NumOfJoiner                      uint16               // offset: 5, size: 2 bytes
+	JoinerNameList                   [0]byte              // offset: 7, flexible array member
+}
+
+// PROTO_NC_KQ_STATUS_REQ (size = 4 bytes)
+type PROTO_NC_KQ_STATUS_REQ_DATA struct {
+	Handle                           uint32               // offset: 0, size: 4 bytes
+}
+
+// PROTO_NC_KQ_TEAM_SELECT_ACK (size = 3 bytes)
+type PROTO_NC_KQ_TEAM_SELECT_ACK_DATA struct {
+	NError                           uint16               // offset: 0, size: 2 bytes
+	NTeamType                        uint8                // offset: 2, size: 1 bytes
+}
+
+// PROTO_NC_KQ_TEAM_SELECT_CMD (size = 21 bytes)
+type PROTO_NC_KQ_TEAM_SELECT_CMD_DATA struct {
+	SCharID                          Name5                // offset: 0, size: 20 bytes
+	NTeamType                        uint8                // offset: 20, size: 1 bytes
+}
+
+// PROTO_NC_KQ_TEAM_SELECT_REQ (size = 1 bytes)
+type PROTO_NC_KQ_TEAM_SELECT_REQ_DATA struct {
+	NTeamType                        uint8                // offset: 0, size: 1 bytes
+}
+
+// PROTO_NC_KQ_VOTE_BAN_MSG_CMD (size = 4 bytes)
+type PROTO_NC_KQ_VOTE_BAN_MSG_CMD_DATA struct {
+	NVoteRate                        uint8                // offset: 0, size: 1 bytes
+	NYesNum                          uint8                // offset: 1, size: 1 bytes
+	NNoNum                           uint8                // offset: 2, size: 1 bytes
+	NCancelNum                       uint8                // offset: 3, size: 1 bytes
+}
+
+// PROTO_NC_KQ_VOTE_BAN_MSG_LOGOFF_CMD (size = 1 bytes)
+type PROTO_NC_KQ_VOTE_BAN_MSG_LOGOFF_CMD_DATA struct {}
+
+// PROTO_NC_KQ_VOTE_CANCEL_CMD (size = 20 bytes)
+type PROTO_NC_KQ_VOTE_CANCEL_CMD_DATA struct {
+	STarget                          Name5                // offset: 0, size: 20 bytes
+}
+
+// PROTO_NC_KQ_VOTE_RESULT_FAIL_CMD (size = 23 bytes)
+type PROTO_NC_KQ_VOTE_RESULT_FAIL_CMD_DATA struct {
+	STarget                          Name5                // offset: 0, size: 20 bytes
+	NYesNum                          uint8                // offset: 20, size: 1 bytes
+	NNoNum                           uint8                // offset: 21, size: 1 bytes
+	NCancelNum                       uint8                // offset: 22, size: 1 bytes
+}
+
+// PROTO_NC_KQ_VOTE_RESULT_SUC_CMD (size = 24 bytes)
+type PROTO_NC_KQ_VOTE_RESULT_SUC_CMD_DATA struct {
+	STarget                          Name5                // offset: 0, size: 20 bytes
+	NVoteRate                        uint8                // offset: 20, size: 1 bytes
+	NYesNum                          uint8                // offset: 21, size: 1 bytes
+	NNoNum                           uint8                // offset: 22, size: 1 bytes
+	NCancelNum                       uint8                // offset: 23, size: 1 bytes
+}
+
+// PROTO_NC_KQ_VOTE_START_ACK (size = 2 bytes)
+type PROTO_NC_KQ_VOTE_START_ACK_DATA struct {
+	NError                           uint16               // offset: 0, size: 2 bytes
+}
+
+// PROTO_NC_KQ_VOTE_START_CHECK_ACK (size = 2 bytes)
+type PROTO_NC_KQ_VOTE_START_CHECK_ACK_DATA struct {
+	NError                           uint16               // offset: 0, size: 2 bytes
+}
+
+// PROTO_NC_KQ_VOTE_START_CHECK_REQ (size = 1 bytes)
+type PROTO_NC_KQ_VOTE_START_CHECK_REQ_DATA struct {}
+
+// PROTO_NC_KQ_VOTE_START_REQ (size = 22 bytes)
+type PROTO_NC_KQ_VOTE_START_REQ_DATA struct {
+	STarget                          Name5                // offset: 0, size: 20 bytes
+	NVoteType                        uint8                // offset: 20, size: 1 bytes
+	NLen                             uint8                // offset: 21, size: 1 bytes
+	SContents                        [0]byte              // offset: 22, flexible array member
+}
+
+// PROTO_NC_KQ_VOTE_VOTING_ACK (size = 2 bytes)
+type PROTO_NC_KQ_VOTE_VOTING_ACK_DATA struct {
+	NError                           uint16               // offset: 0, size: 2 bytes
+}
+
+// PROTO_NC_KQ_VOTE_VOTING_CMD (size = 78 bytes)
+type PROTO_NC_KQ_VOTE_VOTING_CMD_DATA struct {
+	SStarter                         Name5                // offset: 0, size: 20 bytes
+	STarget                          Name5                // offset: 20, size: 20 bytes
+	NVoteType                        uint8                // offset: 40, size: 1 bytes
+	TEndTime                         [36]byte             // offset: 41, size: 36 bytes
+	NLen                             uint8                // offset: 77, size: 1 bytes
+	SContents                        [0]byte              // offset: 78, flexible array member
+}
+
+// PROTO_NC_KQ_VOTE_VOTING_REQ (size = 4 bytes)
+type PROTO_NC_KQ_VOTE_VOTING_REQ_DATA struct {
+	EVoteType                        uint32               // offset: 0, size: 4 bytes
+}
+
+// PROTO_NC_KQ_W2Z_DESTROY_CMD (size = 4 bytes)
+type PROTO_NC_KQ_W2Z_DESTROY_CMD_DATA struct {
+	Hquest                           uint32               // offset: 0, size: 4 bytes
+}
+
+// PROTO_NC_KQ_W2Z_MAKE_REQ (size = 377 bytes)
+type PROTO_NC_KQ_W2Z_MAKE_REQ_DATA struct {
+	KQInfo                           [377]byte            // offset: 0, size: 377 bytes
+}
+
+// PROTO_NC_KQ_W2Z_START_CMD (size = 379 bytes)
+type PROTO_NC_KQ_W2Z_START_CMD_DATA struct {
+	KQInfo                           [377]byte            // offset: 0, size: 377 bytes
+	NumOfJoiner                      uint16               // offset: 377, size: 2 bytes
+	JoinerArray                      [0]byte              // offset: 379, flexible array member
+}
+
+// PROTO_NC_KQ_Z2W_END_CMD (size = 4 bytes)
+type PROTO_NC_KQ_Z2W_END_CMD_DATA struct {
+	Handle                           uint32               // offset: 0, size: 4 bytes
+}
+
+// PROTO_NC_KQ_Z2W_MAKE_ACK (size = 6 bytes)
+type PROTO_NC_KQ_Z2W_MAKE_ACK_DATA struct {
+	Hquest                           uint32               // offset: 0, size: 4 bytes
+	Err                              uint16               // offset: 4, size: 2 bytes
+}

@@ -322,13 +322,13 @@ func TestFase07_Control7_FullE2E_ForensicMySQL(t *testing.T) {
 		keyReq.WriteBytes(worldToken[:])
 		_ = worldClient.sendPacket(keyReq)
 
-		// 2. Recibir lista de personajes (PROTO_NC_CHAR_CLIENT_CHARLIST_ACK - 0x0C14)
+		// 2. Recibir lista de personajes (PROTO_NC_USER_LOGINWORLD_ACK - 0x0C14)
 		charListAck, err := auditReadServerPacket(worldConn)
 		if err != nil {
 			t.Fatalf("Fallo leyendo respuesta de WorldLogin: %v", err)
 		}
-		if charListAck.OpCode != protocol.PROTO_NC_CHAR_CLIENT_CHARLIST_ACK {
-			t.Fatalf("Esperado 0x0C14 (CHARLIST_ACK), obtenido 0x%04X", charListAck.OpCode)
+		if charListAck.OpCode != protocol.PROTO_NC_USER_LOGINWORLD_ACK {
+			t.Fatalf("Esperado 0x0C14 (USER_LOGINWORLD_ACK), obtenido 0x%04X", charListAck.OpCode)
 		}
 		t.Logf("Traspaso a WorldServer validado mediante token de 64 bytes (usp_Session_ConsumeWorldToken)")
 
