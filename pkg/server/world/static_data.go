@@ -32,6 +32,12 @@ type MaxShape struct {
 	MaxHairColor byte `json:"max_hair_color"`
 }
 
+// StarterQuest representa una misión inicial asignada por DefaultCharacterData.txt (#DEFINE QUEST).
+type StarterQuest struct {
+	ClassID byte `json:"class_id"`
+	QuestID int  `json:"quest_id"`
+}
+
 // DefaultClassData contiene los parámetros base oficiales por clase leídos de default_character_data.json.
 type DefaultClassData struct {
 	ClassID       byte              `json:"class_id"`
@@ -48,13 +54,17 @@ type DefaultClassData struct {
 	InitExp       int64             `json:"init_exp"`
 	MaxShape      MaxShape          `json:"max_shape"`
 	StarterItems  []StarterItem     `json:"starter_items"`
+	TutorialItems []StarterItem     `json:"tutorial_items"`
 	Shortcuts     []StarterShortcut `json:"shortcuts"`
 	StarterSkills []int             `json:"starter_skills"`
+	StarterQuests []int             `json:"starter_quests"`
 }
 
 // DefaultCharacterDataStore almacena las configuraciones de todas las clases disponibles.
 type DefaultCharacterDataStore struct {
-	Classes map[string]DefaultClassData `json:"classes"`
+	Classes       map[string]DefaultClassData `json:"classes"`
+	ClassSkills   map[string][]int            `json:"class_skills,omitempty"`
+	StarterQuests []StarterQuest              `json:"starter_quests"`
 }
 
 // LoadDefaultCharacterData lee el JSON de datos iniciales oficiales de personajes.

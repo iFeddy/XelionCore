@@ -60,6 +60,23 @@ func TestLoadWorldDataStore_AllFiles(t *testing.T) {
 			t.Errorf("invalid HP/SP for class %d: HP=%d SP=%d", c, cd.HP, cd.SP)
 		}
 	}
+	if sent, ok := store.DefaultData.GetClassData(26); !ok || sent.StartMap != "Eld" || sent.InitLevel != 60 || sent.InitExp != 24346145 {
+		t.Errorf("unexpected Sentinel (26) default data: %+v", sent)
+	}
+
+	// Verify Tutorial Character Data loaded for all 5 official tutorial classes (1, 6, 11, 16, 21)
+	if store.TutorialData == nil {
+		t.Fatal("expected non-nil TutorialData")
+	}
+	for _, c := range []byte{1, 6, 11, 16, 21} {
+		td, ok := store.TutorialData.GetClassData(c)
+		if !ok {
+			t.Errorf("expected tutorial class data for class ID %d", c)
+		}
+		if td.StartMap != "RouN" || td.StartX != 7178 || td.StartY != 7011 || td.Money != 300 || len(td.StarterItems) == 0 {
+			t.Errorf("invalid tutorial class data for class %d: %+v", c, td)
+		}
+	}
 
 	// Verify Appearance Validation against official FaceInfo, HairInfo, HairColorInfo
 	// Joker with Hair=1, Color=12, Face=4 (official starter selection)

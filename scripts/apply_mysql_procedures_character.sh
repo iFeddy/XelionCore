@@ -1,6 +1,6 @@
 #!/bin/bash
 # ==============================================================================
-# XelionCore - Script de Aplicación de los 311 Stored Procedures de World00_Character
+# XelionCore - Script de Aplicación de los 425 Stored Procedures de World00_Character
 # ==============================================================================
 set -e
 
@@ -30,9 +30,9 @@ run_sql_file() {
     fi
 }
 
-echo "=== Aplicando los 311 Stored Procedures de World00_Character en '$MYSQL_DATABASE' ==="
+echo "=== Aplicando los 425 Stored Procedures de World00_Character en '$MYSQL_DATABASE' ==="
 
-# Aplicar los 311 Stored Procedures oficiales
-run_sql_file "$DIR/database/procedures_character.sql" "Stored Procedures de World00_Character (311 SPs)"
+# Aplicar los 425 Stored Procedures oficiales y operativos S2S
+run_sql_file "$DIR/database/procedures_character.sql" "Stored Procedures de World00_Character (425 SPs)"
 
-echo "=== 311 Stored Procedures de World00_Character aplicados exitosamente. ==="
+echo "=== 425 Stored Procedures de World00_Character aplicados exitosamente. ==="

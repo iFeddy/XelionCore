@@ -1,5 +1,5 @@
 {
-  "tutorials": {
+  "classes": {
     "1": {
       "class_id": 1,
       "class_name": "Fighter",
@@ -11,12 +11,24 @@
       "hp_soul": 14,
       "sp_soul": 7,
       "money": 300,
+      "init_level": 1,
+      "init_exp": 0,
+      "max_shape": {
+        "max_face": 3,
+        "max_hair": 3,
+        "max_hair_color": 3
+      },
       "starter_items": [
         {
           "item_id": 250,
-          "amount": 1
+          "amount": 1,
+          "name": "숏소드"
         }
-      ]
+      ],
+      "tutorial_items": [],
+      "shortcuts": [],
+      "starter_skills": [],
+      "starter_quests": []
     },
     "6": {
       "class_id": 6,
@@ -29,12 +41,24 @@
       "hp_soul": 13,
       "sp_soul": 10,
       "money": 300,
+      "init_level": 1,
+      "init_exp": 0,
+      "max_shape": {
+        "max_face": 3,
+        "max_hair": 3,
+        "max_hair_color": 3
+      },
       "starter_items": [
         {
           "item_id": 750,
-          "amount": 1
+          "amount": 1,
+          "name": "숏메이스"
         }
-      ]
+      ],
+      "tutorial_items": [],
+      "shortcuts": [],
+      "starter_skills": [],
+      "starter_quests": []
     },
     "11": {
       "class_id": 11,
@@ -47,12 +71,24 @@
       "hp_soul": 12,
       "sp_soul": 10,
       "money": 300,
+      "init_level": 1,
+      "init_exp": 0,
+      "max_shape": {
+        "max_face": 3,
+        "max_hair": 3,
+        "max_hair_color": 3
+      },
       "starter_items": [
         {
           "item_id": 1250,
-          "amount": 1
+          "amount": 1,
+          "name": "숏보우"
         }
-      ]
+      ],
+      "tutorial_items": [],
+      "shortcuts": [],
+      "starter_skills": [],
+      "starter_quests": []
     },
     "16": {
       "class_id": 16,
@@ -65,12 +101,24 @@
       "hp_soul": 10,
       "sp_soul": 15,
       "money": 300,
+      "init_level": 1,
+      "init_exp": 0,
+      "max_shape": {
+        "max_face": 3,
+        "max_hair": 3,
+        "max_hair_color": 3
+      },
       "starter_items": [
         {
           "item_id": 1750,
-          "amount": 1
+          "amount": 1,
+          "name": "숏스태프"
         }
-      ]
+      ],
+      "tutorial_items": [],
+      "shortcuts": [],
+      "starter_skills": [],
+      "starter_quests": []
     },
     "21": {
       "class_id": 21,
@@ -83,12 +131,176 @@
       "hp_soul": 14,
       "sp_soul": 11,
       "money": 300,
+      "init_level": 1,
+      "init_exp": 0,
+      "max_shape": {
+        "max_face": 3,
+        "max_hair": 3,
+        "max_hair_color": 3
+      },
       "starter_items": [
         {
           "item_id": 57363,
-          "amount": 1
+          "amount": 1,
+          "name": "아벨 크로우"
         }
-      ]
+      ],
+      "tutorial_items": [],
+      "shortcuts": [],
+      "starter_skills": [],
+      "starter_quests": []
+    }
+  },
+  "tutorials": {
+    "1": {
+      "class_id": 1,
+      "class_name": "Fighter",
+      "start_map": "RouN",
+      "start_x": 7178,
+      "start_y": 7011,
+      "hp": 52,
+      "sp": 10,
+      "hp_soul": 14,
+      "sp_soul": 7,
+      "money": 300,
+      "init_level": 1,
+      "init_exp": 0,
+      "max_shape": {
+        "max_face": 3,
+        "max_hair": 3,
+        "max_hair_color": 3
+      },
+      "starter_items": [
+        {
+          "item_id": 250,
+          "amount": 1,
+          "name": "숏소드"
+        }
+      ],
+      "tutorial_items": [],
+      "shortcuts": [],
+      "starter_skills": [],
+      "starter_quests": []
+    },
+    "6": {
+      "class_id": 6,
+      "class_name": "Cleric",
+      "start_map": "RouN",
+      "start_x": 7178,
+      "start_y": 7011,
+      "hp": 46,
+      "sp": 32,
+      "hp_soul": 13,
+      "sp_soul": 10,
+      "money": 300,
+      "init_level": 1,
+      "init_exp": 0,
+      "max_shape": {
+        "max_face": 3,
+        "max_hair": 3,
+        "max_hair_color": 3
+      },
+      "starter_items": [
+        {
+          "item_id": 750,
+          "amount": 1,
+          "name": "숏메이스"
+        }
+      ],
+      "tutorial_items": [],
+      "shortcuts": [],
+      "starter_skills": [],
+      "starter_quests": []
+    },
+    "11": {
+      "class_id": 11,
+      "class_name": "Archer",
+      "start_map": "RouN",
+      "start_x": 7178,
+      "start_y": 7011,
+      "hp": 46,
+      "sp": 24,
+      "hp_soul": 12,
+      "sp_soul": 10,
+      "money": 300,
+      "init_level": 1,
+      "init_exp": 0,
+      "max_shape": {
+        "max_face": 3,
+        "max_hair": 3,
+        "max_hair_color": 3
+      },
+      "starter_items": [
+        {
+          "item_id": 1250,
+          "amount": 1,
+          "name": "숏보우"
+        }
+      ],
+      "tutorial_items": [],
+      "shortcuts": [],
+      "starter_skills": [],
+      "starter_quests": []
+    },
+    "16": {
+      "class_id": 16,
+      "class_name": "Mage",
+      "start_map": "RouN",
+      "start_x": 7178,
+      "start_y": 7011,
+      "hp": 42,
+      "sp": 46,
+      "hp_soul": 10,
+      "sp_soul": 15,
+      "money": 300,
+      "init_level": 1,
+      "init_exp": 0,
+      "max_shape": {
+        "max_face": 3,
+        "max_hair": 3,
+        "max_hair_color": 3
+      },
+      "starter_items": [
+        {
+          "item_id": 1750,
+          "amount": 1,
+          "name": "숏스태프"
+        }
+      ],
+      "tutorial_items": [],
+      "shortcuts": [],
+      "starter_skills": [],
+      "starter_quests": []
+    },
+    "21": {
+      "class_id": 21,
+      "class_name": "Joker",
+      "start_map": "RouN",
+      "start_x": 7178,
+      "start_y": 7011,
+      "hp": 48,
+      "sp": 46,
+      "hp_soul": 14,
+      "sp_soul": 11,
+      "money": 300,
+      "init_level": 1,
+      "init_exp": 0,
+      "max_shape": {
+        "max_face": 3,
+        "max_hair": 3,
+        "max_hair_color": 3
+      },
+      "starter_items": [
+        {
+          "item_id": 57363,
+          "amount": 1,
+          "name": "아벨 크로우"
+        }
+      ],
+      "tutorial_items": [],
+      "shortcuts": [],
+      "starter_skills": [],
+      "starter_quests": []
     }
   }
 }

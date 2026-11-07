@@ -205,74 +205,55 @@ ON DUPLICATE KEY UPDATE
     `sExp` = VALUES(`sExp`),
     `eExp` = VALUES(`eExp`);
 
--- 4. Plantillas Oficiales de Personajes Base (DefaultCharacterData.txt y TutorialCharacterData.txt)
--- user_no=1 (Admin/Template), slot_no 0..5 para Default; slot_no 6..10 para Tutorial
-INSERT INTO `tCharacter` (
-    `nCharNo`, `sID`, `nUserNo`, `nAdminLevel`, `nLevel`, `nExp`, `nSlotNo`,
-    `sLoginZone`, `nLoginZoneX`, `nLoginZoneY`, `nLoginZoneD`,
-    `nHP`, `nSP`, `nHPS`, `nSPS`, `nMoney`,
-    `nStrength`, `nConstitute`, `nDexterity`, `nIntelligence`, `nMentalPower`, `nRedistributePoint`,
-    `bDeleted`, `dCreateDate`
-) VALUES
--- Default Characters (RouN: 6888, 7045)
-(1, 'Fighter_Template', 1, 0, 1, 0, 0, 'RouN', 6888, 7045, 0, 52, 10, 15, 7, 0, 6, 5, 3, 1, 1, 0, 0, NOW()),
-(2, 'Cleric_Template', 1, 0, 1, 0, 1, 'RouN', 6888, 7045, 0, 46, 16, 15, 15, 0, 5, 4, 3, 1, 4, 0, 0, NOW()),
-(3, 'Archer_Template', 1, 0, 1, 0, 2, 'RouN', 6888, 7045, 0, 46, 12, 15, 11, 0, 4, 4, 7, 1, 3, 0, 0, NOW()),
-(4, 'Mage_Template', 1, 0, 1, 0, 3, 'RouN', 6888, 7045, 0, 42, 23, 15, 19, 0, 1, 3, 3, 10, 5, 0, 0, NOW()),
-(5, 'Trickster_Template', 1, 0, 1, 0, 4, 'RouN', 6888, 7045, 0, 48, 10, 15, 11, 0, 5, 5, 5, 1, 5, 0, 0, NOW()),
-(6, 'Sentinel_Template', 1, 0, 1, 0, 5, 'RouN', 6888, 7045, 0, 41, 1, 15, 7, 0, 6, 4, 3, 8, 1, 0, 0, NOW()),
--- Tutorial Characters (RouN: 7178, 7011, Money 300)
-(7, 'Tutorial_Fighter', 1, 0, 1, 0, 6, 'RouN', 7178, 7011, 0, 52, 10, 14, 7, 300, 6, 5, 3, 1, 1, 0, 0, NOW()),
-(8, 'Tutorial_Cleric', 1, 0, 1, 0, 7, 'RouN', 7178, 7011, 0, 46, 16, 15, 15, 300, 5, 4, 3, 1, 4, 0, 0, NOW()),
-(9, 'Tutorial_Archer', 1, 0, 1, 0, 8, 'RouN', 7178, 7011, 0, 46, 12, 15, 11, 300, 4, 4, 7, 1, 3, 0, 0, NOW()),
-(10, 'Tutorial_Mage', 1, 0, 1, 0, 9, 'RouN', 7178, 7011, 0, 42, 23, 15, 19, 300, 1, 3, 3, 10, 5, 0, 0, NOW()),
-(11, 'Tutorial_Trickster', 1, 0, 1, 0, 10, 'RouN', 7178, 7011, 0, 48, 10, 15, 11, 300, 5, 5, 5, 1, 5, 0, 0, NOW())
-ON DUPLICATE KEY UPDATE
-    `sID` = VALUES(`sID`),
-    `sLoginZone` = VALUES(`sLoginZone`),
-    `nLoginZoneX` = VALUES(`nLoginZoneX`),
-    `nLoginZoneY` = VALUES(`nLoginZoneY`),
-    `nHP` = VALUES(`nHP`),
-    `nSP` = VALUES(`nSP`),
-    `nMoney` = VALUES(`nMoney`);
+-- 4. Saneamiento idempotente: eliminar registros falsos de plantillas bajo nUserNo = 1
+-- (En Character.exe oficial, DefaultCharacterData.txt y TutorialCharacterData.txt se cargan
+-- desde data/ en memoria y se aplican al personaje real vía CALL p_Char_CreateSetDefaultData)
+DELETE FROM `tItem`
+WHERE `nOwner` IN (
+    SELECT `nCharNo` FROM `tCharacter`
+    WHERE `nUserNo` = 1 AND `sID` IN (
+        'Fighter_Template', 'Cleric_Template', 'Archer_Template',
+        'Mage_Template', 'Trickster_Template', 'Sentinel_Template',
+        'Tutorial_Fighter', 'Tutorial_Cleric', 'Tutorial_Archer',
+        'Tutorial_Mage', 'Tutorial_Trickster'
+    )
+);
 
--- 5. tCharacterShape: Apariencia y clases oficiales
-INSERT INTO `tCharacterShape` (
-    `nCharNo`, `nClass`, `nRace`, `nGender`, `nHairType`, `nHairColor`, `nFaceShape`
-) VALUES
-(1, 1, 1, 1, 1, 1, 1),
-(2, 6, 1, 1, 1, 1, 1),
-(3, 11, 1, 1, 1, 1, 1),
-(4, 16, 1, 1, 1, 1, 1),
-(5, 21, 1, 1, 1, 1, 1),
-(6, 26, 1, 1, 1, 1, 1),
-(7, 1, 1, 1, 1, 1, 1),
-(8, 6, 1, 1, 1, 1, 1),
-(9, 11, 1, 1, 1, 1, 1),
-(10, 16, 1, 1, 1, 1, 1),
-(11, 21, 1, 1, 1, 1, 1)
-ON DUPLICATE KEY UPDATE
-    `nClass` = VALUES(`nClass`);
+DELETE FROM `tCharacterShape`
+WHERE `nCharNo` IN (
+    SELECT `nCharNo` FROM `tCharacter`
+    WHERE `nUserNo` = 1 AND `sID` IN (
+        'Fighter_Template', 'Cleric_Template', 'Archer_Template',
+        'Mage_Template', 'Trickster_Template', 'Sentinel_Template',
+        'Tutorial_Fighter', 'Tutorial_Cleric', 'Tutorial_Archer',
+        'Tutorial_Mage', 'Tutorial_Trickster'
+    )
+);
 
--- 6. tItem: Ítems iniciales de cada clase
-INSERT INTO `tItem` (
-    `nItemKey`, `nStorageType`, `nOwner`, `nStorage`, `nItemID`, `nFlags`, `dDate`
-) VALUES
--- Fighter: 46003 (Mystery Vault), 250 (Short Sword)
-(1, 1, 1, 0, 46003, 0, NOW()),
-(2, 1, 1, 1, 250, 0, NOW()),
--- Cleric: 46003, 2450 (Mace), 1850 (Shield)
-(3, 1, 2, 0, 46003, 0, NOW()),
-(4, 1, 2, 1, 2450, 0, NOW()),
-(5, 1, 2, 2, 1850, 0, NOW()),
--- Archer: 46003, 1350 (Bow)
-(6, 1, 3, 0, 46003, 0, NOW()),
-(7, 1, 3, 1, 1350, 0, NOW()),
--- Mage: 46003, 850 (Wand)
-(8, 1, 4, 0, 46003, 0, NOW()),
-(9, 1, 4, 1, 850, 0, NOW()),
--- Trickster: 46003, 2750 (Claws)
-(10, 1, 5, 0, 46003, 0, NOW()),
-(11, 1, 5, 1, 2750, 0, NOW())
-ON DUPLICATE KEY UPDATE
-    `nItemID` = VALUES(`nItemID`);
+DELETE FROM `tCharacter`
+WHERE `nUserNo` = 1 AND `sID` IN (
+    'Fighter_Template', 'Cleric_Template', 'Archer_Template',
+    'Mage_Template', 'Trickster_Template', 'Sentinel_Template',
+    'Tutorial_Fighter', 'Tutorial_Cleric', 'Tutorial_Archer',
+    'Tutorial_Mage', 'Tutorial_Trickster'
+);
+
+-- 5. num: Tabla auxiliar oficial de secuencia entera (0..1000) requerida por SPs de World00_Character.bak
+SET @@cte_max_recursion_depth = 2000;
+
+INSERT IGNORE INTO `num` (`num`)
+WITH RECURSIVE `seq` (`n`) AS (
+    SELECT 0
+    UNION ALL
+    SELECT `n` + 1 FROM `seq` WHERE `n` < 1000
+)
+SELECT `n` FROM `seq`;
+
+-- 6. tItemStorageFindEmpty: Índices de slots (0..255) requeridos por p_Item_GetStorageEmptyList / p_Item_Create_UseEmptyStorage
+INSERT IGNORE INTO `tItemStorageFindEmpty` (`nStorage`)
+WITH RECURSIVE `slot_seq` (`n`) AS (
+    SELECT 0
+    UNION ALL
+    SELECT `n` + 1 FROM `slot_seq` WHERE `n` < 255
+)
+SELECT `n` FROM `slot_seq`;

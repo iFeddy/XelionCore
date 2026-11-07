@@ -32,10 +32,10 @@ run_sql_file() {
 
 echo "=== Aplicando Esquema y Semillas de World00_Character en '$MYSQL_DATABASE' ==="
 
-# 1. Esquema oficial 1:1 de World00_Character (91 tablas oficiales)
+# 1. Esquema oficial 1:1 de World00_Character (114 tablas oficiales .bak + 2 tablas operativas S2S)
 run_sql_file "$DIR/database/schema_character.sql" "Esquema World00_Character (schema_character.sql)"
 
-# 2. Semillas oficiales de personajes, opciones y exp
-run_sql_file "$DIR/database/seed_character_defaults.sql" "Semillas de Personajes (seed_character_defaults.sql)"
+# 2. Semillas oficiales de opciones, atajos, exp y secuencias auxiliares (num, tItemStorageFindEmpty)
+run_sql_file "$DIR/database/seed_character_defaults.sql" "Semillas de World00_Character (seed_character_defaults.sql)"
 
 echo "=== Esquema y semillas de World00_Character aplicados exitosamente. ==="

@@ -1,7 +1,8 @@
 -- ============================================================================
 -- XELION ONLINE - ESQUEMA OFICIAL 1:1 WORLD00_CHARACTER (MYSQL 8.4)
 -- Generado con 100% de fidelidad respecto a docs/TablasLegacy.md y PDBs oficiales
--- Cubre las 61 tablas nucleares y las 91 tablas oficiales de World00_Character.bak
+-- Cubre las 109 tablas propias de World00_Character.bak (+ 5 compartidas en schema.sql = 114/114)
+-- más las 2 tablas operativas S2S (tActiveZoneTransfer y tWorldZoneNode)
 -- ============================================================================
 
 USE `xelion_online`;
@@ -1249,4 +1250,413 @@ CREATE TABLE IF NOT EXISTS `tKeyMapInit` (
     `sDescription` VARCHAR(255) NOT NULL DEFAULT '',
     PRIMARY KEY (`nFunctionNo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ============================================================================
+-- TABLAS ADICIONALES OFICIALES DE WORLD00_CHARACTER.BAK (18 TABLAS RESTANTES -> 114/114)
+-- ============================================================================
+
+-- ----------------------------------------------------------------------------
+-- Table: num
+-- ----------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS `num` (
+    `num` SMALLINT NOT NULL,
+    PRIMARY KEY (`num`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ----------------------------------------------------------------------------
+-- Table: tItem_deleted
+-- ----------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS `tItem_deleted` (
+    `nItemKey` BIGINT NOT NULL DEFAULT 0,
+    `nStorageType` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `nOwner` BIGINT NOT NULL DEFAULT 0,
+    `nStorage` SMALLINT NOT NULL DEFAULT 0,
+    `nItemID` INT NOT NULL DEFAULT 0,
+    `nFlags` INT NOT NULL DEFAULT 0,
+    `dDate` DATETIME DEFAULT CURRENT_TIMESTAMP,
+    KEY `idx_itemkey` (`nItemKey`),
+    KEY `idx_owner` (`nOwner`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ----------------------------------------------------------------------------
+-- Table: auditCharacterData
+-- ----------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS `auditCharacterData` (
+    `audit_log_id` CHAR(36) NOT NULL DEFAULT (UUID()),
+    `audit_log_type` CHAR(3) NOT NULL DEFAULT '',
+    `audit_user` TEXT,
+    `audit_host` CHAR(50) NOT NULL DEFAULT '',
+    `audit_application` CHAR(50) NOT NULL DEFAULT '',
+    `audit_char_no` INT DEFAULT NULL,
+    `audit_char_money` INT DEFAULT NULL,
+    `audit_changed` DATETIME DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (`audit_log_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ----------------------------------------------------------------------------
+-- Table: TEMP_ItemCnt
+-- ----------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS `TEMP_ItemCnt` (
+    `nOwner` INT NOT NULL DEFAULT 0,
+    `nItemCnt` INT NOT NULL DEFAULT 0,
+    KEY `idx_owner` (`nOwner`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ----------------------------------------------------------------------------
+-- Table: TEMP_QuestComplete
+-- ----------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS `TEMP_QuestComplete` (
+    `nCharNo` INT NOT NULL DEFAULT 0,
+    `nQuestCompleteCnt` INT NOT NULL DEFAULT 0,
+    KEY `idx_char` (`nCharNo`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ----------------------------------------------------------------------------
+-- Table: Temp_Guar
+-- ----------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS `Temp_Guar` (
+    `nCharNo` INT NOT NULL DEFAULT 0,
+    `nSkillNo` SMALLINT NOT NULL DEFAULT 0,
+    `nSkillLevel` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `nSkillExp` INT NOT NULL DEFAULT 0,
+    `nSkillWriteTime` BIGINT NOT NULL DEFAULT 0,
+    `nSkillCoolTime` INT NOT NULL DEFAULT 0,
+    `nSkillPowerDemage` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `nSkillPowerSP` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `nSkillPowerKeepTime` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `nSkillPowerCoolTime` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    KEY `idx_char_skill` (`nCharNo`, `nSkillNo`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ----------------------------------------------------------------------------
+-- Table: Temp_Holy
+-- ----------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS `Temp_Holy` (
+    `nCharNo` INT NOT NULL DEFAULT 0,
+    `nSkillNo` SMALLINT NOT NULL DEFAULT 0,
+    `nSkillLevel` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `nSkillExp` INT NOT NULL DEFAULT 0,
+    `nSkillWriteTime` BIGINT NOT NULL DEFAULT 0,
+    `nSkillCoolTime` INT NOT NULL DEFAULT 0,
+    `nSkillPowerDemage` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `nSkillPowerSP` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `nSkillPowerKeepTime` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `nSkillPowerCoolTime` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    KEY `idx_char_skill` (`nCharNo`, `nSkillNo`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ----------------------------------------------------------------------------
+-- Table: Waits_Sysprocesses
+-- ----------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS `Waits_Sysprocesses` (
+    `logdate` DATETIME DEFAULT NULL,
+    `spid` SMALLINT DEFAULT NULL,
+    `Wait Time (s)` DECIMAL(17, 6) DEFAULT NULL,
+    `lastwaittype` CHAR(32) DEFAULT NULL,
+    `waitresource` TEXT,
+    `dbid` SMALLINT DEFAULT NULL,
+    `uid` SMALLINT DEFAULT NULL,
+    `cpu` INT DEFAULT NULL,
+    `physical_io` BIGINT DEFAULT NULL,
+    `memusage` INT DEFAULT NULL,
+    `last_batch` DATETIME DEFAULT NULL,
+    `open_tran` SMALLINT DEFAULT NULL,
+    `sid` BINARY(86) DEFAULT NULL,
+    `hostname` TEXT,
+    `program_name` TEXT,
+    `nt_username` TEXT,
+    `loginame` TEXT,
+    `sql_text` VARCHAR(64) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ----------------------------------------------------------------------------
+-- Table: chr_a
+-- ----------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS `chr_a` (
+    `nCharNo` INT NOT NULL DEFAULT 0,
+    `sID` VARCHAR(40) NOT NULL DEFAULT '',
+    `nUserNo` INT NOT NULL DEFAULT 0,
+    `nAdminLevel` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `nPS` INT NOT NULL DEFAULT 0,
+    `nGS` INT NOT NULL DEFAULT 0,
+    `dCreateDate` DATETIME DEFAULT CURRENT_TIMESTAMP,
+    `bDeleted` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `nLoginZoneX` INT NOT NULL DEFAULT 0,
+    `nLoginZoneY` INT NOT NULL DEFAULT 0,
+    `nLoginZoneD` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `nPKYellowTime` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `dDeletedDate` DATETIME DEFAULT NULL,
+    `nAP` SMALLINT NOT NULL DEFAULT 0,
+    `sLoginZone` VARCHAR(16) NOT NULL DEFAULT '',
+    `nPKCount` INT NOT NULL DEFAULT 0,
+    `nLevel` SMALLINT NOT NULL DEFAULT 1,
+    `nExp` BIGINT NOT NULL DEFAULT 0,
+    `nSlotNo` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `nHP` SMALLINT NOT NULL DEFAULT 0,
+    `nSP` SMALLINT NOT NULL DEFAULT 0,
+    `nHPS` SMALLINT NOT NULL DEFAULT 0,
+    `nSPS` SMALLINT NOT NULL DEFAULT 0,
+    `dLastLoginDate` DATETIME DEFAULT NULL,
+    `nLoginCount` INT NOT NULL DEFAULT 0,
+    `nCreateWorld` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `nFame` INT NOT NULL DEFAULT 0,
+    `nPrisonMin` SMALLINT NOT NULL DEFAULT 0,
+    `nPlayMin` INT NOT NULL DEFAULT 0,
+    `nFlags` INT NOT NULL DEFAULT 0,
+    `nMoney` BIGINT NOT NULL DEFAULT 0,
+    `nStrength` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `nConstitute` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `nDexterity` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `nIntelligence` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `nMentalPower` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `nRedistributePoint` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `nKQHandle` INT NOT NULL DEFAULT 0,
+    `sKQMap` VARCHAR(16) NOT NULL DEFAULT '',
+    `nKQX` INT NOT NULL DEFAULT 0,
+    `nKQY` INT NOT NULL DEFAULT 0,
+    `nKQD` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `dKQDate` DATETIME DEFAULT NULL,
+    `ngrade` INT DEFAULT NULL,
+    KEY `idx_char` (`nCharNo`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ----------------------------------------------------------------------------
+-- Table: chr_b
+-- ----------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS `chr_b` (
+    `nCharNo` INT NOT NULL DEFAULT 0,
+    `sID` VARCHAR(40) NOT NULL DEFAULT '',
+    `nUserNo` INT NOT NULL DEFAULT 0,
+    `nAdminLevel` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `nPS` INT NOT NULL DEFAULT 0,
+    `nGS` INT NOT NULL DEFAULT 0,
+    `dCreateDate` DATETIME DEFAULT CURRENT_TIMESTAMP,
+    `bDeleted` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `nLoginZoneX` INT NOT NULL DEFAULT 0,
+    `nLoginZoneY` INT NOT NULL DEFAULT 0,
+    `nLoginZoneD` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `nPKYellowTime` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `dDeletedDate` DATETIME DEFAULT NULL,
+    `nAP` SMALLINT NOT NULL DEFAULT 0,
+    `sLoginZone` VARCHAR(16) NOT NULL DEFAULT '',
+    `nPKCount` INT NOT NULL DEFAULT 0,
+    `nLevel` SMALLINT NOT NULL DEFAULT 1,
+    `nExp` BIGINT NOT NULL DEFAULT 0,
+    `nSlotNo` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `nHP` SMALLINT NOT NULL DEFAULT 0,
+    `nSP` SMALLINT NOT NULL DEFAULT 0,
+    `nHPS` SMALLINT NOT NULL DEFAULT 0,
+    `nSPS` SMALLINT NOT NULL DEFAULT 0,
+    `dLastLoginDate` DATETIME DEFAULT NULL,
+    `nLoginCount` INT NOT NULL DEFAULT 0,
+    `nCreateWorld` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `nFame` INT NOT NULL DEFAULT 0,
+    `nPrisonMin` SMALLINT NOT NULL DEFAULT 0,
+    `nPlayMin` INT NOT NULL DEFAULT 0,
+    `nFlags` INT NOT NULL DEFAULT 0,
+    `nMoney` BIGINT NOT NULL DEFAULT 0,
+    `nStrength` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `nConstitute` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `nDexterity` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `nIntelligence` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `nMentalPower` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `nRedistributePoint` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `nKQHandle` INT NOT NULL DEFAULT 0,
+    `sKQMap` VARCHAR(16) NOT NULL DEFAULT '',
+    `nKQX` INT NOT NULL DEFAULT 0,
+    `nKQY` INT NOT NULL DEFAULT 0,
+    `nKQD` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `dKQDate` DATETIME DEFAULT NULL,
+    `ngrade` INT DEFAULT NULL,
+    KEY `idx_char` (`nCharNo`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ----------------------------------------------------------------------------
+-- Table: chr_bak
+-- ----------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS `chr_bak` (
+    `nCharNo` INT NOT NULL DEFAULT 0,
+    `sID` VARCHAR(40) NOT NULL DEFAULT '',
+    `nUserNo` INT NOT NULL DEFAULT 0,
+    `nAdminLevel` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `nPS` INT NOT NULL DEFAULT 0,
+    `nGS` INT NOT NULL DEFAULT 0,
+    `dCreateDate` DATETIME DEFAULT CURRENT_TIMESTAMP,
+    `bDeleted` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `nLoginZoneX` INT NOT NULL DEFAULT 0,
+    `nLoginZoneY` INT NOT NULL DEFAULT 0,
+    `nLoginZoneD` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `nPKYellowTime` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `dDeletedDate` DATETIME DEFAULT NULL,
+    `nAP` SMALLINT NOT NULL DEFAULT 0,
+    `sLoginZone` VARCHAR(16) NOT NULL DEFAULT '',
+    `nPKCount` INT NOT NULL DEFAULT 0,
+    `nLevel` SMALLINT NOT NULL DEFAULT 1,
+    `nExp` BIGINT NOT NULL DEFAULT 0,
+    `nSlotNo` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `nHP` SMALLINT NOT NULL DEFAULT 0,
+    `nSP` SMALLINT NOT NULL DEFAULT 0,
+    `nHPS` SMALLINT NOT NULL DEFAULT 0,
+    `nSPS` SMALLINT NOT NULL DEFAULT 0,
+    `dLastLoginDate` DATETIME DEFAULT NULL,
+    `nLoginCount` INT NOT NULL DEFAULT 0,
+    `nCreateWorld` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `nFame` INT NOT NULL DEFAULT 0,
+    `nPrisonMin` SMALLINT NOT NULL DEFAULT 0,
+    `nPlayMin` INT NOT NULL DEFAULT 0,
+    `nFlags` INT NOT NULL DEFAULT 0,
+    `nMoney` BIGINT NOT NULL DEFAULT 0,
+    `nStrength` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `nConstitute` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `nDexterity` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `nIntelligence` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `nMentalPower` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `nRedistributePoint` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `nKQHandle` INT NOT NULL DEFAULT 0,
+    `sKQMap` VARCHAR(16) NOT NULL DEFAULT '',
+    `nKQX` INT NOT NULL DEFAULT 0,
+    `nKQY` INT NOT NULL DEFAULT 0,
+    `nKQD` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `dKQDate` DATETIME DEFAULT NULL,
+    `ngrade` INT DEFAULT NULL,
+    KEY `idx_char` (`nCharNo`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ----------------------------------------------------------------------------
+-- Table: tBugReport_20091204
+-- ----------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS `tBugReport_20091204` (
+    `charNo` INT DEFAULT NULL,
+    `cnt` INT DEFAULT NULL,
+    `money` INT DEFAULT NULL,
+    `exp` INT DEFAULT NULL,
+    `fame` INT DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ----------------------------------------------------------------------------
+-- Table: tCharacterState_Backup
+-- ----------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS `tCharacterState_Backup` (
+    `nCharNo` INT NOT NULL DEFAULT 0,
+    `nStateNo` SMALLINT NOT NULL DEFAULT 0,
+    `nStateLevel` SMALLINT NOT NULL DEFAULT 0,
+    `nStateTime` INT NOT NULL DEFAULT 0,
+    `nStateCount` SMALLINT NOT NULL DEFAULT 0,
+    `nStatePowerDemage` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `nStatePowerSP` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `nStatePowerKeepTime` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `nStatePowerCoolTime` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    KEY `idx_char_state` (`nCharNo`, `nStateNo`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ----------------------------------------------------------------------------
+-- Table: tCharacterState_isSaveZero_BackUp
+-- ----------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS `tCharacterState_isSaveZero_BackUp` (
+    `nCharNo` INT NOT NULL DEFAULT 0,
+    `nStateNo` SMALLINT NOT NULL DEFAULT 0,
+    `nStateLevel` SMALLINT NOT NULL DEFAULT 0,
+    `nStateTime` INT NOT NULL DEFAULT 0,
+    `nStateCount` SMALLINT NOT NULL DEFAULT 0,
+    `nStatePowerDemage` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `nStatePowerSP` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `nStatePowerKeepTime` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `nStatePowerCoolTime` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `nSetItemIndexA` SMALLINT NOT NULL DEFAULT 0,
+    `nSetItemValueA` SMALLINT NOT NULL DEFAULT 0,
+    `nSetItemIndexB` SMALLINT NOT NULL DEFAULT 0,
+    `nSetItemValueB` SMALLINT NOT NULL DEFAULT 0,
+    `nSetItemIndexC` SMALLINT NOT NULL DEFAULT 0,
+    `nSetItemValueC` SMALLINT NOT NULL DEFAULT 0,
+    `nSetItemIndexD` SMALLINT NOT NULL DEFAULT 0,
+    `nSetItemValueD` SMALLINT NOT NULL DEFAULT 0,
+    KEY `idx_char_state` (`nCharNo`, `nStateNo`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ----------------------------------------------------------------------------
+-- Table: tGuildAcademy_Backup
+-- ----------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS `tGuildAcademy_Backup` (
+    `nNo` INT NOT NULL DEFAULT 0,
+    `nMasterCharNo` INT NOT NULL DEFAULT 0,
+    `nMaxMember` SMALLINT NOT NULL DEFAULT 0,
+    `nMoney` BIGINT NOT NULL DEFAULT 0,
+    `nPoint` INT NOT NULL DEFAULT 0,
+    `dBuffEndTime` DATETIME DEFAULT NULL,
+    `dNotifyDate` DATETIME DEFAULT NULL,
+    `sNotify` TEXT,
+    `sIntro` TEXT,
+    KEY `idx_no` (`nNo`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ----------------------------------------------------------------------------
+-- Table: tMimic_100610
+-- ----------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS `tMimic_100610` (
+    `charNo` INT DEFAULT NULL,
+    `cnt` INT DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ----------------------------------------------------------------------------
+-- Table: tQuest_BackUp
+-- ----------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS `tQuest_BackUp` (
+    `nCharNo` INT NOT NULL DEFAULT 0,
+    `nQuestNo` INT NOT NULL DEFAULT 0,
+    `nStatus` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `sData` VARBINARY(100) DEFAULT NULL,
+    KEY `idx_char_quest` (`nCharNo`, `nQuestNo`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ----------------------------------------------------------------------------
+-- Table: temp_GA
+-- ----------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS `temp_GA` (
+    `nNo` INT DEFAULT NULL,
+    `nCharNo` INT DEFAULT NULL,
+    `num` INT DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ============================================================================
+-- TABLAS OPERATIVAS S2S (WORLDSERVICE <-> ZONESERVICE)
+-- ============================================================================
+
+-- ----------------------------------------------------------------------------
+-- Table: tActiveZoneTransfer
+-- Tokens de transferencia de un solo uso World -> Zone e inter-zona
+-- ----------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS `tActiveZoneTransfer` (
+    `sCharID` VARCHAR(40) NOT NULL,
+    `nWorldNo` TINYINT UNSIGNED NOT NULL,
+    `nZoneNo` SMALLINT UNSIGNED NOT NULL,
+    `nUserNo` INT NOT NULL,
+    `sUserID` VARCHAR(60) NOT NULL,
+    `nCharNo` INT NOT NULL,
+    `nRandomID` SMALLINT UNSIGNED NOT NULL,
+    `nAdminLevel` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    `sClientIP` VARCHAR(45) NOT NULL,
+    `sTargetMap` VARCHAR(16) NOT NULL,
+    `nTargetX` INT NOT NULL DEFAULT 0,
+    `nTargetY` INT NOT NULL DEFAULT 0,
+    `dIssuedAt` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `dExpiresAt` DATETIME NOT NULL,
+    PRIMARY KEY (`sCharID`),
+    KEY `idx_expires` (`dExpiresAt`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ----------------------------------------------------------------------------
+-- Table: tWorldZoneNode
+-- Registro vivo de endpoints y carga por (nWorldNo, nZoneNo)
+-- ----------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS `tWorldZoneNode` (
+    `nWorldNo` TINYINT UNSIGNED NOT NULL,
+    `nZoneNo` SMALLINT UNSIGNED NOT NULL,
+    `sZoneIP` VARCHAR(45) NOT NULL,
+    `nZonePort` SMALLINT UNSIGNED NOT NULL,
+    `nCurrentPlayers` INT NOT NULL DEFAULT 0,
+    `bIsOnline` TINYINT(1) NOT NULL DEFAULT 1,
+    `dLastHeartbeat` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (`nWorldNo`, `nZoneNo`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 
