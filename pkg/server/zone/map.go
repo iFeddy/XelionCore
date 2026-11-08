@@ -173,8 +173,10 @@ func (mm *MapManager) GetOrCreateMap(mapID string) *ZoneMap {
 	defer mm.mu.Unlock()
 
 	normID := strings.TrimSpace(mapID)
-	if normID == "" {
-		normID = "RouN"
+	if normID == "" && mm.fieldStore != nil {
+		if entry, ok := mm.fieldStore.GetFieldBySerial(0); ok && entry != nil {
+			normID = entry.MapID
+		}
 	}
 	key := strings.ToLower(normID)
 

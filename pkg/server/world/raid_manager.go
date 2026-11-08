@@ -577,3 +577,4 @@ func (rm *RaidManager) HandleWarning(client *network.Client, warningText string)
 		}
 	}
 }
+

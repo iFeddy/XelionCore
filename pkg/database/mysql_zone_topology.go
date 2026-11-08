@@ -53,6 +53,11 @@ func (r *MySQLCharacterRepository) ConsumeZoneTransfer(charID string, randomID u
 		RandomID:  randomID,
 		Admin:     byte(adminLevel),
 		HostIP:    clientIP,
+		TargetMap: targetMap,
+		TargetX:   targetX,
+		TargetY:   targetY,
+		WorldNo:   byte(worldNo),
+		ZoneNo:    uint16(zoneNo),
 		CreatedAt: time.Now(),
 	}, nil
 }

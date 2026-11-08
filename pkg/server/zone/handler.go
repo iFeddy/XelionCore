@@ -21,6 +21,7 @@ import (
 // Handler processes incoming packets for the Zone Server.
 type Handler struct {
 	worldID     byte
+	zoneNo      uint16
 	mu          sync.RWMutex
 	charRepo    database.CharacterRepository
 	accountRepo *database.MySQLAccountRepository
@@ -154,13 +155,29 @@ func (h *Handler) OnClientDisconnect(client *network.Client) {
 			player.CurrentMap.RemovePlayer(player)
 		}
 
-		if player.Char != nil {
+		if player.Char != nil && h.charRepo != nil {
 			mapID := player.Char.TownName
 			if player.CurrentMap != nil && player.CurrentMap.MapID != "" {
 				mapID = player.CurrentMap.MapID
 			}
+
+			playMin := int(time.Since(player.LoginTime).Minutes())
+			if playMin < 1 {
+				playMin = 1
+			}
+
+			// 1. CALL p_Char_Logout oficial
+			_ = h.charRepo.CharacterLogout(player.Char.ID, playMin)
+
+			// 2. Persistencia integral de ubicación y estadísticas
 			_ = h.charRepo.SaveCharLocation(player.Char.ID, mapID, player.Char.XPos, player.Char.YPos, player.Rotation)
 			_ = h.charRepo.SaveCharStats(player.Char.ID, int16(player.Char.CurHP), int16(player.Char.CurSP), player.StonesHP, player.StonesSP)
+			_ = h.charRepo.SaveCharLevelExp(player.Char.ID, int16(player.Char.Level), player.Char.TCharacterState.Exp)
+			_ = h.charRepo.SaveCharMoney(player.Char.ID, player.Char.TCharacterState.Money)
+
+			// 3. CALL usp_Char_SetRestExpExecTime oficial
+			_ = h.charRepo.SetRestExpExecTime(player.Char.ID, time.Now())
+
 			_ = h.charRepo.UpdateCharacter(player.Char)
 		}
 
@@ -203,6 +220,18 @@ func (h *Handler) getPlayer(client *network.Client) (*ZonePlayer, bool) {
 	defer h.mu.RUnlock()
 	p, ok := h.players[client]
 	return p, ok
+}
+
+// GetPlayerByName busca un jugador activo por su nombre.
+func (h *Handler) GetPlayerByName(name string) (*ZonePlayer, bool) {
+	h.mu.RLock()
+	defer h.mu.RUnlock()
+	for _, p := range h.players {
+		if p != nil && p.Char != nil && p.Char.Name == name {
+			return p, true
+		}
+	}
+	return nil, false
 }
 
 func (h *Handler) handleTransferKey(client *network.Client, pkt *protocol.Packet) {
@@ -254,8 +283,23 @@ func (h *Handler) handleTransferKey(client *network.Client, pkt *protocol.Packet
 		log.Printf("[Zone][%s] DataFileCheck PASSED for all 49 .shn files", client.RemoteAddr())
 	}
 
-	transfer, ok := h.transfers.ConsumeZoneTransfer(charName, randomID, pkt.Raw)
-	if !ok {
+	var transfer *database.ZoneTransfer
+	if h.charRepo != nil {
+		var err error
+		transfer, err = h.charRepo.ConsumeZoneTransfer(charName, randomID, client.RemoteIP())
+		if err != nil {
+			transfer, _ = h.charRepo.ConsumeZoneTransfer(charName, randomID, "")
+		}
+	}
+	if transfer == nil && h.transfers != nil {
+		var ok bool
+		transfer, ok = h.transfers.ConsumeZoneTransfer(charName, randomID, pkt.Raw)
+		if !ok {
+			transfer = nil
+		}
+	}
+
+	if transfer == nil {
 		log.Printf("[Zone][%s] Transfer verification failed for '%s' (RandomID: %d)",
 			client.RemoteAddr(), charName, randomID)
 		errPkt := protocol.New_PROTO_NC_MAP_LOGINFAIL_ACK(4, 0) // RequestedCharacterIDNotMatching
@@ -265,7 +309,7 @@ func (h *Handler) handleTransferKey(client *network.Client, pkt *protocol.Packet
 	}
 
 	char, err := h.charRepo.GetCharacterByName(transfer.CharName)
-	if err != nil {
+	if err != nil || char == nil {
 		char, err = h.charRepo.GetCharacterByID(transfer.CharID)
 	}
 
@@ -279,9 +323,18 @@ func (h *Handler) handleTransferKey(client *network.Client, pkt *protocol.Packet
 
 	player := NewZonePlayer(client, char, h.classStore)
 	player.WorldNo = h.worldID
-	mapID := char.TownName
+	mapID := transfer.TargetMap
 	if mapID == "" {
-		mapID = "RouN"
+		mapID = char.TownName
+	}
+	if mapID == "" && h.fieldStore != nil {
+		if f, ok := h.fieldStore.GetFieldBySerial(0); ok && f != nil {
+			mapID = f.MapID
+		}
+	}
+	if transfer.TargetX > 0 && transfer.TargetY > 0 {
+		player.Char.XPos = transfer.TargetX
+		player.Char.YPos = transfer.TargetY
 	}
 	zMap := h.mapManager.GetOrCreateMap(mapID)
 	player.CurrentMap = zMap
@@ -330,20 +383,48 @@ func (h *Handler) sendInGameChunk(p *ZonePlayer) {
 	p.WriteLook(lookPkt)
 	_ = p.Client.SendPacket(lookPkt)
 
-	// 3. 0x103A - PROTO_NC_CHAR_CLIENT_QUEST_DOING_CMD (Siempre, wire len = 8, payload = 6)
+	// 3-6. Quests (Doing, Done, Read, Repeat) cargadas 100% desde MySQL (tQuest / tQuestTimes)
+	var doingList []*database.QuestData
+	var repeatList []*database.QuestData
+	var doneQuests []int
+	if h.charRepo != nil && p.Char != nil {
+		allQuests, _ := h.charRepo.GetCharacterQuests(p.Char.ID)
+		for _, q := range allQuests {
+			if q.Status == 1 {
+				doingList = append(doingList, q)
+			} else if q.Status == 3 {
+				repeatList = append(repeatList, q)
+			}
+		}
+		doneQuests, _ = h.charRepo.GetCharacterDoneQuests(p.Char.ID)
+	}
+
+	// 3. 0x103A - PROTO_NC_CHAR_CLIENT_QUEST_DOING_CMD
 	questsBusy := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_CLIENT_QUEST_DOING_CMD)
 	questsBusy.WriteUint32(uint32(p.Char.ID))
-	questsBusy.WriteByte(1) // bNeedClear = 1
-	questsBusy.WriteByte(0) // nNumOfDoingQuest = 0
+	questsBusy.WriteByte(1)                    // bNeedClear = 1
+	questsBusy.WriteByte(byte(len(doingList))) // nNumOfDoingQuest
+	for _, q := range doingList {
+		questsBusy.WriteUint16(uint16(q.QuestNo))
+		if len(q.Data) >= 30 {
+			questsBusy.WriteBytes(q.Data[:30])
+		} else {
+			questsBusy.WriteBytes(q.Data)
+			questsBusy.Fill(30-len(q.Data), 0)
+		}
+	}
 	_ = p.Client.SendPacket(questsBusy)
 
-	// 4. 0x103B - PROTO_NC_CHAR_CLIENT_QUEST_DONE_CMD (Siempre, wire len = 14, payload = 12)
+	// 4. 0x103B - PROTO_NC_CHAR_CLIENT_QUEST_DONE_CMD
 	questsDone := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_CLIENT_QUEST_DONE_CMD)
 	questsDone.WriteUint32(uint32(p.Char.ID))
-	questsDone.WriteUint16(0) // nTotalDoneQuest
-	questsDone.WriteUint16(0) // nTotalDoneQuestSize
-	questsDone.WriteUint16(0) // nDoneQuestCount
-	questsDone.WriteUint16(0) // nIndex
+	questsDone.WriteUint16(uint16(len(doneQuests))) // nTotalDoneQuest
+	questsDone.WriteUint16(uint16(len(doneQuests))) // nTotalDoneQuestSize
+	questsDone.WriteUint16(uint16(len(doneQuests))) // nDoneQuestCount
+	questsDone.WriteUint16(0)                       // nIndex
+	for _, qID := range doneQuests {
+		questsDone.WriteUint16(uint16(qID))
+	}
 	_ = p.Client.SendPacket(questsDone)
 
 	// 5. 0x10CE - PROTO_NC_CHAR_CLIENT_QUEST_READ_CMD (Siempre, wire len = 8, payload = 6)
@@ -355,59 +436,93 @@ func (h *Handler) sendInGameChunk(p *ZonePlayer) {
 	// 6. 0x10D7 - PROTO_NC_CHAR_CLIENT_QUEST_REPEAT_CMD (Siempre, wire len = 8, payload = 6)
 	questsRepeat := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_CLIENT_QUEST_REPEAT_CMD)
 	questsRepeat.WriteUint32(uint32(p.Char.ID))
-	questsRepeat.WriteUint16(0) // nNumOfRepeatQuest = 0
+	questsRepeat.WriteUint16(uint16(len(repeatList))) // nNumOfRepeatQuest
+	for _, q := range repeatList {
+		questsRepeat.WriteUint16(uint16(q.QuestNo))
+		if len(q.Data) >= 30 {
+			questsRepeat.WriteBytes(q.Data[:30])
+		} else {
+			questsRepeat.WriteBytes(q.Data)
+			questsRepeat.Fill(30-len(q.Data), 0)
+		}
+	}
 	_ = p.Client.SendPacket(questsRepeat)
 
-	// 7. 0x103E - PROTO_NC_CHAR_CLIENT_PASSIVE_CMD (Siempre, wire len = 4, payload = 2)
-	skills, _ := h.charRepo.GetCharacterSkills(p.Char.ID)
+	// 7. 0x103E - PROTO_NC_CHAR_CLIENT_PASSIVE_CMD (Siempre, clasificado por PassiveSkill.shn)
 	var activeSkills []*database.CharacterSkill
-	var passiveCount uint16
-	for _, sk := range skills {
-		activeSkills = append(activeSkills, sk)
+	var passiveSkills []*database.CharacterSkill
+	if h.charRepo != nil && p.Char != nil {
+		skills, _ := h.charRepo.GetCharacterSkills(p.Char.ID)
+		for _, sk := range skills {
+			if h.dataStore != nil && h.dataStore.IsPassiveSkill(sk.SkillNo) {
+				passiveSkills = append(passiveSkills, sk)
+			} else {
+				activeSkills = append(activeSkills, sk)
+			}
+		}
 	}
 
-	passiveSkills := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_CLIENT_PASSIVE_CMD)
-	passiveSkills.WriteUint16(passiveCount)
-	_ = p.Client.SendPacket(passiveSkills)
+	passiveSkillsPkt := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_CLIENT_PASSIVE_CMD)
+	passiveSkillsPkt.WriteUint16(uint16(len(passiveSkills)))
+	for _, ps := range passiveSkills {
+		passiveSkillsPkt.WriteUint16(ps.SkillNo)
+	}
+	_ = p.Client.SendPacket(passiveSkillsPkt)
 
 	// 8. 0x104A - PROTO_NC_CHAR_CLIENT_CHARGEDBUFF_CMD (CRÍTICO: Siempre, incondicional)
-	type chargedBuffEntry struct {
-		ID       uint16
-		TimeLeft uint32
-		KeepTime uint32
-		Value    uint32
+	var chargedBuffs []*database.ChargedBuffData
+	if h.charRepo != nil && p.Char != nil {
+		chargedBuffs, _ = h.charRepo.GetChargedBuffs(p.Char.ID)
 	}
-	var chargedBuffs []chargedBuffEntry
 	buffPkt := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_CLIENT_CHARGEDBUFF_CMD)
 	buffPkt.WriteUint16(uint16(len(chargedBuffs))) // 0 si no tiene buffs (2 bytes de payload)
+	now := time.Now()
 	for _, buff := range chargedBuffs {
-		buffPkt.WriteUint16(buff.ID)
-		buffPkt.WriteUint32(buff.TimeLeft)
-		buffPkt.WriteUint32(buff.KeepTime)
-		buffPkt.WriteUint32(buff.Value)
+		timeLeft := uint32(0)
+		keepTime := uint32(0)
+		if !buff.EndDate.IsZero() && buff.EndDate.After(now) {
+			timeLeft = uint32(buff.EndDate.Sub(now).Seconds())
+			keepTime = uint32(buff.EndDate.Sub(buff.UseDate).Seconds())
+		}
+		buffPkt.WriteUint16(uint16(buff.ID))
+		buffPkt.WriteUint32(timeLeft)
+		buffPkt.WriteUint32(keepTime)
+		buffPkt.WriteUint32(uint32(buff.Key))
 	}
 	_ = p.Client.SendPacket(buffPkt)
 
 	// 9. 0x103D - PROTO_NC_CHAR_CLIENT_SKILL_CMD (Solo si tiene skills activas, con PartMark = 3)
 	if len(activeSkills) > 0 {
 		skillPkt := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_CLIENT_SKILL_CMD)
-		skillPkt.WriteByte(0)                           // restempow (1 byte)
-		skillPkt.WriteByte(3)                           // PartMark = 3 (first=1 | last=1, 1 byte)
-		skillPkt.WriteUint16(uint16(len(activeSkills))) // nMaxNum (2 bytes)
-		skillPkt.WriteUint32(uint32(p.Char.ID))         // chrregnum (4 bytes)
-		skillPkt.WriteUint16(uint16(len(activeSkills))) // number (2 bytes)
+		skillPkt.WriteByte(0)                               // restempow (1 byte)
+		skillPkt.WriteByte(3)                               // PartMark = 3 (first=1 | last=1, 1 byte)
+		skillPkt.WriteUint16(uint16(len(activeSkills)))     // nMaxNum (2 bytes)
+		skillPkt.WriteUint32(uint32(p.Char.ID))             // chrregnum (4 bytes)
+		skillPkt.WriteUint16(uint16(len(activeSkills)))     // number (2 bytes)
 		for _, sk := range activeSkills {
-			skillPkt.WriteUint16(sk.SkillNo) // skillid (2 bytes)
-			skillPkt.WriteUint32(0)          // cooltime (4 bytes)
-			skillPkt.WriteUint16(0)          // empow (2 bytes)
-			skillPkt.WriteUint32(0)          // mastery (4 bytes)
+			skillPkt.WriteUint16(sk.SkillNo)                // skillid (2 bytes)
+			skillPkt.WriteUint32(uint32(sk.SkillCoolTime))  // cooltime (4 bytes)
+			skillPkt.WriteUint16(0)                         // empow (2 bytes)
+			skillPkt.WriteUint32(uint32(sk.SkillExp))       // mastery (4 bytes)
 		}
 		_ = p.Client.SendPacket(skillPkt)
 	}
 
 	// 10. 0x1048 - PROTO_NC_CHAR_CLIENT_GAME_CMD (Siempre, wire len = 6, payload = 4)
+	partyNo := uint16(0xFFFF)
+	raidNo := uint16(0xFFFF)
+	if h.charRepo != nil && p.Char != nil {
+		_, _ = h.charRepo.GetCharacterOptions(p.Char.ID)
+		_, _ = h.charRepo.GetCharacterStates(p.Char.ID)
+		_, _ = h.charRepo.GetItemActionCoolTime(p.Char.ID)
+		_, _ = h.charRepo.GetRestExpExecTime(p.Char.ID)
+		if ptNo, _, _, err := h.charRepo.GetPartyByChar(p.Char.ID); err == nil && ptNo > 0 {
+			partyNo = uint16(ptNo)
+		}
+	}
 	gamePkt := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_CLIENT_GAME_CMD)
-	gamePkt.WriteUint32(0xFFFFFFFF) // partyno = 0xFFFF, nRaidNo = 0xFFFF (Sin party ni raid)
+	gamePkt.WriteUint16(partyNo)
+	gamePkt.WriteUint16(raidNo)
 	_ = p.Client.SendPacket(gamePkt)
 
 	// 11-14. 0x1047 - PROTO_NC_CHAR_CLIENT_ITEM_CMD:
@@ -415,7 +530,10 @@ func (h *Handler) sendInGameChunk(p *ZonePlayer) {
 	// - Box 9 (Inven):      Solo si len > 0
 	// - Box 12 (House):     Solo si len > 0
 	// - Box 15 (ActionItem): Siempre (incluso vacío: numofitem=0, box=15, flag=1)
-	charItems, _ := h.charRepo.GetCharacterItems(p.Char.ID)
+	var charItems []*database.Item
+	if h.charRepo != nil && p.Char != nil {
+		charItems, _ = h.charRepo.GetCharacterItems(p.Char.ID)
+	}
 	itemsByBox := make(map[uint8][]*database.Item)
 	for _, it := range charItems {
 		boxType := it.StorageType
@@ -442,7 +560,14 @@ func (h *Handler) sendInGameChunk(p *ZonePlayer) {
 			itemPkt.WriteByte(1)                // flag = 1
 			for _, it := range items {
 				loc := (uint16(box) << 10) | (uint16(it.Storage) & 0x03FF)
-				attrBuf := h.itemStore.BuildItemAttr(it.ItemID, uint32(it.Flags), nil, 0)
+				var statOpts []item.ItemStatOption
+				if h.charRepo != nil && it.ItemKey > 0 {
+					options, _ := h.charRepo.GetItemOptions(it.ItemKey)
+					for k, v := range options {
+						statOpts = append(statOpts, item.ItemStatOption{Type: uint8(k), Value: uint16(v)})
+					}
+				}
+				attrBuf := h.itemStore.BuildItemAttr(it.ItemID, uint32(it.Flags), statOpts, 0)
 				dataSize := byte(2 + 2 + len(attrBuf))
 				itemPkt.WriteByte(dataSize)    // datasize: 2 (location) + 2 (itemid) + len(attr)
 				itemPkt.WriteUint16(loc)       // location: ITEM_INVEN (uint16 bitfield: (box << 10) | slot)
@@ -467,17 +592,35 @@ func (h *Handler) sendInGameChunk(p *ZonePlayer) {
 	sendItemBox(15, itemsByBox[15], true)
 
 	// 15. 0x1049 - PROTO_NC_CHAR_CLIENT_CHARTITLE_CMD (Siempre, wire len = 8, payload = 6)
-	titles := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_CLIENT_CHARTITLE_CMD)
-	titles.WriteByte(0)   // CurrentTitle = 0
-	titles.WriteByte(0)   // CurrentTitleElement = 0
-	titles.WriteUint16(0) // CurrentTitleMobID = 0
-	titles.WriteUint16(0) // NumOfTitle = 0
-	_ = p.Client.SendPacket(titles)
+	var titles []*database.CharacterTitleData
+	if h.charRepo != nil && p.Char != nil {
+		titles, _ = h.charRepo.GetCharacterTitles(p.Char.ID)
+	}
+	titlesPkt := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_CLIENT_CHARTITLE_CMD)
+	titlesPkt.WriteByte(0)                      // CurrentTitle = 0
+	titlesPkt.WriteByte(0)                      // CurrentTitleElement = 0
+	titlesPkt.WriteUint16(0)                    // CurrentTitleMobID = 0
+	titlesPkt.WriteUint16(uint16(len(titles)))  // NumOfTitle
+	for _, t := range titles {
+		titlesPkt.WriteByte(byte(t.TitleType))
+		titlesPkt.WriteByte(0)
+	}
+	_ = p.Client.SendPacket(titlesPkt)
 
-	// 16. 0x3801 / 0x3802 / 0x3803 (Card Regist) - Solo si tiene cartas registradas
-	var cardRegistPackets []*protocol.PacketWriter
-	for _, cardPkt := range cardRegistPackets {
-		_ = p.Client.SendPacket(cardPkt)
+	// 16. 0x10E4 (PROTO_NC_CHAR_CLIENT_CARDCOLLECT_CMD) - Solo si tiene cartas registradas
+	if h.charRepo != nil && p.Char != nil {
+		if cards, err := h.charRepo.GetCollectionCards(p.Char.ID); err == nil && len(cards) > 0 {
+			cardPkt := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_CLIENT_CARDCOLLECT_CMD)
+			cardPkt.WriteUint32(uint32(p.Char.ID))
+			cardPkt.WriteUint16(uint16(len(cards)))
+			for _, c := range cards {
+				cardPkt.WriteInt32(int32(time.Now().Unix())) // RegistTime
+				cardPkt.WriteUint32(1)                       // SerialNumber
+				cardPkt.WriteUint16(uint16(c.CardID))        // CardID
+				cardPkt.WriteByte(byte(c.Count))             // StarNumber
+			}
+			_ = p.Client.SendPacket(cardPkt)
+		}
 	}
 
 	// 17. 0x1802 - PROTO_NC_MAP_LOGIN_ACK (CRÍTICO: Absolutamente el último paquete del bloque)
@@ -976,6 +1119,13 @@ func (h *Handler) SetWorldID(id byte) {
 	h.worldID = id
 }
 
+// SetZoneNo asigna el zoneNo de la instancia para enrutamiento y saltos inter-zona.
+func (h *Handler) SetZoneNo(zoneNo uint16) {
+	h.mu.Lock()
+	defer h.mu.Unlock()
+	h.zoneNo = zoneNo
+}
+
 // SetDataStore sets the entire loaded game data store for the zone handler.
 func (h *Handler) SetDataStore(ds *DataStore) {
 	h.mu.Lock()
@@ -1114,16 +1264,69 @@ func (h *Handler) triggerGateWarp(player *ZonePlayer, gateArg string) {
 }
 
 // WarpPlayer traslada al jugador entre mapas oficiales, actualizando mapas, coordenadas y persistencia.
+// Si el mapa pertenece a otra zona según FieldList (fiesta != h.zoneNo), realiza un traspaso inter-zona
+// invocando usp_Session_IssueZoneTransfer y enviando PROTO_NC_CHAR_LOGIN_ACK.
 func (h *Handler) WarpPlayer(player *ZonePlayer, targetMapID string, x, y int, rotation byte) {
 	if player == nil || player.Client == nil {
 		return
 	}
 
 	targetMapID = strings.TrimSpace(targetMapID)
-	if targetMapID == "" {
-		targetMapID = "RouN"
+	if targetMapID == "" && h.fieldStore != nil {
+		if f0, ok := h.fieldStore.GetFieldBySerial(0); ok && f0 != nil {
+			targetMapID = f0.MapID
+		}
 	}
 
+	var targetZoneNo uint16 = 1
+	if h.fieldStore != nil && targetMapID != "" {
+		if f, ok := h.fieldStore.GetField(targetMapID); ok && f != nil {
+			targetZoneNo = uint16(f.Fiesta)
+			if targetZoneNo == 0 {
+				targetZoneNo = 1
+			}
+		}
+	}
+
+	// Si el mapa destino está en otra zona (inter-zone transfer)
+	if h.zoneNo > 0 && targetZoneNo != h.zoneNo && h.charRepo != nil {
+		ip, port, isOnline, err := h.charRepo.ResolveMapEndpoint(h.worldID, targetZoneNo)
+		if err == nil && isOnline && ip != "" && port > 0 {
+			randomID := uint16(time.Now().UnixNano() & 0xFFFF)
+			if randomID == 0 {
+				randomID = 1
+			}
+			userNo := player.AccountID
+			if userNo == 0 && player.Char != nil {
+				userNo = player.Char.AccountID
+			}
+			userName := player.Username
+			if userName == "" && player.Char != nil {
+				userName = player.Char.Name
+			}
+			_ = h.charRepo.SaveCharLink(player.Char.ID, targetMapID, x, y)
+			_ = h.charRepo.IssueZoneTransfer(
+				h.worldID, targetZoneNo, userNo, userName,
+				player.Char.ID, player.Char.Name, randomID, player.Admin,
+				player.Client.RemoteIP(), targetMapID, x, y,
+			)
+
+			log.Printf("[Zone][%s] Inter-zone warp for '%s' to zone %d (%s:%d) map '%s' (%d, %d)",
+				player.Client.RemoteAddr(), player.Char.Name, targetZoneNo, ip, port, targetMapID, x, y)
+
+			ack := protocol.New_PROTO_NC_CHAR_LOGIN_ACK(ip, port)
+			_ = player.Client.SendPacket(ack)
+
+			oldMap := player.CurrentMap
+			if oldMap != nil {
+				oldMap.RemovePlayer(player)
+			}
+			player.Client.Close()
+			return
+		}
+	}
+
+	// Mismo nodo de zona: warp local
 	oldMap := player.CurrentMap
 	if oldMap != nil {
 		oldMap.RemovePlayer(player)
@@ -1137,7 +1340,9 @@ func (h *Handler) WarpPlayer(player *ZonePlayer, targetMapID string, x, y int, r
 	player.Rotation = rotation
 	player.LastWarpTime = time.Now()
 
-	_ = h.charRepo.SaveCharLocation(player.Char.ID, newMap.MapID, x, y, rotation)
+	if h.charRepo != nil && player.Char != nil {
+		_ = h.charRepo.SaveCharLocation(player.Char.ID, newMap.MapID, x, y, rotation)
+	}
 
 	log.Printf("[Zone][%s] Player '%s' entering new map '%s' (%d, %d, Dir: %d)",
 		player.Client.RemoteAddr(), player.Char.Name, newMap.MapID, x, y, rotation)
@@ -1187,7 +1392,24 @@ func (h *Handler) handleTownPortal(client *network.Client, pkt *protocol.Packet)
 	log.Printf("[Zone][%s] Town portal request (Index: %d) from '%s'",
 		client.RemoteAddr(), portalIndex, player.Char.Name)
 
-	h.WarpPlayer(player, "RouN", 6208, 6405, 0x55)
+	targetMap := ""
+	if player.Char != nil {
+		targetMap = player.Char.TownName
+	}
+	if targetMap == "" && h.fieldStore != nil {
+		if f0, ok := h.fieldStore.GetFieldBySerial(0); ok && f0 != nil {
+			targetMap = f0.MapID
+		}
+	}
+	spawnX := 6208
+	spawnY := 6405
+	if h.fieldStore != nil && targetMap != "" {
+		if f, ok := h.fieldStore.GetField(targetMap); ok && f != nil && len(f.Respawn.Spots) > 0 {
+			spawnX = f.Respawn.Spots[0].X
+			spawnY = f.Respawn.Spots[0].Y
+		}
+	}
+	h.WarpPlayer(player, targetMap, spawnX, spawnY, 0x55)
 }
 
 // handleWingFly procesa 0x1816 (PROTO_NC_MAP_WING_FLY_REQ -> sp_NC_MAP_WING_FLY_REQ en Zone.pdb).
@@ -1201,7 +1423,24 @@ func (h *Handler) handleWingFly(client *network.Client, pkt *protocol.Packet) {
 	log.Printf("[Zone][%s] Wing fly request (Where: %d) from '%s'",
 		client.RemoteAddr(), where, player.Char.Name)
 
-	h.WarpPlayer(player, "RouN", 6208, 6405, 0x55)
+	targetMap := ""
+	if player.Char != nil {
+		targetMap = player.Char.TownName
+	}
+	if targetMap == "" && h.fieldStore != nil {
+		if f0, ok := h.fieldStore.GetFieldBySerial(0); ok && f0 != nil {
+			targetMap = f0.MapID
+		}
+	}
+	spawnX := 6208
+	spawnY := 6405
+	if h.fieldStore != nil && targetMap != "" {
+		if f, ok := h.fieldStore.GetField(targetMap); ok && f != nil && len(f.Respawn.Spots) > 0 {
+			spawnX = f.Respawn.Spots[0].X
+			spawnY = f.Respawn.Spots[0].Y
+		}
+	}
+	h.WarpPlayer(player, targetMap, spawnX, spawnY, 0x55)
 }
 
 // sendCellChange implementa so_ply_ChangeCell (Zone.exe VA 0x518260):

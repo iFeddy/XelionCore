@@ -6,6 +6,7 @@ import (
 	"log"
 	"os"
 	"os/signal"
+	"strconv"
 	"syscall"
 	"time"
 
@@ -54,11 +55,26 @@ func main() {
 		zoneIP = cfg.ZoneIP
 	}
 
+	worldNo := byte(0)
+	if envW := os.Getenv("ZONE_WORLD_NO"); envW != "" {
+		if w, err := strconv.Atoi(envW); err == nil {
+			worldNo = byte(w)
+		}
+	}
+	zoneNo := uint16(1)
+	if envZ := os.Getenv("ZONE_NO"); envZ != "" {
+		if z, err := strconv.Atoi(envZ); err == nil {
+			zoneNo = uint16(z)
+		}
+	}
+
 	zoneCfg := &zone.Config{
 		BindAddr: fmt.Sprintf("0.0.0.0:%d", zonePort),
 		Port:     zonePort,
 		IP:       zoneIP,
 		MapID:    0,
+		WorldNo:  worldNo,
+		ZoneNo:   zoneNo,
 	}
 
 	// 2. Cargar la totalidad de subsistemas y datos en memoria RAM (Zero-Disk-I/O durante runtime)
@@ -77,10 +93,35 @@ func main() {
 	accountRepo := database.NewMySQLAccountRepository(db)
 	transfers := database.NewTransferManager(db)
 
+	// Registrar nodo en tWorldZoneNode mediante CALL usp_WorldZone_UpsertNode oficial
+	if err := charRepo.UpsertZoneNode(worldNo, zoneNo, zoneIP, uint16(zonePort)); err != nil {
+		log.Printf("[Zone] Warning: failed to register zone node: %v", err)
+	} else {
+		log.Printf("[Zone] Node registered in tWorldZoneNode (World: %d, Zone: %d, IP: %s, Port: %d)",
+			worldNo, zoneNo, zoneIP, zonePort)
+	}
+	if worldNo == 0 {
+		_ = charRepo.UpsertZoneNode(1, zoneNo, zoneIP, uint16(zonePort))
+	}
+
+	// Latido periódico de vida en tWorldZoneNode (cada 30 segundos)
+	zoneHeartbeatTicker := time.NewTicker(30 * time.Second)
+	defer zoneHeartbeatTicker.Stop()
+
 	// 4. Iniciar servidor e inyectar almacén global en memoria RAM
 	srv := zone.NewServer(zoneCfg, charRepo, transfers, classStore, fieldStore, chkEngine)
 	srv.SetAccountRepo(accountRepo)
 	srv.SetDataStore(dataStore)
+
+	go func() {
+		for range zoneHeartbeatTicker.C {
+			count := srv.Handler().ActivePlayersCount()
+			_ = charRepo.HeartbeatZoneNode(worldNo, zoneNo, count)
+			if worldNo == 0 {
+				_ = charRepo.HeartbeatZoneNode(1, zoneNo, count)
+			}
+		}
+	}()
 
 	// 6. Activar telemetría periódica oficial (p_SameTimeChar_Add y p_SameTimeCharClass_Add en tSameTimeChar)
 	telemetryTicker := time.NewTicker(60 * time.Second)

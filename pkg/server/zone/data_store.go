@@ -43,6 +43,16 @@ type DataStore struct {
 	ActiveSkillSHN  *shn.File
 	PassiveSkillSHN *shn.File
 	MobInfoSHN      *shn.File
+	PassiveSkillMap map[uint16]bool
+	ActiveSkillMap  map[uint16]bool
+}
+
+// IsPassiveSkill verifica rápidamente si un ID de habilidad pertenece a PassiveSkill.shn.
+func (ds *DataStore) IsPassiveSkill(skillID uint16) bool {
+	if ds == nil || ds.PassiveSkillMap == nil {
+		return false
+	}
+	return ds.PassiveSkillMap[skillID]
 }
 
 // LoadAllData carga en memoria RAM la totalidad del universo de datos estáticos de ZoneService.
@@ -209,6 +219,10 @@ func LoadAllData(dataDir string) (*DataStore, error) {
 		log.Printf("[Zone][Data] Warning: ActiveSkill.shn load error: %v", err)
 	} else {
 		log.Printf("[Zone][Data] Loaded ActiveSkill.shn (%d skills).", ds.ActiveSkillSHN.RecordCount)
+		ds.ActiveSkillMap = make(map[uint16]bool, len(ds.ActiveSkillSHN.Rows))
+		for _, row := range ds.ActiveSkillSHN.Rows {
+			ds.ActiveSkillMap[row.GetUint16("ID")] = true
+		}
 	}
 
 	// 18. PassiveSkill.shn
@@ -218,6 +232,10 @@ func LoadAllData(dataDir string) (*DataStore, error) {
 		log.Printf("[Zone][Data] Warning: PassiveSkill.shn load error: %v", err)
 	} else {
 		log.Printf("[Zone][Data] Loaded PassiveSkill.shn (%d passive skills).", ds.PassiveSkillSHN.RecordCount)
+		ds.PassiveSkillMap = make(map[uint16]bool, len(ds.PassiveSkillSHN.Rows))
+		for _, row := range ds.PassiveSkillSHN.Rows {
+			ds.PassiveSkillMap[row.GetUint16("ID")] = true
+		}
 	}
 
 	// 19. MobInfo.shn

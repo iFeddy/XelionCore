@@ -144,3 +144,4 @@ func (hpm *HolyPromiseManager) HandleDelDownReq(client *network.Client, downChar
 	}
 	log.Printf("[HolyPromise] Master '%s' severed relationship with Pupil '%s'", client.Username, downCharName)
 }
+

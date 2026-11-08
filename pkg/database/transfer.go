@@ -30,6 +30,11 @@ type ZoneTransfer struct {
 	RandomID  uint16    `json:"random_id"`
 	Admin     byte      `json:"admin"`
 	HostIP    string    `json:"host_ip"`
+	TargetMap string    `json:"target_map"`
+	TargetX   int       `json:"target_x"`
+	TargetY   int       `json:"target_y"`
+	WorldNo   byte      `json:"world_no"`
+	ZoneNo    uint16    `json:"zone_no"`
 	CreatedAt time.Time `json:"created_at"`
 }
 
@@ -216,6 +221,11 @@ func (tm *TransferManager) ConsumeZoneTransfer(charName string, randomID uint16,
 		RandomID:  randomID,
 		Admin:     byte(adminLevel),
 		HostIP:    "",
+		TargetMap: targetMap,
+		TargetX:   targetX,
+		TargetY:   targetY,
+		WorldNo:   byte(worldNo),
+		ZoneNo:    uint16(zoneNo),
 		CreatedAt: time.Now(),
 	}, true
 }

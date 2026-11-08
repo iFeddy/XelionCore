@@ -338,7 +338,7 @@ func (r *MySQLCharacterRepository) CreateCharacter(ch *Character) error {
 
 	town := ch.TownName
 	if town == "" {
-		town = "RouN"
+		return fmt.Errorf("character town/login zone cannot be empty")
 	}
 	hp := ch.CurHP
 	if hp <= 0 {
@@ -567,6 +567,16 @@ func (r *MySQLCharacterRepository) SaveCharLevelExp(charNo int, level int16, exp
 	err := r.db.QueryRow("CALL p_Char_SetLevelExp(?, ?, ?, @out_nRet)", charNo, level, exp).Scan(&ret)
 	if err != nil {
 		return fmt.Errorf("error calling p_Char_SetLevelExp: %w", err)
+	}
+	return nil
+}
+
+// SaveCharMoney actualiza el dinero del personaje invocando p_Char_MoneySet.
+func (r *MySQLCharacterRepository) SaveCharMoney(charNo int, money int64) error {
+	var ret int
+	err := r.db.QueryRow("CALL p_Char_MoneySet(?, ?, @out_nRet)", charNo, money).Scan(&ret)
+	if err != nil {
+		return fmt.Errorf("error calling p_Char_MoneySet: %w", err)
 	}
 	return nil
 }

@@ -6,4 +6,6 @@ type Config struct {
 	Port     int    `json:"port"`
 	IP       string `json:"ip"`
 	MapID    uint16 `json:"map_id"`
+	WorldNo  byte   `json:"world_no"`
+	ZoneNo   uint16 `json:"zone_no"`
 }

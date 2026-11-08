@@ -25,9 +25,16 @@ func (r *MySQLCharacterRepository) GetCharacterSkills(charNo int) ([]*CharacterS
 		var pd, ps, keepTime, ct byte
 		if err := rows.Scan(&skillNo, &skillLevel, &exp, &writeTime, &coolTime, &pd, &ps, &keepTime, &ct); err == nil {
 			skills = append(skills, &CharacterSkill{
-				CharNo:     charNo,
-				SkillNo:    skillNo,
-				SkillLevel: skillLevel,
+				CharNo:             charNo,
+				SkillNo:            skillNo,
+				SkillLevel:         skillLevel,
+				SkillExp:           exp,
+				SkillWriteTime:     writeTime,
+				SkillCoolTime:      coolTime,
+				SkillPowerDemage:   pd,
+				SkillPowerSP:       ps,
+				SkillPowerKeepTime: keepTime,
+				SkillPowerCoolTime: ct,
 			})
 		}
 	}

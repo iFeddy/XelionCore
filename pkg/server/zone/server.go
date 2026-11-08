@@ -52,6 +52,10 @@ func NewServer(cfg *Config, charRepo database.CharacterRepository, transfers *da
 
 
 	handler := NewHandler(charRepo, transfers, classStore, fieldStore, chkEngine)
+	if cfg != nil {
+		handler.SetWorldID(cfg.WorldNo)
+		handler.SetZoneNo(cfg.ZoneNo)
+	}
 
 
 

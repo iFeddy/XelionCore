@@ -196,9 +196,16 @@ type Shortcut struct {
 
 // CharacterSkill represents a learned skill in tSkill.
 type CharacterSkill struct {
-	CharNo     int    `json:"char_no"`
-	SkillNo    uint16 `json:"skill_no"`
-	SkillLevel byte   `json:"skill_level"`
+	CharNo             int    `json:"char_no"`
+	SkillNo            uint16 `json:"skill_no"`
+	SkillLevel         byte   `json:"skill_level"`
+	SkillExp           int    `json:"skill_exp"`
+	SkillWriteTime     int64  `json:"skill_write_time"`
+	SkillCoolTime      int    `json:"skill_cool_time"`
+	SkillPowerDemage   byte   `json:"skill_power_damage"`
+	SkillPowerSP       byte   `json:"skill_power_sp"`
+	SkillPowerKeepTime byte   `json:"skill_power_keep_time"`
+	SkillPowerCoolTime byte   `json:"skill_power_cool_time"`
 }
 
 // CharacterStateData modela un estado anormal o buff persistido en tCharacterState.
@@ -453,6 +460,7 @@ type CharacterAvatarRepository interface {
 	SaveCharLocation(charNo int, mapName string, x, y int, rotation byte) error
 	SaveCharStats(charNo int, hp, sp, hps, sps int16) error
 	SaveCharLevelExp(charNo int, level int16, exp int64) error
+	SaveCharMoney(charNo int, money int64) error
 	AddCharMoney(charNo int, amount int64) error
 	SubCharMoney(charNo int, amount int64) (bool, error)
 	SaveCharFreeStats(charNo int, str, con, dex, intel, men, freePoints byte) error
@@ -1047,6 +1055,16 @@ func (r *MemoryCharacterRepository) SaveCharLevelExp(charNo int, level int16, ex
 	if ch, ok := r.characters[charNo]; ok {
 		ch.Level = byte(level)
 		ch.TCharacterState.Exp = exp
+		return nil
+	}
+	return ErrCharacterNotFound
+}
+
+func (r *MemoryCharacterRepository) SaveCharMoney(charNo int, money int64) error {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if ch, ok := r.characters[charNo]; ok {
+		ch.TCharacterState.Money = money
 		return nil
 	}
 	return ErrCharacterNotFound
