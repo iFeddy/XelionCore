@@ -270,6 +270,32 @@ type MasterPupilData struct {
 	IsMaster bool `json:"is_master"`
 }
 
+// HolyPromiseData modela relación de promesa sagrada en tHolyPromise.
+type HolyPromiseData struct {
+	CharNo   int  `json:"char_no"`
+	UpCharNo int  `json:"up_char_no"`
+	Flags    byte `json:"flags"`
+}
+
+// PartyData modela un grupo en tParty.
+type PartyData struct {
+	PartyNo      int `json:"party_no"`
+	MasterCharNo int `json:"master_char_no"`
+	Flags        int `json:"flags"`
+}
+
+// PartyMemberData modela un miembro de grupo en tPartyMember.
+type PartyMemberData struct {
+	CharNo    int    `json:"char_no"`
+	Flag      byte   `json:"flag"`
+	CharID    string `json:"char_id"`
+	Class     byte   `json:"class"`
+	Level     byte   `json:"level"`
+	LoginZone string `json:"login_zone"`
+	HP        int16  `json:"hp"`
+	SP        int16  `json:"sp"`
+}
+
 // PetData modela mascotas en tPet / tPetNew.
 type PetData struct {
 	PetNo    int    `json:"pet_no"`
@@ -290,7 +316,10 @@ type GuildHistoryData struct {
 
 // GuildTournamentData modela torneos de gremio en tGuildTournament.
 type GuildTournamentData struct {
-	GTNo int `json:"gt_no"`
+	GTNo     int  `json:"gt_no"`
+	State    byte `json:"state"`
+	MinLevel byte `json:"min_level"`
+	MaxLevel byte `json:"max_level"`
 }
 
 // ZoneNodeInfo representa un nodo ZoneService activo en tWorldZoneNode.
@@ -368,9 +397,6 @@ func (c *Character) Sync() {
 		c.YPos = c.TCharacterState.YPos
 		c.CurHP = c.TCharacterState.HP
 		c.CurSP = c.TCharacterState.SP
-		if c.TownName == "" {
-			c.TownName = "RouN"
-		}
 	}
 }
 
@@ -558,6 +584,10 @@ type WorldSocialRepository interface {
 	SetKingdomQuest(questNo int, data string) error
 	DelKingdomQuest(questNo int) error
 	CheckHolyPromiseRing(charNo, upCharNo int) (bool, error)
+	SetHolyPromise(charNo, upCharNo int, flags byte) error
+	DelHolyPromise(charNo, upCharNo int) error
+	DelHolyPromiseChar(charNo int) error
+	GetHolyPromise(charNo int) (*HolyPromiseData, error)
 	GetMasterPupils(charNo int) ([]*MasterPupilData, error)
 	SetMaster(charNo int, masterCharNo int) error
 	SetPupil(charNo int, pupilCharNo int) error
@@ -571,6 +601,34 @@ type WorldSocialRepository interface {
 	SetMiniHouseURL(charNo int, url string) error
 	GetMiniHouseVisitors(charNo int) (int, error)
 	SetMiniHouseVisitors(charNo int, visitors int) error
+
+	// Party (tParty / tPartyMember)
+	CreateParty(masterCharNo int, flags int) (int, error)
+	AddPartyMember(partyNo int, charNo int, flag byte) error
+	RemovePartyMember(partyNo int, charNo int) error
+	SetPartyMaster(partyNo int, masterCharNo int) error
+	SetPartyFlags(partyNo int, flags int) error
+	DeleteParty(partyNo int) error
+	GetParty(partyNo int) (*PartyData, error)
+	GetPartyMembers(partyNo int) ([]*PartyMemberData, error)
+	GetPartyByChar(charNo int) (int, int, int, error)
+
+	// Chat Restrict (tChatBlock)
+	AddChatRestrict(userNo int, charNo int) error
+	DelChatRestrict(userNo int, charNo int) error
+	DelAllChatRestrict(userNo int) error
+
+	// Prison (tPrison)
+	AddPrison(gmUserID string, targetCharName string, minutes int16, reason, remark string) error
+	EndPrison(charNo int) error
+	AlterPrison(gmUserID string, targetCharName string, minutes int16, reason, remark string) error
+
+	// Spammer / LoadingBug (tCharacterLoading / tSpamBlockTime / tSpamFilter)
+	SetClientLoadingBug(charNo int, mapName string, failType int16, failCnt int16) error
+	SetSpamFilter(userNo int, isSpamSpread, isSpamBlock byte, rate byte) error
+	GetSpamFilter(userNo int) (bool, bool, byte, error)
+	SetSpamBlockTime(charNo int, blockTime, standbyTime int) error
+	GetSpamBlockTime(charNo int) (int, int, error)
 }
 
 // ZoneTopologyRepository gobierna transferencias de un solo uso y topología de nodos ZoneService.
@@ -1950,6 +2008,53 @@ func (r *MemoryCharacterRepository) GetMiniHouseVisitors(charNo int) (int, error
 
 func (r *MemoryCharacterRepository) SetMiniHouseVisitors(charNo int, visitors int) error {
 	return nil
+}
+
+func (r *MemoryCharacterRepository) SetHolyPromise(charNo, upCharNo int, flags byte) error { return nil }
+func (r *MemoryCharacterRepository) DelHolyPromise(charNo, upCharNo int) error             { return nil }
+func (r *MemoryCharacterRepository) DelHolyPromiseChar(charNo int) error                 { return nil }
+func (r *MemoryCharacterRepository) GetHolyPromise(charNo int) (*HolyPromiseData, error) {
+	return &HolyPromiseData{CharNo: charNo, UpCharNo: 0, Flags: 0}, nil
+}
+
+func (r *MemoryCharacterRepository) CreateParty(masterCharNo int, flags int) (int, error) { return 1, nil }
+func (r *MemoryCharacterRepository) AddPartyMember(partyNo int, charNo int, flag byte) error { return nil }
+func (r *MemoryCharacterRepository) RemovePartyMember(partyNo int, charNo int) error { return nil }
+func (r *MemoryCharacterRepository) SetPartyMaster(partyNo int, masterCharNo int) error { return nil }
+func (r *MemoryCharacterRepository) SetPartyFlags(partyNo int, flags int) error { return nil }
+func (r *MemoryCharacterRepository) DeleteParty(partyNo int) error { return nil }
+func (r *MemoryCharacterRepository) GetParty(partyNo int) (*PartyData, error) {
+	return &PartyData{PartyNo: partyNo, MasterCharNo: 1, Flags: 0}, nil
+}
+func (r *MemoryCharacterRepository) GetPartyMembers(partyNo int) ([]*PartyMemberData, error) { return nil, nil }
+func (r *MemoryCharacterRepository) GetPartyByChar(charNo int) (int, int, int, error) { return 0, 0, 0, nil }
+
+func (r *MemoryCharacterRepository) AddChatRestrict(userNo int, charNo int) error { return nil }
+func (r *MemoryCharacterRepository) DelChatRestrict(userNo int, charNo int) error { return nil }
+func (r *MemoryCharacterRepository) DelAllChatRestrict(userNo int) error          { return nil }
+
+func (r *MemoryCharacterRepository) AddPrison(gmUserID string, targetCharName string, minutes int16, reason, remark string) error {
+	return nil
+}
+func (r *MemoryCharacterRepository) EndPrison(charNo int) error { return nil }
+func (r *MemoryCharacterRepository) AlterPrison(gmUserID string, targetCharName string, minutes int16, reason, remark string) error {
+	return nil
+}
+
+func (r *MemoryCharacterRepository) SetClientLoadingBug(charNo int, mapName string, failType int16, failCnt int16) error {
+	return nil
+}
+func (r *MemoryCharacterRepository) SetSpamFilter(userNo int, isSpamSpread, isSpamBlock byte, rate byte) error {
+	return nil
+}
+func (r *MemoryCharacterRepository) GetSpamFilter(userNo int) (bool, bool, byte, error) {
+	return false, false, 0, nil
+}
+func (r *MemoryCharacterRepository) SetSpamBlockTime(charNo int, blockTime, standbyTime int) error {
+	return nil
+}
+func (r *MemoryCharacterRepository) GetSpamBlockTime(charNo int) (int, int, error) {
+	return 0, 0, nil
 }
 
 // Topology

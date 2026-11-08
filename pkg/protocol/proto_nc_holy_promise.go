@@ -280,3 +280,49 @@ type PROTO_NC_HOLY_PROMISE_WITHDRAW_CEN_REWARD_ACK_DATA struct {
 	NError                           uint16               // offset: 0, size: 2 bytes
 	NMoney                           uint64               // offset: 2, size: 8 bytes
 }
+
+// ============================================================================
+// Packet Builders Oficiales para Holy Promise (Dept 37)
+// ============================================================================
+
+func New_PROTO_NC_HOLY_PROMISE_SET_UP_ACK(errCode uint16) *PacketWriter {
+	pw := NewPacketWriter(PROTO_NC_HOLY_PROMISE_SET_UP_ACK)
+	pw.WriteUint16(errCode)
+	return pw
+}
+
+func New_PROTO_NC_HOLY_PROMISE_SET_UP_CONFIRM_REQ(charID, upCharID string) *PacketWriter {
+	pw := NewPacketWriter(PROTO_NC_HOLY_PROMISE_SET_UP_CONFIRM_REQ)
+	pw.WriteString(charID, 20)
+	pw.WriteString(upCharID, 20)
+	return pw
+}
+
+func New_PROTO_NC_HOLY_PROMISE_SET_UP_CONFIRM_ACK(charID, upCharID string, accept byte) *PacketWriter {
+	pw := NewPacketWriter(PROTO_NC_HOLY_PROMISE_SET_UP_CONFIRM_ACK)
+	pw.WriteString(charID, 20)
+	pw.WriteString(upCharID, 20)
+	pw.WriteByte(accept)
+	return pw
+}
+
+func New_PROTO_NC_HOLY_PROMISE_DEL_UP_ACK(delCmdType byte, errCode uint16) *PacketWriter {
+	pw := NewPacketWriter(PROTO_NC_HOLY_PROMISE_DEL_UP_ACK)
+	pw.WriteByte(delCmdType)
+	pw.WriteUint16(errCode)
+	return pw
+}
+
+func New_PROTO_NC_HOLY_PROMISE_DEL_DOWN_ACK(downCharID string, errCode uint16) *PacketWriter {
+	pw := NewPacketWriter(PROTO_NC_HOLY_PROMISE_DEL_DOWN_ACK)
+	pw.WriteString(downCharID, 20)
+	pw.WriteUint16(errCode)
+	return pw
+}
+
+func New_PROTO_NC_HOLY_PROMISE_DEL_CMD(charID string, delCmdType byte) *PacketWriter {
+	pw := NewPacketWriter(PROTO_NC_HOLY_PROMISE_DEL_CMD)
+	pw.WriteString(charID, 20)
+	pw.WriteByte(delCmdType)
+	return pw
+}

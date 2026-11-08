@@ -297,3 +297,297 @@ func (r *MySQLCharacterRepository) SetMiniHouseVisitors(charNo int, visitors int
 	}
 	return nil
 }
+
+// CreateParty registra un nuevo grupo oficial en tParty invocando p_Party_Create.
+func (r *MySQLCharacterRepository) CreateParty(masterCharNo int, flags int) (int, error) {
+	var partyNo, ret int
+	err := r.db.QueryRow("CALL p_Party_Create(?, ?, @out_nPartyNo, @out_nRet)", masterCharNo, flags).Scan(&partyNo, &ret)
+	if err != nil {
+		return 0, fmt.Errorf("error calling p_Party_Create(%d): %w", masterCharNo, err)
+	}
+	if ret != 0 {
+		return 0, fmt.Errorf("p_Party_Create failed with code %d", ret)
+	}
+	return partyNo, nil
+}
+
+// AddPartyMember añade un personaje a un grupo en tPartyMember invocando p_Party_AddMember.
+func (r *MySQLCharacterRepository) AddPartyMember(partyNo int, charNo int, flag byte) error {
+	var ret int
+	err := r.db.QueryRow("CALL p_Party_AddMember(?, ?, ?, @out_nRet)", partyNo, charNo, flag).Scan(&ret)
+	if err != nil {
+		return fmt.Errorf("error calling p_Party_AddMember: %w", err)
+	}
+	if ret != 0 {
+		return fmt.Errorf("p_Party_AddMember failed with code %d", ret)
+	}
+	return nil
+}
+
+// RemovePartyMember remueve un miembro de tPartyMember invocando p_Party_RemoveMember.
+func (r *MySQLCharacterRepository) RemovePartyMember(partyNo int, charNo int) error {
+	var ret int
+	err := r.db.QueryRow("CALL p_Party_RemoveMember(?, ?, @out_nRet)", partyNo, charNo).Scan(&ret)
+	if err != nil {
+		return fmt.Errorf("error calling p_Party_RemoveMember: %w", err)
+	}
+	return nil
+}
+
+// SetPartyMaster designa un nuevo líder en tParty y tPartyMember invocando p_Party_SetMaster.
+func (r *MySQLCharacterRepository) SetPartyMaster(partyNo int, masterCharNo int) error {
+	var ret int
+	err := r.db.QueryRow("CALL p_Party_SetMaster(?, ?, @out_nRet)", partyNo, masterCharNo).Scan(&ret)
+	if err != nil {
+		return fmt.Errorf("error calling p_Party_SetMaster: %w", err)
+	}
+	return nil
+}
+
+// SetPartyFlags actualiza las banderas y modo de loteo en tParty invocando p_Party_SetFlags.
+func (r *MySQLCharacterRepository) SetPartyFlags(partyNo int, flags int) error {
+	var ret int
+	err := r.db.QueryRow("CALL p_Party_SetFlags(?, ?, @out_nRet)", partyNo, flags).Scan(&ret)
+	if err != nil {
+		return fmt.Errorf("error calling p_Party_SetFlags: %w", err)
+	}
+	return nil
+}
+
+// DeleteParty disuelve el grupo eliminando registros de tParty/tPartyMember invocando p_Party_Delete.
+func (r *MySQLCharacterRepository) DeleteParty(partyNo int) error {
+	var ret int
+	err := r.db.QueryRow("CALL p_Party_Delete(?, @out_nRet)", partyNo).Scan(&ret)
+	if err != nil {
+		return fmt.Errorf("error calling p_Party_Delete: %w", err)
+	}
+	return nil
+}
+
+// GetParty consulta los datos base del grupo invocando p_Party_Get.
+func (r *MySQLCharacterRepository) GetParty(partyNo int) (*PartyData, error) {
+	rows, err := r.db.Query("CALL p_Party_Get(?)", partyNo)
+	if err != nil {
+		return nil, fmt.Errorf("error calling p_Party_Get(%d): %w", partyNo, err)
+	}
+	defer rows.Close()
+
+	if rows.Next() {
+		p := &PartyData{}
+		if err := rows.Scan(&p.PartyNo, &p.MasterCharNo, &p.Flags); err == nil {
+			return p, nil
+		}
+	}
+	return nil, fmt.Errorf("party %d not found", partyNo)
+}
+
+// GetPartyMembers lista los miembros de un grupo invocando p_Party_GetMembers.
+func (r *MySQLCharacterRepository) GetPartyMembers(partyNo int) ([]*PartyMemberData, error) {
+	rows, err := r.db.Query("CALL p_Party_GetMembers(?)", partyNo)
+	if err != nil {
+		return nil, fmt.Errorf("error calling p_Party_GetMembers(%d): %w", partyNo, err)
+	}
+	defer rows.Close()
+
+	var members []*PartyMemberData
+	for rows.Next() {
+		m := &PartyMemberData{}
+		if err := rows.Scan(&m.CharNo, &m.Flag, &m.CharID, &m.Class, &m.Level, &m.LoginZone, &m.HP, &m.SP); err == nil {
+			members = append(members, m)
+		}
+	}
+	return members, nil
+}
+
+// GetPartyByChar consulta si un personaje pertenece a un grupo invocando p_Party_GetByChar.
+func (r *MySQLCharacterRepository) GetPartyByChar(charNo int) (int, int, int, error) {
+	rows, err := r.db.Query("CALL p_Party_GetByChar(?)", charNo)
+	if err != nil {
+		return 0, 0, 0, fmt.Errorf("error calling p_Party_GetByChar(%d): %w", charNo, err)
+	}
+	defer rows.Close()
+
+	if rows.Next() {
+		var partyNo, masterCharNo, flags int
+		if err := rows.Scan(&partyNo, &masterCharNo, &flags); err == nil {
+			return partyNo, masterCharNo, flags, nil
+		}
+	}
+	return 0, 0, 0, nil
+}
+
+// AddChatRestrict registra un bloqueo de chat en tChatBlock invocando p_Char_Chat_Restrict_Add.
+func (r *MySQLCharacterRepository) AddChatRestrict(userNo int, charNo int) error {
+	var ret int
+	err := r.db.QueryRow("CALL p_Char_Chat_Restrict_Add(?, ?, @out_nRet)", userNo, charNo).Scan(&ret)
+	if err != nil {
+		return fmt.Errorf("error calling p_Char_Chat_Restrict_Add: %w", err)
+	}
+	return nil
+}
+
+// DelChatRestrict elimina un bloqueo de chat de tChatBlock invocando p_Char_Chat_Restrict_Del.
+func (r *MySQLCharacterRepository) DelChatRestrict(userNo int, charNo int) error {
+	var ret int
+	err := r.db.QueryRow("CALL p_Char_Chat_Restrict_Del(?, ?, @out_nRet)", userNo, charNo).Scan(&ret)
+	if err != nil {
+		return fmt.Errorf("error calling p_Char_Chat_Restrict_Del: %w", err)
+	}
+	return nil
+}
+
+// DelAllChatRestrict elimina todos los bloqueos de chat de un usuario invocando p_Char_Chat_Restrict_DelAll.
+func (r *MySQLCharacterRepository) DelAllChatRestrict(userNo int) error {
+	var ret int
+	err := r.db.QueryRow("CALL p_Char_Chat_Restrict_DelAll(?, @out_nRet)", userNo).Scan(&ret)
+	if err != nil {
+		return fmt.Errorf("error calling p_Char_Chat_Restrict_DelAll: %w", err)
+	}
+	return nil
+}
+
+// AddPrison ingresa a un personaje en tPrison invocando p_Prison_Add2.
+func (r *MySQLCharacterRepository) AddPrison(gmUserID string, targetCharName string, minutes int16, reason, remark string) error {
+	var errCode int16
+	err := r.db.QueryRow("CALL p_Prison_Add2(?, ?, ?, ?, ?, @out_err)", gmUserID, targetCharName, minutes, reason, remark).Scan(&errCode)
+	if err != nil {
+		return fmt.Errorf("error calling p_Prison_Add2: %w", err)
+	}
+	return nil
+}
+
+// EndPrison libera a un personaje encarcelado invocando p_Prison_End.
+func (r *MySQLCharacterRepository) EndPrison(charNo int) error {
+	_, err := r.db.Exec("CALL p_Prison_End(?)", charNo)
+	if err != nil {
+		return fmt.Errorf("error calling p_Prison_End(%d): %w", charNo, err)
+	}
+	return nil
+}
+
+// AlterPrison modifica el tiempo de sanción carcelaria invocando p_Prison_Alter2.
+func (r *MySQLCharacterRepository) AlterPrison(gmUserID string, targetCharName string, minutes int16, reason, remark string) error {
+	var errCode int16
+	err := r.db.QueryRow("CALL p_Prison_Alter2(?, ?, ?, ?, ?, @out_err)", gmUserID, targetCharName, minutes, reason, remark).Scan(&errCode)
+	if err != nil {
+		return fmt.Errorf("error calling p_Prison_Alter2: %w", err)
+	}
+	return nil
+}
+
+// SetClientLoadingBug registra fallos de carga del cliente en tCharacterLoading invocando p_Set_Client_Loading_Bug_Detect.
+func (r *MySQLCharacterRepository) SetClientLoadingBug(charNo int, mapName string, failType int16, failCnt int16) error {
+	var ret int
+	err := r.db.QueryRow("CALL p_Set_Client_Loading_Bug_Detect(?, ?, ?, ?, @out_nRet)", charNo, mapName, failType, failCnt).Scan(&ret)
+	if err != nil {
+		return fmt.Errorf("error calling p_Set_Client_Loading_Bug_Detect: %w", err)
+	}
+	return nil
+}
+
+// SetSpamFilter configura el filtro anti-spam en tSpamFilter invocando usp_SpamFilter_set.
+func (r *MySQLCharacterRepository) SetSpamFilter(userNo int, isSpamSpread, isSpamBlock byte, rate byte) error {
+	var ret int
+	err := r.db.QueryRow("CALL usp_SpamFilter_set(?, ?, ?, ?, @out_nRet)", userNo, isSpamSpread, isSpamBlock, rate).Scan(&ret)
+	if err != nil {
+		return fmt.Errorf("error calling usp_SpamFilter_set: %w", err)
+	}
+	return nil
+}
+
+// GetSpamFilter consulta la configuración anti-spam en tSpamFilter invocando usp_SpamFilter_get.
+func (r *MySQLCharacterRepository) GetSpamFilter(userNo int) (bool, bool, byte, error) {
+	rows, err := r.db.Query("CALL usp_SpamFilter_get(?, @out_nRet)", userNo)
+	if err != nil {
+		return false, false, 0, fmt.Errorf("error calling usp_SpamFilter_get(%d): %w", userNo, err)
+	}
+	defer rows.Close()
+
+	if rows.Next() {
+		var uNo int
+		var spread, block, rate byte
+		if err := rows.Scan(&uNo, &spread, &block, &rate); err == nil {
+			return spread != 0, block != 0, rate, nil
+		}
+	}
+	return false, false, 0, nil
+}
+
+// SetSpamBlockTime configura el tiempo de bloqueo en tSpamBlockTime invocando usp_SpamBlock_setTime.
+func (r *MySQLCharacterRepository) SetSpamBlockTime(charNo int, blockTime, standbyTime int) error {
+	var ret int
+	err := r.db.QueryRow("CALL usp_SpamBlock_setTime(?, ?, ?, @out_nRet)", charNo, blockTime, standbyTime).Scan(&ret)
+	if err != nil {
+		return fmt.Errorf("error calling usp_SpamBlock_setTime: %w", err)
+	}
+	return nil
+}
+
+// GetSpamBlockTime consulta el tiempo de bloqueo en tSpamBlockTime invocando usp_SpamBlock_getTime.
+func (r *MySQLCharacterRepository) GetSpamBlockTime(charNo int) (int, int, error) {
+	rows, err := r.db.Query("CALL usp_SpamBlock_getTime(?, @out_nRet)", charNo)
+	if err != nil {
+		return 0, 0, fmt.Errorf("error calling usp_SpamBlock_getTime(%d): %w", charNo, err)
+	}
+	defer rows.Close()
+
+	if rows.Next() {
+		var cNo, bTime, sTime int
+		if err := rows.Scan(&cNo, &bTime, &sTime); err == nil {
+			return bTime, sTime, nil
+		}
+	}
+	return 0, 0, nil
+}
+
+// SetHolyPromise vincula o actualiza una promesa sagrada invocando p_HolyPromise_Set.
+func (r *MySQLCharacterRepository) SetHolyPromise(charNo, upCharNo int, flags byte) error {
+	var ret int
+	err := r.db.QueryRow("CALL p_HolyPromise_Set(30, ?, ?, ?, @out_nRet)", charNo, upCharNo, flags).Scan(&ret)
+	if err != nil {
+		return fmt.Errorf("error calling p_HolyPromise_Set: %w", err)
+	}
+	return nil
+}
+
+// DelHolyPromise elimina una relación de promesa sagrada invocando p_HolyPromise_Del.
+func (r *MySQLCharacterRepository) DelHolyPromise(charNo, upCharNo int) error {
+	var ret int
+	err := r.db.QueryRow("CALL p_HolyPromise_Del(?, @out_nRet)", charNo).Scan(&ret)
+	if err != nil {
+		return fmt.Errorf("error calling p_HolyPromise_Del: %w", err)
+	}
+	return nil
+}
+
+// DelHolyPromiseChar remueve todas las promesas sagradas del personaje invocando p_HolyPromise_DelChar.
+func (r *MySQLCharacterRepository) DelHolyPromiseChar(charNo int) error {
+	var ret int
+	err := r.db.QueryRow("CALL p_HolyPromise_DelChar(?, @out_nRet)", charNo).Scan(&ret)
+	if err != nil {
+		return fmt.Errorf("error calling p_HolyPromise_DelChar: %w", err)
+	}
+	return nil
+}
+
+// GetHolyPromise consulta los datos de promesa sagrada invocando p_HolyPromise_Get.
+func (r *MySQLCharacterRepository) GetHolyPromise(charNo int) (*HolyPromiseData, error) {
+	rows, err := r.db.Query("CALL p_HolyPromise_Get(?, @out_nRet)", charNo)
+	if err != nil {
+		return nil, fmt.Errorf("error calling p_HolyPromise_Get(%d): %w", charNo, err)
+	}
+	defer rows.Close()
+
+	if rows.Next() {
+		hp := &HolyPromiseData{CharNo: charNo}
+		var regDate, rejoinDate, acceptDate sql.NullTime
+		var lastLogin sql.NullTime
+		var sID sql.NullString
+		var level sql.NullInt64
+		if err := rows.Scan(&hp.UpCharNo, &hp.Flags, &regDate, &rejoinDate, &acceptDate, &sID, &level, &lastLogin); err != nil {
+			return nil, fmt.Errorf("error scanning p_HolyPromise_Get: %w", err)
+		}
+		return hp, nil
+	}
+	return nil, nil
+}

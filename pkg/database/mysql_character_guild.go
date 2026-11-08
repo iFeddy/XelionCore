@@ -266,7 +266,7 @@ func (r *MySQLCharacterRepository) SetGuildToken(guildID int, token int) error {
 
 // GetGuildHistory recupera el historial de eventos del gremio invocando usp_Guild_getHistoryList.
 func (r *MySQLCharacterRepository) GetGuildHistory(guildID int) ([]*GuildHistoryData, error) {
-	rows, err := r.db.Query("CALL usp_Guild_getHistoryList(?, @out_nRet)", guildID)
+	rows, err := r.db.Query("CALL usp_Guild_getHistoryList(?, 50, @out_nRet)", guildID)
 	if err != nil {
 		return nil, fmt.Errorf("error calling usp_Guild_getHistoryList(%d): %w", guildID, err)
 	}
@@ -275,7 +275,10 @@ func (r *MySQLCharacterRepository) GetGuildHistory(guildID int) ([]*GuildHistory
 	var history []*GuildHistoryData
 	for rows.Next() {
 		h := &GuildHistoryData{}
-		if err := rows.Scan(&h.HistoryType, &h.Param1, &h.Param2, &h.Text); err == nil {
+		var action int
+		var date time.Time
+		if err := rows.Scan(&h.Text, &action, &date); err == nil {
+			h.HistoryType = byte(action)
 			history = append(history, h)
 		}
 	}
@@ -285,7 +288,7 @@ func (r *MySQLCharacterRepository) GetGuildHistory(guildID int) ([]*GuildHistory
 // AddGuildHistory registra un nuevo evento en el historial del gremio invocando usp_Guild_setHistory.
 func (r *MySQLCharacterRepository) AddGuildHistory(guildID int, historyType byte, param1, param2 int, text string) error {
 	var ret int
-	err := r.db.QueryRow("CALL usp_Guild_setHistory(?, ?, ?, ?, ?, @out_nRet)", guildID, historyType, param1, param2, text).Scan(&ret)
+	err := r.db.QueryRow("CALL usp_Guild_setHistory(?, ?, ?, ?, @out_nRet)", guildID, param1, text, historyType).Scan(&ret)
 	if err != nil {
 		return fmt.Errorf("error calling usp_Guild_setHistory: %w", err)
 	}
@@ -392,6 +395,9 @@ func (r *MySQLCharacterRepository) AddAcademyMember(guildID, charID int, joinLev
 	if err != nil {
 		return fmt.Errorf("error calling usp_GuildAcademy_setMember: %w", err)
 	}
+	if ret != 0 {
+		return fmt.Errorf("usp_GuildAcademy_setMember failed with code %d", ret)
+	}
 	return nil
 }
 
@@ -401,6 +407,9 @@ func (r *MySQLCharacterRepository) RemoveAcademyMember(guildID, charID int) erro
 	err := r.db.QueryRow("CALL usp_GuildAcademy_delMember(?, ?, @out_nRet)", guildID, charID).Scan(&ret)
 	if err != nil {
 		return fmt.Errorf("error calling usp_GuildAcademy_delMember: %w", err)
+	}
+	if ret != 0 {
+		return fmt.Errorf("usp_GuildAcademy_delMember failed with code %d", ret)
 	}
 	return nil
 }
@@ -427,10 +436,23 @@ func (r *MySQLCharacterRepository) SetAcademyChatBan(guildID, charID int, banMin
 
 // SetAcademyGraduate gradúa a un miembro de la academia invocando usp_GuildAcademy_setGraduate.
 func (r *MySQLCharacterRepository) SetAcademyGraduate(guildID, charID int) error {
+	name := fmt.Sprintf("Char%d", charID)
+	var classVal byte = 1
+	if ch, err := r.GetCharacterByID(charID); err == nil && ch != nil {
+		if ch.Name != "" {
+			name = ch.Name
+		}
+		if ch.Job != 0 {
+			classVal = ch.Job
+		}
+	}
 	var ret int
-	err := r.db.QueryRow("CALL usp_GuildAcademy_setGraduate(?, ?, '', 1, 60, @out_nRet)", guildID, charID).Scan(&ret)
+	err := r.db.QueryRow("CALL usp_GuildAcademy_setGraduate(?, ?, ?, ?, 60, @out_nRet)", guildID, charID, name, classVal).Scan(&ret)
 	if err != nil {
 		return fmt.Errorf("error calling usp_GuildAcademy_setGraduate: %w", err)
+	}
+	if ret != 0 {
+		return fmt.Errorf("usp_GuildAcademy_setGraduate failed with code %d", ret)
 	}
 	return nil
 }
@@ -445,9 +467,11 @@ func (r *MySQLCharacterRepository) GetAcademyGraduates(guildID int) ([]int, erro
 
 	var grads []int
 	for rows.Next() {
-		var charNo int
-		if err := rows.Scan(&charNo); err == nil {
-			grads = append(grads, charNo)
+		var sID string
+		var nClass, nJoinLevel, nGradLevel int
+		var dJoinDate, dGradDate time.Time
+		if err := rows.Scan(&sID, &nClass, &nJoinLevel, &dJoinDate, &nGradLevel, &dGradDate); err == nil {
+			grads = append(grads, nGradLevel)
 		}
 	}
 	return grads, nil

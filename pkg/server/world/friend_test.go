@@ -33,7 +33,7 @@ func TestFriendManager_FullFlow(t *testing.T) {
 	_ = memRepo.CreateCharacter(char1)
 	_ = memRepo.CreateCharacter(char2)
 
-	pm := world.NewPartyManager()
+	pm := world.NewPartyManager(memRepo)
 	fm := world.NewFriendManager(memRepo, pm)
 
 	c1Server, c1Client := net.Pipe()

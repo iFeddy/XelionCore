@@ -22,15 +22,17 @@ type Handler struct {
 	sessionRepo   database.LoginSessionRepository
 	logRepo       database.AccountLogRepository
 	transfers     *database.TransferManager
-	dataStore     *WorldDataStore
-	partyMgr      *PartyManager
-	friendMgr     *FriendManager
-	guildMgr      *GuildManager
-	kqMgr         *KQManager
-	zoneIP        string
-	zonePort      uint16
-	activeClients map[int]*network.Client
-	mu            sync.Mutex
+	dataStore      *WorldDataStore
+	partyMgr       *PartyManager
+	friendMgr      *FriendManager
+	guildMgr       *GuildManager
+	kqMgr          *KQManager
+	raidMgr        *RaidManager
+	holyPromiseMgr *HolyPromiseManager
+	zoneIP         string
+	zonePort       uint16
+	activeClients  map[int]*network.Client
+	mu             sync.Mutex
 }
 
 // NewHandler inicializa un nuevo despachador de paquetes para WorldService.
@@ -47,26 +49,25 @@ func NewHandler(
 	if zonePort == 0 {
 		zonePort = 9210
 	}
-	pm := NewPartyManager()
+	pm := NewPartyManager(charRepo)
 	fm := NewFriendManager(charRepo, pm)
 	gm := NewGuildManager(charRepo)
-	var km *KQManager
-	if dataStore != nil {
-		km = NewKQManager(dataStore.KingdomQuest)
-	} else {
-		km = NewKQManager(nil)
-	}
+	km := NewKQManager(dataStore, charRepo)
+	rm := NewRaidManager(charRepo, pm)
+	hpm := NewHolyPromiseManager(charRepo)
 	return &Handler{
-		charRepo:      charRepo,
-		transfers:     transfers,
-		dataStore:     dataStore,
-		partyMgr:      pm,
-		friendMgr:     fm,
-		guildMgr:      gm,
-		kqMgr:         km,
-		zoneIP:        zoneIP,
-		zonePort:      zonePort,
-		activeClients: make(map[int]*network.Client),
+		charRepo:       charRepo,
+		transfers:      transfers,
+		dataStore:      dataStore,
+		partyMgr:       pm,
+		friendMgr:      fm,
+		guildMgr:       gm,
+		kqMgr:          km,
+		raidMgr:        rm,
+		holyPromiseMgr: hpm,
+		zoneIP:         zoneIP,
+		zonePort:       zonePort,
+		activeClients:  make(map[int]*network.Client),
 	}
 }
 
@@ -110,11 +111,46 @@ func (h *Handler) OnClientDisconnect(client *network.Client) {
 // HandlePacket despacha paquetes basándose exclusivamente en OpCodes oficiales PROTO_NC_*.
 func (h *Handler) HandlePacket(client *network.Client, pkt *protocol.Packet) {
 	switch pkt.OpCode {
-	case protocol.PROTO_NC_MISC_HEARTBEAT_ACK:
-		// Client heartbeat acknowledge
+	case protocol.PROTO_NC_MISC_HEARTBEAT_ACK,
+		protocol.PROTO_NC_MISC_HEARTBEAT_REQ:
+		h.handleHeartbeat(client, pkt)
 
 	case protocol.PROTO_NC_MISC_GAMETIME_REQ:
 		h.handleGameTime(client, pkt)
+
+	case protocol.PROTO_NC_MISC_CLIENT_DEBUG_MSG_CMD:
+		h.handleClientDebug(client, pkt)
+
+	case protocol.PROTO_NC_MISC_PINGTEST_TOOL_WM_CLIENT_ZONE_DB:
+		h.handlePing(client, pkt)
+
+	case protocol.PROTO_NC_MISC_APEX_CLIENT_DATA_CMD,
+		protocol.PROTO_NC_MISC_APEX_CLIENT_CHCSTART_CMD:
+		h.handleApexServerData(client, pkt)
+
+	case protocol.PROTO_NC_MISC_WEB_KEY_REQ:
+		h.handleWebKey(client, pkt)
+
+	case protocol.PROTO_NC_MISC_CS_ACK:
+		h.handleCSAck(client, pkt)
+
+	case protocol.PROTO_NC_MISC_HACK_SCAN_STORE_CMD:
+		h.handleHackScan(client, pkt)
+
+	case protocol.PROTO_NC_MISC_CLIENT_LOADING_BUG_DETECT_CMD:
+		h.handleClientLoadingBug(client, pkt)
+
+	case protocol.PROTO_NC_MISC_SET_CHAT_BLOCK_SPAM_FILTER_CMD:
+		h.handleSpamFilterSet(client, pkt)
+
+	case protocol.PROTO_NC_MISC_SPAMMER_REPORT_REQ:
+		h.handleSpammerReport(client, pkt)
+
+	case protocol.PROTO_NC_MISC_SPAMMER_CHAT_BAN_REQ:
+		h.handleChatBan(client, pkt)
+
+	case protocol.PROTO_NC_MISC_ITEMSHOP_URL_REQ:
+		h.handleItemShopURL(client, pkt)
 
 	case protocol.PROTO_NC_USER_LOGINWORLD_REQ:
 		h.handleWorldClientKey(client, pkt)
@@ -239,8 +275,15 @@ func (h *Handler) HandlePacket(client *network.Client, pkt *protocol.Packet) {
 	case protocol.PROTO_NC_CHAR_OPTION_LOGIN_BLOCKDATA_ERR:
 		h.handleLoginBlockDataErr(client, pkt)
 
-	case protocol.PROTO_NC_PRISON_GET_REQ:
-		h.handlePrisonGet(client, pkt)
+	// Subsistema Oficial de Chat (Act Chat - Dept: 8)
+	case protocol.PROTO_NC_ACT_WHISPER_REQ:
+		h.handleWhisper(client, pkt)
+
+	case protocol.PROTO_NC_ACT_NOTICE_REQ:
+		h.handleNotice(client, pkt)
+
+	case protocol.PROTO_NC_ACT_PARTYCHAT_REQ:
+		h.handlePartyChat(client, pkt)
 
 	// Subsistema Oficial de Grupos (Party - Dept: 14)
 	case protocol.PROTO_NC_PARTY_JOIN_REQ:
@@ -279,6 +322,10 @@ func (h *Handler) HandlePacket(client *network.Client, pkt *protocol.Packet) {
 	case protocol.PROTO_NC_PARTY_FINDER_LIST_REQ:
 		h.partyMgr.ListFinderAds(client)
 
+	case protocol.PROTO_NC_PARTY_SET_LOOTER_REQ:
+		looterName, _ := pkt.Reader.ReadString(20)
+		h.partyMgr.SetLooter(client, looterName)
+
 	// Subsistema Oficial de Amigos (Friend - Dept: 21)
 	case protocol.PROTO_NC_FRIEND_SET_REQ:
 		targetName, _ := pkt.Reader.ReadString(20)
@@ -293,6 +340,9 @@ func (h *Handler) HandlePacket(client *network.Client, pkt *protocol.Packet) {
 
 	case protocol.PROTO_NC_FRIEND_POINT_REQ:
 		h.friendMgr.SendFriendPoints(client)
+
+	case protocol.PROTO_NC_FRIEND_FIND_FRIENDS_REQ:
+		h.friendMgr.FindFriends(client, pkt)
 
 	// Subsistema Oficial de Gremios (Guild - Dept: 29)
 	case protocol.PROTO_NC_GUILD_LIST_REQ:
@@ -345,12 +395,56 @@ func (h *Handler) HandlePacket(client *network.Client, pkt *protocol.Packet) {
 		msgBytes, _ := pkt.Reader.ReadBytes(int(lenByte))
 		h.guildMgr.HandleChat(client, string(msgBytes))
 
+	case protocol.PROTO_NC_GUILD_WAR_REQ:
+		targetName, _ := pkt.Reader.ReadString(16)
+		h.guildMgr.HandleWarReq(client, targetName)
+
+	case protocol.PROTO_NC_GUILD_WAR_ABLE_LIST_REQ:
+		h.guildMgr.HandleWarAbleListReq(client)
+
+	case protocol.PROTO_NC_GUILD_WAR_LIST_REQ:
+		h.guildMgr.HandleWarListReq(client)
+
+	case protocol.PROTO_NC_GUILD_NAME_REQ:
+		newName, _ := pkt.Reader.ReadString(16)
+		h.guildMgr.HandleGuildNameReq(client, newName)
+
+	case protocol.PROTO_NC_GUILD_TOURNAMENT_JOIN_REQ:
+		gtNo, _ := pkt.Reader.ReadUint16()
+		h.guildMgr.HandleTournamentJoinReq(client, int(gtNo))
+
+	case protocol.PROTO_NC_GUILD_TOURNAMENT_LIST_REQ:
+		h.guildMgr.HandleTournamentListReq(client)
+
+	case protocol.PROTO_NC_GUILD_MY_GUILD_TOKEN_INFO_REQ:
+		h.guildMgr.HandleTokenInfoReq(client)
+
+	case protocol.PROTO_NC_GUILD_MY_GUILD_TOURNAMENT_MATCH_TIME_REQ:
+		h.guildMgr.HandleMyTournamentMatchTimeReq(client)
+
+	case protocol.PROTO_NC_GUILD_TOURNAMENT_JOIN_LIST_REQ:
+		gtNo, _ := pkt.Reader.ReadUint16()
+		h.guildMgr.HandleTournamentJoinListReq(client, int(gtNo))
+
+	case protocol.PROTO_NC_GUILD_HISTORY_LIST_REQ:
+		h.guildMgr.HandleHistoryListReq(client)
+
+	case protocol.PROTO_NC_GUILD_EMBLEM_CHECK_AVAILABILITY_REQ:
+		h.guildMgr.HandleEmblemCheckAvailabilityReq(client)
+
+	case protocol.PROTO_NC_GUILD_EMBLEM_SAVE_REQ:
+		data, _ := pkt.Reader.ReadBytes(pkt.Reader.Remaining())
+		h.guildMgr.HandleEmblemSaveReq(client, data)
+
 	// Subsistema Oficial de Academia de Gremios (Guild Academy - Dept: 38)
 	case protocol.PROTO_NC_GUILD_ACADEMY_LIST_REQ:
 		h.guildMgr.HandleAcademyList(client, 0)
 
 	case protocol.PROTO_NC_GUILD_ACADEMY_MY_GUILD_ACADEMY_INFO_REQ:
 		h.guildMgr.HandleAcademyMyInfo(client)
+
+	case protocol.PROTO_NC_GUILD_ACADEMY_MY_ACADEMY_RANK_INFO_REQ:
+		h.guildMgr.HandleAcademyRankInfo(client)
 
 	case protocol.PROTO_NC_GUILD_ACADEMY_MEMBER_LIST_REQ:
 		h.guildMgr.HandleAcademyMemberList(client)
@@ -361,6 +455,68 @@ func (h *Handler) HandlePacket(client *network.Client, pkt *protocol.Packet) {
 
 	case protocol.PROTO_NC_GUILD_ACADEMY_MEMBER_LEAVE_REQ:
 		h.guildMgr.HandleAcademyLeave(client)
+
+	case protocol.PROTO_NC_GUILD_ACADEMY_MEMBER_VANISH_REQ:
+		targetName, _ := pkt.Reader.ReadString(20)
+		h.guildMgr.HandleAcademyVanish(client, targetName)
+
+	case protocol.PROTO_NC_GUILD_ACADEMY_MASTER_TELEPORT_REQ:
+		h.guildMgr.HandleAcademyMasterTeleport(client)
+
+	case protocol.PROTO_NC_GUILD_ACADEMY_MEMBER_CHAT_BAN_REQ:
+		targetName, _ := pkt.Reader.ReadString(20)
+		min, _ := pkt.Reader.ReadInt32()
+		h.guildMgr.HandleAcademyChatBan(client, targetName, int(min))
+
+	case protocol.PROTO_NC_GUILD_ACADEMY_NOTIFY_REQ:
+		nLen, _ := pkt.Reader.ReadUint16()
+		notifyBytes, _ := pkt.Reader.ReadBytes(int(nLen))
+		h.guildMgr.HandleAcademyNotify(client, string(notifyBytes))
+
+	case protocol.PROTO_NC_GUILD_ACADEMY_MEMBER_GUILD_INVITE_REQ:
+		targetName, _ := pkt.Reader.ReadString(20)
+		h.guildMgr.HandleAcademyGuildInvite(client, targetName)
+
+	case protocol.PROTO_NC_GUILD_ACADEMY_MEMBER_GUILD_JOIN_ACK:
+		isAccept, _ := pkt.Reader.ReadByte()
+		h.guildMgr.HandleAcademyGuildJoinAck(client, isAccept)
+
+	case protocol.PROTO_NC_GUILD_ACADEMY_GET_REWARD_MONEY_REQ:
+		h.guildMgr.HandleAcademyGetRewardMoney(client)
+
+	case protocol.PROTO_NC_GUILD_ACADEMY_GET_REWARD_ITEM_REQ:
+		h.guildMgr.HandleAcademyGetRewardItem(client)
+
+	case protocol.PROTO_NC_GUILD_ACADEMY_SET_REWARD_MONEY_REQ:
+		money, _ := pkt.Reader.ReadUint64()
+		h.guildMgr.HandleAcademySetRewardMoney(client, money)
+
+	case protocol.PROTO_NC_GUILD_ACADEMY_SET_REWARD_ITEM_REQ:
+		itemID, _ := pkt.Reader.ReadUint16()
+		h.guildMgr.HandleAcademySetRewardItem(client, itemID)
+
+	case protocol.PROTO_NC_GUILD_ACADEMY_CLEAR_REWARD_MONEY_REQ:
+		h.guildMgr.HandleAcademyClearRewardMoney(client)
+
+	case protocol.PROTO_NC_GUILD_ACADEMY_CLEAR_REWARD_ITEM_REQ:
+		h.guildMgr.HandleAcademyClearRewardItem(client)
+
+	case protocol.PROTO_NC_GUILD_ACADEMY_GET_GRADUATE_REQ:
+		h.guildMgr.HandleAcademyGetGraduate(client)
+
+	case protocol.PROTO_NC_GUILD_ACADEMY_GET_RANKING_LIST_REQ:
+		h.guildMgr.HandleAcademyGetRankingList(client)
+
+	case protocol.PROTO_NC_GUILD_ACADEMY_SET_MASTER_REQ:
+		newMaster, _ := pkt.Reader.ReadString(20)
+		h.guildMgr.HandleAcademySetMaster(client, newMaster)
+
+	case protocol.PROTO_NC_GUILD_ACADEMY_MEMBER_CHAT_BAN_CANCEL_REQ:
+		targetName, _ := pkt.Reader.ReadString(20)
+		h.guildMgr.HandleAcademyChatBanCancel(client, targetName)
+
+	case protocol.PROTO_NC_GUILD_ACADEMY_HISTORY_LIST_REQ:
+		h.guildMgr.HandleAcademyHistoryList(client)
 
 	case protocol.PROTO_NC_GUILD_ACADEMY_CHAT_REQ:
 		_, _ = pkt.Reader.ReadByte() // itemLinkCount
@@ -397,6 +553,139 @@ func (h *Handler) HandlePacket(client *network.Client, pkt *protocol.Packet) {
 	case protocol.PROTO_NC_KQ_TEAM_SELECT_REQ:
 		teamType, _ := pkt.Reader.ReadByte()
 		h.kqMgr.HandleTeamSelect(client, teamType)
+
+	case protocol.PROTO_NC_KQ_SCHEDULE_REQ:
+		h.kqMgr.HandleSchedule(client)
+
+	case protocol.PROTO_NC_KQ_VOTE_START_CHECK_REQ:
+		h.kqMgr.HandleVoteStartCheck(client)
+
+	case protocol.PROTO_NC_KQ_VOTE_START_REQ:
+		targetName, _ := pkt.Reader.ReadString(20)
+		h.kqMgr.HandleVoteStart(client, targetName)
+
+	case protocol.PROTO_NC_KQ_VOTE_VOTING_REQ:
+		voteVal, _ := pkt.Reader.ReadByte()
+		h.kqMgr.HandleVoteCast(client, voteVal != 0)
+
+	// Subsistema Oficial de Prisión (Prison - Dept: 31)
+	case protocol.PROTO_NC_PRISON_ADD_GM_REQ:
+		h.handlePrisonSendIn(client, pkt)
+
+	case protocol.PROTO_NC_PRISON_END_REQ:
+		h.handlePrisonTakeOut(client, pkt)
+
+	case protocol.PROTO_NC_PRISON_ALTER_GM_REQ:
+		h.handlePrisonAlterTime(client, pkt)
+
+	case protocol.PROTO_NC_PRISON_GET_REQ:
+		h.handlePrisonConfirm(client, pkt)
+
+	// Subsistema Oficial de Reportes (Report - Dept: 32)
+	case protocol.PROTO_NC_REPORT_ADD_REQ:
+		h.handleReportAdd(client, pkt)
+
+	case protocol.PROTO_NC_REPORT_CANCEL_REQ:
+		h.handleReportCancel(client, pkt)
+
+	case protocol.PROTO_NC_REPORT_GET_REQ:
+		h.handleReportGet(client, pkt)
+
+	// Subsistema Oficial de Promesa Sagrada (Holy Promise - Dept: 37)
+	case protocol.PROTO_NC_HOLY_PROMISE_SET_UP_REQ:
+		h.handleHolyPromiseSetUp(client, pkt)
+
+	case protocol.PROTO_NC_HOLY_PROMISE_SET_UP_CONFIRM_ACK:
+		h.handleHolyPromiseSetUpConfirm(client, pkt)
+
+	case protocol.PROTO_NC_HOLY_PROMISE_DEL_UP_REQ:
+		h.handleHolyPromiseDelUp(client, pkt)
+
+	case protocol.PROTO_NC_HOLY_PROMISE_DEL_DOWN_REQ:
+		h.handleHolyPromiseDelDown(client, pkt)
+
+	// Subsistema Oficial de Mazmorras Instanciadas / BattleRank (Dept: 41)
+	case protocol.PROTO_NC_INSTANCE_DUNGEON_RANK_TAB_DAMAGEDEALT_REQ:
+		h.handleBattleRankClearTime(client, pkt)
+
+	case protocol.PROTO_NC_INSTANCE_DUNGEON_RANK_TAB_DAMAGETAKEN_REQ:
+		h.handleBattleRankScore(client, pkt)
+
+	case protocol.PROTO_NC_INSTANCE_DUNGEON_RANK_TAB_HEALINGDONE_REQ:
+		h.handleBattleRankPoint(client, pkt)
+
+	case protocol.PROTO_NC_INSTANCE_DUNGEON_RANK_TAB_MYRANK_REQ:
+		h.handleBattleRankMyScore(client, pkt)
+
+	// Subsistema Oficial de Restricciones de Chat (Chat Restrict - Dept: 42)
+	case protocol.PROTO_NC_CHAT_RESTRICT_ADD_REQ:
+		h.handleChatRestrictAdd(client, pkt)
+
+	case protocol.PROTO_NC_CHAT_RESTRICT_DEL_REQ:
+		h.handleChatRestrictDel(client, pkt)
+
+	case protocol.PROTO_NC_CHAT_RESTRICT_DEL_ALL_REQ:
+		h.handleChatRestrictDelAll(client, pkt)
+
+	// Subsistema Oficial de Bandas (Raid - Dept: 44)
+	case protocol.PROTO_NC_RAID_MAKE_REQ:
+		h.raidMgr.HandleMake(client)
+
+	case protocol.PROTO_NC_RAID_LOOTING_TYPE_REQ:
+		grade, _ := pkt.Reader.ReadByte()
+		lootType, _ := pkt.Reader.ReadByte()
+		h.raidMgr.HandleLootingType(client, grade, lootType)
+
+	case protocol.PROTO_NC_RAID_INVITATION_REQ:
+		targetName, _ := pkt.Reader.ReadString(20)
+		h.raidMgr.HandleInvitation(client, targetName)
+
+	case protocol.PROTO_NC_RAID_INVITATION_ANSWER_REQ:
+		isAllow, _ := pkt.Reader.ReadByte()
+		masterName, _ := pkt.Reader.ReadString(20)
+		h.raidMgr.HandleInvitationAnswer(client, isAllow, masterName)
+
+	case protocol.PROTO_NC_RAID_LEAVE_REQ:
+		h.raidMgr.HandleLeave(client)
+
+	case protocol.PROTO_NC_RAID_VANISH_REQ:
+		vanishName, _ := pkt.Reader.ReadString(20)
+		h.raidMgr.HandleVanish(client, vanishName)
+
+	case protocol.PROTO_NC_RAID_SLOT_MOVE_REQ:
+		prePos, _ := pkt.Reader.ReadUint32()
+		postPos, _ := pkt.Reader.ReadUint32()
+		preChar, _ := pkt.Reader.ReadString(20)
+		postChar, _ := pkt.Reader.ReadString(20)
+		h.raidMgr.HandleSlotMove(client, prePos, postPos, preChar, postChar)
+
+	case protocol.PROTO_NC_RAID_SET_LEADER_REQ:
+		newLeader, _ := pkt.Reader.ReadString(20)
+		h.raidMgr.HandleSetLeader(client, newLeader)
+
+	case protocol.PROTO_NC_RAID_SET_SUB_LEADER_REQ:
+		subLeader, _ := pkt.Reader.ReadString(20)
+		h.raidMgr.HandleSetSubLeader(client, subLeader)
+
+	case protocol.PROTO_NC_RAID_DEL_SUB_LEADER_REQ:
+		delSubLeader, _ := pkt.Reader.ReadString(20)
+		h.raidMgr.HandleDelSubLeader(client, delSubLeader)
+
+	case protocol.PROTO_NC_RAID_SET_LOOTER_REQ:
+		looterName, _ := pkt.Reader.ReadString(20)
+		h.raidMgr.HandleSetLooter(client, looterName)
+
+	case protocol.PROTO_NC_RAID_CHAT_REQ:
+		_, _ = pkt.Reader.ReadByte()
+		lenByte, _ := pkt.Reader.ReadByte()
+		chatBytes, _ := pkt.Reader.ReadBytes(int(lenByte))
+		h.raidMgr.HandleChat(client, string(chatBytes))
+
+	case protocol.PROTO_NC_RAID_WARNING_REQ:
+		_, _ = pkt.Reader.ReadByte()
+		lenByte, _ := pkt.Reader.ReadByte()
+		warningBytes, _ := pkt.Reader.ReadBytes(int(lenByte))
+		h.raidMgr.HandleWarning(client, string(warningBytes))
 
 	default:
 		log.Printf("[World][%s] Unhandled OpCode: 0x%04X (Dept=%d, Cmd=%d)",
@@ -625,7 +914,12 @@ func (h *Handler) handleCreateCharacter(client *network.Client, pkt *protocol.Pa
 		classData, exists = h.dataStore.DefaultData.GetClassData(classID)
 	}
 
-	startMap := "RouN"
+	startMap := ""
+	if h.dataStore != nil && h.dataStore.Fields != nil {
+		if f, ok := h.dataStore.Fields.GetFieldBySerial(1); ok {
+			startMap = f.MapID
+		}
+	}
 	startX := 6888
 	startY := 7045
 	hp := 100
@@ -1217,19 +1511,34 @@ func (h *Handler) handleCharSelect(client *network.Client, pkt *protocol.Packet)
 	}
 	clientIP := client.RemoteIP()
 
-	// 3. Resolver endpoint de zona para el mapa
+	// 3. Resolver endpoint de zona para el mapa dinámicamente sin fallback hardcodeado
 	targetIP := h.zoneIP
 	targetPort := h.zonePort
 	mapName := selected.TownName
-	if mapName == "" {
-		mapName = "RouN"
+	if mapName == "" && h.dataStore != nil && h.dataStore.Fields != nil {
+		if f, ok := h.dataStore.Fields.GetFieldBySerial(int(selected.Map)); ok {
+			mapName = f.MapID
+		}
+	}
+	if mapName == "" && h.dataStore != nil && h.dataStore.MapInfo != nil {
+		for _, row := range h.dataStore.MapInfo.Rows {
+			if row.GetUint16("MapIndex") == selected.Map {
+				if s := row.GetString("MapName"); s != "" {
+					mapName = s
+					break
+				}
+			}
+		}
 	}
 	var zoneNo uint16 = 1
 	if h.dataStore != nil && h.dataStore.Fields != nil {
 		if f, ok := h.dataStore.Fields.GetField(mapName); ok {
-			zoneNo = uint16(f.Fiesta)
-			if zoneNo == 0 {
-				zoneNo = 1
+			if f.Fiesta > 0 {
+				zoneNo = uint16(f.Fiesta)
+			}
+		} else if f, ok := h.dataStore.Fields.GetFieldBySerial(int(selected.Map)); ok {
+			if f.Fiesta > 0 {
+				zoneNo = uint16(f.Fiesta)
 			}
 		}
 	}
@@ -1495,7 +1804,18 @@ func (h *Handler) handleGotIngame(client *network.Client, pkt *protocol.Packet) 
 
 	// 2. Despachar lista oficial de amigos del jugador desde tFriend (0x5407)
 	h.friendMgr.SendFriendList(client)
-	h.friendMgr.BroadcastLogin(client, client.Username, "RouN")
+	currentMap := ""
+	if h.charRepo != nil && client.CharacterID > 0 {
+		if ch, err := h.charRepo.GetCharacterByID(client.CharacterID); err == nil && ch != nil {
+			currentMap = ch.TownName
+			if currentMap == "" && h.dataStore != nil && h.dataStore.Fields != nil {
+				if f, ok := h.dataStore.Fields.GetFieldBySerial(int(ch.Map)); ok {
+					currentMap = f.MapID
+				}
+			}
+		}
+	}
+	h.friendMgr.BroadcastLogin(client, client.Username, currentMap)
 
 	// 3. Registrar en GuildManager y enviar información de gremio si pertenece a uno
 	h.guildMgr.RegisterOnline(client, client.CharacterID, client.Username)

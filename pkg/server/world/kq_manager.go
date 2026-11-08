@@ -6,7 +6,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/iFeddy/XelionCore/pkg/data/shn"
+	"github.com/iFeddy/XelionCore/pkg/database"
 	"github.com/iFeddy/XelionCore/pkg/network"
 	"github.com/iFeddy/XelionCore/pkg/protocol"
 )
@@ -21,7 +21,17 @@ type KQParticipant struct {
 	Client   *network.Client
 }
 
-// KQInstance representa el estado en memoria de una Kingdom Quest activa o programada.
+// KQVoteSession administra una sesión activa de votación para expulsión.
+type KQVoteSession struct {
+	TargetCharID   int
+	TargetCharName string
+	StartedAt      time.Time
+	VotesAgree     int
+	VotesDisagree  int
+	VotedPlayers   map[int]bool
+}
+
+// KQInstance representa el estado en memoria y persistente de una Kingdom Quest oficial.
 type KQInstance struct {
 	Handle        uint32
 	ID            uint16
@@ -34,40 +44,92 @@ type KQInstance struct {
 	MaxLevel      byte
 	MinPlayers    uint16
 	MaxPlayers    uint16
+	IsTeamPVP     bool
+	CanVote       bool
+	VoteAgreeRate byte
 	Participants  map[int]*KQParticipant // CharID -> Participant
+	ActiveVote    *KQVoteSession
 }
 
-// KQManager administra el ciclo de vida, inscripción y difusión de Kingdom Quests (Dept 22).
+// KQManager administra el ciclo de vida, inscripción, votación y difusión de Kingdom Quests (Dept 22).
 type KQManager struct {
 	mu            sync.RWMutex
+	charRepo      database.CharacterRepository
 	instances     map[uint32]*KQInstance
 	charToKQ      map[int]uint32 // CharID -> Handle
 	onlinePlayers map[int]*network.Client
 	nextHandle    uint32
 }
 
-// NewKQManager inicializa el gestor de Kingdom Quests a partir de KingdomQuest.shn si está disponible.
-func NewKQManager(kqSHN *shn.File) *KQManager {
+// QuestCount retorna el total de Kingdom Quests cargadas desde archivos SHN.
+func (km *KQManager) QuestCount() int {
+	km.mu.RLock()
+	defer km.mu.RUnlock()
+	return len(km.instances)
+}
+
+// NewKQManager inicializa el gestor de Kingdom Quests a partir de archivos SHN oficiales y persiste en tKingdomQuest.
+func NewKQManager(dataStore *WorldDataStore, charRepo database.CharacterRepository) *KQManager {
 	km := &KQManager{
+		charRepo:      charRepo,
 		instances:     make(map[uint32]*KQInstance),
 		charToKQ:      make(map[int]uint32),
 		onlinePlayers: make(map[int]*network.Client),
 		nextHandle:    1,
 	}
 
-	if kqSHN != nil && kqSHN.RecordCount > 0 {
-		km.loadFromSHN(kqSHN)
-	} else {
-		km.loadDefaults()
+	if dataStore != nil && dataStore.LoadedFiles != nil {
+		km.loadFromDataStore(dataStore)
 	}
 
 	return km
 }
 
-func (km *KQManager) loadFromSHN(f *shn.File) {
+func (km *KQManager) loadFromDataStore(store *WorldDataStore) {
+	kqFile := store.LoadedFiles["KingdomQuest.shn"]
+	if kqFile == nil || kqFile.RecordCount == 0 {
+		log.Printf("[KQManager] KingdomQuest.shn not present or empty")
+		return
+	}
+
+	// Cargar metadatos complementarios oficiales de SHN
+	teamFile := store.LoadedFiles["KQTeam.shn"]
+	isVoteFile := store.LoadedFiles["KQIsVote.shn"]
+	voteRateFile := store.LoadedFiles["KQVoteMajorityRate.shn"]
+
+	teamPvPMap := make(map[uint16]bool)
+	if teamFile != nil {
+		for i := 0; i < teamFile.RecordCount; i++ {
+			row := teamFile.Rows[i]
+			id := row.GetUint16("ID")
+			isPVP := row.GetByte("IsTeamPVP")
+			if isPVP != 0 {
+				teamPvPMap[id] = true
+			}
+		}
+	}
+
+	canVoteMap := make(map[uint16]bool)
+	if isVoteFile != nil {
+		for i := 0; i < isVoteFile.RecordCount; i++ {
+			row := isVoteFile.Rows[i]
+			id := row.GetUint16("ID")
+			isVote := row.GetByte("IsVote")
+			canVoteMap[id] = (isVote != 0)
+		}
+	}
+
+	voteMajorityRate := byte(70)
+	if voteRateFile != nil && voteRateFile.RecordCount > 0 {
+		rate := voteRateFile.Rows[0].GetByte("VoteAgreeRate")
+		if rate > 0 {
+			voteMajorityRate = rate
+		}
+	}
+
 	now := time.Now()
-	for i := 0; i < f.RecordCount; i++ {
-		row := f.Rows[i]
+	for i := 0; i < kqFile.RecordCount; i++ {
+		row := kqFile.Rows[i]
 		id := row.GetUint16("ID")
 		title := strings.TrimSpace(row.GetString("Title"))
 		if title == "" {
@@ -82,7 +144,7 @@ func (km *KQManager) loadFromSHN(f *shn.File) {
 		startWait := row.GetUint16("StartWaitTime")
 
 		if minPly == 0 {
-			minPly = 5
+			minPly = 1
 		}
 		if maxPly == 0 {
 			maxPly = 15
@@ -97,11 +159,11 @@ func (km *KQManager) loadFromSHN(f *shn.File) {
 		handle := km.nextHandle
 		km.nextHandle++
 
-		km.instances[handle] = &KQInstance{
+		inst := &KQInstance{
 			Handle:        handle,
 			ID:            id,
 			Title:         title,
-			Status:        1, // Reclutando inicialmente para disponibilidad en vivo
+			Status:        1, // Reclutando
 			StartTime:     now.Add(time.Duration(10+i*5) * time.Minute),
 			LimitTime:     limitTime,
 			StartWaitTime: startWait,
@@ -109,47 +171,19 @@ func (km *KQManager) loadFromSHN(f *shn.File) {
 			MaxLevel:      maxLev,
 			MinPlayers:    minPly,
 			MaxPlayers:    maxPly,
+			IsTeamPVP:     teamPvPMap[id],
+			CanVote:       canVoteMap[id],
+			VoteAgreeRate: voteMajorityRate,
 			Participants:  make(map[int]*KQParticipant),
 		}
-	}
-	log.Printf("[KQManager] Loaded %d Kingdom Quests from KingdomQuest.shn", len(km.instances))
-}
+		km.instances[handle] = inst
 
-func (km *KQManager) loadDefaults() {
-	now := time.Now()
-	defaults := []struct {
-		id     uint16
-		title  string
-		minLev byte
-		maxLev byte
-		maxPly uint16
-	}{
-		{1, "Mara Pirates' Ambition", 20, 30, 15},
-		{2, "King Slime Counterattack", 30, 40, 15},
-		{3, "Gold Garden", 40, 50, 20},
-		{4, "Lost Temple", 50, 60, 20},
-	}
-
-	for _, d := range defaults {
-		handle := km.nextHandle
-		km.nextHandle++
-
-		km.instances[handle] = &KQInstance{
-			Handle:        handle,
-			ID:            d.id,
-			Title:         d.title,
-			Status:        1, // Reclutando
-			StartTime:     now.Add(15 * time.Minute),
-			LimitTime:     3600,
-			StartWaitTime: 300,
-			MinLevel:      d.minLev,
-			MaxLevel:      d.maxLev,
-			MinPlayers:    5,
-			MaxPlayers:    d.maxPly,
-			Participants:  make(map[int]*KQParticipant),
+		// Sincronizar estado oficial en MySQL tKingdomQuest (CALL p_KingdomQuest_Set)
+		if km.charRepo != nil {
+			_ = km.charRepo.SetKingdomQuest(int(id), title)
 		}
 	}
-	log.Printf("[KQManager] Initialized %d default Kingdom Quests", len(km.instances))
+	log.Printf("[KQManager] Loaded %d Kingdom Quests from KingdomQuest.shn (synced to tKingdomQuest)", len(km.instances))
 }
 
 // RegisterOnline registra al jugador para recibir alertas de Kingdom Quest.
@@ -231,6 +265,16 @@ func (km *KQManager) HandleList(client *network.Client) {
 
 	resp := protocol.New_PROTO_NC_KQ_LIST_ACK(now, startHandle, endHandle, list)
 	_ = client.SendPacket(resp)
+}
+
+// HandleSchedule responde el calendario de KQs programadas (0x5809 PROTO_NC_KQ_SCHEDULE_REQ -> 0x580A).
+func (km *KQManager) HandleSchedule(client *network.Client) {
+	km.HandleList(client)
+}
+
+// HandleRefresh refresca el listado de KQs para el cliente (0x581B PROTO_NC_KQ_LIST_REFRESH_REQ).
+func (km *KQManager) HandleRefresh(client *network.Client) {
+	km.HandleList(client)
 }
 
 // HandleStatus responde el estado detallado y lista de inscritos en una KQ (OpCode 0x5804).
@@ -407,6 +451,158 @@ func (km *KQManager) HandleTeamSelect(client *network.Client, teamType byte) {
 	for _, p := range inst.Participants {
 		if p.Client != nil {
 			_ = p.Client.SendPacket(cmdPkt)
+		}
+	}
+}
+
+// HandleVoteStartCheck verifica si una KQ admite votación (0x5834 PROTO_NC_KQ_VOTE_START_CHECK_REQ -> 0x5835).
+func (km *KQManager) HandleVoteStartCheck(client *network.Client) {
+	km.mu.RLock()
+	defer km.mu.RUnlock()
+
+	handle, ok := km.charToKQ[client.CharacterID]
+	canVote := uint16(0)
+	if ok {
+		if inst, found := km.instances[handle]; found && inst.CanVote {
+			canVote = 1
+		}
+	}
+
+	pw := protocol.NewPacketWriter(protocol.PROTO_NC_KQ_VOTE_START_CHECK_ACK)
+	pw.WriteUint16(canVote)
+	_ = client.SendPacket(pw)
+}
+
+// HandleVoteStart inicia una votación para expulsar a un jugador (0x5827 PROTO_NC_KQ_VOTE_START_REQ -> 0x5828).
+func (km *KQManager) HandleVoteStart(client *network.Client, targetName string) {
+	km.mu.Lock()
+	defer km.mu.Unlock()
+
+	handle, ok := km.charToKQ[client.CharacterID]
+	if !ok {
+		pw := protocol.NewPacketWriter(protocol.PROTO_NC_KQ_VOTE_START_ACK)
+		pw.WriteUint16(1) // Not in KQ
+		_ = client.SendPacket(pw)
+		return
+	}
+
+	inst, found := km.instances[handle]
+	if !found || !inst.CanVote || inst.ActiveVote != nil {
+		pw := protocol.NewPacketWriter(protocol.PROTO_NC_KQ_VOTE_START_ACK)
+		pw.WriteUint16(2) // Cannot vote or vote in progress
+		_ = client.SendPacket(pw)
+		return
+	}
+
+	var targetID int
+	for _, p := range inst.Participants {
+		if strings.EqualFold(p.CharName, strings.TrimSpace(targetName)) {
+			targetID = p.CharID
+			break
+		}
+	}
+
+	if targetID == 0 || targetID == client.CharacterID {
+		pw := protocol.NewPacketWriter(protocol.PROTO_NC_KQ_VOTE_START_ACK)
+		pw.WriteUint16(3) // Target invalid
+		_ = client.SendPacket(pw)
+		return
+	}
+
+	inst.ActiveVote = &KQVoteSession{
+		TargetCharID:   targetID,
+		TargetCharName: targetName,
+		StartedAt:      time.Now(),
+		VotesAgree:     1, // Requester automatically votes agree
+		VotesDisagree:  0,
+		VotedPlayers:   map[int]bool{client.CharacterID: true},
+	}
+
+	ackPw := protocol.NewPacketWriter(protocol.PROTO_NC_KQ_VOTE_START_ACK)
+	ackPw.WriteUint16(0)
+	_ = client.SendPacket(ackPw)
+
+	// Broadcast voting cmd (0x5829)
+	votingCmd := protocol.NewPacketWriter(protocol.PROTO_NC_KQ_VOTE_VOTING_CMD)
+	votingCmd.WriteString(targetName, 16)
+	votingCmd.WriteString(client.Username, 16)
+	for _, p := range inst.Participants {
+		if p.Client != nil {
+			_ = p.Client.SendPacket(votingCmd)
+		}
+	}
+}
+
+// HandleVoteCast registra el voto de un participante (0x582A PROTO_NC_KQ_VOTE_VOTING_REQ -> 0x582B).
+func (km *KQManager) HandleVoteCast(client *network.Client, agree bool) {
+	km.mu.Lock()
+	defer km.mu.Unlock()
+
+	handle, ok := km.charToKQ[client.CharacterID]
+	if !ok {
+		pw := protocol.NewPacketWriter(protocol.PROTO_NC_KQ_VOTE_VOTING_ACK)
+		pw.WriteUint16(1)
+		_ = client.SendPacket(pw)
+		return
+	}
+
+	inst, found := km.instances[handle]
+	if !found || inst.ActiveVote == nil {
+		pw := protocol.NewPacketWriter(protocol.PROTO_NC_KQ_VOTE_VOTING_ACK)
+		pw.WriteUint16(2)
+		_ = client.SendPacket(pw)
+		return
+	}
+
+	vote := inst.ActiveVote
+	if vote.VotedPlayers[client.CharacterID] {
+		pw := protocol.NewPacketWriter(protocol.PROTO_NC_KQ_VOTE_VOTING_ACK)
+		pw.WriteUint16(3) // Already voted
+		_ = client.SendPacket(pw)
+		return
+	}
+
+	vote.VotedPlayers[client.CharacterID] = true
+	if agree {
+		vote.VotesAgree++
+	} else {
+		vote.VotesDisagree++
+	}
+
+	ackPw := protocol.NewPacketWriter(protocol.PROTO_NC_KQ_VOTE_VOTING_ACK)
+	ackPw.WriteUint16(0)
+	_ = client.SendPacket(ackPw)
+
+	// Verificar si se alcanzó la mayoría
+	totalParticipants := len(inst.Participants)
+	threshold := int(float64(totalParticipants) * float64(inst.VoteAgreeRate) / 100.0)
+	if threshold < 1 {
+		threshold = 1
+	}
+
+	if vote.VotesAgree >= threshold {
+		// Voto exitoso: expulsar objetivo
+		targetID := vote.TargetCharID
+		targetName := vote.TargetCharName
+		delete(inst.Participants, targetID)
+		delete(km.charToKQ, targetID)
+		inst.ActiveVote = nil
+
+		sucCmd := protocol.NewPacketWriter(protocol.PROTO_NC_KQ_VOTE_RESULT_SUC_CMD)
+		sucCmd.WriteString(targetName, 16)
+		for _, p := range inst.Participants {
+			if p.Client != nil {
+				_ = p.Client.SendPacket(sucCmd)
+			}
+		}
+	} else if vote.VotesDisagree > totalParticipants-threshold {
+		// Voto fallido
+		inst.ActiveVote = nil
+		failCmd := protocol.NewPacketWriter(protocol.PROTO_NC_KQ_VOTE_RESULT_FAIL_CMD)
+		for _, p := range inst.Participants {
+			if p.Client != nil {
+				_ = p.Client.SendPacket(failCmd)
+			}
 		}
 	}
 }

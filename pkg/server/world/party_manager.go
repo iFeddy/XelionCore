@@ -5,6 +5,7 @@ import (
 	"strings"
 	"sync"
 
+	"github.com/iFeddy/XelionCore/pkg/database"
 	"github.com/iFeddy/XelionCore/pkg/network"
 	"github.com/iFeddy/XelionCore/pkg/protocol"
 )
@@ -24,6 +25,8 @@ type Party struct {
 	ID          uint16
 	MasterName  string
 	MasterID    int
+	LooterName  string
+	LooterID    int
 	LootingType byte // 0: Free-for-all, 1: Round-Robin, 2: Leader-Loot
 	ItemGrade   byte
 	Members     []*PartyMember
@@ -40,6 +43,7 @@ type PartyFinderAd struct {
 // PartyManager administra la coordinación global de grupos en WorldService.
 type PartyManager struct {
 	mu            sync.RWMutex
+	charRepo      database.CharacterRepository
 	nextPartyID   uint16
 	parties       map[uint16]*Party
 	charToParty   map[int]uint16
@@ -48,9 +52,10 @@ type PartyManager struct {
 	finderAds     map[uint16]*PartyFinderAd
 }
 
-// NewPartyManager inicializa el administrador de grupos.
-func NewPartyManager() *PartyManager {
+// NewPartyManager inicializa el administrador de grupos con persistencia en Base de Datos.
+func NewPartyManager(charRepo database.CharacterRepository) *PartyManager {
 	return &PartyManager{
+		charRepo:       charRepo,
 		nextPartyID:    1,
 		parties:        make(map[uint16]*Party),
 		charToParty:    make(map[int]uint16),
@@ -99,6 +104,10 @@ func (pm *PartyManager) UnregisterOnline(charID int) {
 	party, exists := pm.parties[partyID]
 	if !exists {
 		return
+	}
+
+	if pm.charRepo != nil {
+		_ = pm.charRepo.RemovePartyMember(int(partyID), charID)
 	}
 
 	// Remover miembro
@@ -242,6 +251,17 @@ func (pm *PartyManager) AcceptInvite(target *network.Client) {
 		pm.parties[newID] = party
 		pm.charToParty[inviterID] = newID
 		pm.charToParty[targetID] = newID
+
+		if pm.charRepo != nil {
+			pID, err := pm.charRepo.CreateParty(inviterMember.CharID, 0)
+			if err == nil && pID > 0 {
+				newID = uint16(pID)
+				party.ID = newID
+				pm.parties[newID] = party
+			}
+			_ = pm.charRepo.AddPartyMember(int(newID), inviterMember.CharID, 1)
+			_ = pm.charRepo.AddPartyMember(int(newID), targetMember.CharID, 0)
+		}
 	} else {
 		party = pm.parties[partyID]
 		if len(party.Members) >= 5 {
@@ -250,6 +270,10 @@ func (pm *PartyManager) AcceptInvite(target *network.Client) {
 		targetMember.IsMaster = false
 		party.Members = append(party.Members, targetMember)
 		pm.charToParty[targetID] = partyID
+
+		if pm.charRepo != nil {
+			_ = pm.charRepo.AddPartyMember(int(partyID), targetMember.CharID, 0)
+		}
 	}
 
 	log.Printf("[Party] '%s' joined party %d (Total: %d members)",
@@ -295,6 +319,10 @@ func (pm *PartyManager) LeaveParty(client *network.Client) {
 	party, exists := pm.parties[partyID]
 	if !exists {
 		return
+	}
+
+	if pm.charRepo != nil {
+		_ = pm.charRepo.RemovePartyMember(int(partyID), charID)
 	}
 
 	newMembers := make([]*PartyMember, 0, len(party.Members)-1)
@@ -358,6 +386,10 @@ func (pm *PartyManager) KickMember(master *network.Client, targetName string) {
 	delete(pm.charToParty, kickedMember.CharID)
 	party.Members = newMembers
 
+	if pm.charRepo != nil {
+		_ = pm.charRepo.RemovePartyMember(int(partyID), kickedMember.CharID)
+	}
+
 	if kickedMember.Client != nil {
 		_ = kickedMember.Client.SendPacket(protocol.New_PROTO_NC_PARTY_LEAVE_ACK(0))
 	}
@@ -406,6 +438,10 @@ func (pm *PartyManager) ChangeMaster(master *network.Client, newMasterName strin
 	party.MasterID = newMaster.CharID
 	party.MasterName = newMaster.CharName
 
+	if pm.charRepo != nil {
+		_ = pm.charRepo.SetPartyMaster(int(partyID), newMaster.CharID)
+	}
+
 	_ = master.SendPacket(protocol.New_PROTO_NC_PARTY_CHANGEMASTER_ACK(0))
 	pm.broadcastMemberListLocked(party)
 }
@@ -428,10 +464,59 @@ func (pm *PartyManager) SetLooting(master *network.Client, lootType, itemGrade b
 	party.LootingType = lootType
 	party.ItemGrade = itemGrade
 
+	if pm.charRepo != nil {
+		flags := (int(lootType) << 8) | int(itemGrade)
+		_ = pm.charRepo.SetPartyFlags(int(partyID), flags)
+	}
+
 	cmd := protocol.New_PROTO_NC_PARTY_ITEM_LOOTING_CMD(lootType, itemGrade)
 	for _, m := range party.Members {
 		if m.Client != nil {
 			_ = m.Client.SendPacket(cmd)
+		}
+	}
+}
+
+// SetLooter asigna al recolector oficial del grupo (0x385A PROTO_NC_PARTY_SET_LOOTER_REQ).
+func (pm *PartyManager) SetLooter(master *network.Client, looterName string) {
+	pm.mu.Lock()
+	defer pm.mu.Unlock()
+
+	masterID := master.CharacterID
+	partyID, inParty := pm.charToParty[masterID]
+	if !inParty {
+		_ = master.SendPacket(protocol.New_PROTO_NC_PARTY_SET_LOOTER_ACK(looterName, 1))
+		return
+	}
+	party := pm.parties[partyID]
+	if party.MasterID != masterID {
+		_ = master.SendPacket(protocol.New_PROTO_NC_PARTY_SET_LOOTER_ACK(looterName, 2))
+		return
+	}
+
+	targetKey := strings.ToLower(strings.TrimSpace(looterName))
+	var targetMember *PartyMember
+	for _, m := range party.Members {
+		if strings.ToLower(m.CharName) == targetKey {
+			targetMember = m
+			break
+		}
+	}
+
+	if targetMember == nil {
+		_ = master.SendPacket(protocol.New_PROTO_NC_PARTY_SET_LOOTER_ACK(looterName, 3))
+		return
+	}
+
+	party.LooterName = targetMember.CharName
+	party.LooterID = targetMember.CharID
+
+	_ = master.SendPacket(protocol.New_PROTO_NC_PARTY_SET_LOOTER_ACK(targetMember.CharName, 0))
+
+	broadCmd := protocol.New_PROTO_NC_PARTY_SET_LOOTER_BROAD_CMD(party.MasterName, targetMember.CharName)
+	for _, m := range party.Members {
+		if m.Client != nil {
+			_ = m.Client.SendPacket(broadCmd)
 		}
 	}
 }
@@ -533,6 +618,10 @@ func (pm *PartyManager) broadcastMemberListLocked(party *Party) {
 }
 
 func (pm *PartyManager) dissolvePartyLocked(party *Party) {
+	if pm.charRepo != nil {
+		_ = pm.charRepo.DeleteParty(int(party.ID))
+	}
+
 	dismissCmd := protocol.New_PROTO_NC_PARTY_DISMISS_CMD(party.ID)
 	for _, m := range party.Members {
 		delete(pm.charToParty, m.CharID)

@@ -87,6 +87,25 @@ func New_PROTO_NC_FRIEND_POINT_ACK(points uint32) *PacketWriter {
 	return pw
 }
 
+// New_PROTO_NC_FRIEND_FIND_FRIENDS_ACK construye la respuesta a la búsqueda de amigos (OpCode 0x5420).
+func New_PROTO_NC_FRIEND_FIND_FRIENDS_ACK(errCode uint16, results []FriendEntry) *PacketWriter {
+	pw := NewPacketWriter(PROTO_NC_FRIEND_FIND_FRIENDS_ACK)
+	pw.WriteUint16(errCode)
+	pw.WriteUint16(uint16(len(results)))
+	for _, f := range results {
+		pw.WriteString(f.CharName, 16)
+		pw.WriteByte(f.Class)
+		pw.WriteByte(f.Level)
+		pw.WriteString(f.Map, 12)
+		if f.IsOnline {
+			pw.WriteByte(1)
+		} else {
+			pw.WriteByte(0)
+		}
+	}
+	return pw
+}
+
 // ============================================================================
 // Estructuras Oficiales C++ (#pragma pack(push, 1))
 // ============================================================================

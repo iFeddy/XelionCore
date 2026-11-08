@@ -11,7 +11,12 @@ import (
 )
 
 func TestKQManager_FullFlow(t *testing.T) {
-	km := world.NewKQManager(nil) // Usa KQs por defecto
+	dataStore, err := world.LoadWorldDataStore("../../../data")
+	if err != nil {
+		t.Fatalf("failed to load WorldDataStore: %v", err)
+	}
+
+	km := world.NewKQManager(dataStore, nil)
 
 	c1Server, c1Client := net.Pipe()
 	defer c1Server.Close()
@@ -49,14 +54,16 @@ func TestKQManager_FullFlow(t *testing.T) {
 	km.RegisterOnline(client1, 501)
 	km.RegisterOnline(client2, 502)
 
-	// 1. Solicitar listado de KQs
+	// 1. Solicitar listado y horario de KQs
 	km.HandleList(client1)
+	km.HandleSchedule(client1)
+	km.HandleRefresh(client1)
 
-	// 2. Jugador 1 intenta anotarse en KQ Handle 1 (Mara Pirates, Niveles 20-30) con nivel 10 -> Debe fallar
+	// 2. Jugador 1 intenta anotarse en KQ Handle 1 (MinLevel 5) con nivel 2 -> Debe fallar
+	km.HandleJoin(client1, 1, 2, 1)
+
+	// 3. Jugador 1 se anota con nivel válido 10 -> Éxito
 	km.HandleJoin(client1, 1, 10, 1)
-
-	// 3. Jugador 1 se anota con nivel válido 25 -> Éxito
-	km.HandleJoin(client1, 1, 25, 1)
 
 	// 4. Verificar estado e inscritos
 	km.HandleStatus(client1, 1)
@@ -65,13 +72,18 @@ func TestKQManager_FullFlow(t *testing.T) {
 	// 5. Jugador 1 selecciona equipo (Team 1)
 	km.HandleTeamSelect(client1, 1)
 
-	// 6. Jugador 2 se anota con nivel válido 28
-	km.HandleJoin(client2, 1, 28, 2)
+	// 6. Jugador 2 se anota con nivel válido 12
+	km.HandleJoin(client2, 1, 12, 2)
 
-	// 7. Jugador 1 cancela su registro
+	// 7. Votación de expulsión
+	km.HandleVoteStartCheck(client1)
+	km.HandleVoteStart(client1, "HeroTwo")
+	km.HandleVoteCast(client1, true)
+
+	// 8. Jugador 1 cancela su registro
 	km.HandleJoinCancel(client1, 1)
 
-	// 8. Desconectar jugadores
+	// 9. Desconectar jugadores
 	km.UnregisterOnline(501)
 	km.UnregisterOnline(502)
 }

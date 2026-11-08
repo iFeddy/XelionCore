@@ -9,7 +9,7 @@ import (
 )
 
 func TestPartyManager_FullFlow(t *testing.T) {
-	pm := world.NewPartyManager()
+	pm := world.NewPartyManager(nil)
 
 	c1Server, c1Client := net.Pipe()
 	defer c1Server.Close()
@@ -61,8 +61,9 @@ func TestPartyManager_FullFlow(t *testing.T) {
 	// 3. Lancelot acepta la invitación
 	pm.AcceptInvite(client2)
 
-	// 4. Cambiar regla de botín
+	// 4. Cambiar regla de botín y asignar looter
 	pm.SetLooting(client1, 1, 3)
+	pm.SetLooter(client1, "Lancelot")
 
 	// 5. Publicar anuncio en buscador de grupos
 	pm.AddFinderAd(client1, "Farming goblins in RouN")

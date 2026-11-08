@@ -48,9 +48,6 @@ func (fm *FriendManager) SendFriendList(client *network.Client) {
 		if onlineMem, exists := fm.partyMgr.onlineChars[strings.ToLower(f.CharName)]; exists && onlineMem.Client != nil {
 			isOnline = true
 		}
-		if currentMap == "" {
-			currentMap = "RouN"
-		}
 		entries = append(entries, protocol.FriendEntry{
 			CharName: f.CharName,
 			IsOnline: isOnline,
@@ -211,4 +208,27 @@ func (fm *FriendManager) BroadcastLogout(charID int, charName string) {
 			_ = onlineMem.Client.SendPacket(cmd)
 		}
 	}
+}
+
+// FindFriends procesa la búsqueda de amigos online por parámetros (0x541F PROTO_NC_FRIEND_FIND_FRIENDS_REQ).
+func (fm *FriendManager) FindFriends(client *network.Client, pkt *protocol.Packet) {
+	fm.partyMgr.mu.RLock()
+	var results []protocol.FriendEntry
+	for _, m := range fm.partyMgr.onlineChars {
+		if m.CharID != client.CharacterID && m.Client != nil {
+			results = append(results, protocol.FriendEntry{
+				CharName: m.CharName,
+				IsOnline: true,
+				Map:      "",
+				Class:    m.Class,
+				Level:    m.Level,
+			})
+			if len(results) >= 20 {
+				break
+			}
+		}
+	}
+	fm.partyMgr.mu.RUnlock()
+
+	_ = client.SendPacket(protocol.New_PROTO_NC_FRIEND_FIND_FRIENDS_ACK(0, results))
 }

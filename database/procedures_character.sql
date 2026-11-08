@@ -423,11 +423,7 @@ sp_body: BEGIN
     proc_logic: BEGIN
         SET out_nCharFame = 0;
         SET out_nRet = 0;
-        SET out_nRet=0;
-        SELECT nFame INTO out_nCharFame FROM tCharacter WHERE nCharNo=in_nCharNo;
-        IF ROW_COUNT ( ) = 1 THEN
-            SET out_nRet=1;
-        END IF;
+        SELECT nFame, 1 INTO out_nCharFame, out_nRet FROM tCharacter WHERE nCharNo=in_nCharNo;
         LEAVE proc_logic;
     END proc_logic;
     IF IFNULL(@_xc_nested_sp, 0) = 0 THEN
@@ -1409,11 +1405,7 @@ sp_body: BEGIN
     proc_logic: BEGIN
         SET out_nCharMoney = 0;
         SET out_nRet = 0;
-        SET out_nRet=0;
-        SELECT nMoney INTO out_nCharMoney FROM tCharacter WHERE nCharNo=in_nCharNo;
-        IF ROW_COUNT ( ) = 1 THEN
-            SET out_nRet=1;
-        END IF;
+        SELECT nMoney, 1 INTO out_nCharMoney, out_nRet FROM tCharacter WHERE nCharNo=in_nCharNo;
         LEAVE proc_logic;
     END proc_logic;
     IF IFNULL(@_xc_nested_sp, 0) = 0 THEN
@@ -1531,9 +1523,8 @@ CREATE PROCEDURE `p_Char_MoneySet`(
 sp_body: BEGIN
     proc_logic: BEGIN
         SET out_nRet = 0;
-        SET out_nRet=0;
-        UPDATE tCharacter SET nMoney=in_nSetMoney WHERE nCharNo=in_nCharNo;
-        IF ROW_COUNT ( ) = 1 THEN
+        IF EXISTS (SELECT nCharNo FROM tCharacter WHERE nCharNo=in_nCharNo) THEN
+            UPDATE tCharacter SET nMoney=in_nSetMoney WHERE nCharNo=in_nCharNo;
             SET out_nRet=1;
         END IF;
         LEAVE proc_logic;
@@ -8538,10 +8529,7 @@ sp_body: BEGIN
         SET out_nRet = 0;
         SET out_nRet=0;
         IF EXISTS ( SELECT nUserMoney FROM tUserMoney WHERE nUserNo = in_nUserNo ) THEN
-            SELECT nUserMoney INTO out_nUserMoney FROM tUserMoney WHERE nUserNo=in_nUserNo;
-            IF ROW_COUNT ( ) = 1 THEN
-            SET out_nRet=1;
-        END IF;
+            SELECT nUserMoney, 1 INTO out_nUserMoney, out_nRet FROM tUserMoney WHERE nUserNo=in_nUserNo;
             LEAVE proc_logic;
         END IF;
         SET out_nUserMoney=0;
@@ -15553,5 +15541,291 @@ sp_body: BEGIN
         dLastHeartbeat = NOW();
 
     SELECT 0 AS nRet;
+END$$
+DELIMITER ;
+-- Fase 06 Social & Topology Stored Procedures
+
+-- Procedure: p_Party_Create
+DROP PROCEDURE IF EXISTS `p_Party_Create`;
+DELIMITER $$
+CREATE PROCEDURE `p_Party_Create`(
+    IN in_nMasterCharNo INT,
+    IN in_nFlags INT,
+    OUT out_nPartyNo INT,
+    OUT out_nRet INT
+)
+sp_body: BEGIN
+    DECLARE CONTINUE HANDLER FOR NOT FOUND BEGIN END;
+    proc_logic: BEGIN
+        SET out_nPartyNo = 0;
+        SET out_nRet = 0;
+        IF IFNULL(in_nMasterCharNo, 0) <= 0 THEN
+            SET out_nRet = -1;
+            LEAVE proc_logic;
+        END IF;
+
+        INSERT INTO tParty(nMasterCharNo, nFlags) VALUES (in_nMasterCharNo, in_nFlags);
+        SET out_nPartyNo = LAST_INSERT_ID();
+
+        INSERT INTO tPartyMember(nPartyNo, nCharNo, nFlag) VALUES (out_nPartyNo, in_nMasterCharNo, 1);
+        SET out_nRet = 0;
+    END proc_logic;
+    IF IFNULL(@_xc_nested_sp, 0) = 0 THEN
+        SELECT out_nPartyNo AS nPartyNo, out_nRet AS nRet;
+    END IF;
+END$$
+DELIMITER ;
+
+-- Procedure: p_Party_AddMember
+DROP PROCEDURE IF EXISTS `p_Party_AddMember`;
+DELIMITER $$
+CREATE PROCEDURE `p_Party_AddMember`(
+    IN in_nPartyNo INT,
+    IN in_nCharNo INT,
+    IN in_nFlag TINYINT,
+    OUT out_nRet INT
+)
+sp_body: BEGIN
+    DECLARE CONTINUE HANDLER FOR NOT FOUND BEGIN END;
+    proc_logic: BEGIN
+        SET out_nRet = 0;
+        IF IFNULL(in_nPartyNo, 0) <= 0 OR IFNULL(in_nCharNo, 0) <= 0 THEN
+            SET out_nRet = -1;
+            LEAVE proc_logic;
+        END IF;
+
+        INSERT INTO tPartyMember(nPartyNo, nCharNo, nFlag)
+        VALUES (in_nPartyNo, in_nCharNo, in_nFlag)
+        ON DUPLICATE KEY UPDATE nFlag = in_nFlag;
+        SET out_nRet = 0;
+    END proc_logic;
+    IF IFNULL(@_xc_nested_sp, 0) = 0 THEN
+        SELECT out_nRet AS nRet;
+    END IF;
+END$$
+DELIMITER ;
+
+-- Procedure: p_Party_RemoveMember
+DROP PROCEDURE IF EXISTS `p_Party_RemoveMember`;
+DELIMITER $$
+CREATE PROCEDURE `p_Party_RemoveMember`(
+    IN in_nPartyNo INT,
+    IN in_nCharNo INT,
+    OUT out_nRet INT
+)
+sp_body: BEGIN
+    DECLARE v_count INT;
+    DECLARE CONTINUE HANDLER FOR NOT FOUND BEGIN END;
+    proc_logic: BEGIN
+        SET out_nRet = 0;
+        DELETE FROM tPartyMember WHERE nPartyNo = in_nPartyNo AND nCharNo = in_nCharNo;
+
+        SELECT COUNT(*) INTO v_count FROM tPartyMember WHERE nPartyNo = in_nPartyNo;
+        IF v_count = 0 THEN
+            DELETE FROM tParty WHERE nPartyNo = in_nPartyNo;
+        END IF;
+        SET out_nRet = 0;
+    END proc_logic;
+    IF IFNULL(@_xc_nested_sp, 0) = 0 THEN
+        SELECT out_nRet AS nRet;
+    END IF;
+END$$
+DELIMITER ;
+
+-- Procedure: p_Party_SetMaster
+DROP PROCEDURE IF EXISTS `p_Party_SetMaster`;
+DELIMITER $$
+CREATE PROCEDURE `p_Party_SetMaster`(
+    IN in_nPartyNo INT,
+    IN in_nMasterCharNo INT,
+    OUT out_nRet INT
+)
+sp_body: BEGIN
+    DECLARE CONTINUE HANDLER FOR NOT FOUND BEGIN END;
+    proc_logic: BEGIN
+        SET out_nRet = 0;
+        UPDATE tParty SET nMasterCharNo = in_nMasterCharNo WHERE nPartyNo = in_nPartyNo;
+        UPDATE tPartyMember SET nFlag = 0 WHERE nPartyNo = in_nPartyNo;
+        UPDATE tPartyMember SET nFlag = 1 WHERE nPartyNo = in_nPartyNo AND nCharNo = in_nMasterCharNo;
+        SET out_nRet = 0;
+    END proc_logic;
+    IF IFNULL(@_xc_nested_sp, 0) = 0 THEN
+        SELECT out_nRet AS nRet;
+    END IF;
+END$$
+DELIMITER ;
+
+-- Procedure: p_Party_SetFlags
+DROP PROCEDURE IF EXISTS `p_Party_SetFlags`;
+DELIMITER $$
+CREATE PROCEDURE `p_Party_SetFlags`(
+    IN in_nPartyNo INT,
+    IN in_nFlags INT,
+    OUT out_nRet INT
+)
+sp_body: BEGIN
+    DECLARE CONTINUE HANDLER FOR NOT FOUND BEGIN END;
+    proc_logic: BEGIN
+        SET out_nRet = 0;
+        UPDATE tParty SET nFlags = in_nFlags WHERE nPartyNo = in_nPartyNo;
+        SET out_nRet = 0;
+    END proc_logic;
+    IF IFNULL(@_xc_nested_sp, 0) = 0 THEN
+        SELECT out_nRet AS nRet;
+    END IF;
+END$$
+DELIMITER ;
+
+-- Procedure: p_Party_Delete
+DROP PROCEDURE IF EXISTS `p_Party_Delete`;
+DELIMITER $$
+CREATE PROCEDURE `p_Party_Delete`(
+    IN in_nPartyNo INT,
+    OUT out_nRet INT
+)
+sp_body: BEGIN
+    DECLARE CONTINUE HANDLER FOR NOT FOUND BEGIN END;
+    proc_logic: BEGIN
+        SET out_nRet = 0;
+        DELETE FROM tPartyMember WHERE nPartyNo = in_nPartyNo;
+        DELETE FROM tParty WHERE nPartyNo = in_nPartyNo;
+        SET out_nRet = 0;
+    END proc_logic;
+    IF IFNULL(@_xc_nested_sp, 0) = 0 THEN
+        SELECT out_nRet AS nRet;
+    END IF;
+END$$
+DELIMITER ;
+
+-- Procedure: p_Party_Get
+DROP PROCEDURE IF EXISTS `p_Party_Get`;
+DELIMITER $$
+CREATE PROCEDURE `p_Party_Get`(
+    IN in_nPartyNo INT
+)
+sp_body: BEGIN
+    SELECT nPartyNo, nMasterCharNo, nFlags FROM tParty WHERE nPartyNo = in_nPartyNo;
+END$$
+DELIMITER ;
+
+-- Procedure: p_Party_GetMembers
+DROP PROCEDURE IF EXISTS `p_Party_GetMembers`;
+DELIMITER $$
+CREATE PROCEDURE `p_Party_GetMembers`(
+    IN in_nPartyNo INT
+)
+sp_body: BEGIN
+    SELECT T1.nCharNo, T1.nFlag, T2.sID, IFNULL(T3.nClass, 1), T2.nLevel, T2.sLoginZone, T2.nHP, T2.nSP
+    FROM tPartyMember T1
+    JOIN tCharacter T2 ON T1.nCharNo = T2.nCharNo
+    LEFT JOIN tCharacterShape T3 ON T1.nCharNo = T3.nCharNo
+    WHERE T1.nPartyNo = in_nPartyNo;
+END$$
+DELIMITER ;
+
+-- Procedure: p_Party_GetByChar
+DROP PROCEDURE IF EXISTS `p_Party_GetByChar`;
+DELIMITER $$
+CREATE PROCEDURE `p_Party_GetByChar`(
+    IN in_nCharNo INT
+)
+sp_body: BEGIN
+    SELECT T1.nPartyNo, T2.nMasterCharNo, T2.nFlags
+    FROM tPartyMember T1
+    JOIN tParty T2 ON T1.nPartyNo = T2.nPartyNo
+    WHERE T1.nCharNo = in_nCharNo
+    LIMIT 1;
+END$$
+DELIMITER ;
+
+-- Procedure: p_Char_Chat_Restrict_Add
+DROP PROCEDURE IF EXISTS `p_Char_Chat_Restrict_Add`;
+DELIMITER $$
+CREATE PROCEDURE `p_Char_Chat_Restrict_Add`(
+    IN in_nUserNo INT,
+    IN in_nCharNo INT,
+    OUT out_nRet INT
+)
+sp_body: BEGIN
+    DECLARE CONTINUE HANDLER FOR NOT FOUND BEGIN END;
+    proc_logic: BEGIN
+        SET out_nRet = 0;
+        IF IFNULL(in_nUserNo, 0) <= 0 OR IFNULL(in_nCharNo, 0) <= 0 THEN
+            SET out_nRet = -1;
+            LEAVE proc_logic;
+        END IF;
+        INSERT IGNORE INTO tChatBlock(nUserNo, nCharNo, dDate) VALUES (in_nUserNo, in_nCharNo, NOW());
+        SET out_nRet = 0;
+    END proc_logic;
+    IF IFNULL(@_xc_nested_sp, 0) = 0 THEN
+        SELECT out_nRet AS nRet;
+    END IF;
+END$$
+DELIMITER ;
+
+-- Procedure: p_Char_Chat_Restrict_Del
+DROP PROCEDURE IF EXISTS `p_Char_Chat_Restrict_Del`;
+DELIMITER $$
+CREATE PROCEDURE `p_Char_Chat_Restrict_Del`(
+    IN in_nUserNo INT,
+    IN in_nCharNo INT,
+    OUT out_nRet INT
+)
+sp_body: BEGIN
+    DECLARE CONTINUE HANDLER FOR NOT FOUND BEGIN END;
+    proc_logic: BEGIN
+        SET out_nRet = 0;
+        DELETE FROM tChatBlock WHERE nUserNo = in_nUserNo AND nCharNo = in_nCharNo;
+        SET out_nRet = 0;
+    END proc_logic;
+    IF IFNULL(@_xc_nested_sp, 0) = 0 THEN
+        SELECT out_nRet AS nRet;
+    END IF;
+END$$
+DELIMITER ;
+
+-- Procedure: p_Char_Chat_Restrict_DelAll
+DROP PROCEDURE IF EXISTS `p_Char_Chat_Restrict_DelAll`;
+DELIMITER $$
+CREATE PROCEDURE `p_Char_Chat_Restrict_DelAll`(
+    IN in_nUserNo INT,
+    OUT out_nRet INT
+)
+sp_body: BEGIN
+    DECLARE CONTINUE HANDLER FOR NOT FOUND BEGIN END;
+    proc_logic: BEGIN
+        SET out_nRet = 0;
+        DELETE FROM tChatBlock WHERE nUserNo = in_nUserNo;
+        SET out_nRet = 0;
+    END proc_logic;
+    IF IFNULL(@_xc_nested_sp, 0) = 0 THEN
+        SELECT out_nRet AS nRet;
+    END IF;
+END$$
+DELIMITER ;
+
+-- Procedure: p_Set_Client_Loading_Bug_Detect
+DROP PROCEDURE IF EXISTS `p_Set_Client_Loading_Bug_Detect`;
+DELIMITER $$
+CREATE PROCEDURE `p_Set_Client_Loading_Bug_Detect`(
+    IN in_nCharNo INT,
+    IN in_sLoadingMapName VARCHAR(16),
+    IN in_nFailType SMALLINT,
+    IN in_nLoadingFailCnt SMALLINT,
+    OUT out_nRet INT
+)
+sp_body: BEGIN
+    DECLARE v_seq INT;
+    DECLARE CONTINUE HANDLER FOR NOT FOUND BEGIN END;
+    proc_logic: BEGIN
+        SET out_nRet = 0;
+        SELECT IFNULL(MAX(nSeqNo), 0) + 1 INTO v_seq FROM tCharacterLoading WHERE nCharNo = in_nCharNo;
+        INSERT INTO tCharacterLoading (nCharNo, nSeqNo, dWorldTime, dDBTime, sLoadingMapName, nFailType, nLoadingFailCnt)
+        VALUES (in_nCharNo, v_seq, NOW(), NOW(), in_sLoadingMapName, in_nFailType, in_nLoadingFailCnt);
+        SET out_nRet = 0;
+    END proc_logic;
+    IF IFNULL(@_xc_nested_sp, 0) = 0 THEN
+        SELECT out_nRet AS nRet;
+    END IF;
 END$$
 DELIMITER ;

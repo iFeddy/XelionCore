@@ -65,9 +65,6 @@ func WriteBasicCharInfo(ch *database.Character, pw *protocol.PacketWriter) {
 
 	// 0x01b (12 bytes): Name3 loginmap
 	mapShortName := ch.TownName
-	if mapShortName == "" {
-		mapShortName = "RouN"
-	}
 	pw.WriteString(mapShortName, 12)
 
 	// 0x027 (5 bytes): PROTO_AVATAR_DELETE_INFO delinfo (year, month, day, hour, min)

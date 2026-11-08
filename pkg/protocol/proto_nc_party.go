@@ -91,6 +91,22 @@ func New_PROTO_NC_PARTY_ITEM_LOOTING_CMD(lootType, itemGrade byte) *PacketWriter
 	return pw
 }
 
+// New_PROTO_NC_PARTY_SET_LOOTER_ACK construye la respuesta de asignación de recolector (OpCode 0x385B).
+func New_PROTO_NC_PARTY_SET_LOOTER_ACK(looterName string, errCode uint16) *PacketWriter {
+	pw := NewPacketWriter(PROTO_NC_PARTY_SET_LOOTER_ACK)
+	pw.WriteString(looterName, 20)
+	pw.WriteUint16(errCode)
+	return pw
+}
+
+// New_PROTO_NC_PARTY_SET_LOOTER_BROAD_CMD transmite a toda la party el nuevo recolector (OpCode 0x385D).
+func New_PROTO_NC_PARTY_SET_LOOTER_BROAD_CMD(commanderName, looterName string) *PacketWriter {
+	pw := NewPacketWriter(PROTO_NC_PARTY_SET_LOOTER_BROAD_CMD)
+	pw.WriteString(commanderName, 20)
+	pw.WriteString(looterName, 20)
+	return pw
+}
+
 // PartyFinderEntry representa una entrada en el buscador de grupos (0x3854 / 0x3855).
 type PartyFinderEntry struct {
 	MasterName string
