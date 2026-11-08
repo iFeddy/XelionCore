@@ -127,9 +127,14 @@ func (s *Server) SetItemStore(store *item.Store) {
 }
 
 func (s *Server) SetAccountRepo(repo *database.MySQLAccountRepository) {
-
 	s.handler.SetAccountRepo(repo)
+}
 
+// SetGameLogDispatcher inyecta el despachador de logs de auditoría en el handler de zona.
+func (s *Server) SetGameLogDispatcher(disp *database.GameLogDispatcher) {
+	if s.handler != nil {
+		s.handler.SetGameLogDispatcher(disp)
+	}
 }
 
 

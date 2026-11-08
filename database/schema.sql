@@ -1498,7 +1498,9 @@ CREATE TABLE IF NOT EXISTS `tGameLog` (
     `nBigint1` BIGINT NOT NULL DEFAULT 0,
     PRIMARY KEY (`nLogNo`),
     KEY `idx_gamelog_char` (`nCharNo`, `dDate`),
-    KEY `idx_gamelog_type` (`nType`, `dDate`)
+    KEY `idx_gamelog_type` (`nType`, `dDate`),
+    KEY `idx_gamelog_date_type` (`dDate`, `nType`),
+    KEY `idx_gamelog_itemkey` (`nItemKey`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 

@@ -72,6 +72,13 @@ func (s *Server) SetAccountRepo(repo database.AccountRepository) {
 	s.handler.SetAccountRepo(repo)
 }
 
+// SetGameLogDispatcher inyecta el despachador de logs de auditoría en WorldService.
+func (s *Server) SetGameLogDispatcher(disp *database.GameLogDispatcher) {
+	if s.handler != nil {
+		s.handler.SetGameLogDispatcher(disp)
+	}
+}
+
 // Handler retorna el despachador de red de WorldServer.
 func (s *Server) Handler() *Handler {
 	return s.handler

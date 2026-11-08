@@ -1,6 +1,7 @@
 package main
 
 import (
+	"context"
 	"database/sql"
 	"fmt"
 	"log"
@@ -47,6 +48,10 @@ func main() {
 	charRepo := database.NewMySQLCharacterRepository(db)
 	accountRepo := database.NewMySQLAccountRepository(db)
 	transfers := database.NewTransferManager(db)
+	gameLogRepo := database.NewMySQLGameLogRepository(db)
+	gameLogDispatcher := database.NewGameLogDispatcher(gameLogRepo, 10000, 4)
+	gameLogDispatcher.Start()
+	log.Println("[WorldService] GameLogDispatcher started (4 async workers)")
 
 	// Cargar todos los archivos SHN y configuraciones estáticas oficiales (22 WorldManager + 4 Character + Checksums)
 	dataStore, err := world.LoadWorldDataStore("data")
@@ -81,6 +86,7 @@ func main() {
 		}
 
 		srv := world.NewServer(worldCfg, charRepo, transfers, dataStore, accountRepo)
+		srv.SetGameLogDispatcher(gameLogDispatcher)
 		if err := srv.Start(); err != nil {
 			log.Fatalf("[WorldService] Fatal error starting world '%s': %v", w.WorldName, err)
 		}
@@ -110,5 +116,14 @@ func main() {
 	for _, ws := range worldServers {
 		ws.Stop()
 	}
+
+	drainCtx, drainCancel := context.WithTimeout(context.Background(), 5*time.Second)
+	defer drainCancel()
+	if err := gameLogDispatcher.Close(drainCtx); err != nil {
+		log.Printf("[WorldService] GameLogDispatcher drain timeout: %v", err)
+	} else {
+		log.Println("[WorldService] GameLogDispatcher flushed and stopped cleanly.")
+	}
+
 	log.Println("[WorldService] Shutdown complete.")
 }

@@ -57,4 +57,7 @@ run_sql_file "$DIR/database/seed_character_defaults.sql" "Semillas de Personajes
 # 8. Stored Procedures Oficiales y Operativos S2S de World00_Character (425 SPs)
 run_sql_file "$DIR/database/procedures_character.sql" "Stored Procedures de World00_Character (425 SPs)"
 
-echo "=== Aplicación completada exitosamente. Total 560+ Stored Procedures cargados. ==="
+# 9. Stored Procedures Oficiales de World00_GameLog (27 SPs)
+run_sql_file "$DIR/database/procedures_gamelog.sql" "Stored Procedures de World00_GameLog (27 SPs)"
+
+echo "=== Aplicación completada exitosamente. Total 587+ Stored Procedures cargados. ==="

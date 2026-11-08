@@ -28,8 +28,9 @@ type Handler struct {
 	guildMgr       *GuildManager
 	kqMgr          *KQManager
 	raidMgr        *RaidManager
-	holyPromiseMgr *HolyPromiseManager
-	zoneIP         string
+	holyPromiseMgr    *HolyPromiseManager
+	gameLogDispatcher *database.GameLogDispatcher
+	zoneIP            string
 	zonePort       uint16
 	activeClients  map[int]*network.Client
 	mu             sync.Mutex
@@ -88,6 +89,20 @@ func (h *Handler) SetAccountRepo(repo database.AccountRepository) {
 // SetWorldID asigna el ID de mundo correspondiente a este WorldServer.
 func (h *Handler) SetWorldID(id byte) {
 	h.worldID = id
+}
+
+// SetGameLogDispatcher inyecta el despachador de logs de auditoría para WorldService.
+func (h *Handler) SetGameLogDispatcher(disp *database.GameLogDispatcher) {
+	h.mu.Lock()
+	defer h.mu.Unlock()
+	h.gameLogDispatcher = disp
+}
+
+// GameLogDispatcher retorna el despachador de logs configurado.
+func (h *Handler) GameLogDispatcher() *database.GameLogDispatcher {
+	h.mu.Lock()
+	defer h.mu.Unlock()
+	return h.gameLogDispatcher
 }
 
 // ActivePlayersCount retorna la cantidad de clientes activos en WorldService.

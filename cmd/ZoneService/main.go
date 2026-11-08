@@ -1,6 +1,7 @@
 package main
 
 import (
+	"context"
 	"database/sql"
 	"fmt"
 	"log"
@@ -109,9 +110,15 @@ func main() {
 	defer zoneHeartbeatTicker.Stop()
 
 	// 4. Iniciar servidor e inyectar almacén global en memoria RAM
+	gameLogRepo := database.NewMySQLGameLogRepository(db)
+	gameLogDispatcher := database.NewGameLogDispatcher(gameLogRepo, 10000, 4)
+	gameLogDispatcher.Start()
+	log.Println("[Zone] GameLogDispatcher started (4 async workers)")
+
 	srv := zone.NewServer(zoneCfg, charRepo, transfers, classStore, fieldStore, chkEngine)
 	srv.SetAccountRepo(accountRepo)
 	srv.SetDataStore(dataStore)
+	srv.SetGameLogDispatcher(gameLogDispatcher)
 
 	go func() {
 		for range zoneHeartbeatTicker.C {
@@ -165,5 +172,14 @@ func main() {
 
 	log.Println("\n[Zone] Shutting down...")
 	srv.Stop()
+
+	drainCtx, drainCancel := context.WithTimeout(context.Background(), 5*time.Second)
+	defer drainCancel()
+	if err := gameLogDispatcher.Close(drainCtx); err != nil {
+		log.Printf("[Zone] GameLogDispatcher drain timeout: %v", err)
+	} else {
+		log.Println("[Zone] GameLogDispatcher flushed and stopped cleanly.")
+	}
+
 	log.Println("[Zone] Shutdown complete.")
 }

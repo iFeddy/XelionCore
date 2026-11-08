@@ -33,8 +33,23 @@ type Handler struct {
 	mobInfoSHN  *shn.File
 	chkEngine   *shn.ChecksumEngine
 	itemStore   *item.Store
-	players     map[*network.Client]*ZonePlayer
-	mapManager  *MapManager
+	players           map[*network.Client]*ZonePlayer
+	mapManager        *MapManager
+	gameLogDispatcher *database.GameLogDispatcher
+}
+
+// SetGameLogDispatcher configura el despachador de logs de auditoría para ZoneService.
+func (h *Handler) SetGameLogDispatcher(disp *database.GameLogDispatcher) {
+	h.mu.Lock()
+	defer h.mu.Unlock()
+	h.gameLogDispatcher = disp
+}
+
+// GameLogDispatcher retorna el despachador de logs configurado.
+func (h *Handler) GameLogDispatcher() *database.GameLogDispatcher {
+	h.mu.RLock()
+	defer h.mu.RUnlock()
+	return h.gameLogDispatcher
 }
 
 // NewHandler initializes a new Zone packet handler.
