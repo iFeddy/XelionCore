@@ -448,3 +448,4 @@ func (d *GameLogDispatcher) Close(ctx context.Context) error {
 func (d *GameLogDispatcher) Stats() (queueLen int, processed uint64, dropped uint64) {
 	return len(d.queue), d.processed.Load(), d.dropped.Load()
 }
+

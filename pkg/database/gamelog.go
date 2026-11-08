@@ -96,3 +96,4 @@ type GameLogRepository interface {
 	// Exclusivo GameLog.exe (usp_Login_setChannel)
 	SetLoginChannel(ctx context.Context, userNo int, channelNo int, channelID string) (int, error)
 }
+
