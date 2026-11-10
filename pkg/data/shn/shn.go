@@ -167,8 +167,76 @@ func ReadFile(filePath string) (*File, error) {
 	return Parse(raw)
 }
 
-// Parse parsea los bytes de un archivo .shn respetando la especificación CDataReader oficial.
+// Parse parsea los bytes de un archivo .shn respetando la especificación CDataReader oficial
+// y soportando el formato binario nativo de CQuestData (QuestData.shn).
 func Parse(data []byte) (*File, error) {
+	if len(data) < 4 {
+		return nil, errors.New("invalid SHN file: data is too small")
+	}
+
+	// Formato CQuestData::ReadModeRead de QuestData.shn (versión uint16 = 6)
+	if binary.LittleEndian.Uint16(data[:2]) == 6 && len(data) >= 684 {
+		count := int(binary.LittleEndian.Uint16(data[2:4]))
+		offset := 4
+		rows := make([]Row, 0, count)
+		cols := []Column{
+			{Name: "QuestID", Type: TypeListWord, Size: 2},
+			{Name: "TotalSize", Type: TypeListDword, Size: 4},
+			{Name: "HeaderData", Type: TypeListRemark, Size: 680},
+			{Name: "ScriptStart", Type: TypeListStrAuto, Size: 0},
+			{Name: "ScriptDoing", Type: TypeListStrAuto, Size: 0},
+			{Name: "ScriptEnd", Type: TypeListStrAuto, Size: 0},
+		}
+
+		for i := 0; i < count; i++ {
+			if offset+680 > len(data) {
+				break
+			}
+			rec := data[offset : offset+680]
+			offset += 680
+			len1 := int(binary.LittleEndian.Uint16(rec[0x294:0x296]))
+			len3 := int(binary.LittleEndian.Uint16(rec[0x296:0x298]))
+			len2 := int(binary.LittleEndian.Uint16(rec[0x298:0x29A]))
+
+			var s1, s2, s3 []byte
+			if offset+len1 <= len(data) {
+				s1 = data[offset : offset+len1]
+				offset += len1
+			}
+			if offset+len2 <= len(data) {
+				s2 = data[offset : offset+len2]
+				offset += len2
+			}
+			if offset+len3 <= len(data) {
+				s3 = data[offset : offset+len3]
+				offset += len3
+			}
+
+			totalSize := uint32(680 + len1 + len2 + len3)
+			totalBytes := make([]byte, 4)
+			binary.LittleEndian.PutUint32(totalBytes, totalSize)
+
+			vals := map[string][]byte{
+				"QuestID":     rec[:2],
+				"TotalSize":   totalBytes,
+				"HeaderData":  rec,
+				"ScriptStart": s1,
+				"ScriptEnd":   s2,
+				"ScriptDoing": s3,
+			}
+			rows = append(rows, Row{values: vals})
+		}
+
+		return &File{
+			Version:     "6",
+			DataMode:    0,
+			RecordCount: len(rows),
+			RowSize:     680,
+			Columns:     cols,
+			Rows:        rows,
+		}, nil
+	}
+
 	if len(data) < 52 {
 		return nil, errors.New("invalid SHN file: header is too small")
 	}

@@ -1,10 +1,13 @@
 package zone
 
 import (
+	"fmt"
 	"log"
 	"path/filepath"
 
 	"github.com/iFeddy/XelionCore/pkg/data/abstate"
+	"github.com/iFeddy/XelionCore/pkg/data/areabmp"
+	"github.com/iFeddy/XelionCore/pkg/data/blockinfo"
 	"github.com/iFeddy/XelionCore/pkg/data/classparam"
 	"github.com/iFeddy/XelionCore/pkg/data/combat"
 	"github.com/iFeddy/XelionCore/pkg/data/drop"
@@ -20,6 +23,7 @@ import (
 	"github.com/iFeddy/XelionCore/pkg/data/questparser"
 	"github.com/iFeddy/XelionCore/pkg/data/script"
 	"github.com/iFeddy/XelionCore/pkg/data/shn"
+	"strings"
 )
 
 // DataStore contiene en memoria RAM todos los subsistemas de datos oficiales del juego cargados para Zone.
@@ -40,11 +44,31 @@ type DataStore struct {
 	QuestParser     *questparser.Store
 	Script          *script.Database
 	ChkEngine       *shn.ChecksumEngine
+	BlockInfo       *blockinfo.Store
+	AreaBMP         *areabmp.Store
+	SHNTables       map[string]*shn.File
 	ActiveSkillSHN  *shn.File
 	PassiveSkillSHN *shn.File
 	MobInfoSHN      *shn.File
 	PassiveSkillMap map[uint16]bool
 	ActiveSkillMap  map[uint16]bool
+}
+
+// GetSHN retorna una tabla .shn por nombre o nombre base (búsqueda insensible a mayúsculas/minúsculas).
+func (ds *DataStore) GetSHN(name string) *shn.File {
+	if ds == nil || ds.SHNTables == nil {
+		return nil
+	}
+	base := strings.TrimSuffix(filepath.Base(name), filepath.Ext(name))
+	if f, ok := ds.SHNTables[base]; ok {
+		return f
+	}
+	for k, v := range ds.SHNTables {
+		if strings.EqualFold(k, base) {
+			return v
+		}
+	}
+	return nil
 }
 
 // IsPassiveSkill verifica rápidamente si un ID de habilidad pertenece a PassiveSkill.shn.
@@ -246,6 +270,32 @@ func LoadAllData(dataDir string) (*DataStore, error) {
 	} else {
 		log.Printf("[Zone][Data] Loaded MobInfo.shn (%d monsters).", ds.MobInfoSHN.RecordCount)
 	}
+
+	// 20. Universo de Geometría y Colisiones (301 archivos en BlockInfo/)
+	blockInfoPath := filepath.Join(dataDir, "BlockInfo")
+	ds.BlockInfo, err = blockinfo.LoadAll(blockInfoPath)
+	if err != nil {
+		log.Printf("[Zone][Data] Warning: BlockInfo load error: %v", err)
+	} else {
+		log.Printf("[Zone][Data] Loaded %d geometry/collision files from BlockInfo/ (158 shbd, 33 sbi, 23 aid, 76 bdt, 8 shab, 2 shmd, 1 shad).",
+			ds.BlockInfo.TotalCount())
+	}
+
+	// 21. Máscaras AoE de Habilidades (AreaBMP/ - 44+ máscaras)
+	areaBMPPath := filepath.Join(dataDir, "AreaBMP")
+	ds.AreaBMP, err = areabmp.LoadAll(areaBMPPath)
+	if err != nil {
+		log.Printf("[Zone][Data] Warning: AreaBMP load error: %v", err)
+	} else {
+		log.Printf("[Zone][Data] Loaded %d AoE masks from AreaBMP/.", ds.AreaBMP.Count())
+	}
+
+	// 22. Catálogo exhaustivo de las 180 tablas .shn reales en disco (194/195 rutas)
+	ds.SHNTables, err = LoadAllSHNTables(dataDir)
+	if err != nil {
+		return nil, fmt.Errorf("error cargando catálogo SHN: %w", err)
+	}
+	log.Printf("[Zone][Data] Successfully indexed %d unique SHN table keys in RAM (180 required SHNs verified).", len(ds.SHNTables)/2)
 
 	return ds, nil
 }

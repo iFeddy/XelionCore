@@ -127,3 +127,35 @@ func TestMigratedScenarios_LoadAllLua(t *testing.T) {
 		}
 	}
 }
+
+func TestOfficial274APIsRegistered(t *testing.T) {
+	luaPath := filepath.Join("..", "..", "..", "data", "LuaScript")
+
+	engine, err := lua.NewEngine(lua.Config{
+		BasePath: luaPath,
+		Debug:    false,
+	})
+	if err != nil {
+		t.Fatalf("Failed to initialize Lua engine: %v", err)
+	}
+	defer engine.Close()
+
+	if len(lua.OfficialAPINames) != 274 {
+		t.Fatalf("Expected exactly 274 official API names, found %d", len(lua.OfficialAPINames))
+	}
+
+	missing := 0
+	for _, name := range lua.OfficialAPINames {
+		val := engine.GetGlobal(name)
+		if val.Type() != glua.LTFunction {
+			t.Errorf("Official API function %s is not registered as function (type: %s)", name, val.Type())
+			missing++
+		}
+	}
+
+	if missing > 0 {
+		t.Fatalf("%d / 274 official APIs are missing in Lua engine", missing)
+	}
+
+	t.Logf("100%% Parity: All 274/274 official C-API functions from Zone.pdb are registered and active in Lua")
+}
