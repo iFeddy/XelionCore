@@ -8,7 +8,9 @@ import (
 	"sync"
 	"time"
 
+	"github.com/iFeddy/XelionCore/pkg/data/blockinfo"
 	"github.com/iFeddy/XelionCore/pkg/data/classparam"
+	"github.com/iFeddy/XelionCore/pkg/data/combat"
 	"github.com/iFeddy/XelionCore/pkg/data/field"
 	"github.com/iFeddy/XelionCore/pkg/data/item"
 	"github.com/iFeddy/XelionCore/pkg/data/npc"
@@ -72,6 +74,14 @@ func (h *Handler) HandlePacket(client *network.Client, pkt *protocol.Packet) {
 		h.handleTransferKey(client, pkt)
 	case protocol.PROTO_NC_MAP_LOGINCOMPLETE_CMD, protocol.PROTO_NC_KQ_LIST_REFRESH_REQ:
 		h.handleClientReady(client, pkt)
+	case protocol.PROTO_NC_MISC_SEED_REQ:
+		h.handleSeedReq(client, pkt)
+	case protocol.PROTO_NC_MISC_HIDE_EXCEPT_ME_ON_CMD:
+		h.handleHideExceptMeOn(client, pkt)
+	case protocol.PROTO_NC_MISC_HIDE_EXCEPT_ME_OFF_CMD:
+		h.handleHideExceptMeOff(client, pkt)
+	case protocol.PROTO_NC_BRIEFINFO_INFORM_CMD:
+		h.handleBriefInfoInform(client, pkt)
 	case protocol.PROTO_NC_ACT_WALK_REQ:
 		h.handleWalk(client, pkt)
 	case protocol.PROTO_NC_ACT_RUN_REQ:
@@ -94,6 +104,22 @@ func (h *Handler) HandlePacket(client *network.Client, pkt *protocol.Packet) {
 		h.handleBeginRest(client, pkt)
 	case protocol.PROTO_NC_ACT_FOLDTENT_REQ:
 		h.handleEndRest(client, pkt)
+	case protocol.PROTO_NC_ACT_GATHERSTART_REQ:
+		h.handleGatherStart(client, pkt)
+	case protocol.PROTO_NC_ACT_GATHERCANCEL_CMD:
+		h.handleGatherCancel(client, pkt)
+	case protocol.PROTO_NC_ACT_GATHERCOMPLETE_REQ:
+		h.handleGatherComplete(client, pkt)
+	case protocol.PROTO_NC_ACT_RIDE_FEEDING_REQ:
+		h.handleRideFeeding(client, pkt)
+	case protocol.PROTO_NC_MOVER_RIDE_ON_REQ:
+		h.handleMoverRideOn(client, pkt)
+	case protocol.PROTO_NC_MOVER_RIDE_OFF_REQ:
+		h.handleMoverRideOff(client, pkt)
+	case protocol.PROTO_NC_MAP_WING_SAVE_REQ:
+		h.handleWingSave(client, pkt)
+	case protocol.PROTO_NC_MAP_TONORMALCOORD_CMD:
+		h.handleToNormalCoord(client, pkt)
 	case protocol.PROTO_NC_DATA_REPORT_ADD_REQ:
 		h.handleReportAdd(client, pkt)
 	case protocol.PROTO_NC_DATA_REPORT_CANCEL_REQ:
@@ -167,6 +193,9 @@ func (h *Handler) OnClientDisconnect(client *network.Client) {
 
 	if exists && player != nil {
 		if player.CurrentMap != nil {
+			if h.gameLogDispatcher != nil && player.Char != nil {
+				h.gameLogDispatcher.EnqueueType1(2, player.Char.ID, player.CurrentMap.MapID, player.Char.XPos, player.Char.YPos, 0)
+			}
 			player.CurrentMap.RemovePlayer(player)
 		}
 
@@ -336,7 +365,11 @@ func (h *Handler) handleTransferKey(client *network.Client, pkt *protocol.Packet
 		return
 	}
 
-	player := NewZonePlayer(client, char, h.classStore)
+	var cs *combat.Store
+	if h.dataStore != nil {
+		cs = h.dataStore.CombatStore
+	}
+	player := NewZonePlayer(client, char, h.classStore, cs)
 	player.WorldNo = h.worldID
 	mapID := transfer.TargetMap
 	if mapID == "" {
@@ -656,6 +689,11 @@ func (h *Handler) handleClientReady(client *network.Client, pkt *protocol.Packet
 
 	// Add player to map and broadcast spawn
 	player.CurrentMap.AddPlayer(player)
+
+	// Loguear entrada de mapa en GameLog Tipo 1 (nType = 1 para ingreso)
+	if h.gameLogDispatcher != nil && player.Char != nil {
+		h.gameLogDispatcher.EnqueueType1(1, player.Char.ID, player.CurrentMap.MapID, player.Char.XPos, player.Char.YPos, 0)
+	}
 }
 
 func (h *Handler) handleWalk(client *network.Client, pkt *protocol.Packet) {
@@ -841,11 +879,19 @@ func (h *Handler) handleChatNormal(client *network.Client, pkt *protocol.Packet)
 
 func (h *Handler) handleBeginRest(client *network.Client, pkt *protocol.Packet) {
 	player, ok := h.getPlayer(client)
-	if !ok || player == nil {
+	if !ok || player == nil || player.CurrentMap == nil {
 		return
 	}
 
-	player.State = 4 // Resting
+	var tentID uint16 = 1
+	if pkt.Reader.Remaining() >= 2 {
+		if id, err := pkt.Reader.ReadUint16(); err == nil {
+			tentID = id
+		}
+	}
+
+	player.CurrentMap.PitchTent(player, tentID)
+
 	pw := protocol.NewPacketWriter(protocol.PROTO_NC_ACT_PITCHTENT_ACK)
 	pw.WriteUint16(0x0A81) // OK to rest
 	_ = client.SendPacket(pw)
@@ -853,14 +899,305 @@ func (h *Handler) handleBeginRest(client *network.Client, pkt *protocol.Packet) 
 
 func (h *Handler) handleEndRest(client *network.Client, pkt *protocol.Packet) {
 	player, ok := h.getPlayer(client)
-	if !ok || player == nil {
+	if !ok || player == nil || player.CurrentMap == nil {
 		return
 	}
 
-	player.State = 1 // Normal
+	player.CurrentMap.FoldTent(player)
+
 	pw := protocol.NewPacketWriter(protocol.PROTO_NC_ACT_FOLDTENT_ACK)
 	pw.WriteUint16(0x0A81)
 	_ = client.SendPacket(pw)
+}
+
+func (h *Handler) handleSeedReq(client *network.Client, pkt *protocol.Packet) {
+	ack := protocol.NewPacketWriter(protocol.PROTO_NC_MISC_SEED_ACK)
+	ack.WriteUint16(0)
+	_ = client.SendPacket(ack)
+}
+
+func (h *Handler) handleHideExceptMeOn(client *network.Client, pkt *protocol.Packet) {
+	player, ok := h.getPlayer(client)
+	if !ok || player == nil || player.CurrentMap == nil {
+		return
+	}
+	player.HideExceptMe = true
+	surrounding := player.CurrentMap.grid.GetSurroundingPlayers(player.Char.XPos, player.Char.YPos)
+	for _, other := range surrounding {
+		if other.MapObjectID == player.MapObjectID {
+			continue
+		}
+		delPkt := protocol.NewPacketWriter(protocol.PROTO_NC_BRIEFINFO_BRIEFINFODELETE_CMD)
+		delPkt.WriteUint16(other.MapObjectID)
+		_ = client.SendPacket(delPkt)
+	}
+}
+
+func (h *Handler) handleHideExceptMeOff(client *network.Client, pkt *protocol.Packet) {
+	player, ok := h.getPlayer(client)
+	if !ok || player == nil || player.CurrentMap == nil {
+		return
+	}
+	player.HideExceptMe = false
+	surrounding := player.CurrentMap.grid.GetSurroundingPlayers(player.Char.XPos, player.Char.YPos)
+	for _, other := range surrounding {
+		if other.MapObjectID == player.MapObjectID {
+			continue
+		}
+		spawnOther := protocol.NewPacketWriter(protocol.PROTO_NC_BRIEFINFO_LOGINCHARACTER_CMD)
+		other.WriteCharacterDisplay(spawnOther)
+		_ = client.SendPacket(spawnOther)
+	}
+}
+
+func (h *Handler) handleBriefInfoInform(client *network.Client, pkt *protocol.Packet) {
+	player, ok := h.getPlayer(client)
+	if !ok || player == nil || player.CurrentMap == nil {
+		return
+	}
+	if pkt.Reader.Remaining() < 6 {
+		return
+	}
+	_, _ = pkt.Reader.ReadUint16() // myHnd
+	_, _ = pkt.Reader.ReadUint16() // cmd
+	targetHnd, err := pkt.Reader.ReadUint16()
+	if err != nil {
+		return
+	}
+
+	zMap := player.CurrentMap
+	zMap.mu.RLock()
+	otherPlayer, isPlayer := zMap.players[targetHnd]
+	npcObj, isNPC := zMap.npcs[targetHnd]
+	itemObj, isItem := zMap.droppedItems[targetHnd]
+	tentID, isTent := zMap.tents[targetHnd]
+	zMap.mu.RUnlock()
+
+	if isPlayer && otherPlayer != nil {
+		if !player.HideExceptMe {
+			pw := protocol.NewPacketWriter(protocol.PROTO_NC_BRIEFINFO_LOGINCHARACTER_CMD)
+			otherPlayer.WriteCharacterDisplay(pw)
+			_ = client.SendPacket(pw)
+		}
+	} else if isNPC && npcObj != nil {
+		pw := protocol.NewPacketWriter(protocol.PROTO_NC_BRIEFINFO_MOB_CMD)
+		pw.WriteByte(1)
+		pw.WriteUint16(npcObj.Handle)
+		pw.WriteByte(1)
+		pw.WriteUint16(npcObj.MobID)
+		pw.WriteInt32(npcObj.X)
+		pw.WriteInt32(npcObj.Y)
+		pw.WriteByte(byte(npcObj.Direct))
+		if npcObj.IsGate {
+			pw.WriteByte(1)
+			pw.WriteString(npcObj.GateToWhere, 12)
+			pw.Fill(87, 0)
+		} else {
+			pw.WriteByte(0)
+			pw.Fill(99, 0)
+		}
+		pw.WriteString("", 32)
+		pw.WriteByte(0)
+		pw.WriteByte(0)
+		pw.WriteByte(0)
+		_ = client.SendPacket(pw)
+	} else if isItem && itemObj != nil {
+		pw := protocol.NewPacketWriter(protocol.PROTO_NC_BRIEFINFO_DROPEDITEM_CMD)
+		pw.WriteUint16(itemObj.Handle)
+		pw.WriteUint16(itemObj.ItemID)
+		pw.WriteInt32(itemObj.X)
+		pw.WriteInt32(itemObj.Y)
+		pw.WriteUint16(itemObj.DropMobHandle)
+		pw.WriteByte(itemObj.Attr)
+		_ = client.SendPacket(pw)
+	} else if isTent {
+		pw := protocol.NewPacketWriter(protocol.PROTO_NC_ACT_SOMEONEPITCHTENT_CMD)
+		pw.WriteUint16(targetHnd)
+		pw.WriteUint16(tentID)
+		pw.WriteUint32(0xFFFFFFFF)
+		pw.WriteUint32(0xFFFFFFFF)
+		pw.WriteUint16(0xFFFF)
+		_ = client.SendPacket(pw)
+	}
+}
+
+func (h *Handler) handleWingSave(client *network.Client, pkt *protocol.Packet) {
+	player, ok := h.getPlayer(client)
+	if !ok || player == nil || player.CurrentMap == nil {
+		return
+	}
+	if player.Char != nil {
+		player.Char.TownName = player.CurrentMap.MapID
+	}
+	ack := protocol.NewPacketWriter(protocol.PROTO_NC_MAP_WING_SAVE_ACK)
+	ack.WriteByte(0) // success
+	_ = client.SendPacket(ack)
+}
+
+func (h *Handler) handleToNormalCoord(client *network.Client, pkt *protocol.Packet) {
+	player, ok := h.getPlayer(client)
+	if !ok || player == nil || player.CurrentMap == nil {
+		return
+	}
+	if player.CurrentMap.blockInfo != nil {
+		tx, ty := blockinfo.WorldToTile(float64(player.Char.XPos), float64(player.Char.YPos))
+		if player.CurrentMap.blockInfo.IsMoveBlocked(tx, ty) {
+			if nx, ny, ok := player.CurrentMap.blockInfo.FindNearestWalkable(tx, ty, 50); ok {
+				wx, wy := blockinfo.TileToWorld(nx, ny)
+				player.Char.XPos = int(wx)
+				player.Char.YPos = int(wy)
+			}
+		}
+	}
+}
+
+func (h *Handler) handleGatherStart(client *network.Client, pkt *protocol.Packet) {
+	player, ok := h.getPlayer(client)
+	if !ok || player == nil || player.CurrentMap == nil {
+		return
+	}
+	var objHandle uint16
+	if pkt.Reader.Remaining() >= 2 {
+		if hnd, err := pkt.Reader.ReadUint16(); err == nil {
+			objHandle = hnd
+		}
+	}
+	player.GatheringObj = objHandle
+
+	// PROTO_NC_ACT_GATHERSTART_ACK (6 bytes: picker uint16, object uint16, err uint16)
+	ack := protocol.NewPacketWriter(protocol.PROTO_NC_ACT_GATHERSTART_ACK)
+	ack.WriteUint16(player.MapObjectID)
+	ack.WriteUint16(objHandle)
+	ack.WriteUint16(0) // success
+	_ = client.SendPacket(ack)
+
+	// PROTO_NC_ACT_SOMEONEGATHERSTART_CMD (6 bytes: player uint16, object uint16, picker uint16)
+	pw := protocol.NewPacketWriter(protocol.PROTO_NC_ACT_SOMEONEGATHERSTART_CMD)
+	pw.WriteUint16(player.MapObjectID)
+	pw.WriteUint16(objHandle)
+	pw.WriteUint16(player.MapObjectID)
+	player.CurrentMap.grid.BroadcastAOI(pw, player.Char.XPos, player.Char.YPos, player.MapObjectID)
+}
+
+func (h *Handler) handleGatherCancel(client *network.Client, pkt *protocol.Packet) {
+	player, ok := h.getPlayer(client)
+	if !ok || player == nil || player.CurrentMap == nil {
+		return
+	}
+	objHandle := player.GatheringObj
+	player.GatheringObj = 0
+
+	// PROTO_NC_ACT_SOMEONEGATHERCANCEL_CMD (4 bytes: player uint16, object uint16)
+	pw := protocol.NewPacketWriter(protocol.PROTO_NC_ACT_SOMEONEGATHERCANCEL_CMD)
+	pw.WriteUint16(player.MapObjectID)
+	pw.WriteUint16(objHandle)
+	player.CurrentMap.grid.BroadcastAOI(pw, player.Char.XPos, player.Char.YPos, 0)
+}
+
+func (h *Handler) handleGatherComplete(client *network.Client, pkt *protocol.Packet) {
+	player, ok := h.getPlayer(client)
+	if !ok || player == nil || player.CurrentMap == nil {
+		return
+	}
+	objHandle := player.GatheringObj
+	player.GatheringObj = 0
+
+	// PROTO_NC_ACT_GATHERCOMPLETE_ACK (4 bytes: err uint16, object uint16)
+	ack := protocol.NewPacketWriter(protocol.PROTO_NC_ACT_GATHERCOMPLETE_ACK)
+	ack.WriteUint16(0) // err = 0
+	ack.WriteUint16(objHandle)
+	_ = client.SendPacket(ack)
+
+	// PROTO_NC_ACT_SOMEONEGATHERCOMPLETE_CMD (4 bytes: player uint16, object uint16)
+	pw := protocol.NewPacketWriter(protocol.PROTO_NC_ACT_SOMEONEGATHERCOMPLETE_CMD)
+	pw.WriteUint16(player.MapObjectID)
+	pw.WriteUint16(objHandle)
+	player.CurrentMap.grid.BroadcastAOI(pw, player.Char.XPos, player.Char.YPos, player.MapObjectID)
+}
+
+func (h *Handler) handleRideFeeding(client *network.Client, pkt *protocol.Packet) {
+	player, ok := h.getPlayer(client)
+	if !ok || player == nil {
+		return
+	}
+	ack := protocol.NewPacketWriter(protocol.PROTO_NC_ACT_RIDE_FEEDING_ACK)
+	ack.WriteUint16(0) // success
+	_ = client.SendPacket(ack)
+}
+
+func (h *Handler) handleMoverRideOn(client *network.Client, pkt *protocol.Packet) {
+	player, ok := h.getPlayer(client)
+	if !ok || player == nil || player.CurrentMap == nil {
+		return
+	}
+	var moverHnd uint16 = 1
+	var slot uint8 = 0
+	if pkt.Reader.Remaining() >= 3 {
+		if hnd, err := pkt.Reader.ReadUint16(); err == nil {
+			moverHnd = hnd
+		}
+		if s, err := pkt.Reader.ReadByte(); err == nil {
+			slot = s
+		}
+	}
+
+	player.MoverHandle = moverHnd
+	player.MoverSlot = slot
+	player.MoverSpeed = 220
+	player.State = 6 // Mount
+
+	ack := protocol.NewPacketWriter(protocol.PROTO_NC_MOVER_RIDE_ON_CMD)
+	ack.WriteUint16(moverHnd)
+	ack.WriteByte(slot)
+	ack.WriteByte(0)
+	_ = client.SendPacket(ack)
+
+	someonePw := protocol.NewPacketWriter(protocol.PROTO_NC_MOVER_SOMEONE_RIDE_ON_CMD)
+	someonePw.WriteUint16(player.MapObjectID)
+	someonePw.WriteUint16(moverHnd)
+	someonePw.WriteByte(slot)
+	someonePw.WriteByte(0)
+	player.CurrentMap.grid.BroadcastAOI(someonePw, player.Char.XPos, player.Char.YPos, player.MapObjectID)
+
+	spdPw := protocol.NewPacketWriter(protocol.PROTO_NC_MOVER_MOVESPEED_CMD)
+	spdPw.WriteUint16(player.MapObjectID)
+	spdPw.WriteUint16(player.MoverSpeed)
+	spdPw.WriteUint16(0)
+	player.CurrentMap.grid.BroadcastAOI(spdPw, player.Char.XPos, player.Char.YPos, 0)
+
+	if h.gameLogDispatcher != nil && player.Char != nil {
+		h.gameLogDispatcher.EnqueueTypeG(1, player.Char.ID, player.CurrentMap.MapID, player.Char.XPos, player.Char.YPos, 0, int(moverHnd), int64(moverHnd), 1, int(slot), 0)
+	}
+}
+
+func (h *Handler) handleMoverRideOff(client *network.Client, pkt *protocol.Packet) {
+	player, ok := h.getPlayer(client)
+	if !ok || player == nil || player.CurrentMap == nil {
+		return
+	}
+	oldHnd := player.MoverHandle
+	player.MoverHandle = 0
+	player.MoverSlot = 0
+	player.MoverSpeed = 0
+	player.State = 1 // Normal
+
+	ack := protocol.NewPacketWriter(protocol.PROTO_NC_MOVER_RIDE_OFF_CMD)
+	ack.WriteUint16(0)
+	_ = client.SendPacket(ack)
+
+	someonePw := protocol.NewPacketWriter(protocol.PROTO_NC_MOVER_SOMEONE_RIDE_OFF_CMD)
+	someonePw.WriteUint16(player.MapObjectID)
+	player.CurrentMap.grid.BroadcastAOI(someonePw, player.Char.XPos, player.Char.YPos, player.MapObjectID)
+
+	spdPw := protocol.NewPacketWriter(protocol.PROTO_NC_MOVER_MOVESPEED_CMD)
+	spdPw.WriteUint16(player.MapObjectID)
+	spdPw.WriteUint16(115)
+	spdPw.WriteUint16(0)
+	player.CurrentMap.grid.BroadcastAOI(spdPw, player.Char.XPos, player.Char.YPos, 0)
+
+	if h.gameLogDispatcher != nil && player.Char != nil {
+		h.gameLogDispatcher.EnqueueTypeG(2, player.Char.ID, player.CurrentMap.MapID, player.Char.XPos, player.Char.YPos, 0, int(oldHnd), int64(oldHnd), 0, 0, 0)
+	}
 }
 
 // SetAccountRepo configura el repositorio de cuentas y logs oficial (tLogout, tReport, etc.).
@@ -1166,6 +1503,9 @@ func (h *Handler) SetDataStore(ds *DataStore) {
 			h.mobInfoSHN = ds.MobInfoSHN
 		}
 		h.mapManager.SetNPCStore(ds.NPCStore, ds.MobInfoSHN)
+		if ds.BlockInfo != nil {
+			h.mapManager.SetBlockStore(ds.BlockInfo)
+		}
 	}
 }
 

@@ -4,6 +4,7 @@ import (
 	"time"
 
 	"github.com/iFeddy/XelionCore/pkg/data/classparam"
+	"github.com/iFeddy/XelionCore/pkg/data/combat"
 	"github.com/iFeddy/XelionCore/pkg/data/item"
 	"github.com/iFeddy/XelionCore/pkg/database"
 	"github.com/iFeddy/XelionCore/pkg/network"
@@ -35,21 +36,63 @@ const (
 	Slot_Pet           byte = 28
 )
 
-// JobToClassName mapea el ID numérico de profesión a su nombre de clase en data/World/ClassParam/.
+// JobToClassName mapea el ID oficial de las 27 clases del juego a su definición en data/World/ClassParam/.
 func JobToClassName(job byte) string {
 	switch job {
-	case byte(protocol.Job_Archer):
-		return "Archer"
-	case byte(protocol.Job_Cleric):
-		return "Cleric"
-	case byte(protocol.Job_Fighter):
+	case 1:
 		return "Fighter"
-	case byte(protocol.Job_Mage):
+	case 2:
+		return "CleverFighter"
+	case 3:
+		return "Warrior"
+	case 4:
+		return "Gladiator"
+	case 5:
+		return "Knight"
+	case 6:
+		return "Cleric"
+	case 7:
+		return "HighCleric"
+	case 8:
+		return "Paladin"
+	case 9:
+		return "HolyKnight"
+	case 10:
+		return "Guardian"
+	case 11:
+		return "Archer"
+	case 12:
+		return "HawkArcher"
+	case 13:
+		return "Scout"
+	case 14:
+		return "SharpShooter"
+	case 15:
+		return "Ranger"
+	case 16:
 		return "Mage"
-	case byte(protocol.Job_Trickster):
-		return "Trickster"
-	case byte(protocol.Job_Crusader):
-		return "Crusader"
+	case 17:
+		return "WizMage"
+	case 18:
+		return "Enchanter"
+	case 19:
+		return "Warrock"
+	case 20:
+		return "Wizard"
+	case 21:
+		return "Joker"
+	case 22:
+		return "Chaser"
+	case 23:
+		return "Cruel"
+	case 24:
+		return "Closer"
+	case 25:
+		return "Assassin"
+	case 26:
+		return "Sentinel"
+	case 27:
+		return "Savior"
 	default:
 		return "Fighter"
 	}
@@ -89,10 +132,43 @@ type ZonePlayer struct {
 	EquipTB      uint32
 	LoginTime    time.Time
 	LastWarpTime time.Time
+
+	// Campos de subsistemas de la Fase 11
+	HideExceptMe bool
+	TentID       uint16
+	MoverHandle  uint16
+	MoverSlot    uint8
+	MoverSpeed   uint16
+	PrevExp      uint64
+	NextExp      uint64
+	GatheringObj uint16
 }
 
-// NewZonePlayer inicializa un ZonePlayer cargando sus stats oficiales desde ClassParam.
-func NewZonePlayer(client *network.Client, ch *database.Character, classStore *classparam.Store) *ZonePlayer {
+// GetHandle implementa GridEntity para ZonePlayer.
+func (p *ZonePlayer) GetHandle() uint16 {
+	return p.MapObjectID
+}
+
+// GetPosition implementa GridEntity para ZonePlayer.
+func (p *ZonePlayer) GetPosition() (int, int) {
+	if p.Char == nil {
+		return 0, 0
+	}
+	return p.Char.XPos, p.Char.YPos
+}
+
+// GetEntityType implementa GridEntity para ZonePlayer.
+func (p *ZonePlayer) GetEntityType() GridEntityType {
+	return GridEntityPlayer
+}
+
+// GetClient implementa GridEntity para ZonePlayer.
+func (p *ZonePlayer) GetClient() *network.Client {
+	return p.Client
+}
+
+// NewZonePlayer inicializa un ZonePlayer cargando sus stats oficiales desde ClassParam y FreeStatTable.
+func NewZonePlayer(client *network.Client, ch *database.Character, classStore *classparam.Store, combatStore *combat.Store) *ZonePlayer {
 	className := JobToClassName(ch.Job)
 	lvl := int(ch.Level)
 	if lvl <= 0 {
@@ -106,17 +182,37 @@ func NewZonePlayer(client *network.Client, ch *database.Character, classStore *c
 		}
 	}
 
-	// Calcular el MaxHP real: Vida base de la clase + bonus por Constitución distribuida
-	// VER DE DONDE SALE EL PLUS DE VIDA POR CONSTITUCIÓN, SI ES 3 O 5.
-	maxHP := lp.MaxHP + (int(ch.TCharacter.Constitute) * 3)
+	// Obtener bonos oficiales de FreeStatTable.json
+	var freeBonus combat.FreeStatBonusResult
+	if combatStore != nil {
+		freeBonus = combatStore.GetFreeStatBonus(
+			ch.TCharacter.Strength,
+			ch.TCharacter.Intelligence,
+			ch.TCharacter.Dexterity,
+			ch.TCharacter.Constitute,
+			ch.TCharacter.MentalPower,
+		)
+	}
+
+	// Calcular el MaxHP real: Vida base de la clase + bonus por Constitución distribuida de FreeStatTable
+	maxHP := lp.MaxHP + freeBonus.MaxHP
 	if maxHP <= 0 {
 		maxHP = 52
 	}
 
-	// Calcular el MaxSP real: Maná base de la clase + bonus por MentalPower distribuido
-	maxSP := lp.MaxSP + (int(ch.TCharacter.MentalPower) * 3)
+	// Calcular el MaxSP real: Maná base de la clase + bonus por MentalPower distribuido de FreeStatTable
+	maxSP := lp.MaxSP + freeBonus.MaxSP
 	if maxSP <= 0 {
 		maxSP = 10
+	}
+
+	// Obtener umbrales de experiencia real de ExpTable.json
+	var prevExp, nextExp int64
+	if combatStore != nil {
+		prevExp, nextExp = combatStore.GetExpProgression(lvl)
+	} else {
+		prevExp = 0
+		nextExp = 10
 	}
 
 	curHP := ch.CurHP
@@ -162,6 +258,8 @@ func NewZonePlayer(client *network.Client, ch *database.Character, classStore *c
 		MaxStonesSP: maxStonesSP,
 		MaxHP:       maxHP,
 		MaxSP:       maxSP,
+		PrevExp:     uint64(prevExp),
+		NextExp:     uint64(nextExp),
 		Str:         byte(ch.TCharacter.Strength),
 		End:         byte(ch.TCharacter.Constitute),
 		Dex:         byte(ch.TCharacter.Dexterity),
@@ -217,6 +315,7 @@ func (p *ZonePlayer) WriteLook(pw *protocol.PacketWriter) {
 }
 
 // WriteEquipment serializa el equipamiento según PROTO_EQUIPMENT (43 bytes oficiales en PDB).
+// Empaqueta los niveles de mejora (0..15) de las 5 partes visuales en 3 bytes contiguos.
 func (p *ZonePlayer) WriteEquipment(pw *protocol.PacketWriter) {
 	pw.WriteUint16(p.Char.GetEquip(Slot_Helm))          // Equ_Head
 	pw.WriteUint16(0)                                   // Equ_Mouth
@@ -238,7 +337,21 @@ func (p *ZonePlayer) WriteEquipment(pw *protocol.PacketWriter) {
 	pw.WriteUint16(p.Char.GetEquip(Slot_Tail))          // Equ_AccHip
 	pw.WriteUint16(p.Char.GetEquip(Slot_Pet))           // Equ_Minimon
 	pw.WriteUint16(0)                                   // Equ_AccShield
-	pw.WriteBytes([]byte{0, 0, 0})                      // upgrade (3 bytes oficiales: lefthand, righthand, body, leg, shoes)
+
+	// Serialización exacta de los 3 bytes de upgrade visual de Zone.pdb
+	var rh, lh, body, pants, boots byte
+	if p.Char != nil && p.Char.EquipUpgrades != nil {
+		rh = p.Char.EquipUpgrades[Slot_Weapon] & 0x0F
+		lh = p.Char.EquipUpgrades[Slot_Weapon2] & 0x0F
+		body = p.Char.EquipUpgrades[Slot_Armor] & 0x0F
+		pants = p.Char.EquipUpgrades[Slot_Pants] & 0x0F
+		boots = p.Char.EquipUpgrades[Slot_Boots] & 0x0F
+	}
+	pw.WriteBytes([]byte{
+		rh | (lh << 4),
+		body | (pants << 4),
+		boots,
+	})
 }
 
 // WriteDetailedInfo serializa PROTO_NC_CHAR_BASE_CMD (105 bytes oficiales en PDB).
@@ -269,30 +382,29 @@ func (p *ZonePlayer) WriteDetailedInfo(pw *protocol.PacketWriter) {
 	pw.WriteByte(p.Rotation)            // currentcoord.dir
 
 	// statdistribute: CHARSTATDISTSTR (6 bytes)
-	pw.WriteByte(p.Str) // Strength
-	pw.WriteByte(p.End) // Constitute
-	pw.WriteByte(p.Dex) // Dexterity
-	pw.WriteByte(p.Int) // Intelligence
-	pw.WriteByte(p.Spr) // MentalPower
-	pw.WriteByte(0)     // RedistributePoint
+	pw.WriteByte(p.Str)                                     // Strength
+	pw.WriteByte(p.End)                                     // Constitute
+	pw.WriteByte(p.Dex)                                     // Dexterity
+	pw.WriteByte(p.Int)                                     // Intelligence
+	pw.WriteByte(p.Spr)                                     // MentalPower
+	pw.WriteByte(byte(p.Char.TCharacter.RedistributePoint)) // RedistributePoint real
 
-	pw.WriteByte(0)   // pkyellowtime
-	pw.WriteUint32(0) // pkcount
-	pw.WriteUint16(0) // prisonmin
-	pw.WriteByte(0)   // adminlevel
-	pw.Fill(4, 0)     // flags (4 bytes)
+	pw.WriteByte(0)                  // pkyellowtime
+	pw.WriteUint32(0)                // pkcount
+	pw.WriteUint16(0)                // prisonmin
+	pw.WriteByte(p.Char.AdminLevel) // adminlevel real
+	pw.Fill(4, 0)                    // flags (4 bytes)
 }
 
 // WriteDetailedInfoExtra serializa PROTO_NC_MAP_LOGIN_ACK (242 bytes oficiales en PDB).
 func (p *ZonePlayer) WriteDetailedInfoExtra(pw *protocol.PacketWriter, levelUp bool) {
-
 	if !levelUp {
 		pw.WriteUint16(p.MapObjectID) // charhandle (2 bytes)
 	}
 
 	// CHAR_PARAMETER_DATA (232 bytes)
-	pw.WriteUint64(0)                                              // PrevExp
-	pw.WriteUint64(uint64(280))                                    // NextExp
+	pw.WriteUint64(p.PrevExp)                                      // PrevExp real
+	pw.WriteUint64(p.NextExp)                                      // NextExp real
 	pw.WriteUint32(uint32(p.LevelParam.Strength))                  // Strength.base
 	pw.WriteUint32(uint32(p.LevelParam.Strength + int(p.Str)))     // Strength.change
 	pw.WriteUint32(uint32(p.LevelParam.Constitution))              // Constitute.base
@@ -370,7 +482,7 @@ func (p *ZonePlayer) WriteDetailedInfoExtra(pw *protocol.PacketWriter, levelUp b
 	}
 }
 
-// WriteCharacterDisplay serializes PROTO_NC_BRIEFINFO_LOGINCHARACTER_CMD (235 bytes exactos en PDB).
+// WriteCharacterDisplay serializa PROTO_NC_BRIEFINFO_LOGINCHARACTER_CMD (235 bytes exactos en PDB).
 func (p *ZonePlayer) WriteCharacterDisplay(pw *protocol.PacketWriter) {
 	pw.WriteUint16(p.MapObjectID)     // 0x000 (0): unsigned short handle (2)
 	pw.WriteString(p.Char.Name, 20)   // 0x002 (2): Name5 charid (20)
@@ -393,8 +505,8 @@ func (p *ZonePlayer) WriteCharacterDisplay(pw *protocol.PacketWriter) {
 	pw.WriteByte(1)            // 0x0c4 (196): IsAutoPick (1)
 	pw.WriteByte(p.Char.Level) // 0x0c5 (197): Level (1)
 	pw.WriteString("", 32)     // 0x0c6 (198): sAnimation (32)
-	pw.WriteUint16(0)          // 0x0e6 (230): nMoverHnd (2)
-	pw.WriteByte(0)            // 0x0e8 (232): nMoverSlot (1)
+	pw.WriteUint16(p.MoverHandle) // 0x0e6 (230): nMoverHnd (2)
+	pw.WriteByte(p.MoverSlot)     // 0x0e8 (232): nMoverSlot (1)
 	pw.WriteByte(0)            // 0x0e9 (233): nKQTeamType (1)
 	pw.WriteByte(0)            // 0x0ea (234): IsUseItemMinimon (1)
 }

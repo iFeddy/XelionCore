@@ -27,6 +27,20 @@ type CommonConfig struct {
 	MaxFreeStat      int `json:"maxFreeStat"`
 }
 
+// FreeStatBonusResult contains the aggregated stat bonuses from free stat points.
+type FreeStatBonusResult struct {
+	PhysicalAttack int
+	MagicAttack    int
+	AimRate        int
+	EvasionRate    int
+	PhysicalDef    int
+	BlockRate      int
+	MaxHP          int
+	MagicDef       int
+	CritRate       int
+	MaxSP          int
+}
+
 // ExpLevelEntry defines level thresholds, exp required to advance, and stat distributions.
 type ExpLevelEntry struct {
 	Level           int            `json:"level"`
@@ -207,6 +221,84 @@ func (s *Store) MaxLevel() int {
 	s.mu.RLock()
 	defer s.mu.RUnlock()
 	return len(s.expTable)
+}
+
+// GetExpProgression returns the previous level threshold (prevExp) and current level threshold (nextExp).
+func (s *Store) GetExpProgression(level int) (prevExp, nextExp int64) {
+	s.mu.RLock()
+	defer s.mu.RUnlock()
+
+	if len(s.expTable) == 0 {
+		return 0, 10
+	}
+	if level <= 1 {
+		return 0, int64(s.expTable[0].NextExp)
+	}
+	if level > len(s.expTable) {
+		last := int64(s.expTable[len(s.expTable)-1].NextExp)
+		return last, last
+	}
+	return int64(s.expTable[level-2].NextExp), int64(s.expTable[level-1].NextExp)
+}
+
+// GetFreeStatBonus returns the calculated bonuses from the FreeStatTable for given point allocations.
+func (s *Store) GetFreeStatBonus(strPoints, intPoints, dexPoints, conPoints, menPoints int) FreeStatBonusResult {
+	s.mu.RLock()
+	defer s.mu.RUnlock()
+
+	var res FreeStatBonusResult
+
+	// Str
+	if strPoints > 0 && len(s.freeStat.Str) > 0 {
+		idx := strPoints
+		if idx >= len(s.freeStat.Str) {
+			idx = len(s.freeStat.Str) - 1
+		}
+		res.PhysicalAttack = s.freeStat.Str[idx].PhysicalAttack
+	}
+
+	// Int
+	if intPoints > 0 && len(s.freeStat.Int) > 0 {
+		idx := intPoints
+		if idx >= len(s.freeStat.Int) {
+			idx = len(s.freeStat.Int) - 1
+		}
+		res.MagicAttack = s.freeStat.Int[idx].MagicAttack
+	}
+
+	// Dex
+	if dexPoints > 0 && len(s.freeStat.Dex) > 0 {
+		idx := dexPoints
+		if idx >= len(s.freeStat.Dex) {
+			idx = len(s.freeStat.Dex) - 1
+		}
+		res.AimRate = s.freeStat.Dex[idx].AimRate
+		res.EvasionRate = s.freeStat.Dex[idx].EvasionRate
+	}
+
+	// Con
+	if conPoints > 0 && len(s.freeStat.Con) > 0 {
+		idx := conPoints
+		if idx >= len(s.freeStat.Con) {
+			idx = len(s.freeStat.Con) - 1
+		}
+		res.PhysicalDef = s.freeStat.Con[idx].PhysicalDef
+		res.BlockRate = s.freeStat.Con[idx].BlockRate
+		res.MaxHP = s.freeStat.Con[idx].MaxHP
+	}
+
+	// Men
+	if menPoints > 0 && len(s.freeStat.Men) > 0 {
+		idx := menPoints
+		if idx >= len(s.freeStat.Men) {
+			idx = len(s.freeStat.Men) - 1
+		}
+		res.MagicDef = s.freeStat.Men[idx].MagicDef
+		res.CritRate = s.freeStat.Men[idx].CritRate
+		res.MaxSP = s.freeStat.Men[idx].MaxSP
+	}
+
+	return res
 }
 
 // GetPartyExpBonus returns the experience multiplier for party size (1000 = 100%).
