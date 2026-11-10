@@ -260,10 +260,10 @@ func (h *Handler) handleTransferKey(client *network.Client, pkt *protocol.Packet
 	randomID := req.Chardata.Wldmanhandle
 
 	log.Printf("[Zone][%s] PROTO_NC_MAP_LOGIN_REQ received for character '%s' (RandomID: %d, HasChecksums: %v)",
-		client.RemoteAddr(), charName, randomID, req.HasChecksums)
+		client.RemoteAddr(), charName, randomID, req.HasChecksums())
 
 	// Verificación oficial binaria de DataFileCheck (Zone.exe 0x0045264b)
-	if h.chkEngine != nil && req.HasChecksums {
+	if h.chkEngine != nil && req.HasChecksums() {
 		var clientChecksums [49]shn.Name8
 		for i := 0; i < 49; i++ {
 			clientChecksums[i] = req.Checksum[i]

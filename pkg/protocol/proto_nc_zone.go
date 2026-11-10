@@ -37,9 +37,14 @@ func (s ShineCharStatVar) WriteToPacket(pw *PacketWriter) {
 // - chardata: PROTO_NC_CHAR_ZONE_CHARDATA_REQ (22 bytes)
 // - checksum: Name8[49] (1568 bytes = 49 hashes MD5 de 32 bytes c/u)
 type PROTO_NC_MAP_LOGIN_REQ_DATA struct {
-	Chardata     PROTO_NC_CHAR_ZONE_CHARDATA_REQ_DATA
-	Checksum     [49][32]byte
-	HasChecksums bool
+	Chardata PROTO_NC_CHAR_ZONE_CHARDATA_REQ_DATA
+	Checksum [49][32]byte
+}
+
+// HasChecksums indica si el paquete contiene los 49 hashes MD5.
+func (r *PROTO_NC_MAP_LOGIN_REQ_DATA) HasChecksums() bool {
+	var empty [32]byte
+	return r.Checksum[0] != empty
 }
 
 // Read_PROTO_NC_MAP_LOGIN_REQ deserializa la estructura binaria oficial PROTO_NC_MAP_LOGIN_REQ.
@@ -73,7 +78,6 @@ func Read_PROTO_NC_MAP_LOGIN_REQ(pr *PacketReader) (*PROTO_NC_MAP_LOGIN_REQ_DATA
 			}
 			copy(req.Checksum[i][:], hashBytes)
 		}
-		req.HasChecksums = true
 	}
 
 	return req, nil

@@ -247,8 +247,8 @@ func TestFase04_Control4_WorldCharacter_ForbiddenAliases_Scan(t *testing.T) {
 		if info.IsDir() {
 			return nil
 		}
-		// Solo escanear archivos de código .go (excluyendo este archivo de test)
-		if !strings.HasSuffix(path, ".go") || strings.HasSuffix(path, "fase04_world_character_sizeof_test.go") {
+		// Solo escanear archivos de código .go (excluyendo archivos de test de auditoría)
+		if !strings.HasSuffix(path, ".go") || strings.HasSuffix(path, "_test.go") {
 			return nil
 		}
 

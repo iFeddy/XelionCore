@@ -248,7 +248,9 @@ const (
 	PROTO_NC_MISC_S2SCONNECTION_REQ                         uint16 = ( 2 << 10) | 2   // 0x0802
 	PROTO_NC_MISC_S2SCONNECTION_ACK                         uint16 = ( 2 << 10) | 3   // 0x0803
 	PROTO_NC_MISC_HEARTBEAT_REQ                             uint16 = ( 2 << 10) | 4   // 0x0804
+	PROTO_NC_MISC_FOODEAT_1_CMD                             uint16 = ( 2 << 10) | 4   // 0x0804 (iac_FoodEat callback 1)
 	PROTO_NC_MISC_HEARTBEAT_ACK                             uint16 = ( 2 << 10) | 5   // 0x0805
+	PROTO_NC_MISC_FOODEAT_2_CMD                             uint16 = ( 2 << 10) | 5   // 0x0805 (iac_FoodEat callback 2)
 	PROTO_NC_MISC_SEED_REQ                                  uint16 = ( 2 << 10) | 6   // 0x0806
 	PROTO_NC_MISC_SEED_ACK                                  uint16 = ( 2 << 10) | 7   // 0x0807
 	PROTO_NC_MISC_USER_COUNT_CMD                            uint16 = ( 2 << 10) | 8   // 0x0808
