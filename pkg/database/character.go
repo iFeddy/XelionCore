@@ -464,6 +464,8 @@ type CharacterAvatarRepository interface {
 	AddCharMoney(charNo int, amount int64) error
 	SubCharMoney(charNo int, amount int64) (bool, error)
 	SaveCharFreeStats(charNo int, str, con, dex, intel, men, freePoints byte) error
+	IncStatPoint(charNo int, statType byte) error
+	DecStatPoint(charNo int, statType byte) error
 	GetCharacterStates(charNo int) ([]*CharacterStateData, error)
 	SetCharacterState(charNo int, stateNo int16, level int16, stateTime int, restTime int, count int16, pd, ps, pk, pc byte) error
 	GetCharacterTitles(charNo int) ([]*CharacterTitleData, error)
@@ -516,6 +518,8 @@ type CharacterProgressionRepository interface {
 	SaveCharacterSkills(charNo int, skills []*CharacterSkill) error
 	SetSkillCoolTime(charNo int, skillNo int16, writeTime int64, coolTime int) error
 	SetSkillPower(charNo int, skillNo int16, pd, ps, keepTime, coolTime byte) error
+	SetSingleSkillPower(charNo int, skillNo int16, powerType byte, power byte) error
+	DeleteCharacterSkill(charNo int, skillNo int16) error
 	GetCharacterShortcuts(charNo int) ([]*Shortcut, error)
 	SaveCharacterShortcuts(charNo int, shortcuts []*Shortcut) error
 	GetCharacterOptions(charNo int) (*CharacterOptions, error)
@@ -1097,6 +1101,14 @@ func (r *MemoryCharacterRepository) SaveCharFreeStats(charNo int, str, con, dex,
 	return nil
 }
 
+func (r *MemoryCharacterRepository) IncStatPoint(charNo int, statType byte) error {
+	return nil
+}
+
+func (r *MemoryCharacterRepository) DecStatPoint(charNo int, statType byte) error {
+	return nil
+}
+
 func (r *MemoryCharacterRepository) GetCharacterStates(charNo int) ([]*CharacterStateData, error) {
 	return nil, nil
 }
@@ -1374,6 +1386,14 @@ func (r *MemoryCharacterRepository) SetSkillCoolTime(charNo int, skillNo int16, 
 }
 
 func (r *MemoryCharacterRepository) SetSkillPower(charNo int, skillNo int16, pd, ps, keepTime, coolTime byte) error {
+	return nil
+}
+
+func (r *MemoryCharacterRepository) SetSingleSkillPower(charNo int, skillNo int16, powerType byte, power byte) error {
+	return nil
+}
+
+func (r *MemoryCharacterRepository) DeleteCharacterSkill(charNo int, skillNo int16) error {
 	return nil
 }
 

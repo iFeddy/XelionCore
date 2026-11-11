@@ -614,6 +614,26 @@ func (r *MySQLCharacterRepository) SaveCharFreeStats(charNo int, str, con, dex, 
 	return nil
 }
 
+// IncStatPoint incrementa un stat del personaje invocando p_Char_StatPoint_Inc.
+func (r *MySQLCharacterRepository) IncStatPoint(charNo int, statType byte) error {
+	var ret int
+	err := r.db.QueryRow("CALL p_Char_StatPoint_Inc(?, ?, @out_nRet)", charNo, statType).Scan(&ret)
+	if err != nil {
+		return fmt.Errorf("error calling p_Char_StatPoint_Inc: %w", err)
+	}
+	return nil
+}
+
+// DecStatPoint decrementa un stat del personaje invocando p_Char_StatPoint_Dec.
+func (r *MySQLCharacterRepository) DecStatPoint(charNo int, statType byte) error {
+	var ret int
+	err := r.db.QueryRow("CALL p_Char_StatPoint_Dec(?, ?, @out_nRet)", charNo, statType).Scan(&ret)
+	if err != nil {
+		return fmt.Errorf("error calling p_Char_StatPoint_Dec: %w", err)
+	}
+	return nil
+}
+
 // GetCharacterStates obtiene la lista de estados anormales persistidos invocando p_Char_GetStateAll.
 func (r *MySQLCharacterRepository) GetCharacterStates(charNo int) ([]*CharacterStateData, error) {
 	rows, err := r.db.Query("CALL p_Char_GetStateAll(?)", charNo)

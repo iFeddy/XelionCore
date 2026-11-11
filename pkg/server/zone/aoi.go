@@ -27,6 +27,7 @@ const (
 	GridEntityItem   GridEntityType = 3
 	GridEntityTent   GridEntityType = 4
 	GridEntityMover  GridEntityType = 5
+	GridEntityMob    GridEntityType = 6
 )
 
 // GridEntity es la interfaz de abstracción para todas las entidades físicas en el mapa.

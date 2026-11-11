@@ -176,6 +176,54 @@ func (h *Handler) HandlePacket(client *network.Client, pkt *protocol.Packet) {
 		h.handleSoulStoneHPUse(client, pkt)
 	case protocol.PROTO_NC_SOULSTONE_SP_USE_REQ:
 		h.handleSoulStoneSPUse(client, pkt)
+	case protocol.PROTO_NC_BAT_TARGETTING_REQ:
+		h.handleTargettingReq(client, pkt)
+	case protocol.PROTO_NC_BAT_UNTARGET_REQ:
+		h.handleUntargetReq(client, pkt)
+	case protocol.PROTO_NC_BAT_BASHSTART_CMD:
+		h.handleBashStartCmd(client, pkt)
+	case protocol.PROTO_NC_BAT_BASHSTOP_CMD:
+		h.handleBashStopCmd(client, pkt)
+	case protocol.PROTO_NC_BAT_ASSIST_REQ:
+		h.handleAssistReq(client, pkt)
+	case protocol.PROTO_NC_BAT_SKILLBASH_OBJ_CAST_REQ:
+		h.handleSkillBashObjCastReq(client, pkt)
+	case protocol.PROTO_NC_BAT_SKILLBASH_FLD_CAST_REQ:
+		h.handleSkillBashFldCastReq(client, pkt)
+	case protocol.PROTO_NC_BAT_SKILLBASH_CASTABORT_REQ:
+		h.handleSkillBashCastAbortReq(client, pkt)
+	case protocol.PROTO_NC_BAT_ABSTATE_ERASE_REQ:
+		h.handleAbStateEraseReq(client, pkt)
+	case protocol.PROTO_NC_MOVER_SKILLBASH_OBJ_CAST_REQ:
+		h.handleMoverSkillBashObjCastReq(client, pkt)
+	case protocol.PROTO_NC_MOVER_SKILLBASH_FLD_CAST_REQ:
+		h.handleMoverSkillBashFldCastReq(client, pkt)
+	case protocol.PROTO_NC_SKILL_EMPOWALLOC_REQ:
+		h.handleSkillEmpowAllocReq(client, pkt)
+	case protocol.PROTO_NC_SKILL_PRODUCTFIELD_REQ:
+		h.handleSkillProductFieldReq(client, pkt)
+	case protocol.PROTO_NC_SKILL_UNLEARN_REQ:
+		h.handleSkillUnlearnReq(client, pkt)
+	case protocol.PROTO_NC_SKILL_REPLYREVIVE_CMD:
+		h.handleSkillReplyReviveCmd(client, pkt)
+	case protocol.PROTO_NC_ITEM_USE_ACTIVESKILL_REQ:
+		h.handleItemUseActiveSkillReq(client, pkt)
+	case protocol.PROTO_NC_CHAR_STAT_INCPOINT_REQ:
+		h.handleCharStatIncPointReq(client, pkt)
+	case protocol.PROTO_NC_CHAR_STAT_DECPOINT_REQ:
+		h.handleCharStatDecPointReq(client, pkt)
+	case protocol.PROTO_NC_CHAR_REVIVE_REQ:
+		h.handleCharReviveReq(client, pkt)
+	case protocol.PROTO_NC_CHAR_REBIRTH_CMD:
+		h.handleCharRebirthCmd(client, pkt)
+	case protocol.PROTO_NC_CHAR_REBIRTH_REJECT_CMD:
+		h.handleCharRebirthRejectCmd(client, pkt)
+	case protocol.PROTO_NC_ITEM_REVIVEITEMUSE_CMD:
+		h.handleItemReviveItemUseCmd(client, pkt)
+	case protocol.PROTO_NC_CHAR_DEPOLYMORPH_CMD:
+		h.handleDepolymorphCmd(client, pkt)
+	case protocol.PROTO_NC_CHAR_CHARGEDBUFF_ERASE_REQ:
+		h.handleChargedBuffEraseReq(client, pkt)
 	case protocol.PROTO_NC_MISC_HEARTBEAT_ACK, protocol.PROTO_NC_MISC_GAMETIME_REQ:
 		// Heartbeat pong received, ignore
 	default:

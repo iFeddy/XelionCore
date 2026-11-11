@@ -97,6 +97,7 @@ type ZoneMap struct {
 	nextObjID    uint16
 	players      map[uint16]*ZonePlayer
 	npcs         map[uint16]*ZoneNPC
+	mobs         map[uint16]*ZoneMonster
 	gates        []*ZoneNPC
 	droppedItems map[uint16]*ZoneDroppedItem
 	tents        map[uint16]uint16 // MapObjectID -> tentID
@@ -104,6 +105,7 @@ type ZoneMap struct {
 	blockInfo    *blockinfo.MapBlockInformation
 	doors        *blockinfo.MapDoorArray
 	gameLoop     *MapGameLoop
+	FieldEntry   *field.FieldEntry
 }
 
 // NewZoneMap creates a new map instance with real metadata and starts its GameLoop.
@@ -116,6 +118,7 @@ func NewZoneMap(id uint16, mapID, name string) *ZoneMap {
 		nextObjID:    1,
 		players:      make(map[uint16]*ZonePlayer),
 		npcs:         make(map[uint16]*ZoneNPC),
+		mobs:         make(map[uint16]*ZoneMonster),
 		droppedItems: make(map[uint16]*ZoneDroppedItem),
 		tents:        make(map[uint16]uint16),
 		grid:         NewSpatialGrid(DefaultCellSize),
@@ -294,6 +297,11 @@ func (mm *MapManager) GetOrCreateMap(mapID string) *ZoneMap {
 	zMap := NewZoneMap(serial, normID, name)
 	zMap.Width = width
 	zMap.Height = height
+	if mm.fieldStore != nil {
+		if entry, ok := mm.fieldStore.GetField(normID); ok {
+			zMap.FieldEntry = entry
+		}
+	}
 
 	if mm.blockStore != nil {
 		mbi := mm.blockStore.GetSHBD(normID)
@@ -482,6 +490,78 @@ func (m *ZoneMap) CleanupExpiredDrops(maxAge time.Duration) {
 		m.grid.BroadcastAOI(delPkt, int(di.X), int(di.Y), 0)
 	}
 }
+
+// AddMonster registra un monstruo en el mapa y en la grilla espacial AOI.
+func (m *ZoneMap) AddMonster(mob *ZoneMonster) {
+	if mob == nil {
+		return
+	}
+	m.mu.Lock()
+	if mob.Handle == 0 {
+		mob.Handle = m.nextObjID
+		m.nextObjID++
+	}
+	m.mobs[mob.Handle] = mob
+	m.mu.Unlock()
+
+	if m.grid != nil {
+		m.grid.AddEntity(mob)
+	}
+}
+
+// RemoveMonster remueve un monstruo del mapa y de la grilla AOI.
+func (m *ZoneMap) RemoveMonster(handle uint16) {
+	m.mu.Lock()
+	_, ok := m.mobs[handle]
+	delete(m.mobs, handle)
+	m.mu.Unlock()
+
+	if ok && m.grid != nil {
+		m.grid.RemoveEntity(handle)
+	}
+}
+
+// GetPlayer recupera un jugador por su MapObjectID.
+func (m *ZoneMap) GetPlayer(handle uint16) *ZonePlayer {
+	m.mu.RLock()
+	defer m.mu.RUnlock()
+	return m.players[handle]
+}
+
+// GetMonster recupera un monstruo por su handle de mapa.
+func (m *ZoneMap) GetMonster(handle uint16) *ZoneMonster {
+	m.mu.RLock()
+	defer m.mu.RUnlock()
+	return m.mobs[handle]
+}
+
+// GetAllMonsters retorna una instantánea de todos los monstruos vivos en el mapa.
+func (m *ZoneMap) GetAllMonsters() []*ZoneMonster {
+	m.mu.RLock()
+	defer m.mu.RUnlock()
+	res := make([]*ZoneMonster, 0, len(m.mobs))
+	for _, mob := range m.mobs {
+		res = append(res, mob)
+	}
+	return res
+}
+
+// GetEntity recupera cualquier entidad activa (jugador, monstruo, NPC) por su handle.
+func (m *ZoneMap) GetEntity(handle uint16) GridEntity {
+	m.mu.RLock()
+	defer m.mu.RUnlock()
+	if p, ok := m.players[handle]; ok {
+		return p
+	}
+	if mob, ok := m.mobs[handle]; ok {
+		return mob
+	}
+	if n, ok := m.npcs[handle]; ok {
+		return n
+	}
+	return nil
+}
+
 
 // SendDroppedItems transmits all dropped items on the field to a joining player using PROTO_NC_BRIEFINFO_ITEMONFIELD_CMD (0x1C0B).
 func (m *ZoneMap) SendDroppedItems(p *ZonePlayer) {

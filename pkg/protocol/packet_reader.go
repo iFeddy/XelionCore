@@ -36,6 +36,18 @@ func (r *PacketReader) ReadByte() (byte, error) {
 	return b, nil
 }
 
+// ReadUint8 reads an unsigned 8-bit integer.
+func (r *PacketReader) ReadUint8() (uint8, error) {
+	b, err := r.ReadByte()
+	return uint8(b), err
+}
+
+// ReadInt8 reads a signed 8-bit integer.
+func (r *PacketReader) ReadInt8() (int8, error) {
+	b, err := r.ReadByte()
+	return int8(b), err
+}
+
 // ReadBool reads a boolean byte (0 = false, non-zero = true).
 func (r *PacketReader) ReadBool() (bool, error) {
 	b, err := r.ReadByte()

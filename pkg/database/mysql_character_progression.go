@@ -84,6 +84,26 @@ func (r *MySQLCharacterRepository) SetSkillPower(charNo int, skillNo int16, pd, 
 	return nil
 }
 
+// SetSingleSkillPower asigna un empoderamiento específico de una habilidad invocando p_Skill_SetPower.
+func (r *MySQLCharacterRepository) SetSingleSkillPower(charNo int, skillNo int16, powerType byte, power byte) error {
+	var ret int
+	err := r.db.QueryRow("CALL p_Skill_SetPower(?, ?, ?, ?, @out_nRet)", charNo, skillNo, powerType, power).Scan(&ret)
+	if err != nil {
+		return fmt.Errorf("error calling p_Skill_SetPower: %w", err)
+	}
+	return nil
+}
+
+// DeleteCharacterSkill elimina una habilidad del personaje invocando p_Skill_Del.
+func (r *MySQLCharacterRepository) DeleteCharacterSkill(charNo int, skillNo int16) error {
+	var ret int
+	err := r.db.QueryRow("CALL p_Skill_Del(?, ?, @out_nRet)", charNo, skillNo).Scan(&ret)
+	if err != nil {
+		return fmt.Errorf("error calling p_Skill_Del: %w", err)
+	}
+	return nil
+}
+
 // GetCharacterShortcuts lee los atajos serializados de la barra rápida invocando p_Char_GetOptShortCutData.
 func (r *MySQLCharacterRepository) GetCharacterShortcuts(charNo int) ([]*Shortcut, error) {
 	var ret int

@@ -30,6 +30,16 @@ func (pw *PacketWriter) WriteByte(b byte) {
 	pw.buf = append(pw.buf, b)
 }
 
+// WriteUint8 appends an unsigned 8-bit integer.
+func (pw *PacketWriter) WriteUint8(v uint8) {
+	pw.WriteByte(v)
+}
+
+// WriteInt8 appends a signed 8-bit integer.
+func (pw *PacketWriter) WriteInt8(v int8) {
+	pw.WriteByte(byte(v))
+}
+
 // WriteBool appends 1 for true, 0 for false.
 func (pw *PacketWriter) WriteBool(v bool) {
 	if v {

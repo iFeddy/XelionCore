@@ -357,3 +357,28 @@ func (s *Store) GetAngleDamageRate(isMonster bool, angle int) int {
 
 	return records[len(records)-1].DamageRate
 }
+
+// GetSoulDamageRate returns the damage multiplier from DamageBySoul.json given demandSoul and available soul stones.
+func (s *Store) GetSoulDamageRate(demandSoul int, soulCount int) int {
+	s.mu.RLock()
+	defer s.mu.RUnlock()
+
+	if soulCount <= 0 || len(s.damageBySoul) == 0 {
+		return 1000
+	}
+
+	for _, entry := range s.damageBySoul {
+		if entry.DemandSoul == demandSoul {
+			if len(entry.Rates) == 0 {
+				return 1000
+			}
+			idx := soulCount
+			if idx >= len(entry.Rates) {
+				idx = len(entry.Rates) - 1
+			}
+			return entry.Rates[idx]
+		}
+	}
+	return 1000
+}
+

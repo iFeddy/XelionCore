@@ -142,6 +142,15 @@ type ZonePlayer struct {
 	PrevExp      uint64
 	NextExp      uint64
 	GatheringObj uint16
+
+	// Campos de subsistemas de la Fase 12 (Combate, Skills, AbState, PK)
+	TargetHandle    uint16
+	IsAutoAttacking bool
+	LastAttackTime  time.Time
+	CastingSkillID  uint16
+	ActiveStates    map[uint16]*ActiveAbState
+	PKCount         int
+	PKYellowTime    int
 }
 
 // GetHandle implementa GridEntity para ZonePlayer.
@@ -264,8 +273,9 @@ func NewZonePlayer(client *network.Client, ch *database.Character, classStore *c
 		End:         byte(ch.TCharacter.Constitute),
 		Dex:         byte(ch.TCharacter.Dexterity),
 		Int:         byte(ch.TCharacter.Intelligence),
-		Spr:         byte(ch.TCharacter.MentalPower),
-		LevelParam:  lp,
+		Spr:          byte(ch.TCharacter.MentalPower),
+		LevelParam:   lp,
+		ActiveStates: make(map[uint16]*ActiveAbState),
 	}
 }
 
