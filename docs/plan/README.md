@@ -5,6 +5,7 @@ Esta carpeta organiza la ejecución modular, autónoma y segura para la cuota de
 - **Etapa 1 (`LoginService`, `Account`, `AccountLog`, `StatisticsData`):** **Completada y auditada al 100%** (archivada en [fases_terminadas/](./fases_terminadas/)).
 - **Etapa 2 (`WorldService` y `Character` — Fases `01` a `07`):** Gobernada por [PLAN_ACCION_WORLDSERVICE_CHARACTER.md](./PLAN_ACCION_WORLDSERVICE_CHARACTER.md).
 - **Etapa 3 (`ZoneService` y `GameLog` — Fases `08` a `16`):** Gobernada por [PLAN_ACCION_ZONESERVICE_GAMELOG.md](../PLAN_ACCION_ZONESERVICE_GAMELOG.md).
+- **Etapa 4 (Saneamiento Binario 1:1 contra `.exe` + `.pdb` — Fases `17` a `21`):** Gobernada por [PLAN_SANEAMIENTO_BINARIO_EXE_PDB_100.md](../PLAN_SANEAMIENTO_BINARIO_EXE_PDB_100.md).
 
 ---
 
@@ -49,6 +50,21 @@ Plan Maestro: [PLAN_ACCION_ZONESERVICE_GAMELOG.md](../PLAN_ACCION_ZONESERVICE_GA
 | **14** | [FASE_14_ECONOMIA_INVENTARIO_COMERCIO_BOOTH_UPGRADE_Y_CRAFTING.md](./FASE_14_ECONOMIA_INVENTARIO_COMERCIO_BOOTH_UPGRADE_Y_CRAFTING.md) | **`48/48` C2S `NC_ITEM`** + **`62` métodos `iac_*`**, Mercaderes NPC, almacenes, `SafeTrade` (`10` C2S), Kioscos `BOOTH` (`8` C2S), `Upgrade`, `Enchant`, `RandomOption`, `Dismantle`, `Mix`, `Produce` y `GameLog` Tipos `3, 4, 5, 7, B, C, D` | **`High`** | Suite Transaccional Economía y Forja | **Completado** |
 | **15** | [FASE_15_QUESTS_NPCS_LUA_INSTANCIAS_KQ_MINIHOUSE_PETS_Y_CASINO.md](./FASE_15_QUESTS_NPCS_LUA_INSTANCIAS_KQ_MINIHOUSE_PETS_Y_CASINO.md) | Motor `QUEST` (`7` C2S), NPCs/escenarios, instancias Lua (`InstanceDungeon`, `KQ` en mapa, `GuildTournament` en mapa, `Wedding`), `HolyPromise`, `MiniHouse` (`23` C2S), `Pet`, `WeaponTitle` y Casino (`DICE` `9` C2S + `GAMBLE` `18` C2S) | **`High`** | Suite Quests, Lua, MiniHouse, Pets y Casino | **Completado** |
 | **16** | [FASE_16_COORDINACION_S2S_ADMIN_E2E_CLUSTER_Y_AUDITORIA_FINAL.md](./FASE_16_COORDINACION_S2S_ADMIN_E2E_CLUSTER_Y_AUDITORIA_FINAL.md) | Coordinación S2S `Zone <-> World` (**`138` flujos `wms_NC_*`**), multi-nodo `Zone00`..`Zone04`, comandos GM (`AdminLvSet.shn`), cierre **`245/245` C2S** y suite final `scripts/verify_zone_gamelog_100.sh` | **`High`** | **Controles 5, 7 y 8** (`8/8 PASS`, `exit 0`) | **Completado** |
+
+---
+
+## Etapa 4: Saneamiento Binario 1:1 de Handlers contra `.exe` + `.pdb` (Fases `17` a `21`)
+
+Plan Maestro: [PLAN_SANEAMIENTO_BINARIO_EXE_PDB_100.md](../PLAN_SANEAMIENTO_BINARIO_EXE_PDB_100.md)
+Herramienta obligatoria de desensamblado: [scripts/disasm_pdb_handler.py](../../scripts/disasm_pdb_handler.py)
+
+| Orden | Archivo de Fase | Objetivo Principal | Nivel Recomendado | Control de Auditoría que Activa | Estado |
+| :---: | :--- | :--- | :---: | :--- | :---: |
+| **17** | [FASE_17_NUCLEO_INGAME_CHUNK_MOVIMIENTO_SHBD_CHAT_GM_Y_LOGOUT_EXE.md](./FASE_17_NUCLEO_INGAME_CHUNK_MOVIMIENTO_SHBD_CHAT_GM_Y_LOGOUT_EXE.md) | Desensamblado 1:1 en `Zone.exe` de `.shbd` (`BlockInfo`), Movimiento (`NC_ACT`/`NC_MOVER`), In-Game Chunk + `MAP_LOGIN_ACK` (`NC_CHAR`/`NC_MAP`), Chat (`itemLinkDataCount`) + GM y retorno real a Selección de Personaje / World (`NC_USER`/`NC_CHAR`) | **`High`** | **Control 2 (Etapa 4)** | Pendiente |
+| **18** | [FASE_18_BRIEFINFO_MOBS_NPCS_COMBATE_SKILLS_ABSTATE_Y_SOULSTONE_EXE.md](./FASE_18_BRIEFINFO_MOBS_NPCS_COMBATE_SKILLS_ABSTATE_Y_SOULSTONE_EXE.md) | Desensamblado 1:1 en `Zone.exe` de `NC_BRIEFINFO` (Players, NPCs, Mobs, Gates, Drops), `NC_BAT` (`TargetInfo`, `Swing`, `Damage`, `HP/SP Change`, `Kill`), `NC_SKILL` y `NC_SOULSTONE` | **`High`** | **Control 3 (Etapa 4)** | Pendiente |
+| **19** | [FASE_19_INVENTARIO_EQUIPO_CHARGED_REWARD_COMERCIO_BOOTH_Y_FORJA_EXE.md](./FASE_19_INVENTARIO_EQUIPO_CHARGED_REWARD_COMERCIO_BOOTH_Y_FORJA_EXE.md) | Desensamblado 1:1 en `Zone.exe` de los 48 `NC_ITEM`, `CELLCHANGE`, `EQUIPCHANGE`, `CHARGEDINVENOPEN` + `CHARGED_WITHDRAW` (con entrega real en celda), `REWARDINVEN`, tiendas NPC, SafeTrade, `NC_BOOTH` y Forja | **`High`** | **Control 4 (Etapa 4)** | Pendiente |
+| **20** | [FASE_20_QUESTS_DIALOGOS_LUA_INSTANCIAS_MINIHOUSE_PETS_TITULOS_Y_CASINO_EXE.md](./FASE_20_QUESTS_DIALOGOS_LUA_INSTANCIAS_MINIHOUSE_PETS_TITULOS_Y_CASINO_EXE.md) | Desensamblado 1:1 en `Zone.exe` de `NC_MENU`, `NC_QUEST`, `NC_SCRIPT`, Portales (`LINKSAME`/`LINKOTHER`), `NC_MINIHOUSE`, `NC_PET`, `NC_CT`, `NC_COLLECT`, `NC_DICE` y `NC_GAMBLE` | **`High`** | **Control 5 (Etapa 4)** | Pendiente |
+| **21** | [FASE_21_WORLDSERVICE_SOCIAL_COORDINACION_S2S_VIVA_Y_AUDITORIA_BINARIA_EXE_100.md](./FASE_21_WORLDSERVICE_SOCIAL_COORDINACION_S2S_VIVA_Y_AUDITORIA_BINARIA_EXE_100.md) | Desensamblado 1:1 de `WorldManager.exe` (167 C2S) y departamentos sociales (`NC_PARTY`, `NC_GUILD`, `NC_FRIEND`, `NC_KQ`, `NC_WEDDING`, `NC_PRISON`), enlace S2S en vivo entre procesos y suite `scripts/verify_binary_exe_parity_100.sh` (`8/8 PASS`) | **`High`** | **Controles 1, 6, 7 y 8 (Etapa 4)** (`8/8 PASS`, `exit 0`) | Pendiente |
 
 ---
 
