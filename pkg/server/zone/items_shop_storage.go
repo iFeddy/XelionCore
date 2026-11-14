@@ -10,11 +10,15 @@ import (
 
 // Codes de respuesta oficiales Shine para NC_ITEM Buy/Sell/Repurchase/Storage
 const (
-	errItemBuySuccess      uint16 = 0x0201
-	errItemBuyFail         uint16 = 0x0202
-	errItemSellFail        uint16 = 0x0203
-	errItemStorageFail     uint16 = 0x0301
-	errItemStorageSuccess  uint16 = 0x0300
+	errItemBuySuccess          uint16 = 0x0201
+	errItemBuyFail             uint16 = 0x0202
+	errItemSellSuccess         uint16 = 0x0381
+	errItemSellFail            uint16 = 0x0203
+	errItemRepurchaseSuccess   uint16 = 0x3668
+	errItemRepurchaseFail      uint16 = 0x366A
+	errItemStorageFail         uint16 = 0x0301
+	errItemStorageSuccess      uint16 = 0x0300
+	errAcademyStorageSuccess   uint16 = 0x17D8
 )
 
 func (h *Handler) findNPCMerchantName(mobID uint16) string {
@@ -300,7 +304,7 @@ func (h *Handler) handleItemSellReq(client *network.Client, pkt *protocol.Packet
 	ins.WriteBytes(infoBytes[:])
 	_ = client.SendPacket(ins)
 
-	sendSellAck(errItemBuySuccess)
+	sendSellAck(errItemSellSuccess)
 
 	if h.gameLogDispatcher != nil && player.CurrentMap != nil {
 		h.gameLogDispatcher.EnqueueType3(2, player.Char.ID, player.CurrentMap.MapID, player.Char.XPos, player.Char.YPos, 0, int(srcItem.ItemID), int(player.OpenNPCMobID), int(sellTotal))
@@ -334,18 +338,18 @@ func (h *Handler) handleItemRepurchaseReq(client *network.Client, pkt *protocol.
 		}
 	}
 	if found == nil || uint64(player.Char.TCharacterState.Money) < found.Price {
-		sendAck(errItemBuyFail)
+		sendAck(errItemRepurchaseFail)
 		return
 	}
 
 	freeSlot, ok := h.findFreeInvenSlot(player.Char.ID)
 	if !ok {
-		sendAck(errItemBuyFail)
+		sendAck(errItemRepurchaseFail)
 		return
 	}
 
 	if err := h.charRepo.BuyItemAll(0, player.Char.ID, 9, freeSlot, int(found.ItemID), int(found.Lot), int64(found.Price), 0, 0); err != nil {
-		sendAck(errItemBuyFail)
+		sendAck(errItemRepurchaseFail)
 		return
 	}
 
@@ -372,7 +376,7 @@ func (h *Handler) handleItemRepurchaseReq(client *network.Client, pkt *protocol.
 	delCmd.WriteUint16(handle)
 	_ = client.SendPacket(delCmd)
 
-	sendAck(errItemBuySuccess)
+	sendAck(errItemRepurchaseSuccess)
 
 	if h.gameLogDispatcher != nil && player.CurrentMap != nil {
 		h.gameLogDispatcher.EnqueueType3(3, player.Char.ID, player.CurrentMap.MapID, player.Char.XPos, player.Char.YPos, 0, int(found.ItemID), int(handle), int(found.Price))
@@ -481,10 +485,7 @@ func (h *Handler) sendStoragePage(player *ZonePlayer, box uint8, page uint8, ope
 	}
 	pw.WriteByte(byte(len(list)))
 	for _, it := range list {
-		loc := (uint16(box) << 10) | (uint16(it.Storage) & 0x03FF)
-		pw.WriteUint16(loc)
-		inform := h.buildItemPacketInform(it)
-		pw.WriteBytes(inform)
+		pw.WriteBytes(h.buildItemPacketInformWithLoc(box, it.Storage, it))
 	}
 	_ = player.Client.SendPacket(pw)
 }
@@ -665,19 +666,19 @@ func (h *Handler) handleGuildAcademyRewardStorageOpenReq(client *network.Client,
 	rewards, _ := h.charRepo.GetAcademyRewardsAll(gid, int(openType))
 
 	ack := protocol.NewPacketWriter(protocol.PROTO_NC_GUILD_ACADEMY_REWARD_STORAGE_OPEN_ACK)
-	ack.WriteUint16(errItemStorageSuccess)
+	ack.WriteUint16(errAcademyStorageSuccess)
 	ack.WriteUint64(uint64(cen))
 	if len(rewards) > 250 {
 		rewards = rewards[:250]
 	}
 	ack.WriteByte(byte(len(rewards)))
-	for _, rw := range rewards {
+	for idx, rw := range rewards {
 		cnt := int32(rw.Value)
 		if cnt <= 0 {
 			cnt = 1
 		}
 		it := &database.Item{ItemID: uint16(rw.ItemID), Flags: cnt}
-		ack.WriteBytes(h.buildItemPacketInform(it))
+		ack.WriteBytes(h.buildItemPacketInformWithLoc(0, int16(idx), it))
 	}
 	_ = client.SendPacket(ack)
 }

@@ -74,17 +74,17 @@ func TestZoneServer_Phase2_InventoryEquipConsumablesAndSoulstones(t *testing.T) 
 		t.Fatalf("equip err 0x%04X", e)
 	}
 
-	// Split (0x300D) 3 de slot 1 a slot 5 -> 0x300E err 0x0441
+	// Split (0x300D, 8B) 3 de slot 1 a slot 5 -> 0x300E err 0x0441
 	sp := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_SPLIT_REQ)
 	sp.WriteUint16(9<<10 | 1)
 	sp.WriteUint16(9<<10 | 5)
-	sp.WriteByte(3)
+	sp.WriteUint32(3)
 	_ = sendClientPacket(conn, sp, nc)
 	if e, _ := waitOpCode(t, conn, protocol.PROTO_NC_ITEM_SPLIT_ACK).Reader.ReadUint16(); e != 0x0441 {
 		t.Fatalf("split err 0x%04X", e)
 	}
 
-	// Reloc (0x300B) slot 5 -> slot 1 (merge) -> 0x300C err 0x0241
+	// Reloc (0x300B) slot 5 -> slot 7 -> 0x300C err 0x0241
 	rl := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_RELOC_REQ)
 	rl.WriteUint16(9<<10 | 5)
 	rl.WriteUint16(9<<10 | 7)
@@ -102,10 +102,10 @@ func TestZoneServer_Phase2_InventoryEquipConsumablesAndSoulstones(t *testing.T) 
 		t.Fatalf("unequip err 0x%04X", e)
 	}
 
-	// Drop (0x3007) slot 7 -> 0x3008 err 0x0301, luego Pick (0x3009) -> 0x300A err 0x0341
+	// Drop (0x3007, 14B) slot 7 -> 0x3008 err 0x0301, luego Pick (0x3009) -> 0x300A err 0x0341
 	dr := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_DROP_REQ)
-	dr.WriteByte(7)
-	dr.WriteByte(0)
+	dr.WriteUint16(9<<10 | 7)
+	dr.WriteUint32(0)
 	dr.WriteInt32(6208)
 	dr.WriteInt32(6405)
 	_ = sendClientPacket(conn, dr, nc)

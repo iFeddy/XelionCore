@@ -125,8 +125,13 @@ func (r *MySQLAccountRepository) InsertChargedItem(item *ChargedItem) (int64, er
 
 // DrawChargedItem marca un ítem premium como retirado hacia el personaje mediante usp_Charge_ItemDraw.
 func (r *MySQLAccountRepository) DrawChargedItem(rowNo int64) error {
+	return r.DrawChargedItemForUser(rowNo, 0)
+}
+
+// DrawChargedItemForUser marca un ítem premium como retirado validando @rowNo y @userNo en usp_Charge_ItemDraw.
+func (r *MySQLAccountRepository) DrawChargedItemForUser(rowNo int64, userNo int) error {
 	var ret int
-	err := r.db.QueryRow("CALL usp_Charge_ItemDraw(?, 0, @r)", rowNo).Scan(&ret)
+	err := r.db.QueryRow("CALL usp_Charge_ItemDraw(?, ?, @r)", rowNo, userNo).Scan(&ret)
 	if err != nil {
 		return fmt.Errorf("usp_Charge_ItemDraw failed: %w", err)
 	}

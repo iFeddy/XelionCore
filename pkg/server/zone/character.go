@@ -163,6 +163,7 @@ type ZonePlayer struct {
 
 	// Campos de subsistemas de la Fase 14 (Economía, Comercio, Booth, Forja & Crafting)
 	OpenNPCMobID        uint16
+	ChargedInvenOpened  bool
 	AccountStorageOpen  bool
 	AcademyStorageOpen  bool
 	RepurchaseItems     []*RepurchaseEntry

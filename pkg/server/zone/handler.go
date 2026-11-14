@@ -28,6 +28,7 @@ type Handler struct {
 	mu                sync.RWMutex
 	charRepo          database.CharacterRepository
 	accountRepo       *database.MySQLAccountRepository
+	accountShopRepo   database.AccountShopRepository
 	transfers         *database.TransferManager
 	dataStore         *DataStore
 	classStore        *classparam.Store
@@ -1060,14 +1061,7 @@ func (h *Handler) sendInGameChunk(p *ZonePlayer) {
 			itemPkt.WriteByte(1)                // flag = 1
 			for _, it := range items {
 				loc := (uint16(box) << 10) | (uint16(it.Storage) & 0x03FF)
-				var statOpts []item.ItemStatOption
-				if h.charRepo != nil && it.ItemKey > 0 {
-					options, _ := h.charRepo.GetItemOptions(it.ItemKey)
-					for k, v := range options {
-						statOpts = append(statOpts, item.ItemStatOption{Type: uint8(k), Value: uint16(v)})
-					}
-				}
-				attrBuf := h.itemStore.BuildItemAttr(it.ItemID, uint32(it.Flags), statOpts, 0)
+				attrBuf := h.buildItemAttrFromDB(it)
 				dataSize := byte(2 + 2 + len(attrBuf))
 				itemPkt.WriteByte(dataSize)    // datasize: 2 (location) + 2 (itemid) + len(attr)
 				itemPkt.WriteUint16(loc)       // location: ITEM_INVEN (uint16 bitfield: (box << 10) | slot)
@@ -1669,6 +1663,28 @@ func (h *Handler) SetAccountRepo(repo *database.MySQLAccountRepository) {
 	h.mu.Lock()
 	defer h.mu.Unlock()
 	h.accountRepo = repo
+	if repo != nil {
+		h.accountShopRepo = repo
+	} else {
+		h.accountShopRepo = nil
+	}
+}
+
+// SetAccountShopRepo configura la interfaz de tienda/charged inventory (para Account DB o mocks de test).
+func (h *Handler) SetAccountShopRepo(repo database.AccountShopRepository) {
+	h.mu.Lock()
+	defer h.mu.Unlock()
+	h.accountShopRepo = repo
+}
+
+func (h *Handler) getChargedShopRepo() database.AccountShopRepository {
+	if h.accountShopRepo != nil {
+		return h.accountShopRepo
+	}
+	if h.accountRepo != nil {
+		return h.accountRepo
+	}
+	return nil
 }
 
 // ActivePlayersCount retorna la cantidad actual de jugadores conectados en la zona.
@@ -1725,25 +1741,96 @@ func (h *Handler) handleRewardInvenOpen(client *network.Client, pkt *protocol.Pa
 	ack.WriteByte(byte(len(pageItems))) // itemcounter (1 byte)
 	for _, it := range pageItems {
 		loc := (uint16(2) << 10) | (uint16(it.Storage) & 0x03FF)
-		var attrBuf []byte
-		if h.itemStore != nil {
-			attrBuf = h.itemStore.BuildItemAttr(it.ItemID, uint32(it.Flags), nil, 0)
-		} else {
-			attrBuf = []byte{1}
-		}
+		attrBuf := h.buildItemAttrFromDB(it)
 		dataSize := byte(2 + 2 + len(attrBuf))
 		ack.WriteByte(dataSize)    // datasize
-		ack.WriteUint16(loc)       // location: ITEM_INVEN
+		ack.WriteUint16(loc)       // location: ITEM_INVEN (box=2)
 		ack.WriteUint16(it.ItemID) // ItemID
 		ack.WriteBytes(attrBuf)    // attr (iac_fill2buffer)
 	}
 	_ = client.SendPacket(ack)
 }
 
+// resolveChargedGoodsBundle resuelve un GoodsNo de tChargeItem usando ItemShop.shn (ItemMall::im_FindStruct)
+// o fallback directo por ID en ItemInfoServer.shn cuando GoodsNo corresponde a un ítem individual.
+func (h *Handler) resolveChargedGoodsBundle(ci *database.ChargedItem) []struct {
+	itemID uint16
+	lot    uint32
+} {
+	type bundleEntry struct {
+		itemID uint16
+		lot    uint32
+	}
+	var rawEntries []bundleEntry
+	if h.itemStore == nil || ci == nil {
+		return nil
+	}
+	if tbl := h.getSHN("ItemShop"); tbl != nil {
+		for _, row := range tbl.Rows {
+			if row.GetUint32("goodsNo") == ci.GoodsNo {
+				inxName := strings.TrimSpace(row.GetString("InxName"))
+				lot := row.GetUint32("Lot")
+				if lot == 0 {
+					lot = 1
+				}
+				if info, ok := h.itemStore.GetItemInfoByName(inxName); ok && info != nil {
+					rawEntries = append(rawEntries, bundleEntry{itemID: info.ID, lot: lot})
+					if len(rawEntries) >= 10 { // im_AddSet máximo 10 ítems por paquete en Zone.exe
+						break
+					}
+				}
+			}
+		}
+	}
+	if len(rawEntries) == 0 {
+		if info, ok := h.itemStore.GetItemInfo(uint16(ci.GoodsNo)); ok && info != nil {
+			lot := ci.Amount
+			if lot == 0 {
+				lot = 1
+			}
+			rawEntries = append(rawEntries, bundleEntry{itemID: info.ID, lot: lot})
+		}
+	}
+	out := make([]struct {
+		itemID uint16
+		lot    uint32
+	}, len(rawEntries))
+	for i, e := range rawEntries {
+		out[i].itemID = e.itemID
+		out[i].lot = e.lot
+	}
+	return out
+}
+
+// findFreeInvenSlots encuentra hasta `needed` slots libres distintos en Box 9 (Inventory).
+func (h *Handler) findFreeInvenSlots(charID int, needed int) ([]int16, bool) {
+	if h.charRepo == nil || needed <= 0 {
+		return nil, false
+	}
+	items, err := h.charRepo.GetCharacterItems(charID)
+	if err != nil {
+		return nil, false
+	}
+	used := make(map[int16]bool)
+	for _, it := range items {
+		if it != nil && it.StorageType == 9 {
+			used[it.Storage] = true
+		}
+	}
+	slots := make([]int16, 0, needed)
+	for s := int16(0); s < 96 && len(slots) < needed; s++ {
+		if !used[s] {
+			slots = append(slots, s)
+			used[s] = true
+		}
+	}
+	return slots, len(slots) == needed
+}
+
 // handleChargedInvenOpen implementa sp_NC_ITEM_CHARGEDINVENOPEN_REQ (0x3020) y so_ply_FillChargedInven (0x3021)
 // según Zone.pdb (RVA 0x913C0 y 0x91F30):
 //   - Lee uint16 page (24 slots por página: from = page * 24, to = page * 24 + 23)
-//   - Consulta tChargeItem (usp_Charge_ItemSelectList / usp_ChargeItem_GetList) filtrando por userNo e isDraw = 0
+//   - Consulta tChargeItem (usp_Charge_ItemSelectList) filtrando por userNo e isDraw = 0
 //   - Responde con 0x3021 (PROTO_NC_ITEM_CHARGEDINVENOPEN_ACK):
 //     ErrorCode (uint16 = 0x1041), nPartMark (uint8 = 3), NumOfChargedItem (uint16),
 //     seguido de PROTO_CHARGED_ITEM_INFO[NumOfChargedItem] (16 bytes cada uno: ItemOrderNo, ItemCode, ItemAmount, ItemRegisterDate).
@@ -1757,10 +1844,11 @@ func (h *Handler) handleChargedInvenOpen(client *network.Client, pkt *protocol.P
 	if err != nil {
 		page = 0
 	}
+	player.ChargedInvenOpened = true
 
 	var pageItems []*database.ChargedItem
-	if h.accountRepo != nil {
-		allCharged, err := h.accountRepo.GetChargedItems(player.Char.AccountID)
+	if shopRepo := h.getChargedShopRepo(); shopRepo != nil {
+		allCharged, err := shopRepo.GetChargedItems(player.Char.AccountID)
 		if err == nil && len(allCharged) > 0 {
 			startIdx := int(page) * 24
 			endIdx := startIdx + 24
@@ -1774,19 +1862,25 @@ func (h *Handler) handleChargedInvenOpen(client *network.Client, pkt *protocol.P
 	}
 
 	ack := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_CHARGEDINVENOPEN_ACK)
-	ack.WriteUint16(0x1041)               // ErrorCode = 0x1041 (4161 = éxito en so_ply_FillChargedInven, Zone.exe 0x492F8E)
-	ack.WriteByte(3)                      // nPartMark = 3 (first=1 | last=1, Zone.exe 0x493007)
+	ack.WriteUint16(0x1041)                 // ErrorCode = 0x1041 (4161 = éxito en so_ply_FillChargedInven, Zone.exe 0x492F8E)
+	ack.WriteByte(3)                        // nPartMark = 3 (first=1 | last=1, Zone.exe 0x493007)
 	ack.WriteUint16(uint16(len(pageItems))) // NumOfChargedItem
 	for _, ci := range pageItems {
-		ack.WriteUint32(ci.RowNo)                                  // 0x00: ItemOrderNo (4 bytes)
-		ack.WriteUint32(ci.GoodsNo)                                // 0x04: ItemCode (4 bytes)
-		ack.WriteUint32(ci.Amount)                                 // 0x08: ItemAmount (4 bytes)
+		ack.WriteUint32(ci.RowNo)                                   // 0x00: ItemOrderNo (4 bytes)
+		ack.WriteUint32(ci.GoodsNo)                                 // 0x04: ItemCode (4 bytes)
+		ack.WriteUint32(ci.Amount)                                  // 0x08: ItemAmount (4 bytes)
 		ack.WriteUint32(database.PackShineDateTime(ci.RegisterDate)) // 0x0C: ItemRegisterDate (ShineDateTime, 4 bytes)
 	}
 	_ = client.SendPacket(ack)
 }
 
-// handleChargedWithdraw retira un ítem premium hacia el inventario mediante usp_Charge_ItemDraw.
+// handleChargedWithdraw implementa sp_NC_ITEM_CHARGED_WITHDRAW_REQ (0x3022) y so_ply_ChargedWithdraw (0x3023)
+// según Zone.exe (VA 0x00492660 / 0x00492D90):
+//   - Lee ItemOrderNo (uint32)
+//   - Verifica espacio libre en Box 9 antes de retirar
+//   - Ejecuta usp_Charge_ItemDraw(rowNo, userNo, @RET)
+//   - Crea los ítems reales en tItem (StorageType=9), envía PROTO_NC_ITEM_CELLCHANGE_CMD (0x3001)
+//   - Responde con PROTO_NC_ITEM_CHARGED_WITHDRAW_ACK (0x3023): ItemOrderNo(4B) + err(2B, 0x1041 éxito)
 func (h *Handler) handleChargedWithdraw(client *network.Client, pkt *protocol.Packet) {
 	player, ok := h.getPlayer(client)
 	if !ok || player == nil || player.Char == nil {
@@ -1798,22 +1892,73 @@ func (h *Handler) handleChargedWithdraw(client *network.Client, pkt *protocol.Pa
 		return
 	}
 
-	var errCode uint16 = 0
-	if h.accountRepo != nil {
-		err := h.accountRepo.DrawChargedItem(int64(itemOrderNo))
-		if err != nil {
-			log.Printf("[Zone][%s] DrawChargedItem %d failed: %v", client.RemoteAddr(), itemOrderNo, err)
-			errCode = 1
-		} else {
-			log.Printf("[Zone][%s] DrawChargedItem %d exitoso para usuario %d",
-				client.RemoteAddr(), itemOrderNo, player.Char.AccountID)
-		}
+	sendWithdrawAck := func(errCode uint16) {
+		ack := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_CHARGED_WITHDRAW_ACK)
+		ack.WriteUint32(itemOrderNo)
+		ack.WriteUint16(errCode)
+		_ = client.SendPacket(ack)
 	}
 
-	ack := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_CHARGED_WITHDRAW_ACK)
-	ack.WriteUint32(itemOrderNo)
-	ack.WriteUint16(errCode)
-	_ = client.SendPacket(ack)
+	shopRepo := h.getChargedShopRepo()
+	if shopRepo == nil || h.charRepo == nil {
+		sendWithdrawAck(0x1044)
+		return
+	}
+
+	chargedList, err := shopRepo.GetChargedItems(player.Char.AccountID)
+	if err != nil {
+		sendWithdrawAck(0x1044)
+		return
+	}
+	var target *database.ChargedItem
+	for _, ci := range chargedList {
+		if ci != nil && ci.RowNo == itemOrderNo {
+			target = ci
+			break
+		}
+	}
+	if target == nil {
+		sendWithdrawAck(0x1044) // ItemOrderNo no encontrado
+		return
+	}
+
+	bundle := h.resolveChargedGoodsBundle(target)
+	if len(bundle) == 0 {
+		sendWithdrawAck(0x104C) // ItemData no encontrado
+		return
+	}
+
+	freeSlots, hasSlots := h.findFreeInvenSlots(player.Char.ID, len(bundle))
+	if !hasSlots {
+		sendWithdrawAck(0x1045) // Inventario Box 9 lleno
+		return
+	}
+
+	if err := shopRepo.DrawChargedItemForUser(int64(itemOrderNo), player.Char.AccountID); err != nil {
+		log.Printf("[Zone][%s] DrawChargedItemForUser %d (user %d) failed: %v",
+			client.RemoteAddr(), itemOrderNo, player.Char.AccountID, err)
+		sendWithdrawAck(0x1044)
+		return
+	}
+
+	for i, entry := range bundle {
+		newIt := &database.Item{
+			StorageType: 9,
+			Owner:       player.Char.ID,
+			Storage:     freeSlots[i],
+			ItemID:      entry.itemID,
+			Flags:       int32(entry.lot),
+		}
+		if err := h.charRepo.CreateItem(newIt); err != nil {
+			log.Printf("[Zone][%s] ChargedWithdraw CreateItem (order=%d item=%d) failed: %v",
+				client.RemoteAddr(), itemOrderNo, entry.itemID, err)
+			sendWithdrawAck(0x1047)
+			return
+		}
+		h.sendCellChange(client, 9, freeSlots[i], newIt, 0xFFFF)
+	}
+
+	sendWithdrawAck(0x1041) // Éxito oficial en so_ply_ChargedWithdraw (VA 0x00492DF5)
 }
 
 // SetWorldID asigna el worldNo para auditoría oficial y telemetría.
@@ -2174,13 +2319,7 @@ func (h *Handler) sendCellChange(client *network.Client, box uint8, slot int16, 
 			pw.WriteUint16(0xFFFF)
 		} else {
 			pw.WriteUint16(it.ItemID)
-			var attrBuf []byte
-			if h.itemStore != nil {
-				attrBuf = h.itemStore.BuildItemAttr(it.ItemID, uint32(it.Flags), nil, 0)
-			} else {
-				attrBuf = []byte{byte(it.Flags)}
-			}
-			pw.WriteBytes(attrBuf)
+			pw.WriteBytes(h.buildItemAttrFromDB(it))
 		}
 		_ = client.SendPacket(pw)
 	} else {
@@ -2192,13 +2331,7 @@ func (h *Handler) sendCellChange(client *network.Client, box uint8, slot int16, 
 			pw.WriteUint16(0xFFFF)
 		} else {
 			pw.WriteUint16(it.ItemID)
-			var attrBuf []byte
-			if h.itemStore != nil {
-				attrBuf = h.itemStore.BuildItemAttr(it.ItemID, uint32(it.Flags), nil, 0)
-			} else {
-				attrBuf = []byte{byte(it.Flags)}
-			}
-			pw.WriteBytes(attrBuf)
+			pw.WriteBytes(h.buildItemAttrFromDB(it))
 		}
 		_ = client.SendPacket(pw)
 	}
@@ -2247,7 +2380,7 @@ func (h *Handler) findFreeInvenSlot(charID int) (int16, bool) {
 }
 
 // syncPlayerEquipsAndStats actualiza el mapa de equipos del jugador, recalcula stats de equipo
-// y envía PROTO_NC_CHAR_STATE_CHANGE_CMD (0x104E) si los stats cambiaron.
+// y envía PROTO_NC_CHAR_BASEPARAMCHANGE_CMD (0x1034) por cada parámetro que haya cambiado (c_compare @ 0x004C96F0).
 func (h *Handler) syncPlayerEquipsAndStats(player *ZonePlayer) {
 	if player == nil || player.Char == nil || h.charRepo == nil {
 		return
@@ -2256,6 +2389,11 @@ func (h *Handler) syncPlayerEquipsAndStats(player *ZonePlayer) {
 	if err != nil {
 		return
 	}
+	oldMinWC, oldMaxWC := player.EquipMinWC, player.EquipMaxWC
+	oldAC, oldTH, oldTB := player.EquipAC, player.EquipTH, player.EquipTB
+	oldMinMA, oldMaxMA, oldMR := player.EquipMinMA, player.EquipMaxMA, player.EquipMR
+	oldMaxHP, oldMaxSP := uint32(player.MaxHP), uint32(player.MaxSP)
+
 	equips := make(map[byte]uint16)
 	for _, it := range items {
 		st := it.StorageType
@@ -2268,6 +2406,45 @@ func (h *Handler) syncPlayerEquipsAndStats(player *ZonePlayer) {
 	}
 	player.Char.Equips = equips
 	player.RecalculateEquipmentStats(h.itemStore)
+
+	if player.Client == nil {
+		return
+	}
+	type paramDelta struct {
+		what uint8
+		val  uint32
+	}
+	candidates := []struct {
+		what uint8
+		oldV uint32
+		newV uint32
+	}{
+		{0x06, oldMinWC, player.EquipMinWC},         // WClow
+		{0x07, oldMaxWC, player.EquipMaxWC},         // WChigh
+		{0x08, oldAC, player.EquipAC},               // AC
+		{0x09, oldTH, player.EquipTH},               // TH
+		{0x0A, oldTB, player.EquipTB},               // TB
+		{0x0B, oldMinMA, player.EquipMinMA},         // MAlow
+		{0x0C, oldMaxMA, player.EquipMaxMA},         // MAhigh
+		{0x0D, oldMR, player.EquipMR},               // MR
+		{0x10, oldMaxHP, uint32(player.MaxHP)},      // MaxHP
+		{0x11, oldMaxSP, uint32(player.MaxSP)},      // MaxSP
+	}
+	var diffs []paramDelta
+	for _, c := range candidates {
+		if c.oldV != c.newV {
+			diffs = append(diffs, paramDelta{what: c.what, val: c.newV})
+		}
+	}
+	if len(diffs) > 0 {
+		pw := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_BASEPARAMCHANGE_CMD)
+		pw.WriteByte(byte(len(diffs)))
+		for _, d := range diffs {
+			pw.WriteByte(d.what)
+			pw.WriteUint32(d.val)
+		}
+		_ = player.Client.SendPacket(pw)
+	}
 }
 
 // broadcastEquipAppearance transmite el cambio visual de equipamiento al mapa según Zone.exe iac_equipbriefinfo:
@@ -2340,6 +2517,14 @@ func (h *Handler) handleItemReloc(client *network.Client, pkt *protocol.Packet) 
 	toBox := uint8(toLoc >> 10)
 	toSlot := int16(toLoc & 0x03FF)
 
+	// sp_ItemReloc (0x00536780): Box 2 (Reward Inventory) es solo origen, nunca destino (err 0x0243).
+	if toBox == 2 {
+		ack := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_RELOC_ACK)
+		ack.WriteUint16(0x0243)
+		_ = client.SendPacket(ack)
+		return
+	}
+
 	if fromBox == toBox && fromSlot == toSlot {
 		ack := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_RELOC_ACK)
 		ack.WriteUint16(0x0241)
@@ -2356,6 +2541,41 @@ func (h *Handler) handleItemReloc(client *network.Client, pkt *protocol.Packet) 
 	}
 
 	dstItem := h.findItemAt(player.Char.ID, toBox, toSlot)
+	if fromBox == 2 && dstItem != nil {
+		// No se puede intercambiar un ítem desde inventario dentro del Reward Inventory (Box 2);
+		// solo apilar si cabe entero en un stack compatible del Box 9.
+		mergedAll := false
+		if dstItem.ItemID == srcItem.ItemID && toBox == 9 && h.itemStore != nil {
+			if info, ok := h.itemStore.GetItemInfo(srcItem.ItemID); ok && info != nil && info.MaxLot > 1 {
+				srcLot := uint32(srcItem.Flags)
+				if srcLot == 0 {
+					srcLot = 1
+				}
+				dstLot := uint32(dstItem.Flags)
+				if dstLot == 0 {
+					dstLot = 1
+				}
+				if srcLot+dstLot <= info.MaxLot {
+					dstItem.Flags = int32(srcLot + dstLot)
+					_ = h.charRepo.UpdateItemFlags(dstItem.ItemKey, int(dstItem.Flags))
+					_ = h.charRepo.DeleteItem(srcItem.ItemKey)
+					h.sendCellChange(client, fromBox, fromSlot, nil, 0xFFFF)
+					h.sendCellChange(client, toBox, toSlot, dstItem, 0xFFFF)
+					mergedAll = true
+				}
+			}
+		}
+		if !mergedAll {
+			ack := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_RELOC_ACK)
+			ack.WriteUint16(0x0243)
+			_ = client.SendPacket(ack)
+			return
+		}
+		ack := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_RELOC_ACK)
+		ack.WriteUint16(0x0241)
+		_ = client.SendPacket(ack)
+		return
+	}
 	if dstItem == nil {
 		// Mover a celda vacía
 		_ = h.charRepo.SetItemStorage(srcItem.ItemKey, toBox, toSlot)
@@ -2427,7 +2647,8 @@ func (h *Handler) handleItemReloc(client *network.Client, pkt *protocol.Packet) 
 }
 
 // handleItemSplit implementa sp_NC_ITEM_SPLIT_REQ (0x300D) y gds_NC_ITEMDB_SPLITSUC_ACK (Zone.exe VA 0x539740):
-//   - Lee from (uint16), to (uint16), lot (uint8)
+// handleItemSplit implementa sp_NC_ITEM_SPLIT_REQ (0x300D, 8B) y gds_NC_ITEMDB_SPLITSUC_ACK (Zone.exe VA 0x539740):
+//   - Lee from (ITEM_INVEN uint16), to (ITEM_INVEN uint16), lot (unsigned int uint32)
 //   - Reduce el stack origen en `lot` y crea un nuevo ítem en `to` con `Flags = lot`
 //   - Envía 0x3001 para ambas celdas y PROTO_NC_ITEM_SPLIT_ACK (0x300E) con err = 0x0441 (1089)
 func (h *Handler) handleItemSplit(client *network.Client, pkt *protocol.Packet) {
@@ -2444,7 +2665,7 @@ func (h *Handler) handleItemSplit(client *network.Client, pkt *protocol.Packet) 
 	if err != nil {
 		return
 	}
-	splitLot, err := pkt.Reader.ReadByte()
+	splitLot, err := pkt.Reader.ReadUint32()
 	if err != nil || splitLot == 0 {
 		return
 	}
@@ -2579,8 +2800,14 @@ func (h *Handler) equipItemToSlot(player *ZonePlayer, srcItem *database.Item, in
 		h.sendCellChange(client, 9, int16(invenSlot), dstEquip, equipLoc)
 	}
 
+	var upgrade byte
+	if opts, err := h.charRepo.GetItemOptions(srcItem.ItemKey); err == nil {
+		if upg, ok := opts[iotUpgradeGrade]; ok && upg > 0 {
+			upgrade = byte(upg)
+		}
+	}
 	h.syncPlayerEquipsAndStats(player)
-	h.broadcastEquipAppearance(player, equipSlot, srcItem.ItemID, 0)
+	h.broadcastEquipAppearance(player, equipSlot, srcItem.ItemID, upgrade)
 
 	ack := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_EQUIP_ACK)
 	ack.WriteUint16(0x0281) // Éxito oficial en Zone.exe (0x0281)
@@ -2691,8 +2918,8 @@ func (h *Handler) handleItemUnequip(client *network.Client, pkt *protocol.Packet
 	_ = client.SendPacket(ack)
 }
 
-// handleItemDrop implementa sp_NC_ITEM_DROP_REQ (0x3007) y gds_NC_ITEMDB_DROPALLSUC_ACK (Zone.exe VA 0x52AB80):
-//   - Lee slot (uint8), lot (uint8), loc (SHINE_XY_TYPE: x int32, y int32)
+// handleItemDrop implementa sp_NC_ITEM_DROP_REQ (0x3007, 14B) y gds_NC_ITEMDB_DROPALLSUC_ACK (Zone.exe VA 0x52A060 / 0x52AB80):
+//   - Lee slot (ITEM_INVEN uint16: box<<10 | cell), lot (unsigned int uint32), loc (SHINE_XY_TYPE: x int32, y int32)
 //   - Elimina o reduce el ítem en Box 9, envía 0x3001, spawnea el ítem en el suelo del mapa (0x1C0A)
 //   - Envía PROTO_NC_ITEM_DROP_ACK (0x3008) con err = 0x0301
 func (h *Handler) handleItemDrop(client *network.Client, pkt *protocol.Packet) {
@@ -2701,11 +2928,14 @@ func (h *Handler) handleItemDrop(client *network.Client, pkt *protocol.Packet) {
 		return
 	}
 
-	slot, err := pkt.Reader.ReadByte()
+	slotLoc, err := pkt.Reader.ReadUint16()
 	if err != nil {
 		return
 	}
-	dropLot, err := pkt.Reader.ReadByte()
+	box := uint8(slotLoc >> 10)
+	slot := int16(slotLoc & 0x03FF)
+
+	dropLot, err := pkt.Reader.ReadUint32()
 	if err != nil {
 		return
 	}
@@ -2718,7 +2948,14 @@ func (h *Handler) handleItemDrop(client *network.Client, pkt *protocol.Packet) {
 		dropY = int32(player.Char.YPos)
 	}
 
-	srcItem := h.findItemAt(player.Char.ID, 9, int16(slot))
+	if box != 9 {
+		ack := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_DROP_ACK)
+		ack.WriteUint16(0x0302) // Sólo Box 9 droppable en Zone.exe
+		_ = client.SendPacket(ack)
+		return
+	}
+
+	srcItem := h.findItemAt(player.Char.ID, 9, slot)
 	if srcItem == nil {
 		ack := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_DROP_ACK)
 		ack.WriteUint16(0x0304) // Drop fail en Zone.exe
@@ -2726,22 +2963,34 @@ func (h *Handler) handleItemDrop(client *network.Client, pkt *protocol.Packet) {
 		return
 	}
 
-	curLot := int(srcItem.Flags)
-	if curLot <= 0 {
-		curLot = 1
-	}
-	actualDrop := int(dropLot)
-	if actualDrop <= 0 || actualDrop >= curLot {
-		actualDrop = curLot
-		_ = h.charRepo.DeleteItem(srcItem.ItemKey)
-		h.sendCellChange(client, 9, int16(slot), nil, 0xFFFF)
-	} else {
-		srcItem.Flags = int32(curLot - actualDrop)
-		_ = h.charRepo.UpdateItemFlags(srcItem.ItemKey, int(srcItem.Flags))
-		h.sendCellChange(client, 9, int16(slot), srcItem, 0xFFFF)
+	var dropOpts []item.ItemStatOption
+	if opts, optErr := h.charRepo.GetItemOptions(srcItem.ItemKey); optErr == nil && len(opts) > 0 {
+		iac := NewItemAttributeFromDB(srcItem, opts, h.itemStore)
+		dropOpts = append(dropOpts, iac.StatOptions...)
 	}
 
-	player.CurrentMap.SpawnDroppedItem(srcItem.ItemID, uint32(actualDrop), int(srcItem.Flags), dropX, dropY, player.MapObjectID, player.Char.ID)
+	curLot := uint32(srcItem.Flags)
+	if curLot == 0 {
+		curLot = 1
+	}
+	actualDrop := dropLot
+	var remFlags int
+	if actualDrop == 0 || actualDrop >= curLot {
+		actualDrop = curLot
+		remFlags = int(actualDrop)
+		_ = h.charRepo.DeleteItem(srcItem.ItemKey)
+		h.sendCellChange(client, 9, slot, nil, 0xFFFF)
+	} else {
+		srcItem.Flags = int32(curLot - actualDrop)
+		remFlags = int(actualDrop)
+		_ = h.charRepo.UpdateItemFlags(srcItem.ItemKey, int(srcItem.Flags))
+		h.sendCellChange(client, 9, slot, srcItem, 0xFFFF)
+	}
+
+	di := player.CurrentMap.SpawnDroppedItem(srcItem.ItemID, actualDrop, remFlags, dropX, dropY, player.MapObjectID, player.Char.ID)
+	if di != nil && len(dropOpts) > 0 {
+		di.StatOptions = dropOpts
+	}
 
 	ack := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_DROP_ACK)
 	ack.WriteUint16(0x0301) // Éxito oficial en Zone.exe (0x0301)
@@ -2821,7 +3070,7 @@ func (h *Handler) handleItemPick(client *network.Client, pkt *protocol.Packet) {
 		ack := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_PICK_ACK)
 		ack.WriteUint16(dropped.ItemID)
 		ack.WriteUint32(uint32(lot))
-		ack.WriteUint16(0)
+		ack.WriteUint16(0x0341)
 		ack.WriteUint16(itemHandle)
 		_ = client.SendPacket(ack)
 		return

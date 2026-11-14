@@ -267,10 +267,10 @@ func (h *Handler) handleTradeUpboardReq(client *network.Client, pkt *protocol.Pa
 
 	peer := h.findPlayerByCharID(peerSide.CharID)
 	if peer != nil && peer.Client != nil {
-		info := h.buildFixed103ItemInfo(it)
+		// Zone.exe 0x00595610: PROTO_NC_TRADE_OPPOSITUPBOARD_CMD = slotboard(1B) + iti_fill2buffer_union(itemid+attr)
 		opp := protocol.NewPacketWriter(protocol.PROTO_NC_TRADE_OPPOSITUPBOARD_CMD)
 		opp.WriteByte(byte(freeBoard))
-		opp.WriteBytes(info[:])
+		opp.WriteBytes(h.buildItemInlineAttr(it))
 		_ = peer.Client.SendPacket(opp)
 	}
 	sess.unlockBoth(h, player, peer)
@@ -672,26 +672,29 @@ func (h *Handler) sendBoothEntry(client *network.Client, owner *ZonePlayer, isRe
 		}
 	}
 
+	// Zone.exe StreetBoothBuy/Sell::sb_Show2Client (0x0058D7FA / 0x0058F2E9): nError = 0x0A41
 	pw := protocol.NewPacketWriter(op)
-	pw.WriteUint16(0)
+	pw.WriteUint16(0x0A41)
 	pw.WriteUint16(owner.MapObjectID)
 	pw.WriteByte(byte(len(b.Slots)))
 	for _, s := range b.Slots {
 		if b.IsSell {
+			// sbs_FillBufferItem (0x0058D900): datasize(1B = 9+len(inline)) | slot(1B) | unitcost(8B) | inline(itemid+attr)
+			it := h.findItemAt(owner.Char.ID, 9, int16(s.InvenSlot))
+			if it == nil {
+				it = &database.Item{ItemID: s.ItemID, Flags: int32(s.Lot)}
+			}
+			inline := h.buildItemInlineAttr(it)
+			pw.WriteByte(byte(9 + len(inline)))
 			pw.WriteByte(s.BoothSlot)
 			pw.WriteUint64(s.UnitCost)
-			var info [103]byte
-			if it := h.findItemAt(owner.Char.ID, 9, int16(s.InvenSlot)); it != nil {
-				info = h.buildFixed103ItemInfo(it)
-			} else {
-				info = h.buildFixed103ItemInfo(&database.Item{ItemID: s.ItemID, Flags: int32(s.Lot)})
-			}
-			pw.WriteBytes(info[:])
+			pw.WriteBytes(inline)
 		} else {
+			// StreetBoothBuy::sb_Show2Client (0x0058D82C, stride 13B): slot(1B) | itemid(2B) | unitcost(8B) | restquantity(2B)
 			pw.WriteByte(s.BoothSlot)
 			pw.WriteUint16(s.ItemID)
-			pw.WriteUint16(s.Lot)
 			pw.WriteUint64(s.UnitCost)
+			pw.WriteUint16(s.Lot)
 		}
 	}
 	_ = client.SendPacket(pw)
@@ -882,7 +885,7 @@ func (h *Handler) handleBoothSearchItemListCategorizedReq(client *network.Client
 			if it == nil {
 				it = &database.Item{ItemID: s.ItemID, Flags: int32(s.Lot)}
 			}
-			inform := h.buildItemPacketInform(it)
+			inform := h.buildItemInlineAttr(it)
 			matches = append(matches, searchMatch{
 				handle:    s.ItemHandle,
 				owner:     p.MapObjectID,
@@ -900,11 +903,13 @@ func (h *Handler) handleBoothSearchItemListCategorizedReq(client *network.Client
 	}
 	h.mu.RUnlock()
 
+	// Zone.exe sp_NC_BOOTH_SEARCH_ITEM_LIST_CATEGORIZED_REQ (0x00439D06 / 0x00439F42..0x439FB7):
+	// nError = 0x31C8, nNumOfItems, cada BoothItemInfo = datasize(1B = 14+len(inline)) | handle(4) | owner(2) | price(8) | inline
 	ack := protocol.NewPacketWriter(protocol.PROTO_NC_BOOTH_SEARCH_ITEM_LIST_CATEGORIZED_ACK)
-	ack.WriteUint16(0)
+	ack.WriteUint16(0x31C8)
 	ack.WriteByte(byte(len(matches)))
 	for _, m := range matches {
-		// Each search entry (PROTO_NC_BOOTH_SEARCH_ITEM_LIST_CATEGORIZED_ACK): itemHandle(4) + owner(2) + unitPrice(8) + inform
+		ack.WriteByte(byte(14 + len(m.inform)))
 		ack.WriteUint32(m.handle)
 		ack.WriteUint16(m.owner)
 		ack.WriteUint64(m.unitPrice)
@@ -928,12 +933,12 @@ func (h *Handler) handleBoothSearchBoothPositionReq(client *network.Client, pkt 
 	owner := h.findPlayerByHandle(ownerHandle)
 	ack := protocol.NewPacketWriter(protocol.PROTO_NC_BOOTH_SEARCH_BOOTH_POSITION_ACK)
 	if owner == nil || owner.Char == nil || owner.ActiveBooth == nil {
-		ack.WriteUint16(0x0701)
+		ack.WriteUint16(0x31D3)
 		ack.WriteUint16(ownerHandle)
 		ack.WriteUint32(0)
 		ack.WriteUint32(0)
 	} else {
-		ack.WriteUint16(0)
+		ack.WriteUint16(0x31C8)
 		ack.WriteUint16(ownerHandle)
 		ack.WriteUint32(uint32(owner.Char.XPos))
 		ack.WriteUint32(uint32(owner.Char.YPos))

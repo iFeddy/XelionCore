@@ -61,6 +61,7 @@ type AccountShopRepository interface {
 	GetChargedItems(userNo int) ([]*ChargedItem, error)
 	InsertChargedItem(item *ChargedItem) (int64, error)
 	DrawChargedItem(orderNo int64) error
+	DrawChargedItemForUser(orderNo int64, userNo int) error
 	DeleteChargedItem(orderNo int64) error
 	GetItemSell(itemNo int) (*ItemSell, error)
 }

@@ -488,12 +488,13 @@ func (h *Handler) handleGuildStorageOpenReq(client *network.Client, pkt *protoco
 	}
 
 	player.GuildStorageOpen = true
-	ack.WriteUint16(errItemStorageSuccess)
+	// gse_StoreItem (Zone.exe 0x00474ACA): err=0x1240 y box=4 en PROTO_ITEMPACKET_INFORM
+	ack.WriteUint16(0x1240)
 	ack.WriteUint64(g.Money)
 	ack.WriteUint64(uint64(token))
 	ack.WriteByte(byte(len(items)))
 	for _, it := range items {
-		ack.WriteBytes(h.buildItemPacketInform(it))
+		ack.WriteBytes(h.buildItemPacketInformWithLoc(4, it.Storage, it))
 	}
 	_ = client.SendPacket(ack)
 }

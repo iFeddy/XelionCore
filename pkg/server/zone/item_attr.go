@@ -538,8 +538,7 @@ func (h *Handler) buildItemAttrFromDB(it *database.Item) []byte {
 	return iac.iac_fill2buffer()
 }
 
-// buildItemPacketInform construye un PROTO_ITEMPACKET_INFORM completo de tamaño variable:
-// datasize (1B = 2 + len(attr)), itemid (2B), attr ([]byte).
+// buildItemPacketInform construye un bloque [datasize(1B = 2+len(attr)) | itemid(2B) | attr].
 func (h *Handler) buildItemPacketInform(it *database.Item) []byte {
 	if it == nil || it.ItemID == 0 || it.ItemID == 0xFFFF {
 		return nil
@@ -549,6 +548,35 @@ func (h *Handler) buildItemPacketInform(it *database.Item) []byte {
 	out[0] = byte(2 + len(attr))
 	binary.LittleEndian.PutUint16(out[1:3], it.ItemID)
 	copy(out[3:], attr)
+	return out
+}
+
+// buildItemInlineAttr serializa iti_fill2buffer_union (`itemid(2B) | attr`) sin byte datasize inicial,
+// usado por PROTO_NC_TRADE_OPPOSITUPBOARD_CMD (0x4C10), BoothItemList SELL y BoothItemInfo.
+func (h *Handler) buildItemInlineAttr(it *database.Item) []byte {
+	if it == nil || it.ItemID == 0 || it.ItemID == 0xFFFF {
+		return nil
+	}
+	attr := h.buildItemAttrFromDB(it)
+	out := make([]byte, 2+len(attr))
+	binary.LittleEndian.PutUint16(out[0:2], it.ItemID)
+	copy(out[2:], attr)
+	return out
+}
+
+// buildItemPacketInformWithLoc construye un PROTO_ITEMPACKET_INFORM oficial de ias_FillBufferItem:
+// [0] datasize (= 4 + len(attr)) | [1..2] location ((box<<10)|slot) | [3..4] itemid | [5..] attr.
+func (h *Handler) buildItemPacketInformWithLoc(box uint8, slot int16, it *database.Item) []byte {
+	if it == nil || it.ItemID == 0 || it.ItemID == 0xFFFF {
+		return nil
+	}
+	attr := h.buildItemAttrFromDB(it)
+	loc := (uint16(box) << 10) | (uint16(slot) & 0x03FF)
+	out := make([]byte, 5+len(attr))
+	out[0] = byte(4 + len(attr))
+	binary.LittleEndian.PutUint16(out[1:3], loc)
+	binary.LittleEndian.PutUint16(out[3:5], it.ItemID)
+	copy(out[5:], attr)
 	return out
 }
 
