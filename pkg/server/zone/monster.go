@@ -306,7 +306,21 @@ func (m *ZoneMonster) TopDamageChar() int {
 	return bestChar
 }
 
+// BriefInfoMaxBatch define el límite máximo oficial de entradas por paquete de lote BriefInfo en Zone.exe (0x1C = 28).
+const BriefInfoMaxBatch = 28
+
+// encodeCoordDir convierte el ángulo en grados (0..360 / negativo) al byte de dirección oficial (direct / 2, +180 si negativo),
+// verificado en ShineMob::so_mob_Regenerate (Zone.exe VA 0x004B4279).
+func encodeCoordDir(direct int16) byte {
+	d := direct / 2
+	if d < 0 {
+		d += 180
+	}
+	return byte(d)
+}
+
 // WriteRegenMob serializa la estructura oficial PROTO_NC_BRIEFINFO_REGENMOB_CMD (149 bytes exactos en PDB).
+// Alineado con Zone.exe ShineMob::so_mob_Regenerate (0x004B41B0): mode=0 (vivo/idle), dir=direct/2.
 func (m *ZoneMonster) WriteRegenMob(pw *protocol.PacketWriter, regenAni byte) {
 	m.mu.RLock()
 	handle := m.Handle
@@ -314,6 +328,7 @@ func (m *ZoneMonster) WriteRegenMob(pw *protocol.PacketWriter, regenAni byte) {
 	x := m.X
 	y := m.Y
 	dir := m.Direct
+	isDead := m.IsDead
 	anim := m.Animation
 	animLv := m.AnimationLevel
 	kqTeam := m.KQTeamType
@@ -327,16 +342,21 @@ func (m *ZoneMonster) WriteRegenMob(pw *protocol.PacketWriter, regenAni byte) {
 	}
 	m.mu.RUnlock()
 
-	pw.WriteUint16(handle)   // 0x00: handle (2B)
-	pw.WriteByte(1)          // 0x02: mode (1B, 1=activo)
-	pw.WriteUint16(mobID)    // 0x03: mobid (2B)
-	pw.WriteInt32(x)         // 0x05: coord.x (4B)
-	pw.WriteInt32(y)         // 0x09: coord.y (4B)
-	pw.WriteByte(byte(dir))  // 0x0D: coord.dir (1B)
-	pw.WriteByte(0)          // 0x0E: flagstate (1B, 0=mob abstatebit)
-	pw.WriteBytes(abBit[:])  // 0x0F: ABNORMAL_STATE_BIT (99B)
-	pw.WriteString(anim, 32) // 0x72: sAnimation (32B)
-	pw.WriteByte(animLv)     // 0x92: nAnimationLevel (1B)
-	pw.WriteByte(kqTeam)     // 0x93: nKQTeamType (1B)
-	pw.WriteByte(regenAni)   // 0x94: bRegenAni (1B)
+	var mode byte
+	if isDead {
+		mode = 3
+	}
+
+	pw.WriteUint16(handle)            // 0x00: handle (2B)
+	pw.WriteByte(mode)                // 0x02: mode (1B, 0=vivo/idle en ShineMob::so_mob_Regenerate)
+	pw.WriteUint16(mobID)             // 0x03: mobid (2B)
+	pw.WriteInt32(x)                  // 0x05: coord.x (4B)
+	pw.WriteInt32(y)                  // 0x09: coord.y (4B)
+	pw.WriteByte(encodeCoordDir(dir)) // 0x0D: coord.dir (1B, direct/2)
+	pw.WriteByte(0)                   // 0x0E: flagstate (1B, 0=mob abstatebit)
+	pw.WriteBytes(abBit[:])           // 0x0F: ABNORMAL_STATE_BIT (99B)
+	pw.WriteString(anim, 32)          // 0x72: sAnimation (32B)
+	pw.WriteByte(animLv)              // 0x92: nAnimationLevel (1B)
+	pw.WriteByte(kqTeam)              // 0x93: nKQTeamType (1B)
+	pw.WriteByte(regenAni)            // 0x94: bRegenAni (1B)
 }

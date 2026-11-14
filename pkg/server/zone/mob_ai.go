@@ -77,9 +77,7 @@ func (b *ZoneWorldBridge) KillObject(handle uint32) {
 	if p := b.zMap.GetPlayer(uint16(handle)); p != nil && p.Char != nil {
 		p.Char.CurHP = 0
 		p.State = 3
-		deadCmd := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_SOMEONEDEAD_LARGE_CMD)
-		deadCmd.WriteUint16(p.MapObjectID)
-		b.zMap.Broadcast(deadCmd, 0)
+		emitReallyKill(b.zMap, p.MapObjectID, p.MapObjectID)
 	}
 }
 
@@ -1412,6 +1410,11 @@ func (m *ZoneMap) executeMonsterAttack(mob *ZoneMonster, target *ZonePlayer, now
 		hitBonus += skillDef.PyHitRate / 100
 	}
 	if !CheckHit(hitBonus, int(target.EquipTB)) {
+		var curHP uint32
+		if target.Char != nil {
+			curHP = uint32(target.Char.CurHP)
+		}
+		emitSwingDamage(m, mob, target, mob.Handle, target.MapObjectID, 0, curHP, false, true, false, 1)
 		return
 	}
 
@@ -1471,20 +1474,7 @@ func (m *ZoneMap) applyMonsterDamageToPlayer(mob *ZoneMonster, target *ZonePlaye
 		mobID = mob.MobID
 	}
 
-	swingDmg := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_SWING_DAMAGE_CMD)
-	swingDmg.WriteUint16(attackerH)
-	swingDmg.WriteUint16(target.MapObjectID)
-	var flag uint16
-	if isCrit {
-		flag = 1
-	}
-	swingDmg.WriteUint16(flag)
-	swingDmg.WriteUint16(uint16(dmg))
-	swingDmg.WriteUint32(restHP)
-	swingDmg.WriteUint16(0)
-	swingDmg.WriteUint8(1)
-	swingDmg.WriteUint8(1)
-	m.Broadcast(swingDmg, 0)
+	emitSwingDamage(m, mob, target, attackerH, target.MapObjectID, uint16(dmg), restHP, isCrit, false, isDead, 1)
 
 	if target.Client != nil {
 		hpCmd := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_HPCHANGE_CMD)
@@ -1497,9 +1487,6 @@ func (m *ZoneMap) applyMonsterDamageToPlayer(mob *ZoneMonster, target *ZonePlaye
 		if mob != nil {
 			mob.RemoveAggroTarget(target.MapObjectID)
 		}
-		deadCmd := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_SOMEONEDEAD_LARGE_CMD)
-		deadCmd.WriteUint16(target.MapObjectID)
-		m.Broadcast(deadCmd, 0)
 
 		m.mu.RLock()
 		h := m.handler

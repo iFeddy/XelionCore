@@ -192,16 +192,12 @@ func (m *ZoneMap) SpawnMonsterDrop(itemID uint16, lot uint32, flags int, x, y in
 	}
 
 	pw := protocol.NewPacketWriter(protocol.PROTO_NC_BRIEFINFO_DROPEDITEM_CMD)
-	pw.WriteUint16(di.Handle)
-	pw.WriteUint16(di.ItemID)
-	pw.WriteInt32(di.X)
-	pw.WriteInt32(di.Y)
-	pw.WriteUint16(di.DropMobHandle)
 	if di.OwnerCharID > 0 {
-		pw.WriteByte(0)
+		di.Attr = 0
 	} else {
-		pw.WriteByte(1)
+		di.Attr = 1
 	}
+	di.WriteDropEntry(pw)
 	if m.grid != nil {
 		m.grid.BroadcastAOI(pw, int(di.X), int(di.Y), 0)
 	}
@@ -243,7 +239,7 @@ func (h *Handler) HandleMonsterDeath(zMap *ZoneMap, mob *ZoneMonster, killer *Zo
 
 	// 1. Distribución de EXP (Solo / Party / Raid) y Fama
 	if killer != nil && killer.Char != nil {
-		h.distributeMonsterExpAndFame(zMap, mobID, mobX, mobY, monEXP, expRange, mobRank, killer)
+		h.distributeMonsterExpAndFame(zMap, mobID, mobHandle, mobX, mobY, monEXP, expRange, mobRank, killer)
 	}
 
 	// 2. Generación de Drops (Cen, Items, Cartas) + AutoPick + GameLog Tipo 6
@@ -286,7 +282,7 @@ func (h *Handler) findPlayerInMapByCharID(zMap *ZoneMap, charID int) *ZonePlayer
 }
 
 // distributeMonsterExpAndFame distribuye experiencia individual, en Party o en Raid aplicando RestExp y Fame.
-func (h *Handler) distributeMonsterExpAndFame(zMap *ZoneMap, mobID uint16, mobX, mobY int32, monEXP uint32, expRange int, mobRank uint8, killer *ZonePlayer) {
+func (h *Handler) distributeMonsterExpAndFame(zMap *ZoneMap, mobID, mobHandle uint16, mobX, mobY int32, monEXP uint32, expRange int, mobRank uint8, killer *ZonePlayer) {
 	if killer == nil || killer.Char == nil {
 		return
 	}
@@ -375,7 +371,7 @@ func (h *Handler) distributeMonsterExpAndFame(zMap *ZoneMap, mobID uint16, mobX,
 		// Aplicar RestExp desde Common.json + tRestExp
 		share = h.applyRestExpBonus(p, share)
 
-		h.AddPlayerExpAndCheckLevelUp(p, share, mobID, mobX, mobY, zMap.MapID)
+		h.AddPlayerExpAndCheckLevelUp(p, share, mobID, mobHandle, mobX, mobY, zMap.MapID)
 
 		// Otorgar fama al matar jefes/héroes (Rank >= 4)
 		if mobRank >= 4 && h.charRepo != nil {
@@ -427,12 +423,26 @@ func (h *Handler) applyRestExpBonus(p *ZonePlayer, baseExp uint64) uint64 {
 }
 
 // AddPlayerExpAndCheckLevelUp añade EXP al jugador, gestiona múltiples subidas de nivel y emite paquetes + GameLog.
-func (h *Handler) AddPlayerExpAndCheckLevelUp(p *ZonePlayer, expGain uint64, mobID uint16, mobX, mobY int32, mapID string) {
+// Verificado en Zone.exe sp_GainExp (0x0042D830): emite PROTO_NC_BAT_EXPGAIN_CMD (0x240B, 6B),
+// PROTO_NC_BAT_LEVELUP_CMD (0x240C, 235B) y broadcast PROTO_NC_BAT_SUMEONELEVELUP_CMD (0x240D, 4B).
+func (h *Handler) AddPlayerExpAndCheckLevelUp(p *ZonePlayer, expGain uint64, mobID, mobHandle uint16, mobX, mobY int32, mapID string) {
 	if p == nil || p.Char == nil || expGain == 0 {
 		return
 	}
 
 	p.Char.TCharacterState.Exp += int64(expGain)
+
+	// Cliente recibe PROTO_NC_BAT_EXPGAIN_CMD (0x240B, 6B payload = 8B wire)
+	if p.Client != nil {
+		expGainVal := uint32(expGain)
+		if expGain > math.MaxUint32 {
+			expGainVal = math.MaxUint32
+		}
+		expCmd := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_EXPGAIN_CMD)
+		expCmd.WriteUint32(expGainVal)
+		expCmd.WriteUint16(mobHandle)
+		_ = p.Client.SendPacket(expCmd)
+	}
 
 	var cs *combat.Store
 	if h.dataStore != nil {
@@ -462,7 +472,7 @@ func (h *Handler) AddPlayerExpAndCheckLevelUp(p *ZonePlayer, expGain uint64, mob
 		p.Char.TCharacter.Level = p.Char.Level
 		leveledUp = true
 
-		// Actualizar ClassParam + recarga total de HP/SP al subir nivel
+		// Actualizar ClassParam + recarga total de HP/SP al subir nivel (antes de serializar CHAR_PARAMETER_DATA)
 		if h.classStore != nil {
 			if lp, ok := h.classStore.GetParam(JobToClassName(p.Char.Job), int(p.Char.Level)); ok && lp != nil {
 				p.LevelParam = *lp
@@ -481,6 +491,7 @@ func (h *Handler) AddPlayerExpAndCheckLevelUp(p *ZonePlayer, expGain uint64, mob
 				}
 			}
 		}
+		p.RecalculateEquipmentStats(h.itemStore)
 		p.Char.CurHP = p.MaxHP
 		p.Char.CurSP = p.MaxSP
 
@@ -489,11 +500,11 @@ func (h *Handler) AddPlayerExpAndCheckLevelUp(p *ZonePlayer, expGain uint64, mob
 		p.NextExp = uint64(newNext)
 
 		if p.Client != nil {
-			// PROTO_NC_CHAR_LEVEL_CHANGED_CMD (0x1074, 7B): wmhandle(2), CharNo(4), CharNewLevel(1)
-			lvCmd := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_LEVEL_CHANGED_CMD)
-			lvCmd.WriteUint16(p.MapObjectID)
-			lvCmd.WriteUint32(uint32(p.Char.ID))
+			// PROTO_NC_BAT_LEVELUP_CMD (0x240C, 235B payload = 237B = 0xED wire): level(1), mobhandle(2), newparam(232)
+			lvCmd := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_LEVELUP_CMD)
 			lvCmd.WriteByte(p.Char.Level)
+			lvCmd.WriteUint16(mobHandle)
+			p.WriteDetailedInfoExtra(lvCmd, true)
 			_ = p.Client.SendPacket(lvCmd)
 
 			hpCmd := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_HPCHANGE_CMD)
@@ -504,6 +515,14 @@ func (h *Handler) AddPlayerExpAndCheckLevelUp(p *ZonePlayer, expGain uint64, mob
 			spCmd := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_SPCHANGE_CMD)
 			spCmd.WriteUint32(uint32(p.Char.CurSP))
 			_ = p.Client.SendPacket(spCmd)
+		}
+
+		if p.CurrentMap != nil {
+			// PROTO_NC_BAT_SUMEONELEVELUP_CMD (0x240D, 4B payload = 6B wire): levelupplayer(2), mobhandle(2)
+			someoneLv := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_SUMEONELEVELUP_CMD)
+			someoneLv.WriteUint16(p.MapObjectID)
+			someoneLv.WriteUint16(mobHandle)
+			p.CurrentMap.Broadcast(someoneLv, p.MapObjectID)
 		}
 
 		if h.gameLogDispatcher != nil {
@@ -519,23 +538,12 @@ func (h *Handler) AddPlayerExpAndCheckLevelUp(p *ZonePlayer, expGain uint64, mob
 		}
 	}
 
-	if p.Client != nil {
-		// PROTO_NC_CHAR_EXP_CHANGED_CMD (0x1073, 14B): wmhandle(2), CharNo(4), CurrentExp(8)
-		expCmd := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_EXP_CHANGED_CMD)
-		expCmd.WriteUint16(p.MapObjectID)
-		expCmd.WriteUint32(uint32(p.Char.ID))
-		expCmd.WriteUint64(uint64(p.Char.TCharacterState.Exp))
-		_ = p.Client.SendPacket(expCmd)
-	}
-
 	if h.gameLogDispatcher != nil {
 		// Tipo 6 nType=2: ganancia de experiencia por muerte de mob (PROTO_NC_LOG_GAME_MKED)
 		h.gameLogDispatcher.EnqueueType6(2, p.Char.ID, mapID, int(mobX), int(mobY), 0, int(mobID), int64(expGain))
 	}
 
-	if leveledUp {
-		p.RecalculateEquipmentStats(h.itemStore)
-	}
+	_ = leveledUp
 }
 
 func (h *Handler) generateMonsterDrops(zMap *ZoneMap, mobID uint16, mobInx string, mobHandle uint16, mobX, mobY int32, allCanLoot bool, ownerCharID int, killer *ZonePlayer) {

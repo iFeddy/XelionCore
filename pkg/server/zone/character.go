@@ -589,7 +589,17 @@ func (p *ZonePlayer) WriteDetailedInfoExtra(pw *protocol.PacketWriter, levelUp b
 }
 
 // WriteCharacterDisplay serializa PROTO_NC_BRIEFINFO_LOGINCHARACTER_CMD (235 bytes exactos en PDB).
+// Alineado con Zone.exe 0BriefInformationCharacter (0x00549090), sp_MakeTentBriefInfo (0x0056E720) y bia_Fill.
 func (p *ZonePlayer) WriteCharacterDisplay(pw *protocol.PacketWriter) {
+	var polymorphID uint16
+	for _, st := range p.ActiveStates {
+		if st != nil && st.PolymorphID > 0 {
+			polymorphID = st.PolymorphID
+			break
+		}
+	}
+	abBit := p.GetAbStateBit()
+
 	pw.WriteUint16(p.MapObjectID)     // 0x000 (0): unsigned short handle (2)
 	pw.WriteString(p.Char.Name, 20)   // 0x002 (2): Name5 charid (20)
 	pw.WriteInt32(int32(p.Char.XPos)) // 0x016 (22): coord.x (4)
@@ -598,27 +608,35 @@ func (p *ZonePlayer) WriteCharacterDisplay(pw *protocol.PacketWriter) {
 	pw.WriteByte(p.State)             // 0x01f (31): mode (1)
 	pw.WriteByte(p.Char.Job)          // 0x020 (32): chrclass (1)
 	p.WriteLook(pw)                   // 0x021 (33): PROTO_AVATAR_SHAPE_INFO (4)
-	// 0x025 (37): shapedata (45 bytes = equip 43 bytes + 2 bytes padding)
-	p.WriteEquipment(pw)       // 43 bytes
-	pw.WriteUint16(0)          // 2 bytes pad
-	pw.WriteUint16(0)          // 0x052 (82): polymorph (2)
-	pw.Fill(3, 0)              // 0x054 (84): STOPEMOTICON_DESCRIPT emoticon (3)
+	// 0x025 (37): shapedata union (45 bytes: CHARBRIEFINFO_NOTCAMP / CHARBRIEFINFO_CAMP / CHARBRIEFINFO_RIDE)
+	if p.State == 4 && p.TentID > 0 {
+		pw.WriteUint16(p.TentID)     // tentID (2)
+		pw.WriteUint32(0xFFFFFFFF)   // default camp placeholders (sp_MakeTentBriefInfo 0x0056E78C)
+		pw.WriteUint32(0xFFFFFFFF)
+		pw.WriteUint16(0xFFFF)
+		pw.Fill(33, 0)
+	} else {
+		p.WriteEquipment(pw) // 43 bytes
+		pw.WriteUint16(0)    // 2 bytes pad
+	}
+	pw.WriteUint16(polymorphID)         // 0x052 (82): polymorph (2)
+	pw.Fill(3, 0)                       // 0x054 (84): STOPEMOTICON_DESCRIPT emoticon (3)
 	pw.WriteByte(p.CurrentTitleType)    // 0x057 (87): CHARTITLE_BRIEFINFO.Type (1)
 	pw.WriteByte(p.CurrentTitleElement) // 0x058 (88): CHARTITLE_BRIEFINFO.ElementNo (1)
 	pw.WriteUint16(p.CurrentTitleMobID) // 0x059 (89): CHARTITLE_BRIEFINFO.MobID (2)
-	pw.Fill(99, 0)                      // 0x05b (91): ABNORMAL_STATE_BIT abstatebit (99)
+	pw.WriteBytes(abBit[:])             // 0x05b (91): ABNORMAL_STATE_BIT abstatebit (99)
 	pw.WriteUint32(0)                   // 0x0be (190): myguild (4)
-	pw.WriteByte(0)                     // 0x0c2 (194): type (1)
+	pw.WriteByte(2)                     // 0x0c2 (194): type (1) = 2 en 0BriefInformationCharacter (0x005490F5)
 	pw.WriteByte(0)                     // 0x0c3 (195): isGuildAcademyMember (1)
 	if p.IsAutoPick {                   // 0x0c4 (196): IsAutoPick (1)
 		pw.WriteByte(1)
 	} else {
 		pw.WriteByte(0)
 	}
-	pw.WriteByte(p.Char.Level) // 0x0c5 (197): Level (1)
-	pw.WriteString("", 32)     // 0x0c6 (198): sAnimation (32)
+	pw.WriteByte(p.Char.Level)    // 0x0c5 (197): Level (1)
+	pw.WriteString("", 32)        // 0x0c6 (198): sAnimation (32)
 	pw.WriteUint16(p.MoverHandle) // 0x0e6 (230): nMoverHnd (2)
 	pw.WriteByte(p.MoverSlot)     // 0x0e8 (232): nMoverSlot (1)
-	pw.WriteByte(0)            // 0x0e9 (233): nKQTeamType (1)
-	pw.WriteByte(0)            // 0x0ea (234): IsUseItemMinimon (1)
+	pw.WriteByte(p.KQTeam)        // 0x0e9 (233): nKQTeamType (1)
+	pw.WriteByte(0)               // 0x0ea (234): IsUseItemMinimon (1)
 }

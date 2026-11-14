@@ -251,11 +251,11 @@ func TestFase12_SkillsAndAoE(t *testing.T) {
 		t.Errorf("Monstruo debería haber recibido daño de habilidad AoE, antes=%d, ahora=%d", hpBefore, mob.CurHP)
 	}
 
-	// 3. Empoderamiento de Habilidad: PROTO_NC_SKILL_EMPOWALLOC_REQ (0x4811)
+	// 3. Empoderamiento de Habilidad: PROTO_NC_SKILL_EMPOWALLOC_REQ (0x4811) -> 6B: skill + plus + minus
 	empowPkt := protocol.NewPacketWriter(protocol.PROTO_NC_SKILL_EMPOWALLOC_REQ)
-	empowPkt.WriteUint16(101) // Skill
-	empowPkt.WriteUint8(0)    // Damage empow slot
-	empowPkt.WriteUint8(2)    // Point
+	empowPkt.WriteUint16(101)    // Skill
+	empowPkt.WriteUint16(0x0002) // Plus damage empower (+2 on nibble 0)
+	empowPkt.WriteUint16(0)      // Minus empower
 	h.HandlePacket(client, protocol.NewPacket(empowPkt.Data()))
 
 	// 4. Invocación de Campo / Tótem: PROTO_NC_SKILL_PRODUCTFIELD_REQ (0x4822)
@@ -263,8 +263,9 @@ func TestFase12_SkillsAndAoE(t *testing.T) {
 	prodPkt.WriteUint16(301)
 	h.HandlePacket(client, protocol.NewPacket(prodPkt.Data()))
 
-	// 5. Olvido de Habilidad: PROTO_NC_SKILL_UNLEARN_REQ (0x4824)
+	// 5. Olvido de Habilidad: PROTO_NC_SKILL_UNLEARN_REQ (0x4824) -> 3B: slot (uint8) + skill (uint16)
 	unlearnPkt := protocol.NewPacketWriter(protocol.PROTO_NC_SKILL_UNLEARN_REQ)
+	unlearnPkt.WriteUint8(0)
 	unlearnPkt.WriteUint16(101)
 	h.HandlePacket(client, protocol.NewPacket(unlearnPkt.Data()))
 }

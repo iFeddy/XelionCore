@@ -171,20 +171,29 @@ func (h *Handler) handleDepolymorphCmd(client *network.Client, pkt *protocol.Pac
 	}
 
 	// Remueve estado de polimorfismo si existe
+	var removedID uint16
 	for id, st := range player.ActiveStates {
 		if st.PolymorphID > 0 {
+			removedID = id
 			player.RemoveAbState(id)
 			break
 		}
 	}
 
-	// Notificar actualización de estado
-	if player.CurrentMap != nil {
-		inform := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_ABSTATEINFORM_CMD)
-		inform.WriteUint16(player.MapObjectID)
-		bitfield := player.GetAbStateBit()
-		inform.WriteBytes(bitfield[:])
-		player.CurrentMap.Broadcast(inform, 0)
+	// Notificar actualización de estado según Zone.exe (0x2429 ABSTATEINFORM_CMD 8B + 0x2428 ABSTATERESET_CMD 6B)
+	if removedID != 0 {
+		if player.Client != nil {
+			inform := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_ABSTATEINFORM_CMD)
+			inform.WriteUint32(uint32(removedID))
+			inform.WriteUint32(0)
+			_ = player.Client.SendPacket(inform)
+		}
+		if player.CurrentMap != nil {
+			resetCmd := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_ABSTATERESET_CMD)
+			resetCmd.WriteUint16(player.MapObjectID)
+			resetCmd.WriteUint32(uint32(removedID))
+			player.CurrentMap.Broadcast(resetCmd, 0)
+		}
 	}
 }
 
@@ -223,17 +232,32 @@ func (h *Handler) handleAbStateEraseReq(client *network.Client, pkt *protocol.Pa
 		return
 	}
 
-	player.RemoveAbState(stateIndex)
+	hadState := player.GetAbState(stateIndex) != nil
+	if hadState {
+		player.RemoveAbState(stateIndex)
+	}
 
+	// Verificado en Zone.exe sp_NC_BAT_ABSTATE_ERASE_REQ (0x0042B900) / EraseGoodBuff (0x0042ACC0):
+	// PROTO_NC_BAT_ABSTATE_ERASE_ACK (0x2455, 2B) devuelve 0x1C70 en éxito, 0x1C71 si no existe.
+	var errCode uint16 = 0x1C71
+	if hadState {
+		errCode = 0x1C70
+	}
 	ack := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_ABSTATE_ERASE_ACK)
-	ack.WriteUint16(stateIndex)
+	ack.WriteUint16(errCode)
 	_ = client.SendPacket(ack)
 
-	if player.CurrentMap != nil {
+	if hadState {
 		inform := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_ABSTATEINFORM_CMD)
-		inform.WriteUint16(player.MapObjectID)
-		bitfield := player.GetAbStateBit()
-		inform.WriteBytes(bitfield[:])
-		player.CurrentMap.Broadcast(inform, 0)
+		inform.WriteUint32(uint32(stateIndex))
+		inform.WriteUint32(0)
+		_ = client.SendPacket(inform)
+
+		if player.CurrentMap != nil {
+			resetCmd := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_ABSTATERESET_CMD)
+			resetCmd.WriteUint16(player.MapObjectID)
+			resetCmd.WriteUint32(uint32(stateIndex))
+			player.CurrentMap.Broadcast(resetCmd, 0)
+		}
 	}
 }

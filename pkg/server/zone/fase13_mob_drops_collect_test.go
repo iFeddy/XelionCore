@@ -409,11 +409,11 @@ func TestFase13_DeathExpPartyRaidDropsAutoPickAndAnnounce(t *testing.T) {
 	if killer.Char.Level <= 1 || partner.Char.Level <= 1 {
 		t.Errorf("Killer (%d) y Partner (%d) en Party deberían haber subido de nivel", killer.Char.Level, partner.Char.Level)
 	}
-	if len(connKiller.findByOpcode(protocol.PROTO_NC_CHAR_EXP_CHANGED_CMD)) == 0 {
-		t.Errorf("Esperado paquete PROTO_NC_CHAR_EXP_CHANGED_CMD (0x1073)")
+	if len(connKiller.findByOpcode(protocol.PROTO_NC_BAT_EXPGAIN_CMD)) == 0 {
+		t.Errorf("Esperado paquete PROTO_NC_BAT_EXPGAIN_CMD (0x240B)")
 	}
-	if len(connKiller.findByOpcode(protocol.PROTO_NC_CHAR_LEVEL_CHANGED_CMD)) == 0 {
-		t.Errorf("Esperado paquete PROTO_NC_CHAR_LEVEL_CHANGED_CMD (0x1074)")
+	if len(connKiller.findByOpcode(protocol.PROTO_NC_BAT_LEVELUP_CMD)) == 0 {
+		t.Errorf("Esperado paquete PROTO_NC_BAT_LEVELUP_CMD (0x240C)")
 	}
 	if _, hasAnn := ds.MobCatalog.KillAnnounce[mob.MobID]; hasAnn {
 		if len(connKiller.findByOpcode(protocol.PROTO_NC_BAT_CLIENT_MOB_KILL_ANNOUNCE_CMD)) == 0 {

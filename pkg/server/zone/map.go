@@ -53,6 +53,115 @@ func (n *ZoneNPC) GetClient() *network.Client {
 	return nil
 }
 
+// WriteRegenMob serializa la entrada oficial de 149 bytes de PROTO_NC_BRIEFINFO_REGENMOB_CMD / MOB_CMD para un NPC o Gate.
+// Verificado en Zone.exe ShineNPC::so_SetGateBriefInform (0x00557BC0) y ShineMob::so_mob_Regenerate (0x004B41B0).
+func (n *ZoneNPC) WriteRegenMob(pw *protocol.PacketWriter) {
+	pw.WriteUint16(n.Handle)            // 0x00: handle (2B)
+	pw.WriteByte(0)                     // 0x02: mode (1B, 0=vivo/normal en so_mob_Regenerate)
+	pw.WriteUint16(n.MobID)             // 0x03: mobid (2B)
+	pw.WriteInt32(n.X)                  // 0x05: coord.x (4B)
+	pw.WriteInt32(n.Y)                  // 0x09: coord.y (4B)
+	pw.WriteByte(encodeCoordDir(n.Direct)) // 0x0D: coord.dir (1B, direct/2)
+	if n.IsGate {
+		pw.WriteByte(1)                     // 0x0E: flagstate = 1 (gate)
+		pw.WriteString(n.GateToWhere, 12) // 0x0F: gate2where (12B)
+		pw.Fill(87, 0)                      // 0x1B: resto de unión flag[99]
+	} else {
+		pw.WriteByte(0) // 0x0E: flagstate = 0
+		pw.Fill(99, 0)  // 0x0F: abstatebit (99B)
+	}
+	pw.WriteString("", 32) // 0x72: sAnimation (32B)
+	pw.WriteByte(0)        // 0x92: nAnimationLevel (1B)
+	pw.WriteByte(0)        // 0x93: nKQTeamType (1B)
+	pw.WriteByte(0)        // 0x94: bRegenAni (1B)
+}
+
+// WriteDropEntry serializa las 15 bytes oficiales de PROTO_NC_BRIEFINFO_DROPEDITEM_CMD (0x1C0A) y entradas de ITEMONFIELD_CMD (0x1C0B).
+func (d *ZoneDroppedItem) WriteDropEntry(pw *protocol.PacketWriter) {
+	pw.WriteUint16(d.Handle)        // 0x00: handle (2B)
+	pw.WriteUint16(d.ItemID)        // 0x02: itemid (2B)
+	pw.WriteInt32(d.X)              // 0x04: location.x (4B)
+	pw.WriteInt32(d.Y)              // 0x08: location.y (4B)
+	pw.WriteUint16(d.DropMobHandle) // 0x0C: dropmobhandle (2B)
+	pw.WriteByte(d.Attr)            // 0x0E: attr (1B)
+}
+
+// ZoneMoverBrief modela una entrada PROTO_NC_BRIEFINFO_REGENMOVER_CMD (139B) para lotes PROTO_NC_BRIEFINFO_MOVER_CMD (0x1C1B).
+type ZoneMoverBrief struct {
+	Handle     uint16
+	ID         uint32
+	HP         uint32
+	X          int32
+	Y          int32
+	Direct     int16
+	AbstateBit [99]byte
+	Grade      uint8
+	SlotHandle [10]uint16
+}
+
+// WriteRegenMover serializa 139 bytes exactos de PROTO_NC_BRIEFINFO_REGENMOVER_CMD (Zone.exe bixmv_Send 0x0043E0D0).
+func (mv *ZoneMoverBrief) WriteRegenMover(pw *protocol.PacketWriter) {
+	pw.WriteUint16(mv.Handle)
+	pw.WriteUint32(mv.ID)
+	pw.WriteUint32(mv.HP)
+	pw.WriteInt32(mv.X)
+	pw.WriteInt32(mv.Y)
+	pw.WriteByte(encodeCoordDir(mv.Direct))
+	pw.WriteBytes(mv.AbstateBit[:])
+	pw.WriteByte(mv.Grade)
+	for i := 0; i < 10; i++ {
+		pw.WriteUint16(mv.SlotHandle[i])
+	}
+}
+
+// ZoneMagicFieldBrief modela una entrada PROTO_NC_BRIEFINFO_MAGICFIELDSPREAD_CMD (16B) para MAGICFIELDINFO_CMD (0x1C0D).
+type ZoneMagicFieldBrief struct {
+	Handle  uint16
+	Caster  uint16
+	SkillID uint16
+	X       int32
+	Y       int32
+	Radius  uint16
+}
+
+// WriteMagicFieldSpread serializa 16 bytes exactos de PROTO_NC_BRIEFINFO_MAGICFIELDSPREAD_CMD.
+func (mf *ZoneMagicFieldBrief) WriteMagicFieldSpread(pw *protocol.PacketWriter) {
+	pw.WriteUint16(mf.Handle)
+	pw.WriteUint16(mf.Caster)
+	pw.WriteUint16(mf.SkillID)
+	pw.WriteInt32(mf.X)
+	pw.WriteInt32(mf.Y)
+	pw.WriteUint16(mf.Radius)
+}
+
+// ZoneDoorBrief modela una entrada PROTO_NC_BRIEFINFO_BUILDDOOR_CMD (48B) para PROTO_NC_BRIEFINFO_DOOR_CMD (0x1C10).
+type ZoneDoorBrief struct {
+	Handle     uint16
+	MobID      uint16
+	X          int32
+	Y          int32
+	Direct     int16
+	DoorState  byte
+	BlockIndex string
+	Scale      uint16
+}
+
+// WriteBuildDoor serializa 48 bytes exactos de PROTO_NC_BRIEFINFO_BUILDDOOR_CMD (Zone.exe 0BriefInformationDoor 0x00549260).
+func (d *ZoneDoorBrief) WriteBuildDoor(pw *protocol.PacketWriter) {
+	scale := d.Scale
+	if scale == 0 {
+		scale = 1000 // 0x3e8 default en 0BriefInformationDoor (0x005492B6)
+	}
+	pw.WriteUint16(d.Handle)
+	pw.WriteUint16(d.MobID)
+	pw.WriteInt32(d.X)
+	pw.WriteInt32(d.Y)
+	pw.WriteByte(encodeCoordDir(d.Direct))
+	pw.WriteByte(d.DoorState)
+	pw.WriteString(d.BlockIndex, 32)
+	pw.WriteUint16(scale)
+}
+
 // ZoneDroppedItem representa un ítem tirado en el suelo del mapa según PROTO_NC_BRIEFINFO_DROPEDITEM_CMD (0x1C0A).
 type ZoneDroppedItem struct {
 	Handle         uint16
@@ -521,11 +630,16 @@ func (m *ZoneMap) AddPlayer(p *ZonePlayer) {
 		}
 	}
 
-	// 1. Enviar jugadores en AOI al jugador entrante
-	if len(otherPlayers) > 0 {
+	// 1. Enviar jugadores en AOI al jugador entrante (lotes de máx 28 según bixc_Exchange 0x0043FD00)
+	for i := 0; i < len(otherPlayers); i += BriefInfoMaxBatch {
+		end := i + BriefInfoMaxBatch
+		if end > len(otherPlayers) {
+			end = len(otherPlayers)
+		}
+		chunk := otherPlayers[i:end]
 		spawnOthers := protocol.NewPacketWriter(protocol.PROTO_NC_BRIEFINFO_CHARACTER_CMD)
-		spawnOthers.WriteByte(byte(len(otherPlayers)))
-		for _, other := range otherPlayers {
+		spawnOthers.WriteByte(byte(len(chunk)))
+		for _, other := range chunk {
 			other.WriteCharacterDisplay(spawnOthers)
 		}
 		_ = p.Client.SendPacket(spawnOthers)
@@ -546,17 +660,17 @@ func (m *ZoneMap) AddPlayer(p *ZonePlayer) {
 		m.SendMobs(p, mobsInAOI)
 	}
 
-	// 4. Enviar ítems en AOI al jugador
-	if len(itemsInAOI) > 0 {
+	// 4. Enviar ítems en AOI al jugador (lotes de máx 28 según bixi_Exchange 0x004401A0)
+	for i := 0; i < len(itemsInAOI); i += BriefInfoMaxBatch {
+		end := i + BriefInfoMaxBatch
+		if end > len(itemsInAOI) {
+			end = len(itemsInAOI)
+		}
+		chunk := itemsInAOI[i:end]
 		pw := protocol.NewPacketWriter(protocol.PROTO_NC_BRIEFINFO_ITEMONFIELD_CMD)
-		pw.WriteByte(byte(len(itemsInAOI)))
-		for _, di := range itemsInAOI {
-			pw.WriteUint16(di.Handle)
-			pw.WriteUint16(di.ItemID)
-			pw.WriteInt32(di.X)
-			pw.WriteInt32(di.Y)
-			pw.WriteUint16(di.DropMobHandle)
-			pw.WriteByte(di.Attr)
+		pw.WriteByte(byte(len(chunk)))
+		for _, di := range chunk {
+			di.WriteDropEntry(pw)
 		}
 		_ = p.Client.SendPacket(pw)
 	}
@@ -597,12 +711,7 @@ func (m *ZoneMap) SpawnDroppedItem(itemID uint16, lot uint32, flags int, x, y in
 
 	// PROTO_NC_BRIEFINFO_DROPEDITEM_CMD (0x1C0A, 15 bytes)
 	pw := protocol.NewPacketWriter(protocol.PROTO_NC_BRIEFINFO_DROPEDITEM_CMD)
-	pw.WriteUint16(di.Handle)        // 0x00: handle (2B)
-	pw.WriteUint16(di.ItemID)        // 0x02: itemid (2B)
-	pw.WriteInt32(di.X)              // 0x04: location.x (4B)
-	pw.WriteInt32(di.Y)              // 0x08: location.y (4B)
-	pw.WriteUint16(di.DropMobHandle) // 0x0C: dropmobhandle (2B)
-	pw.WriteByte(di.Attr)            // 0x0E: attr (1B)
+	di.WriteDropEntry(pw)
 	m.grid.BroadcastAOI(pw, int(x), int(y), 0)
 
 	return di
@@ -730,45 +839,49 @@ func (m *ZoneMap) GetEntity(handle uint16) GridEntity {
 }
 
 
-// SendDroppedItems transmits all dropped items on the field to a joining player using PROTO_NC_BRIEFINFO_ITEMONFIELD_CMD (0x1C0B).
+// SendDroppedItems transmits all dropped items on the field to a joining player using PROTO_NC_BRIEFINFO_ITEMONFIELD_CMD (0x1C0B), máx 28 por paquete.
 func (m *ZoneMap) SendDroppedItems(p *ZonePlayer) {
 	m.mu.RLock()
-	defer m.mu.RUnlock()
+	items := make([]*ZoneDroppedItem, 0, len(m.droppedItems))
+	for _, di := range m.droppedItems {
+		items = append(items, di)
+	}
+	m.mu.RUnlock()
 
-	if len(m.droppedItems) == 0 {
+	if len(items) == 0 || p == nil || p.Client == nil {
 		return
 	}
 
-	pw := protocol.NewPacketWriter(protocol.PROTO_NC_BRIEFINFO_ITEMONFIELD_CMD)
-	pw.WriteByte(byte(len(m.droppedItems)))
-	for _, di := range m.droppedItems {
-		pw.WriteUint16(di.Handle)
-		pw.WriteUint16(di.ItemID)
-		pw.WriteInt32(di.X)
-		pw.WriteInt32(di.Y)
-		pw.WriteUint16(di.DropMobHandle)
-		pw.WriteByte(di.Attr)
+	for i := 0; i < len(items); i += BriefInfoMaxBatch {
+		end := i + BriefInfoMaxBatch
+		if end > len(items) {
+			end = len(items)
+		}
+		chunk := items[i:end]
+		pw := protocol.NewPacketWriter(protocol.PROTO_NC_BRIEFINFO_ITEMONFIELD_CMD)
+		pw.WriteByte(byte(len(chunk)))
+		for _, di := range chunk {
+			di.WriteDropEntry(pw)
+		}
+		_ = p.Client.SendPacket(pw)
 	}
-	_ = p.Client.SendPacket(pw)
 }
 
-// SendNPCs transmits all map NPCs and Gates to a player using official PROTO_NC_BRIEFINFO_MOB_CMD (0x1C09).
+// SendNPCs transmits all map NPCs and Gates to a player using official PROTO_NC_BRIEFINFO_MOB_CMD (0x1C09), máx 28 por paquete.
 func (m *ZoneMap) SendNPCs(p *ZonePlayer) {
 	m.mu.RLock()
-	defer m.mu.RUnlock()
-
-	if len(m.npcs) == 0 {
-		return
-	}
-
-	chunkSize := 100
 	npcList := make([]*ZoneNPC, 0, len(m.npcs))
 	for _, npc := range m.npcs {
 		npcList = append(npcList, npc)
 	}
+	m.mu.RUnlock()
 
-	for i := 0; i < len(npcList); i += chunkSize {
-		end := i + chunkSize
+	if len(npcList) == 0 || p == nil || p.Client == nil {
+		return
+	}
+
+	for i := 0; i < len(npcList); i += BriefInfoMaxBatch {
+		end := i + BriefInfoMaxBatch
 		if end > len(npcList) {
 			end = len(npcList)
 		}
@@ -777,24 +890,7 @@ func (m *ZoneMap) SendNPCs(p *ZonePlayer) {
 		pw := protocol.NewPacketWriter(protocol.PROTO_NC_BRIEFINFO_MOB_CMD)
 		pw.WriteByte(byte(len(chunk))) // mobnum (1 byte)
 		for _, npc := range chunk {
-			pw.WriteUint16(npc.Handle)     // 0x00: handle (2 bytes)
-			pw.WriteByte(1)                // 0x02: mode (1 byte, 1=idle/normal)
-			pw.WriteUint16(npc.MobID)      // 0x03: mobid (2 bytes)
-			pw.WriteInt32(npc.X)           // 0x05: coord.x (4 bytes)
-			pw.WriteInt32(npc.Y)           // 0x09: coord.y (4 bytes)
-			pw.WriteByte(byte(npc.Direct)) // 0x0D: coord.dir (1 byte)
-			if npc.IsGate {
-				pw.WriteByte(1)                     // 0x0E: flagstate = 1 (gate)
-				pw.WriteString(npc.GateToWhere, 12) // 0x0F: gate2where (12 bytes)
-				pw.Fill(87, 0)                      // 0x1B: remaining of 99 bytes flag
-			} else {
-				pw.WriteByte(0) // 0x0E: flagstate = 0
-				pw.Fill(99, 0)  // 0x0F: abstatebit (99 bytes)
-			}
-			pw.WriteString("", 32) // 0x72: sAnimation (32 bytes)
-			pw.WriteByte(0)        // 0x92: nAnimationLevel (1 byte)
-			pw.WriteByte(0)        // 0x93: nKQTeamType (1 byte)
-			pw.WriteByte(0)        // 0x94: bRegenAni (1 byte)
+			npc.WriteRegenMob(pw)
 		}
 		_ = p.Client.SendPacket(pw)
 	}
@@ -940,12 +1036,7 @@ func (m *ZoneMap) syncMoveAOI(p *ZonePlayer, toX, toY int, movePw *protocol.Pack
 				enteredMobs = append(enteredMobs, mob)
 			} else if di, ok := e.(*ZoneDroppedItem); ok && p.Client != nil {
 				pw := protocol.NewPacketWriter(protocol.PROTO_NC_BRIEFINFO_DROPEDITEM_CMD)
-				pw.WriteUint16(di.Handle)
-				pw.WriteUint16(di.ItemID)
-				pw.WriteInt32(di.X)
-				pw.WriteInt32(di.Y)
-				pw.WriteUint16(di.DropMobHandle)
-				pw.WriteByte(di.Attr)
+				di.WriteDropEntry(pw)
 				_ = p.Client.SendPacket(pw)
 			}
 		}

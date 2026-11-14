@@ -1442,6 +1442,7 @@ func (h *Handler) handleBriefInfoInform(client *network.Client, pkt *protocol.Pa
 	zMap := player.CurrentMap
 	zMap.mu.RLock()
 	otherPlayer, isPlayer := zMap.players[targetHnd]
+	mobObj, isMob := zMap.mobs[targetHnd]
 	npcObj, isNPC := zMap.npcs[targetHnd]
 	itemObj, isItem := zMap.droppedItems[targetHnd]
 	tentID, isTent := zMap.tents[targetHnd]
@@ -1453,36 +1454,18 @@ func (h *Handler) handleBriefInfoInform(client *network.Client, pkt *protocol.Pa
 			otherPlayer.WriteCharacterDisplay(pw)
 			_ = client.SendPacket(pw)
 		}
+	} else if isMob && mobObj != nil && !mobObj.IsDead {
+		pw := protocol.NewPacketWriter(protocol.PROTO_NC_BRIEFINFO_REGENMOB_CMD)
+		mobObj.WriteRegenMob(pw, 0)
+		_ = client.SendPacket(pw)
 	} else if isNPC && npcObj != nil {
 		pw := protocol.NewPacketWriter(protocol.PROTO_NC_BRIEFINFO_MOB_CMD)
 		pw.WriteByte(1)
-		pw.WriteUint16(npcObj.Handle)
-		pw.WriteByte(1)
-		pw.WriteUint16(npcObj.MobID)
-		pw.WriteInt32(npcObj.X)
-		pw.WriteInt32(npcObj.Y)
-		pw.WriteByte(byte(npcObj.Direct))
-		if npcObj.IsGate {
-			pw.WriteByte(1)
-			pw.WriteString(npcObj.GateToWhere, 12)
-			pw.Fill(87, 0)
-		} else {
-			pw.WriteByte(0)
-			pw.Fill(99, 0)
-		}
-		pw.WriteString("", 32)
-		pw.WriteByte(0)
-		pw.WriteByte(0)
-		pw.WriteByte(0)
+		npcObj.WriteRegenMob(pw)
 		_ = client.SendPacket(pw)
 	} else if isItem && itemObj != nil {
 		pw := protocol.NewPacketWriter(protocol.PROTO_NC_BRIEFINFO_DROPEDITEM_CMD)
-		pw.WriteUint16(itemObj.Handle)
-		pw.WriteUint16(itemObj.ItemID)
-		pw.WriteInt32(itemObj.X)
-		pw.WriteInt32(itemObj.Y)
-		pw.WriteUint16(itemObj.DropMobHandle)
-		pw.WriteByte(itemObj.Attr)
+		itemObj.WriteDropEntry(pw)
 		_ = client.SendPacket(pw)
 	} else if isTent {
 		pw := protocol.NewPacketWriter(protocol.PROTO_NC_ACT_SOMEONEPITCHTENT_CMD)
@@ -2287,9 +2270,10 @@ func (h *Handler) syncPlayerEquipsAndStats(player *ZonePlayer) {
 	player.RecalculateEquipmentStats(h.itemStore)
 }
 
-// broadcastEquipAppearance transmite el cambio visual de equipamiento al mapa según Zone.exe:
-//   - Slot 12 (Weapon): PROTO_NC_BRIEFINFO_CHANGEWEAPON_CMD (0x1C05, 9B)
-//   - Otros slots:      PROTO_NC_BRIEFINFO_CHANGEUPGRADE_CMD (0x1C03, 6B)
+// broadcastEquipAppearance transmite el cambio visual de equipamiento al mapa según Zone.exe iac_equipbriefinfo:
+//   - Slot 12 (Weapon):        PROTO_NC_BRIEFINFO_CHANGEWEAPON_CMD (0x1C05, 9B)  [0x0063F820]
+//   - Slot 11 (CostumeShield): PROTO_NC_BRIEFINFO_CHANGEDECORATE_CMD (0x1C02, 5B) [0x0063F910]
+//   - Otros slots:             PROTO_NC_BRIEFINFO_CHANGEUPGRADE_CMD (0x1C03, 6B)  [0x0063F8D0]
 func (h *Handler) broadcastEquipAppearance(player *ZonePlayer, equipSlot byte, itemID uint16, upgrade byte) {
 	if player == nil || player.CurrentMap == nil {
 		return
@@ -2297,18 +2281,24 @@ func (h *Handler) broadcastEquipAppearance(player *ZonePlayer, equipSlot byte, i
 	if equipSlot == slotWeapon {
 		pw := protocol.NewPacketWriter(protocol.PROTO_NC_BRIEFINFO_CHANGEWEAPON_CMD)
 		pw.WriteUint16(player.MapObjectID) // handle
-		pw.WriteUint16(itemID)          // item
-		pw.WriteByte(upgrade)           // upgrade
-		pw.WriteByte(equipSlot)         // nSlotNum
-		pw.WriteUint16(0xFFFF)          // currentmobid
-		pw.WriteByte(0)                 // currentkilllevel
+		pw.WriteUint16(itemID)             // item
+		pw.WriteByte(upgrade)              // upgrade
+		pw.WriteByte(equipSlot)            // nSlotNum
+		pw.WriteUint16(0xFFFF)             // currentmobid
+		pw.WriteByte(0)                    // currentkilllevel
+		player.CurrentMap.Broadcast(pw, 0)
+	} else if equipSlot == Slot_CostumeShield {
+		pw := protocol.NewPacketWriter(protocol.PROTO_NC_BRIEFINFO_CHANGEDECORATE_CMD)
+		pw.WriteUint16(player.MapObjectID) // handle
+		pw.WriteUint16(itemID)             // item
+		pw.WriteByte(equipSlot)            // nSlotNum
 		player.CurrentMap.Broadcast(pw, 0)
 	} else {
 		pw := protocol.NewPacketWriter(protocol.PROTO_NC_BRIEFINFO_CHANGEUPGRADE_CMD)
 		pw.WriteUint16(player.MapObjectID) // handle
-		pw.WriteUint16(itemID)          // item
-		pw.WriteByte(upgrade)           // upgrade
-		pw.WriteByte(equipSlot)         // nSlotNum
+		pw.WriteUint16(itemID)             // item
+		pw.WriteByte(upgrade)              // upgrade
+		pw.WriteByte(equipSlot)            // nSlotNum
 		player.CurrentMap.Broadcast(pw, 0)
 	}
 }
@@ -3169,7 +3159,7 @@ func (h *Handler) handleSoulStoneHPUse(client *network.Client, pkt *protocol.Pac
 		return
 	}
 
-	if player.StonesHP <= 0 {
+	if player.State == 3 || player.Char.CurHP <= 0 || player.StonesHP <= 0 {
 		fail := protocol.NewPacketWriter(protocol.PROTO_NC_SOULSTONE_USEFAIL_ACK)
 		_ = client.SendPacket(fail)
 		return
@@ -3211,7 +3201,7 @@ func (h *Handler) handleSoulStoneSPUse(client *network.Client, pkt *protocol.Pac
 		return
 	}
 
-	if player.StonesSP <= 0 {
+	if player.State == 3 || player.Char.CurHP <= 0 || player.StonesSP <= 0 {
 		fail := protocol.NewPacketWriter(protocol.PROTO_NC_SOULSTONE_USEFAIL_ACK)
 		_ = client.SendPacket(fail)
 		return

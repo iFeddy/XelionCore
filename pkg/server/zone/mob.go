@@ -717,14 +717,13 @@ func (m *ZoneMap) BroadcastMobSpawn(mob *ZoneMonster, regenAni bool) {
 	m.grid.BroadcastAOI(pw, mx, my, 0)
 }
 
-// SendMobs envía un lote de monstruos al cliente mediante PROTO_NC_BRIEFINFO_MOB_CMD (0x1C09).
+// SendMobs envía un lote de monstruos al cliente mediante PROTO_NC_BRIEFINFO_MOB_CMD (0x1C09), máx 28 (0x1C) por paquete.
 func (m *ZoneMap) SendMobs(p *ZonePlayer, mobs []*ZoneMonster) {
 	if p == nil || p.Client == nil || len(mobs) == 0 {
 		return
 	}
-	const chunkSize = 40
-	for i := 0; i < len(mobs); i += chunkSize {
-		end := i + chunkSize
+	for i := 0; i < len(mobs); i += BriefInfoMaxBatch {
+		end := i + BriefInfoMaxBatch
 		if end > len(mobs) {
 			end = len(mobs)
 		}

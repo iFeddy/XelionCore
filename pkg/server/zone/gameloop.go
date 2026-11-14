@@ -138,6 +138,16 @@ func (gl *MapGameLoop) executeAutoAttack(player *ZonePlayer, now time.Time) {
 	// 2. Verificar hit/miss
 	hit := CheckHit(int(player.EquipTH)+30, 10)
 	if !hit {
+		var curHP uint32
+		switch e := targetEntity.(type) {
+		case *ZoneMonster:
+			curHP = uint32(e.CurHP)
+		case *ZonePlayer:
+			if e.Char != nil {
+				curHP = uint32(e.Char.CurHP)
+			}
+		}
+		emitSwingDamage(gl.zMap, player, targetEntity, player.MapObjectID, player.TargetHandle, 0, curHP, false, true, false, 1)
 		return
 	}
 
@@ -168,27 +178,11 @@ func (gl *MapGameLoop) executeAutoAttack(player *ZonePlayer, now time.Time) {
 		}
 	}
 
-	swingDmg := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_SWING_DAMAGE_CMD)
-	swingDmg.WriteUint16(player.MapObjectID)
-	swingDmg.WriteUint16(player.TargetHandle)
-	flag := uint16(0)
-	if isCrit {
-		flag = 1
-	}
-	swingDmg.WriteUint16(flag)
-	swingDmg.WriteUint16(uint16(dmg))
-	swingDmg.WriteUint32(restHP)
-	swingDmg.WriteUint16(0)
-	swingDmg.WriteUint8(1)
-	swingDmg.WriteUint8(1)
-	gl.zMap.Broadcast(swingDmg, 0)
+	emitSwingDamage(gl.zMap, player, targetEntity, player.MapObjectID, player.TargetHandle, uint16(dmg), restHP, isCrit, false, isDead, 1)
 
 	if isDead {
 		player.IsAutoAttacking = false
 		player.TargetHandle = 0
-		deadCmd := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_SOMEONEDEAD_LARGE_CMD)
-		deadCmd.WriteUint16(targetEntity.GetHandle())
-		gl.zMap.Broadcast(deadCmd, 0)
 	}
 }
 
