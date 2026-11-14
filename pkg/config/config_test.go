@@ -46,3 +46,30 @@ ZONE_PORT=9210
 		t.Errorf("Unexpected zone IP/port: %s:%d", cfg.ZoneIP, cfg.ZonePort)
 	}
 }
+
+func TestLoadConfigDebug(t *testing.T) {
+	tmpFile := "test_debug.env"
+	defer os.Remove(tmpFile)
+
+	if err := os.WriteFile(tmpFile, []byte("DEBUG=true\n"), 0644); err != nil {
+		t.Fatalf("write failed: %v", err)
+	}
+	cfg, err := Load(tmpFile)
+	if err != nil {
+		t.Fatalf("load failed: %v", err)
+	}
+	if !cfg.Debug {
+		t.Errorf("expected cfg.Debug=true for DEBUG=true")
+	}
+
+	if err := os.WriteFile(tmpFile, []byte("DEBUG=false\n"), 0644); err != nil {
+		t.Fatalf("write failed: %v", err)
+	}
+	cfg, err = Load(tmpFile)
+	if err != nil {
+		t.Fatalf("load failed: %v", err)
+	}
+	if cfg.Debug {
+		t.Errorf("expected cfg.Debug=false for DEBUG=false")
+	}
+}

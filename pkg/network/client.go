@@ -2,16 +2,55 @@ package network
 
 import (
 	"encoding/binary"
+	"encoding/hex"
 	"errors"
+	"fmt"
 	"io"
 	"log"
 	"net"
+	"os"
+	"strings"
 	"sync"
 	"sync/atomic"
 
 	"github.com/iFeddy/XelionCore/pkg/crypto"
 	"github.com/iFeddy/XelionCore/pkg/protocol"
 )
+
+var packetDebug atomic.Bool
+
+func init() {
+	switch strings.ToLower(strings.TrimSpace(os.Getenv("DEBUG"))) {
+	case "true", "1", "yes", "on":
+		packetDebug.Store(true)
+	}
+}
+
+// SetPacketDebug enables or disables verbose C2S/S2C packet logging.
+func SetPacketDebug(enabled bool) {
+	packetDebug.Store(enabled)
+}
+
+// IsPacketDebug reports whether verbose C2S/S2C packet logging is enabled.
+func IsPacketDebug() bool {
+	return packetDebug.Load()
+}
+
+func formatPacketHex(raw []byte) string {
+	const maxDumpBytes = 512
+	if len(raw) == 0 {
+		return ""
+	}
+	if len(raw) <= maxDumpBytes {
+		return hex.EncodeToString(raw)
+	}
+	return fmt.Sprintf("%s...(+%d bytes)", hex.EncodeToString(raw[:maxDumpBytes]), len(raw)-maxDumpBytes)
+}
+
+func logPacket(dir, remoteAddr string, opCode uint16, raw []byte) {
+	log.Printf("[PKT][%s][%s] op=0x%04X (%s) len=%d hex=%s",
+		dir, remoteAddr, opCode, protocol.OpCodeName(opCode), len(raw), formatPacketHex(raw))
+}
 
 // Client represents an active client connection to a Xelion server.
 type Client struct {
@@ -94,6 +133,9 @@ func (c *Client) SendPacket(pw *protocol.PacketWriter) error {
 
 	wire := pw.BuildWirePacket()
 	_, err := c.conn.Write(wire)
+	if err == nil && packetDebug.Load() {
+		logPacket("S2C", c.remoteAddr, pw.OpCode(), pw.Data())
+	}
 	return err
 }
 
@@ -155,6 +197,9 @@ func (c *Client) StartReadLoop(packetHandler func(*Client, *protocol.Packet)) {
 		if pkt == nil {
 			log.Printf("[%s] packet shorter than OpCode header (2 bytes)", c.remoteAddr)
 			return
+		}
+		if packetDebug.Load() {
+			logPacket("C2S", c.remoteAddr, pkt.OpCode, payload)
 		}
 
 		packetHandler(c, pkt)

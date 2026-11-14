@@ -13,6 +13,7 @@ import (
 	"github.com/iFeddy/XelionCore/pkg/config"
 	"github.com/iFeddy/XelionCore/pkg/database"
 	"github.com/iFeddy/XelionCore/pkg/logger"
+	"github.com/iFeddy/XelionCore/pkg/network"
 	"github.com/iFeddy/XelionCore/pkg/server/login"
 )
 
@@ -31,6 +32,10 @@ func main() {
 	cfg, err := config.Load()
 	if err != nil {
 		log.Fatalf("[LoginService] Failed to load configuration: %v", err)
+	}
+	network.SetPacketDebug(cfg.Debug)
+	if cfg.Debug {
+		log.Println("[LoginService] Packet debug logging ENABLED (DEBUG=true)")
 	}
 
 	log.Printf("[LoginService] Binding on %s:%d", cfg.LoginHost, cfg.LoginPort)

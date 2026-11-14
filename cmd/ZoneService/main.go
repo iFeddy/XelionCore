@@ -15,6 +15,7 @@ import (
 	"github.com/iFeddy/XelionCore/pkg/config"
 	"github.com/iFeddy/XelionCore/pkg/database"
 	"github.com/iFeddy/XelionCore/pkg/logger"
+	"github.com/iFeddy/XelionCore/pkg/network"
 	"github.com/iFeddy/XelionCore/pkg/server/zone"
 )
 
@@ -34,6 +35,12 @@ func main() {
 	cfg, err := config.Load()
 	if err != nil {
 		log.Printf("[Zone] Warning loading config: %v, using defaults", err)
+	}
+	if cfg != nil {
+		network.SetPacketDebug(cfg.Debug)
+		if cfg.Debug {
+			log.Println("[Zone] Packet debug logging ENABLED (DEBUG=true)")
+		}
 	}
 
 	db, err := sql.Open("mysql", cfg.DSN())

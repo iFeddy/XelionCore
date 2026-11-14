@@ -26,6 +26,9 @@ type Config struct {
 	// Red de ZoneService
 	ZoneIP   string
 	ZonePort uint16
+
+	// Debug de red / paquetes (DEBUG=true en .env)
+	Debug bool
 }
 
 // Load lee el archivo .env (si existe) y las variables de entorno del sistema.
@@ -76,6 +79,18 @@ func Load(envPath ...string) (*Config, error) {
 		return defaultVal
 	}
 
+	getEnvBool := func(key string, defaultVal bool) bool {
+		s := strings.ToLower(strings.TrimSpace(getEnv(key, "")))
+		switch s {
+		case "true", "1", "yes", "on":
+			return true
+		case "false", "0", "no", "off":
+			return false
+		default:
+			return defaultVal
+		}
+	}
+
 	cfg := &Config{
 		LoginHost: getEnv("LOGIN_HOST", "0.0.0.0"),
 		LoginPort: getEnvUint16("LOGIN_PORT", 9010),
@@ -88,6 +103,8 @@ func Load(envPath ...string) (*Config, error) {
 
 		ZoneIP:   getEnv("ZONE_IP", "127.0.0.1"),
 		ZonePort: getEnvUint16("ZONE_PORT", 9210),
+
+		Debug: getEnvBool("DEBUG", false),
 	}
 
 	return cfg, nil
