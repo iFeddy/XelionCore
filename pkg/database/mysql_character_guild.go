@@ -508,3 +508,104 @@ func (r *MySQLCharacterRepository) GetAllGuildTournaments() ([]*GuildTournamentD
 	}
 	return list, nil
 }
+
+// SubGuildMoney retira Cen de la tesorería del gremio hacia un miembro vía p_Guild_MoneySub.
+func (r *MySQLCharacterRepository) SubGuildMoney(guildID, memberCharNo int, amount int64) (int64, int64, error) {
+	var memberMoney, totalMoney int64
+	var ret int
+	err := r.db.QueryRow(
+		"CALL p_Guild_MoneySub(?, ?, ?, @out_nMemberMoney, @out_nTotalMoney, @out_nRet)",
+		guildID, memberCharNo, amount,
+	).Scan(&memberMoney, &totalMoney, &ret)
+	if err != nil {
+		return 0, 0, fmt.Errorf("error calling p_Guild_MoneySub: %w", err)
+	}
+	if ret != 0 {
+		return 0, 0, fmt.Errorf("p_Guild_MoneySub failed with code %d", ret)
+	}
+	return memberMoney, totalMoney, nil
+}
+
+// GetAcademyMoney consulta el Cen en el almacén de recompensas de la academia vía usp_GuildAcademy_getMoney.
+func (r *MySQLCharacterRepository) GetAcademyMoney(guildID int) (int64, error) {
+	var money int64
+	err := r.db.QueryRow("CALL usp_GuildAcademy_getMoney(?, @out_nRet)", guildID).Scan(&money)
+	if err != nil {
+		return 0, nil
+	}
+	return money, nil
+}
+
+// DepositAcademyMoney deposita Cen en el almacén de la academia vía usp_GuildAcademy_depositMoney.
+func (r *MySQLCharacterRepository) DepositAcademyMoney(guildID, charNo int, amount int64) error {
+	var ret int
+	err := r.db.QueryRow(
+		"CALL usp_GuildAcademy_depositMoney(?, ?, ?, @out_nRet)",
+		guildID, charNo, amount,
+	).Scan(&ret)
+	if err != nil {
+		return fmt.Errorf("error calling usp_GuildAcademy_depositMoney: %w", err)
+	}
+	if ret != 0 {
+		return fmt.Errorf("usp_GuildAcademy_depositMoney failed with code %d", ret)
+	}
+	return nil
+}
+
+// WithdrawAcademyMoney retira Cen del almacén de la academia vía usp_GuildAcademy_withdrawMoney.
+func (r *MySQLCharacterRepository) WithdrawAcademyMoney(guildID, charNo int, amount int64) error {
+	var ret int
+	err := r.db.QueryRow(
+		"CALL usp_GuildAcademy_withdrawMoney(?, ?, ?, @out_nRet)",
+		guildID, charNo, amount,
+	).Scan(&ret)
+	if err != nil {
+		return fmt.Errorf("error calling usp_GuildAcademy_withdrawMoney: %w", err)
+	}
+	if ret != 0 {
+		return fmt.Errorf("usp_GuildAcademy_withdrawMoney failed with code %d", ret)
+	}
+	return nil
+}
+
+// GetAcademyRewardsAll lista las recompensas configuradas para la academia vía usp_GuildAcademy_getRewardAll.
+func (r *MySQLCharacterRepository) GetAcademyRewardsAll(guildID, typeID int) ([]*AcademyRewardData, error) {
+	rows, err := r.db.Query("CALL usp_GuildAcademy_getRewardAll(?, ?, @out_nRet)", guildID, typeID)
+	if err != nil {
+		return nil, fmt.Errorf("error calling usp_GuildAcademy_getRewardAll: %w", err)
+	}
+	defer rows.Close()
+
+	var list []*AcademyRewardData
+	for rows.Next() {
+		var lvl int16
+		var tid byte
+		var val int64
+		var itemID int
+		if err := rows.Scan(&lvl, &tid, &val, &itemID); err == nil {
+			list = append(list, &AcademyRewardData{
+				Level:  lvl,
+				TypeID: tid,
+				Value:  val,
+				ItemID: itemID,
+			})
+		}
+	}
+	return list, nil
+}
+
+// DelAcademyReward elimina una recompensa entregada de la academia vía usp_GuildAcademy_delReward.
+func (r *MySQLCharacterRepository) DelAcademyReward(guildID int, level int16, typeID byte) error {
+	var ret int
+	err := r.db.QueryRow(
+		"CALL usp_GuildAcademy_delReward(?, ?, ?, @out_nRet)",
+		guildID, level, typeID,
+	).Scan(&ret)
+	if err != nil {
+		return fmt.Errorf("error calling usp_GuildAcademy_delReward: %w", err)
+	}
+	if ret != 0 {
+		return fmt.Errorf("usp_GuildAcademy_delReward failed with code %d", ret)
+	}
+	return nil
+}

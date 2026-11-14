@@ -152,14 +152,21 @@ func (r *MySQLCharacterRepository) ArrangeInventory(charNo int, itemKeys []int64
 	return nil
 }
 
-// UpdateItemFlags actualiza los flags de un ítem mediante p_Item_SetData.
+// UpdateItemFlags actualiza los flags de un ítem mediante p_Item_GetData + p_Item_SetData.
 func (r *MySQLCharacterRepository) UpdateItemFlags(itemKey int64, flags int) error {
-	var st, s, ret int
-	err := r.db.QueryRow("CALL p_Item_GetStorage(?, @out_nStorageType, @out_nStorage, @out_nRet)", itemKey).Scan(&st, &s, &ret)
+	var owner, st, slot, itemID, oldFlags, ret int
+	var dDate time.Time
+	err := r.db.QueryRow(
+		"CALL p_Item_GetData(?, @out_nOwner, @out_nStorageType, @out_nStorage, @out_nItemID, @out_nFlags, @out_dDate, @out_nRet)",
+		itemKey,
+	).Scan(&owner, &st, &slot, &itemID, &oldFlags, &dDate, &ret)
 	if err != nil {
-		return fmt.Errorf("error resolving item storage for flags: %w", err)
+		return fmt.Errorf("error calling p_Item_GetData(%d): %w", itemKey, err)
 	}
-	return r.SetItemStorage(itemKey, byte(st), int16(s))
+	if ret == 0 {
+		return fmt.Errorf("p_Item_GetData(%d) not found", itemKey)
+	}
+	return r.SetItemData(itemKey, owner, byte(st), int16(slot), itemID, flags, dDate)
 }
 
 // GetItemOptions recupera las opciones aleatorias y atributos de un ítem invocando p_Item_GetOptionAll.
@@ -255,13 +262,308 @@ func (r *MySQLCharacterRepository) SplitAndMergeItems(keyFrom int64, ownerFrom i
 
 // UpgradeItem ejecuta la mejora o destrucción de un ítem invocando p_Item_Upgrade.
 func (r *MySQLCharacterRepository) UpgradeItem(owner int, itemKey int64, itemDestroy int, upOptType int16, upOptValue int64, upFailCountType int16, upFailCountValue int64) error {
+	return r.UpgradeItemFull(owner, itemKey, itemDestroy, upOptType, upOptValue, upFailCountType, upFailCountValue, 0, 0, 0, 0, 0)
+}
+
+// UpgradeItemFull ejecuta la mejora completa incluyendo catalizadores y costo en Cen vía p_Item_Upgrade.
+func (r *MySQLCharacterRepository) UpgradeItemFull(owner int, itemKey int64, itemDestroy int, upOptType int16, upOptValue int64, upFailCountType int16, upFailCountValue int64, rawKey, rawLeftKey, rawRightKey, rawMiddleKey, giftMoney int64) error {
 	var ret int
 	err := r.db.QueryRow(
-		"CALL p_Item_Upgrade(?, ?, ?, ?, ?, ?, ?, 0, 0, 0, 0, 0, @out_nRet)",
+		"CALL p_Item_Upgrade(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, @out_nRet)",
 		owner, itemKey, itemDestroy, upOptType, upOptValue, upFailCountType, upFailCountValue,
+		rawKey, rawLeftKey, rawRightKey, rawMiddleKey, giftMoney,
 	).Scan(&ret)
 	if err != nil {
 		return fmt.Errorf("error calling p_Item_Upgrade: %w", err)
+	}
+	if ret != 0 {
+		return fmt.Errorf("p_Item_Upgrade failed with code %d", ret)
+	}
+	return nil
+}
+
+// BuyItemAll compra un ítem nuevo atómicamente vía p_Item_BuyAll.
+func (r *MySQLCharacterRepository) BuyItemAll(itemKey int64, owner int, storageType byte, storage int16, itemID int, flags int, price int64, fame int, coin int64) error {
+	var ret int
+	err := r.db.QueryRow(
+		"CALL p_Item_BuyAll(?, ?, ?, ?, ?, ?, ?, ?, ?, @out_nRet)",
+		itemKey, owner, storageType, storage, itemID, flags, price, fame, coin,
+	).Scan(&ret)
+	if err != nil {
+		return fmt.Errorf("error calling p_Item_BuyAll: %w", err)
+	}
+	if ret != 0 {
+		return fmt.Errorf("p_Item_BuyAll failed with code %d", ret)
+	}
+	return nil
+}
+
+// BuyItemLot añade cantidad a un stack existente atómicamente vía p_Item_BuyLot.
+func (r *MySQLCharacterRepository) BuyItemLot(itemKey int64, owner int, optType int16, optData int64, price int64, fame int, coin int64) error {
+	var ret int
+	err := r.db.QueryRow(
+		"CALL p_Item_BuyLot(?, ?, ?, ?, ?, ?, ?, @out_nRet)",
+		itemKey, owner, optType, optData, price, fame, coin,
+	).Scan(&ret)
+	if err != nil {
+		return fmt.Errorf("error calling p_Item_BuyLot: %w", err)
+	}
+	if ret != 0 {
+		return fmt.Errorf("p_Item_BuyLot failed with code %d", ret)
+	}
+	return nil
+}
+
+// SellItemAll vende un ítem completo atómicamente vía p_Item_SellAll.
+func (r *MySQLCharacterRepository) SellItemAll(itemKey int64, owner int, price int64) error {
+	var ret int
+	err := r.db.QueryRow(
+		"CALL p_Item_SellAll(?, ?, ?, @out_nRet)",
+		itemKey, owner, price,
+	).Scan(&ret)
+	if err != nil {
+		return fmt.Errorf("error calling p_Item_SellAll: %w", err)
+	}
+	if ret != 0 {
+		return fmt.Errorf("p_Item_SellAll failed with code %d", ret)
+	}
+	return nil
+}
+
+// SellItemLot vende parte de un stack atómicamente vía p_Item_SellLot.
+func (r *MySQLCharacterRepository) SellItemLot(itemKey int64, owner int, optType int16, optData int64, price int64) error {
+	var ret int
+	err := r.db.QueryRow(
+		"CALL p_Item_SellLot(?, ?, ?, ?, ?, @out_nRet)",
+		itemKey, owner, optType, optData, price,
+	).Scan(&ret)
+	if err != nil {
+		return fmt.Errorf("error calling p_Item_SellLot: %w", err)
+	}
+	if ret != 0 {
+		return fmt.Errorf("p_Item_SellLot failed with code %d", ret)
+	}
+	return nil
+}
+
+// UserDepositMoney deposita Cen del personaje al almacén de cuenta vía p_User_Deposit.
+func (r *MySQLCharacterRepository) UserDepositMoney(userNo, charNo int, amount int64) (int64, error) {
+	var totalMoney int64
+	var ret int
+	err := r.db.QueryRow(
+		"CALL p_User_Deposit(?, ?, ?, @out_nResultUserMoney, @out_nRet)",
+		userNo, charNo, amount,
+	).Scan(&totalMoney, &ret)
+	if err != nil {
+		return 0, fmt.Errorf("error calling p_User_Deposit: %w", err)
+	}
+	if ret != 0 {
+		return 0, fmt.Errorf("p_User_Deposit failed with code %d", ret)
+	}
+	return totalMoney, nil
+}
+
+// UserWithdrawMoney retira Cen del almacén de cuenta al personaje vía p_User_Withdraw.
+func (r *MySQLCharacterRepository) UserWithdrawMoney(userNo, charNo int, amount int64) (int64, error) {
+	var totalMoney int64
+	var ret int
+	err := r.db.QueryRow(
+		"CALL p_User_Withdraw(?, ?, ?, @out_nResultUserMoney, @out_nRet)",
+		userNo, charNo, amount,
+	).Scan(&totalMoney, &ret)
+	if err != nil {
+		return 0, fmt.Errorf("error calling p_User_Withdraw: %w", err)
+	}
+	if ret != 0 {
+		return 0, fmt.Errorf("p_User_Withdraw failed with code %d", ret)
+	}
+	return totalMoney, nil
+}
+
+// UserGetMoney consulta el saldo del almacén de cuenta vía p_User_MoneyGet.
+func (r *MySQLCharacterRepository) UserGetMoney(userNo int) (int64, error) {
+	var totalMoney int64
+	var ret int
+	err := r.db.QueryRow(
+		"CALL p_User_MoneyGet(?, @out_nUserMoney, @out_nRet)",
+		userNo,
+	).Scan(&totalMoney, &ret)
+	if err != nil {
+		return 0, fmt.Errorf("error calling p_User_MoneyGet: %w", err)
+	}
+	return totalMoney, nil
+}
+
+// EnchantAddGem engarza una gema en un socket del equipamiento vía usp_Item_Add_EnchantGem.
+func (r *MySQLCharacterRepository) EnchantAddGem(charNo int, equipKey, gemKey int64, socketIdx byte, gemID int, restGemCount byte) error {
+	var ret int
+	err := r.db.QueryRow(
+		"CALL usp_Item_Add_EnchantGem(?, ?, ?, ?, ?, ?, @out_nRet)",
+		charNo, equipKey, gemKey, socketIdx, gemID, restGemCount,
+	).Scan(&ret)
+	if err != nil {
+		return fmt.Errorf("error calling usp_Item_Add_EnchantGem: %w", err)
+	}
+	if ret != 0 {
+		return fmt.Errorf("usp_Item_Add_EnchantGem failed with code %d", ret)
+	}
+	return nil
+}
+
+// EnchantAddSocket abre un nuevo socket vía usp_Item_Add_EnchantSocket.
+func (r *MySQLCharacterRepository) EnchantAddSocket(charNo int, equipKey, drillKey int64, drillLotType int16) (byte, int64, error) {
+	var sockCount byte
+	var drillLot int64
+	var ret int
+	err := r.db.QueryRow(
+		"CALL usp_Item_Add_EnchantSocket(?, ?, ?, @out_nAllSocketCount, ?, @out_nDrillLotValue, @out_nRet)",
+		charNo, equipKey, drillKey, drillLotType,
+	).Scan(&sockCount, &drillLot, &ret)
+	if err != nil {
+		return 0, 0, fmt.Errorf("error calling usp_Item_Add_EnchantSocket: %w", err)
+	}
+	if ret != 0 {
+		return 0, 0, fmt.Errorf("usp_Item_Add_EnchantSocket failed with code %d", ret)
+	}
+	return sockCount, drillLot, nil
+}
+
+// EnchantRemoveGem extrae o limpia una gema de un socket vía usp_Item_Del_EnchantGem.
+func (r *MySQLCharacterRepository) EnchantRemoveGem(charNo int, equipKey, removerKey int64, socketIdx, needItem byte, removerLotType int16) (int64, error) {
+	var remLot int64
+	var ret int
+	err := r.db.QueryRow(
+		"CALL usp_Item_Del_EnchantGem(?, ?, ?, ?, ?, ?, @out_nRemoverLotValue, @out_nRet)",
+		charNo, equipKey, removerKey, socketIdx, needItem, removerLotType,
+	).Scan(&remLot, &ret)
+	if err != nil {
+		return 0, fmt.Errorf("error calling usp_Item_Del_EnchantGem: %w", err)
+	}
+	if ret != 0 {
+		return 0, fmt.Errorf("usp_Item_Del_EnchantGem failed with code %d", ret)
+	}
+	return remLot, nil
+}
+
+// SetEnchantGemLot actualiza las cargas restantes de la gema engarzada vía usp_Item_Set_EnchantGemLot.
+func (r *MySQLCharacterRepository) SetEnchantGemLot(charNo int, equipKey int64, slot, restGemCount byte) error {
+	var ret int
+	err := r.db.QueryRow(
+		"CALL usp_Item_Set_EnchantGemLot(?, ?, ?, ?, @out_nRet)",
+		charNo, equipKey, slot, restGemCount,
+	).Scan(&ret)
+	if err != nil {
+		return fmt.Errorf("error calling usp_Item_Set_EnchantGemLot: %w", err)
+	}
+	return nil
+}
+
+// PutOnBelongedCancel desvincula un equipamiento ligado consumiendo el pergamino vía usp_Item_setPutOnBelongedCancel.
+func (r *MySQLCharacterRepository) PutOnBelongedCancel(charNo int, cancelKey int64, cancelOptType int16, cancelOptData int64, targetKey int64, targetOptType int16, targetOptData int64) error {
+	var ret int
+	err := r.db.QueryRow(
+		"CALL usp_Item_setPutOnBelongedCancel(?, ?, ?, ?, ?, ?, ?, @out_nRet)",
+		charNo, cancelKey, cancelOptType, cancelOptData, targetKey, targetOptType, targetOptData,
+	).Scan(&ret)
+	if err != nil {
+		return fmt.Errorf("error calling usp_Item_setPutOnBelongedCancel: %w", err)
+	}
+	if ret != 0 {
+		return fmt.Errorf("usp_Item_setPutOnBelongedCancel failed with code %d", ret)
+	}
+	return nil
+}
+
+// SetMinimonAutoItem configura los ítems automáticos de Minimon vía usp_Item_setAutoMon.
+func (r *MySQLCharacterRepository) SetMinimonAutoItem(charNo, monType, slot, itemID int) error {
+	var ret int
+	err := r.db.QueryRow(
+		"CALL usp_Item_setAutoMon(?, ?, ?, ?, @out_nRet)",
+		charNo, monType, slot, itemID,
+	).Scan(&ret)
+	if err != nil {
+		return fmt.Errorf("error calling usp_Item_setAutoMon: %w", err)
+	}
+	return nil
+}
+
+// FurnitureEndureUpdate repara durabilidad de mueble de MiniHouse vía p_Item_Furniture_Endure_Update.
+func (r *MySQLCharacterRepository) FurnitureEndureUpdate(owner int, kitKey int64, kitOptType int16, kitLot int16, furnitureKey int64, endureOptType int16, endureOptData int64) error {
+	var ret int
+	err := r.db.QueryRow(
+		"CALL p_Item_Furniture_Endure_Update(?, ?, ?, ?, ?, ?, ?, @out_nRet)",
+		owner, kitKey, kitOptType, kitLot, furnitureKey, endureOptType, endureOptData,
+	).Scan(&ret)
+	if err != nil {
+		return fmt.Errorf("error calling p_Item_Furniture_Endure_Update: %w", err)
+	}
+	if ret != 0 {
+		return fmt.Errorf("p_Item_Furniture_Endure_Update failed with code %d", ret)
+	}
+	return nil
+}
+
+// CostumeWeaponEndureUpdate repara durabilidad/tiempo de arma/traje vía p_Item_CostumWeapon_Endure_Update.
+func (r *MySQLCharacterRepository) CostumeWeaponEndureUpdate(owner int, kitKey int64, kitOptType int16, kitLot int16, costumeKey int64, endureOptType int16, endureOptData int64) error {
+	var ret int
+	err := r.db.QueryRow(
+		"CALL p_Item_CostumWeapon_Endure_Update(?, ?, ?, ?, ?, ?, ?, @out_nRet)",
+		owner, kitKey, kitOptType, kitLot, costumeKey, endureOptType, endureOptData,
+	).Scan(&ret)
+	if err != nil {
+		return fmt.Errorf("error calling p_Item_CostumWeapon_Endure_Update: %w", err)
+	}
+	if ret != 0 {
+		return fmt.Errorf("p_Item_CostumWeapon_Endure_Update failed with code %d", ret)
+	}
+	return nil
+}
+
+// SafeTradeAll transfiere ítem completo y/o Cen atómicamente vía usp_SafeTrade_setAll.
+func (r *MySQLCharacterRepository) SafeTradeAll(buyer, seller int, moveMoney, itemKey int64, storageType byte, storage int16) error {
+	var ret int
+	err := r.db.QueryRow(
+		"CALL usp_SafeTrade_setAll(?, ?, ?, ?, ?, ?, @out_nRet)",
+		buyer, seller, moveMoney, itemKey, storageType, storage,
+	).Scan(&ret)
+	if err != nil {
+		return fmt.Errorf("error calling usp_SafeTrade_setAll: %w", err)
+	}
+	if ret != 0 {
+		return fmt.Errorf("usp_SafeTrade_setAll failed with code %d", ret)
+	}
+	return nil
+}
+
+// SafeTradeLot divide parte de un stack hacia el comprador vía usp_SafeTrade_setLot.
+func (r *MySQLCharacterRepository) SafeTradeLot(buyer int, buyerItemKey int64, buyerStorageType byte, buyerStorage int16, buyerItemID, buyerFlags int, buyerOptType int16, seller int, sellerItemKey int64, sellerOptType int16, moveMoney, splitLot int64) error {
+	var ret int
+	err := r.db.QueryRow(
+		"CALL usp_SafeTrade_setLot(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, @out_nRet)",
+		buyer, buyerItemKey, buyerStorageType, buyerStorage, buyerItemID, buyerFlags, buyerOptType,
+		seller, sellerItemKey, sellerOptType, moveMoney, splitLot,
+	).Scan(&ret)
+	if err != nil {
+		return fmt.Errorf("error calling usp_SafeTrade_setLot: %w", err)
+	}
+	if ret != 0 {
+		return fmt.Errorf("usp_SafeTrade_setLot failed with code %d", ret)
+	}
+	return nil
+}
+
+// SafeTradeMerge fusiona parte de un stack con un stack existente del comprador vía usp_SafeTrade_setMerge.
+func (r *MySQLCharacterRepository) SafeTradeMerge(buyer int, buyerItemKey int64, buyerOptType int16, seller int, sellerItemKey int64, sellerOptType int16, moveMoney, splitLot int64, isDelete byte) error {
+	var ret int
+	err := r.db.QueryRow(
+		"CALL usp_SafeTrade_setMerge(?, ?, ?, ?, ?, ?, ?, ?, ?, @out_nRet)",
+		buyer, buyerItemKey, buyerOptType, seller, sellerItemKey, sellerOptType, moveMoney, splitLot, isDelete,
+	).Scan(&ret)
+	if err != nil {
+		return fmt.Errorf("error calling usp_SafeTrade_setMerge: %w", err)
+	}
+	if ret != 0 {
+		return fmt.Errorf("usp_SafeTrade_setMerge failed with code %d", ret)
 	}
 	return nil
 }

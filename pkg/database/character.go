@@ -521,8 +521,27 @@ type CharacterItemRepository interface {
 	MergeItems(ownerFrom, ownerTo int, keyFrom, keyTo int64, optType int16, optData int64) error
 	SplitAndMergeItems(keyFrom int64, ownerFrom int, optTypeFrom int16, optDataFrom int64, keyTo int64, ownerTo int, optTypeTo int16, optDataTo int64) error
 	UpgradeItem(owner int, itemKey int64, itemDestroy int, upOptType int16, upOptValue int64, upFailCountType int16, upFailCountValue int64) error
+	UpgradeItemFull(owner int, itemKey int64, itemDestroy int, upOptType int16, upOptValue int64, upFailCountType int16, upFailCountValue int64, rawKey, rawLeftKey, rawRightKey, rawMiddleKey, giftMoney int64) error
 	GetItemActionCoolTime(charNo int) ([]*ItemActionCoolTimeData, error)
 	SetItemActionCoolTime(charNo int, actionGroup int16, endTime time.Time) error
+	BuyItemAll(itemKey int64, owner int, storageType byte, storage int16, itemID int, flags int, price int64, fame int, coin int64) error
+	BuyItemLot(itemKey int64, owner int, optType int16, optData int64, price int64, fame int, coin int64) error
+	SellItemAll(itemKey int64, owner int, price int64) error
+	SellItemLot(itemKey int64, owner int, optType int16, optData int64, price int64) error
+	UserDepositMoney(userNo, charNo int, amount int64) (int64, error)
+	UserWithdrawMoney(userNo, charNo int, amount int64) (int64, error)
+	UserGetMoney(userNo int) (int64, error)
+	EnchantAddGem(charNo int, equipKey, gemKey int64, socketIdx byte, gemID int, restGemCount byte) error
+	EnchantAddSocket(charNo int, equipKey, drillKey int64, drillLotType int16) (byte, int64, error)
+	EnchantRemoveGem(charNo int, equipKey, removerKey int64, socketIdx, needItem byte, removerLotType int16) (int64, error)
+	SetEnchantGemLot(charNo int, equipKey int64, slot, restGemCount byte) error
+	PutOnBelongedCancel(charNo int, cancelKey int64, cancelOptType int16, cancelOptData int64, targetKey int64, targetOptType int16, targetOptData int64) error
+	SetMinimonAutoItem(charNo, monType, slot, itemID int) error
+	FurnitureEndureUpdate(owner int, kitKey int64, kitOptType int16, kitLot int16, furnitureKey int64, endureOptType int16, endureOptData int64) error
+	CostumeWeaponEndureUpdate(owner int, kitKey int64, kitOptType int16, kitLot int16, costumeKey int64, endureOptType int16, endureOptData int64) error
+	SafeTradeAll(buyer, seller int, moveMoney, itemKey int64, storageType byte, storage int16) error
+	SafeTradeLot(buyer int, buyerItemKey int64, buyerStorageType byte, buyerStorage int16, buyerItemID, buyerFlags int, buyerOptType int16, seller int, sellerItemKey int64, sellerOptType int16, moveMoney, splitLot int64) error
+	SafeTradeMerge(buyer int, buyerItemKey int64, buyerOptType int16, seller int, sellerItemKey int64, sellerOptType int16, moveMoney, splitLot int64, isDelete byte) error
 }
 
 // CharacterProgressionRepository gobierna habilidades, misiones, atajos, opciones de cliente, asistencia y tutorial.
@@ -601,6 +620,12 @@ type GuildRepository interface {
 	SetAcademyChatBan(guildID, charID int, banMinutes int) error
 	SetAcademyGraduate(guildID, charID int) error
 	GetAcademyGraduates(guildID int) ([]int, error)
+	SubGuildMoney(guildID, memberCharNo int, amount int64) (int64, int64, error)
+	GetAcademyMoney(guildID int) (int64, error)
+	DepositAcademyMoney(guildID, charNo int, amount int64) error
+	WithdrawAcademyMoney(guildID, charNo int, amount int64) error
+	GetAcademyRewardsAll(guildID, typeID int) ([]*AcademyRewardData, error)
+	DelAcademyReward(guildID int, level int16, typeID byte) error
 	GetGuildTournament(gtNo int) (*GuildTournamentData, error)
 	GetAllGuildTournaments() ([]*GuildTournamentData, error)
 }
@@ -766,6 +791,14 @@ type GuildAcademyMemberData struct {
 	ChatBanEnd time.Time `json:"chat_ban_end"`
 }
 
+// AcademyRewardData modela tGuildAcademyReward.
+type AcademyRewardData struct {
+	Level  int16 `json:"level"`
+	TypeID byte  `json:"type_id"`
+	Value  int64 `json:"value"`
+	ItemID int   `json:"item_id"`
+}
+
 // FriendInfo modela relaciones de amistad en tFriend.
 type FriendInfo struct {
 	CharNo    int       `json:"char_no"`
@@ -819,6 +852,10 @@ type MemoryCharacterRepository struct {
 	partyMembers        map[int][]*PartyMemberData
 	nextPartyNo         int
 	itemOptions         map[int64]map[int16]int64
+	itemEnchants        map[int64][]*ItemEnchantData
+	userMoney           map[int]int64
+	academyMoney        map[int]int64
+	academyRewards      map[int][]*AcademyRewardData
 }
 
 func NewMemoryCharacterRepositoryWithFile(filePath string) *MemoryCharacterRepository {
@@ -852,6 +889,10 @@ func NewMemoryCharacterRepositoryWithFile(filePath string) *MemoryCharacterRepos
 		partyMembers:        make(map[int][]*PartyMemberData),
 		nextPartyNo:         1,
 		itemOptions:         make(map[int64]map[int16]int64),
+		itemEnchants:        make(map[int64][]*ItemEnchantData),
+		userMoney:           make(map[int]int64),
+		academyMoney:        make(map[int]int64),
+		academyRewards:      make(map[int][]*AcademyRewardData),
 		guilds:        make(map[int]*GuildData),
 		guildMbrs:     make(map[int][]*GuildMemberData),
 		academies:     make(map[int]*GuildAcademyData),
@@ -1433,7 +1474,17 @@ func (r *MemoryCharacterRepository) ArrangeInventory(charNo int, itemKeys []int6
 }
 
 func (r *MemoryCharacterRepository) UpdateItemFlags(itemKey int64, flags int) error {
-	return nil
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	for _, list := range r.items {
+		for _, it := range list {
+			if it.ItemKey == itemKey {
+				it.Flags = int32(flags)
+				return nil
+			}
+		}
+	}
+	return errors.New("item not found")
 }
 
 func (r *MemoryCharacterRepository) GetItemOptions(itemKey int64) (map[int16]int64, error) {
@@ -1464,22 +1515,74 @@ func (r *MemoryCharacterRepository) SetItemOption(itemKey int64, optionType int1
 }
 
 func (r *MemoryCharacterRepository) GetItemEnchant(itemKey int64) ([]*ItemEnchantData, error) {
-	return nil, nil
+	r.mu.RLock()
+	defer r.mu.RUnlock()
+	list := r.itemEnchants[itemKey]
+	out := make([]*ItemEnchantData, len(list))
+	for i, e := range list {
+		cp := *e
+		out[i] = &cp
+	}
+	return out, nil
 }
 
 func (r *MemoryCharacterRepository) SetItemData(itemKey int64, owner int, storageType byte, storage int16, itemID int, flags int, dDate time.Time) error {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	for oldOwner, list := range r.items {
+		for i, it := range list {
+			if it.ItemKey == itemKey {
+				it.Owner = owner
+				it.StorageType = storageType
+				it.Storage = storage
+				it.ItemID = uint16(itemID)
+				it.Flags = int32(flags)
+				it.Date = dDate
+				if oldOwner != owner {
+					r.items[oldOwner] = append(list[:i], list[i+1:]...)
+					r.items[owner] = append(r.items[owner], it)
+				}
+				return nil
+			}
+		}
+	}
 	return nil
 }
 
 func (r *MemoryCharacterRepository) MergeItems(ownerFrom, ownerTo int, keyFrom, keyTo int64, optType int16, optData int64) error {
+	_ = r.UpdateItemFlags(keyTo, int(optData))
+	_ = r.DeleteItem(keyFrom)
 	return nil
 }
 
 func (r *MemoryCharacterRepository) SplitAndMergeItems(keyFrom int64, ownerFrom int, optTypeFrom int16, optDataFrom int64, keyTo int64, ownerTo int, optTypeTo int16, optDataTo int64) error {
+	_ = r.UpdateItemFlags(keyFrom, int(optDataFrom))
+	_ = r.UpdateItemFlags(keyTo, int(optDataTo))
 	return nil
 }
 
 func (r *MemoryCharacterRepository) UpgradeItem(owner int, itemKey int64, itemDestroy int, upOptType int16, upOptValue int64, upFailCountType int16, upFailCountValue int64) error {
+	return r.UpgradeItemFull(owner, itemKey, itemDestroy, upOptType, upOptValue, upFailCountType, upFailCountValue, 0, 0, 0, 0, 0)
+}
+
+func (r *MemoryCharacterRepository) UpgradeItemFull(owner int, itemKey int64, itemDestroy int, upOptType int16, upOptValue int64, upFailCountType int16, upFailCountValue int64, rawKey, rawLeftKey, rawRightKey, rawMiddleKey, giftMoney int64) error {
+	if giftMoney > 0 {
+		ok, err := r.SubCharMoney(owner, giftMoney)
+		if err != nil || !ok {
+			return errors.New("insufficient money")
+		}
+	}
+	if itemDestroy == 1 {
+		_ = r.DeleteItem(itemKey)
+	} else {
+		_ = r.SetItemOption(itemKey, upOptType, upOptValue)
+		_ = r.SetItemOption(itemKey, upFailCountType, upFailCountValue)
+	}
+	for _, rk := range []int64{rawKey, rawLeftKey, rawRightKey, rawMiddleKey} {
+		if rk > 0 {
+			_ = r.DeleteItem(rk)
+		}
+	}
 	return nil
 }
 
@@ -1488,6 +1591,290 @@ func (r *MemoryCharacterRepository) GetItemActionCoolTime(charNo int) ([]*ItemAc
 }
 
 func (r *MemoryCharacterRepository) SetItemActionCoolTime(charNo int, actionGroup int16, endTime time.Time) error {
+	return nil
+}
+
+func (r *MemoryCharacterRepository) BuyItemAll(itemKey int64, owner int, storageType byte, storage int16, itemID int, flags int, price int64, fame int, coin int64) error {
+	if price > 0 {
+		ok, err := r.SubCharMoney(owner, price)
+		if err != nil || !ok {
+			return errors.New("insufficient money")
+		}
+	}
+	if fame > 0 {
+		if err := r.SubCharFame(owner, fame); err != nil {
+			return err
+		}
+	}
+	return r.CreateItem(&Item{
+		ItemKey:     itemKey,
+		Owner:       owner,
+		StorageType: storageType,
+		Storage:     storage,
+		ItemID:      uint16(itemID),
+		Flags:       int32(flags),
+		Date:        time.Now(),
+	})
+}
+
+func (r *MemoryCharacterRepository) BuyItemLot(itemKey int64, owner int, optType int16, optData int64, price int64, fame int, coin int64) error {
+	if price > 0 {
+		ok, err := r.SubCharMoney(owner, price)
+		if err != nil || !ok {
+			return errors.New("insufficient money")
+		}
+	}
+	if fame > 0 {
+		if err := r.SubCharFame(owner, fame); err != nil {
+			return err
+		}
+	}
+	_ = r.UpdateItemFlags(itemKey, int(optData))
+	return r.SetItemOption(itemKey, optType, optData)
+}
+
+func (r *MemoryCharacterRepository) SellItemAll(itemKey int64, owner int, price int64) error {
+	if price > 0 {
+		_ = r.AddCharMoney(owner, price)
+	}
+	return r.DeleteItem(itemKey)
+}
+
+func (r *MemoryCharacterRepository) SellItemLot(itemKey int64, owner int, optType int16, optData int64, price int64) error {
+	if price > 0 {
+		_ = r.AddCharMoney(owner, price)
+	}
+	_ = r.UpdateItemFlags(itemKey, int(optData))
+	return r.SetItemOption(itemKey, optType, optData)
+}
+
+func (r *MemoryCharacterRepository) UserDepositMoney(userNo, charNo int, amount int64) (int64, error) {
+	if amount <= 0 {
+		return 0, errors.New("invalid deposit amount")
+	}
+	ok, err := r.SubCharMoney(charNo, amount)
+	if err != nil || !ok {
+		return 0, errors.New("insufficient character money")
+	}
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.userMoney == nil {
+		r.userMoney = make(map[int]int64)
+	}
+	r.userMoney[userNo] += amount
+	return r.userMoney[userNo], nil
+}
+
+func (r *MemoryCharacterRepository) UserWithdrawMoney(userNo, charNo int, amount int64) (int64, error) {
+	if amount <= 0 {
+		return 0, errors.New("invalid withdraw amount")
+	}
+	r.mu.Lock()
+	if r.userMoney == nil || r.userMoney[userNo] < amount {
+		r.mu.Unlock()
+		return 0, errors.New("insufficient storage money")
+	}
+	r.userMoney[userNo] -= amount
+	rem := r.userMoney[userNo]
+	r.mu.Unlock()
+	_ = r.AddCharMoney(charNo, amount)
+	return rem, nil
+}
+
+func (r *MemoryCharacterRepository) UserGetMoney(userNo int) (int64, error) {
+	r.mu.RLock()
+	defer r.mu.RUnlock()
+	if r.userMoney == nil {
+		return 0, nil
+	}
+	return r.userMoney[userNo], nil
+}
+
+func (r *MemoryCharacterRepository) EnchantAddGem(charNo int, equipKey, gemKey int64, socketIdx byte, gemID int, restGemCount byte) error {
+	if gemKey > 0 {
+		_ = r.DeleteItem(gemKey)
+	}
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.itemEnchants == nil {
+		r.itemEnchants = make(map[int64][]*ItemEnchantData)
+	}
+	list := r.itemEnchants[equipKey]
+	replaced := false
+	for _, e := range list {
+		if e.Slot == socketIdx {
+			e.GemItemID = gemID
+			e.RestCount = restGemCount
+			replaced = true
+			break
+		}
+	}
+	if !replaced {
+		r.itemEnchants[equipKey] = append(list, &ItemEnchantData{
+			Slot:      socketIdx,
+			GemItemID: gemID,
+			RestCount: restGemCount,
+		})
+	}
+	return nil
+}
+
+func (r *MemoryCharacterRepository) EnchantAddSocket(charNo int, equipKey, drillKey int64, drillLotType int16) (byte, int64, error) {
+	if drillKey > 0 {
+		_ = r.DeleteItem(drillKey)
+	}
+	opts, _ := r.GetItemOptions(equipKey)
+	cur := byte(opts[524])
+	cur++
+	_ = r.SetItemOption(equipKey, 524, int64(cur))
+	return cur, 0, nil
+}
+
+func (r *MemoryCharacterRepository) EnchantRemoveGem(charNo int, equipKey, removerKey int64, socketIdx, needItem byte, removerLotType int16) (int64, error) {
+	if needItem > 0 && removerKey > 0 {
+		_ = r.DeleteItem(removerKey)
+	}
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	list := r.itemEnchants[equipKey]
+	for i, e := range list {
+		if e.Slot == socketIdx {
+			r.itemEnchants[equipKey] = append(list[:i], list[i+1:]...)
+			break
+		}
+	}
+	return 0, nil
+}
+
+func (r *MemoryCharacterRepository) SetEnchantGemLot(charNo int, equipKey int64, slot, restGemCount byte) error {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	for _, e := range r.itemEnchants[equipKey] {
+		if e.Slot == slot {
+			e.RestCount = restGemCount
+		}
+	}
+	return nil
+}
+
+func (r *MemoryCharacterRepository) PutOnBelongedCancel(charNo int, cancelKey int64, cancelOptType int16, cancelOptData int64, targetKey int64, targetOptType int16, targetOptData int64) error {
+	if cancelOptData <= 0 {
+		_ = r.DeleteItem(cancelKey)
+	} else {
+		_ = r.UpdateItemFlags(cancelKey, int(cancelOptData))
+	}
+	return r.SetItemOption(targetKey, targetOptType, targetOptData)
+}
+
+func (r *MemoryCharacterRepository) SetMinimonAutoItem(charNo, monType, slot, itemID int) error {
+	return nil
+}
+
+func (r *MemoryCharacterRepository) FurnitureEndureUpdate(owner int, kitKey int64, kitOptType int16, kitLot int16, furnitureKey int64, endureOptType int16, endureOptData int64) error {
+	if kitLot <= 0 {
+		_ = r.DeleteItem(kitKey)
+	} else {
+		_ = r.UpdateItemFlags(kitKey, int(kitLot))
+	}
+	return r.SetItemOption(furnitureKey, endureOptType, endureOptData)
+}
+
+func (r *MemoryCharacterRepository) CostumeWeaponEndureUpdate(owner int, kitKey int64, kitOptType int16, kitLot int16, costumeKey int64, endureOptType int16, endureOptData int64) error {
+	if kitLot <= 0 {
+		_ = r.DeleteItem(kitKey)
+	} else {
+		_ = r.UpdateItemFlags(kitKey, int(kitLot))
+	}
+	return r.SetItemOption(costumeKey, endureOptType, endureOptData)
+}
+
+func (r *MemoryCharacterRepository) SafeTradeAll(buyer, seller int, moveMoney, itemKey int64, storageType byte, storage int16) error {
+	if moveMoney > 0 {
+		ok, err := r.SubCharMoney(buyer, moveMoney)
+		if err != nil || !ok {
+			return errors.New("insufficient buyer money")
+		}
+		_ = r.AddCharMoney(seller, moveMoney)
+	}
+	if itemKey > 0 {
+		r.mu.Lock()
+		defer r.mu.Unlock()
+		for oldOwner, list := range r.items {
+			for i, it := range list {
+				if it.ItemKey == itemKey {
+					it.Owner = buyer
+					it.StorageType = storageType
+					it.Storage = storage
+					it.Date = time.Now()
+					if oldOwner != buyer {
+						r.items[oldOwner] = append(list[:i], list[i+1:]...)
+						r.items[buyer] = append(r.items[buyer], it)
+					}
+					return nil
+				}
+			}
+		}
+	}
+	return nil
+}
+
+func (r *MemoryCharacterRepository) SafeTradeLot(buyer int, buyerItemKey int64, buyerStorageType byte, buyerStorage int16, buyerItemID, buyerFlags int, buyerOptType int16, seller int, sellerItemKey int64, sellerOptType int16, moveMoney, splitLot int64) error {
+	if moveMoney > 0 {
+		ok, err := r.SubCharMoney(buyer, moveMoney)
+		if err != nil || !ok {
+			return errors.New("insufficient buyer money")
+		}
+		_ = r.AddCharMoney(seller, moveMoney)
+	}
+	if sellerItemKey > 0 && splitLot > 0 {
+		for _, it := range r.items[seller] {
+			if it.ItemKey == sellerItemKey {
+				rem := int(it.Flags) - int(splitLot)
+				if rem <= 0 {
+					_ = r.DeleteItem(sellerItemKey)
+				} else {
+					_ = r.UpdateItemFlags(sellerItemKey, rem)
+				}
+				break
+			}
+		}
+		return r.CreateItem(&Item{
+			ItemKey:     buyerItemKey,
+			Owner:       buyer,
+			StorageType: buyerStorageType,
+			Storage:     buyerStorage,
+			ItemID:      uint16(buyerItemID),
+			Flags:       int32(splitLot),
+			Date:        time.Now(),
+		})
+	}
+	return nil
+}
+
+func (r *MemoryCharacterRepository) SafeTradeMerge(buyer int, buyerItemKey int64, buyerOptType int16, seller int, sellerItemKey int64, sellerOptType int16, moveMoney, splitLot int64, isDelete byte) error {
+	if moveMoney > 0 {
+		ok, err := r.SubCharMoney(buyer, moveMoney)
+		if err != nil || !ok {
+			return errors.New("insufficient buyer money")
+		}
+		_ = r.AddCharMoney(seller, moveMoney)
+	}
+	if isDelete == 1 {
+		_ = r.DeleteItem(sellerItemKey)
+	} else {
+		for _, it := range r.items[seller] {
+			if it.ItemKey == sellerItemKey {
+				_ = r.UpdateItemFlags(sellerItemKey, int(it.Flags)-int(splitLot))
+				break
+			}
+		}
+	}
+	for _, it := range r.items[buyer] {
+		if it.ItemKey == buyerItemKey {
+			_ = r.UpdateItemFlags(buyerItemKey, int(it.Flags)+int(splitLot))
+			break
+		}
+	}
 	return nil
 }
 
@@ -2188,6 +2575,87 @@ func (r *MemoryCharacterRepository) SetAcademyGraduate(guildID, charID int) erro
 
 func (r *MemoryCharacterRepository) GetAcademyGraduates(guildID int) ([]int, error) {
 	return nil, nil
+}
+
+func (r *MemoryCharacterRepository) SubGuildMoney(guildID, memberCharNo int, amount int64) (int64, int64, error) {
+	r.mu.Lock()
+	g, ok := r.guilds[guildID]
+	if !ok || g.Money < uint64(amount) {
+		r.mu.Unlock()
+		return 0, 0, errors.New("insufficient guild money")
+	}
+	g.Money -= uint64(amount)
+	rem := int64(g.Money)
+	r.mu.Unlock()
+	_ = r.AddCharMoney(memberCharNo, amount)
+	ch, _ := r.GetCharacterByID(memberCharNo)
+	var mMoney int64
+	if ch != nil {
+		mMoney = ch.TCharacterState.Money
+	}
+	return mMoney, rem, nil
+}
+
+func (r *MemoryCharacterRepository) GetAcademyMoney(guildID int) (int64, error) {
+	r.mu.RLock()
+	defer r.mu.RUnlock()
+	if r.academyMoney == nil {
+		return 0, nil
+	}
+	return r.academyMoney[guildID], nil
+}
+
+func (r *MemoryCharacterRepository) DepositAcademyMoney(guildID, charNo int, amount int64) error {
+	ok, err := r.SubCharMoney(charNo, amount)
+	if err != nil || !ok {
+		return errors.New("insufficient char money")
+	}
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.academyMoney == nil {
+		r.academyMoney = make(map[int]int64)
+	}
+	r.academyMoney[guildID] += amount
+	return nil
+}
+
+func (r *MemoryCharacterRepository) WithdrawAcademyMoney(guildID, charNo int, amount int64) error {
+	r.mu.Lock()
+	if r.academyMoney == nil || r.academyMoney[guildID] < amount {
+		r.mu.Unlock()
+		return errors.New("insufficient academy money")
+	}
+	r.academyMoney[guildID] -= amount
+	r.mu.Unlock()
+	return r.AddCharMoney(charNo, amount)
+}
+
+func (r *MemoryCharacterRepository) GetAcademyRewardsAll(guildID, typeID int) ([]*AcademyRewardData, error) {
+	r.mu.RLock()
+	defer r.mu.RUnlock()
+	var out []*AcademyRewardData
+	for _, rew := range r.academyRewards[guildID] {
+		if (typeID == 1 && rew.TypeID == 1) || (typeID != 1 && rew.TypeID > 1) {
+			cp := *rew
+			out = append(out, &cp)
+		}
+	}
+	return out, nil
+}
+
+func (r *MemoryCharacterRepository) DelAcademyReward(guildID int, level int16, typeID byte) error {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	list := r.academyRewards[guildID]
+	var kept []*AcademyRewardData
+	for _, rew := range list {
+		if rew.Level == level && ((typeID == 1 && rew.TypeID == 1) || (typeID != 1 && rew.TypeID > 1)) {
+			continue
+		}
+		kept = append(kept, rew)
+	}
+	r.academyRewards[guildID] = kept
+	return nil
 }
 
 func (r *MemoryCharacterRepository) GetGuildTournament(gtNo int) (*GuildTournamentData, error) {

@@ -129,7 +129,13 @@ func (h *Handler) HandlePacket(client *network.Client, pkt *protocol.Packet) {
 	case protocol.PROTO_NC_DATA_REPORT_GET_REQ:
 		h.handleReportGet(client, pkt)
 	case protocol.PROTO_NC_ACT_ENDOFTRADE_CMD:
-		// 0x200B (sp_NC_ACT_ENDOFTRADE_CMD en Zone.pdb): si el jugador no está en un trade activo, se ignora silenciosamente.
+		h.handleEndOfTradeCmd(client, pkt)
+	case protocol.PROTO_NC_ACT_PRODUCE_CAST_REQ:
+		h.handleActProduceCastReq(client, pkt)
+	case protocol.PROTO_NC_ACT_PRODUCE_CASTABORT_CMD:
+		h.handleActProduceCastAbortCmd(client, pkt)
+	case protocol.PROTO_NC_ACT_ACTIONBYITEM_REQ:
+		h.handleActionByItemReq(client, pkt)
 	case protocol.PROTO_NC_ACT_NPCCLICK_CMD:
 		h.handleNPCClick(client, pkt)
 	case protocol.PROTO_NC_ACT_NPCMENUOPEN_ACK:
@@ -146,6 +152,78 @@ func (h *Handler) HandlePacket(client *network.Client, pkt *protocol.Packet) {
 		h.handleTownPortal(client, pkt)
 	case protocol.PROTO_NC_MAP_WING_FLY_REQ:
 		h.handleWingFly(client, pkt)
+	case protocol.PROTO_NC_ITEM_BUY_REQ:
+		h.handleItemBuyReq(client, pkt)
+	case protocol.PROTO_NC_ITEM_SELL_REQ:
+		h.handleItemSellReq(client, pkt)
+	case protocol.PROTO_NC_ITEM_REPURCHASE_REQ:
+		h.handleItemRepurchaseReq(client, pkt)
+	case protocol.PROTO_NC_ITEM_UPGRADE_REQ:
+		h.handleItemUpgradeReq(client, pkt)
+	case protocol.PROTO_NC_ITEM_NEW_UPGRADE_REQ:
+		h.handleItemNewUpgradeReq(client, pkt)
+	case protocol.PROTO_NC_ITEM_BRACELET_UPGRADE_REQ:
+		h.handleItemBraceletUpgradeReq(client, pkt)
+	case protocol.PROTO_NC_ITEM_MOVER_UPGRADE_REQ:
+		h.handleItemMoverUpgradeReq(client, pkt)
+	case protocol.PROTO_NC_ITEM_USEABORT_CMD:
+		h.handleItemUseAbortCmd(client, pkt)
+	case protocol.PROTO_NC_ITEM_DEPOSIT_REQ:
+		h.handleItemDepositReq(client, pkt)
+	case protocol.PROTO_NC_ITEM_WITHDRAW_REQ:
+		h.handleItemWithdrawReq(client, pkt)
+	case protocol.PROTO_NC_ITEM_GUILD_STORAGE_WITHDRAW_REQ:
+		h.handleItemGuildStorageWithdrawReq(client, pkt)
+	case protocol.PROTO_NC_ITEM_OPENSTORAGEPAGE_REQ:
+		h.handleItemOpenStoragePageReq(client, pkt)
+	case protocol.PROTO_NC_ITEM_ACCOUNT_STORAGE_OPEN_CMD:
+		h.handleAccountStorageOpenCmd(client, pkt)
+	case protocol.PROTO_NC_ITEM_ACCOUNT_STORAGE_CLOSE_CMD:
+		h.handleAccountStorageCloseCmd(client, pkt)
+	case protocol.PROTO_NC_ITEM_GUILD_ACADEMY_REWARD_STORAGE_WITHDRAW_REQ:
+		h.handleItemAcademyStorageWithdrawReq(client, pkt)
+	case protocol.PROTO_NC_ITEM_GUILD_ACADEMY_REWARD_STORAGE_DEPOSIT_REQ:
+		h.handleItemAcademyStorageDepositReq(client, pkt)
+	case protocol.PROTO_NC_GUILD_ACADEMY_REWARD_STORAGE_OPEN_REQ:
+		h.handleGuildAcademyRewardStorageOpenReq(client, pkt)
+	case protocol.PROTO_NC_GUILD_ACADEMY_REWARD_STORAGE_CLOSE_CMD:
+		h.handleGuildAcademyRewardStorageCloseCmd(client, pkt)
+	case protocol.PROTO_NC_ITEM_DISMANTLE_REQ:
+		h.handleItemDismantleReq(client, pkt)
+	case protocol.PROTO_NC_ITEM_MIX_ITEM_REQ:
+		h.handleItemMixItemReq(client, pkt)
+	case protocol.PROTO_NC_ITEM_MH_FURNITURE_ENDURE_KIT_USE_REQ:
+		h.handleMHFurnitureEndureKitUseReq(client, pkt)
+	case protocol.PROTO_NC_ITEM_WEAPONENDURE_CHARGE_REQ:
+		h.handleWeaponEndureChargeReq(client, pkt)
+	case protocol.PROTO_NC_ITEM_SHIELDENDURE_CHARGE_REQ:
+		h.handleShieldEndureChargeReq(client, pkt)
+	case protocol.PROTO_NC_ITEM_DICE_GAME_START_REQ:
+		h.handleDiceGameStartReq(client, pkt)
+	case protocol.PROTO_NC_ITEM_ENCHANT_ADD_GEM_REQ:
+		h.handleItemEnchantAddGemReq(client, pkt)
+	case protocol.PROTO_NC_ITEM_ENCHANT_REMOVE_GEM_REQ:
+		h.handleItemEnchantRemoveGemReq(client, pkt)
+	case protocol.PROTO_NC_ITEM_ENCHANT_ADD_NEW_SOCKET_REQ:
+		h.handleItemEnchantAddNewSocketReq(client, pkt)
+	case protocol.PROTO_NC_ITEM_EQUIP_BELONGED_CANCEL_USE_REQ:
+		h.handleEquipBelongedCancelUseReq(client, pkt)
+	case protocol.PROTO_NC_ITEM_MINIMON_EQUIP_REQ:
+		h.handleMinimonEquipReq(client, pkt)
+	case protocol.PROTO_NC_ITEM_RANDOMOPTION_CHANGE_REQ:
+		h.handleRandomOptionChangeReq(client, pkt)
+	case protocol.PROTO_NC_ITEM_RANDOMOPTION_CHANGE_ACCEPT_REQ:
+		h.handleRandomOptionChangeAcceptReq(client, pkt)
+	case protocol.PROTO_NC_ITEM_RANDOMOPTION_RECOVER_COUNT_LIMIT_REQ:
+		h.handleRandomOptionRecoverCountLimitReq(client, pkt)
+	case protocol.PROTO_NC_ITEM_CHAT_COLOR_CHANGE_REQ:
+		h.handleChatColorChangeReq(client, pkt)
+	case protocol.PROTO_NC_ITEM_TERMEXTEND_REQ:
+		h.handleTermExtendReq(client, pkt)
+	case protocol.PROTO_NC_ITEM_CLASS_CHANGE_REQ:
+		h.handleClassChangeReq(client, pkt)
+	case protocol.PROTO_NC_ITEM_MAPLINK_SCROLL_REQ:
+		h.handleMapLinkScrollReq(client, pkt)
 	case protocol.PROTO_NC_ITEM_REWARDINVENOPEN_REQ:
 		h.handleRewardInvenOpen(client, pkt)
 	case protocol.PROTO_NC_ITEM_CHARGEDINVENOPEN_REQ:
@@ -170,6 +248,42 @@ func (h *Handler) HandlePacket(client *network.Client, pkt *protocol.Packet) {
 		h.handleItemPick(client, pkt)
 	case protocol.PROTO_NC_ITEM_AUTO_ARRANGE_INVEN_REQ:
 		h.handleAutoArrangeInven(client, pkt)
+	case protocol.PROTO_NC_TRADE_PROPOSE_REQ:
+		h.handleTradeProposeReq(client, pkt)
+	case protocol.PROTO_NC_TRADE_PROPOSE_ASKNO_ACK:
+		h.handleTradeProposeAskNoAck(client, pkt)
+	case protocol.PROTO_NC_TRADE_PROPOSEYES_ACK:
+		h.handleTradeProposeYesAck(client, pkt)
+	case protocol.PROTO_NC_TRADE_PROPOSE_CANCEL_CMD:
+		h.handleTradeProposeCancelCmd(client, pkt)
+	case protocol.PROTO_NC_TRADE_CANCEL_REQ:
+		h.handleTradeCancelReq(client, pkt)
+	case protocol.PROTO_NC_TRADE_UPBOARD_REQ:
+		h.handleTradeUpboardReq(client, pkt)
+	case protocol.PROTO_NC_TRADE_DOWNBOARD_REQ:
+		h.handleTradeDownboardReq(client, pkt)
+	case protocol.PROTO_NC_TRADE_CENBOARDING_REQ:
+		h.handleTradeCenBoardingReq(client, pkt)
+	case protocol.PROTO_NC_TRADE_BOARDLOCK_REQ:
+		h.handleTradeBoardLockReq(client, pkt)
+	case protocol.PROTO_NC_TRADE_DECIDE_REQ:
+		h.handleTradeDecideReq(client, pkt)
+	case protocol.PROTO_NC_BOOTH_OPEN_REQ:
+		h.handleBoothOpenReq(client, pkt)
+	case protocol.PROTO_NC_BOOTH_CLOSE_REQ:
+		h.handleBoothCloseReq(client, pkt)
+	case protocol.PROTO_NC_BOOTH_ENTRY_REQ:
+		h.handleBoothEntryReq(client, pkt)
+	case protocol.PROTO_NC_BOOTH_REFRESH_REQ:
+		h.handleBoothRefreshReq(client, pkt)
+	case protocol.PROTO_NC_BOOTH_ITEMTRADE_REQ:
+		h.handleBoothItemTradeReq(client, pkt)
+	case protocol.PROTO_NC_BOOTH_INTERIORSTART_REQ:
+		h.handleBoothInteriorStartReq(client, pkt)
+	case protocol.PROTO_NC_BOOTH_SEARCH_ITEM_LIST_CATEGORIZED_REQ:
+		h.handleBoothSearchItemListCategorizedReq(client, pkt)
+	case protocol.PROTO_NC_BOOTH_SEARCH_BOOTH_POSITION_REQ:
+		h.handleBoothSearchBoothPositionReq(client, pkt)
 	case protocol.PROTO_NC_SOULSTONE_HP_BUY_REQ:
 		h.handleSoulStoneHPBuy(client, pkt)
 	case protocol.PROTO_NC_SOULSTONE_SP_BUY_REQ:
@@ -228,6 +342,14 @@ func (h *Handler) HandlePacket(client *network.Client, pkt *protocol.Packet) {
 		h.handleChargedBuffEraseReq(client, pkt)
 	case protocol.PROTO_NC_CHAR_CLIENT_AUTO_PICK_REQ:
 		h.handleAutoPickReq(client, pkt)
+	case protocol.PROTO_NC_CHAR_USEITEM_MINIMON_NORMAL_ITEM_ON_REQ:
+		h.handleMinimonNormalOnReq(client, pkt)
+	case protocol.PROTO_NC_CHAR_USEITEM_MINIMON_NORMAL_ITEM_OFF_REQ:
+		h.handleMinimonNormalOffReq(client, pkt)
+	case protocol.PROTO_NC_CHAR_USEITEM_MINIMON_CHARGED_ITEM_ON_REQ:
+		h.handleMinimonChargedOnReq(client, pkt)
+	case protocol.PROTO_NC_CHAR_USEITEM_MINIMON_CHARGED_ITEM_OFF_REQ:
+		h.handleMinimonChargedOffReq(client, pkt)
 	case protocol.PROTO_NC_CT_SET_CURRENT_REQ:
 		h.handleCTSetCurrentReq(client, pkt)
 	case protocol.PROTO_NC_COLLECT_PEEPING_REQ:
@@ -238,7 +360,9 @@ func (h *Handler) HandlePacket(client *network.Client, pkt *protocol.Packet) {
 		h.handleCollectBookmarkRegistReq(client, pkt)
 	case protocol.PROTO_NC_COLLECT_REWARD_REQ:
 		h.handleCollectRewardReq(client, pkt)
-	case protocol.PROTO_NC_MISC_HEARTBEAT_ACK, protocol.PROTO_NC_MISC_GAMETIME_REQ:
+	case protocol.PROTO_NC_MISC_HEARTBEAT_REQ, protocol.PROTO_NC_MISC_HEARTBEAT_ACK:
+		h.handleFoodEatCmd(client, pkt)
+	case protocol.PROTO_NC_MISC_GAMETIME_REQ:
 		// Heartbeat pong received, ignore
 	default:
 		log.Printf("[Zone][%s] Unhandled OpCode: 0x%04X (Header=%d, Type=%d, Len=%d)",
@@ -254,6 +378,8 @@ func (h *Handler) OnClientDisconnect(client *network.Client) {
 	h.mu.Unlock()
 
 	if exists && player != nil {
+		h.cancelTradeSession(player)
+		h.closePlayerBooth(player)
 		if player.CurrentMap != nil {
 			if h.gameLogDispatcher != nil && player.Char != nil {
 				h.gameLogDispatcher.EnqueueType1(2, player.Char.ID, player.CurrentMap.MapID, player.Char.XPos, player.Char.YPos, 0)
@@ -1594,6 +1720,8 @@ func (h *Handler) handleNPCClick(client *network.Client, pkt *protocol.Packet) {
 	log.Printf("[Zone][%s] Player '%s' clicked NPC '%s' (Handle: %d, MobID: %d, Role: %s, RoleArg: %s)",
 		client.RemoteAddr(), player.Char.Name, npc.Name, npc.Handle, npc.MobID, npc.Role, npc.RoleArg)
 
+	player.OpenNPCMobID = npc.MobID
+
 	// Si es un Gate / Portal, ejecutar la transición
 	if npc.IsGate && npc.GateToWhere != "" {
 		h.triggerGateWarp(player, npc.GateToWhere)
@@ -2580,6 +2708,16 @@ func (h *Handler) handleItemUse(client *network.Client, pkt *protocol.Packet) {
 		if info, ok := h.itemStore.GetItemInfo(usedItemID); ok && info != nil {
 			usedItemName = info.InxName
 		}
+	}
+
+	// Si el ítem usado es un cofre de tesoro / MysteryVault, abrir recompensa oficial
+	if _, opened := h.openTreasureChestItem(player, srcItem); opened {
+		ack := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_USE_ACK)
+		ack.WriteUint16(0x0700)
+		ack.WriteUint16(usedItemID)
+		ack.WriteByte(invenType)
+		_ = client.SendPacket(ack)
+		return
 	}
 
 	// Aplicar efectos desde ItemUseEffect.shn (so_ply_ItemEffect VA 0x59C730)

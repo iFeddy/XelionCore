@@ -158,6 +158,48 @@ type ZonePlayer struct {
 	CurrentTitleElement byte
 	CurrentTitleMobID   uint16
 	RestExpBonusRate    int
+
+	// Campos de subsistemas de la Fase 14 (Economía, Comercio, Booth, Forja & Crafting)
+	OpenNPCMobID        uint16
+	AccountStorageOpen  bool
+	AcademyStorageOpen  bool
+	RepurchaseItems     []*RepurchaseEntry
+	PendingRandomOpt    *PendingRandomOption
+	ActiveTrade         *SafeTradeSession
+	PendingTradeFrom    uint16
+	ActiveBooth         *PlayerBooth
+	MinimonNormalSlots  [12]uint16
+	MinimonChargedSlots [12]uint16
+	ActiveProduce       *ProduceSession
+}
+
+// RepurchaseEntry guarda un ítem vendido recientemente para PROTO_NC_ITEM_REPURCHASE_REQ (0x3059).
+type RepurchaseEntry struct {
+	Handle    uint16
+	ItemID    uint16
+	Lot       uint32
+	Price     uint64
+	Options   map[int16]int64
+}
+
+// PendingRandomOption almacena la tirada de opciones aleatorias pendiente de aceptar (0x3053 -> 0x3061).
+type PendingRandomOption struct {
+	ItemKey   int64
+	InvenSlot uint8
+	Options   []ItemOptionPair
+}
+
+// ItemOptionPair representa un par tipo/valor de opción aleatoria en ItemOptionStorage (3B wire).
+type ItemOptionPair struct {
+	Type  uint8
+	Value uint16
+}
+
+// ProduceSession representa una sesión activa de crafteo (`0x2035` PROTO_NC_ACT_PRODUCE_CAST_REQ).
+type ProduceSession struct {
+	ProductID  uint16
+	StartedAt  time.Time
+	CastMillis int
 }
 
 // GetHandle implementa GridEntity para ZonePlayer.

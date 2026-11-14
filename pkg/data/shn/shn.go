@@ -69,6 +69,82 @@ type Column struct {
 // Row representa una fila de datos parseada de un archivo .shn.
 type Row struct {
 	values map[string][]byte
+	cols   [][]byte
+}
+
+// ColumnCount retorna la cantidad de columnas posicionales almacenadas en la fila.
+func (r *Row) ColumnCount() int {
+	return len(r.cols)
+}
+
+// GetBytesAt retorna el slice crudo de una columna por índice posicional.
+func (r *Row) GetBytesAt(idx int) []byte {
+	if idx < 0 || idx >= len(r.cols) {
+		return nil
+	}
+	return r.cols[idx]
+}
+
+// GetByteAt retorna el byte en la columna posicional idx o 0.
+func (r *Row) GetByteAt(idx int) byte {
+	v := r.GetBytesAt(idx)
+	if len(v) == 0 {
+		return 0
+	}
+	return v[0]
+}
+
+// GetUint16At retorna uint16 en LittleEndian para la columna posicional idx.
+func (r *Row) GetUint16At(idx int) uint16 {
+	v := r.GetBytesAt(idx)
+	if len(v) < 2 {
+		return 0
+	}
+	return binary.LittleEndian.Uint16(v[:2])
+}
+
+// GetInt16At retorna int16 en LittleEndian para la columna posicional idx.
+func (r *Row) GetInt16At(idx int) int16 {
+	return int16(r.GetUint16At(idx))
+}
+
+// GetUint32At retorna uint32 en LittleEndian para la columna posicional idx.
+func (r *Row) GetUint32At(idx int) uint32 {
+	v := r.GetBytesAt(idx)
+	if len(v) < 4 {
+		return 0
+	}
+	return binary.LittleEndian.Uint32(v[:4])
+}
+
+// GetInt32At retorna int32 en LittleEndian para la columna posicional idx.
+func (r *Row) GetInt32At(idx int) int32 {
+	return int32(r.GetUint32At(idx))
+}
+
+// GetIntAt retorna int para la columna posicional idx independientemente del ancho (1, 2 o 4 bytes).
+func (r *Row) GetIntAt(idx int) int {
+	v := r.GetBytesAt(idx)
+	switch len(v) {
+	case 1:
+		return int(v[0])
+	case 2:
+		return int(int16(binary.LittleEndian.Uint16(v)))
+	case 4:
+		return int(int32(binary.LittleEndian.Uint32(v)))
+	default:
+		return 0
+	}
+}
+
+// ColumnIndex retorna el índice posicional de la primera columna con el nombre dado (-1 si no existe).
+func (f *File) ColumnIndex(name string) int {
+	for i, c := range f.Columns {
+		if c.Name == name {
+			return i
+		}
+	}
+	return -1
 }
 
 // GetByte retorna el valor como byte o 0 si no existe.
@@ -292,20 +368,22 @@ func Parse(data []byte) (*File, error) {
 	for r := 0; r < recordCount; r++ {
 		rowBytes := full[rowOffset : rowOffset+rowSize]
 		rowVals := make(map[string][]byte, colCount)
+		rowCols := make([][]byte, colCount)
 
 		// En Fiesta SHN los primeros 2 bytes de cada fila son uint16 row_len
 		curr := 2
-		for _, col := range columns {
+		for idx, col := range columns {
 			end := curr + int(col.Size)
 			if end <= len(rowBytes) {
 				val := make([]byte, col.Size)
 				copy(val, rowBytes[curr:end])
+				rowCols[idx] = val
 				rowVals[col.Name] = val
 			}
 			curr = end
 		}
 
-		rows[r] = Row{values: rowVals}
+		rows[r] = Row{values: rowVals, cols: rowCols}
 		rowOffset += rowSize
 	}
 
@@ -334,6 +412,16 @@ func (f *File) FindRows(colName string, targetVal string) []*Row {
 func (f *File) FindRow(colName string, targetVal string) *Row {
 	for i := range f.Rows {
 		if f.Rows[i].GetString(colName) == targetVal {
+			return &f.Rows[i]
+		}
+	}
+	return nil
+}
+
+// FindRowInt busca la primera fila cuyo valor numérico entero en colName sea igual a target.
+func (f *File) FindRowInt(colName string, target int64) *Row {
+	for i := range f.Rows {
+		if int64(f.Rows[i].GetInt(colName)) == target {
 			return &f.Rows[i]
 		}
 	}
