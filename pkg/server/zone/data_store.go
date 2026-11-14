@@ -28,33 +28,41 @@ import (
 
 // DataStore contiene en memoria RAM todos los subsistemas de datos oficiales del juego cargados para Zone.
 type DataStore struct {
-	ClassStore      *classparam.Store
-	FieldStore      *field.Store
-	ItemStore       *item.Store
-	NPCStore        *npc.Store
-	MobRegen        map[string]*mobregen.MapRegen
-	MobSetting      *mobsetting.Database
-	MobAttack       *mobattack.Database
-	MobRoam         *mobroam.Database
-	DropStore       *drop.Store
-	CombatStore     *combat.Store
-	NPCItem         *npcitem.Database
-	AbState         *abstate.Database
-	MiscStore       *misc.Store
-	QuestParser     *questparser.Store
-	Script          *script.Database
-	ChkEngine       *shn.ChecksumEngine
-	BlockInfo       *blockinfo.Store
-	AreaBMP         *areabmp.Store
-	SHNTables       map[string]*shn.File
-	ActiveSkillSHN  *shn.File
-	PassiveSkillSHN *shn.File
-	MobInfoSHN      *shn.File
-	PassiveSkillMap map[uint16]bool
-	ActiveSkillMap  map[uint16]bool
-	MobCatalog      *MobCatalog
-	TitleCatalog    *TitleCatalog
-	CollectCatalog  *CollectCatalog
+	DataDir            string
+	ClassStore         *classparam.Store
+	FieldStore         *field.Store
+	ItemStore          *item.Store
+	NPCStore           *npc.Store
+	MobRegen           map[string]*mobregen.MapRegen
+	MobSetting         *mobsetting.Database
+	MobAttack          *mobattack.Database
+	MobRoam            *mobroam.Database
+	DropStore          *drop.Store
+	CombatStore        *combat.Store
+	NPCItem            *npcitem.Database
+	AbState            *abstate.Database
+	MiscStore          *misc.Store
+	QuestParser        *questparser.Store
+	Script             *script.Database
+	ChkEngine          *shn.ChecksumEngine
+	BlockInfo          *blockinfo.Store
+	AreaBMP            *areabmp.Store
+	SHNTables          map[string]*shn.File
+	ActiveSkillSHN     *shn.File
+	PassiveSkillSHN    *shn.File
+	MobInfoSHN         *shn.File
+	PassiveSkillMap    map[uint16]bool
+	ActiveSkillMap     map[uint16]bool
+	MobCatalog         *MobCatalog
+	TitleCatalog       *TitleCatalog
+	CollectCatalog     *CollectCatalog
+	QuestCatalog       *QuestCatalog
+	KQCatalog          *KQCatalog
+	GTCatalog          *GTCatalog
+	MiniHouseCatalog   *MiniHouseCatalog
+	PetCatalog         *PetCatalog
+	WeaponTitleCatalog *WeaponTitleCatalog
+	CasinoCatalog      *CasinoCatalog
 }
 
 // GetSHN retorna una tabla .shn por nombre o nombre base (búsqueda insensible a mayúsculas/minúsculas).
@@ -300,9 +308,11 @@ func LoadAllData(dataDir string) (*DataStore, error) {
 	}
 	log.Printf("[Zone][Data] Successfully indexed %d unique SHN table keys in RAM (180 required SHNs verified).", len(ds.SHNTables)/2)
 
+	ds.DataDir = dataDir
 	ds.MobCatalog = BuildMobCatalog(ds)
 	ds.TitleCatalog = BuildTitleCatalog(ds)
 	ds.CollectCatalog = BuildCollectCatalog(ds)
+	ds.BuildPhase15Catalogs(dataDir)
 
 	return ds, nil
 }

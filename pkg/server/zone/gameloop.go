@@ -290,7 +290,14 @@ func (gl *MapGameLoop) tick1s() {
 	}
 }
 
-// tick30s limpia ítems del suelo expirados y estados periódicos lentos.
+// tick30s limpia ítems del suelo expirados y estados periódicos lentos (Pets GTI).
 func (gl *MapGameLoop) tick30s() {
 	gl.zMap.CleanupExpiredDrops(2 * time.Minute)
+	if gl.zMap.handler != nil {
+		for _, p := range gl.zMap.GetPlayers() {
+			if p != nil && p.ActivePet != nil {
+				gl.zMap.handler.TickActivePet(p)
+			}
+		}
+	}
 }

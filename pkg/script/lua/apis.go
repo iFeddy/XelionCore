@@ -776,6 +776,12 @@ func (e *Engine) registerAllOfficialAPIs() {
 		return 0
 	}))
 	L.SetGlobal("cIndunRankResult", L.NewFunction(func(L *glua.LState) int {
+		mapName := L.OptString(1, "")
+		args := make([]int, 0, L.GetTop())
+		for i := 2; i <= L.GetTop(); i++ {
+			args = append(args, L.OptInt(i, 0))
+		}
+		br.IndunRankResult(mapName, args)
 		return 0
 	}))
 	L.SetGlobal("cVanishAll", L.NewFunction(func(L *glua.LState) int {
@@ -942,8 +948,23 @@ func (e *Engine) registerAllOfficialAPIs() {
 	// 6. Mapa, Geometría, Puertas (.sbi) y Áreas
 	// ==========================================
 	L.SetGlobal("cDoorAction", L.NewFunction(func(L *glua.LState) int {
-		doorName := L.CheckString(1)
-		action := L.OptInt(2, 0)
+		// Soporta tanto (doorHandle, blockName, "open"|"close") como (doorName, intAction)
+		var doorName string
+		var action int
+		if L.GetTop() >= 3 {
+			doorName = L.OptString(2, "")
+			switch v := L.Get(3).(type) {
+			case glua.LString:
+				if string(v) == "open" || string(v) == "Open" || string(v) == "1" {
+					action = 1
+				}
+			case glua.LNumber:
+				action = int(v)
+			}
+		} else {
+			doorName = L.OptString(1, "")
+			action = L.OptInt(2, 0)
+		}
 		if br.DoorAction(doorName, action) {
 			L.Push(glua.LTrue)
 		} else {
@@ -952,11 +973,17 @@ func (e *Engine) registerAllOfficialAPIs() {
 		return 1
 	}))
 	L.SetGlobal("cDoorBuild", L.NewFunction(func(L *glua.LState) int {
-		doorName := L.CheckString(1)
-		if br.DoorBuild(doorName) {
-			L.Push(glua.LTrue)
+		// Soporta (doorName) o (mapIdx, doorIdx, x, y, dir, scale)
+		var doorName string
+		if L.GetTop() >= 2 {
+			doorName = L.OptString(2, "")
 		} else {
-			L.Push(glua.LFalse)
+			doorName = L.OptString(1, "")
+		}
+		if br.DoorBuild(doorName) {
+			L.Push(glua.LNumber(1))
+		} else {
+			L.Push(glua.LNil)
 		}
 		return 1
 	}))
@@ -1196,6 +1223,9 @@ func (e *Engine) registerAllOfficialAPIs() {
 		return 0
 	}))
 	L.SetGlobal("cNPCMenuOpen", L.NewFunction(func(L *glua.LState) int {
+		npcHandle := uint32(L.OptInt(1, 0))
+		playerHandle := uint32(L.OptInt(2, 0))
+		br.NPCMenuOpen(npcHandle, playerHandle)
 		return 0
 	}))
 	L.SetGlobal("cNPCSkillUse", L.NewFunction(func(L *glua.LState) int {
@@ -1229,9 +1259,19 @@ func (e *Engine) registerAllOfficialAPIs() {
 		return 0
 	}))
 	L.SetGlobal("cQuestMobKill", L.NewFunction(func(L *glua.LState) int {
+		playerHandle := uint32(L.OptInt(1, 0))
+		questID := uint16(L.OptInt(2, 0))
+		mobID := uint32(L.OptInt(3, 0))
+		count := L.OptInt(4, 1)
+		br.QuestMobKill(playerHandle, questID, mobID, count)
 		return 0
 	}))
 	L.SetGlobal("cQuestMobKill_AllInMap", L.NewFunction(func(L *glua.LState) int {
+		mapName := L.OptString(1, "")
+		questID := uint16(L.OptInt(2, 0))
+		mobID := uint32(L.OptInt(3, 0))
+		maxCount := L.OptInt(4, 1)
+		br.QuestMobKillAllInMap(mapName, questID, mobID, maxCount)
 		return 0
 	}))
 
@@ -1381,6 +1421,14 @@ func (e *Engine) registerAllOfficialAPIs() {
 		return 0
 	}))
 	L.SetGlobal("cScoreBoard_AllInMap", L.NewFunction(func(L *glua.LState) int {
+		mapName := L.OptString(1, "")
+		show := L.OptBool(2, true)
+		round := L.OptInt(3, 1)
+		redWin := L.OptInt(4, 0)
+		redScore := L.OptInt(5, 0)
+		blueWin := L.OptInt(6, 0)
+		blueScore := L.OptInt(7, 0)
+		br.ScoreBoardAllInMap(mapName, show, round, redWin, redScore, blueWin, blueScore)
 		return 0
 	}))
 	L.SetGlobal("cScoreInfo", L.NewFunction(func(L *glua.LState) int {
@@ -1400,25 +1448,40 @@ func (e *Engine) registerAllOfficialAPIs() {
 		return 0
 	}))
 	L.SetGlobal("cGetKQLimitSecond", L.NewFunction(func(L *glua.LState) int {
-		L.Push(glua.LNumber(1800))
+		mapName := L.OptString(1, "")
+		L.Push(glua.LNumber(br.GetKQLimitSecond(mapName)))
 		return 1
 	}))
 	L.SetGlobal("cGetKQTeamType", L.NewFunction(func(L *glua.LState) int {
-		L.Push(glua.LNumber(0))
+		handle := uint32(L.OptInt(1, 0))
+		L.Push(glua.LNumber(br.GetKQTeamType(handle)))
 		return 1
 	}))
 	L.SetGlobal("cIsKQJoiner", L.NewFunction(func(L *glua.LState) int {
-		L.Push(glua.LTrue)
+		handle := uint32(L.OptInt(1, 0))
+		if br.IsKQJoiner(handle) {
+			L.Push(glua.LTrue)
+		} else {
+			L.Push(glua.LFalse)
+		}
 		return 1
 	}))
 	L.SetGlobal("cKQRewardIndex", L.NewFunction(func(L *glua.LState) int {
-		L.Push(glua.LNumber(0))
-		return 1
+		handle := uint32(L.OptInt(1, 0))
+		rewardIndex := L.OptString(2, "")
+		br.KQRewardIndex(handle, rewardIndex)
+		return 0
 	}))
 	L.SetGlobal("cShowKQTimerWithLife", L.NewFunction(func(L *glua.LState) int {
+		mapName := L.OptString(1, "")
+		sec := L.OptInt(2, 0)
+		br.ShowKQTimerWithLife(mapName, sec)
 		return 0
 	}))
 	L.SetGlobal("cShowKQTimerWithLife_Obj", L.NewFunction(func(L *glua.LState) int {
+		handle := uint32(L.OptInt(1, 0))
+		sec := L.OptInt(2, 0)
+		br.ShowKQTimerWithLifeObj(handle, sec)
 		return 0
 	}))
 	L.SetGlobal("cWinter_Event_ScoreBoard_AllInMap", L.NewFunction(func(L *glua.LState) int {
@@ -1443,22 +1506,48 @@ func (e *Engine) registerAllOfficialAPIs() {
 		return 1
 	}))
 	L.SetGlobal("cGetTutorialInfo", L.NewFunction(func(L *glua.LState) int {
-		L.Push(glua.LNumber(0))
+		handle := uint32(L.OptInt(1, 0))
+		L.Push(glua.LNumber(br.GetTutorialInfo(handle)))
 		return 1
 	}))
 	L.SetGlobal("cSaveTutorialInfo", L.NewFunction(func(L *glua.LState) int {
+		handle := uint32(L.OptInt(1, 0))
+		saveType := L.OptInt(2, 0)
+		step := L.OptInt(3, 0)
+		br.SaveTutorialInfo(handle, saveType, step)
 		return 0
 	}))
 	L.SetGlobal("cProgressTutorial", L.NewFunction(func(L *glua.LState) int {
+		handle := uint32(L.OptInt(1, 0))
+		step := L.OptInt(2, 0)
+		br.ProgressTutorial(handle, step)
 		return 0
 	}))
 	L.SetGlobal("cQuestResult", L.NewFunction(func(L *glua.LState) int {
+		mapName := L.OptString(1, "")
+		result := L.OptString(2, "")
+		br.QuestResult(mapName, result)
 		return 0
 	}))
 	L.SetGlobal("cQuestResult_Individual", L.NewFunction(func(L *glua.LState) int {
+		handle := uint32(L.OptInt(1, 0))
+		result := L.OptString(2, "")
+		br.QuestResultIndividual(handle, result)
 		return 0
 	}))
 	L.SetGlobal("cServerMenu", L.NewFunction(func(L *glua.LState) int {
+		playerHandle := uint32(L.OptInt(1, 0))
+		npcHandle := uint32(L.OptInt(2, 0))
+		title := L.OptString(3, "")
+		top := L.GetTop()
+		var opts []MenuOptionEntry
+		for i := 4; i+1 <= top; i += 2 {
+			opts = append(opts, MenuOptionEntry{
+				Text:     L.OptString(i, ""),
+				Callback: L.OptString(i+1, ""),
+			})
+		}
+		br.ServerMenu(playerHandle, npcHandle, title, opts)
 		return 0
 	}))
 
@@ -1466,6 +1555,11 @@ func (e *Engine) registerAllOfficialAPIs() {
 	// 11. Ítems, Botín y Recompensas
 	// ==========================================
 	L.SetGlobal("cDropItem", L.NewFunction(func(L *glua.LState) int {
+		itemInx := L.OptString(1, "")
+		mobHandle := uint32(L.OptInt(2, 0))
+		playerHandle := uint32(L.OptInt(3, 0))
+		rate := L.OptInt(4, 1000)
+		br.DropItem(itemInx, mobHandle, playerHandle, rate)
 		return 0
 	}))
 	L.SetGlobal("cDropFilm", L.NewFunction(func(L *glua.LState) int {
@@ -1476,29 +1570,59 @@ func (e *Engine) registerAllOfficialAPIs() {
 		return 1
 	}))
 	L.SetGlobal("cGetItemLot", L.NewFunction(func(L *glua.LState) int {
-		L.Push(glua.LNumber(0))
-		return 1
+		handle := uint32(L.OptInt(1, 0))
+		itemInx := L.OptString(2, "")
+		lot, locked := br.GetItemLot(handle, itemInx)
+		L.Push(glua.LNumber(lot))
+		if locked {
+			L.Push(glua.LTrue)
+		} else {
+			L.Push(glua.LFalse)
+		}
+		return 2
 	}))
 	L.SetGlobal("cInvenItemDestroy", L.NewFunction(func(L *glua.LState) int {
-		return 0
+		handle := uint32(L.OptInt(1, 0))
+		itemInx := L.OptString(2, "")
+		count := L.OptInt(3, 1)
+		L.Push(glua.LNumber(br.InvenItemDestroy(handle, itemInx, count)))
+		return 1
 	}))
 	L.SetGlobal("cItemErase", L.NewFunction(func(L *glua.LState) int {
-		return 0
+		handle := uint32(L.OptInt(1, 0))
+		itemInx := L.OptString(2, "")
+		count := L.OptInt(3, 1)
+		L.Push(glua.LNumber(br.InvenItemDestroy(handle, itemInx, count)))
+		return 1
 	}))
 	L.SetGlobal("cIsEquipItem", L.NewFunction(func(L *glua.LState) int {
 		L.Push(glua.LFalse)
 		return 1
 	}))
 	L.SetGlobal("cReward", L.NewFunction(func(L *glua.LState) int {
+		mapName := L.OptString(1, "")
+		rewardType := L.OptString(2, "KQ")
+		br.RewardAll(mapName, rewardType)
 		return 0
 	}))
 	L.SetGlobal("cRewardItem", L.NewFunction(func(L *glua.LState) int {
+		handle := uint32(L.OptInt(1, 0))
+		itemInx := L.OptString(2, "")
+		count := L.OptInt(3, 1)
+		br.RewardItem(handle, itemInx, count)
 		return 0
 	}))
 	L.SetGlobal("cRewardItem_AllInMap", L.NewFunction(func(L *glua.LState) int {
+		itemInx := L.OptString(2, "")
+		count := L.OptInt(3, 1)
+		br.RewardItem(0, itemInx, count)
 		return 0
 	}))
 	L.SetGlobal("cRewardItem_CharInven", L.NewFunction(func(L *glua.LState) int {
+		handle := uint32(L.OptInt(1, 0))
+		itemInx := L.OptString(2, "")
+		count := L.OptInt(3, 1)
+		br.RewardItem(handle, itemInx, count)
 		return 0
 	}))
 	L.SetGlobal("cUseMoney", L.NewFunction(func(L *glua.LState) int {
@@ -1516,7 +1640,23 @@ func (e *Engine) registerAllOfficialAPIs() {
 	// ==========================================
 	L.SetGlobal("cPet_ChangeMind", L.NewFunction(func(L *glua.LState) int {
 		petHandle := uint32(L.OptInt(1, 0))
-		mind := L.OptInt(2, 50)
+		mind := 50
+		if L.Get(2).Type() == glua.LTString {
+			switch L.OptString(2, "") {
+			case "follow":
+				mind = 1
+			case "revolution":
+				mind = 2
+			case "dance":
+				mind = 3
+			case "attack":
+				mind = 4
+			case "talk":
+				mind = 5
+			}
+		} else {
+			mind = L.OptInt(2, 50)
+		}
 		br.PetChangeMind(petHandle, mind)
 		return 0
 	}))
@@ -1528,30 +1668,53 @@ func (e *Engine) registerAllOfficialAPIs() {
 	L.SetGlobal("cPet_Unsummon", L.NewFunction(func(L *glua.LState) int {
 		petHandle := uint32(L.OptInt(1, 0))
 		br.PetUnsummon(petHandle)
-		return 0
-	}))
-	L.SetGlobal("cPet_GetActionRecord", L.NewFunction(func(L *glua.LState) int {
-		L.Push(glua.LNumber(0))
 		return 1
 	}))
+	L.SetGlobal("cPet_GetActionRecord", L.NewFunction(func(L *glua.LState) int {
+		petHandle := uint32(L.OptInt(1, 0))
+		act := L.OptString(2, "idle")
+		aiType, smInx, hair, snd, ok := br.PetGetActionRecord(petHandle, act)
+		if !ok {
+			return 0
+		}
+		L.Push(glua.LString(aiType))
+		L.Push(glua.LString(smInx))
+		L.Push(glua.LString(hair))
+		L.Push(glua.LString(snd))
+		return 4
+	}))
 	L.SetGlobal("cPet_GetRunSpeed", L.NewFunction(func(L *glua.LState) int {
-		L.Push(glua.LNumber(115))
+		petHandle := uint32(L.OptInt(1, 0))
+		L.Push(glua.LNumber(br.PetGetRunSpeed(petHandle)))
 		return 1
 	}))
 	L.SetGlobal("cPet_GetStress", L.NewFunction(func(L *glua.LState) int {
-		L.Push(glua.LNumber(0))
+		petHandle := uint32(L.OptInt(1, 0))
+		L.Push(glua.LNumber(br.PetGetStress(petHandle)))
 		return 1
 	}))
 	L.SetGlobal("cPet_GetWalkSpeed", L.NewFunction(func(L *glua.LState) int {
-		L.Push(glua.LNumber(40))
+		petHandle := uint32(L.OptInt(1, 0))
+		L.Push(glua.LNumber(br.PetGetWalkSpeed(petHandle)))
 		return 1
 	}))
 	L.SetGlobal("cPet_IsMasterCalling", L.NewFunction(func(L *glua.LState) int {
-		L.Push(glua.LFalse)
+		petHandle := uint32(L.OptInt(1, 0))
+		if br.PetIsMasterCalling(petHandle) {
+			L.Push(glua.LTrue)
+		} else {
+			L.Push(glua.LFalse)
+		}
 		return 1
 	}))
 	L.SetGlobal("cPet_SaveTendency", L.NewFunction(func(L *glua.LState) int {
-		return 0
+		petHandle := uint32(L.OptInt(1, 0))
+		if br.PetSaveTendency(petHandle) {
+			L.Push(glua.LNumber(1))
+		} else {
+			L.Push(glua.LNil)
+		}
+		return 1
 	}))
 
 	// ==========================================
@@ -1614,6 +1777,178 @@ func (e *Engine) registerAllOfficialAPIs() {
 		return 0
 	}))
 	L.SetGlobal("CallNamedRoutine", L.NewFunction(func(L *glua.LState) int {
+		return 0
+	}))
+
+	// ==========================================
+	// 16. Helpers de Escenario Wedding.lua & GuildTournament.lua
+	// ==========================================
+	L.SetGlobal("SetTimeLimit", L.NewFunction(func(L *glua.LState) int {
+		field := L.OptString(1, "")
+		sec := L.OptInt(2, 0)
+		br.ScenarioSetTimeLimit(field, sec)
+		return 0
+	}))
+	L.SetGlobal("SetInterrupt", L.NewFunction(func(L *glua.LState) int {
+		field := L.OptString(1, "")
+		ev := L.OptString(2, "")
+		cb := L.OptString(3, "")
+		br.ScenarioSetInterrupt(field, ev, cb)
+		return 0
+	}))
+	L.SetGlobal("SpawnNPC", L.NewFunction(func(L *glua.LState) int {
+		field := L.OptString(1, "")
+		mobInx := L.OptString(2, "")
+		x := float64(L.OptNumber(3, 0))
+		y := float64(L.OptNumber(4, 0))
+		dir := L.OptInt(5, 0)
+		scale := L.OptInt(6, 1000)
+		h := br.SpawnNamedNPC(field, mobInx, x, y, dir, scale)
+		L.Push(glua.LNumber(h))
+		return 1
+	}))
+	L.SetGlobal("BuildDoor", L.NewFunction(func(L *glua.LState) int {
+		mobInx := L.OptString(2, "Door")
+		br.DoorBuild(mobInx)
+		L.Push(glua.LString(mobInx))
+		return 1
+	}))
+	L.SetGlobal("OpenDoor", L.NewFunction(func(L *glua.LState) int {
+		blockName := L.OptString(3, L.OptString(2, ""))
+		br.DoorAction(blockName, 1)
+		return 0
+	}))
+	L.SetGlobal("CloseDoor", L.NewFunction(func(L *glua.LState) int {
+		blockName := L.OptString(3, L.OptString(2, ""))
+		br.DoorAction(blockName, 0)
+		return 0
+	}))
+	L.SetGlobal("SetScriptFile", L.NewFunction(func(L *glua.LState) int {
+		field := L.OptString(1, "")
+		scriptName := L.OptString(2, "")
+		br.ScenarioSetScriptFile(field, scriptName)
+		return 0
+	}))
+	L.SetGlobal("Wait", L.NewFunction(func(L *glua.LState) int {
+		br.ScenarioWait(L.OptInt(1, 0))
+		return 0
+	}))
+	L.SetGlobal("SendChatWindow", L.NewFunction(func(L *glua.LState) int {
+		field := L.OptString(1, "")
+		speaker := L.OptString(2, "")
+		dialogKey := L.OptString(3, "")
+		br.ScenarioSendChatWindow(field, speaker, dialogKey)
+		return 0
+	}))
+	L.SetGlobal("FindPlayer", L.NewFunction(func(L *glua.LState) int {
+		field := L.OptString(1, "")
+		name := L.OptString(2, "")
+		mode := L.OptString(3, "")
+		L.Push(glua.LNumber(br.ScenarioFindPlayer(field, name, mode)))
+		return 1
+	}))
+	L.SetGlobal("Teleport", L.NewFunction(func(L *glua.LState) int {
+		handle := uint32(L.OptInt(1, 0))
+		if L.Get(2).Type() == glua.LTString {
+			mapName := L.OptString(2, "")
+			x := float64(L.OptNumber(3, 0))
+			y := float64(L.OptNumber(4, 0))
+			br.CastTeleport(handle, mapName, x, y)
+		} else {
+			x := float64(L.OptNumber(2, 0))
+			y := float64(L.OptNumber(3, 0))
+			br.CastTeleport(handle, "", x, y)
+		}
+		return 0
+	}))
+	L.SetGlobal("TeleportAll", L.NewFunction(func(L *glua.LState) int {
+		target := L.OptString(2, "")
+		if target == "Split" {
+			return 0
+		}
+		x := float64(L.OptNumber(3, 0))
+		y := float64(L.OptNumber(4, 0))
+		br.CastTeleport(0, target, x, y)
+		return 0
+	}))
+	L.SetGlobal("PlayerWalk", L.NewFunction(func(L *glua.LState) int {
+		handle := uint32(L.OptInt(1, 0))
+		x := float64(L.OptNumber(2, 0))
+		y := float64(L.OptNumber(3, 0))
+		br.MoveTo(handle, x, y, 40)
+		return 0
+	}))
+	L.SetGlobal("CompleteWedding", L.NewFunction(func(L *glua.LState) int {
+		groom := uint32(L.OptInt(1, 0))
+		bride := uint32(L.OptInt(2, 0))
+		br.ScenarioCompleteWedding(groom, bride)
+		return 0
+	}))
+	L.SetGlobal("ApplyAbnormalState", L.NewFunction(func(L *glua.LState) int {
+		handle := uint32(L.OptInt(1, 0))
+		staName := L.OptString(2, "")
+		lv := L.OptInt(3, 1)
+		dur := L.OptInt(4, 0)
+		br.ScenarioApplyAbnormalState(handle, staName, lv, dur)
+		return 0
+	}))
+	L.SetGlobal("SetNPCInteractHandler", L.NewFunction(func(L *glua.LState) int {
+		npcHandle := uint32(L.OptInt(1, 0))
+		cb := L.OptString(2, "")
+		br.ScenarioSetNPCInteractHandler(npcHandle, cb)
+		return 0
+	}))
+	L.SetGlobal("Vanish", L.NewFunction(func(L *glua.LState) int {
+		handle := uint32(L.OptInt(2, 0))
+		br.NPCVanish(handle)
+		return 0
+	}))
+	L.SetGlobal("EndScenario", L.NewFunction(func(L *glua.LState) int {
+		field := L.OptString(1, "")
+		br.ScenarioEnd(field)
+		return 0
+	}))
+	L.SetGlobal("RegisterCaptureFlag", L.NewFunction(func(L *glua.LState) int {
+		field := L.OptString(1, "")
+		npcHandle := uint32(L.OptInt(2, 0))
+		redEff := L.OptString(3, "")
+		blueEff := L.OptString(4, "")
+		br.ScenarioRegisterCaptureFlag(field, npcHandle, redEff, blueEff)
+		return 0
+	}))
+	L.SetGlobal("RegisterGTPortal", L.NewFunction(func(L *glua.LState) int {
+		field := L.OptString(1, "")
+		npcHandle := uint32(L.OptInt(2, 0))
+		flagHandle := uint32(L.OptInt(3, 0))
+		redName := L.OptString(4, "")
+		blueName := L.OptString(5, "")
+		br.ScenarioRegisterGTPortal(field, npcHandle, flagHandle, redName, blueName)
+		return 0
+	}))
+	L.SetGlobal("RegisterGuildGate", L.NewFunction(func(L *glua.LState) int {
+		field := L.OptString(1, "")
+		npcHandle := uint32(L.OptInt(2, 0))
+		guildName := L.OptString(3, "")
+		flagHandle := uint32(L.OptInt(4, 0))
+		gateName := L.OptString(5, "")
+		br.ScenarioRegisterGuildGate(field, npcHandle, guildName, flagHandle, gateName)
+		return 0
+	}))
+	L.SetGlobal("BroadcastToField", L.NewFunction(func(L *glua.LState) int {
+		field := L.OptString(1, "")
+		msg := L.OptString(2, "")
+		br.ScenarioBroadcastToField(field, msg)
+		return 0
+	}))
+	L.SetGlobal("EvaluateMatchScore", L.NewFunction(func(L *glua.LState) int {
+		field := L.OptString(1, "")
+		L.Push(glua.LString(br.ScenarioEvaluateMatchScore(field)))
+		return 1
+	}))
+	L.SetGlobal("RewardGuildTournament", L.NewFunction(func(L *glua.LState) int {
+		field := L.OptString(1, "")
+		winner := L.OptString(2, "")
+		br.ScenarioRewardGuildTournament(field, winner)
 		return 0
 	}))
 }

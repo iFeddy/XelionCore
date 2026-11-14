@@ -171,6 +171,35 @@ type ZonePlayer struct {
 	MinimonNormalSlots  [12]uint16
 	MinimonChargedSlots [12]uint16
 	ActiveProduce       *ProduceSession
+
+	// Campos de subsistemas de la Fase 15 (Quests, Instancias/KQ/GT/Wedding, MiniHouse, Pets y Casino)
+	PendingQuestRewardSelect uint16
+	PendingMenuNPC           uint16
+	PendingMenuCallbacks     []string
+	ActivePet                *ActivePetState
+	InsideMiniHouseOwner     int
+	MiniHouseOpen            bool
+	MiniHouseTitle           string
+	MiniHousePassword        string
+	MiniHouseMaxGuests       uint8
+	CasinoCoins              uint64
+	CasinoDiceJoined         bool
+	KQTeam                   byte
+	KQRewardIdx              string
+	GTObserving              bool
+}
+
+// ActivePetState mantiene el estado vivo en mapa de la mascota invocada por un jugador.
+type ActivePetState struct {
+	Handle     uint16
+	PetID      int
+	ItemKey    int64
+	PetType    uint16
+	Mind       uint8
+	Hunger     uint8
+	Stress     uint8
+	Tendency   int16
+	SummonedAt time.Time
 }
 
 // RepurchaseEntry guarda un ítem vendido recientemente para PROTO_NC_ITEM_REPURCHASE_REQ (0x3059).

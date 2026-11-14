@@ -25,6 +25,7 @@ const (
 	TypeListInxWord  uint32 = 13
 	TypeListInxDword uint32 = 14
 	TypeListInxQword uint32 = 15
+	TypeListVarStr   uint32 = 26
 )
 
 // Decrypt implementa el algoritmo simétrico oficial CDataReader::Encription
@@ -83,6 +84,14 @@ func (r *Row) GetBytesAt(idx int) []byte {
 		return nil
 	}
 	return r.cols[idx]
+}
+
+// GetBytes retorna el slice crudo de una columna por nombre.
+func (r *Row) GetBytes(colName string) []byte {
+	if r == nil || r.values == nil {
+		return nil
+	}
+	return r.values[colName]
 }
 
 // GetByteAt retorna el byte en la columna posicional idx o 0.
@@ -256,7 +265,8 @@ func Parse(data []byte) (*File, error) {
 		offset := 4
 		rows := make([]Row, 0, count)
 		cols := []Column{
-			{Name: "QuestID", Type: TypeListWord, Size: 2},
+			{Name: "RecordSize", Type: TypeListWord, Size: 2},
+			{Name: "QuestID", Type: TypeListDword, Size: 4},
 			{Name: "TotalSize", Type: TypeListDword, Size: 4},
 			{Name: "HeaderData", Type: TypeListRemark, Size: 680},
 			{Name: "ScriptStart", Type: TypeListStrAuto, Size: 0},
@@ -293,7 +303,8 @@ func Parse(data []byte) (*File, error) {
 			binary.LittleEndian.PutUint32(totalBytes, totalSize)
 
 			vals := map[string][]byte{
-				"QuestID":     rec[:2],
+				"RecordSize":  rec[:2],
+				"QuestID":     rec[4:8],
 				"TotalSize":   totalBytes,
 				"HeaderData":  rec,
 				"ScriptStart": s1,
@@ -362,17 +373,48 @@ func Parse(data []byte) (*File, error) {
 		colOffset += 56
 	}
 
-	// Leer filas de registros
-	rows := make([]Row, recordCount)
+	// Leer filas de registros (soportando columnas Type 26 de longitud variable por prefijo row_len)
+	hasVarCol := false
+	for _, c := range columns {
+		if c.Type == TypeListVarStr {
+			hasVarCol = true
+			break
+		}
+	}
+
+	rows := make([]Row, 0, recordCount)
 	rowOffset := headerEnd
 	for r := 0; r < recordCount; r++ {
-		rowBytes := full[rowOffset : rowOffset+rowSize]
+		if rowOffset+2 > len(full) {
+			break
+		}
+		stepLen := rowSize
+		if hasVarCol {
+			stepLen = int(binary.LittleEndian.Uint16(full[rowOffset : rowOffset+2]))
+			if stepLen < 2 || rowOffset+stepLen > len(full) {
+				break
+			}
+		} else if rowOffset+stepLen > len(full) {
+			break
+		}
+
+		rowBytes := full[rowOffset : rowOffset+stepLen]
 		rowVals := make(map[string][]byte, colCount)
 		rowCols := make([][]byte, colCount)
 
 		// En Fiesta SHN los primeros 2 bytes de cada fila son uint16 row_len
 		curr := 2
 		for idx, col := range columns {
+			if col.Type == TypeListVarStr && idx == len(columns)-1 {
+				if curr <= len(rowBytes) {
+					val := make([]byte, len(rowBytes)-curr)
+					copy(val, rowBytes[curr:])
+					rowCols[idx] = val
+					rowVals[col.Name] = val
+				}
+				curr = len(rowBytes)
+				continue
+			}
 			end := curr + int(col.Size)
 			if end <= len(rowBytes) {
 				val := make([]byte, col.Size)
@@ -383,8 +425,8 @@ func Parse(data []byte) (*File, error) {
 			curr = end
 		}
 
-		rows[r] = Row{values: rowVals, cols: rowCols}
-		rowOffset += rowSize
+		rows = append(rows, Row{values: rowVals, cols: rowCols})
+		rowOffset += stepLen
 	}
 
 	return &File{

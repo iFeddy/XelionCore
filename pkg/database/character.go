@@ -353,6 +353,44 @@ type ZoneNodeInfo struct {
 	LastHeartbeat  time.Time `json:"last_heartbeat"`
 }
 
+// WeddingStatusData modela una fila de tMarriage (p_Char_WeddingStatus_Get).
+type WeddingStatusData struct {
+	CharNo         int       `json:"char_no"`
+	PartnerCharNo  int       `json:"partner_char_no"`
+	Status         int16     `json:"status"`
+	SubStatus      int16     `json:"sub_status"`
+	When           time.Time `json:"when"`
+	SubWhen        time.Time `json:"sub_when"`
+	MarriageCount  byte      `json:"marriage_count"`
+	DivorceCancel  byte      `json:"divorce_cancel"`
+}
+
+// MiniHousePortalData modela un portal activo en tMinihouseGate (usp_Minihouse_getGateList).
+type MiniHousePortalData struct {
+	CharNo  int       `json:"char_no"`
+	ItemID  int       `json:"item_id"`
+	Type    byte      `json:"type"`
+	EndDate time.Time `json:"end_date"`
+}
+
+// DiceRankEntry modela una fila del ranking de dados (usp_Dice_getDiceRank / usp_Gamble_getDiceRank).
+type DiceRankEntry struct {
+	CharName string `json:"char_name"`
+	WinCount int    `json:"win_count"`
+}
+
+// JackpotCoinEntry modela el pozo acumulado por unidad de apuesta (usp_Gamble_getJackpotCoin).
+type JackpotCoinEntry struct {
+	BattingUnit int64 `json:"batting_unit"`
+	JackpotCoin int64 `json:"jackpot_coin"`
+}
+
+// JackpotRankEntry modela una fila de tGambleJackpotLog (usp_Gamble_getJackpotRanking).
+type JackpotRankEntry struct {
+	CharName    string `json:"char_name"`
+	JackpotCoin int64  `json:"jackpot_coin"`
+}
+
 // Sync ensures bidirectional alignment between flat fields and the canonical tables.
 func (c *Character) Sync() {
 	if c.Equips == nil {
@@ -542,6 +580,9 @@ type CharacterItemRepository interface {
 	SafeTradeAll(buyer, seller int, moveMoney, itemKey int64, storageType byte, storage int16) error
 	SafeTradeLot(buyer int, buyerItemKey int64, buyerStorageType byte, buyerStorage int16, buyerItemID, buyerFlags int, buyerOptType int16, seller int, sellerItemKey int64, sellerOptType int16, moveMoney, splitLot int64) error
 	SafeTradeMerge(buyer int, buyerItemKey int64, buyerOptType int16, seller int, sellerItemKey int64, sellerOptType int16, moveMoney, splitLot int64, isDelete byte) error
+	SetWeaponTitle(weaponItemKey, licenseItemKey int64, mobID int16, titleCharNo int, title string) error
+	ClearWeaponTitle(weaponItemKey int64, mobID int16, clearItemKey int64, delFlag byte, optType int16, optData int64) error
+	DeleteMiniHouseEffectResource(owner int, itemKey, demandMoney int64, optType int16, remainLot int) error
 }
 
 // CharacterProgressionRepository gobierna habilidades, misiones, atajos, opciones de cliente, asistencia y tutorial.
@@ -628,6 +669,8 @@ type GuildRepository interface {
 	DelAcademyReward(guildID int, level int16, typeID byte) error
 	GetGuildTournament(gtNo int) (*GuildTournamentData, error)
 	GetAllGuildTournaments() ([]*GuildTournamentData, error)
+	SetGuildTournamentResult(gtNo int, typ int16, data int, guildNo int) error
+	SetGuildTournamentChoice(gtNo int, limitLevel int, limitMember int) error
 }
 
 // WorldSocialRepository gobierna lista de amigos, friendpoints, Kingdom Quests, HolyPromise, mascotas y minihouse.
@@ -659,6 +702,48 @@ type WorldSocialRepository interface {
 	SetMiniHouseURL(charNo int, url string) error
 	GetMiniHouseVisitors(charNo int) (int, error)
 	SetMiniHouseVisitors(charNo int, visitors int) error
+	GetMiniHouseGates(charNo int) ([]*MiniHousePortalData, error)
+	SetMiniHouseGate(charNo, itemID int, bType byte, endDate time.Time, itemKey int64) error
+	DelMiniHouseGate(charNo, itemID int) error
+	CreatePet(ownerNo int, name string, mind, stress byte) (int, error)
+	DeletePet(ownerNo, petNo int) error
+
+	// Wedding & HolyPromise Rewards (tMarriage / tHolyPromiseReward)
+	GetWeddingStatus(charNo int) (*WeddingStatusData, error)
+	SetWeddingStatus(charNo, partnerCharNo int, status, subStatus int16, when, subWhen time.Time, marriageCount, divorceCancel byte) error
+	ProposeWedding(charANo, charBNo int) error
+	CancelWeddingPropose(charANo, charBNo int) error
+	CompleteWedding(charANo, charBNo int) error
+	RequestAgreeDivorce(charANo, charBNo int) error
+	RequestForceDivorce(charANo, charBNo int) error
+	CancelDivorce(charANo, charBNo int, incCount byte) (byte, byte, error)
+	DoDivorce(charANo, charBNo int, byItem bool) error
+	EscapeDivorceState(charNo int) error
+	GetWeddingPartnerInfo(partnerCharNo int) (byte, time.Time, error)
+	GetHolyPromiseRemainMoney(charNo int) (int64, error)
+	SetHolyPromiseMoney(charNo int, rewardMoney int64, levelGap int) error
+	WithdrawHolyPromiseRemainMoney(charNo int) (int64, error)
+
+	// Casino (BelongDice & GambleHouse & SlotMachine)
+	GetDiceExpect(charNo int, itemKey int64) (int, int64, error)
+	GetDiceRank(charNo int, itemKey int64) ([]*DiceRankEntry, error)
+	SetDiceGame(charNo int, itemKey int64, dice string) (int, error)
+	SetDiceLog(gameNo, customCharNo, slotNo int, betMoney int64, betRate int, status byte, taxRate int, dividend int64) error
+	SetDicePay(charNo int, itemKey int64, totalDividend int64) error
+	SetDiceResult(gameNo, customCharNo int, totalDividend int64) error
+	GetGambleCoin(charNo int) (int64, error)
+	AddGambleCoin(charNo int, itemKey, coin int64) error
+	SubGambleCoin(charNo int, coin int64) error
+	GetGambleExchangedCoin(charNo int, since time.Time) (int64, error)
+	ExchangeMoneyToCoin(charNo int, money, coin, limit int64, now time.Time) error
+	ExchangeCoinToMoney(charNo int, money, coin int64) error
+	SetGambleDice(dice string) (int, error)
+	SetGambleDiceLog(gameNo, charNo, slotNo int, betMoney int64, betRate int, status byte, taxRate int, dividend int64) error
+	SetGambleDiceResult(gameNo, charNo int, totalDividend int64) (int64, error)
+	GetGambleDiceRank() ([]*DiceRankEntry, error)
+	GetJackpotCoin(gameName string) ([]*JackpotCoinEntry, error)
+	GetJackpotRanking(gameName string, battingUnit int64) ([]*JackpotRankEntry, error)
+	SetSlotMachineResult(charNo int, battingUnit int64, batting byte, gameResult string, isWin bool, prizeCoin int64, isJackpot bool, jackpotRate int) error
 
 	// Party (tParty / tPartyMember)
 	CreateParty(masterCharNo int, flags int) (int, error)
@@ -842,6 +927,7 @@ type MemoryCharacterRepository struct {
 	zoneNodes     map[uint16]*ZoneNodeInfo
 
 	titles              map[int][]*CharacterTitleData
+	quests              map[int]map[int]*QuestData
 	autoPick            map[int]bool
 	restExpTime         map[int]time.Time
 	collectionCards     map[int][]*CollectionCardData
@@ -856,6 +942,22 @@ type MemoryCharacterRepository struct {
 	userMoney           map[int]int64
 	academyMoney        map[int]int64
 	academyRewards      map[int][]*AcademyRewardData
+	weddings            map[int]*WeddingStatusData
+	miniHouseGates      map[int][]*MiniHousePortalData
+	miniHouseURLs       map[int]string
+	miniHouseVisitors   map[int]int
+	pets                map[int]*PetData
+	nextPetNo           int
+	holyPromiseMoney    map[int]int64
+	weaponTitles        map[int64]map[int16]string
+	gambleCoins         map[int]int64
+	gambleExchanged     map[int]int64
+	gambleJackpot       map[string]map[int64]int64
+	gambleJackpotRank   map[string][]*JackpotRankEntry
+	diceGames           map[int]int64
+	diceRank            map[int][]*DiceRankEntry
+	gambleDiceRank      []*DiceRankEntry
+	nextDiceGameNo      int
 }
 
 func NewMemoryCharacterRepositoryWithFile(filePath string) *MemoryCharacterRepository {
@@ -898,6 +1000,21 @@ func NewMemoryCharacterRepositoryWithFile(filePath string) *MemoryCharacterRepos
 		academies:     make(map[int]*GuildAcademyData),
 		academyMbrs:   make(map[int][]*GuildAcademyMemberData),
 		zoneNodes:     make(map[uint16]*ZoneNodeInfo),
+		weddings:          make(map[int]*WeddingStatusData),
+		miniHouseGates:    make(map[int][]*MiniHousePortalData),
+		miniHouseURLs:     make(map[int]string),
+		miniHouseVisitors: make(map[int]int),
+		pets:              make(map[int]*PetData),
+		nextPetNo:         1,
+		holyPromiseMoney:  make(map[int]int64),
+		weaponTitles:      make(map[int64]map[int16]string),
+		gambleCoins:       make(map[int]int64),
+		gambleExchanged:   make(map[int]int64),
+		gambleJackpot:     make(map[string]map[int64]int64),
+		gambleJackpotRank: make(map[string][]*JackpotRankEntry),
+		diceGames:         make(map[int]int64),
+		diceRank:          make(map[int][]*DiceRankEntry),
+		nextDiceGameNo:    1,
 	}
 	repo.load()
 	return repo
@@ -2085,22 +2202,68 @@ func (r *MemoryCharacterRepository) SetInGameGuideView(charNo int, guideNo byte)
 }
 
 func (r *MemoryCharacterRepository) GetCharacterQuests(charNo int) ([]*QuestData, error) {
-	return nil, nil
+	r.mu.RLock()
+	defer r.mu.RUnlock()
+	if r.quests == nil || r.quests[charNo] == nil {
+		return nil, nil
+	}
+	res := make([]*QuestData, 0, len(r.quests[charNo]))
+	for _, q := range r.quests[charNo] {
+		cpData := append([]byte(nil), q.Data...)
+		res = append(res, &QuestData{
+			CharNo:  q.CharNo,
+			QuestNo: q.QuestNo,
+			Status:  q.Status,
+			Data:    cpData,
+		})
+	}
+	return res, nil
 }
 
 func (r *MemoryCharacterRepository) GetCharacterDoneQuests(charNo int) ([]int, error) {
-	return nil, nil
+	r.mu.RLock()
+	defer r.mu.RUnlock()
+	if r.quests == nil || r.quests[charNo] == nil {
+		return nil, nil
+	}
+	var done []int
+	for qNo, q := range r.quests[charNo] {
+		if q.Status == 2 {
+			done = append(done, qNo)
+		}
+	}
+	return done, nil
 }
 
 func (r *MemoryCharacterRepository) AddCharacterQuest(charNo int, questNo int, status byte, data []byte) error {
-	return nil
+	return r.SetCharacterQuest(charNo, questNo, status, data)
 }
 
 func (r *MemoryCharacterRepository) SetCharacterQuest(charNo int, questNo int, status byte, data []byte) error {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.quests == nil {
+		r.quests = make(map[int]map[int]*QuestData)
+	}
+	if r.quests[charNo] == nil {
+		r.quests[charNo] = make(map[int]*QuestData)
+	}
+	cpData := append([]byte(nil), data...)
+	r.quests[charNo][questNo] = &QuestData{
+		CharNo:  charNo,
+		QuestNo: questNo,
+		Status:  status,
+		Data:    cpData,
+	}
 	return nil
 }
 
 func (r *MemoryCharacterRepository) DeleteCharacterQuest(charNo int, questNo int) error {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.quests != nil && r.quests[charNo] != nil {
+		delete(r.quests[charNo], questNo)
+	}
 	return nil
 }
 
@@ -2759,30 +2922,65 @@ func (r *MemoryCharacterRepository) DelAllMasterPupils(charNo int) error {
 }
 
 func (r *MemoryCharacterRepository) GetPetInfo(ownerNo int) (*PetData, error) {
+	r.mu.RLock()
+	defer r.mu.RUnlock()
+	for _, p := range r.pets {
+		if p.OwnerNo == ownerNo {
+			cp := *p
+			return &cp, nil
+		}
+	}
 	return nil, nil
 }
 
 func (r *MemoryCharacterRepository) SetPetName(petNo int, ownerNo int, name string) error {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if p, ok := r.pets[petNo]; ok {
+		p.PetName = name
+		return nil
+	}
+	for _, p := range r.pets {
+		if p.OwnerNo == ownerNo {
+			p.PetName = name
+			return nil
+		}
+	}
 	return nil
 }
 
 func (r *MemoryCharacterRepository) SetPetTendency(petNo int, tendency byte) error {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if p, ok := r.pets[petNo]; ok {
+		p.Tendency = tendency
+	}
 	return nil
 }
 
 func (r *MemoryCharacterRepository) GetMiniHouseURL(charNo int) (string, error) {
-	return "", nil
+	r.mu.RLock()
+	defer r.mu.RUnlock()
+	return r.miniHouseURLs[charNo], nil
 }
 
 func (r *MemoryCharacterRepository) SetMiniHouseURL(charNo int, url string) error {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	r.miniHouseURLs[charNo] = url
 	return nil
 }
 
 func (r *MemoryCharacterRepository) GetMiniHouseVisitors(charNo int) (int, error) {
-	return 0, nil
+	r.mu.RLock()
+	defer r.mu.RUnlock()
+	return r.miniHouseVisitors[charNo], nil
 }
 
 func (r *MemoryCharacterRepository) SetMiniHouseVisitors(charNo int, visitors int) error {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	r.miniHouseVisitors[charNo] = visitors
 	return nil
 }
 

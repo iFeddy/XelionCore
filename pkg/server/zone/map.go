@@ -119,6 +119,22 @@ type ZoneMap struct {
 	luaEngine    *lua.Engine
 	worldBridge  *ZoneWorldBridge
 	aiTimersSec  map[int]int64
+
+	// Campos de subsistemas de la Fase 15 (Instancias Lua, KQ, Guild Tournament y Bodas)
+	IsInstance         bool
+	InstanceKind       string // "ID", "KQ", "GT", "Wedding"
+	InstanceDefID      uint16
+	InstanceLimitSec   int
+	InstanceStartedAt  time.Time
+	ScenarioInterrupts map[string]string // EventName -> Lua callback
+	NPCInteractCB      map[uint32]string // npcHandle -> Lua callback
+	KQScoreRed         int
+	KQScoreBlue        int
+	KQWinRed           int
+	KQWinBlue          int
+	KQTeamByChar       map[int]int
+	GTState            *GuildTournamentMatch
+	WeddingState       *WeddingCeremonyState
 }
 
 // NewZoneMap creates a new map instance with real metadata and starts its GameLoop.

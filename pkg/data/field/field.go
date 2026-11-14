@@ -294,3 +294,30 @@ func (s *Store) TutorialMap() *TutorialMapEntry {
 	defer s.mu.RUnlock()
 	return s.tutorialMap
 }
+
+// GetAllInstanceDungeons returns all loaded InstanceDungeon entries.
+func (s *Store) GetAllInstanceDungeons() []InstanceDungeonEntry {
+	s.mu.RLock()
+	defer s.mu.RUnlock()
+	res := make([]InstanceDungeonEntry, len(s.instanceDungeons))
+	copy(res, s.instanceDungeons)
+	return res
+}
+
+// GetGuildTournament returns a GuildTournamentEntry by map name (case-insensitive).
+func (s *Store) GetGuildTournament(mapID string) (*GuildTournamentEntry, bool) {
+	s.mu.RLock()
+	defer s.mu.RUnlock()
+	if s.guildTournaments == nil {
+		return nil, false
+	}
+	if e, ok := s.guildTournaments[mapID]; ok {
+		return e, true
+	}
+	for k, e := range s.guildTournaments {
+		if strings.EqualFold(k, mapID) {
+			return e, true
+		}
+	}
+	return nil, false
+}

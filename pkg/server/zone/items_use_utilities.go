@@ -202,43 +202,7 @@ func (h *Handler) handleMinimonChargedOffReq(client *network.Client, pkt *protoc
 	_ = client.SendPacket(ack)
 }
 
-// === Dept 12: Dice Game, Durabilidad, Desligar, Chat Color, TermExtend, ClassChange, MapLink, Cofres ===
-
-func (h *Handler) handleDiceGameStartReq(client *network.Client, pkt *protocol.Packet) {
-	player, ok := h.getPlayer(client)
-	if !ok || player == nil || player.Char == nil {
-		return
-	}
-	itemHandle, err := pkt.Reader.ReadUint16()
-	if err != nil {
-		return
-	}
-	isYes, _ := pkt.Reader.ReadByte()
-
-	ack := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_DICE_GAME_START_ACK)
-	ack.WriteUint16(0)
-	_ = client.SendPacket(ack)
-
-	roll := int32(rand.Intn(100) + 1)
-	if isYes == 0 {
-		roll = 0
-	}
-	if player.CurrentMap != nil {
-		startCmd := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_DICE_GAME_START_CMD)
-		startCmd.WriteUint16(player.MapObjectID)
-		startCmd.WriteInt32(roll)
-		player.CurrentMap.Broadcast(startCmd, 0)
-
-		resCmd := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_DICE_GAME_RESULT_CMD)
-		resCmd.WriteUint16(0)
-		var nameBytes [20]byte
-		copy(nameBytes[:], player.Char.Name)
-		resCmd.WriteBytes(nameBytes[:])
-		resCmd.WriteInt32(roll)
-		resCmd.WriteUint16(itemHandle)
-		player.CurrentMap.Broadcast(resCmd, 0)
-	}
-}
+// === Dept 12: Durabilidad, Desligar, Chat Color, TermExtend, ClassChange, MapLink, Cofres (handleDiceGameStartReq vive en casino.go) ===
 
 func (h *Handler) handleMHFurnitureEndureKitUseReq(client *network.Client, pkt *protocol.Packet) {
 	player, ok := h.getPlayer(client)

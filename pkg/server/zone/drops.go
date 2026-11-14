@@ -265,6 +265,9 @@ func (h *Handler) HandleMonsterDeath(zMap *ZoneMap, mob *ZoneMonster, killer *Zo
 	// 4. Progreso automático de títulos (Dept 24)
 	if killer != nil && killer.Char != nil {
 		h.OnMonsterKilledTitles(killer, mob)
+		// 5. Progreso de misiones (Dept 17) y WeaponTitle (Dept 23)
+		h.OnQuestMobKilled(killer, mobID)
+		h.OnWeaponTitleMobKilled(killer, mobID)
 	}
 }
 

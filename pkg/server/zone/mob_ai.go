@@ -218,7 +218,11 @@ func (b *ZoneWorldBridge) MoveStop(handle uint32) {
 	}
 }
 
-func (b *ZoneWorldBridge) CastTeleport(handle uint32, mapName string, x, y float64) {}
+func (b *ZoneWorldBridge) CastTeleport(handle uint32, mapName string, x, y float64) {
+	if b.zMap != nil {
+		b.zMap.bridgeCastTeleport(handle, mapName, x, y)
+	}
+}
 func (b *ZoneWorldBridge) CameraMove(handle uint32, cameraID int)                   {}
 func (b *ZoneWorldBridge) Animate(handle uint32, animID int, forced bool)           {}
 func (b *ZoneWorldBridge) Emotion(handle uint32, emotionID int)                     {}
@@ -264,9 +268,23 @@ func (b *ZoneWorldBridge) MobRegenRectangle(mobID uint32, mapName string, x1, y1
 	return b.MobRegenXY(mobID, mapName, rx, ry, 0)
 }
 
-func (b *ZoneWorldBridge) NPCRegen(npcID uint32, mapName string, x, y float64) uint32 { return 0 }
-func (b *ZoneWorldBridge) NPCVanish(handle uint32)                                  {}
-func (b *ZoneWorldBridge) GroupRegen(groupID uint32, mapName string) int            { return 0 }
+func (b *ZoneWorldBridge) NPCRegen(npcID uint32, mapName string, x, y float64) uint32 {
+	if b.zMap != nil {
+		return b.zMap.bridgeNPCRegen(npcID, mapName, x, y)
+	}
+	return 0
+}
+func (b *ZoneWorldBridge) NPCVanish(handle uint32) {
+	if b.zMap != nil {
+		b.zMap.bridgeNPCVanish(handle)
+	}
+}
+func (b *ZoneWorldBridge) GroupRegen(groupID uint32, mapName string) int {
+	if b.zMap != nil {
+		return b.zMap.bridgeGroupRegen(groupID, mapName)
+	}
+	return 0
+}
 
 func (b *ZoneWorldBridge) AggroSet(mobHandle, targetHandle uint32, amount int) {
 	if b.zMap == nil {
@@ -398,7 +416,11 @@ func (b *ZoneWorldBridge) Damaged(handle uint32, attackerHandle uint32, damage i
 	}
 }
 func (b *ZoneWorldBridge) SkillBlast(handle uint32, skillID uint16, x, y float64) {}
-func (b *ZoneWorldBridge) EndOfKingdomQuest(success bool)                         {}
+func (b *ZoneWorldBridge) EndOfKingdomQuest(success bool) {
+	if b.zMap != nil {
+		b.zMap.bridgeEndOfKingdomQuest(success)
+	}
+}
 func (b *ZoneWorldBridge) TimerStart(timerID int, seconds int) {
 	if b.zMap != nil {
 		b.zMap.mu.Lock()
@@ -418,17 +440,285 @@ func (b *ZoneWorldBridge) TimerEnd(timerID int) {
 }
 func (b *ZoneWorldBridge) ScoreBoard(recordType int, charNo int64, score int) {}
 func (b *ZoneWorldBridge) SendRankingList()                                   {}
-func (b *ZoneWorldBridge) Notice(msg string)                                  {}
-func (b *ZoneWorldBridge) NoticeString(msg string)                            {}
-func (b *ZoneWorldBridge) ScriptMsg(handle uint32, msg string)                {}
-func (b *ZoneWorldBridge) SysMsg(handle uint32, code int)                     {}
-func (b *ZoneWorldBridge) SomebodyShout(handle uint32, msg string)            {}
-func (b *ZoneWorldBridge) SendGameLogDataType4(charNo int64, mapName string, x, y, z int, int1, int2, int3 int) {
+func (b *ZoneWorldBridge) Notice(msg string) {
+	if b.zMap != nil {
+		b.zMap.bridgeBroadcastNotice(msg)
+	}
 }
-func (b *ZoneWorldBridge) SendGameLogDataType5(charNo int64, int1, int2 int) {}
-func (b *ZoneWorldBridge) PetGetMind(petHandle uint32) int                   { return 50 }
-func (b *ZoneWorldBridge) PetChangeMind(petHandle uint32, newMind int)       {}
-func (b *ZoneWorldBridge) PetUnsummon(petHandle uint32)                      {}
+func (b *ZoneWorldBridge) NoticeString(msg string) {
+	if b.zMap != nil {
+		b.zMap.bridgeBroadcastNotice(msg)
+	}
+}
+func (b *ZoneWorldBridge) ScriptMsg(handle uint32, msg string) {
+	if b.zMap != nil {
+		b.zMap.bridgeScriptMsg(handle, msg)
+	}
+}
+func (b *ZoneWorldBridge) SysMsg(handle uint32, code int) {
+	if b.zMap != nil {
+		b.zMap.bridgeSysMsg(handle, uint16(code))
+	}
+}
+func (b *ZoneWorldBridge) SomebodyShout(handle uint32, msg string) {}
+func (b *ZoneWorldBridge) SendGameLogDataType4(charNo int64, mapName string, x, y, z int, int1, int2, int3 int) {
+	if b.zMap != nil && b.zMap.handler != nil && b.zMap.handler.gameLogDispatcher != nil {
+		b.zMap.handler.gameLogDispatcher.EnqueueType4(1, int(charNo), mapName, x, y, z, int1, int2, int3)
+	}
+}
+func (b *ZoneWorldBridge) SendGameLogDataType5(charNo int64, int1, int2 int) {
+	if b.zMap != nil && b.zMap.handler != nil && b.zMap.handler.gameLogDispatcher != nil {
+		b.zMap.handler.gameLogDispatcher.EnqueueType5(1, int(charNo), int1, int2)
+	}
+}
+func (b *ZoneWorldBridge) PetGetMind(petHandle uint32) int {
+	if b.zMap != nil {
+		return b.zMap.bridgePetGetMind(petHandle)
+	}
+	return 50
+}
+func (b *ZoneWorldBridge) PetChangeMind(petHandle uint32, newMind int) {
+	if b.zMap != nil {
+		b.zMap.bridgePetChangeMind(petHandle, newMind)
+	}
+}
+func (b *ZoneWorldBridge) PetUnsummon(petHandle uint32) {
+	if b.zMap != nil {
+		b.zMap.bridgePetUnsummon(petHandle)
+	}
+}
+func (b *ZoneWorldBridge) PetGetActionRecord(petHandle uint32, action string) (string, string, string, string, bool) {
+	if b.zMap != nil {
+		return b.zMap.bridgePetGetActionRecord(petHandle, action)
+	}
+	return "Idle", "SM_PetIdle", "", "", true
+}
+func (b *ZoneWorldBridge) PetGetRunSpeed(petHandle uint32) int  { return 115 }
+func (b *ZoneWorldBridge) PetGetWalkSpeed(petHandle uint32) int { return 40 }
+func (b *ZoneWorldBridge) PetGetStress(petHandle uint32) int {
+	if b.zMap != nil {
+		return b.zMap.bridgePetGetStress(petHandle)
+	}
+	return 0
+}
+func (b *ZoneWorldBridge) PetIsMasterCalling(petHandle uint32) bool { return false }
+func (b *ZoneWorldBridge) PetSaveTendency(petHandle uint32) bool {
+	if b.zMap != nil {
+		return b.zMap.bridgePetSaveTendency(petHandle)
+	}
+	return true
+}
+func (b *ZoneWorldBridge) ServerMenu(playerHandle, npcHandle uint32, title string, options []lua.MenuOptionEntry) {
+	if b.zMap != nil {
+		b.zMap.bridgeServerMenu(playerHandle, npcHandle, title, options)
+	}
+}
+func (b *ZoneWorldBridge) NPCMenuOpen(npcHandle, playerHandle uint32) {
+	if b.zMap != nil {
+		b.zMap.bridgeNPCMenuOpen(npcHandle, playerHandle)
+	}
+}
+func (b *ZoneWorldBridge) QuestResult(mapName, result string) {
+	if b.zMap != nil {
+		b.zMap.bridgeQuestResult(mapName, result)
+	}
+}
+func (b *ZoneWorldBridge) QuestResultIndividual(playerHandle uint32, result string) {
+	if b.zMap != nil {
+		b.zMap.bridgeQuestResultIndividual(playerHandle, result)
+	}
+}
+func (b *ZoneWorldBridge) QuestMobKill(playerHandle uint32, questID uint16, mobID uint32, count int) {
+	if b.zMap != nil {
+		b.zMap.bridgeQuestMobKill(playerHandle, questID, mobID, count)
+	}
+}
+func (b *ZoneWorldBridge) QuestMobKillAllInMap(mapName string, questID uint16, mobID uint32, maxCount int) {
+	if b.zMap != nil {
+		b.zMap.bridgeQuestMobKillAllInMap(mapName, questID, mobID, maxCount)
+	}
+}
+func (b *ZoneWorldBridge) GetTutorialInfo(playerHandle uint32) int {
+	if b.zMap != nil {
+		return b.zMap.bridgeGetTutorialInfo(playerHandle)
+	}
+	return 0
+}
+func (b *ZoneWorldBridge) SaveTutorialInfo(playerHandle uint32, saveType, step int) {
+	if b.zMap != nil {
+		b.zMap.bridgeSaveTutorialInfo(playerHandle, saveType, step)
+	}
+}
+func (b *ZoneWorldBridge) ProgressTutorial(playerHandle uint32, step int) {
+	if b.zMap != nil {
+		b.zMap.bridgeProgressTutorial(playerHandle, step)
+	}
+}
+func (b *ZoneWorldBridge) ShowKQTimerWithLife(mapName string, seconds int) {
+	if b.zMap != nil {
+		b.zMap.bridgeShowKQTimerWithLife(seconds)
+	}
+}
+func (b *ZoneWorldBridge) ShowKQTimerWithLifeObj(playerHandle uint32, seconds int) {
+	if b.zMap != nil {
+		b.zMap.bridgeShowKQTimerWithLifeObj(playerHandle, seconds)
+	}
+}
+func (b *ZoneWorldBridge) GetKQLimitSecond(mapName string) int {
+	if b.zMap != nil {
+		return b.zMap.bridgeGetKQLimitSecond()
+	}
+	return 1800
+}
+func (b *ZoneWorldBridge) GetKQTeamType(handle uint32) int {
+	if b.zMap != nil {
+		return b.zMap.bridgeGetKQTeamType(handle)
+	}
+	return 0
+}
+func (b *ZoneWorldBridge) IsKQJoiner(handle uint32) bool {
+	return b.zMap != nil && b.zMap.GetPlayer(uint16(handle)) != nil
+}
+func (b *ZoneWorldBridge) KQRewardIndex(playerHandle uint32, rewardIndex string) {
+	if b.zMap != nil {
+		b.zMap.bridgeKQRewardIndex(playerHandle, rewardIndex)
+	}
+}
+func (b *ZoneWorldBridge) ScoreBoardAllInMap(mapName string, show bool, round, redWin, redScore, blueWin, blueScore int) {
+	if b.zMap != nil {
+		b.zMap.bridgeScoreBoardAllInMap(show, round, redWin, redScore, blueWin, blueScore)
+	}
+}
+func (b *ZoneWorldBridge) IndunRankResult(mapName string, args []int) {
+	if b.zMap != nil {
+		b.zMap.bridgeIndunRankResult(args)
+	}
+}
+func (b *ZoneWorldBridge) RewardAll(mapName, rewardType string) {
+	if b.zMap != nil {
+		b.zMap.bridgeRewardAll(rewardType)
+	}
+}
+func (b *ZoneWorldBridge) RewardItem(playerHandle uint32, itemInx string, count int) {
+	if b.zMap != nil {
+		b.zMap.bridgeRewardItem(playerHandle, itemInx, count)
+	}
+}
+func (b *ZoneWorldBridge) InvenItemDestroy(playerHandle uint32, itemInx string, count int) int {
+	if b.zMap != nil {
+		return b.zMap.bridgeInvenItemDestroy(playerHandle, itemInx, count)
+	}
+	return 0
+}
+func (b *ZoneWorldBridge) GetItemLot(playerHandle uint32, itemInx string) (int, bool) {
+	if b.zMap != nil {
+		return b.zMap.bridgeGetItemLot(playerHandle, itemInx)
+	}
+	return 0, false
+}
+func (b *ZoneWorldBridge) DropItem(itemInx string, mobHandle, playerHandle uint32, rate int) {
+	if b.zMap != nil {
+		b.zMap.bridgeDropItem(itemInx, mobHandle, playerHandle, rate)
+	}
+}
+func (b *ZoneWorldBridge) SpawnNamedNPC(mapName, mobInx string, x, y float64, dir, scale int) uint32 {
+	if b.zMap != nil {
+		return b.zMap.bridgeSpawnNamedNPC(mobInx, x, y, dir)
+	}
+	return 0
+}
+func (b *ZoneWorldBridge) ScenarioSetTimeLimit(field string, seconds int) {
+	if b.zMap != nil {
+		b.zMap.mu.Lock()
+		b.zMap.InstanceLimitSec = seconds
+		b.zMap.mu.Unlock()
+	}
+}
+func (b *ZoneWorldBridge) ScenarioSetInterrupt(field, eventName, callback string) {
+	if b.zMap != nil {
+		b.zMap.mu.Lock()
+		if b.zMap.ScenarioInterrupts == nil {
+			b.zMap.ScenarioInterrupts = make(map[string]string)
+		}
+		b.zMap.ScenarioInterrupts[eventName] = callback
+		b.zMap.mu.Unlock()
+	}
+}
+func (b *ZoneWorldBridge) ScenarioSetScriptFile(field, scriptName string) {}
+func (b *ZoneWorldBridge) ScenarioSendChatWindow(field, speaker, dialogKey string) {
+	if b.zMap != nil {
+		b.zMap.bridgeScriptMsg(0, speaker+": "+dialogKey)
+	}
+}
+func (b *ZoneWorldBridge) ScenarioEnd(field string) {
+	if b.zMap != nil {
+		b.zMap.bridgeScenarioEnd()
+	}
+}
+func (b *ZoneWorldBridge) ScenarioFindPlayer(field, charName, mode string) uint32 {
+	if b.zMap != nil {
+		for _, p := range b.zMap.GetPlayers() {
+			if p.Char != nil && strings.EqualFold(p.Char.Name, charName) {
+				return uint32(p.MapObjectID)
+			}
+		}
+	}
+	return 0
+}
+func (b *ZoneWorldBridge) ScenarioCompleteWedding(groomHandle, brideHandle uint32) {
+	if b.zMap != nil {
+		b.zMap.bridgeCompleteWedding(groomHandle, brideHandle)
+	}
+}
+func (b *ZoneWorldBridge) ScenarioApplyAbnormalState(handle uint32, staName string, level, durationMs int) {
+	if b.zMap != nil {
+		b.zMap.bridgeApplyAbstateByName(handle, staName, level, durationMs)
+	}
+}
+func (b *ZoneWorldBridge) ScenarioSetNPCInteractHandler(npcHandle uint32, callback string) {
+	if b.zMap != nil {
+		b.zMap.mu.Lock()
+		if b.zMap.NPCInteractCB == nil {
+			b.zMap.NPCInteractCB = make(map[uint32]string)
+		}
+		b.zMap.NPCInteractCB[npcHandle] = callback
+		b.zMap.mu.Unlock()
+	}
+}
+func (b *ZoneWorldBridge) ScenarioRegisterCaptureFlag(field string, npcHandle uint32, redEffect, blueEffect string) {
+	if b.zMap != nil {
+		b.zMap.bridgeRegisterGTFlag(npcHandle, redEffect, blueEffect)
+	}
+}
+func (b *ZoneWorldBridge) ScenarioRegisterGTPortal(field string, npcHandle, flagHandle uint32, redName, blueName string) {
+	if b.zMap != nil {
+		b.zMap.bridgeRegisterGTPortal(npcHandle, flagHandle)
+	}
+}
+func (b *ZoneWorldBridge) ScenarioRegisterGuildGate(field string, npcHandle uint32, guildName string, flagHandle uint32, gateName string) {
+	if b.zMap != nil {
+		b.zMap.bridgeRegisterGTGate(npcHandle, guildName, flagHandle)
+	}
+}
+func (b *ZoneWorldBridge) ScenarioBroadcastToField(field, msg string) {
+	if b.zMap != nil {
+		b.zMap.bridgeBroadcastNotice(msg)
+	}
+}
+func (b *ZoneWorldBridge) ScenarioEvaluateMatchScore(field string) string {
+	if b.zMap != nil {
+		return b.zMap.bridgeEvaluateGTMatchScore()
+	}
+	return ""
+}
+func (b *ZoneWorldBridge) ScenarioRewardGuildTournament(field, winningGuild string) {
+	if b.zMap != nil {
+		b.zMap.bridgeRewardGuildTournament(winningGuild)
+	}
+}
+func (b *ZoneWorldBridge) ScenarioWait(seconds int) {
+	// No bloquea invocaciones síncronas dentro del GameLoop o tests unitarios
+}
 
 func resolveZoneDataDir() string {
 	for _, cand := range []string{"data", filepath.Join("..", "..", "..", "data"), filepath.Join("..", "..", "data")} {

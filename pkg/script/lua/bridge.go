@@ -80,6 +80,63 @@ type WorldBridge interface {
 	PetGetMind(petHandle uint32) int
 	PetChangeMind(petHandle uint32, newMind int)
 	PetUnsummon(petHandle uint32)
+	PetGetActionRecord(petHandle uint32, action string) (aiType, smInx, hairEffect, soundFile string, ok bool)
+	PetGetRunSpeed(petHandle uint32) int
+	PetGetWalkSpeed(petHandle uint32) int
+	PetGetStress(petHandle uint32) int
+	PetIsMasterCalling(petHandle uint32) bool
+	PetSaveTendency(petHandle uint32) bool
+
+	// Misiones, Menús Servidor, Tutorial y Recompensas Lua (Fase 15)
+	ServerMenu(playerHandle, npcHandle uint32, title string, options []MenuOptionEntry)
+	NPCMenuOpen(npcHandle, playerHandle uint32)
+	QuestResult(mapName, result string)
+	QuestResultIndividual(playerHandle uint32, result string)
+	QuestMobKill(playerHandle uint32, questID uint16, mobID uint32, count int)
+	QuestMobKillAllInMap(mapName string, questID uint16, mobID uint32, maxCount int)
+	GetTutorialInfo(playerHandle uint32) int
+	SaveTutorialInfo(playerHandle uint32, saveType, step int)
+	ProgressTutorial(playerHandle uint32, step int)
+
+	// Kingdom Quest / Instance Dungeon / Items Lua (Fase 15)
+	ShowKQTimerWithLife(mapName string, seconds int)
+	ShowKQTimerWithLifeObj(playerHandle uint32, seconds int)
+	GetKQLimitSecond(mapName string) int
+	GetKQTeamType(handle uint32) int
+	IsKQJoiner(handle uint32) bool
+	KQRewardIndex(playerHandle uint32, rewardIndex string)
+	ScoreBoardAllInMap(mapName string, show bool, round, redWin, redScore, blueWin, blueScore int)
+	IndunRankResult(mapName string, args []int)
+	RewardAll(mapName, rewardType string)
+	RewardItem(playerHandle uint32, itemInx string, count int)
+	InvenItemDestroy(playerHandle uint32, itemInx string, count int) int
+	GetItemLot(playerHandle uint32, itemInx string) (int, bool)
+	DropItem(itemInx string, mobHandle, playerHandle uint32, rate int)
+
+	// Helpers de Escenario Wedding & GuildTournament Lua (Fase 15)
+	SpawnNamedNPC(mapName, mobInx string, x, y float64, dir, scale int) uint32
+	ScenarioSetTimeLimit(field string, seconds int)
+	ScenarioSetInterrupt(field, eventName, callback string)
+	ScenarioSetScriptFile(field, scriptName string)
+	ScenarioSendChatWindow(field, speaker, dialogKey string)
+	ScenarioEnd(field string)
+	ScenarioFindPlayer(field, charName, mode string) uint32
+	ScenarioCompleteWedding(groomHandle, brideHandle uint32)
+	ScenarioApplyAbnormalState(handle uint32, staName string, level, durationMs int)
+	ScenarioSetNPCInteractHandler(npcHandle uint32, callback string)
+	ScenarioRegisterCaptureFlag(field string, npcHandle uint32, redEffect, blueEffect string)
+	ScenarioRegisterGTPortal(field string, npcHandle, flagHandle uint32, redName, blueName string)
+	ScenarioRegisterGuildGate(field string, npcHandle uint32, guildName string, flagHandle uint32, gateName string)
+	ScenarioBroadcastToField(field, msg string)
+	ScenarioEvaluateMatchScore(field string) string
+	ScenarioRewardGuildTournament(field, winningGuild string)
+	ScenarioWait(seconds int)
+}
+
+// MenuOptionEntry representa una opción de menú enviada por cServerMenu desde Lua.
+type MenuOptionEntry struct {
+	Text     string
+	Callback string
 }
 
 // DefaultBridge provee una implementación base no nula y segura para entornos de test
@@ -145,4 +202,51 @@ func (b *DefaultBridge) SendGameLogDataType5(charNo int64, int1, int2 int)      
 func (b *DefaultBridge) PetGetMind(petHandle uint32) int                                  { return 50 }
 func (b *DefaultBridge) PetChangeMind(petHandle uint32, newMind int)                      {}
 func (b *DefaultBridge) PetUnsummon(petHandle uint32)                                     {}
+func (b *DefaultBridge) PetGetActionRecord(petHandle uint32, action string) (string, string, string, string, bool) {
+	return "Idle", "SM_PetIdle", "", "", true
+}
+func (b *DefaultBridge) PetGetRunSpeed(petHandle uint32) int                               { return 115 }
+func (b *DefaultBridge) PetGetWalkSpeed(petHandle uint32) int                              { return 40 }
+func (b *DefaultBridge) PetGetStress(petHandle uint32) int                                 { return 0 }
+func (b *DefaultBridge) PetIsMasterCalling(petHandle uint32) bool                          { return false }
+func (b *DefaultBridge) PetSaveTendency(petHandle uint32) bool                             { return true }
+func (b *DefaultBridge) ServerMenu(playerHandle, npcHandle uint32, title string, options []MenuOptionEntry) {}
+func (b *DefaultBridge) NPCMenuOpen(npcHandle, playerHandle uint32)                        {}
+func (b *DefaultBridge) QuestResult(mapName, result string)                                {}
+func (b *DefaultBridge) QuestResultIndividual(playerHandle uint32, result string)          {}
+func (b *DefaultBridge) QuestMobKill(playerHandle uint32, questID uint16, mobID uint32, count int) {}
+func (b *DefaultBridge) QuestMobKillAllInMap(mapName string, questID uint16, mobID uint32, maxCount int) {}
+func (b *DefaultBridge) GetTutorialInfo(playerHandle uint32) int                           { return 0 }
+func (b *DefaultBridge) SaveTutorialInfo(playerHandle uint32, saveType, step int)          {}
+func (b *DefaultBridge) ProgressTutorial(playerHandle uint32, step int)                    {}
+func (b *DefaultBridge) ShowKQTimerWithLife(mapName string, seconds int)                   {}
+func (b *DefaultBridge) ShowKQTimerWithLifeObj(playerHandle uint32, seconds int)           {}
+func (b *DefaultBridge) GetKQLimitSecond(mapName string) int                               { return 1800 }
+func (b *DefaultBridge) GetKQTeamType(handle uint32) int                                   { return 0 }
+func (b *DefaultBridge) IsKQJoiner(handle uint32) bool                                     { return true }
+func (b *DefaultBridge) KQRewardIndex(playerHandle uint32, rewardIndex string)             {}
+func (b *DefaultBridge) ScoreBoardAllInMap(mapName string, show bool, round, redWin, redScore, blueWin, blueScore int) {}
+func (b *DefaultBridge) IndunRankResult(mapName string, args []int)                        {}
+func (b *DefaultBridge) RewardAll(mapName, rewardType string)                              {}
+func (b *DefaultBridge) RewardItem(playerHandle uint32, itemInx string, count int)         {}
+func (b *DefaultBridge) InvenItemDestroy(playerHandle uint32, itemInx string, count int) int { return 1 }
+func (b *DefaultBridge) GetItemLot(playerHandle uint32, itemInx string) (int, bool)        { return 1, false }
+func (b *DefaultBridge) DropItem(itemInx string, mobHandle, playerHandle uint32, rate int) {}
+func (b *DefaultBridge) SpawnNamedNPC(mapName, mobInx string, x, y float64, dir, scale int) uint32 { return 2000 }
+func (b *DefaultBridge) ScenarioSetTimeLimit(field string, seconds int)                    {}
+func (b *DefaultBridge) ScenarioSetInterrupt(field, eventName, callback string)            {}
+func (b *DefaultBridge) ScenarioSetScriptFile(field, scriptName string)                    {}
+func (b *DefaultBridge) ScenarioSendChatWindow(field, speaker, dialogKey string)           {}
+func (b *DefaultBridge) ScenarioEnd(field string)                                          {}
+func (b *DefaultBridge) ScenarioFindPlayer(field, charName, mode string) uint32            { return 1 }
+func (b *DefaultBridge) ScenarioCompleteWedding(groomHandle, brideHandle uint32)           {}
+func (b *DefaultBridge) ScenarioApplyAbnormalState(handle uint32, staName string, level, durationMs int) {}
+func (b *DefaultBridge) ScenarioSetNPCInteractHandler(npcHandle uint32, callback string)   {}
+func (b *DefaultBridge) ScenarioRegisterCaptureFlag(field string, npcHandle uint32, redEffect, blueEffect string) {}
+func (b *DefaultBridge) ScenarioRegisterGTPortal(field string, npcHandle, flagHandle uint32, redName, blueName string) {}
+func (b *DefaultBridge) ScenarioRegisterGuildGate(field string, npcHandle uint32, guildName string, flagHandle uint32, gateName string) {}
+func (b *DefaultBridge) ScenarioBroadcastToField(field, msg string)                        {}
+func (b *DefaultBridge) ScenarioEvaluateMatchScore(field string) string                    { return "" }
+func (b *DefaultBridge) ScenarioRewardGuildTournament(field, winningGuild string)          {}
+func (b *DefaultBridge) ScenarioWait(seconds int)                                          {}
 
