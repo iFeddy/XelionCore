@@ -68,14 +68,25 @@ func main() {
 			zoneNo = uint16(z)
 		}
 	}
+	zoneID := os.Getenv("ZONE_ID")
+	multiNode := false
+	if zNo, zPort, ok := zone.ResolveZoneNodeConfig(zoneID); ok {
+		multiNode = true
+		zoneNo = zNo
+		if os.Getenv("ZONE_PORT") == "" {
+			zonePort = zPort
+		}
+	}
 
 	zoneCfg := &zone.Config{
-		BindAddr: fmt.Sprintf("0.0.0.0:%d", zonePort),
-		Port:     zonePort,
-		IP:       zoneIP,
-		MapID:    0,
-		WorldNo:  worldNo,
-		ZoneNo:   zoneNo,
+		BindAddr:  fmt.Sprintf("0.0.0.0:%d", zonePort),
+		Port:      zonePort,
+		IP:        zoneIP,
+		MapID:     0,
+		WorldNo:   worldNo,
+		ZoneNo:    zoneNo,
+		ZoneID:    zoneID,
+		MultiNode: multiNode,
 	}
 
 	// 2. Cargar la totalidad de subsistemas y datos en memoria RAM (Zero-Disk-I/O durante runtime)

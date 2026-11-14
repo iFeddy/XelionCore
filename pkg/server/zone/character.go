@@ -187,6 +187,14 @@ type ZonePlayer struct {
 	KQTeam                   byte
 	KQRewardIdx              string
 	GTObserving              bool
+
+	// Campos de subsistemas de la Fase 16 (GM, Sesión, Beauty, GuildStorage, ActionMode)
+	IsGMHidden       bool
+	IsGMImmortal     bool
+	ActionMode       byte
+	BeautyShopOpen   bool
+	GuildStorageOpen bool
+	LogoutPending    bool
 }
 
 // ActivePetState mantiene el estado vivo en mapa de la mascota invocada por un jugador.

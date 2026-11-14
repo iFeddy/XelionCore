@@ -411,20 +411,10 @@ func TestZoneServer_ReportsAndLogoutLog(t *testing.T) {
 	_, _ = readServerPacket(conn) // LoadMap
 	_, _ = readServerPacket(conn) // LoginComplete
 
-	// 1. Probar PROTO_NC_DATA_REPORT_ADD_REQ (0x8007)
-	repPkt := protocol.NewPacketWriter(protocol.PROTO_NC_DATA_REPORT_ADD_REQ)
-	repPkt.WriteUint32(10) // dwReporter
-	repPkt.WriteUint16(1)  // hReporter
-	repPkt.WriteByte(0)    // nWorldNo
-	repPkt.WriteString(char.Name, 20)
-	repPkt.WriteString("Offender", 20)
-	repPkt.WriteString("Abuse", 16)
-	repPkt.WriteString("Harassment in town", 256)
-	repPkt.WriteUint16(12)
-	repPkt.WriteString("chat message", 12)
-
-	if err := sendClientPacket(conn, repPkt, clientCrypto); err != nil {
-		t.Fatalf("Failed to send report add: %v", err)
+	// 1. Probar PROTO_NC_MISC_SERVERPARAMETER_REQ -> PROTO_NC_MISC_SERVERPARAMETER_ACK (Bug #4: DATA_REPORT pertenece exclusivamente a WorldService)
+	spPkt := protocol.NewPacketWriter(protocol.PROTO_NC_MISC_SERVERPARAMETER_REQ)
+	if err := sendClientPacket(conn, spPkt, clientCrypto); err != nil {
+		t.Fatalf("Failed to send SERVERPARAMETER_REQ: %v", err)
 	}
 
 	var ackPkt *protocol.Packet
@@ -433,39 +423,39 @@ func TestZoneServer_ReportsAndLogoutLog(t *testing.T) {
 		if err != nil {
 			t.Fatalf("Failed to read server packet: %v", err)
 		}
-		if p.OpCode == protocol.PROTO_NC_DATA_REPORT_ADD_ACK {
+		if p.OpCode == protocol.PROTO_NC_MISC_SERVERPARAMETER_ACK {
 			ackPkt = p
 			break
 		}
 	}
 	if ackPkt == nil {
-		t.Fatalf("Did not receive PROTO_NC_DATA_REPORT_ADD_ACK")
+		t.Fatalf("Did not receive PROTO_NC_MISC_SERVERPARAMETER_ACK")
 	}
-	t.Logf("PROTO_NC_DATA_REPORT_ADD_ACK verificado exitosamente (0x%04X)", ackPkt.OpCode)
+	t.Logf("PROTO_NC_MISC_SERVERPARAMETER_ACK verificado exitosamente (0x%04X)", ackPkt.OpCode)
 
-	// 2. Probar PROTO_NC_DATA_REPORT_CANCEL_REQ (0x8009)
-	cancelPkt := protocol.NewPacketWriter(protocol.PROTO_NC_DATA_REPORT_CANCEL_REQ)
-	cancelPkt.WriteInt32(100) // RegNumber
-	cancelPkt.WriteUint16(1)  // hReporter
-	if err := sendClientPacket(conn, cancelPkt, clientCrypto); err != nil {
-		t.Fatalf("Failed to send report cancel: %v", err)
+	// 2. Probar PROTO_NC_CHARSAVE_UI_STATE_SAVE_REQ -> PROTO_NC_CHARSAVE_UI_STATE_SAVE_ACK
+	uiPkt := protocol.NewPacketWriter(protocol.PROTO_NC_CHARSAVE_UI_STATE_SAVE_REQ)
+	uiPkt.WriteUint16(120)
+	uiPkt.WriteUint16(240)
+	if err := sendClientPacket(conn, uiPkt, clientCrypto); err != nil {
+		t.Fatalf("Failed to send CHARSAVE_UI_STATE_SAVE_REQ: %v", err)
 	}
 
-	var cancelAck *protocol.Packet
+	var uiAck *protocol.Packet
 	for i := 0; i < 20; i++ {
 		p, err := readServerPacket(conn)
 		if err != nil {
 			t.Fatalf("Failed to read server packet: %v", err)
 		}
-		if p.OpCode == protocol.PROTO_NC_DATA_REPORT_CANCEL_ACK {
-			cancelAck = p
+		if p.OpCode == protocol.PROTO_NC_CHARSAVE_UI_STATE_SAVE_ACK {
+			uiAck = p
 			break
 		}
 	}
-	if cancelAck == nil {
-		t.Fatalf("Did not receive PROTO_NC_DATA_REPORT_CANCEL_ACK")
+	if uiAck == nil {
+		t.Fatalf("Did not receive PROTO_NC_CHARSAVE_UI_STATE_SAVE_ACK")
 	}
-	t.Logf("PROTO_NC_DATA_REPORT_CANCEL_ACK verificado exitosamente (0x%04X)", cancelAck.OpCode)
+	t.Logf("PROTO_NC_CHARSAVE_UI_STATE_SAVE_ACK verificado exitosamente (0x%04X)", uiAck.OpCode)
 
 	// 3. Probar desconexión y conteo de jugadores activos
 	activeBefore := srv.Handler().ActivePlayersCount()

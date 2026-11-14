@@ -439,7 +439,7 @@ func (r *MySQLCharacterRepository) UpdateCharacter(ch *Character) error {
 		"CALL p_Char_SetAllData(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, @out_nRet)",
 		ch.ID, ch.AccountID, ch.Slot, ch.Name, ch.Level, ch.TCharacterState.Exp,
 		ch.CurHP, ch.CurSP, 0, ch.TCharacterState.HPStones, ch.TCharacterState.SPStones,
-		0, 0, ch.TCharacterState.Money, ch.TCharacterState.Fame, 0, 0,
+		0, 0, ch.TCharacterState.Money, ch.TCharacterState.Fame, 0, ch.AdminLevel,
 		ch.TownName, ch.XPos, ch.YPos, ch.TCharacterState.Rotation,
 		0, 0, 0,
 		ch.TCharacter.Strength, ch.TCharacter.Constitute, ch.TCharacter.Dexterity,

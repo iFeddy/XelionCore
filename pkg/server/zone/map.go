@@ -192,6 +192,7 @@ type MapManager struct {
 	handler    *Handler
 	mobMap     map[string]uint16 // InxName -> MobID
 	maps       map[string]*ZoneMap
+	zoneFilter int // -1 carga todos los mapas; >=0 filtra mapas pertenecientes a Zone0X
 }
 
 // NewMapManager initializes a new dynamic MapManager.
@@ -200,7 +201,113 @@ func NewMapManager(fieldStore *field.Store) *MapManager {
 		fieldStore: fieldStore,
 		mobMap:     make(map[string]uint16),
 		maps:       make(map[string]*ZoneMap),
+		zoneFilter: -1,
 	}
+}
+
+// SetZoneFilter asigna el número de nodo Zone00..Zone04 (-1 = todos los mapas en modo single-node).
+func (mm *MapManager) SetZoneFilter(zoneFilter int) {
+	mm.mu.Lock()
+	defer mm.mu.Unlock()
+	mm.zoneFilter = zoneFilter
+}
+
+// ZoneFilter devuelve el filtro de nodo Zone activo (-1 en modo single-node).
+func (mm *MapManager) ZoneFilter() int {
+	mm.mu.RLock()
+	defer mm.mu.RUnlock()
+	return mm.zoneFilter
+}
+
+// OwnsMap indica si mapID pertenece a este proceso Zone según FieldList.Fiesta y InstanceDungeon.ZoneNumber.
+func (mm *MapManager) OwnsMap(mapID string) bool {
+	mm.mu.RLock()
+	zf := mm.zoneFilter
+	fs := mm.fieldStore
+	mm.mu.RUnlock()
+	if zf < 0 || fs == nil {
+		return true
+	}
+	norm := strings.TrimSpace(mapID)
+	if norm == "" {
+		return false
+	}
+	if primary, ok := fs.GetField(norm); ok && primary != nil {
+		fiestaNode := primary.Fiesta
+		if fiestaNode == 99 {
+			fiestaNode = 0
+		}
+		if fiestaNode == zf {
+			return true
+		}
+		return false
+	}
+	for _, d := range fs.GetDungeonsByZone(zf) {
+		if strings.EqualFold(d.MapID, norm) {
+			return true
+		}
+	}
+	return false
+}
+
+// PreloadZoneMaps pre-inicializa en RAM los mapas asignados al filtro de nodo activo.
+func (mm *MapManager) PreloadZoneMaps() int {
+	mm.mu.RLock()
+	fs := mm.fieldStore
+	zf := mm.zoneFilter
+	mm.mu.RUnlock()
+	if fs == nil {
+		return 0
+	}
+	seen := make(map[string]struct{})
+	loaded := 0
+	for _, f := range fs.GetAllFields() {
+		fiestaNode := f.Fiesta
+		if fiestaNode == 99 {
+			fiestaNode = 0
+		}
+		if zf >= 0 && fiestaNode != zf {
+			continue
+		}
+		k := strings.ToLower(strings.TrimSpace(f.MapID))
+		if k == "" {
+			continue
+		}
+		if _, exists := seen[k]; exists {
+			continue
+		}
+		seen[k] = struct{}{}
+		mm.GetOrCreateMap(f.MapID)
+		loaded++
+	}
+	if zf >= 0 {
+		for _, d := range fs.GetDungeonsByZone(zf) {
+			k := strings.ToLower(strings.TrimSpace(d.MapID))
+			if k == "" {
+				continue
+			}
+			if _, exists := seen[k]; exists {
+				continue
+			}
+			seen[k] = struct{}{}
+			mm.GetOrCreateMap(d.MapID)
+			loaded++
+		}
+	}
+	return loaded
+}
+
+// GetAllMaps retorna un snapshot de todos los mapas activos administrados por este MapManager.
+func (mm *MapManager) GetAllMaps() []*ZoneMap {
+	mm.mu.RLock()
+	defer mm.mu.RUnlock()
+	res := make([]*ZoneMap, 0, len(mm.maps))
+	for _, m := range mm.maps {
+		if m != nil {
+			res = append(res, m)
+		}
+	}
+	return res
 }
 
 // SetBlockStore configura el repositorio de colisiones .shbd y puertas .sbi.

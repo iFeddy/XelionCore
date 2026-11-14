@@ -22,22 +22,24 @@ import (
 
 // Handler processes incoming packets for the Zone Server.
 type Handler struct {
-	worldID     byte
-	zoneNo      uint16
-	mu          sync.RWMutex
-	charRepo    database.CharacterRepository
-	accountRepo *database.MySQLAccountRepository
-	transfers   *database.TransferManager
-	dataStore   *DataStore
-	classStore  *classparam.Store
-	fieldStore  *field.Store
-	npcStore    *npc.Store
-	mobInfoSHN  *shn.File
-	chkEngine   *shn.ChecksumEngine
-	itemStore   *item.Store
+	worldID           byte
+	zoneNo            uint16
+	multiNode         bool
+	mu                sync.RWMutex
+	charRepo          database.CharacterRepository
+	accountRepo       *database.MySQLAccountRepository
+	transfers         *database.TransferManager
+	dataStore         *DataStore
+	classStore        *classparam.Store
+	fieldStore        *field.Store
+	npcStore          *npc.Store
+	mobInfoSHN        *shn.File
+	chkEngine         *shn.ChecksumEngine
+	itemStore         *item.Store
 	players           map[*network.Client]*ZonePlayer
 	mapManager        *MapManager
 	gameLogDispatcher *database.GameLogDispatcher
+	s2s               *S2SCoordinator
 }
 
 // SetGameLogDispatcher configura el despachador de logs de auditoría para ZoneService.
@@ -54,6 +56,34 @@ func (h *Handler) GameLogDispatcher() *database.GameLogDispatcher {
 	return h.gameLogDispatcher
 }
 
+// SetMultiNode habilita o deshabilita el filtrado y enrutamiento multi-nodo Zone00..Zone04.
+func (h *Handler) SetMultiNode(enabled bool) {
+	h.mu.Lock()
+	defer h.mu.Unlock()
+	h.multiNode = enabled
+}
+
+// IsMultiNode indica si el Handler opera en topología multi-nodo Zone00..Zone04.
+func (h *Handler) IsMultiNode() bool {
+	h.mu.RLock()
+	defer h.mu.RUnlock()
+	return h.multiNode
+}
+
+// S2S retorna el coordinador S2S (138 wms_NC_* / 196 gds_NC_*) del Handler.
+func (h *Handler) S2S() *S2SCoordinator {
+	h.mu.RLock()
+	defer h.mu.RUnlock()
+	return h.s2s
+}
+
+// MapManager retorna el administrador de mapas de Zone.
+func (h *Handler) MapManager() *MapManager {
+	h.mu.RLock()
+	defer h.mu.RUnlock()
+	return h.mapManager
+}
+
 // NewHandler initializes a new Zone packet handler.
 func NewHandler(charRepo database.CharacterRepository, transfers *database.TransferManager, classStore *classparam.Store, fieldStore *field.Store, chkEngine *shn.ChecksumEngine) *Handler {
 	h := &Handler{
@@ -64,6 +94,7 @@ func NewHandler(charRepo database.CharacterRepository, transfers *database.Trans
 		chkEngine:  chkEngine,
 		players:    make(map[*network.Client]*ZonePlayer),
 		mapManager: NewMapManager(fieldStore),
+		s2s:        NewS2SCoordinator(),
 	}
 	h.mapManager.SetHandler(h)
 	return h
@@ -122,12 +153,6 @@ func (h *Handler) HandlePacket(client *network.Client, pkt *protocol.Packet) {
 		h.handleWingSave(client, pkt)
 	case protocol.PROTO_NC_MAP_TONORMALCOORD_CMD:
 		h.handleToNormalCoord(client, pkt)
-	case protocol.PROTO_NC_DATA_REPORT_ADD_REQ:
-		h.handleReportAdd(client, pkt)
-	case protocol.PROTO_NC_DATA_REPORT_CANCEL_REQ:
-		h.handleReportCancel(client, pkt)
-	case protocol.PROTO_NC_DATA_REPORT_GET_REQ:
-		h.handleReportGet(client, pkt)
 	case protocol.PROTO_NC_ACT_ENDOFTRADE_CMD:
 		h.handleEndOfTradeCmd(client, pkt)
 	case protocol.PROTO_NC_ACT_PRODUCE_CAST_REQ:
@@ -404,7 +429,7 @@ func (h *Handler) HandlePacket(client *network.Client, pkt *protocol.Packet) {
 		h.handleGuildTournamentObserverOutReq(client, pkt)
 	case protocol.PROTO_NC_ACT_WEDDING_PROPOSEREQ_REQ:
 		h.handleActWeddingProposeReq(client, pkt)
-	case protocol.PROTO_NC_ACT_WEDDING_PROPOSEACK_REQ:
+	case protocol.PROTO_NC_ACT_WEDDING_PROPOSEACK_ACK:
 		h.handleActWeddingProposeAckAck(client, pkt)
 	case protocol.PROTO_NC_ACT_WEDDING_HALL_RESERV_REQ:
 		h.handleActWeddingHallReservReq(client, pkt)
@@ -484,6 +509,8 @@ func (h *Handler) HandlePacket(client *network.Client, pkt *protocol.Packet) {
 		h.handleMiniHouseFurnitureEmotionCancelReq(client, pkt)
 	case protocol.PROTO_NC_PET_ASK_NEW_NAME_REQ:
 		h.handlePetAskNewNameReq(client, pkt)
+	case protocol.PROTO_NC_PET_ASK_NEW_NAME_ACK:
+		h.handlePetAskNewNameAck(client, pkt)
 	case protocol.PROTO_NC_PET_SET_NAME_REQ:
 		h.handlePetSetNameReq(client, pkt)
 	case protocol.PROTO_NC_PET_SET_NAME_CANCEL_REQ:
@@ -548,6 +575,47 @@ func (h *Handler) HandlePacket(client *network.Client, pkt *protocol.Packet) {
 		h.handleGambleSlotMachineJackpotRankingReq(client, pkt)
 	case protocol.PROTO_NC_GAMBLE_SLOTMACHINE_WINRANKING_REQ:
 		h.handleGambleSlotMachineWinRankingReq(client, pkt)
+	// Fase 16 — Cierre 245/245 OpCodes C2S oficiales (protocolstore ShinePlayer)
+	case protocol.PROTO_NC_MISC_PINGTEST_CLIENT_ZONE_DB:
+		h.handleMiscPingTestClientZoneDB(client, pkt)
+	case protocol.PROTO_NC_MISC_PINGTEST_TOOL_WM_CLIENT_ZONE_DB:
+		h.handleMiscPingTestToolWMClientZoneDB(client, pkt)
+	case protocol.PROTO_NC_MISC_SERVERPARAMETER_REQ:
+		h.handleMiscServerParameterReq(client, pkt)
+	case protocol.PROTO_NC_USER_NORMALLOGOUT_CMD:
+		h.handleUserNormalLogoutCmd(client, pkt)
+	case protocol.PROTO_NC_USER_REGISENUMBER_REQ:
+		h.handleUserRegiseNumberReq(client, pkt)
+	case protocol.PROTO_NC_USER_USE_BEAUTY_SHOP_CMD:
+		h.handleUserUseBeautyShopCmd(client, pkt)
+	case protocol.PROTO_NC_CHAR_LOGOUTREADY_CMD:
+		h.handleCharLogoutReadyCmd(client, pkt)
+	case protocol.PROTO_NC_CHAR_LOGOUTCANCEL_CMD:
+		h.handleCharLogoutCancelCmd(client, pkt)
+	case protocol.PROTO_NC_CHAR_SAVE_LINK_REQ:
+		h.handleCharSaveLinkReq(client, pkt)
+	case protocol.PROTO_NC_ACT_CHANGEMODE_REQ:
+		h.handleActChangeModeReq(client, pkt)
+	case protocol.PROTO_NC_ACT_SHOUT_CMD:
+		h.handleActShoutCmd(client, pkt)
+	case protocol.PROTO_NC_ACT_ROAR_REQ:
+		h.handleActRoarReq(client, pkt)
+	case protocol.PROTO_NC_PARTY_MEMBERINFOREQ_CMD:
+		h.handlePartyMemberInfoReqCmd(client, pkt)
+	case protocol.PROTO_NC_CHARSAVE_UI_STATE_SAVE_REQ:
+		h.handleCharSaveUIStateSaveReq(client, pkt)
+	case protocol.PROTO_NC_FRIEND_UES_FRIEND_POINT_REQ:
+		h.handleFriendUseFriendPointReq(client, pkt)
+	case protocol.PROTO_NC_GUILD_STORAGEOPEN_REQ:
+		h.handleGuildStorageOpenReq(client, pkt)
+	case protocol.PROTO_NC_ITEMDB_CLOSE_GUILD_STORAGE_CMD:
+		h.handleItemDBCloseGuildStorageCmd(client, pkt)
+	case protocol.PROTO_NC_GUILD_RENAME_REQ:
+		h.handleGuildRenameReq(client, pkt)
+	case protocol.PROTO_NC_GUILD_RETYPE_REQ:
+		h.handleGuildRetypeReq(client, pkt)
+	case protocol.PROTO_NC_USER_CONNECTION_CHANGE_CHAR_ID_ITEM_USE_REQ:
+		h.handleUserConnectionChangeCharIDItemUseReq(client, pkt)
 	case protocol.PROTO_NC_MISC_HEARTBEAT_REQ, protocol.PROTO_NC_MISC_HEARTBEAT_ACK:
 		h.handleFoodEatCmd(client, pkt)
 	case protocol.PROTO_NC_MISC_GAMETIME_REQ:
@@ -1244,6 +1312,10 @@ func (h *Handler) handleChatNormal(client *network.Client, pkt *protocol.Packet)
 	}
 	text = strings.TrimSpace(text)
 
+	if h.handleGMCommand(player, text) {
+		return
+	}
+
 	log.Printf("[Zone][Chat][%s] %s: %s", player.CurrentMap.Name, player.Char.Name, text)
 
 	color := byte(0x2A) // Normal chat color
@@ -1611,111 +1683,6 @@ func (h *Handler) ActivePlayersSnapshot() []*ZonePlayer {
 	return list
 }
 
-func (h *Handler) handleReportAdd(client *network.Client, pkt *protocol.Packet) {
-	player, ok := h.getPlayer(client)
-	if !ok || player == nil || player.Char == nil {
-		return
-	}
-
-	// Estructura oficial PROTO_NC_DATA_REPORT_ADD_REQ (2369 bytes)
-	// dwReporter(4), hReporter(2), nWorldNo(1), sReporterCharID(20), sHarmer(20), byReportType(16), byReason(256), nChatLogSize(2), byChatLog(...)
-	_ = pkt.Reader.Skip(4) // dwReporter
-	hReporter, _ := pkt.Reader.ReadUint16()
-	nWorldNo, _ := pkt.Reader.ReadByte()
-	sReporterCharID, _ := pkt.Reader.ReadString(20)
-	sHarmer, _ := pkt.Reader.ReadString(20)
-	byReportType, _ := pkt.Reader.ReadString(16)
-	byReason, _ := pkt.Reader.ReadString(256)
-	chatLogSize, _ := pkt.Reader.ReadUint16()
-	var chatLog string
-	if chatLogSize > 0 && pkt.Reader.Remaining() >= int(chatLogSize) {
-		chatLog, _ = pkt.Reader.ReadString(int(chatLogSize))
-	} else if pkt.Reader.Remaining() > 0 {
-		chatLog, _ = pkt.Reader.ReadString(pkt.Reader.Remaining())
-	}
-
-	sReporterCharID = strings.TrimSpace(sReporterCharID)
-	if sReporterCharID == "" {
-		sReporterCharID = player.Char.Name
-	}
-	sHarmer = strings.TrimSpace(sHarmer)
-	byReportType = strings.TrimSpace(byReportType)
-	byReason = strings.TrimSpace(byReason)
-
-	log.Printf("[Zone][%s] Denuncia oficial recibida de '%s' contra '%s' (Tipo: %s, Razón: %s)",
-		client.RemoteAddr(), sReporterCharID, sHarmer, byReportType, byReason)
-
-	var regNo int
-	var err error
-	if h.accountRepo != nil {
-		rep := &database.Report{
-			Reporter:       player.Char.AccountID,
-			ReporterCharID: sReporterCharID,
-			Harmer:         sHarmer,
-			WorldNo:        nWorldNo,
-			ReportType:     byReportType,
-			Reason:         byReason,
-			ChatLog:        chatLog,
-		}
-		regNo, err = h.accountRepo.AddReport(rep)
-	}
-
-	var errCode uint16 = 0
-	if err != nil {
-		errCode = 1 // Error interno
-	} else if regNo == -1 {
-		errCode = 2 // Cooldown 1 hora por reportero
-	} else if regNo == -2 {
-		errCode = 3 // Cooldown 24 horas contra el mismo objetivo
-	}
-
-	ack := protocol.New_PROTO_NC_DATA_REPORT_ADD_ACK(errCode, hReporter, sHarmer, int32(regNo))
-	_ = client.SendPacket(ack)
-}
-
-func (h *Handler) handleReportCancel(client *network.Client, pkt *protocol.Packet) {
-	player, ok := h.getPlayer(client)
-	if !ok || player == nil {
-		return
-	}
-
-	regNumber, _ := pkt.Reader.ReadInt32()
-	hReporter, _ := pkt.Reader.ReadUint16()
-
-	var errCode int16 = 0
-	if h.accountRepo != nil {
-		errCode, _ = h.accountRepo.DeleteReport(int(regNumber))
-	}
-
-	ack := protocol.New_PROTO_NC_DATA_REPORT_CANCEL_ACK(regNumber, hReporter, uint16(errCode))
-	_ = client.SendPacket(ack)
-}
-
-func (h *Handler) handleReportGet(client *network.Client, pkt *protocol.Packet) {
-	player, ok := h.getPlayer(client)
-	if !ok || player == nil || player.Char == nil {
-		return
-	}
-
-	hReporter, _ := pkt.Reader.ReadUint16()
-	_ = pkt.Reader.Skip(4) // dwReporter
-	nWorldNo, _ := pkt.Reader.ReadByte()
-
-	if h.accountRepo != nil {
-		summaries, err := h.accountRepo.GetReports(player.Char.AccountID, nWorldNo)
-		if err == nil && len(summaries) > 0 {
-			for _, s := range summaries {
-				ack := protocol.New_PROTO_NC_DATA_REPORT_GET_ACK(hReporter, 0, int32(s.RegNumber), s.Result, s.Remark)
-				_ = client.SendPacket(ack)
-			}
-			return
-		}
-	}
-
-	ack := protocol.New_PROTO_NC_DATA_REPORT_GET_ACK(hReporter, 1, 0, 0, "")
-	_ = client.SendPacket(ack)
-}
-
 // handleRewardInvenOpen implementa sp_NC_ITEM_REWARDINVENOPEN_REQ (0x302C) y so_ply_FillRewardInven (0x302D)
 // según Zone.pdb (RewardInven.cpp, RVA 0xFB060 y 0xFB310):
 //   - Lee uint16 page (24 slots por página: from = page * 24, to = page * 24 + 23)
@@ -2014,17 +1981,24 @@ func (h *Handler) WarpPlayer(player *ZonePlayer, targetMapID string, x, y int, r
 	}
 
 	var targetZoneNo uint16 = 1
+	if h.multiNode {
+		targetZoneNo = h.zoneNo
+	}
 	if h.fieldStore != nil && targetMapID != "" {
 		if f, ok := h.fieldStore.GetField(targetMapID); ok && f != nil {
 			targetZoneNo = uint16(f.Fiesta)
-			if targetZoneNo == 0 {
+			if h.multiNode {
+				if targetZoneNo == 99 {
+					targetZoneNo = 0
+				}
+			} else if targetZoneNo == 0 {
 				targetZoneNo = 1
 			}
 		}
 	}
 
 	// Si el mapa destino está en otra zona (inter-zone transfer)
-	if h.zoneNo > 0 && targetZoneNo != h.zoneNo && h.charRepo != nil {
+	if (h.multiNode || h.zoneNo > 0) && targetZoneNo != h.zoneNo && h.charRepo != nil {
 		ip, port, isOnline, err := h.charRepo.ResolveMapEndpoint(h.worldID, targetZoneNo)
 		if err == nil && isOnline && ip != "" && port > 0 {
 			randomID := uint16(time.Now().UnixNano() & 0xFFFF)

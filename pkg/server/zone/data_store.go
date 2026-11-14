@@ -63,6 +63,7 @@ type DataStore struct {
 	PetCatalog         *PetCatalog
 	WeaponTitleCatalog *WeaponTitleCatalog
 	CasinoCatalog      *CasinoCatalog
+	AdminLvCatalog     *AdminLvCatalog
 }
 
 // GetSHN retorna una tabla .shn por nombre o nombre base (búsqueda insensible a mayúsculas/minúsculas).
@@ -313,6 +314,7 @@ func LoadAllData(dataDir string) (*DataStore, error) {
 	ds.TitleCatalog = BuildTitleCatalog(ds)
 	ds.CollectCatalog = BuildCollectCatalog(ds)
 	ds.BuildPhase15Catalogs(dataDir)
+	ds.AdminLvCatalog = BuildAdminLvCatalog(ds)
 
 	return ds, nil
 }

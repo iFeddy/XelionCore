@@ -631,6 +631,12 @@ type CharacterProgressionRepository interface {
 	GetTutorialCharInfo(charNo int) (byte, byte, error)
 	SetTutorialCharInfo(userNo, charNo int, state, step byte) error
 	GetTutorialIsSkip(userNo int) (bool, error)
+	SaveMysteryBolt(charNo int, mysteryType byte) (int, error)
+	SaveLinkScrollDestMap(charNo int, destMap string) error
+	UseCharacterChangeIDItem(charNo int, bInit byte, userNo int, itemKey int64, itemOption int16, itemLot int16) (int, error)
+	SetAdminLevel(charNo int, level byte) (int, error)
+	CreateGMItemRewardGroup(operID, ip, cause string) (int64, error)
+	GrantGMItemReward(groupNo int64, charNo int, storageType byte, itemID int, itemKey int64) (int, error)
 }
 
 // GuildRepository gobierna creación, membresías, rangos, academia y torneos de gremios.
@@ -671,6 +677,8 @@ type GuildRepository interface {
 	GetAllGuildTournaments() ([]*GuildTournamentData, error)
 	SetGuildTournamentResult(gtNo int, typ int16, data int, guildNo int) error
 	SetGuildTournamentChoice(gtNo int, limitLevel int, limitMember int) error
+	RenameGuild(guildID int, newName string) (int, error)
+	RetypeGuild(guildID int, newType byte) (int, error)
 }
 
 // WorldSocialRepository gobierna lista de amigos, friendpoints, Kingdom Quests, HolyPromise, mascotas y minihouse.

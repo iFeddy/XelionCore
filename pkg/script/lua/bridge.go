@@ -141,13 +141,15 @@ type MenuOptionEntry struct {
 
 // DefaultBridge provee una implementación base no nula y segura para entornos de test
 // o inicializaciones previas al enlazado del WorldMap.
-type DefaultBridge struct{}
+type DefaultBridge struct {
+	MapID string
+}
 
 func (b *DefaultBridge) GetObjectHP(handle uint32) int32                                  { return 100 }
 func (b *DefaultBridge) SetObjectHP(handle uint32, hp int32)                              {}
 func (b *DefaultBridge) KillObject(handle uint32)                                         {}
 func (b *DefaultBridge) GetObjectType(handle uint32) int                                  { return 2 } // Player
-func (b *DefaultBridge) GetObjectCoord(handle uint32) (float64, float64, string, bool)   { return 6200, 6400, "RouN", true }
+func (b *DefaultBridge) GetObjectCoord(handle uint32) (float64, float64, string, bool)   { return 0, 0, b.MapID, b.MapID != "" }
 func (b *DefaultBridge) GetMaster(handle uint32) uint32                                   { return 0 }
 func (b *DefaultBridge) GetAdminLevel(handle uint32) int                                  { return 0 }
 func (b *DefaultBridge) GetPlayerName(handle uint32) string                               { return "Player" }
@@ -178,7 +180,7 @@ func (b *DefaultBridge) DoorAction(doorName string, action int) bool            
 func (b *DefaultBridge) DoorBuild(doorName string) bool                                   { return true }
 func (b *DefaultBridge) CloseAllDoors()                                                   {}
 func (b *DefaultBridge) GetCurMapIndex() int                                              { return 1 }
-func (b *DefaultBridge) GetMapName() string                                               { return "RouN" }
+func (b *DefaultBridge) GetMapName() string                                               { return b.MapID }
 func (b *DefaultBridge) IsInArea(areaName string, x, y float64) bool                      { return true }
 func (b *DefaultBridge) IsInMap(handle uint32, mapName string) bool                       { return true }
 func (b *DefaultBridge) SetAbstate(handle uint32, stateID uint16, strength uint16, durationSec uint32) {}

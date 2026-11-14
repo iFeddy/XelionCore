@@ -288,6 +288,17 @@ func (s *Store) FieldCount() int {
 	return len(s.fields)
 }
 
+// GetAllFields returns a snapshot slice of all registered FieldList entries.
+func (s *Store) GetAllFields() []*FieldEntry {
+	s.mu.RLock()
+	defer s.mu.RUnlock()
+	res := make([]*FieldEntry, len(s.fields))
+	for i := range s.fields {
+		res[i] = &s.fields[i]
+	}
+	return res
+}
+
 // TutorialMap returns the tutorial map configuration if present.
 func (s *Store) TutorialMap() *TutorialMapEntry {
 	s.mu.RLock()

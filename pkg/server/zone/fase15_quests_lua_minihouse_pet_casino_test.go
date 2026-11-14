@@ -330,7 +330,7 @@ func TestFase15_LuaInstancesIDKQGTWeddingAndHolyPromise(t *testing.T) {
 	binary.LittleEndian.PutUint16(accBuf[0:2], groom.MapObjectID)
 	accBuf[2] = 1
 	copy(accBuf[3:40], "Yes!")
-	h.HandlePacket(bride.Client, buildTestPacket(protocol.PROTO_NC_ACT_WEDDING_PROPOSEACK_REQ, accBuf))
+	h.HandlePacket(bride.Client, buildTestPacket(protocol.PROTO_NC_ACT_WEDDING_PROPOSEACK_ACK, accBuf))
 	if len(connGroom.findByOpcode(protocol.PROTO_NC_ACT_WEDDING_PROPOSEREQ_ACK)) == 0 {
 		t.Fatalf("expected groom to receive PROTO_NC_ACT_WEDDING_PROPOSEREQ_ACK")
 	}

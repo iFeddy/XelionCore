@@ -53,8 +53,22 @@ func NewServer(cfg *Config, charRepo database.CharacterRepository, transfers *da
 
 	handler := NewHandler(charRepo, transfers, classStore, fieldStore, chkEngine)
 	if cfg != nil {
+		if cfg.ZoneID != "" {
+			if zNo, zPort, ok := ResolveZoneNodeConfig(cfg.ZoneID); ok {
+				cfg.MultiNode = true
+				cfg.ZoneNo = zNo
+				if cfg.Port == 0 {
+					cfg.Port = zPort
+					cfg.BindAddr = fmt.Sprintf("0.0.0.0:%d", cfg.Port)
+				}
+			}
+		}
 		handler.SetWorldID(cfg.WorldNo)
 		handler.SetZoneNo(cfg.ZoneNo)
+		if cfg.MultiNode {
+			handler.SetMultiNode(true)
+			handler.MapManager().SetZoneFilter(int(cfg.ZoneNo))
+		}
 	}
 
 
@@ -120,6 +134,10 @@ func (s *Server) Stop() {
 // SetItemStore sets the item data store for the handler.
 func (s *Server) SetDataStore(ds *DataStore) {
 	s.handler.SetDataStore(ds)
+	if s.config != nil && s.config.MultiNode && s.handler != nil && s.handler.MapManager() != nil {
+		loaded := s.handler.MapManager().PreloadZoneMaps()
+		log.Printf("[ZoneServer] Multi-node %s (ZoneNo=%d) preloaded %d owned maps", s.config.ZoneID, s.config.ZoneNo, loaded)
+	}
 }
 
 func (s *Server) SetItemStore(store *item.Store) {
