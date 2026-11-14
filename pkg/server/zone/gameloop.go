@@ -89,6 +89,8 @@ func (gl *MapGameLoop) tick100ms() {
 	gl.zMap.mu.RUnlock()
 
 	now := time.Now()
+	gl.zMap.TickMonsters100ms(now)
+
 	for _, p := range players {
 		if p.IsAutoAttacking && p.TargetHandle != 0 && p.CanAttack() {
 			if now.Sub(p.LastAttackTime) >= 1000*time.Millisecond {
@@ -148,14 +150,7 @@ func (gl *MapGameLoop) executeAutoAttack(player *ZonePlayer, now time.Time) {
 
 	switch e := targetEntity.(type) {
 	case *ZoneMonster:
-		if e.CurHP <= dmg {
-			e.CurHP = 0
-			e.IsDead = true
-			isDead = true
-		} else {
-			e.CurHP -= dmg
-		}
-		restHP = uint32(e.CurHP)
+		restHP, isDead = gl.zMap.ApplyDamageToMonster(e, player, dmg)
 	case *ZonePlayer:
 		if e.Char.CurHP <= dmg {
 			e.Char.CurHP = 0
@@ -207,6 +202,7 @@ func (gl *MapGameLoop) tick1s() {
 	gl.zMap.mu.RUnlock()
 
 	now := time.Now()
+	gl.zMap.TickMonsters1s(now)
 	for _, p := range players {
 		if p.Char == nil || p.Char.CurHP <= 0 {
 			continue

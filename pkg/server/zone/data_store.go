@@ -52,6 +52,9 @@ type DataStore struct {
 	MobInfoSHN      *shn.File
 	PassiveSkillMap map[uint16]bool
 	ActiveSkillMap  map[uint16]bool
+	MobCatalog      *MobCatalog
+	TitleCatalog    *TitleCatalog
+	CollectCatalog  *CollectCatalog
 }
 
 // GetSHN retorna una tabla .shn por nombre o nombre base (búsqueda insensible a mayúsculas/minúsculas).
@@ -296,6 +299,10 @@ func LoadAllData(dataDir string) (*DataStore, error) {
 		return nil, fmt.Errorf("error cargando catálogo SHN: %w", err)
 	}
 	log.Printf("[Zone][Data] Successfully indexed %d unique SHN table keys in RAM (180 required SHNs verified).", len(ds.SHNTables)/2)
+
+	ds.MobCatalog = BuildMobCatalog(ds)
+	ds.TitleCatalog = BuildTitleCatalog(ds)
+	ds.CollectCatalog = BuildCollectCatalog(ds)
 
 	return ds, nil
 }

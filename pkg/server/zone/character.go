@@ -151,6 +151,13 @@ type ZonePlayer struct {
 	ActiveStates    map[uint16]*ActiveAbState
 	PKCount         int
 	PKYellowTime    int
+
+	// Campos de subsistemas de la Fase 13 (AutoPick, Títulos, RestExp)
+	IsAutoPick          bool
+	CurrentTitleType    byte
+	CurrentTitleElement byte
+	CurrentTitleMobID   uint16
+	RestExpBonusRate    int
 }
 
 // GetHandle implementa GridEntity para ZonePlayer.
@@ -507,12 +514,18 @@ func (p *ZonePlayer) WriteCharacterDisplay(pw *protocol.PacketWriter) {
 	pw.WriteUint16(0)          // 2 bytes pad
 	pw.WriteUint16(0)          // 0x052 (82): polymorph (2)
 	pw.Fill(3, 0)              // 0x054 (84): STOPEMOTICON_DESCRIPT emoticon (3)
-	pw.Fill(4, 0)              // 0x057 (87): CHARTITLE_BRIEFINFO chartitle (4)
-	pw.Fill(99, 0)             // 0x05b (91): ABNORMAL_STATE_BIT abstatebit (99)
-	pw.WriteUint32(0)          // 0x0be (190): myguild (4)
-	pw.WriteByte(0)            // 0x0c2 (194): type (1)
-	pw.WriteByte(0)            // 0x0c3 (195): isGuildAcademyMember (1)
-	pw.WriteByte(1)            // 0x0c4 (196): IsAutoPick (1)
+	pw.WriteByte(p.CurrentTitleType)    // 0x057 (87): CHARTITLE_BRIEFINFO.Type (1)
+	pw.WriteByte(p.CurrentTitleElement) // 0x058 (88): CHARTITLE_BRIEFINFO.ElementNo (1)
+	pw.WriteUint16(p.CurrentTitleMobID) // 0x059 (89): CHARTITLE_BRIEFINFO.MobID (2)
+	pw.Fill(99, 0)                      // 0x05b (91): ABNORMAL_STATE_BIT abstatebit (99)
+	pw.WriteUint32(0)                   // 0x0be (190): myguild (4)
+	pw.WriteByte(0)                     // 0x0c2 (194): type (1)
+	pw.WriteByte(0)                     // 0x0c3 (195): isGuildAcademyMember (1)
+	if p.IsAutoPick {                   // 0x0c4 (196): IsAutoPick (1)
+		pw.WriteByte(1)
+	} else {
+		pw.WriteByte(0)
+	}
 	pw.WriteByte(p.Char.Level) // 0x0c5 (197): Level (1)
 	pw.WriteString("", 32)     // 0x0c6 (198): sAnimation (32)
 	pw.WriteUint16(p.MoverHandle) // 0x0e6 (230): nMoverHnd (2)

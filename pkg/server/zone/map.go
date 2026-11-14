@@ -9,10 +9,12 @@ import (
 
 	"github.com/iFeddy/XelionCore/pkg/data/blockinfo"
 	"github.com/iFeddy/XelionCore/pkg/data/field"
+	"github.com/iFeddy/XelionCore/pkg/data/item"
 	"github.com/iFeddy/XelionCore/pkg/data/npc"
 	"github.com/iFeddy/XelionCore/pkg/data/shn"
 	"github.com/iFeddy/XelionCore/pkg/network"
 	"github.com/iFeddy/XelionCore/pkg/protocol"
+	"github.com/iFeddy/XelionCore/pkg/script/lua"
 )
 
 // ZoneNPC representa un NPC o Gate activo en una instancia de mapa según la definición oficial.
@@ -53,16 +55,20 @@ func (n *ZoneNPC) GetClient() *network.Client {
 
 // ZoneDroppedItem representa un ítem tirado en el suelo del mapa según PROTO_NC_BRIEFINFO_DROPEDITEM_CMD (0x1C0A).
 type ZoneDroppedItem struct {
-	Handle        uint16
-	ItemID        uint16
-	Lot           uint32
-	Flags         int
-	X             int32
-	Y             int32
-	DropMobHandle uint16
-	Attr          uint8
-	OwnerCharID   int
-	CreatedAt     time.Time
+	Handle         uint16
+	ItemID         uint16
+	Lot            uint32
+	Flags          int
+	X              int32
+	Y              int32
+	DropMobHandle  uint16
+	Attr           uint8
+	OwnerCharID    int
+	OwnerExpiresAt time.Time
+	AllCanLoot     bool
+	IsCenDrop      bool
+	StatOptions    []item.ItemStatOption
+	CreatedAt      time.Time
 }
 
 // GetHandle implementa GridEntity para ZoneDroppedItem.
@@ -106,6 +112,13 @@ type ZoneMap struct {
 	doors        *blockinfo.MapDoorArray
 	gameLoop     *MapGameLoop
 	FieldEntry   *field.FieldEntry
+	dataStore    *DataStore
+	handler      *Handler
+	mobCatalog   *MobCatalog
+	regenGroups  map[string]*MobRegenGroup
+	luaEngine    *lua.Engine
+	worldBridge  *ZoneWorldBridge
+	aiTimersSec  map[int]int64
 }
 
 // NewZoneMap creates a new map instance with real metadata and starts its GameLoop.
@@ -145,6 +158,12 @@ func (m *ZoneMap) Close() {
 	if m.gameLoop != nil {
 		m.gameLoop.Stop()
 	}
+	m.mu.Lock()
+	if m.luaEngine != nil {
+		m.luaEngine.Close()
+		m.luaEngine = nil
+	}
+	m.mu.Unlock()
 }
 
 // MapManager manages active ZoneMap instances dynamically mapped from data/World/Map definitions.
@@ -153,6 +172,8 @@ type MapManager struct {
 	fieldStore *field.Store
 	npcStore   *npc.Store
 	blockStore *blockinfo.Store
+	dataStore  *DataStore
+	handler    *Handler
 	mobMap     map[string]uint16 // InxName -> MobID
 	maps       map[string]*ZoneMap
 }
@@ -310,10 +331,18 @@ func (mm *MapManager) GetOrCreateMap(mapID string) *ZoneMap {
 	}
 
 	mm.maps[key] = zMap
+	ds := mm.dataStore
+	handler := mm.handler
 	log.Printf("[Zone] Initialized dynamic map '%s' (Serial: %d, Name: '%s', Size: %dx%d)",
 		normID, serial, name, zMap.Width, zMap.Height)
 
 	mm.loadMapNPCs(zMap)
+	if handler != nil {
+		zMap.SetHandler(handler)
+	}
+	if ds != nil {
+		zMap.SetDataStore(ds)
+	}
 	return zMap
 }
 
@@ -346,6 +375,7 @@ func (m *ZoneMap) AddPlayer(p *ZonePlayer) {
 	// Obtener entidades dentro del radio AOI (vecindad 3x3)
 	surrounding := m.grid.GetSurroundingEntities(p.Char.XPos, p.Char.YPos)
 	var otherPlayers []*ZonePlayer
+	var mobsInAOI []*ZoneMonster
 	var itemsInAOI []*ZoneDroppedItem
 
 	for _, ent := range surrounding {
@@ -356,6 +386,10 @@ func (m *ZoneMap) AddPlayer(p *ZonePlayer) {
 		case GridEntityPlayer:
 			if zp, ok := ent.(*ZonePlayer); ok {
 				otherPlayers = append(otherPlayers, zp)
+			}
+		case GridEntityMob:
+			if zm, ok := ent.(*ZoneMonster); ok && !zm.IsDead {
+				mobsInAOI = append(mobsInAOI, zm)
 			}
 		case GridEntityItem:
 			if zi, ok := ent.(*ZoneDroppedItem); ok {
@@ -383,8 +417,11 @@ func (m *ZoneMap) AddPlayer(p *ZonePlayer) {
 		}
 	}
 
-	// 3. Enviar NPCs y Gates del mapa para visualización y minimapa
+	// 3. Enviar NPCs, Gates y Monstruos vivos del mapa en AOI
 	m.SendNPCs(p)
+	if len(mobsInAOI) > 0 {
+		m.SendMobs(p, mobsInAOI)
+	}
 
 	// 4. Enviar ítems en AOI al jugador
 	if len(itemsInAOI) > 0 {
@@ -470,12 +507,16 @@ func (m *ZoneMap) ConsumeDroppedItem(handle uint16) (*ZoneDroppedItem, bool) {
 	return di, true
 }
 
-// CleanupExpiredDrops elimina ítems del suelo cuya antigüedad supera maxAge.
+// CleanupExpiredDrops libera la propiedad temporal vencida y elimina ítems del suelo cuya antigüedad supera maxAge.
 func (m *ZoneMap) CleanupExpiredDrops(maxAge time.Duration) {
 	m.mu.Lock()
 	var expired []*ZoneDroppedItem
 	now := time.Now()
 	for h, di := range m.droppedItems {
+		if di.OwnerCharID != 0 && !di.OwnerExpiresAt.IsZero() && now.After(di.OwnerExpiresAt) {
+			di.OwnerCharID = 0
+			di.AllCanLoot = true
+		}
 		if now.Sub(di.CreatedAt) >= maxAge {
 			expired = append(expired, di)
 			delete(m.droppedItems, h)
@@ -558,6 +599,9 @@ func (m *ZoneMap) GetEntity(handle uint16) GridEntity {
 	}
 	if n, ok := m.npcs[handle]; ok {
 		return n
+	}
+	if di, ok := m.droppedItems[handle]; ok {
+		return di
 	}
 	return nil
 }
@@ -766,6 +810,7 @@ func (m *ZoneMap) MovePlayerCmd(p *ZonePlayer, fromX, fromY, toX, toY int, walk 
 	if crossCell {
 		// A. Nuevas entidades que entraron al rango de visión
 		enteredEnts := m.grid.GetEntitiesInCells(entered)
+		var enteredMobs []*ZoneMonster
 		for _, e := range enteredEnts {
 			if e.GetHandle() == p.MapObjectID {
 				continue
@@ -780,6 +825,8 @@ func (m *ZoneMap) MovePlayerCmd(p *ZonePlayer, fromX, fromY, toX, toY int, walk 
 					p.WriteCharacterDisplay(spawnSelf)
 					_ = other.Client.SendPacket(spawnSelf)
 				}
+			} else if mob, ok := e.(*ZoneMonster); ok && !mob.IsDead {
+				enteredMobs = append(enteredMobs, mob)
 			} else if di, ok := e.(*ZoneDroppedItem); ok {
 				pw := protocol.NewPacketWriter(protocol.PROTO_NC_BRIEFINFO_DROPEDITEM_CMD)
 				pw.WriteUint16(di.Handle)
@@ -790,6 +837,9 @@ func (m *ZoneMap) MovePlayerCmd(p *ZonePlayer, fromX, fromY, toX, toY int, walk 
 				pw.WriteByte(di.Attr)
 				_ = p.Client.SendPacket(pw)
 			}
+		}
+		if len(enteredMobs) > 0 {
+			m.SendMobs(p, enteredMobs)
 		}
 
 		// B. Entidades que salieron del rango de visión

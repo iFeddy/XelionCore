@@ -679,9 +679,15 @@ func (r *MySQLCharacterRepository) GetCharacterTitles(charNo int) ([]*CharacterT
 	var titles []*CharacterTitleData
 	for rows.Next() {
 		var titleType int16
-		var title string
-		if err := rows.Scan(&titleType, &title); err == nil {
-			titles = append(titles, &CharacterTitleData{CharNo: charNo, TitleType: titleType, Title: title})
+		var elementNo byte
+		var elementValue int64
+		if err := rows.Scan(&titleType, &elementNo, &elementValue); err == nil {
+			titles = append(titles, &CharacterTitleData{
+				CharNo:       charNo,
+				TitleType:    titleType,
+				ElementNo:    elementNo,
+				ElementValue: elementValue,
+			})
 		}
 	}
 	return titles, nil
@@ -689,8 +695,13 @@ func (r *MySQLCharacterRepository) GetCharacterTitles(charNo int) ([]*CharacterT
 
 // SetCharacterTitle asigna un título de personaje invocando p_Char_SetTitle.
 func (r *MySQLCharacterRepository) SetCharacterTitle(charNo int, titleType int16, title string) error {
+	return r.SetCharacterTitleProgress(charNo, byte(titleType), 0, 1)
+}
+
+// SetCharacterTitleProgress actualiza o desbloquea el progreso de un título invocando p_Char_SetTitle.
+func (r *MySQLCharacterRepository) SetCharacterTitleProgress(charNo int, titleType byte, elementNo byte, elementValue int64) error {
 	var ret int
-	err := r.db.QueryRow("CALL p_Char_SetTitle(?, ?, 0, 0, @out_nRet)", charNo, titleType).Scan(&ret)
+	err := r.db.QueryRow("CALL p_Char_SetTitle(?, ?, ?, ?, @out_nRet)", charNo, titleType, elementNo, elementValue).Scan(&ret)
 	if err != nil {
 		return fmt.Errorf("error calling p_Char_SetTitle: %w", err)
 	}

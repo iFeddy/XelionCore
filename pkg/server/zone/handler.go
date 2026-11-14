@@ -56,7 +56,7 @@ func (h *Handler) GameLogDispatcher() *database.GameLogDispatcher {
 
 // NewHandler initializes a new Zone packet handler.
 func NewHandler(charRepo database.CharacterRepository, transfers *database.TransferManager, classStore *classparam.Store, fieldStore *field.Store, chkEngine *shn.ChecksumEngine) *Handler {
-	return &Handler{
+	h := &Handler{
 		charRepo:   charRepo,
 		transfers:  transfers,
 		classStore: classStore,
@@ -65,6 +65,8 @@ func NewHandler(charRepo database.CharacterRepository, transfers *database.Trans
 		players:    make(map[*network.Client]*ZonePlayer),
 		mapManager: NewMapManager(fieldStore),
 	}
+	h.mapManager.SetHandler(h)
+	return h
 }
 
 // HandlePacket routes packets to their specific handlers using official PROTO_NC_* opcodes.
@@ -224,6 +226,18 @@ func (h *Handler) HandlePacket(client *network.Client, pkt *protocol.Packet) {
 		h.handleDepolymorphCmd(client, pkt)
 	case protocol.PROTO_NC_CHAR_CHARGEDBUFF_ERASE_REQ:
 		h.handleChargedBuffEraseReq(client, pkt)
+	case protocol.PROTO_NC_CHAR_CLIENT_AUTO_PICK_REQ:
+		h.handleAutoPickReq(client, pkt)
+	case protocol.PROTO_NC_CT_SET_CURRENT_REQ:
+		h.handleCTSetCurrentReq(client, pkt)
+	case protocol.PROTO_NC_COLLECT_PEEPING_REQ:
+		h.handleCollectPeepingReq(client, pkt)
+	case protocol.PROTO_NC_COLLECT_CARDREGIST_REQ:
+		h.handleCollectCardRegistReq(client, pkt)
+	case protocol.PROTO_NC_COLLECT_BOOKMARK_REGIST_REQ:
+		h.handleCollectBookmarkRegistReq(client, pkt)
+	case protocol.PROTO_NC_COLLECT_REWARD_REQ:
+		h.handleCollectRewardReq(client, pkt)
 	case protocol.PROTO_NC_MISC_HEARTBEAT_ACK, protocol.PROTO_NC_MISC_GAMETIME_REQ:
 		// Heartbeat pong received, ignore
 	default:
@@ -419,6 +433,20 @@ func (h *Handler) handleTransferKey(client *network.Client, pkt *protocol.Packet
 	}
 	player := NewZonePlayer(client, char, h.classStore, cs)
 	player.WorldNo = h.worldID
+	if h.charRepo != nil {
+		if ap, err := h.charRepo.GetAutoPick(char.ID); err == nil {
+			player.IsAutoPick = ap
+		}
+		if titles, err := h.charRepo.GetCharacterTitles(char.ID); err == nil {
+			for _, t := range titles {
+				if t != nil && t.Title != "" && strings.Contains(t.Title, ":") {
+					player.CurrentTitleType = byte(t.TitleType)
+					player.CurrentTitleElement = t.ElementNo
+					break
+				}
+			}
+		}
+	}
 	mapID := transfer.TargetMap
 	if mapID == "" {
 		mapID = char.TownName
@@ -693,31 +721,18 @@ func (h *Handler) sendInGameChunk(p *ZonePlayer) {
 		titles, _ = h.charRepo.GetCharacterTitles(p.Char.ID)
 	}
 	titlesPkt := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_CLIENT_CHARTITLE_CMD)
-	titlesPkt.WriteByte(0)                      // CurrentTitle = 0
-	titlesPkt.WriteByte(0)                      // CurrentTitleElement = 0
-	titlesPkt.WriteUint16(0)                    // CurrentTitleMobID = 0
-	titlesPkt.WriteUint16(uint16(len(titles)))  // NumOfTitle
+	titlesPkt.WriteByte(p.CurrentTitleType)    // CurrentTitle
+	titlesPkt.WriteByte(p.CurrentTitleElement) // CurrentTitleElement
+	titlesPkt.WriteUint16(p.CurrentTitleMobID) // CurrentTitleMobID
+	titlesPkt.WriteUint16(uint16(len(titles))) // NumOfTitle
 	for _, t := range titles {
 		titlesPkt.WriteByte(byte(t.TitleType))
-		titlesPkt.WriteByte(0)
+		titlesPkt.WriteByte(t.ElementNo)
 	}
 	_ = p.Client.SendPacket(titlesPkt)
 
-	// 16. 0x10E4 (PROTO_NC_CHAR_CLIENT_CARDCOLLECT_CMD) - Solo si tiene cartas registradas
-	if h.charRepo != nil && p.Char != nil {
-		if cards, err := h.charRepo.GetCollectionCards(p.Char.ID); err == nil && len(cards) > 0 {
-			cardPkt := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_CLIENT_CARDCOLLECT_CMD)
-			cardPkt.WriteUint32(uint32(p.Char.ID))
-			cardPkt.WriteUint16(uint16(len(cards)))
-			for _, c := range cards {
-				cardPkt.WriteInt32(int32(time.Now().Unix())) // RegistTime
-				cardPkt.WriteUint32(1)                       // SerialNumber
-				cardPkt.WriteUint16(uint16(c.CardID))        // CardID
-				cardPkt.WriteByte(byte(c.Count))             // StarNumber
-			}
-			_ = p.Client.SendPacket(cardPkt)
-		}
-	}
+	// 16. 0x10E4 / 0x10E7 / 0x10EA (Colección de Cartas, Favoritos y Recompensas)
+	h.sendPlayerCollectionOnLogin(p)
 
 	// 17. 0x1802 - PROTO_NC_MAP_LOGIN_ACK (CRÍTICO: Absolutamente el último paquete del bloque)
 	p.RecalculateEquipmentStats(h.itemStore)
@@ -1554,6 +1569,7 @@ func (h *Handler) SetDataStore(ds *DataStore) {
 		if ds.BlockInfo != nil {
 			h.mapManager.SetBlockStore(ds.BlockInfo)
 		}
+		h.mapManager.SetDataStore(ds)
 	}
 }
 
@@ -2454,6 +2470,23 @@ func (h *Handler) handleItemPick(client *network.Client, pkt *protocol.Packet) {
 		return
 	}
 
+	// Verificar propiedad temporal del drop antes de consumirlo del suelo
+	if ent := player.CurrentMap.GetEntity(itemHandle); ent != nil {
+		if pre, ok := ent.(*ZoneDroppedItem); ok && pre != nil {
+			if pre.OwnerCharID != 0 && !pre.AllCanLoot && pre.OwnerCharID != player.Char.ID {
+				if pre.OwnerExpiresAt.IsZero() || time.Now().Before(pre.OwnerExpiresAt) {
+					ack := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_PICK_ACK)
+					ack.WriteUint16(0xFFFF)
+					ack.WriteUint32(0)
+					ack.WriteUint16(0x0343) // Ownership locked by another player
+					ack.WriteUint16(itemHandle)
+					_ = client.SendPacket(ack)
+					return
+				}
+			}
+		}
+	}
+
 	dropped, found := player.CurrentMap.ConsumeDroppedItem(itemHandle)
 	if !found || dropped == nil {
 		ack := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_PICK_ACK)
@@ -2470,14 +2503,35 @@ func (h *Handler) handleItemPick(client *network.Client, pkt *protocol.Packet) {
 		lot = 1
 	}
 
+	if dropped.IsCenDrop {
+		beforeMoney := player.Char.TCharacterState.Money
+		_ = h.charRepo.AddCharMoney(player.Char.ID, int64(lot))
+		if player.Char.TCharacterState.Money == beforeMoney {
+			player.Char.TCharacterState.Money += int64(lot)
+		}
+		cenCmd := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_CENCHANGE_CMD)
+		cenCmd.WriteUint64(uint64(player.Char.TCharacterState.Money))
+		_ = client.SendPacket(cenCmd)
+
+		ack := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_PICK_ACK)
+		ack.WriteUint16(dropped.ItemID)
+		ack.WriteUint32(uint32(lot))
+		ack.WriteUint16(0)
+		ack.WriteUint16(itemHandle)
+		_ = client.SendPacket(ack)
+		return
+	}
+
 	newItem := &database.Item{StorageType: 9, Owner: player.Char.ID, Storage: int16(freeSlot), ItemID: dropped.ItemID, Flags: int32(lot)}
 	err = h.charRepo.CreateItem(newItem)
 	if err != nil {
 		return
 	}
+	for _, opt := range dropped.StatOptions {
+		_ = h.charRepo.SetItemOption(newItem.ItemKey, int16(opt.Type), int64(opt.Value))
+	}
 
-
-	h.sendCellChange(client, 9, freeSlot, newItem, 0xFFFF)
+	h.sendCellChangeWithOptions(client, 9, freeSlot, newItem, dropped.StatOptions, 0xFFFF)
 
 	ack := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_PICK_ACK)
 	ack.WriteUint16(dropped.ItemID) // itemid (2B)

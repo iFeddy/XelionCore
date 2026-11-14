@@ -270,13 +270,7 @@ func (h *Handler) handleSkillBashObjCastReq(client *network.Client, pkt *protoco
 	// Calcular daño de habilidad
 	dmg := 35
 	if mob, ok := targetEntity.(*ZoneMonster); ok {
-		mob.CurHP -= dmg
-		if mob.CurHP < 0 {
-			mob.CurHP = 0
-		}
-		if mob.CurHP == 0 {
-			mob.IsDead = true
-		}
+		_, _ = player.CurrentMap.ApplyDamageToMonster(mob, player, dmg)
 	} else if defP, ok := targetEntity.(*ZonePlayer); ok {
 		defP.Char.CurHP -= dmg
 		if defP.Char.CurHP < 0 {
@@ -323,11 +317,7 @@ func (h *Handler) handleSkillBashFldCastReq(client *network.Client, pkt *protoco
 		mx, my := mob.GetPosition()
 		dist := math.Hypot(float64(mx)-float64(fldX), float64(my)-float64(fldY))
 		if dist <= radius && !mob.IsDead {
-			mob.CurHP -= 25
-			if mob.CurHP <= 0 {
-				mob.CurHP = 0
-				mob.IsDead = true
-			}
+			_, _ = player.CurrentMap.ApplyDamageToMonster(mob, player, 25)
 		}
 	}
 }
@@ -406,14 +396,7 @@ func (h *Handler) ExecuteAutoAttack(player *ZonePlayer, now time.Time) {
 
 	switch e := targetEntity.(type) {
 	case *ZoneMonster:
-		if e.CurHP <= dmg {
-			e.CurHP = 0
-			e.IsDead = true
-			isDead = true
-		} else {
-			e.CurHP -= dmg
-		}
-		restHP = uint32(e.CurHP)
+		restHP, isDead = player.CurrentMap.ApplyDamageToMonster(e, player, dmg)
 	case *ZonePlayer:
 		if e.Char.CurHP <= dmg {
 			e.Char.CurHP = 0

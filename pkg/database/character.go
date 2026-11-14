@@ -224,9 +224,11 @@ type CharacterStateData struct {
 
 // CharacterTitleData modela títulos de personajes en tCharacterTitle.
 type CharacterTitleData struct {
-	CharNo    int    `json:"char_no"`
-	TitleType int16  `json:"title_type"`
-	Title     string `json:"title"`
+	CharNo       int    `json:"char_no"`
+	TitleType    int16  `json:"title_type"`
+	ElementNo    byte   `json:"element_no"`
+	ElementValue int64  `json:"element_value"`
+	Title        string `json:"title"`
 }
 
 // ChargedBuffData modela buffs pagos de tCharacterChargedBuffer.
@@ -259,10 +261,21 @@ type QuestData struct {
 	Data    []byte `json:"data"`
 }
 
-// CollectionCardData modela cartas de colección en tCollection.
+// CollectionCardData modela cartas de colección en tCollectionCard.
 type CollectionCardData struct {
-	CardID int16 `json:"card_id"`
-	Count  int16 `json:"count"`
+	CardID     int16     `json:"card_id"`
+	Count      int16     `json:"count"`
+	SerialNo   int64     `json:"serial_no"`
+	StarNumber byte      `json:"star_number"`
+	RegistTime time.Time `json:"regist_time"`
+}
+
+// CollectionBookmarkData modela cartas favoritas/marcadores en tCollectionFavorites.
+type CollectionBookmarkData struct {
+	Slot       uint16 `json:"slot"`
+	CardID     uint16 `json:"card_id"`
+	SerialNo   int64  `json:"serial_no"`
+	StarNumber byte   `json:"star_number"`
 }
 
 // KingdomQuestData modela datos de Kingdom Quest en tKingdomQuest.
@@ -470,6 +483,7 @@ type CharacterAvatarRepository interface {
 	SetCharacterState(charNo int, stateNo int16, level int16, stateTime int, restTime int, count int16, pd, ps, pk, pc byte) error
 	GetCharacterTitles(charNo int) ([]*CharacterTitleData, error)
 	SetCharacterTitle(charNo int, titleType int16, title string) error
+	SetCharacterTitleProgress(charNo int, titleType byte, elementNo byte, elementValue int64) error
 	GetChargedBuffs(charNo int) ([]*ChargedBuffData, error)
 	SetChargedBuff(charNo int, key int, id int16, useDate, endDate time.Time) error
 	DelChargedBuff(charNo int, key int) error
@@ -547,6 +561,13 @@ type CharacterProgressionRepository interface {
 	SetAttendanceRewardAt(charNo int, eventDate time.Time, rewardID int) (int, error)
 	GetCollectionCards(charNo int) ([]*CollectionCardData, error)
 	SetCollectionCard(charNo int, cardID int16, count int16) error
+	RegisterCollectionCard(charNo int, cardID int, serialNo int64, starNumber byte, itemKey int64) error
+	GetCollectionFavorites(charNo int) ([]*CollectionBookmarkData, error)
+	SetCollectionFavorite(charNo int, slot byte, cardID int, regist bool) error
+	GetCollectionRewards(charNo int) ([]int, error)
+	SetCollectionReward(charNo int, rewardID int) error
+	GetCollectionSerialList() (map[int]int64, error)
+	SetCollectionSerialCount(cardID int, count int64) error
 	GetTutorialCharInfo(charNo int) (byte, byte, error)
 	SetTutorialCharInfo(userNo, charNo int, state, step byte) error
 	GetTutorialIsSkip(userNo int) (bool, error)
@@ -786,28 +807,51 @@ type MemoryCharacterRepository struct {
 	academies     map[int]*GuildAcademyData
 	academyMbrs   map[int][]*GuildAcademyMemberData
 	zoneNodes     map[uint16]*ZoneNodeInfo
+
+	titles              map[int][]*CharacterTitleData
+	autoPick            map[int]bool
+	restExpTime         map[int]time.Time
+	collectionCards     map[int][]*CollectionCardData
+	collectionBookmarks map[int][]*CollectionBookmarkData
+	collectionRewards   map[int]map[int]bool
+	collectionSerials   map[int]int64
+	parties             map[int]*PartyData
+	partyMembers        map[int][]*PartyMemberData
+	nextPartyNo         int
+	itemOptions         map[int64]map[int16]int64
 }
 
 func NewMemoryCharacterRepositoryWithFile(filePath string) *MemoryCharacterRepository {
 	repo := &MemoryCharacterRepository{
-		filePath:      filePath,
-		characters:    make(map[int]*Character),
-		charNameToID:  make(map[string]int),
-		nextCharID:    1,
-		nextItemKey:   1,
-		items:         make(map[int][]*Item),
-		shortcuts:     make(map[int][]*Shortcut),
-		improveSC:     make(map[int][]*ImproveShortcutEntry),
-		improveKeyMap: make(map[int][]*ImproveKeyMapEntry),
-		improveGameOp: make(map[int][]*ImproveGameOptionEntry),
-		guides:        make(map[int][]byte),
-		changeIDs:     make(map[int][]*CharIDChangeInfo),
-		attendRewards: make(map[int]map[int]bool),
-		tutorialSkip:  make(map[int]bool),
-		skills:        make(map[int][]*CharacterSkill),
-		options:       make(map[int]*CharacterOptions),
-		friends:       make(map[int][]*FriendInfo),
-		friendPts:     make(map[int]int),
+		filePath:            filePath,
+		characters:          make(map[int]*Character),
+		charNameToID:        make(map[string]int),
+		nextCharID:          1,
+		nextItemKey:         1,
+		items:               make(map[int][]*Item),
+		shortcuts:           make(map[int][]*Shortcut),
+		improveSC:           make(map[int][]*ImproveShortcutEntry),
+		improveKeyMap:       make(map[int][]*ImproveKeyMapEntry),
+		improveGameOp:       make(map[int][]*ImproveGameOptionEntry),
+		guides:              make(map[int][]byte),
+		changeIDs:           make(map[int][]*CharIDChangeInfo),
+		attendRewards:       make(map[int]map[int]bool),
+		tutorialSkip:        make(map[int]bool),
+		skills:              make(map[int][]*CharacterSkill),
+		options:             make(map[int]*CharacterOptions),
+		friends:             make(map[int][]*FriendInfo),
+		friendPts:           make(map[int]int),
+		titles:              make(map[int][]*CharacterTitleData),
+		autoPick:            make(map[int]bool),
+		restExpTime:         make(map[int]time.Time),
+		collectionCards:     make(map[int][]*CollectionCardData),
+		collectionBookmarks: make(map[int][]*CollectionBookmarkData),
+		collectionRewards:   make(map[int]map[int]bool),
+		collectionSerials:   make(map[int]int64),
+		parties:             make(map[int]*PartyData),
+		partyMembers:        make(map[int][]*PartyMemberData),
+		nextPartyNo:         1,
+		itemOptions:         make(map[int64]map[int16]int64),
 		guilds:        make(map[int]*GuildData),
 		guildMbrs:     make(map[int][]*GuildMemberData),
 		academies:     make(map[int]*GuildAcademyData),
@@ -1118,10 +1162,39 @@ func (r *MemoryCharacterRepository) SetCharacterState(charNo int, stateNo int16,
 }
 
 func (r *MemoryCharacterRepository) GetCharacterTitles(charNo int) ([]*CharacterTitleData, error) {
-	return nil, nil
+	r.mu.RLock()
+	defer r.mu.RUnlock()
+	src := r.titles[charNo]
+	out := make([]*CharacterTitleData, 0, len(src))
+	for _, t := range src {
+		cp := *t
+		out = append(out, &cp)
+	}
+	return out, nil
 }
 
 func (r *MemoryCharacterRepository) SetCharacterTitle(charNo int, titleType int16, title string) error {
+	return r.SetCharacterTitleProgress(charNo, byte(titleType), 0, 1)
+}
+
+func (r *MemoryCharacterRepository) SetCharacterTitleProgress(charNo int, titleType byte, elementNo byte, elementValue int64) error {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.titles == nil {
+		r.titles = make(map[int][]*CharacterTitleData)
+	}
+	for _, t := range r.titles[charNo] {
+		if byte(t.TitleType) == titleType && t.ElementNo == elementNo {
+			t.ElementValue = elementValue
+			return nil
+		}
+	}
+	r.titles[charNo] = append(r.titles[charNo], &CharacterTitleData{
+		CharNo:       charNo,
+		TitleType:    int16(titleType),
+		ElementNo:    elementNo,
+		ElementValue: elementValue,
+	})
 	return nil
 }
 
@@ -1138,18 +1211,37 @@ func (r *MemoryCharacterRepository) DelChargedBuff(charNo int, key int) error {
 }
 
 func (r *MemoryCharacterRepository) GetRestExpExecTime(charNo int) (time.Time, error) {
+	r.mu.RLock()
+	defer r.mu.RUnlock()
+	if t, ok := r.restExpTime[charNo]; ok {
+		return t, nil
+	}
 	return time.Now(), nil
 }
 
 func (r *MemoryCharacterRepository) SetRestExpExecTime(charNo int, t time.Time) error {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.restExpTime == nil {
+		r.restExpTime = make(map[int]time.Time)
+	}
+	r.restExpTime[charNo] = t
 	return nil
 }
 
 func (r *MemoryCharacterRepository) GetAutoPick(charNo int) (bool, error) {
-	return false, nil
+	r.mu.RLock()
+	defer r.mu.RUnlock()
+	return r.autoPick[charNo], nil
 }
 
 func (r *MemoryCharacterRepository) SetAutoPick(charNo int, autoPick bool) error {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.autoPick == nil {
+		r.autoPick = make(map[int]bool)
+	}
+	r.autoPick[charNo] = autoPick
 	return nil
 }
 
@@ -1162,15 +1254,35 @@ func (r *MemoryCharacterRepository) AddCharExp(charNo int, exp int64) error {
 }
 
 func (r *MemoryCharacterRepository) AddCharFame(charNo int, fame int) error {
-	return nil
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if ch, ok := r.characters[charNo]; ok {
+		ch.TCharacterState.Fame += fame
+		return nil
+	}
+	return ErrCharacterNotFound
 }
 
 func (r *MemoryCharacterRepository) SubCharFame(charNo int, fame int) error {
-	return nil
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if ch, ok := r.characters[charNo]; ok {
+		ch.TCharacterState.Fame -= fame
+		if ch.TCharacterState.Fame < 0 {
+			ch.TCharacterState.Fame = 0
+		}
+		return nil
+	}
+	return ErrCharacterNotFound
 }
 
 func (r *MemoryCharacterRepository) GetCharFame(charNo int) (int, error) {
-	return 0, nil
+	r.mu.RLock()
+	defer r.mu.RUnlock()
+	if ch, ok := r.characters[charNo]; ok {
+		return ch.TCharacterState.Fame, nil
+	}
+	return 0, ErrCharacterNotFound
 }
 
 func (r *MemoryCharacterRepository) GetCharacterChangeIDList(userNo int) ([]*CharIDChangeInfo, error) {
@@ -1325,10 +1437,29 @@ func (r *MemoryCharacterRepository) UpdateItemFlags(itemKey int64, flags int) er
 }
 
 func (r *MemoryCharacterRepository) GetItemOptions(itemKey int64) (map[int16]int64, error) {
-	return nil, nil
+	r.mu.RLock()
+	defer r.mu.RUnlock()
+	opts, ok := r.itemOptions[itemKey]
+	if !ok {
+		return nil, nil
+	}
+	out := make(map[int16]int64, len(opts))
+	for k, v := range opts {
+		out[k] = v
+	}
+	return out, nil
 }
 
 func (r *MemoryCharacterRepository) SetItemOption(itemKey int64, optionType int16, optionData int64) error {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.itemOptions == nil {
+		r.itemOptions = make(map[int64]map[int16]int64)
+	}
+	if r.itemOptions[itemKey] == nil {
+		r.itemOptions[itemKey] = make(map[int16]int64)
+	}
+	r.itemOptions[itemKey][optionType] = optionData
 	return nil
 }
 
@@ -1617,10 +1748,149 @@ func (r *MemoryCharacterRepository) SetAttendanceRewardAt(charNo int, eventDate 
 }
 
 func (r *MemoryCharacterRepository) GetCollectionCards(charNo int) ([]*CollectionCardData, error) {
-	return nil, nil
+	r.mu.RLock()
+	defer r.mu.RUnlock()
+	src := r.collectionCards[charNo]
+	out := make([]*CollectionCardData, 0, len(src))
+	for _, c := range src {
+		cp := *c
+		out = append(out, &cp)
+	}
+	return out, nil
 }
 
 func (r *MemoryCharacterRepository) SetCollectionCard(charNo int, cardID int16, count int16) error {
+	return r.RegisterCollectionCard(charNo, int(cardID), 1, byte(count), 0)
+}
+
+func (r *MemoryCharacterRepository) RegisterCollectionCard(charNo int, cardID int, serialNo int64, starNumber byte, itemKey int64) error {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.collectionCards == nil {
+		r.collectionCards = make(map[int][]*CollectionCardData)
+	}
+	if itemKey > 0 {
+		items := r.items[charNo]
+		for i, it := range items {
+			if it.ItemKey == itemKey {
+				r.items[charNo] = append(items[:i], items[i+1:]...)
+				break
+			}
+		}
+	}
+	for _, c := range r.collectionCards[charNo] {
+		if int(c.CardID) == cardID {
+			c.SerialNo = serialNo
+			c.StarNumber = starNumber
+			c.Count = int16(starNumber)
+			c.RegistTime = time.Now()
+			return nil
+		}
+	}
+	r.collectionCards[charNo] = append(r.collectionCards[charNo], &CollectionCardData{
+		CardID:     int16(cardID),
+		Count:      int16(starNumber),
+		SerialNo:   serialNo,
+		StarNumber: starNumber,
+		RegistTime: time.Now(),
+	})
+	return nil
+}
+
+func (r *MemoryCharacterRepository) GetCollectionFavorites(charNo int) ([]*CollectionBookmarkData, error) {
+	r.mu.RLock()
+	defer r.mu.RUnlock()
+	src := r.collectionBookmarks[charNo]
+	out := make([]*CollectionBookmarkData, 0, len(src))
+	for _, bm := range src {
+		cp := *bm
+		for _, c := range r.collectionCards[charNo] {
+			if uint16(c.CardID) == cp.CardID {
+				cp.SerialNo = c.SerialNo
+				cp.StarNumber = c.StarNumber
+				break
+			}
+		}
+		out = append(out, &cp)
+	}
+	return out, nil
+}
+
+func (r *MemoryCharacterRepository) SetCollectionFavorite(charNo int, slot byte, cardID int, regist bool) error {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.collectionBookmarks == nil {
+		r.collectionBookmarks = make(map[int][]*CollectionBookmarkData)
+	}
+	list := r.collectionBookmarks[charNo]
+	if !regist {
+		for i, bm := range list {
+			if bm.Slot == uint16(slot) {
+				r.collectionBookmarks[charNo] = append(list[:i], list[i+1:]...)
+				return nil
+			}
+		}
+		return nil
+	}
+	for _, bm := range list {
+		if bm.Slot == uint16(slot) {
+			bm.CardID = uint16(cardID)
+			return nil
+		}
+	}
+	r.collectionBookmarks[charNo] = append(list, &CollectionBookmarkData{
+		Slot:   uint16(slot),
+		CardID: uint16(cardID),
+	})
+	return nil
+}
+
+func (r *MemoryCharacterRepository) GetCollectionRewards(charNo int) ([]int, error) {
+	r.mu.RLock()
+	defer r.mu.RUnlock()
+	rw := r.collectionRewards[charNo]
+	out := make([]int, 0, len(rw))
+	for id, ok := range rw {
+		if ok {
+			out = append(out, id)
+		}
+	}
+	return out, nil
+}
+
+func (r *MemoryCharacterRepository) SetCollectionReward(charNo int, rewardID int) error {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.collectionRewards == nil {
+		r.collectionRewards = make(map[int]map[int]bool)
+	}
+	if r.collectionRewards[charNo] == nil {
+		r.collectionRewards[charNo] = make(map[int]bool)
+	}
+	if r.collectionRewards[charNo][rewardID] {
+		return fmt.Errorf("collection reward %d already claimed", rewardID)
+	}
+	r.collectionRewards[charNo][rewardID] = true
+	return nil
+}
+
+func (r *MemoryCharacterRepository) GetCollectionSerialList() (map[int]int64, error) {
+	r.mu.RLock()
+	defer r.mu.RUnlock()
+	out := make(map[int]int64, len(r.collectionSerials))
+	for k, v := range r.collectionSerials {
+		out[k] = v
+	}
+	return out, nil
+}
+
+func (r *MemoryCharacterRepository) SetCollectionSerialCount(cardID int, count int64) error {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.collectionSerials == nil {
+		r.collectionSerials = make(map[int]int64)
+	}
+	r.collectionSerials[cardID] = count
 	return nil
 }
 
@@ -2055,17 +2325,144 @@ func (r *MemoryCharacterRepository) GetHolyPromise(charNo int) (*HolyPromiseData
 	return &HolyPromiseData{CharNo: charNo, UpCharNo: 0, Flags: 0}, nil
 }
 
-func (r *MemoryCharacterRepository) CreateParty(masterCharNo int, flags int) (int, error) { return 1, nil }
-func (r *MemoryCharacterRepository) AddPartyMember(partyNo int, charNo int, flag byte) error { return nil }
-func (r *MemoryCharacterRepository) RemovePartyMember(partyNo int, charNo int) error { return nil }
-func (r *MemoryCharacterRepository) SetPartyMaster(partyNo int, masterCharNo int) error { return nil }
-func (r *MemoryCharacterRepository) SetPartyFlags(partyNo int, flags int) error { return nil }
-func (r *MemoryCharacterRepository) DeleteParty(partyNo int) error { return nil }
-func (r *MemoryCharacterRepository) GetParty(partyNo int) (*PartyData, error) {
-	return &PartyData{PartyNo: partyNo, MasterCharNo: 1, Flags: 0}, nil
+func (r *MemoryCharacterRepository) CreateParty(masterCharNo int, flags int) (int, error) {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.parties == nil {
+		r.parties = make(map[int]*PartyData)
+	}
+	if r.partyMembers == nil {
+		r.partyMembers = make(map[int][]*PartyMemberData)
+	}
+	if r.nextPartyNo <= 0 {
+		r.nextPartyNo = 1
+	}
+	partyNo := r.nextPartyNo
+	r.nextPartyNo++
+	r.parties[partyNo] = &PartyData{PartyNo: partyNo, MasterCharNo: masterCharNo, Flags: flags}
+	chName := ""
+	var chClass, chLevel byte
+	var chZone string
+	var chHP, chSP int
+	if ch, ok := r.characters[masterCharNo]; ok {
+		chName = ch.Name
+		chClass = ch.Job
+		chLevel = ch.Level
+		chZone = ch.TownName
+		chHP = ch.CurHP
+		chSP = ch.CurSP
+	}
+	r.partyMembers[partyNo] = []*PartyMemberData{{
+		CharNo: masterCharNo, Flag: 1, CharID: chName, Class: chClass, Level: chLevel, LoginZone: chZone, HP: int16(chHP), SP: int16(chSP),
+	}}
+	return partyNo, nil
 }
-func (r *MemoryCharacterRepository) GetPartyMembers(partyNo int) ([]*PartyMemberData, error) { return nil, nil }
-func (r *MemoryCharacterRepository) GetPartyByChar(charNo int) (int, int, int, error) { return 0, 0, 0, nil }
+
+func (r *MemoryCharacterRepository) AddPartyMember(partyNo int, charNo int, flag byte) error {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.partyMembers == nil {
+		r.partyMembers = make(map[int][]*PartyMemberData)
+	}
+	for _, m := range r.partyMembers[partyNo] {
+		if m.CharNo == charNo {
+			return nil
+		}
+	}
+	chName := ""
+	var chClass, chLevel byte
+	var chZone string
+	var chHP, chSP int
+	if ch, ok := r.characters[charNo]; ok {
+		chName = ch.Name
+		chClass = ch.Job
+		chLevel = ch.Level
+		chZone = ch.TownName
+		chHP = ch.CurHP
+		chSP = ch.CurSP
+	}
+	r.partyMembers[partyNo] = append(r.partyMembers[partyNo], &PartyMemberData{
+		CharNo: charNo, Flag: flag, CharID: chName, Class: chClass, Level: chLevel, LoginZone: chZone, HP: int16(chHP), SP: int16(chSP),
+	})
+	return nil
+}
+
+func (r *MemoryCharacterRepository) RemovePartyMember(partyNo int, charNo int) error {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	list := r.partyMembers[partyNo]
+	for i, m := range list {
+		if m.CharNo == charNo {
+			r.partyMembers[partyNo] = append(list[:i], list[i+1:]...)
+			return nil
+		}
+	}
+	return nil
+}
+
+func (r *MemoryCharacterRepository) SetPartyMaster(partyNo int, masterCharNo int) error {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if p, ok := r.parties[partyNo]; ok {
+		p.MasterCharNo = masterCharNo
+	}
+	return nil
+}
+
+func (r *MemoryCharacterRepository) SetPartyFlags(partyNo int, flags int) error {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if p, ok := r.parties[partyNo]; ok {
+		p.Flags = flags
+	}
+	return nil
+}
+
+func (r *MemoryCharacterRepository) DeleteParty(partyNo int) error {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	delete(r.parties, partyNo)
+	delete(r.partyMembers, partyNo)
+	return nil
+}
+
+func (r *MemoryCharacterRepository) GetParty(partyNo int) (*PartyData, error) {
+	r.mu.RLock()
+	defer r.mu.RUnlock()
+	if p, ok := r.parties[partyNo]; ok {
+		cp := *p
+		return &cp, nil
+	}
+	return nil, fmt.Errorf("party %d not found", partyNo)
+}
+
+func (r *MemoryCharacterRepository) GetPartyMembers(partyNo int) ([]*PartyMemberData, error) {
+	r.mu.RLock()
+	defer r.mu.RUnlock()
+	src := r.partyMembers[partyNo]
+	out := make([]*PartyMemberData, 0, len(src))
+	for _, m := range src {
+		cp := *m
+		out = append(out, &cp)
+	}
+	return out, nil
+}
+
+func (r *MemoryCharacterRepository) GetPartyByChar(charNo int) (int, int, int, error) {
+	r.mu.RLock()
+	defer r.mu.RUnlock()
+	for pNo, members := range r.partyMembers {
+		for _, m := range members {
+			if m.CharNo == charNo {
+				if p, ok := r.parties[pNo]; ok {
+					return p.PartyNo, p.MasterCharNo, p.Flags, nil
+				}
+				return pNo, charNo, 0, nil
+			}
+		}
+	}
+	return 0, 0, 0, nil
+}
 
 func (r *MemoryCharacterRepository) AddChatRestrict(userNo int, charNo int) error { return nil }
 func (r *MemoryCharacterRepository) DelChatRestrict(userNo int, charNo int) error { return nil }

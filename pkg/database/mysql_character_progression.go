@@ -527,8 +527,11 @@ func (r *MySQLCharacterRepository) GetCollectionCards(charNo int) ([]*Collection
 		var d time.Time
 		if err := rows.Scan(&cardID, &serialNo, &starNumber, &d); err == nil {
 			cards = append(cards, &CollectionCardData{
-				CardID: cardID,
-				Count:  int16(starNumber),
+				CardID:     cardID,
+				Count:      int16(starNumber),
+				SerialNo:   serialNo,
+				StarNumber: starNumber,
+				RegistTime: d,
 			})
 		}
 	}
@@ -537,10 +540,120 @@ func (r *MySQLCharacterRepository) GetCollectionCards(charNo int) ([]*Collection
 
 // SetCollectionCard registra una carta de colección invocando usp_Collection_setCard.
 func (r *MySQLCharacterRepository) SetCollectionCard(charNo int, cardID int16, count int16) error {
+	return r.RegisterCollectionCard(charNo, int(cardID), 1, byte(count), 0)
+}
+
+// RegisterCollectionCard registra o mejora una carta consumiendo el ítem en BD invocando usp_Collection_setCard.
+func (r *MySQLCharacterRepository) RegisterCollectionCard(charNo int, cardID int, serialNo int64, starNumber byte, itemKey int64) error {
 	var ret int
-	err := r.db.QueryRow("CALL usp_Collection_setCard(?, ?, 1, 1, 0, @out_nRet)", charNo, cardID).Scan(&ret)
+	err := r.db.QueryRow("CALL usp_Collection_setCard(?, ?, ?, ?, ?, @out_nRet)", charNo, cardID, serialNo, starNumber, itemKey).Scan(&ret)
 	if err != nil {
 		return fmt.Errorf("error calling usp_Collection_setCard: %w", err)
+	}
+	if ret != 0 {
+		return fmt.Errorf("usp_Collection_setCard returned %d", ret)
+	}
+	return nil
+}
+
+// GetCollectionFavorites lista las cartas marcadas como favoritas invocando usp_Collection_getFavoritesList.
+func (r *MySQLCharacterRepository) GetCollectionFavorites(charNo int) ([]*CollectionBookmarkData, error) {
+	rows, err := r.db.Query("CALL usp_Collection_getFavoritesList(?, @out_nRet)", charNo)
+	if err != nil {
+		return nil, fmt.Errorf("error calling usp_Collection_getFavoritesList(%d): %w", charNo, err)
+	}
+	defer rows.Close()
+
+	var list []*CollectionBookmarkData
+	for rows.Next() {
+		bm := &CollectionBookmarkData{}
+		var slot byte
+		var cardID int
+		if err := rows.Scan(&slot, &cardID, &bm.SerialNo, &bm.StarNumber); err == nil {
+			bm.Slot = uint16(slot)
+			bm.CardID = uint16(cardID)
+			list = append(list, bm)
+		}
+	}
+	return list, nil
+}
+
+// SetCollectionFavorite registra o remueve una carta en el marcador de colección invocando usp_Collection_setFavorites.
+func (r *MySQLCharacterRepository) SetCollectionFavorite(charNo int, slot byte, cardID int, regist bool) error {
+	bReg := byte(0)
+	if regist {
+		bReg = 1
+	}
+	var ret int
+	err := r.db.QueryRow("CALL usp_Collection_setFavorites(?, ?, ?, ?, @out_nRet)", charNo, slot, cardID, bReg).Scan(&ret)
+	if err != nil {
+		return fmt.Errorf("error calling usp_Collection_setFavorites: %w", err)
+	}
+	if ret != 0 {
+		return fmt.Errorf("usp_Collection_setFavorites returned %d", ret)
+	}
+	return nil
+}
+
+// GetCollectionRewards lista las recompensas ya reclamadas invocando usp_Collection_getRewardList.
+func (r *MySQLCharacterRepository) GetCollectionRewards(charNo int) ([]int, error) {
+	rows, err := r.db.Query("CALL usp_Collection_getRewardList(?, @out_nRet)", charNo)
+	if err != nil {
+		return nil, fmt.Errorf("error calling usp_Collection_getRewardList(%d): %w", charNo, err)
+	}
+	defer rows.Close()
+
+	var rewards []int
+	for rows.Next() {
+		var rewardID int
+		if err := rows.Scan(&rewardID); err == nil {
+			rewards = append(rewards, rewardID)
+		}
+	}
+	return rewards, nil
+}
+
+// SetCollectionReward registra una recompensa reclamada invocando usp_Collection_setReward.
+func (r *MySQLCharacterRepository) SetCollectionReward(charNo int, rewardID int) error {
+	var ret int
+	err := r.db.QueryRow("CALL usp_Collection_setReward(?, ?, @out_nRet)", charNo, rewardID).Scan(&ret)
+	if err != nil {
+		return fmt.Errorf("error calling usp_Collection_setReward: %w", err)
+	}
+	if ret != 0 {
+		return fmt.Errorf("usp_Collection_setReward returned %d", ret)
+	}
+	return nil
+}
+
+// GetCollectionSerialList recupera los contadores globales de serie invocando usp_Collection_getSerialList.
+func (r *MySQLCharacterRepository) GetCollectionSerialList() (map[int]int64, error) {
+	rows, err := r.db.Query("CALL usp_Collection_getSerialList(@out_nRet)")
+	if err != nil {
+		return nil, fmt.Errorf("error calling usp_Collection_getSerialList: %w", err)
+	}
+	defer rows.Close()
+
+	out := make(map[int]int64)
+	for rows.Next() {
+		var cardID int
+		var count int64
+		if err := rows.Scan(&cardID, &count); err == nil {
+			out[cardID] = count
+		}
+	}
+	return out, nil
+}
+
+// SetCollectionSerialCount actualiza el contador global de serie invocando usp_Collection_setSerial.
+func (r *MySQLCharacterRepository) SetCollectionSerialCount(cardID int, count int64) error {
+	var ret int
+	err := r.db.QueryRow("CALL usp_Collection_setSerial(?, ?, @out_nRet)", cardID, count).Scan(&ret)
+	if err != nil {
+		return fmt.Errorf("error calling usp_Collection_setSerial: %w", err)
+	}
+	if ret != 0 {
+		return fmt.Errorf("usp_Collection_setSerial returned %d", ret)
 	}
 	return nil
 }
