@@ -563,6 +563,7 @@ func TestFase16_Control7_E2E_Forensic_Cluster_Zone_GameLog(t *testing.T) {
 
 	gmChat := fmt.Sprintf("&makeitem %d 1", shopItem.ID)
 	chatPkt := protocol.NewPacketWriter(protocol.PROTO_NC_ACT_CHAT_REQ)
+	chatPkt.WriteByte(0) // itemLinkDataCount
 	chatPkt.WriteByte(byte(len(gmChat)))
 	chatPkt.WriteString(gmChat, len(gmChat))
 	_ = zClient.sendPacket(chatPkt)

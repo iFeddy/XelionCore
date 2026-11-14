@@ -839,9 +839,12 @@ func (m *ZoneMap) BroadcastMobChat(mob *ZoneMonster, category string) {
 	}
 	mx, my := mob.GetPosition()
 	pw := protocol.NewPacketWriter(protocol.PROTO_NC_ACT_SOMEONECHAT_CMD)
+	pw.WriteByte(0) // itemLinkDataCount
 	pw.WriteUint16(mob.Handle)
 	pw.WriteByte(byte(len(text)))
-	pw.WriteByte(0)
+	pw.WriteByte(0x02) // flag: chatwin=1, GMColor=0
+	pw.WriteByte(0)    // nChatFontColorID
+	pw.WriteByte(0)    // nChatBalloonColorID
 	pw.WriteString(text, len(text))
 	m.grid.BroadcastAOI(pw, mx, my, 0)
 }

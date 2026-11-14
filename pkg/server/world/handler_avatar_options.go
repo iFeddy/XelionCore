@@ -51,7 +51,10 @@ func (h *Handler) getLogRepo() database.AccountLogRepository {
 	return nil
 }
 
-// handleNormalLogout procesa el logout oficial de cliente (PROTO_NC_USER_NORMALLOGOUT_CMD - 0x0C18).
+// handleNormalLogout procesa el logout oficial de cliente (PROTO_NC_USER_NORMALLOGOUT_CMD - 0x0C18)
+// emulando fc_NC_USER_NORMALLOGOUT_CMD (0x00412DF0) en WorldManager.exe:
+//   - LogoutType == 1: Retorno a Selección de Personaje (ejecuta Logout del personaje, preserva tActiveAccountSession y mantiene el socket TCP abierto).
+//   - LogoutType == 0: Salida total del juego (cierra tActiveAccountSession en MySQL, registra tAccountLog y cierra el socket TCP).
 func (h *Handler) handleNormalLogout(client *network.Client, pkt *protocol.Packet) {
 	if !client.IsAuthenticated {
 		return
@@ -61,6 +64,23 @@ func (h *Handler) handleNormalLogout(client *network.Client, pkt *protocol.Packe
 	log.Printf("[World][%s] Normal logout requested (type: %d) for user %d (%s)",
 		client.RemoteAddr(), logoutType, client.AccountID, client.Username)
 
+	if client.CharacterID > 0 {
+		h.partyMgr.UnregisterOnline(client.CharacterID)
+		h.friendMgr.BroadcastLogout(client.CharacterID, client.Username)
+		h.guildMgr.UnregisterOnline(client.CharacterID)
+		h.kqMgr.UnregisterOnline(client.CharacterID)
+		if h.charRepo != nil {
+			_ = h.charRepo.CharacterLogout(client.CharacterID, 0)
+		}
+		client.CharacterID = 0
+	}
+
+	if logoutType == 1 {
+		// WorldManager.exe (0x00412E4A..0x00412E70): vuelve al estado autenticado sin zona ni cierre de socket.
+		client.IsTransferring = false
+		return
+	}
+
 	if sessionRepo := h.getSessionRepo(); sessionRepo != nil {
 		playMin, err := sessionRepo.CloseSessionAndGetPlayMin(client.AccountID)
 		if err == nil {
@@ -68,10 +88,6 @@ func (h *Handler) handleNormalLogout(client *network.Client, pkt *protocol.Packe
 				_ = logRepo.LogAccount(client.Username, 2, client.AccountID, uint16(playMin), "", h.worldID, 0, client.RemoteIP())
 			}
 		}
-	}
-
-	if client.CharacterID > 0 {
-		_ = h.charRepo.CharacterLogout(client.CharacterID, 0)
 	}
 
 	client.Close()

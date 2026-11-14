@@ -876,58 +876,46 @@ func (m *ZoneMap) Broadcast(pw *protocol.PacketWriter, excludeID uint16) {
 	}
 }
 
-// MovePlayer actualiza la posición del jugador y transmite el movimiento con validación de colisiones.
-func (m *ZoneMap) MovePlayer(p *ZonePlayer, oldX, oldY, newX, newY int, walk bool) {
-	m.MovePlayerCmd(p, oldX, oldY, newX, newY, walk)
+func (m *ZoneMap) sendMoveFail(p *ZonePlayer) {
+	if p == nil || p.Client == nil || p.Char == nil {
+		return
+	}
+	failPkt := protocol.NewPacketWriter(protocol.PROTO_NC_ACT_MOVEFAIL_CMD)
+	failPkt.WriteInt32(int32(p.Char.XPos))
+	failPkt.WriteInt32(int32(p.Char.YPos))
+	_ = p.Client.SendPacket(failPkt)
 }
 
-// MovePlayerCmd valida colisiones contra .shbd y .sbi, actualiza la grilla AOI y transmite movimiento.
-func (m *ZoneMap) MovePlayerCmd(p *ZonePlayer, fromX, fromY, toX, toY int, walk bool) {
-	// 1. Verificación de colisiones contra .shbd (geometría de terreno)
-	if m.blockInfo != nil && m.blockInfo.IsWorldMoveBlocked(float64(toX), float64(toY)) {
-		if p.Client != nil {
-			failPkt := protocol.NewPacketWriter(protocol.PROTO_NC_ACT_MOVEFAIL_CMD)
-			failPkt.WriteInt32(int32(fromX))
-			failPkt.WriteInt32(int32(fromY))
-			_ = p.Client.SendPacket(failPkt)
+func (m *ZoneMap) validatePlayerMove(p *ZonePlayer, fromX, fromY, toX, toY int) bool {
+	if p == nil || p.Char == nil {
+		return false
+	}
+	dx := p.Char.XPos - fromX
+	dy := p.Char.YPos - fromY
+	if dx*dx+dy*dy > 0x9c40 {
+		return false
+	}
+	if m.blockInfo != nil {
+		if !m.blockInfo.OccupCellCheck(float64(toX), float64(toY), 1) {
+			return false
 		}
-		return
-	}
-
-	// 2. Verificación de colisiones contra .sbi (puertas cerradas dinámicas)
-	tx, ty := blockinfo.WorldToTile(float64(toX), float64(toY))
-	if m.doors != nil && m.doors.IsDoorMoveBlocked(tx, ty) {
-		if p.Client != nil {
-			failPkt := protocol.NewPacketWriter(protocol.PROTO_NC_ACT_MOVEFAIL_CMD)
-			failPkt.WriteInt32(int32(fromX))
-			failPkt.WriteInt32(int32(fromY))
-			_ = p.Client.SendPacket(failPkt)
+		if !m.blockInfo.OccupCellCheck(float64(p.Char.XPos), float64(p.Char.YPos), 1) {
+			return false
 		}
-		return
+		if m.blockInfo.IsMovePathBlocked(p.Char.XPos, p.Char.YPos, toX, toY, 2) {
+			return false
+		}
 	}
-
-	p.Char.XPos = toX
-	p.Char.YPos = toY
-
-	op := protocol.PROTO_NC_ACT_SOMEONEMOVERUN_CMD
-	speed := uint16(115)
-	if p.MoverHandle > 0 && p.MoverSpeed > 0 {
-		speed = p.MoverSpeed
-	} else if walk {
-		op = protocol.PROTO_NC_ACT_SOMEONEMOVEWALK_CMD
-		speed = 50
+	if m.doors != nil {
+		tx, ty := blockinfo.WorldToTile(float64(toX), float64(toY))
+		if m.doors.IsDoorMoveBlocked(tx, ty) {
+			return false
+		}
 	}
+	return true
+}
 
-	movePw := protocol.NewPacketWriter(op)
-	movePw.WriteUint16(p.MapObjectID) // 0x00: handle (2 bytes)
-	movePw.WriteInt32(int32(fromX))   // 0x02: from.x (4 bytes)
-	movePw.WriteInt32(int32(fromY))   // 0x06: from.y (4 bytes)
-	movePw.WriteInt32(int32(toX))     // 0x0A: to.x (4 bytes)
-	movePw.WriteInt32(int32(toY))     // 0x0E: to.y (4 bytes)
-	movePw.WriteUint16(speed)         // 0x12: speed (2 bytes)
-	movePw.WriteUint16(0)             // 0x14: moveattr (2 bytes, direct=0)
-
-	// 3. Actualización de posición en SpatialGrid y detección de cruce de sectores AOI
+func (m *ZoneMap) syncMoveAOI(p *ZonePlayer, toX, toY int, movePw *protocol.PacketWriter) {
 	crossCell, entered, left := m.grid.UpdateEntityPosition(p, toX, toY)
 
 	if crossCell {
@@ -938,7 +926,7 @@ func (m *ZoneMap) MovePlayerCmd(p *ZonePlayer, fromX, fromY, toX, toY int, walk 
 			if e.GetHandle() == p.MapObjectID {
 				continue
 			}
-			if other, ok := e.(*ZonePlayer); ok {
+			if other, ok := e.(*ZonePlayer); ok && p.Client != nil {
 				spawnOther := protocol.NewPacketWriter(protocol.PROTO_NC_BRIEFINFO_LOGINCHARACTER_CMD)
 				other.WriteCharacterDisplay(spawnOther)
 				_ = p.Client.SendPacket(spawnOther)
@@ -950,7 +938,7 @@ func (m *ZoneMap) MovePlayerCmd(p *ZonePlayer, fromX, fromY, toX, toY int, walk 
 				}
 			} else if mob, ok := e.(*ZoneMonster); ok && !mob.IsDead {
 				enteredMobs = append(enteredMobs, mob)
-			} else if di, ok := e.(*ZoneDroppedItem); ok {
+			} else if di, ok := e.(*ZoneDroppedItem); ok && p.Client != nil {
 				pw := protocol.NewPacketWriter(protocol.PROTO_NC_BRIEFINFO_DROPEDITEM_CMD)
 				pw.WriteUint16(di.Handle)
 				pw.WriteUint16(di.ItemID)
@@ -972,16 +960,17 @@ func (m *ZoneMap) MovePlayerCmd(p *ZonePlayer, fromX, fromY, toX, toY int, walk 
 				continue
 			}
 			if other, ok := e.(*ZonePlayer); ok {
-				delOther := protocol.NewPacketWriter(protocol.PROTO_NC_BRIEFINFO_BRIEFINFODELETE_CMD)
-				delOther.WriteUint16(other.MapObjectID)
-				_ = p.Client.SendPacket(delOther)
-
+				if p.Client != nil {
+					delOther := protocol.NewPacketWriter(protocol.PROTO_NC_BRIEFINFO_BRIEFINFODELETE_CMD)
+					delOther.WriteUint16(other.MapObjectID)
+					_ = p.Client.SendPacket(delOther)
+				}
 				if other.Client != nil {
 					delSelf := protocol.NewPacketWriter(protocol.PROTO_NC_BRIEFINFO_BRIEFINFODELETE_CMD)
 					delSelf.WriteUint16(p.MapObjectID)
 					_ = other.Client.SendPacket(delSelf)
 				}
-			} else {
+			} else if p.Client != nil {
 				delPkt := protocol.NewPacketWriter(protocol.PROTO_NC_BRIEFINFO_BRIEFINFODELETE_CMD)
 				delPkt.WriteUint16(e.GetHandle())
 				_ = p.Client.SendPacket(delPkt)
@@ -1002,8 +991,83 @@ func (m *ZoneMap) MovePlayerCmd(p *ZonePlayer, fromX, fromY, toX, toY int, walk 
 	}
 }
 
-// StopPlayer updates position and broadcasts stop to AOI.
+// MovePlayer actualiza la posición del jugador para sp_NC_ACT_WALK_REQ (0x2003) / sp_NC_ACT_RUN_REQ (0x2005)
+// y emite PROTO_NC_ACT_SOMEONEWALK_CMD (0x2004) / PROTO_NC_ACT_SOMEONERUN_CMD (0x2006).
+func (m *ZoneMap) MovePlayer(p *ZonePlayer, oldX, oldY, newX, newY int, walk bool) {
+	if !m.validatePlayerMove(p, oldX, oldY, newX, newY) {
+		m.sendMoveFail(p)
+		return
+	}
+
+	srvFromX, srvFromY := p.Char.XPos, p.Char.YPos
+	p.Char.XPos = newX
+	p.Char.YPos = newY
+
+	op := protocol.PROTO_NC_ACT_SOMEONERUN_CMD
+	if walk {
+		op = protocol.PROTO_NC_ACT_SOMEONEWALK_CMD
+	}
+	movePw := protocol.NewPacketWriter(op)
+	movePw.WriteUint16(p.MapObjectID)
+	movePw.WriteInt32(int32(srvFromX))
+	movePw.WriteInt32(int32(srvFromY))
+	movePw.WriteInt32(int32(newX))
+	movePw.WriteInt32(int32(newY))
+	m.syncMoveAOI(p, newX, newY, movePw)
+}
+
+// MovePlayerCmd valida colisiones contra .shbd y .sbi según Zone.exe (0x00457C60 / 0x00457FD0),
+// actualiza la grilla AOI y transmite PROTO_NC_ACT_SOMEONEMOVEWALK_CMD / PROTO_NC_ACT_SOMEONEMOVERUN_CMD.
+func (m *ZoneMap) MovePlayerCmd(p *ZonePlayer, fromX, fromY, toX, toY int, walk bool) {
+	if !m.validatePlayerMove(p, fromX, fromY, toX, toY) {
+		m.sendMoveFail(p)
+		return
+	}
+
+	srvFromX, srvFromY := p.Char.XPos, p.Char.YPos
+	p.Char.XPos = toX
+	p.Char.YPos = toY
+
+	op := protocol.PROTO_NC_ACT_SOMEONEMOVERUN_CMD
+	if walk {
+		op = protocol.PROTO_NC_ACT_SOMEONEMOVEWALK_CMD
+	}
+	speed := p.GetMoveSpeed(walk)
+
+	movePw := protocol.NewPacketWriter(op)
+	movePw.WriteUint16(p.MapObjectID)  // 0x00: handle (2 bytes)
+	movePw.WriteInt32(int32(srvFromX)) // 0x02: from.x (4 bytes)
+	movePw.WriteInt32(int32(srvFromY)) // 0x06: from.y (4 bytes)
+	movePw.WriteInt32(int32(toX))      // 0x0A: to.x (4 bytes)
+	movePw.WriteInt32(int32(toY))      // 0x0E: to.y (4 bytes)
+	movePw.WriteUint16(speed)          // 0x12: speed (2 bytes)
+	movePw.WriteUint16(0)              // 0x14: moveattr (2 bytes, bit0=0)
+	m.syncMoveAOI(p, toX, toY, movePw)
+}
+
+// StopPlayer updates position and broadcasts stop to AOI according to sp_NC_ACT_STOP_REQ (0x00456FF0).
 func (m *ZoneMap) StopPlayer(p *ZonePlayer, x, y int) {
+	if p == nil || p.Char == nil {
+		return
+	}
+	dx := p.Char.XPos - x
+	dy := p.Char.YPos - y
+	if dx*dx+dy*dy > 0x9c40 {
+		m.sendMoveFail(p)
+		return
+	}
+	if m.blockInfo != nil && !m.blockInfo.OccupCellCheck(float64(x), float64(y), 1) {
+		m.sendMoveFail(p)
+		return
+	}
+	if m.doors != nil {
+		tx, ty := blockinfo.WorldToTile(float64(x), float64(y))
+		if m.doors.IsDoorMoveBlocked(tx, ty) {
+			m.sendMoveFail(p)
+			return
+		}
+	}
+
 	p.Char.XPos = x
 	p.Char.YPos = y
 
@@ -1011,7 +1075,7 @@ func (m *ZoneMap) StopPlayer(p *ZonePlayer, x, y int) {
 	pw.WriteUint16(p.MapObjectID)
 	pw.WriteInt32(int32(x))
 	pw.WriteInt32(int32(y))
-	m.grid.BroadcastAOI(pw, x, y, p.MapObjectID)
+	m.syncMoveAOI(p, x, y, pw)
 }
 
 // JumpPlayer broadcasts player jump to AOI.
@@ -1039,12 +1103,29 @@ func (m *ZoneMap) EmoticonStopPlayer(p *ZonePlayer, emoticonID byte, emoticonFra
 }
 
 // NormalChat broadcasts chat to players in the AOI neighborhood.
+// NormalChat emite PROTO_NC_ACT_SOMEONECHAT_CMD sin enlaces de ítems.
 func (m *ZoneMap) NormalChat(p *ZonePlayer, text string, color byte) {
+	m.NormalChatWithLinks(p, text, color, 0, nil)
+}
+
+// NormalChatWithLinks emite PROTO_NC_ACT_SOMEONECHAT_CMD (0x2002) con cabecera oficial de 7 bytes
+// verificada en Zone.exe (so_Chat @ 0x00458C90) + content + itemLinkData (count * 103B).
+func (m *ZoneMap) NormalChatWithLinks(p *ZonePlayer, text string, color byte, linkCount byte, linkData []byte) {
 	pw := protocol.NewPacketWriter(protocol.PROTO_NC_ACT_SOMEONECHAT_CMD)
+	var flag byte = 0x02 // bit 1 = chatwin
+	if color == 0x03 || (p.Client != nil && p.Client.Admin > 0) || (p.Char != nil && p.Char.AdminLevel > 0) {
+		flag |= 0x01 // bit 0 = GMColor
+	}
+	pw.WriteByte(linkCount)
 	pw.WriteUint16(p.MapObjectID)
 	pw.WriteByte(byte(len(text)))
-	pw.WriteByte(color)
+	pw.WriteByte(flag)
+	pw.WriteByte(0) // nChatFontColorID
+	pw.WriteByte(0) // nChatBalloonColorID
 	pw.WriteString(text, len(text))
+	if linkCount > 0 && len(linkData) > 0 {
+		pw.WriteBytes(linkData)
+	}
 	m.grid.BroadcastAOI(pw, p.Char.XPos, p.Char.YPos, 0)
 }
 

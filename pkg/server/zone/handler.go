@@ -689,16 +689,10 @@ func (h *Handler) OnClientDisconnect(client *network.Client) {
 				playMin,
 			)
 
-			// Cerrar sesión en tActiveAccountSession y registrar en tAccountLog + tSyslog (0xC803)
-			playMinReal, err := h.accountRepo.CloseSessionAndGetPlayMin(player.Char.AccountID)
-			if err != nil || playMinReal == 0 {
-				playMinReal = uint16(playMin)
-			}
-			_ = h.accountRepo.LogAccount(player.Char.Name, 2, player.Char.AccountID, playMinReal, "", worldNo, 0, client.RemoteIP())
-			_ = h.accountRepo.AddSyslog(0xC803, player.Char.AccountID, player.Char.Name, client.RemoteIP(), worldNo, 0, 0)
-
-			log.Printf("[Zone][%s] Logout registrado en tLogout: '%s' (User: %d, Char: %d, World: %d, PlayTime: %d min)",
-				client.RemoteAddr(), player.Char.Name, player.Char.AccountID, player.Char.ID, worldNo, playMin)
+			// Zone.exe nunca cierra tActiveAccountSession en Account DB; la sesión de cuenta la gobierna
+			// WorldService/LoginService para permitir el retorno a Selección de Personaje y Selección de Mundo.
+			log.Printf("[Zone][%s] Logout de personaje registrado en tLogout: '%s' (User: %d, Char: %d, World: %d, PlayTime: %d min, LogoutType: %d, Transfer: %v)",
+				client.RemoteAddr(), player.Char.Name, player.Char.AccountID, player.Char.ID, worldNo, playMin, player.LogoutType, client.IsTransferring)
 		}
 	}
 }
@@ -1192,6 +1186,7 @@ func (h *Handler) handleMoveWalk(client *network.Client, pkt *protocol.Packet) {
 	toY, _ := pkt.Reader.ReadInt32()
 
 	if fromX == toX && fromY == toY {
+		player.CurrentMap.sendMoveFail(player)
 		return
 	}
 
@@ -1215,6 +1210,7 @@ func (h *Handler) handleMoveRun(client *network.Client, pkt *protocol.Packet) {
 	toY, _ := pkt.Reader.ReadInt32()
 
 	if fromX == toX && fromY == toY {
+		player.CurrentMap.sendMoveFail(player)
 		return
 	}
 
@@ -1301,29 +1297,58 @@ func (h *Handler) handleChatNormal(client *network.Client, pkt *protocol.Packet)
 		return
 	}
 
-	textLen, err := pkt.Reader.ReadByte()
-	if err != nil || textLen == 0 {
-		return
-	}
-
-	text, err := pkt.Reader.ReadString(int(textLen))
+	// PROTO_NC_ACT_CHAT_REQ (0x2001): uint8 itemLinkDataCount + uint8 len + char content[len] + itemLinkData[count*103]
+	itemLinkCount, err := pkt.Reader.ReadByte()
 	if err != nil {
 		return
 	}
-	text = strings.TrimSpace(text)
-
-	if h.handleGMCommand(player, text) {
+	textLen, err := pkt.Reader.ReadByte()
+	if err != nil || (textLen == 0 && itemLinkCount == 0) {
 		return
 	}
 
-	log.Printf("[Zone][Chat][%s] %s: %s", player.CurrentMap.Name, player.Char.Name, text)
+	var text string
+	if textLen > 0 {
+		rawText, err := pkt.Reader.ReadString(int(textLen))
+		if err != nil {
+			return
+		}
+		text = rawText
+		if itemLinkCount == 0 {
+			text = strings.TrimSpace(rawText)
+		}
+	}
+
+	var linkData []byte
+	if itemLinkCount > 0 {
+		const itemLinkEntrySize = 103 // imul edx, edx, 0x67 en Zone.exe (so_Chat @ 0x458d7f)
+		expected := int(itemLinkCount) * itemLinkEntrySize
+		if pkt.Reader.Remaining() < expected {
+			return
+		}
+		linkData, err = pkt.Reader.ReadBytes(expected)
+		if err != nil {
+			return
+		}
+	}
+
+	trimmed := strings.TrimSpace(text)
+	if trimmed == "" && itemLinkCount == 0 {
+		return
+	}
+
+	if itemLinkCount == 0 && h.handleGMCommand(player, trimmed) {
+		return
+	}
+
+	log.Printf("[Zone][Chat][%s] %s: %s (links=%d)", player.CurrentMap.Name, player.Char.Name, trimmed, itemLinkCount)
 
 	color := byte(0x2A) // Normal chat color
-	if player.Client.Admin > 0 {
+	if (player.Client != nil && player.Client.Admin > 0) || (player.Char != nil && player.Char.AdminLevel > 0) {
 		color = 0x03 // GM gold color
 	}
 
-	player.CurrentMap.NormalChat(player, text, color)
+	player.CurrentMap.NormalChatWithLinks(player, text, color, itemLinkCount, linkData)
 }
 
 func (h *Handler) handleBeginRest(client *network.Client, pkt *protocol.Packet) {
@@ -1640,7 +1665,7 @@ func (h *Handler) handleMoverRideOff(client *network.Client, pkt *protocol.Packe
 
 	spdPw := protocol.NewPacketWriter(protocol.PROTO_NC_MOVER_MOVESPEED_CMD)
 	spdPw.WriteUint16(player.MapObjectID)
-	spdPw.WriteUint16(115)
+	spdPw.WriteUint16(player.GetMoveSpeed(false))
 	spdPw.WriteUint16(0)
 	player.CurrentMap.grid.BroadcastAOI(spdPw, player.Char.XPos, player.Char.YPos, 0)
 

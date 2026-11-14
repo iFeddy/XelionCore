@@ -1177,14 +1177,25 @@ func (h *Handler) handleBackToWorldSelect(client *network.Client, pkt *protocol.
 		return
 	}
 
+	if client.CharacterID > 0 {
+		h.partyMgr.UnregisterOnline(client.CharacterID)
+		h.friendMgr.BroadcastLogout(client.CharacterID, client.Username)
+		h.guildMgr.UnregisterOnline(client.CharacterID)
+		h.kqMgr.UnregisterOnline(client.CharacterID)
+		if h.charRepo != nil {
+			_ = h.charRepo.CharacterLogout(client.CharacterID, 0)
+		}
+		client.CharacterID = 0
+	}
+
 	var otp [32]byte
 	const hexChars = "0123456789abcdef"
 	for i := 0; i < 32; i++ {
 		otp[i] = hexChars[rand.Intn(len(hexChars))]
 	}
 
-	if h.sessionRepo != nil {
-		err := h.sessionRepo.CreateOTP(client.AccountID, otp)
+	if sessionRepo := h.getSessionRepo(); sessionRepo != nil {
+		err := sessionRepo.CreateOTP(client.AccountID, otp)
 		if err != nil {
 			log.Printf("[World][%s] Error persistiendo sOTP en tActiveAccountSession para UserNo %d: %v",
 				client.RemoteAddr(), client.AccountID, err)
@@ -1193,6 +1204,7 @@ func (h *Handler) handleBackToWorldSelect(client *network.Client, pkt *protocol.
 		}
 	}
 
+	client.IsTransferring = true
 	resp := protocol.New_PROTO_NC_USER_WILL_WORLD_SELECT_ACK(otp)
 	_ = client.SendPacket(resp)
 }

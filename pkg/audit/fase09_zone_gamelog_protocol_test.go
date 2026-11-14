@@ -22,7 +22,11 @@ func TestFase09_Control4_Zone_C2S_OpCodes(t *testing.T) {
 
 	planContent, err := os.ReadFile(planPath)
 	if err != nil {
-		t.Fatalf("Failed to read %s: %v", planPath, err)
+		planPath = filepath.Join(rootPath, "docs", "plan", "fases_terminadas", "zone", "PLAN_ACCION_ZONESERVICE_GAMELOG.md")
+		planContent, err = os.ReadFile(planPath)
+		if err != nil {
+			t.Fatalf("Failed to read %s: %v", planPath, err)
+		}
 	}
 
 	// Extraer tabla de la Sección 4.1

@@ -104,6 +104,19 @@ func LoadAll(blockInfoDir string) (*Store, error) {
 		}
 	}
 
+	// Paridad con Zone.exe mbi_Load (0x0049E3B0): los atributos .shab se combinan byte a byte (OR) en la matriz .shbd del mapa.
+	for base, aa := range store.SHAB {
+		mbi, ok := store.SHBD[base]
+		if !ok || mbi == nil {
+			continue
+		}
+		if len(aa.Data) == len(mbi.Data) {
+			for i := range mbi.Data {
+				mbi.Data[i] |= aa.Data[i]
+			}
+		}
+	}
+
 	return store, nil
 }
 

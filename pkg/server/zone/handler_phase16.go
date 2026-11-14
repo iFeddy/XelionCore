@@ -82,7 +82,8 @@ func (h *Handler) handleMiscServerParameterReq(client *network.Client, pkt *prot
 // Dept 3 & 4: Sesión de Cuenta, Registro, Beauty Shop y Logout
 // ============================================================================
 
-// handleUserNormalLogoutCmd implementa sp_NC_USER_NORMALLOGOUT_CMD (0x0C18).
+// handleUserNormalLogoutCmd implementa sp_NC_USER_NORMALLOGOUT_CMD (0x0C18) en Zone.exe (0x00558690).
+// LogoutType: 0 = salida completa del cliente, 1 = retorno a Selección de Personaje en WorldService.
 func (h *Handler) handleUserNormalLogoutCmd(client *network.Client, pkt *protocol.Packet) {
 	if client == nil {
 		return
@@ -92,10 +93,13 @@ func (h *Handler) handleUserNormalLogoutCmd(client *network.Client, pkt *protoco
 		log.Printf("[Zone][%s] PROTO_NC_USER_NORMALLOGOUT_CMD (type=%d) for '%s'",
 			client.RemoteAddr(), logoutType, player.Char.Name)
 		player.LogoutPending = true
+		player.LogoutType = logoutType
 		h.DispatchWMS("wms_NC_USER_CONNECTCUT2ZONE_CMD", map[string]interface{}{
-			"charID": player.Char.ID,
-			"userNo": player.Char.AccountID,
-			"type":   logoutType,
+			"charID":     player.Char.ID,
+			"userNo":     player.Char.AccountID,
+			"charName":   player.Char.Name,
+			"type":       logoutType,
+			"logoutType": logoutType,
 		})
 	}
 	h.OnClientDisconnect(client)
@@ -152,17 +156,22 @@ func (h *Handler) handleUserUseBeautyShopCmd(client *network.Client, pkt *protoc
 	}
 }
 
-// handleCharLogoutReadyCmd implementa sp_NC_CHAR_LOGOUTREADY_CMD (0x1071).
+// handleCharLogoutReadyCmd implementa sp_NC_CHAR_LOGOUTREADY_CMD (0x1071) en Zone.exe (0x00558450).
 func (h *Handler) handleCharLogoutReadyCmd(client *network.Client, pkt *protocol.Packet) {
+	if client == nil {
+		return
+	}
 	player, ok := h.getPlayer(client)
 	if !ok || player == nil || player.Char == nil {
 		return
 	}
 	player.LogoutPending = true
-	if player.CurrentMap != nil {
+	if player.CurrentMap != nil && player.CurrentMap.MapID != "" {
 		player.Char.TownName = player.CurrentMap.MapID
 	}
 	if h.charRepo != nil {
+		_ = h.charRepo.SaveCharLocation(player.Char.ID, player.Char.TownName, player.Char.XPos, player.Char.YPos, player.Rotation)
+		_ = h.charRepo.SaveCharStats(player.Char.ID, int16(player.Char.CurHP), int16(player.Char.CurSP), player.StonesHP, player.StonesSP)
 		_ = h.charRepo.UpdateCharacter(player.Char)
 	}
 	h.DispatchWMS("wms_NC_USER_GET_PLAY_MIN_ACK", map[string]interface{}{
@@ -223,6 +232,9 @@ func (h *Handler) handleActChangeModeReq(client *network.Client, pkt *protocol.P
 	if err != nil {
 		return
 	}
+	if mode != 1 && mode != 2 {
+		return
+	}
 	player.ActionMode = mode
 	if player.CurrentMap != nil {
 		cmd := protocol.NewPacketWriter(protocol.PROTO_NC_ACT_SOMEONECHANGEMODE_CMD)
@@ -248,17 +260,36 @@ func (h *Handler) handleActShoutCmd(client *network.Client, pkt *protocol.Packet
 		}
 		content, _ = pkt.Reader.ReadString(readN)
 	}
-	content = strings.TrimSpace(content)
-	if content == "" {
+	var linkData []byte
+	if linkCount > 0 {
+		expectedLinks := int(linkCount) * 103
+		if pkt.Reader.Remaining() < expectedLinks {
+			return
+		}
+		linkData, _ = pkt.Reader.ReadBytes(expectedLinks)
+	}
+	trimmed := strings.TrimSpace(content)
+	if trimmed == "" && linkCount == 0 {
 		return
+	}
+	if linkCount == 0 {
+		content = trimmed
+	}
+
+	var flag byte
+	if (player.Client != nil && player.Client.Admin > 0) || player.Char.AdminLevel > 0 {
+		flag |= 0x01 // bit 0 = GMColor
 	}
 
 	cmd := protocol.NewPacketWriter(protocol.PROTO_NC_ACT_SOMEONESHOUT_CMD)
 	cmd.WriteByte(linkCount)
 	cmd.WriteString(player.Char.Name, 20)
-	cmd.WriteByte(0)
+	cmd.WriteByte(flag)
 	cmd.WriteByte(byte(len(content)))
 	cmd.WriteBytes([]byte(content))
+	if linkCount > 0 && len(linkData) > 0 {
+		cmd.WriteBytes(linkData)
+	}
 	if player.CurrentMap != nil {
 		player.CurrentMap.Broadcast(cmd, 0)
 	} else {
@@ -267,7 +298,7 @@ func (h *Handler) handleActShoutCmd(client *network.Client, pkt *protocol.Packet
 	h.DispatchWMS("wms_NC_CT_CHARTTING_CMD", map[string]interface{}{
 		"type":    "shout",
 		"sender":  player.Char.Name,
-		"message": content,
+		"message": trimmed,
 	})
 }
 

@@ -3,13 +3,40 @@ package zone
 import (
 	"fmt"
 	"log"
+	"math"
+	"runtime"
 	"strconv"
 	"strings"
+	"sync"
 	"sync/atomic"
 	"time"
 
 	"github.com/iFeddy/XelionCore/pkg/protocol"
 )
+
+// gmRuntimeState mantiene multiplicadores y flags GM globales/por jugador verificados en AdminLvSet.shn.
+type gmRuntimeState struct {
+	mu           sync.RWMutex
+	expBonus     int
+	itemBonus    int
+	fieldBonus   map[string]int
+	oxBlocked    bool
+	scriptPaused bool
+	staticDamage map[int]bool
+	deathAura    map[int]bool
+	showID       map[int]bool
+	horseSpeed   map[int]uint16
+}
+
+var globalGMState = &gmRuntimeState{
+	expBonus:     100,
+	itemBonus:    100,
+	fieldBonus:   make(map[string]int),
+	staticDamage: make(map[int]bool),
+	deathAura:    make(map[int]bool),
+	showID:       make(map[int]bool),
+	horseSpeed:   make(map[int]uint16),
+}
 
 // AdminLvCatalog indexa los comandos GM oficiales cargados desde data/AdminLvSet.shn.
 type AdminLvCatalog struct {
@@ -177,8 +204,16 @@ func (h *Handler) handleGMCommand(player *ZonePlayer, rawText string) bool {
 		replyMsg = fmt.Sprintf("[GM] Granted item %d x%d (group=%d, key=%d)", itemID, count, bigint1, itemKey)
 
 	case "adminlevel":
+		// Zone.exe ac_AdminLevel (0x0041A650): sin argumentos reporta "Admin level is %d".
+		if len(args) == 0 {
+			logType = 3
+			int1 = int(player.Char.AdminLevel)
+			int2 = int(reqLv)
+			replyMsg = fmt.Sprintf("Admin level is %d", player.Char.AdminLevel)
+			break
+		}
 		if len(args) < 2 {
-			h.sendPlayerNotice(player, "Usage: &adminlevel <charName> <level>")
+			h.sendPlayerNotice(player, "Usage: &adminlevel [<charName> <level>]")
 			return true
 		}
 		lvVal, err := strconv.Atoi(args[1])
@@ -372,8 +407,102 @@ func (h *Handler) handleGMCommand(player *ZonePlayer, rawText string) bool {
 			})
 		}
 
+	case "mfind":
+		replyMsg, int1 = h.gmFindMob(player, args)
+
+	case "expbonus", "itembonus", "fieldbonus":
+		replyMsg, int1 = h.gmUpdateBonusRate(cmd, player, args)
+
+	case "distribute", "mobdist":
+		replyMsg, int1 = h.gmMapDistribution(player)
+
+	case "performance":
+		replyMsg, int1 = h.gmPerformanceInfo(player)
+
+	case "dist":
+		replyMsg, int1 = h.gmDistance(player, args)
+
+	case "scrint", "timer":
+		replyMsg, int1 = h.gmScriptOrTimer(cmd, player, args)
+
+	case "oxblock":
+		globalGMState.mu.Lock()
+		globalGMState.oxBlocked = !globalGMState.oxBlocked
+		state := globalGMState.oxBlocked
+		globalGMState.mu.Unlock()
+		int1 = boolToInt(state)
+		replyMsg = fmt.Sprintf("[GM] OXBlock toggled=%v", state)
+
+	case "staticdamage":
+		int1, replyMsg = toggleGMPlayerFlag(player.Char.ID, globalGMState.staticDamage, "StaticDamage")
+
+	case "deathaura":
+		int1, replyMsg = toggleGMPlayerFlag(player.Char.ID, globalGMState.deathAura, "DeathAura")
+		if int1 == 1 && player.CurrentMap != nil {
+			killed := 0
+			player.CurrentMap.mu.Lock()
+			for hnd, m := range player.CurrentMap.mobs {
+				if m != nil && !m.IsDead {
+					mx, my := m.GetPosition()
+					dx := float64(mx) - float64(player.Char.XPos)
+					dy := float64(my) - float64(player.Char.YPos)
+					if math.Hypot(dx, dy) <= 500 {
+						m.CurHP = 0
+						m.IsDead = true
+						delete(player.CurrentMap.mobs, hnd)
+						killed++
+					}
+				}
+			}
+			player.CurrentMap.mu.Unlock()
+			int1 = killed
+			replyMsg = fmt.Sprintf("[GM] DeathAura enabled (cleared %d nearby mobs)", killed)
+		}
+
+	case "showid":
+		int1, replyMsg = toggleGMPlayerFlag(player.Char.ID, globalGMState.showID, "ShowID")
+		if int1 == 1 {
+			replyMsg = fmt.Sprintf("[GM] ShowID enabled (charID=%d handle=%d acc=%d)", player.Char.ID, player.MapObjectID, player.Char.AccountID)
+		}
+
+	case "horsespeed":
+		spd := uint16(0)
+		if len(args) >= 1 {
+			if v, err := strconv.Atoi(args[0]); err == nil && v >= 0 && v <= 2000 {
+				spd = uint16(v)
+			}
+		}
+		globalGMState.mu.Lock()
+		if spd == 0 {
+			delete(globalGMState.horseSpeed, player.Char.ID)
+		} else {
+			globalGMState.horseSpeed[player.Char.ID] = spd
+		}
+		globalGMState.mu.Unlock()
+		int1 = int(spd)
+		replyMsg = fmt.Sprintf("[GM] HorseSpeed set to %d", spd)
+
+	case "partyinfo":
+		targetName := player.Char.Name
+		if len(args) >= 1 {
+			targetName = args[0]
+		}
+		h.DispatchWMS("wms_NC_PARTY_INFORM_REQ", map[string]interface{}{
+			"requester": player.Char.Name,
+			"target":    targetName,
+		})
+		replyMsg = fmt.Sprintf("[GM] Requested PartyInfo for '%s'", targetName)
+
+	case "propose", "proposeres", "weddingreset", "reserve", "enterready", "enter":
+		h.DispatchWMS("wms_NC_WEDDING_GM_CMD", map[string]interface{}{
+			"cmd":  cmd,
+			"char": player.Char.Name,
+			"args": strings.Join(args, " "),
+		})
+		replyMsg = fmt.Sprintf("[GM] Dispatched wedding command '%s'", cmd)
+
 	default:
-		// Resto de comandos oficiales indexados en AdminLvSet.shn (expbonus, itembonus, fieldbonus, timer, horsespeed, etc.)
+		// Comandos adicionales indexados en AdminLvSet.shn (incluidos alias localizados).
 		int2 = int(reqLv)
 	}
 
@@ -393,6 +522,140 @@ func (h *Handler) handleGMCommand(player *ZonePlayer, rawText string) bool {
 
 	h.sendPlayerNotice(player, replyMsg)
 	return true
+}
+
+func toggleGMPlayerFlag(charID int, flagMap map[int]bool, label string) (int, string) {
+	globalGMState.mu.Lock()
+	next := !flagMap[charID]
+	flagMap[charID] = next
+	globalGMState.mu.Unlock()
+	return boolToInt(next), fmt.Sprintf("[GM] %s toggled=%v", label, next)
+}
+
+func (h *Handler) gmFindMob(player *ZonePlayer, args []string) (string, int) {
+	if player.CurrentMap == nil {
+		return "[GM] No active map.", 0
+	}
+	query := ""
+	if len(args) > 0 {
+		query = strings.ToLower(strings.TrimSpace(args[0]))
+	}
+	mobs := player.CurrentMap.GetAllMonsters()
+	matches := make([]string, 0, 5)
+	count := 0
+	for _, m := range mobs {
+		if m == nil || m.CurHP <= 0 {
+			continue
+		}
+		idStr := strconv.Itoa(int(m.MobID))
+		if query != "" && idStr != query && !strings.Contains(strings.ToLower(m.Name), query) && !strings.Contains(strings.ToLower(m.InxName), query) {
+			continue
+		}
+		count++
+		if len(matches) < 4 {
+			mx, my := m.GetPosition()
+			matches = append(matches, fmt.Sprintf("%s#%d@(%d,%d)", m.InxName, m.Handle, mx, my))
+		}
+	}
+	if count == 0 {
+		return fmt.Sprintf("[GM] mfind '%s': 0 mobs found on %s", query, player.CurrentMap.MapID), 0
+	}
+	return fmt.Sprintf("[GM] mfind (%d total): %s", count, strings.Join(matches, ", ")), count
+}
+
+func (h *Handler) gmUpdateBonusRate(cmd string, player *ZonePlayer, args []string) (string, int) {
+	globalGMState.mu.Lock()
+	defer globalGMState.mu.Unlock()
+	mapID := ""
+	if player.CurrentMap != nil {
+		mapID = player.CurrentMap.MapID
+	}
+	if len(args) == 0 {
+		switch cmd {
+		case "expbonus":
+			return fmt.Sprintf("[GM] ExpBonus=%d%%", globalGMState.expBonus), globalGMState.expBonus
+		case "itembonus":
+			return fmt.Sprintf("[GM] ItemBonus=%d%%", globalGMState.itemBonus), globalGMState.itemBonus
+		default:
+			cur := globalGMState.fieldBonus[mapID]
+			return fmt.Sprintf("[GM] FieldBonus(%s)=%d%%", mapID, cur), cur
+		}
+	}
+	rate, err := strconv.Atoi(args[0])
+	if err != nil || rate < 0 || rate > 10000 {
+		return fmt.Sprintf("[GM] Invalid bonus rate for %s", cmd), 0
+	}
+	switch cmd {
+	case "expbonus":
+		globalGMState.expBonus = rate
+	case "itembonus":
+		globalGMState.itemBonus = rate
+	default:
+		globalGMState.fieldBonus[mapID] = rate
+	}
+	return fmt.Sprintf("[GM] %s set to %d%%", cmd, rate), rate
+}
+
+func (h *Handler) gmMapDistribution(player *ZonePlayer) (string, int) {
+	if player.CurrentMap == nil {
+		return "[GM] No active map.", 0
+	}
+	mobs := player.CurrentMap.GetAllMonsters()
+	alive := 0
+	for _, m := range mobs {
+		if m != nil && m.CurHP > 0 {
+			alive++
+		}
+	}
+	players := len(player.CurrentMap.GetPlayers())
+	return fmt.Sprintf("[GM] Dist[%s]: players=%d mobs_alive=%d mobs_total=%d", player.CurrentMap.MapID, players, alive, len(mobs)), alive
+}
+
+func (h *Handler) gmPerformanceInfo(player *ZonePlayer) (string, int) {
+	players, mobs := 0, 0
+	mapID := "none"
+	if player.CurrentMap != nil {
+		mapID = player.CurrentMap.MapID
+		players = len(player.CurrentMap.GetPlayers())
+		mobs = len(player.CurrentMap.GetAllMonsters())
+	}
+	g := runtime.NumGoroutine()
+	return fmt.Sprintf("[GM] Perf[%s]: goroutines=%d players=%d mobs=%d", mapID, g, players, mobs), g
+}
+
+func (h *Handler) gmDistance(player *ZonePlayer, args []string) (string, int) {
+	if len(args) >= 2 {
+		tx, ex := strconv.ParseFloat(args[0], 64)
+		ty, ey := strconv.ParseFloat(args[1], 64)
+		if ex == nil && ey == nil {
+			d := math.Hypot(tx-float64(player.Char.XPos), ty-float64(player.Char.YPos))
+			return fmt.Sprintf("[GM] Dist to (%.0f,%.0f) = %.2f", tx, ty, d), int(d)
+		}
+	}
+	if len(args) == 1 {
+		if tp, ok := h.GetPlayerByName(args[0]); ok && tp != nil && tp.Char != nil {
+			d := math.Hypot(float64(tp.Char.XPos)-float64(player.Char.XPos), float64(tp.Char.YPos)-float64(player.Char.YPos))
+			return fmt.Sprintf("[GM] Dist to %s = %.2f", tp.Char.Name, d), int(d)
+		}
+	}
+	return "Usage: &dist <x> <y> | <charName>", 0
+}
+
+func (h *Handler) gmScriptOrTimer(cmd string, player *ZonePlayer, args []string) (string, int) {
+	if cmd == "scrint" {
+		globalGMState.mu.Lock()
+		globalGMState.scriptPaused = !globalGMState.scriptPaused
+		st := globalGMState.scriptPaused
+		globalGMState.mu.Unlock()
+		return fmt.Sprintf("[GM] ScriptInterrupt paused=%v", st), boolToInt(st)
+	}
+	secs := 0
+	if len(args) >= 1 {
+		if v, err := strconv.Atoi(args[0]); err == nil && v >= 0 {
+			secs = v
+		}
+	}
+	return fmt.Sprintf("[GM] Timer configured=%ds", secs), secs
 }
 
 func (h *Handler) sendPlayerHPUpdate(player *ZonePlayer) {

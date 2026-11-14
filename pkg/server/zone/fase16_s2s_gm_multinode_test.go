@@ -291,7 +291,7 @@ func TestFase16_MultiNode_Zone00ToZone04_And_OfficialGM_AdminLvSet(t *testing.T)
 	regular, regConn := newTestClientAndPlayer(t, repo, ds, zMap, h, 9620, "NormalUser", 10, 1500, 1500)
 	regular.Char.AdminLevel = 0
 	regCmd := "&makeitem 100 1"
-	regPayload := append([]byte{byte(len(regCmd))}, []byte(regCmd)...)
+	regPayload := append([]byte{0, byte(len(regCmd))}, []byte(regCmd)...)
 	h.HandlePacket(regular.Client, buildTestPacket(protocol.PROTO_NC_ACT_CHAT_REQ, regPayload))
 	if len(regConn.findByOpcode(protocol.PROTO_NC_ACT_NOTICE_CMD)) == 0 {
 		t.Fatalf("expected denial notice for unauthorized GM command")
@@ -306,7 +306,7 @@ func TestFase16_MultiNode_Zone00ToZone04_And_OfficialGM_AdminLvSet(t *testing.T)
 
 	// Run &makeitem
 	mkCmd := "&makeitem 101 1"
-	mkPayload := append([]byte{byte(len(mkCmd))}, []byte(mkCmd)...)
+	mkPayload := append([]byte{0, byte(len(mkCmd))}, []byte(mkCmd)...)
 	h.HandlePacket(gm.Client, buildTestPacket(protocol.PROTO_NC_ACT_CHAT_REQ, mkPayload))
 
 	if len(gmConn.findByOpcode(protocol.PROTO_NC_ITEM_CELLCHANGE_CMD)) == 0 {
@@ -322,7 +322,7 @@ func TestFase16_MultiNode_Zone00ToZone04_And_OfficialGM_AdminLvSet(t *testing.T)
 		gm.Char.AdminLevel = admLvReq
 	}
 	admCmd := "&adminlevel NormalUser 50"
-	h.HandlePacket(gm.Client, buildTestPacket(protocol.PROTO_NC_ACT_CHAT_REQ, append([]byte{byte(len(admCmd))}, []byte(admCmd)...)))
+	h.HandlePacket(gm.Client, buildTestPacket(protocol.PROTO_NC_ACT_CHAT_REQ, append([]byte{0, byte(len(admCmd))}, []byte(admCmd)...)))
 	if regular.Char.AdminLevel != 50 {
 		t.Fatalf("expected NormalUser AdminLevel updated to 50 via &adminlevel, got %d", regular.Char.AdminLevel)
 	}
@@ -333,7 +333,7 @@ func TestFase16_MultiNode_Zone00ToZone04_And_OfficialGM_AdminLvSet(t *testing.T)
 		if exists && reqLv > gm.Char.AdminLevel {
 			gm.Char.AdminLevel = reqLv
 		}
-		payload := append([]byte{byte(len(cmdStr))}, []byte(cmdStr)...)
+		payload := append([]byte{0, byte(len(cmdStr))}, []byte(cmdStr)...)
 		h.HandlePacket(gm.Client, buildTestPacket(protocol.PROTO_NC_ACT_CHAT_REQ, payload))
 	}
 	if !gm.IsGMHidden || !gm.IsGMImmortal {

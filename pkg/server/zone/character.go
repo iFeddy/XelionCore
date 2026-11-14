@@ -139,6 +139,8 @@ type ZonePlayer struct {
 	MoverHandle  uint16
 	MoverSlot    uint8
 	MoverSpeed   uint16
+	WalkSpeed    uint16
+	RunSpeed     uint16
 	PrevExp      uint64
 	NextExp      uint64
 	GatheringObj uint16
@@ -195,6 +197,7 @@ type ZonePlayer struct {
 	BeautyShopOpen   bool
 	GuildStorageOpen bool
 	LogoutPending    bool
+	LogoutType       byte
 }
 
 // ActivePetState mantiene el estado vivo en mapa de la mascota invocada por un jugador.
@@ -341,28 +344,59 @@ func NewZonePlayer(client *network.Client, ch *database.Character, classStore *c
 		ch.TCharacterState.SPStones = stonesSP
 	}
 
+	walkSpeed := uint16(33)
+	runSpeed := uint16(127)
+	if combatStore != nil {
+		common := combatStore.Common()
+		if common.WalkSpeed > 0 {
+			walkSpeed = uint16(common.WalkSpeed)
+		}
+		if common.RunSpeed > 0 {
+			runSpeed = uint16(common.RunSpeed)
+		}
+	}
+
 	return &ZonePlayer{
-		Client:      client,
-		Char:        ch,
-		State:       1,    // Normal
-		Rotation:    0x55, // 85 grados
-		LoginTime:   time.Now(),
-		StonesHP:    stonesHP,
-		StonesSP:    stonesSP,
-		MaxStonesHP: maxStonesHP,
-		MaxStonesSP: maxStonesSP,
-		MaxHP:       maxHP,
-		MaxSP:       maxSP,
-		PrevExp:     uint64(prevExp),
-		NextExp:     uint64(nextExp),
-		Str:         byte(ch.TCharacter.Strength),
-		End:         byte(ch.TCharacter.Constitute),
-		Dex:         byte(ch.TCharacter.Dexterity),
-		Int:         byte(ch.TCharacter.Intelligence),
+		Client:       client,
+		Char:         ch,
+		State:        1,    // Normal
+		Rotation:     0x55, // 85 grados
+		LoginTime:    time.Now(),
+		StonesHP:     stonesHP,
+		StonesSP:     stonesSP,
+		MaxStonesHP:  maxStonesHP,
+		MaxStonesSP:  maxStonesSP,
+		MaxHP:        maxHP,
+		MaxSP:        maxSP,
+		WalkSpeed:    walkSpeed,
+		RunSpeed:     runSpeed,
+		PrevExp:      uint64(prevExp),
+		NextExp:      uint64(nextExp),
+		Str:          byte(ch.TCharacter.Strength),
+		End:          byte(ch.TCharacter.Constitute),
+		Dex:          byte(ch.TCharacter.Dexterity),
+		Int:          byte(ch.TCharacter.Intelligence),
 		Spr:          byte(ch.TCharacter.MentalPower),
 		LevelParam:   lp,
 		ActiveStates: make(map[uint16]*ActiveAbState),
 	}
+}
+
+// GetMoveSpeed devuelve la velocidad actual de caminata o corrida según Zone.exe (so_WalkSpeed / so_RunSpeed).
+func (p *ZonePlayer) GetMoveSpeed(walk bool) uint16 {
+	if p != nil && p.MoverHandle > 0 && p.MoverSpeed > 0 {
+		return p.MoverSpeed
+	}
+	if walk {
+		if p != nil && p.WalkSpeed > 0 {
+			return p.WalkSpeed
+		}
+		return 33
+	}
+	if p != nil && p.RunSpeed > 0 {
+		return p.RunSpeed
+	}
+	return 127
 }
 
 // RecalculateEquipmentStats suma los atributos oficiales de los ítems equipados desde ItemInfo.shn (so_RecalcEquipParam).
@@ -509,38 +543,33 @@ func (p *ZonePlayer) WriteDetailedInfoExtra(pw *protocol.PacketWriter, levelUp b
 	pw.WriteUint32(uint32(p.LevelParam.Dexterity + int(p.Dex)))    // Dexterity.change
 	pw.WriteUint32(uint32(p.LevelParam.Intelligence))              // Intelligence.base
 	pw.WriteUint32(uint32(p.LevelParam.Intelligence + int(p.Int))) // Intelligence.change
-	pw.WriteUint32(uint32(p.LevelParam.Wizdom))                    // Wizdom.base
+	pw.WriteUint32(0)                                              // Wizdom.base (no usado en so_fill_CHAR_PARAMETER_DATA)
 	pw.WriteUint32(0)                                              // Wizdom.change
 	pw.WriteUint32(uint32(p.LevelParam.MentalPower))               // MentalPower.base
 	pw.WriteUint32(uint32(p.LevelParam.MentalPower + int(p.Spr)))  // MentalPower.change
 
-	baseWC := uint32(15)
-	baseMA := uint32(5)
-	baseAC := uint32(10)
-	baseTH := uint32(10)
-	baseTB := uint32(5)
-	baseMR := uint32(5)
-
-	pw.WriteUint32(baseWC)                // WClow.base
-	pw.WriteUint32(baseWC + p.EquipMinWC) // WClow.change
-	pw.WriteUint32(baseWC)                // WChigh.base
-	pw.WriteUint32(baseWC + p.EquipMaxWC) // WChigh.change
-	pw.WriteUint32(baseAC)                // AC.base
-	pw.WriteUint32(baseAC + p.EquipAC)    // AC.change
-	pw.WriteUint32(baseTH)                // TH.base
-	pw.WriteUint32(baseTH + p.EquipTH)    // TH.change
-	pw.WriteUint32(baseTB)                // TB.base
-	pw.WriteUint32(baseTB + p.EquipTB)    // TB.change
-	pw.WriteUint32(baseMA)                // MAlow.base
-	pw.WriteUint32(baseMA + p.EquipMinMA) // MAlow.change
-	pw.WriteUint32(baseMA)                // MAhigh.base
-	pw.WriteUint32(baseMA + p.EquipMaxMA) // MAhigh.change
-	pw.WriteUint32(baseMR)                // MR.base
-	pw.WriteUint32(baseMR + p.EquipMR)    // MR.change
-	pw.WriteUint32(baseTH)                // MH.base
-	pw.WriteUint32(baseTH + p.EquipTH)    // MH.change
-	pw.WriteUint32(baseTB)                // MB.base
-	pw.WriteUint32(baseTB + p.EquipTB)    // MB.change
+	// WClow..MB: c_Storepure escribe 0 en todos los base (slots vtable CharClass +0x00..+0x1C = 0x449600);
+	// total refleja so_RecalcEquipParam/Abstate/Passive/Last (so_fill_CHAR_PARAMETER_DATA @ 0x005A2E00).
+	pw.WriteUint32(0)            // WClow.base
+	pw.WriteUint32(p.EquipMinWC) // WClow.change
+	pw.WriteUint32(0)            // WChigh.base
+	pw.WriteUint32(p.EquipMaxWC) // WChigh.change
+	pw.WriteUint32(0)            // AC.base
+	pw.WriteUint32(p.EquipAC)    // AC.change
+	pw.WriteUint32(0)            // TH.base
+	pw.WriteUint32(p.EquipTH)    // TH.change
+	pw.WriteUint32(0)            // TB.base
+	pw.WriteUint32(p.EquipTB)    // TB.change
+	pw.WriteUint32(0)            // MAlow.base
+	pw.WriteUint32(p.EquipMinMA) // MAlow.change
+	pw.WriteUint32(0)            // MAhigh.base
+	pw.WriteUint32(p.EquipMaxMA) // MAhigh.change
+	pw.WriteUint32(0)            // MR.base
+	pw.WriteUint32(p.EquipMR)    // MR.change
+	pw.WriteUint32(0)            // MH.base
+	pw.WriteUint32(0)            // MH.change
+	pw.WriteUint32(0)            // MB.base
+	pw.WriteUint32(0)            // MB.change
 
 	pw.WriteUint32(uint32(p.MaxHP))       // MaxHp
 	pw.WriteUint32(uint32(p.MaxSP))       // MaxSp
@@ -549,27 +578,8 @@ func (p *ZonePlayer) WriteDetailedInfoExtra(pw *protocol.PacketWriter, levelUp b
 	pw.WriteUint32(uint32(p.MaxStonesHP)) // MaxHPStone
 	pw.WriteUint32(uint32(p.MaxStonesSP)) // MaxSPStone
 
-	// PwrStone (16 bytes)
-	pw.WriteUint32(0)
-	pw.WriteUint32(uint32(p.LevelParam.PwrStoneWC))
-	pw.WriteUint32(uint32(p.LevelParam.PwrStoneMA))
-	pw.WriteUint32(uint32(p.LevelParam.MaxPwrStone))
-
-	// GrdStone (16 bytes)
-	pw.WriteUint32(0)
-	pw.WriteUint32(uint32(p.LevelParam.GrdStoneAC))
-	pw.WriteUint32(uint32(p.LevelParam.GrdStoneMR))
-	pw.WriteUint32(uint32(p.LevelParam.MaxGrdStone))
-
-	// Resistances (32 bytes)
-	pw.WriteUint32(uint32(p.LevelParam.PainRes))
-	pw.WriteUint32(0)
-	pw.WriteUint32(uint32(p.LevelParam.RestraintRes))
-	pw.WriteUint32(0)
-	pw.WriteUint32(uint32(p.LevelParam.CurseRes))
-	pw.WriteUint32(0)
-	pw.WriteUint32(uint32(p.LevelParam.ShockRes))
-	pw.WriteUint32(0)
+	// PwrStone (16 bytes), GrdStone (16 bytes), Resistances (32 bytes): puestos a 0 en so_fill_CHAR_PARAMETER_DATA (+0xA8..+0xE7)
+	pw.WriteBytes(make([]byte, 64))
 
 	// logincoord: SHINE_XY_TYPE (8 bytes)
 	if !levelUp {

@@ -90,7 +90,11 @@ func TestFase06_Control5B_DispatcherCoverage100_C2S(t *testing.T) {
 	planFile := filepath.Join(rootPath, "docs", "plan", "PLAN_ACCION_WORLDSERVICE_CHARACTER.md")
 	planData, err := os.ReadFile(planFile)
 	if err != nil {
-		t.Fatalf("Error leyendo PLAN_ACCION: %v", err)
+		planFile = filepath.Join(rootPath, "docs", "plan", "fases_terminadas", "world", "PLAN_ACCION_WORLDSERVICE_CHARACTER.md")
+		planData, err = os.ReadFile(planFile)
+		if err != nil {
+			t.Fatalf("Error leyendo PLAN_ACCION: %v", err)
+		}
 	}
 
 	// 1. Extraer tabla de 167 handlers C2S de la Sección 4.2.1

@@ -169,17 +169,19 @@ func (mbi *MapBlockInformation) FindNearestWalkable(tileX, tileY uint32, maxRadi
 }
 
 // WorldToTile convierte coordenadas continuas de mundo al espacio discreto de celdas tile según la escala oficial de Zone.exe.
-// Fórmula binaria de Zone.exe (0x0049cf70): tileX = (worldX * 8) / 100
+// Fórmula binaria exacta de Zone.exe (mbi_IsMoveBlock 0x0049DF70 / mbi_OccupCellCheck 0x0049E230):
+//
+//	tile = (world * 8) / 50 = world / 6.25
 func WorldToTile(worldX, worldY float64) (uint32, uint32) {
-	tx := uint32(math.Floor(worldX * 8.0 / 100.0))
-	ty := uint32(math.Floor(worldY * 8.0 / 100.0))
+	tx := uint32(int32(math.Floor(worldX * 8.0 / 50.0)))
+	ty := uint32(int32(math.Floor(worldY * 8.0 / 50.0)))
 	return tx, ty
 }
 
 // TileToWorld convierte coordenadas de celda tile a coordenadas continuas de mundo (centro de celda).
 func TileToWorld(tileX, tileY uint32) (float64, float64) {
-	wx := (float64(tileX) + 0.5) * 100.0 / 8.0
-	wy := (float64(tileY) + 0.5) * 100.0 / 8.0
+	wx := (float64(tileX) + 0.5) * 50.0 / 8.0
+	wy := (float64(tileY) + 0.5) * 50.0 / 8.0
 	return wx, wy
 }
 
@@ -194,5 +196,85 @@ func (mbi *MapBlockInformation) IsWorldAttackBlocked(wx0, wy0, wx1, wy1 float64)
 	tx0, ty0 := WorldToTile(wx0, wy0)
 	tx1, ty1 := WorldToTile(wx1, wy1)
 	return mbi.IsAttackBlocked(tx0, ty0, tx1, ty1)
+}
+
+// OccupCellCheck implementa mbi_OccupCellCheck@MapBlockInformation (0x0049E230):
+// verifica un vecindario cuadrado [-radius, +radius] en tiles alrededor de (worldX, worldY)
+// y retorna true si al menos una celda dentro de los límites del mapa es transitable (bit == 0).
+func (mbi *MapBlockInformation) OccupCellCheck(worldX, worldY float64, radius int) bool {
+	if mbi == nil || len(mbi.Data) == 0 {
+		return true
+	}
+	tx, ty := WorldToTile(worldX, worldY)
+	for dy := -radius; dy <= radius; dy++ {
+		y := uint32(int(ty) + dy)
+		if y >= mbi.HeightTiles {
+			continue
+		}
+		for dx := -radius; dx <= radius; dx++ {
+			x := uint32(int(tx) + dx)
+			if x >= mbi.WidthTiles {
+				continue
+			}
+			if !mbi.IsMoveBlocked(x, y) {
+				return true
+			}
+		}
+	}
+	return false
+}
+
+func (mbi *MapBlockInformation) isPathSampleFree(curX, curY int) bool {
+	if mbi.OccupCellCheck(float64(curX), float64(curY), 1) {
+		return true
+	}
+	return !mbi.IsWorldMoveBlocked(float64(curX+10), float64(curY)) ||
+		!mbi.IsWorldMoveBlocked(float64(curX-10), float64(curY)) ||
+		!mbi.IsWorldMoveBlocked(float64(curX), float64(curY+10)) ||
+		!mbi.IsWorldMoveBlocked(float64(curX), float64(curY-10))
+}
+
+// IsMovePathBlocked implementa smo_MovePathBlockCheck (0x00456A70):
+// muestrea la trayectoria lineal entre (wx0, wy0) y (wx1, wy1) en unidades de mundo y retorna true
+// si alcanza maxConsecutive muestras consecutivas totalmente bloqueadas (sin celda libre en radio 1
+// ni en ninguno de los 4 offsets laterales ±10 unidades).
+func (mbi *MapBlockInformation) IsMovePathBlocked(wx0, wy0, wx1, wy1 int, maxConsecutive int) bool {
+	if mbi == nil || len(mbi.Data) == 0 || maxConsecutive <= 0 {
+		return false
+	}
+	dx := wx0 - wx1
+	dy := wy0 - wy1
+	xMajor := dx*dx > dy*dy
+
+	a0, b0, a1, b1 := wy0, wx0, wy1, wx1
+	if xMajor {
+		a0, b0, a1, b1 = wx0, wy0, wx1, wy1
+	}
+	if a0 > a1 {
+		a0, a1 = a1, a0
+		b0, b1 = b1, b0
+	}
+	if a0+1 >= a1 {
+		return false
+	}
+
+	slope := float64(b1-b0) / float64(a1-a0)
+	blockedRun := 0
+	for curA := a0 + 1; curA < a1; curA++ {
+		curB := int(float64(b0) + float64(curA-a0)*slope)
+		curX, curY := curB, curA
+		if xMajor {
+			curX, curY = curA, curB
+		}
+		if mbi.isPathSampleFree(curX, curY) {
+			blockedRun = 0
+			continue
+		}
+		blockedRun++
+		if blockedRun >= maxConsecutive {
+			return true
+		}
+	}
+	return false
 }
 
