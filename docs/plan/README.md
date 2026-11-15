@@ -5,7 +5,8 @@ Esta carpeta organiza la ejecución modular, autónoma y segura para la cuota de
 - **Etapa 1 (`LoginService`, `Account`, `AccountLog`, `StatisticsData`):** **Completada y auditada al 100%** (archivada en [fases_terminadas/](./fases_terminadas/)).
 - **Etapa 2 (`WorldService` y `Character` — Fases `01` a `07`):** Gobernada por [PLAN_ACCION_WORLDSERVICE_CHARACTER.md](./PLAN_ACCION_WORLDSERVICE_CHARACTER.md).
 - **Etapa 3 (`ZoneService` y `GameLog` — Fases `08` a `16`):** Gobernada por [PLAN_ACCION_ZONESERVICE_GAMELOG.md](../PLAN_ACCION_ZONESERVICE_GAMELOG.md).
-- **Etapa 4 (Saneamiento Binario 1:1 contra `.exe` + `.pdb` — Fases `17` a `21`):** Gobernada por [PLAN_SANEAMIENTO_BINARIO_EXE_PDB_100.md](../PLAN_SANEAMIENTO_BINARIO_EXE_PDB_100.md).
+- **Etapa 4 (Saneamiento Binario 1:1 contra `.exe` + `.pdb` — Fases `17` a `21`):** Gobernada por [PLAN_SANEAMIENTO_BINARIO_EXE_PDB_100.md](./PLAN_SANEAMIENTO_BINARIO_EXE_PDB_100.md).
+- **Etapa 5 (Auditoría de Paquetes S2C Variables y Barrido Rama por Rama de los 412 Handlers C2S — Fases `22` a `26`):** Gobernada por [PLAN_AUDITORIA_PROFUNDA_S2C_VARIABLES_Y_RAMAS_EXE_100.md](./PLAN_AUDITORIA_PROFUNDA_S2C_VARIABLES_Y_RAMAS_EXE_100.md).
 
 ---
 
@@ -65,6 +66,21 @@ Herramienta obligatoria de desensamblado: [scripts/disasm_pdb_handler.py](../../
 | **19** | [FASE_19_INVENTARIO_EQUIPO_CHARGED_REWARD_COMERCIO_BOOTH_Y_FORJA_EXE.md](./FASE_19_INVENTARIO_EQUIPO_CHARGED_REWARD_COMERCIO_BOOTH_Y_FORJA_EXE.md) | Desensamblado 1:1 en `Zone.exe` de los 48 `NC_ITEM`, `CELLCHANGE`, `EQUIPCHANGE`, `CHARGEDINVENOPEN` + `CHARGED_WITHDRAW` (con entrega real en celda), `REWARDINVEN`, tiendas NPC, SafeTrade, `NC_BOOTH` y Forja | **`High`** | **Control 4 (Etapa 4)** | **Completado** |
 | **20** | [FASE_20_QUESTS_DIALOGOS_LUA_INSTANCIAS_MINIHOUSE_PETS_TITULOS_Y_CASINO_EXE.md](./FASE_20_QUESTS_DIALOGOS_LUA_INSTANCIAS_MINIHOUSE_PETS_TITULOS_Y_CASINO_EXE.md) | Desensamblado 1:1 en `Zone.exe` de `NC_MENU`, `NC_QUEST`, `NC_SCRIPT`, Portales (`LINKSAME`/`LINKOTHER`), `NC_MINIHOUSE`, `NC_PET`, `NC_CT`, `NC_COLLECT`, `NC_DICE` y `NC_GAMBLE` | **`High`** | **Control 5 (Etapa 4)** | **Completado** |
 | **21** | [FASE_21_WORLDSERVICE_SOCIAL_COORDINACION_S2S_VIVA_Y_AUDITORIA_BINARIA_EXE_100.md](./FASE_21_WORLDSERVICE_SOCIAL_COORDINACION_S2S_VIVA_Y_AUDITORIA_BINARIA_EXE_100.md) | Desensamblado 1:1 de `WorldManager.exe` (167 C2S) y departamentos sociales (`NC_PARTY`, `NC_GUILD`, `NC_FRIEND`, `NC_KQ`, `NC_WEDDING`, `NC_PRISON`), enlace S2S en vivo entre procesos y suite `scripts/verify_binary_exe_parity_100.sh` (`8/8 PASS`) | **`High`** | **Controles 1, 6, 7 y 8 (Etapa 4)** (`8/8 PASS`, `exit 0`) | **Completado** |
+
+---
+
+## Etapa 5: Auditoría de Paquetes S2C Variables y Barrido Rama por Rama de los 412 Handlers C2S (Fases `22` a `26`)
+
+Plan Maestro: [PLAN_AUDITORIA_PROFUNDA_S2C_VARIABLES_Y_RAMAS_EXE_100.md](./PLAN_AUDITORIA_PROFUNDA_S2C_VARIABLES_Y_RAMAS_EXE_100.md)
+Herramienta obligatoria de desensamblado: [scripts/disasm_pdb_handler.py](../../scripts/disasm_pdb_handler.py)
+
+| Orden | Archivo de Fase | Objetivo Principal | Nivel Recomendado | Control de Auditoría que Activa | Estado |
+| :---: | :--- | :--- | :---: | :--- | :---: |
+| **22** | [FASE_22_AUDITORIA_S2C_VARIABLES_Y_SERIALIZACION_DINAMICA_EXE.md](./FASE_22_AUDITORIA_S2C_VARIABLES_Y_SERIALIZACION_DINAMICA_EXE.md) | **Punto 1:** Auditoría de los **148 structs dinámicos de World** + **155 de Zone**, revisión de las **567 llamadas a `NewPacketWriter`** (`55` S2C variables y bloques con loops/ramas) y validador `sizeof(Header) + N * sizeof(Entry)` | **`High`** | **Control 1 (Etapa 5)** | Pendiente |
+| **23** | [FASE_23_BARRIDO_RAMAS_ENTRADA_MUNDO_MOVIMIENTO_AOI_Y_CHAT_EXE.md](./FASE_23_BARRIDO_RAMAS_ENTRADA_MUNDO_MOVIMIENTO_AOI_Y_CHAT_EXE.md) | **Punto 2 (Bloque A):** Desensamblado rama por rama (`if/else`, errores y orden S2C) de Entrada/World (`NC_USER`, `NC_CHAR`, `NC_AVATAR`) y Zone (`NC_MAP`, `NC_ACT`, `NC_MOVER`, `NC_BRIEFINFO`) | **`High`** | **Control 2 (Etapa 5)** | Pendiente |
+| **24** | [FASE_24_BARRIDO_RAMAS_COMBATE_SKILLS_ABSTATE_MOBS_Y_DROPS_EXE.md](./FASE_24_BARRIDO_RAMAS_COMBATE_SKILLS_ABSTATE_MOBS_Y_DROPS_EXE.md) | **Puntos 2 y 3 (Bloque B):** Desensamblado rama por rama en `Zone.exe` de `NC_BAT`, `NC_SKILL`, `NC_SOULSTONE`, `NC_CT`, `NC_COLLECT` + **subfunciones matemáticas de combate (`hit/evade/crit/block/damage/angle`)** + **timers autónomos (`AbState` ticks, regen HP/SP/LP, IA/aggro/regen de Mobs, Drops y `CHARSAVE`)** | **`High`** | **Control 3 (Etapa 5)** | Pendiente |
+| **25** | [FASE_25_BARRIDO_RAMAS_ECONOMIA_INVENTARIO_BOOTH_Y_FORJA_EXE.md](./FASE_25_BARRIDO_RAMAS_ECONOMIA_INVENTARIO_BOOTH_Y_FORJA_EXE.md) | **Punto 2 (Bloque C):** Desensamblado rama por rama en `Zone.exe` de los **48 `NC_ITEM`**, `NC_ITEMDB`, `NC_BOOTH`, `NC_CHARSAVE` y `SafeTrade` (incluyendo todos los resultados de `UPGRADE`/`ENCHANT`/`PRODUCE`) | **`High`** | **Control 4 (Etapa 5)** | Pendiente |
+| **26** | [FASE_26_BARRIDO_RAMAS_QUESTS_SUBSISTEMAS_SOCIAL_Y_SUITE_FINAL_EXE.md](./FASE_26_BARRIDO_RAMAS_QUESTS_SUBSISTEMAS_SOCIAL_Y_SUITE_FINAL_EXE.md) | **Puntos 2 y 3 (Bloque D + Cierre):** Desensamblado rama por rama de `NC_MENU`, `NC_QUEST`, `NC_SCRIPT`, `NC_MINIHOUSE`, `NC_PET`, `NC_DICE`, `NC_GAMBLE`, sociales + **ejecución real de `data/LuaScript/` sobre los 274 bindings C-API** + **timers autónomos de `KQ`/`GuildTournament`/`GuildWar`/`Wedding`/`InstanceDungeon`** + suite `scripts/verify_exe_branch_and_dynamic_s2c_100.sh` (`8/8 PASS`) | **`High`** | **Controles 5, 6, 7 y 8 (Etapa 5)** (`8/8 PASS`, `exit 0`) | Pendiente |
 
 ---
 
