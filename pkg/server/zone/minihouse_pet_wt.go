@@ -218,16 +218,21 @@ func (h *Handler) handleMiniHouseBuildingReq(client *network.Client, pkt *protoc
 	ack.WriteUint16(0)
 	_ = client.SendPacket(ack)
 
-	// PROTO_NC_MINIHOUSE_BUILDING_CMD (66 bytes: player(2) + minihouseinfo(64))
+	// PROTO_NC_MINIHOUSE_BUILDING_CMD (66 bytes: player(2) + PROTO_NC_BRIEFINFO_MINIHOUSEBUILD_CMD(64))
 	cmd := protocol.NewPacketWriter(protocol.PROTO_NC_MINIHOUSE_BUILDING_CMD)
 	cmd.WriteUint16(player.MapObjectID)
-	info := make([]byte, 64)
-	info[0] = st.Level
-	if st.Password == "" {
-		info[1] = 1
-	}
-	copy(info[2:23], st.Title)
-	cmd.WriteBytes(info)
+	cmd.WriteUint16(st.HouseHandle)
+	// CHARBRIEFINFO_CAMP (12B): minihouse(u16) + dummy[10] (0xFF como en sp_MakeTentBriefInfo)
+	cmd.WriteUint16(st.HouseID)
+	cmd.Fill(10, 0xFF)
+	// Name5 charid (20B)
+	writeFixedStr(cmd, player.Char.Name, 20)
+	// SHINE_COORD_TYPE coord (9B: x u32, y u32, dir u8)
+	cmd.WriteUint32(uint32(player.Char.XPos))
+	cmd.WriteUint32(uint32(player.Char.YPos))
+	cmd.WriteByte(player.Rotation)
+	// title[21]
+	writeFixedStr(cmd, st.Title, 21)
 	if player.CurrentMap != nil {
 		player.CurrentMap.Broadcast(cmd, 0)
 	} else {
@@ -306,8 +311,7 @@ func (h *Handler) handleMiniHouseLoginCompleteReq(client *network.Client, pkt *p
 			portCmd.WriteUint16(uint16(len(gates)))
 			for _, g := range gates {
 				portCmd.WriteUint16(uint16(g.ItemID))
-				portCmd.WriteByte(g.Type)
-				portCmd.WriteBytes([]byte{0, 0, 0})
+				portCmd.WriteInt32(int32(g.EndDate.Unix()))
 			}
 			_ = client.SendPacket(portCmd)
 		}
@@ -504,7 +508,7 @@ func (h *Handler) handleMiniHouseFurnitureInfoCompleteReq(client *network.Client
 		return
 	}
 	ack := protocol.NewPacketWriter(protocol.PROTO_NC_MINIHOUSE_FUNITUREINFOCOMPLETE_ACK)
-	ack.WriteByte(1)
+	ack.WriteUint16(0) // so_SendErrorCode(35, 0x1e, err) -> uint16
 	_ = client.SendPacket(ack)
 }
 
@@ -724,7 +728,7 @@ func (h *Handler) handleMiniHouseModifyMaxEnterNumReq(client *network.Client, pk
 	player.MiniHouseMaxGuests = maxVis
 
 	ack := protocol.NewPacketWriter(protocol.PROTO_NC_MINIHOUSE_MODIFY_MAXENTERNUM_ACK)
-	ack.WriteByte(maxVis)
+	ack.WriteUint16(0) // so_SendErrorCode(35, 0x33, err) -> uint16
 	_ = client.SendPacket(ack)
 
 	cmd := protocol.NewPacketWriter(protocol.PROTO_NC_MINIHOUSE_MODIFY_MAXENTERNUM_CMD)
@@ -825,7 +829,7 @@ func (h *Handler) handleMiniHouseModifyItemInfoOpenReq(client *network.Client, p
 	st.ItemInfoClose = flag
 
 	ack := protocol.NewPacketWriter(protocol.PROTO_NC_MINIHOUSE_MODIFY_ITEM_INFO_OPEN_ACK)
-	ack.WriteByte(flag)
+	ack.WriteUint16(0) // so_SendErrorCode(35, 0x44, err) -> uint16
 	_ = client.SendPacket(ack)
 
 	cmd := protocol.NewPacketWriter(protocol.PROTO_NC_MINIHOUSE_MODIFY_ITEM_INFO_OPEN_CMD)
@@ -846,13 +850,13 @@ func (h *Handler) handleMiniHouseModifyNotifyReq(client *network.Client, pkt *pr
 	st.Notify = notify
 
 	ack := protocol.NewPacketWriter(protocol.PROTO_NC_MINIHOUSE_MODIFY_NOTIFY_ACK)
-	ack.WriteByte(uint8(len(notify)))
-	ack.WriteBytes([]byte(notify))
+	ack.WriteUint16(0) // so_SendErrorCode(35, 0x49, err) -> uint16
 	_ = client.SendPacket(ack)
 
 	cmd := protocol.NewPacketWriter(protocol.PROTO_NC_MINIHOUSE_MODIFY_NOTIFY_CMD)
 	cmd.WriteByte(uint8(len(notify)))
 	cmd.WriteBytes([]byte(notify))
+	cmd.WriteByte(0) // trailing NUL en Zone.exe (0x5738c3)
 	h.broadcastMiniHouse(st, cmd)
 }
 

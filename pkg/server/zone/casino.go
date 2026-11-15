@@ -1,6 +1,7 @@
 package zone
 
 import (
+	"encoding/binary"
 	"fmt"
 	"math/rand"
 	"sync"
@@ -254,19 +255,28 @@ func (h *Handler) handleDiceTaisaiRankReq(client *network.Client, pkt *protocol.
 			}
 		}
 	}
-	// PROTO_NC_DICE_TAISAI_RANK_ACK (484B)
+	// PROTO_NC_DICE_TAISAI_RANK_ACK (484B + nRankCurrCnt*24B)
+	// DiceRankInfo = 24B (Name 20B + uint32 wins) verificado en so_mh_DiceTaiSai_SendRank @ 0x00514060
 	ack := protocol.NewPacketWriter(protocol.PROTO_NC_DICE_TAISAI_RANK_ACK)
 	ack.WriteUint16(0)
-	ack.WriteByte(uint8(len(ranks)))
+	histCnt := len(ranks)
+	if histCnt > 20 {
+		histCnt = 20
+	}
+	ack.WriteByte(uint8(histCnt))
 	histBuf := make([]byte, 480)
-	for i, r := range ranks {
-		if i >= 20 {
-			break
-		}
+	for i := 0; i < histCnt; i++ {
+		r := ranks[i]
 		copy(histBuf[i*24:i*24+20], r.Name)
+		binary.LittleEndian.PutUint32(histBuf[i*24+20:i*24+24], uint32(r.Wins))
 	}
 	ack.WriteBytes(histBuf)
-	ack.WriteByte(uint8(len(ranks)))
+	ack.WriteByte(uint8(histCnt))
+	for i := 0; i < histCnt; i++ {
+		r := ranks[i]
+		writeFixedStr(ack, r.Name, 20)
+		ack.WriteUint32(uint32(r.Wins))
+	}
 	_ = client.SendPacket(ack)
 }
 
@@ -692,6 +702,9 @@ func (h *Handler) handleGambleDiceTaisaiAllRankReq(client *network.Client, pkt *
 	ack.WriteUint16(0)
 	if h.charRepo != nil {
 		rows, _ := h.charRepo.GetGambleDiceRank()
+		if len(rows) > 20 {
+			rows = rows[:20]
+		}
 		ack.WriteByte(uint8(len(rows)))
 		for _, r := range rows {
 			writeFixedStr(ack, r.CharName, 20)
@@ -986,6 +999,7 @@ func (h *Handler) handleGambleSlotMachineWheelStopReq(client *network.Client, pk
 }
 
 // handleGambleSlotMachineJackpotRankingReq maneja PROTO_NC_GAMBLE_SLOTMACHINE_JACKPOTRANKING_REQ (0xBCD9).
+// SLOTMACHINE_JackPotRank = 24B (Charid 20B + WinCoin uint32) verificado en smjpr_PacketMake @ 0x0061FF80 y 0x0061EC60 (3 + 24*N).
 func (h *Handler) handleGambleSlotMachineJackpotRankingReq(client *network.Client, pkt *protocol.Packet) {
 	_, ok := h.getPlayer(client)
 	if !ok {
@@ -994,10 +1008,13 @@ func (h *Handler) handleGambleSlotMachineJackpotRankingReq(client *network.Clien
 	ack := protocol.NewPacketWriter(protocol.PROTO_NC_GAMBLE_SLOTMACHINE_JACKPOTRANKING_ACK)
 	if h.charRepo != nil {
 		rows, _ := h.charRepo.GetJackpotRanking("SLOT", 10)
+		if len(rows) > 50 {
+			rows = rows[:50]
+		}
 		ack.WriteByte(uint8(len(rows)))
 		for _, r := range rows {
 			writeFixedStr(ack, r.CharName, 20)
-			ack.WriteUint64(uint64(r.JackpotCoin))
+			ack.WriteUint32(uint32(r.JackpotCoin))
 		}
 	} else {
 		ack.WriteByte(0)
@@ -1006,6 +1023,7 @@ func (h *Handler) handleGambleSlotMachineJackpotRankingReq(client *network.Clien
 }
 
 // handleGambleSlotMachineWinRankingReq maneja PROTO_NC_GAMBLE_SLOTMACHINE_WINRANKING_REQ (0xBCDB).
+// SLOTMACHINE_JackPotRank = 24B (Charid 20B + WinCoin uint32) verificado en go_SMS_PacketMake_WintRank @ 0x00624520 y 0x0061ED90 (3 + 24*N).
 func (h *Handler) handleGambleSlotMachineWinRankingReq(client *network.Client, pkt *protocol.Packet) {
 	_, ok := h.getPlayer(client)
 	if !ok {
@@ -1014,10 +1032,13 @@ func (h *Handler) handleGambleSlotMachineWinRankingReq(client *network.Client, p
 	ack := protocol.NewPacketWriter(protocol.PROTO_NC_GAMBLE_SLOTMACHINE_WINRANKING_ACK)
 	if h.charRepo != nil {
 		rows, _ := h.charRepo.GetJackpotRanking("SLOT", 0)
+		if len(rows) > 50 {
+			rows = rows[:50]
+		}
 		ack.WriteByte(uint8(len(rows)))
 		for _, r := range rows {
 			writeFixedStr(ack, r.CharName, 20)
-			ack.WriteUint64(uint64(r.JackpotCoin))
+			ack.WriteUint32(uint32(r.JackpotCoin))
 		}
 	} else {
 		ack.WriteByte(0)

@@ -217,14 +217,42 @@ func (m *ZoneMap) bridgeScoreBoardAllInMap(show bool, round, redWin, redScore, b
 }
 
 func (m *ZoneMap) bridgeIndunRankResult(args []int) {
+	// PROTO_NC_INSTANCE_DUNGEON_RANK_RESULT_CMD (0xA41B, sizeof = 5 + N*48 SHINE_INDUN_RANK_CLIENT)
 	pw := protocol.NewPacketWriter(protocol.PROTO_NC_INSTANCE_DUNGEON_RANK_RESULT_CMD)
-	score := uint32(0)
-	if len(args) > 0 {
-		score = uint32(args[0])
+	elapsed := 0
+	if !m.InstanceStartedAt.IsZero() {
+		elapsed = int(time.Since(m.InstanceStartedAt).Seconds())
+		if elapsed < 0 {
+			elapsed = 0
+		}
 	}
-	pw.WriteByte(1)
-	pw.WriteUint32(score)
-	for _, p := range m.GetPlayers() {
+	hour := byte(elapsed / 3600)
+	min := byte((elapsed % 3600) / 60)
+	sec := byte(elapsed % 60)
+	score := uint64(0)
+	if len(args) > 0 {
+		score = uint64(args[0])
+	}
+	players := m.GetPlayers()
+	pw.WriteByte(hour)
+	pw.WriteByte(min)
+	pw.WriteByte(sec)
+	pw.WriteUint16(uint16(len(players)))
+	for _, pl := range players {
+		charName := ""
+		var charClass byte
+		if pl.Char != nil {
+			charName = pl.Char.Name
+			charClass = pl.Char.Job
+		}
+		writeFixedStr(pw, charName, 20) // nCharID (Name5)
+		pw.WriteByte(charClass)         // nCharClass
+		pw.Fill(3, 0)                   // padding +21..+23 (offset +24 nDamageDealt)
+		pw.WriteUint64(score)           // nDamageDealt
+		pw.WriteUint64(0)               // nDamageTaken
+		pw.WriteUint64(0)               // nHealingDone
+	}
+	for _, p := range players {
 		if p.Client != nil {
 			_ = p.Client.SendPacket(pw)
 		}
@@ -521,8 +549,11 @@ func (h *Handler) handleInstanceDungeonLevelSelectMenuAck(client *network.Client
 	if instMap != nil {
 		h.WarpPlayer(player, instMap.MapID, 1000, 1000, 0)
 	}
+	// PROTO_NC_INSTANCE_DUNGEON_MAP_REGIST_CMD (0xA413, sizeof = 2 + N*13 SHINE_INDUN_INFO)
 	reg := protocol.NewPacketWriter(protocol.PROTO_NC_INSTANCE_DUNGEON_MAP_REGIST_CMD)
+	reg.WriteUint16(1) // nMapCount
 	writeFixedStr(reg, chosen.MapID, 12)
+	reg.WriteByte(byte(chosen.ModeIDLv))
 	_ = client.SendPacket(reg)
 }
 

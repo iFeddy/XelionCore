@@ -1,9 +1,11 @@
 package zone
 
 import (
+	"encoding/binary"
 	"fmt"
 	"log"
 	"strings"
+	"time"
 
 	"github.com/iFeddy/XelionCore/pkg/database"
 	"github.com/iFeddy/XelionCore/pkg/network"
@@ -11,6 +13,41 @@ import (
 	"github.com/iFeddy/XelionCore/pkg/script/lua"
 	glua "github.com/yuin/gopher-lua"
 )
+
+// Offsets oficiales dentro del blob de 30B (Status u8 + PLAYER_QUEST_DATA 29B) de PLAYER_QUEST_INFO (sizeof=32B en Zone.pdb).
+const (
+	qdataStatus      = 0  // unsigned char Status
+	qdataStartTime   = 1  // __int64 StartTime (+0 en PLAYER_QUEST_DATA)
+	qdataEndTime     = 9  // __int64 EndTime (+8 en PLAYER_QUEST_DATA)
+	qdataRepeatCount = 17 // unsigned int RepeatCount (+16 en PLAYER_QUEST_DATA)
+	qdataProgress    = 21 // unsigned char ProgressStep (+20 en PLAYER_QUEST_DATA)
+	qdataMobCount    = 22 // unsigned char[5] End_NPCMobCount (+21 en PLAYER_QUEST_DATA)
+	qdataEndLocScen  = 27 // bitfield End_Location / End_Scenario (+26 en PLAYER_QUEST_DATA)
+	qdataRunTimeSec  = 28 // unsigned short End_RunningTimeSec (+27 en PLAYER_QUEST_DATA)
+)
+
+// Comandos oficiales enum QUEST_SCRIPT_COMMAND en Zone.pdb (STRUCT_QSC sizeof=101).
+const (
+	qscNone     uint32 = 0
+	qscSay      uint32 = 2
+	qscScenario uint32 = 3
+	qscAccept   uint32 = 6
+	qscCancel   uint32 = 7
+	qscProgress uint32 = 8
+	qscFailed   uint32 = 9
+	qscDone     uint32 = 10
+	qscLink     uint32 = 11
+)
+
+func writeStructQSC(pw *protocol.PacketWriter, cmd uint32, isPigeon byte, data []byte) {
+	var qsc [101]byte
+	binary.LittleEndian.PutUint32(qsc[0:4], cmd)
+	qsc[4] = isPigeon
+	if len(data) > 0 {
+		copy(qsc[5:101], data)
+	}
+	pw.WriteBytes(qsc[:])
+}
 
 // ============================================================================
 // ZoneMap Bridge Implementations (Quests, Mensajes, NPCs y Tutorial)
@@ -172,14 +209,17 @@ func (m *ZoneMap) bridgeScriptMsg(handle uint32, msg string) {
 	if m == nil {
 		return
 	}
+	// PROTO_NC_ACT_SCRIPT_MSG_CMD (0x2079, sizeof = 39 + sum(nlen) -> wire = 41 + sum(nlen))
 	pw := protocol.NewPacketWriter(protocol.PROTO_NC_ACT_SCRIPT_MSG_CMD)
 	pw.WriteUint16(uint16(handle))
-	writeFixedStr(pw, msg, 32)
-	pw.WriteBytes(make([]byte, 5))
+	writeFixedStr(pw, msg, 32) // sScriptMsgIndex
 	msgBytes := []byte(msg)
 	if len(msgBytes) > 200 {
 		msgBytes = msgBytes[:200]
 	}
+	var nlen [5]byte
+	nlen[0] = byte(len(msgBytes))
+	pw.WriteBytes(nlen[:])
 	pw.WriteBytes(msgBytes)
 	if handle != 0 {
 		if p := m.GetPlayer(uint16(handle)); p != nil && p.Client != nil {
@@ -229,7 +269,9 @@ func (m *ZoneMap) bridgeServerMenu(playerHandle, npcHandle uint32, title string,
 	pw.WriteUint32(uint32(p.Char.YPos))
 	pw.WriteUint16(300) // LimitRange
 	pw.WriteByte(byte(len(options)))
-	for _, opt := range options {
+	for i, opt := range options {
+		// SERVERMENU (sizeof = 33): +0 reply (u8), +1 string ([32]u8)
+		pw.WriteByte(byte(i))
 		writeFixedStr(pw, opt.Text, 32)
 	}
 	_ = p.Client.SendPacket(pw)
@@ -398,7 +440,8 @@ func (h *Handler) handleQuestReadReq(client *network.Client, pkt *protocol.Packe
 			if uint16(q.QuestNo) == questID {
 				buf := make([]byte, 30)
 				copy(buf, q.Data)
-				buf[6] = 1 // flag de lectura
+				buf[qdataStatus] = byte(q.Status)
+				buf[qdataProgress] |= 1 // flag de lectura en ProgressStep
 				_ = h.charRepo.SetCharacterQuest(player.Char.ID, int(questID), q.Status, buf)
 				break
 			}
@@ -474,7 +517,9 @@ func (h *Handler) startQuestForPlayer(player *ZonePlayer, questID, npcID uint16)
 			}
 		}
 		data := make([]byte, 30)
-		data[7] = 1
+		data[qdataStatus] = 1
+		binary.LittleEndian.PutUint64(data[qdataStartTime:qdataStartTime+8], uint64(time.Now().Unix()))
+		data[qdataProgress] = 1
 		if err := h.charRepo.AddCharacterQuest(player.Char.ID, int(questID), 1, data); err != nil {
 			return 6
 		}
@@ -569,7 +614,9 @@ func (h *Handler) handleQuestScriptCmdAck(client *network.Client, pkt *protocol.
 	if qDef == nil {
 		if h.charRepo != nil {
 			buf := make([]byte, 30)
-			buf[7] = qscStage
+			buf[qdataStatus] = 2
+			binary.LittleEndian.PutUint64(buf[qdataEndTime:qdataEndTime+8], uint64(time.Now().Unix()))
+			buf[qdataProgress] = qscStage
 			_ = h.charRepo.SetCharacterQuest(player.Char.ID, int(questID), 2, buf)
 		}
 		return
@@ -657,7 +704,8 @@ func (h *Handler) completeQuestWithRewards(player *ZonePlayer, qDef *QuestDef, s
 	}
 	if h.charRepo != nil {
 		doneBlob := make([]byte, 30)
-		doneBlob[7] = 2
+		doneBlob[qdataStatus] = 2
+		binary.LittleEndian.PutUint64(doneBlob[qdataEndTime:qdataEndTime+8], uint64(time.Now().Unix()))
 		_ = h.charRepo.SetCharacterQuest(player.Char.ID, int(qDef.QuestID), 2, doneBlob)
 		_ = h.charRepo.UpdateCharacter(player.Char)
 	}
@@ -665,9 +713,12 @@ func (h *Handler) completeQuestWithRewards(player *ZonePlayer, qDef *QuestDef, s
 		h.gameLogDispatcher.EnqueueType9(3, player.Char.ID, player.CurrentMap.MapID, player.Char.XPos, player.Char.YPos, 0, int64(qDef.EndNPCID), int(qDef.QuestID), int(qDef.RewardExp))
 	}
 	if player.Client != nil {
+		// PROTO_NC_QUEST_SCRIPT_CMD_REQ (0x4401, sizeof = 103 -> wire = 105: nQuestID + STRUCT_QSC)
 		pw := protocol.NewPacketWriter(protocol.PROTO_NC_QUEST_SCRIPT_CMD_REQ)
 		pw.WriteUint16(qDef.QuestID)
-		writeFixedStr(pw, "DONE", 101)
+		var qscData [2]byte
+		binary.LittleEndian.PutUint16(qscData[0:2], qDef.QuestID)
+		writeStructQSC(pw, qscDone, 0, qscData[:])
 		_ = player.Client.SendPacket(pw)
 	}
 }
@@ -712,8 +763,8 @@ func (h *Handler) OnQuestMobKilled(player *ZonePlayer, mobID uint16) {
 					}
 				}
 			}
-			if matches && buf[slotIdx] < req.Count {
-				buf[slotIdx]++
+			if matches && buf[qdataMobCount+slotIdx] < req.Count {
+				buf[qdataMobCount+slotIdx]++
 				updated = true
 				hits = append(hits, mobQuestHit{mobID: mobID, questID: qDef.QuestID})
 			}
@@ -747,7 +798,7 @@ func (h *Handler) advanceSpecificQuestMobKill(player *ZonePlayer, questID, mobID
 		if uint16(q.QuestNo) == questID && q.Status == 1 {
 			buf := make([]byte, 30)
 			copy(buf, q.Data)
-			buf[0]++
+			buf[qdataMobCount]++
 			_ = h.charRepo.SetCharacterQuest(player.Char.ID, q.QuestNo, q.Status, buf)
 			if player.Client != nil {
 				pw := protocol.NewPacketWriter(protocol.PROTO_NC_QUEST_NOTIFY_MOB_KILL_CMD)
@@ -805,6 +856,28 @@ func (h *Handler) handleActNPCClickCmd(client *network.Client, pkt *protocol.Pac
 	if npc != nil {
 		player.OpenNPCMobID = npc.MobID
 		if npc.IsGate && npc.GateToWhere != "" {
+			if strings.Contains(npc.GateToWhere, ",") {
+				// PROTO_NC_MAP_MULTY_LINK_CMD (0x181F, sizeof = 73 -> wire = 75)
+				parts := strings.Split(npc.GateToWhere, ",")
+				if len(parts) > 5 {
+					parts = parts[:5]
+				}
+				ml := protocol.NewPacketWriter(protocol.PROTO_NC_MAP_MULTY_LINK_CMD)
+				ml.WriteUint16(npcHandle)
+				ml.WriteUint32(uint32(npc.X))
+				ml.WriteUint32(uint32(npc.Y))
+				ml.WriteUint16(350)
+				ml.WriteByte(byte(len(parts)))
+				for i := 0; i < 5; i++ {
+					name := ""
+					if i < len(parts) {
+						name = strings.TrimSpace(parts[i])
+					}
+					writeFixedStr(ml, name, 12)
+				}
+				_ = client.SendPacket(ml)
+				return
+			}
 			h.triggerGateWarp(player, npc.GateToWhere)
 			return
 		}

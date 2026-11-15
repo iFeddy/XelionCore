@@ -916,15 +916,16 @@ func (h *Handler) sendInGameChunk(p *ZonePlayer) {
 	}
 	_ = p.Client.SendPacket(questsBusy)
 
-	// 4. 0x103B - PROTO_NC_CHAR_CLIENT_QUEST_DONE_CMD
+	// 4. 0x103B - PROTO_NC_CHAR_CLIENT_QUEST_DONE_CMD (wire len = 14 + N*10; PLAYER_QUEST_DONE_INFO = 10B: u16 ID + i64 tEndTime)
 	questsDone := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_CLIENT_QUEST_DONE_CMD)
 	questsDone.WriteUint32(uint32(p.Char.ID))
-	questsDone.WriteUint16(uint16(len(doneQuests))) // nTotalDoneQuest
-	questsDone.WriteUint16(uint16(len(doneQuests))) // nTotalDoneQuestSize
-	questsDone.WriteUint16(uint16(len(doneQuests))) // nDoneQuestCount
-	questsDone.WriteUint16(0)                       // nIndex
+	questsDone.WriteUint16(uint16(len(doneQuests)))      // nTotalDoneQuest
+	questsDone.WriteUint16(uint16(len(doneQuests) * 10)) // nTotalDoneQuestSize (10 bytes por PLAYER_QUEST_DONE_INFO)
+	questsDone.WriteUint16(uint16(len(doneQuests)))      // nDoneQuestCount
+	questsDone.WriteUint16(0)                            // nIndex
 	for _, qID := range doneQuests {
 		questsDone.WriteUint16(uint16(qID))
+		questsDone.WriteUint64(0) // tEndTime (__int64)
 	}
 	_ = p.Client.SendPacket(questsDone)
 
@@ -1480,8 +1481,9 @@ func (h *Handler) handleWingSave(client *network.Client, pkt *protocol.Packet) {
 	if player.Char != nil {
 		player.Char.TownName = player.CurrentMap.MapID
 	}
+	// so_SendErrorCode(dept=6, cmd=21, err=0) -> PROTO_NC_MAP_WING_SAVE_ACK (0x1815, wire len = 4)
 	ack := protocol.NewPacketWriter(protocol.PROTO_NC_MAP_WING_SAVE_ACK)
-	ack.WriteByte(0) // success
+	ack.WriteUint16(0) // success
 	_ = client.SendPacket(ack)
 }
 
@@ -2084,16 +2086,21 @@ func (h *Handler) handleUseGate(client *network.Client, pkt *protocol.Packet) {
 		return
 	}
 
-	// PROTO_NC_ACT_AUTO_WAY_FINDING_USE_GATE_ACK (0x2071, nError: 0)
+	// Buscar el gate más cercano (sp_NC_ACT_AUTO_WAY_FINDING_USE_GATE_REQ valida Gate cercano; si falla -> nError = 0x2403)
+	gate, found := player.CurrentMap.FindGateNear(player.Char.XPos, player.Char.YPos, 350.0)
+	if !found || gate == nil || gate.GateToWhere == "" {
+		ack := protocol.NewPacketWriter(protocol.PROTO_NC_ACT_AUTO_WAY_FINDING_USE_GATE_ACK)
+		ack.WriteUint16(0x2403)
+		_ = client.SendPacket(ack)
+		return
+	}
+
+	// PROTO_NC_ACT_AUTO_WAY_FINDING_USE_GATE_ACK (0x2071, wire len = 4, nError: 0)
 	ack := protocol.NewPacketWriter(protocol.PROTO_NC_ACT_AUTO_WAY_FINDING_USE_GATE_ACK)
 	ack.WriteUint16(0) // OK
 	_ = client.SendPacket(ack)
 
-	// Buscar el gate más cercano
-	gate, found := player.CurrentMap.FindGateNear(player.Char.XPos, player.Char.YPos, 350.0)
-	if found && gate != nil && gate.GateToWhere != "" {
-		h.triggerGateWarp(player, gate.GateToWhere)
-	}
+	h.triggerGateWarp(player, gate.GateToWhere)
 }
 
 // triggerGateWarp consulta LinkTable.json y ejecuta la teletransportación oficial entre mapas.
@@ -2134,11 +2141,13 @@ func (h *Handler) WarpPlayer(player *ZonePlayer, targetMapID string, x, y int, r
 	}
 
 	var targetZoneNo uint16 = 1
+	var targetMapSerial uint16
 	if h.multiNode {
 		targetZoneNo = h.zoneNo
 	}
 	if h.fieldStore != nil && targetMapID != "" {
 		if f, ok := h.fieldStore.GetField(targetMapID); ok && f != nil {
+			targetMapSerial = uint16(f.Serial)
 			targetZoneNo = uint16(f.Fiesta)
 			if h.multiNode {
 				if targetZoneNo == 99 {
@@ -2150,7 +2159,7 @@ func (h *Handler) WarpPlayer(player *ZonePlayer, targetMapID string, x, y int, r
 		}
 	}
 
-	// Si el mapa destino está en otra zona (inter-zone transfer)
+	// Si el mapa destino está en otra zona (inter-zone transfer -> PROTO_NC_MAP_LINKOTHER_CMD 0x180A, sizeof=30, wire=32)
 	if (h.multiNode || h.zoneNo > 0) && targetZoneNo != h.zoneNo && h.charRepo != nil {
 		ip, port, isOnline, err := h.charRepo.ResolveMapEndpoint(h.worldID, targetZoneNo)
 		if err == nil && isOnline && ip != "" && port > 0 {
@@ -2176,8 +2185,15 @@ func (h *Handler) WarpPlayer(player *ZonePlayer, targetMapID string, x, y int, r
 			log.Printf("[Zone][%s] Inter-zone warp for '%s' to zone %d (%s:%d) map '%s' (%d, %d)",
 				player.Client.RemoteAddr(), player.Char.Name, targetZoneNo, ip, port, targetMapID, x, y)
 
-			ack := protocol.New_PROTO_NC_CHAR_LOGIN_ACK(ip, port)
-			_ = player.Client.SendPacket(ack)
+			// wms_NC_MAP_LINKRESERVE_ACK -> PROTO_NC_MAP_LINKOTHER_CMD (0x180A, 32B wire = PROTO_NC_CHAR_REVIVEOTHER_CMD 30B)
+			linkOther := protocol.NewPacketWriter(protocol.PROTO_NC_MAP_LINKOTHER_CMD)
+			linkOther.WriteUint16(targetMapSerial)
+			linkOther.WriteUint32(uint32(x))
+			linkOther.WriteUint32(uint32(y))
+			writeFixedStr(linkOther, ip, 16)
+			linkOther.WriteUint16(port)
+			linkOther.WriteUint16(player.MapObjectID)
+			_ = player.Client.SendPacket(linkOther)
 
 			oldMap := player.CurrentMap
 			if oldMap != nil {
@@ -2188,7 +2204,7 @@ func (h *Handler) WarpPlayer(player *ZonePlayer, targetMapID string, x, y int, r
 		}
 	}
 
-	// Mismo nodo de zona: warp local
+	// Mismo nodo de zona: so_LinkTo envía PROTO_NC_MAP_LINKSAME_CMD (0x1809, sizeof=10, wire=12) + actualización local
 	oldMap := player.CurrentMap
 	if oldMap != nil {
 		oldMap.RemovePlayer(player)
@@ -2210,6 +2226,11 @@ func (h *Handler) WarpPlayer(player *ZonePlayer, targetMapID string, x, y int, r
 		player.Client.RemoteAddr(), player.Char.Name, newMap.MapID, x, y, rotation)
 
 	newMap.AssignObjectID(player)
+	linkSame := protocol.NewPacketWriter(protocol.PROTO_NC_MAP_LINKSAME_CMD)
+	linkSame.WriteUint16(targetMapSerial)
+	linkSame.WriteUint32(uint32(x))
+	linkSame.WriteUint32(uint32(y))
+	_ = player.Client.SendPacket(linkSame)
 	h.sendInGameChunk(player)
 }
 
