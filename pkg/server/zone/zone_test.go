@@ -642,7 +642,14 @@ func TestZoneServer_Phase1_NPCSpawnsAndGateWarps(t *testing.T) {
 	}
 	t.Logf("NPC RouSmithJames verificado (Handle: %d, MobID: %d), GateRou1 verificado", foundSmithHandle, foundSmithMobID)
 
-	// 1. Probar clic en NPC (PROTO_NC_ACT_NPCCLICK_CMD, 0x200A)
+	// 1. Probar clic en NPC (PROTO_NC_ACT_NPCCLICK_CMD, 0x200A) cerca de RouSmithJames (5645, 8824)
+	player, ok := srv.Handler().getPlayer(srv.Handler().ActivePlayersSnapshot()[0].Client)
+	if !ok || player == nil {
+		t.Fatalf("Failed to retrieve ZonePlayer")
+	}
+	player.Char.XPos = 5645
+	player.Char.YPos = 8824
+
 	clickPkt := protocol.NewPacketWriter(protocol.PROTO_NC_ACT_NPCCLICK_CMD)
 	clickPkt.WriteUint16(foundSmithHandle)
 	if err := sendClientPacket(conn, clickPkt, clientCrypto); err != nil {
@@ -679,10 +686,6 @@ func TestZoneServer_Phase1_NPCSpawnsAndGateWarps(t *testing.T) {
 
 	// 3. Probar Warp mediante Gate (PROTO_NC_ACT_AUTO_WAY_FINDING_USE_GATE_REQ, 0x2070)
 	// Posicionar al jugador cerca de GateRou1 (6477, 10579)
-	player, ok := srv.Handler().getPlayer(srv.Handler().ActivePlayersSnapshot()[0].Client)
-	if !ok || player == nil {
-		t.Fatalf("Failed to retrieve ZonePlayer")
-	}
 	player.Char.XPos = 6477
 	player.Char.YPos = 10575
 

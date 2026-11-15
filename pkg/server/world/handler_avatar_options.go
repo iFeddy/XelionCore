@@ -111,6 +111,10 @@ func (h *Handler) handleRenameCharacter(client *network.Client, pkt *protocol.Pa
 
 	slot, err := pkt.Reader.ReadByte()
 	if err != nil || slot > 5 {
+		if err == nil {
+			resp := protocol.New_PROTO_NC_AVATAR_RENAME_ACK(slot, "", 0x00D1)
+			_ = client.SendPacket(resp)
+		}
 		return
 	}
 
@@ -120,21 +124,21 @@ func (h *Handler) handleRenameCharacter(client *network.Client, pkt *protocol.Pa
 	}
 	newName = strings.TrimSpace(newName)
 
-	if len(newName) < 3 || len(newName) > 16 {
-		resp := protocol.New_PROTO_NC_AVATAR_RENAME_ACK(slot, newName, 1)
+	if len(newName) < 3 || len(newName) > 16 || strings.Contains(newName, " ") {
+		resp := protocol.New_PROTO_NC_AVATAR_RENAME_ACK(slot, newName, 0x00D1)
 		_ = client.SendPacket(resp)
 		return
 	}
 
 	if h.dataStore != nil && h.dataStore.BadNames != nil && h.dataStore.BadNames.IsBadName(newName) {
-		resp := protocol.New_PROTO_NC_AVATAR_RENAME_ACK(slot, newName, 2)
+		resp := protocol.New_PROTO_NC_AVATAR_RENAME_ACK(slot, newName, 0x00D1)
 		_ = client.SendPacket(resp)
 		return
 	}
 
 	chars, err := h.charRepo.GetCharactersByAccount(client.AccountID)
 	if err != nil {
-		resp := protocol.New_PROTO_NC_AVATAR_RENAME_ACK(slot, newName, 1)
+		resp := protocol.New_PROTO_NC_AVATAR_RENAME_ACK(slot, newName, 0x00D1)
 		_ = client.SendPacket(resp)
 		return
 	}
@@ -147,27 +151,27 @@ func (h *Handler) handleRenameCharacter(client *network.Client, pkt *protocol.Pa
 		}
 	}
 	if targetChar == nil {
-		resp := protocol.New_PROTO_NC_AVATAR_RENAME_ACK(slot, newName, 1)
+		resp := protocol.New_PROTO_NC_AVATAR_RENAME_ACK(slot, newName, 0x00D1)
 		_ = client.SendPacket(resp)
 		return
 	}
 
 	avatarRepo := h.getAvatarRepo()
 	if avatarRepo == nil {
-		resp := protocol.New_PROTO_NC_AVATAR_RENAME_ACK(slot, newName, 1)
+		resp := protocol.New_PROTO_NC_AVATAR_RENAME_ACK(slot, newName, 0x00D1)
 		_ = client.SendPacket(resp)
 		return
 	}
 
 	if err := avatarRepo.ChangeCharacterName(targetChar.ID, newName); err != nil {
 		log.Printf("[World][%s] Error renaming character in slot %d: %v", client.RemoteAddr(), slot, err)
-		resp := protocol.New_PROTO_NC_AVATAR_RENAME_ACK(slot, newName, 3)
+		resp := protocol.New_PROTO_NC_AVATAR_RENAME_ACK(slot, newName, 0x00D1)
 		_ = client.SendPacket(resp)
 		return
 	}
 
 	targetChar.Name = newName
-	resp := protocol.New_PROTO_NC_AVATAR_RENAME_ACK(slot, newName, 0)
+	resp := protocol.New_PROTO_NC_AVATAR_RENAME_ACK(slot, newName, 0x00D0)
 	_ = client.SendPacket(resp)
 }
 

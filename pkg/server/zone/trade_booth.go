@@ -205,8 +205,11 @@ func (h *Handler) handleTradeCancelReq(client *network.Client, pkt *protocol.Pac
 }
 
 func (h *Handler) handleEndOfTradeCmd(client *network.Client, pkt *protocol.Packet) {
-	if player, ok := h.getPlayer(client); ok && player.ActiveTrade != nil {
-		h.cancelTradeSession(player)
+	if player, ok := h.getPlayer(client); ok && player != nil {
+		if player.ActiveTrade != nil {
+			h.cancelTradeSession(player)
+		}
+		h.resetPlayerNPCState(player)
 	}
 }
 

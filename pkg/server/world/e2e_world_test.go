@@ -467,6 +467,15 @@ func TestE2EWorldService_Fase05_Comprehensive(t *testing.T) {
 	t.Logf("Control 5A E2E: Personaje tutorial borrado con 0x140C")
 
 	// 5. Creación de Sentinel (Clase 26 - Nivel 60 en Eld)
+	// Garantizar prerrequisito oficial ChrLevel_CanCreateSen = 60 en cuenta
+	if len(existingChars) > 0 && existingChars[0].Level < 60 {
+		origCharID := existingChars[0].ID
+		origLevel := existingChars[0].Level
+		_, _ = db.Exec("UPDATE tCharacter SET nLevel = 60 WHERE nCharNo = ?", origCharID)
+		defer func(cid int, lv byte) {
+			_, _ = db.Exec("UPDATE tCharacter SET nLevel = ? WHERE nCharNo = ?", lv, cid)
+		}(origCharID, origLevel)
+	}
 	// Enviar Tutorial Popup (0x1111) con bIsSkip = 1
 	skipTutPopup := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_TUTORIAL_POPUP_ACK)
 	skipTutPopup.WriteByte(1) // bIsSkip = 1
@@ -695,8 +704,8 @@ func TestE2EWorldService_Fase05_Comprehensive(t *testing.T) {
 	}
 	_ = pkt.Reader.Skip(21) // slot (1) + newName (20)
 	renErr, _ := pkt.Reader.ReadUint16()
-	if renErr != 0 {
-		t.Fatalf("expected rename success (0), got %d", renErr)
+	if renErr != 0x00D0 {
+		t.Fatalf("expected rename success (0x00D0 / 208), got 0x%04X (%d)", renErr, renErr)
 	}
 	var dbName string
 	_ = db.QueryRow("SELECT sID FROM tCharacter WHERE nCharNo = ?", sentChar.ID).Scan(&dbName)

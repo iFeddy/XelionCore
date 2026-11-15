@@ -228,8 +228,8 @@ func TestHandler_CreateCharacter_BadNameRejected(t *testing.T) {
 	}
 
 	errCode := binary.LittleEndian.Uint16(payload[0:2])
-	if errCode != uint16(protocol.CreateCharError_FailedToCreate) {
-		t.Fatalf("expected CreateCharError_FailedToCreate, got %d", errCode)
+	if errCode != uint16(protocol.CreateCharError_NameTaken) {
+		t.Fatalf("expected CreateCharError_NameTaken (0x0084 / 132) from WorldManager.exe, got %d", errCode)
 	}
 }
 
@@ -312,6 +312,7 @@ func TestHandler_CharSelect_ZoneHandover(t *testing.T) {
 		Job:       byte(protocol.Job_Archer),
 		Level:     1,
 		Male:      true,
+		TownName:  "Rou",
 	}
 	_ = repo.CreateCharacter(ch)
 

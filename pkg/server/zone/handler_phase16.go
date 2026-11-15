@@ -278,7 +278,7 @@ func (h *Handler) handleActShoutCmd(client *network.Client, pkt *protocol.Packet
 	}
 
 	var flag byte
-	if (player.Client != nil && player.Client.Admin > 0) || player.Char.AdminLevel > 0 {
+	if isZoneGM(player) {
 		flag |= 0x01 // bit 0 = GMColor
 	}
 

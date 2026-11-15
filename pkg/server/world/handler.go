@@ -1,6 +1,7 @@
 package world
 
 import (
+	"errors"
 	"fmt"
 	"log"
 	"math/rand"
@@ -796,7 +797,7 @@ func (h *Handler) handleWorldClientKey(client *network.Client, pkt *protocol.Pac
 
 	if !authenticated {
 		log.Printf("[World][%s] World token verification failed for user '%s'", client.RemoteAddr(), username)
-		h.sendError(client, protocol.ErrInvalidCredentials)
+		h.sendLoginWorldFail(client, protocol.ErrWrongRegion) // fc_NC_USER_LOGINWORLD_REQ -> 0x0C15 (0x0044)
 		client.Close()
 		return
 	}
@@ -839,7 +840,7 @@ func (h *Handler) sendCharacterList(client *network.Client) {
 	if err != nil {
 		log.Printf("[World][%s] Error loading characters for account %d: %v",
 			client.RemoteAddr(), client.AccountID, err)
-		h.sendError(client, protocol.ErrDatabaseError)
+		h.sendLoginWorldFail(client, protocol.ErrDatabaseError) // fc_NC_USER_AVATARINFO_ACK -> 0x0C15 (0x0046)
 		return
 	}
 
@@ -892,9 +893,9 @@ func (h *Handler) handleCreateCharacter(client *network.Client, pkt *protocol.Pa
 		return
 	}
 
-	if len(name) < 3 || len(name) > 16 {
-		log.Printf("[World][%s] Invalid character name length '%s'", client.RemoteAddr(), name)
-		h.sendCharCreationError(client, protocol.CreateCharError_FailedToCreate)
+	if len(name) < 3 || len(name) > 16 || strings.Contains(name, " ") {
+		log.Printf("[World][%s] Invalid character name '%s'", client.RemoteAddr(), name)
+		h.sendCharCreationError(client, protocol.CreateCharError_NameTaken) // fc_NC_AVATAR_CREATE_REQ -> 0x1404 (0x0084)
 		return
 	}
 
@@ -911,6 +912,28 @@ func (h *Handler) handleCreateCharacter(client *network.Client, pkt *protocol.Pa
 		return
 	}
 
+	// Validación oficial WorldManager.exe (0x00422aea): Crusader (job 26) exige ChrLevel_CanCreateSen
+	if job == protocol.Job_Crusader && h.dataStore != nil && h.dataStore.SingleData != nil {
+		if row := h.dataStore.SingleData.FindRow("SingleDataIDX", "ChrLevel_CanCreateSen"); row != nil {
+			reqLv := int(row.GetUint16("SingleDataValue"))
+			if reqLv > 0 {
+				var maxLv byte
+				if existingChars, err := h.charRepo.GetCharactersByAccount(client.AccountID); err == nil {
+					for _, ec := range existingChars {
+						if ec != nil && ec.Level > maxLv {
+							maxLv = ec.Level
+						}
+					}
+				}
+				if int(maxLv) < reqLv {
+					log.Printf("[World][%s] Crusader creation blocked: maxLv=%d < ChrLevel_CanCreateSen=%d", client.RemoteAddr(), maxLv, reqLv)
+					h.sendCharCreationError(client, protocol.CreateCharError(0x0086))
+					return
+				}
+			}
+		}
+	}
+
 	// 1. Validación de apariencia oficial (FaceInfo, HairInfo, HairColorInfo y límites de clase)
 	if h.dataStore != nil && !h.dataStore.ValidateAppearance(classID, hair, color, style) {
 		log.Printf("[World][%s] Character appearance rejected by limits (Class=%d, Hair=%d, Color=%d, Face=%d)",
@@ -919,10 +942,10 @@ func (h *Handler) handleCreateCharacter(client *network.Client, pkt *protocol.Pa
 		return
 	}
 
-	// 2. Validación contra BadNameFilter.shn oficial
+	// 2. Validación contra BadNameFilter.shn oficial (WorldManager.exe 0x004229F0 -> 0x0084)
 	if h.dataStore != nil && h.dataStore.BadNames != nil && h.dataStore.BadNames.IsBadName(name) {
 		log.Printf("[World][%s] Character name '%s' rejected by BadNameFilter", client.RemoteAddr(), name)
-		h.sendCharCreationError(client, protocol.CreateCharError_FailedToCreate)
+		h.sendCharCreationError(client, protocol.CreateCharError_NameTaken)
 		return
 	}
 
@@ -1112,7 +1135,14 @@ func (h *Handler) handleCreateCharacter(client *network.Client, pkt *protocol.Pa
 
 	if err := h.charRepo.CreateCharacter(newChar); err != nil {
 		log.Printf("[World][%s] Failed to create character '%s': %v", client.RemoteAddr(), name, err)
-		h.sendCharCreationError(client, protocol.CreateCharError_FailedToCreate)
+		switch {
+		case errors.Is(err, database.ErrCharacterExists):
+			h.sendCharCreationError(client, protocol.CreateCharError_NameTaken)
+		case errors.Is(err, database.ErrSlotInUse):
+			h.sendCharCreationError(client, protocol.CreateCharError_ErrorInMaxSlot)
+		default:
+			h.sendCharCreationError(client, protocol.CreateCharError_FailedToCreate)
+		}
 		return
 	}
 
@@ -1134,12 +1164,14 @@ func (h *Handler) handleDeleteCharacter(client *network.Client, pkt *protocol.Pa
 
 	slot, err := pkt.Reader.ReadByte()
 	if err != nil || slot > 5 {
+		failResp := protocol.New_PROTO_NC_AVATAR_ERASEFAIL_ACK(0x00C6) // fc_NC_AVATAR_ERASE_REQ -> 198
+		_ = client.SendPacket(failResp)
 		return
 	}
 
 	chars, err := h.charRepo.GetCharactersByAccount(client.AccountID)
 	if err != nil {
-		failResp := protocol.New_PROTO_NC_AVATAR_ERASEFAIL_ACK(0x0001)
+		failResp := protocol.New_PROTO_NC_AVATAR_ERASEFAIL_ACK(0x00C6)
 		_ = client.SendPacket(failResp)
 		return
 	}
@@ -1154,7 +1186,7 @@ func (h *Handler) handleDeleteCharacter(client *network.Client, pkt *protocol.Pa
 
 	if targetChar == nil {
 		log.Printf("[World][%s] Character in slot %d not found for deletion", client.RemoteAddr(), slot)
-		failResp := protocol.New_PROTO_NC_AVATAR_ERASEFAIL_ACK(0x0001)
+		failResp := protocol.New_PROTO_NC_AVATAR_ERASEFAIL_ACK(0x00C6)
 		_ = client.SendPacket(failResp)
 		return
 	}
@@ -1172,7 +1204,7 @@ func (h *Handler) handleDeleteCharacter(client *network.Client, pkt *protocol.Pa
 
 	if err := h.charRepo.DeleteCharacter(client.AccountID, slot); err != nil {
 		log.Printf("[World][%s] Error deleting character '%s' in slot %d: %v", client.RemoteAddr(), targetChar.Name, slot, err)
-		failResp := protocol.New_PROTO_NC_AVATAR_ERASEFAIL_ACK(0x0001)
+		failResp := protocol.New_PROTO_NC_AVATAR_ERASEFAIL_ACK(0x00C6)
 		_ = client.SendPacket(failResp)
 		return
 	}
@@ -1500,12 +1532,15 @@ func (h *Handler) handleCharSelect(client *network.Client, pkt *protocol.Packet)
 	slot, err := pkt.Reader.ReadByte()
 	if err != nil || slot > 5 {
 		log.Printf("[World][%s] Invalid character slot in CharSelect: %v", client.RemoteAddr(), err)
+		failResp := protocol.New_PROTO_NC_CHAR_LOGINFAIL_ACK(0x0143) // fc_NC_CHAR_LOGIN_REQ: slot >= 6 -> 323
+		_ = client.SendPacket(failResp)
 		return
 	}
 
 	chars, err := h.charRepo.GetCharactersByAccount(client.AccountID)
 	if err != nil {
-		h.sendError(client, protocol.ErrDatabaseError)
+		failResp := protocol.New_PROTO_NC_CHAR_LOGINFAIL_ACK(uint16(protocol.ErrDatabaseError))
+		_ = client.SendPacket(failResp)
 		return
 	}
 
@@ -1520,7 +1555,7 @@ func (h *Handler) handleCharSelect(client *network.Client, pkt *protocol.Packet)
 	if selected == nil {
 		log.Printf("[World][%s] Character in slot %d not found for account %d",
 			client.RemoteAddr(), slot, client.AccountID)
-		failResp := protocol.New_PROTO_NC_CHAR_LOGINFAIL_ACK(uint16(protocol.ErrInvalidCredentials))
+		failResp := protocol.New_PROTO_NC_CHAR_LOGINFAIL_ACK(0x0144) // fc_NC_CHAR_LOGIN_REQ: charID == -1 -> 324
 		_ = client.SendPacket(failResp)
 		return
 	}
@@ -1577,22 +1612,43 @@ func (h *Handler) handleCharSelect(client *network.Client, pkt *protocol.Packet)
 		}
 	}
 	var zoneNo uint16 = 1
+	fieldFound := true
 	if h.dataStore != nil && h.dataStore.Fields != nil {
+		fieldFound = false
 		if f, ok := h.dataStore.Fields.GetField(mapName); ok {
+			fieldFound = true
 			if f.Fiesta > 0 {
 				zoneNo = uint16(f.Fiesta)
 			}
-		} else if f, ok := h.dataStore.Fields.GetFieldBySerial(int(selected.Map)); ok {
-			if f.Fiesta > 0 {
-				zoneNo = uint16(f.Fiesta)
+		} else if mapName == "" {
+			if f, ok := h.dataStore.Fields.GetFieldBySerial(int(selected.Map)); ok {
+				fieldFound = true
+				if f.Fiesta > 0 {
+					zoneNo = uint16(f.Fiesta)
+				}
 			}
 		}
+	}
+	if !fieldFound || (selected.TownName == "" && mapName == "") {
+		log.Printf("[World][%s] Map '%s' (%d) unresolved in FieldList for '%s'", client.RemoteAddr(), selected.TownName, selected.Map, selected.Name)
+		failResp := protocol.New_PROTO_NC_CHAR_LOGINFAIL_ACK(0x0145) // fc_NC_CHAR_CHARDATA_ACK -> 325
+		_ = client.SendPacket(failResp)
+		return
 	}
 	if topo := h.getTopoRepo(); topo != nil {
 		if ip, port, ok, err := topo.ResolveMapEndpoint(h.worldID, zoneNo); err == nil && ok && ip != "" {
 			targetIP = ip
 			targetPort = port
+		} else if h.zoneIP == "" || h.zonePort == 0 {
+			failResp := protocol.New_PROTO_NC_CHAR_LOGINFAIL_ACK(0x0145)
+			_ = client.SendPacket(failResp)
+			return
 		}
+	}
+	if targetIP == "" || targetPort == 0 {
+		failResp := protocol.New_PROTO_NC_CHAR_LOGINFAIL_ACK(0x0145)
+		_ = client.SendPacket(failResp)
+		return
 	}
 
 	// 4. Emitir traspaso y login
@@ -1719,6 +1775,12 @@ func (h *Handler) sendCharOptionDataImprove(client *network.Client, charNo int) 
 
 func (h *Handler) sendError(client *network.Client, errCode protocol.ServerError) {
 	resp := protocol.NewPacketWriter(protocol.PROTO_NC_USER_LOGINFAIL_ACK)
+	resp.WriteUint16(uint16(errCode))
+	_ = client.SendPacket(resp)
+}
+
+func (h *Handler) sendLoginWorldFail(client *network.Client, errCode protocol.ServerError) {
+	resp := protocol.NewPacketWriter(protocol.PROTO_NC_USER_LOGINWORLDFAIL_ACK)
 	resp.WriteUint16(uint16(errCode))
 	_ = client.SendPacket(resp)
 }

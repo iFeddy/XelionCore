@@ -840,7 +840,91 @@ func (h *Handler) handleMenuServerMenuAck(client *network.Client, pkt *protocol.
 	}
 }
 
-// handleActNPCClickCmd maneja PROTO_NC_ACT_NPCCLICK_CMD (0x200A).
+func (h *Handler) resetPlayerNPCState(player *ZonePlayer) {
+	if player == nil {
+		return
+	}
+	player.OpenNPCMobID = 0
+	player.OpenNPCHandle = 0
+	player.OpenNPCX = 0
+	player.OpenNPCY = 0
+	player.OpenMultyLinkNPC = 0
+	player.OpenMultyLinkOptions = nil
+	player.PendingMenuCallbacks = nil
+}
+
+func (h *Handler) withinNPCRange(player *ZonePlayer, x, y int32) bool {
+	if player == nil || player.Char == nil {
+		return false
+	}
+	dx := int64(x) - int64(player.Char.XPos)
+	dy := int64(y) - int64(player.Char.YPos)
+	return dx*dx+dy*dy <= 0xF4240
+}
+
+func (h *Handler) sendShopOpenTable(player *ZonePlayer, npc *ZoneNPC) {
+	if player == nil || player.Client == nil || npc == nil || h.dataStore == nil || h.dataStore.NPCItem == nil || h.itemStore == nil {
+		return
+	}
+	merchantKey := npc.Name
+	if merchantKey == "" {
+		merchantKey = npc.RoleArg
+	}
+	merchant, ok := h.dataStore.NPCItem.GetMerchant(merchantKey)
+	if (!ok || merchant == nil) && npc.RoleArg != "" && npc.RoleArg != merchantKey {
+		merchant, ok = h.dataStore.NPCItem.GetMerchant(npc.RoleArg)
+	}
+	if !ok || merchant == nil {
+		return
+	}
+
+	type shopEntry struct {
+		slot uint8
+		id   uint16
+	}
+	var entries []shopEntry
+	for _, it := range merchant.GetAllItems() {
+		info, found := h.itemStore.GetItemInfoByName(it.Item)
+		if !found || info == nil {
+			continue
+		}
+		entries = append(entries, shopEntry{slot: it.Slot, id: info.ID})
+		if len(entries) >= 80 {
+			break
+		}
+	}
+
+	opCode := protocol.PROTO_NC_MENU_SHOPOPENTABLE_ITEM_CMD
+	switch strings.ToLower(npc.RoleArg) {
+	case "weapon":
+		opCode = protocol.PROTO_NC_MENU_SHOPOPENTABLE_WEAPON_CMD
+	case "skill":
+		opCode = protocol.PROTO_NC_MENU_SHOPOPENTABLE_SKILL_CMD
+	}
+
+	pw := protocol.NewPacketWriter(opCode)
+	pw.WriteUint16(uint16(len(entries)))
+	pw.WriteUint16(npc.Handle)
+	for _, e := range entries {
+		pw.WriteByte(e.slot)
+		pw.WriteUint16(e.id)
+	}
+	_ = player.Client.SendPacket(pw)
+}
+
+func (h *Handler) openNPCRole(player *ZonePlayer, npc *ZoneNPC) {
+	if player == nil || npc == nil {
+		return
+	}
+	switch npc.Role {
+	case "Merchant":
+		h.sendShopOpenTable(player, npc)
+	case "StoreManager":
+		h.sendStoragePage(player, 10, 0, 1)
+	}
+}
+
+// handleActNPCClickCmd maneja PROTO_NC_ACT_NPCCLICK_CMD (0x200A -> sp_NC_ACT_NPCCLICK_CMD @ 0x004C4B70).
 func (h *Handler) handleActNPCClickCmd(client *network.Client, pkt *protocol.Packet) {
 	player, ok := h.getPlayer(client)
 	if !ok || player == nil || player.CurrentMap == nil || pkt.Reader.Remaining() < 2 {
@@ -853,42 +937,61 @@ func (h *Handler) handleActNPCClickCmd(client *network.Client, pkt *protocol.Pac
 	eng := player.CurrentMap.luaEngine
 	player.CurrentMap.mu.RUnlock()
 
-	if npc != nil {
-		player.OpenNPCMobID = npc.MobID
-		if npc.IsGate && npc.GateToWhere != "" {
-			if strings.Contains(npc.GateToWhere, ",") {
-				// PROTO_NC_MAP_MULTY_LINK_CMD (0x181F, sizeof = 73 -> wire = 75)
-				parts := strings.Split(npc.GateToWhere, ",")
-				if len(parts) > 5 {
-					parts = parts[:5]
-				}
-				ml := protocol.NewPacketWriter(protocol.PROTO_NC_MAP_MULTY_LINK_CMD)
-				ml.WriteUint16(npcHandle)
-				ml.WriteUint32(uint32(npc.X))
-				ml.WriteUint32(uint32(npc.Y))
-				ml.WriteUint16(350)
-				ml.WriteByte(byte(len(parts)))
-				for i := 0; i < 5; i++ {
-					name := ""
-					if i < len(parts) {
-						name = strings.TrimSpace(parts[i])
-					}
-					writeFixedStr(ml, name, 12)
-				}
-				_ = client.SendPacket(ml)
-				return
+	// Zone.exe 0x004C4660: NPC inexistente -> sp_EndOfTrade
+	if npc == nil {
+		h.resetPlayerNPCState(player)
+		return
+	}
+	// Zone.exe 0x004C4660 / cm_MenuAction: distancia cuadrada <= 0xF4240 (1000^2)
+	if !h.withinNPCRange(player, npc.X, npc.Y) {
+		h.resetPlayerNPCState(player)
+		return
+	}
+
+	player.OpenNPCMobID = npc.MobID
+	player.OpenNPCHandle = npc.Handle
+	player.OpenNPCX = npc.X
+	player.OpenNPCY = npc.Y
+	player.OpenMultyLinkNPC = 0
+	player.OpenMultyLinkOptions = nil
+
+	if npc.IsGate && npc.GateToWhere != "" {
+		if strings.Contains(npc.GateToWhere, ",") {
+			// PROTO_NC_MAP_MULTY_LINK_CMD (0x181F, sizeof = 73 -> wire = 75)
+			parts := strings.Split(npc.GateToWhere, ",")
+			if len(parts) > 5 {
+				parts = parts[:5]
 			}
-			h.triggerGateWarp(player, npc.GateToWhere)
+			opts := make([]string, 0, len(parts))
+			ml := protocol.NewPacketWriter(protocol.PROTO_NC_MAP_MULTY_LINK_CMD)
+			ml.WriteUint16(npcHandle)
+			ml.WriteUint32(uint32(npc.X))
+			ml.WriteUint32(uint32(npc.Y))
+			ml.WriteUint16(350)
+			ml.WriteByte(byte(len(parts)))
+			for i := 0; i < 5; i++ {
+				name := ""
+				if i < len(parts) {
+					name = strings.TrimSpace(parts[i])
+					if name != "" {
+						opts = append(opts, name)
+					}
+				}
+				writeFixedStr(ml, name, 12)
+			}
+			player.OpenMultyLinkNPC = npc.Handle
+			player.OpenMultyLinkOptions = opts
+			_ = client.SendPacket(ml)
 			return
 		}
-	} else {
-		player.OpenNPCMobID = npcHandle
+		h.triggerGateWarp(player, npc.GateToWhere)
+		return
 	}
 
 	if cbName != "" && eng != nil {
 		_, _ = eng.CallFunction(cbName, glua.LNumber(npcHandle), glua.LNumber(player.MapObjectID))
 	}
-	if h.npcStore != nil && npc != nil {
+	if h.npcStore != nil {
 		if act, okAct := h.npcStore.GetActionByID(int(npc.MobID)); okAct {
 			actPkt := protocol.NewPacketWriter(protocol.PROTO_NC_ACT_NPC_ACTION_CMD)
 			actPkt.WriteByte(1)
@@ -897,22 +1000,34 @@ func (h *Handler) handleActNPCClickCmd(client *network.Client, pkt *protocol.Pac
 			_ = client.SendPacket(actPkt)
 		}
 	}
-	openReq := protocol.NewPacketWriter(protocol.PROTO_NC_ACT_NPCMENUOPEN_REQ)
-	if npc != nil {
+	if npc.Menu != 0 {
+		openReq := protocol.NewPacketWriter(protocol.PROTO_NC_ACT_NPCMENUOPEN_REQ)
 		openReq.WriteUint16(npc.MobID)
-	} else {
-		openReq.WriteUint16(npcHandle)
-	}
-	_ = client.SendPacket(openReq)
-}
-
-// handleActNPCMenuOpenAck maneja PROTO_NC_ACT_NPCMENUOPEN_ACK (0x201D).
-func (h *Handler) handleActNPCMenuOpenAck(client *network.Client, pkt *protocol.Packet) {
-	player := h.GetPlayer(client)
-	if player == nil || pkt.Reader.Remaining() < 1 {
+		_ = client.SendPacket(openReq)
 		return
 	}
-	_, _ = pkt.Reader.ReadByte()
+	h.openNPCRole(player, npc)
+}
+
+// handleActNPCMenuOpenAck maneja PROTO_NC_ACT_NPCMENUOPEN_ACK (0x201D -> sp_NC_ACT_NPCMENUOPEN_ACK @ 0x004C4910).
+func (h *Handler) handleActNPCMenuOpenAck(client *network.Client, pkt *protocol.Packet) {
+	player := h.GetPlayer(client)
+	if player == nil || player.CurrentMap == nil || pkt.Reader.Remaining() < 1 {
+		return
+	}
+	reply, _ := pkt.Reader.ReadByte()
+	if player.OpenNPCHandle == 0 {
+		return
+	}
+	npc, found := player.CurrentMap.GetNPC(player.OpenNPCHandle)
+	if !found || npc == nil || !h.withinNPCRange(player, npc.X, npc.Y) {
+		h.resetPlayerNPCState(player)
+		return
+	}
+	// sp_NC_ACT_NPCMENUOPEN_ACK @ 0x004C4A07: ejecuta NPCRoleBase::nrb_Role solo cuando reply == 1
+	if reply == 1 {
+		h.openNPCRole(player, npc)
+	}
 }
 
 // handleActNPCMenuCmd maneja PROTO_NC_ACT_NPC_MENU_CMD (0x2073).

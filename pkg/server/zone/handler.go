@@ -1339,7 +1339,7 @@ func (h *Handler) handleChatNormal(client *network.Client, pkt *protocol.Packet)
 	log.Printf("[Zone][Chat][%s] %s: %s (links=%d)", player.CurrentMap.Name, player.Char.Name, trimmed, itemLinkCount)
 
 	color := byte(0x2A) // Normal chat color
-	if (player.Client != nil && player.Client.Admin > 0) || (player.Char != nil && player.Char.AdminLevel > 0) {
+	if isZoneGM(player) {
 		color = 0x03 // GM gold color
 	}
 
@@ -1444,7 +1444,8 @@ func (h *Handler) handleBriefInfoInform(client *network.Client, pkt *protocol.Pa
 	zMap.mu.RUnlock()
 
 	if isPlayer && otherPlayer != nil {
-		if !player.HideExceptMe {
+		callerIsGM := isZoneGM(player)
+		if !player.HideExceptMe && (!otherPlayer.IsGMHidden || callerIsGM) {
 			pw := protocol.NewPacketWriter(protocol.PROTO_NC_BRIEFINFO_LOGINCHARACTER_CMD)
 			otherPlayer.WriteCharacterDisplay(pw)
 			_ = client.SendPacket(pw)
@@ -1578,9 +1579,20 @@ func (h *Handler) handleRideFeeding(client *network.Client, pkt *protocol.Packet
 	_ = client.SendPacket(ack)
 }
 
+func (h *Handler) sendMoverFail(client *network.Client, opCode uint16, errCode uint16) {
+	fail := protocol.NewPacketWriter(opCode)
+	fail.WriteUint16(errCode)
+	_ = client.SendPacket(fail)
+}
+
 func (h *Handler) handleMoverRideOn(client *network.Client, pkt *protocol.Packet) {
 	player, ok := h.getPlayer(client)
 	if !ok || player == nil || player.CurrentMap == nil {
+		return
+	}
+	// sp_NC_MOVER_RIDE_ON_REQ (Zone.exe 0x00563300): bitmask de estado 0x06 (Normal=1, Move=2) -> 0x306A
+	if (player.State != 0 && player.State != 1 && player.State != 2) || player.MoverHandle != 0 {
+		h.sendMoverFail(client, protocol.PROTO_NC_MOVER_RIDE_ON_FAIL_CMD, 0x306A)
 		return
 	}
 	var moverHnd uint16 = 1
@@ -1591,6 +1603,11 @@ func (h *Handler) handleMoverRideOn(client *network.Client, pkt *protocol.Packet
 		}
 		if s, err := pkt.Reader.ReadByte(); err == nil {
 			slot = s
+		}
+		// som_GetObject == NULL (Zone.exe 0x0056336a): 0x306B
+		if moverHnd == 0 {
+			h.sendMoverFail(client, protocol.PROTO_NC_MOVER_RIDE_ON_FAIL_CMD, 0x306B)
+			return
 		}
 	}
 
@@ -1626,6 +1643,11 @@ func (h *Handler) handleMoverRideOn(client *network.Client, pkt *protocol.Packet
 func (h *Handler) handleMoverRideOff(client *network.Client, pkt *protocol.Packet) {
 	player, ok := h.getPlayer(client)
 	if !ok || player == nil || player.CurrentMap == nil {
+		return
+	}
+	// sp_NC_MOVER_RIDE_OFF_REQ (Zone.exe 0x00563498): exige player.State == 6 (Mounted) -> 0x3081
+	if player.State != 6 || player.MoverHandle == 0 {
+		h.sendMoverFail(client, protocol.PROTO_NC_MOVER_RIDE_OFF_FAIL_CMD, 0x3081)
 		return
 	}
 	oldHnd := player.MoverHandle
@@ -2125,6 +2147,63 @@ func (h *Handler) triggerGateWarp(player *ZonePlayer, gateArg string) {
 	h.WarpPlayer(player, link.MapServer, int(link.X), int(link.Y), byte(link.Direct))
 }
 
+func isZoneGM(p *ZonePlayer) bool {
+	if p == nil {
+		return false
+	}
+	if p.Char != nil && p.Char.AdminLevel > 0 {
+		return true
+	}
+	// En tUser.nAuthID (pkg/database/account.go), 1 = Player normal y > 1 = cuenta GM/Admin.
+	return p.Client != nil && p.Client.Admin > 1
+}
+
+// canEnterField valida existencia del mapa en FieldList, flags Teleport.LinkIn y requisitos en FieldLvCondition.shn.
+func (h *Handler) canEnterField(player *ZonePlayer, targetMapID string) (bool, *field.FieldEntry) {
+	if targetMapID == "" {
+		return false, nil
+	}
+	isAdmin := isZoneGM(player)
+	var f *field.FieldEntry
+	if h.fieldStore != nil {
+		entry, ok := h.fieldStore.GetField(targetMapID)
+		if !ok || entry == nil {
+			return false, nil
+		}
+		f = entry
+		if !isAdmin && !f.Teleport.LinkIn && !f.IsKQ {
+			return false, f
+		}
+	}
+	if !isAdmin && player != nil && player.Char != nil && player.Char.Level > 0 {
+		if tbl := h.getSHN("FieldLvCondition"); tbl != nil {
+			for i := range tbl.Rows {
+				row := &tbl.Rows[i]
+				if !strings.EqualFold(strings.TrimSpace(row.GetString("MapIndex")), targetMapID) {
+					continue
+				}
+				mode := row.GetByte("ModeIDLv")
+				if mode > 1 {
+					continue
+				}
+				lvFrom := row.GetUint16("LvFrom")
+				lvTo := row.GetUint16("LvTo")
+				charLv := uint16(player.Char.Level)
+				if (lvFrom > 0 && charLv < lvFrom) || (lvTo > 0 && charLv > lvTo) {
+					return false, f
+				}
+			}
+		}
+	}
+	return true, f
+}
+
+func (h *Handler) sendUint16Ack(client *network.Client, opCode uint16, errCode uint16) {
+	ack := protocol.NewPacketWriter(opCode)
+	ack.WriteUint16(errCode)
+	_ = client.SendPacket(ack)
+}
+
 // WarpPlayer traslada al jugador entre mapas oficiales, actualizando mapas, coordenadas y persistencia.
 // Si el mapa pertenece a otra zona según FieldList (fiesta != h.zoneNo), realiza un traspaso inter-zona
 // invocando usp_Session_IssueZoneTransfer y enviando PROTO_NC_CHAR_LOGIN_ACK.
@@ -2140,22 +2219,26 @@ func (h *Handler) WarpPlayer(player *ZonePlayer, targetMapID string, x, y int, r
 		}
 	}
 
+	allowed, targetField := h.canEnterField(player, targetMapID)
+	if !allowed {
+		return
+	}
+	h.resetPlayerNPCState(player)
+
 	var targetZoneNo uint16 = 1
 	var targetMapSerial uint16
 	if h.multiNode {
 		targetZoneNo = h.zoneNo
 	}
-	if h.fieldStore != nil && targetMapID != "" {
-		if f, ok := h.fieldStore.GetField(targetMapID); ok && f != nil {
-			targetMapSerial = uint16(f.Serial)
-			targetZoneNo = uint16(f.Fiesta)
-			if h.multiNode {
-				if targetZoneNo == 99 {
-					targetZoneNo = 0
-				}
-			} else if targetZoneNo == 0 {
-				targetZoneNo = 1
+	if targetField != nil {
+		targetMapSerial = uint16(targetField.Serial)
+		targetZoneNo = uint16(targetField.Fiesta)
+		if h.multiNode {
+			if targetZoneNo == 99 {
+				targetZoneNo = 0
 			}
+		} else if targetZoneNo == 0 {
+			targetZoneNo = 1
 		}
 	}
 
@@ -2245,20 +2328,56 @@ func (h *Handler) handleMultyLinkSelect(client *network.Client, pkt *protocol.Pa
 	if err != nil {
 		return
 	}
-	destMap := strings.TrimRight(linkMapName, "\x00")
+	destMap := strings.TrimSpace(strings.TrimRight(linkMapName, "\x00"))
+
+	// Validación de distancia si hay una sesión multi-link NPC activa (Zone.exe 0x0055B54D -> 0xF4240 = 1000^2 -> 0x202B)
+	if player.OpenMultyLinkNPC != 0 && player.CurrentMap != nil {
+		npc, found := player.CurrentMap.GetNPC(player.OpenMultyLinkNPC)
+		if !found || npc == nil {
+			h.resetPlayerNPCState(player)
+			h.sendUint16Ack(client, protocol.PROTO_NC_MAP_MULTY_LINK_SELECT_ACK, 0x2029)
+			return
+		}
+		if player.Char != nil {
+			dx := int64(npc.X) - int64(player.Char.XPos)
+			dy := int64(npc.Y) - int64(player.Char.YPos)
+			if dx*dx+dy*dy > 0xF4240 {
+				h.resetPlayerNPCState(player)
+				h.sendUint16Ack(client, protocol.PROTO_NC_MAP_MULTY_LINK_SELECT_ACK, 0x202B)
+				return
+			}
+		}
+	}
+
+	// Si hubo menú multi-link abierto con opciones explícitas, el destino debe estar en la lista
+	if len(player.OpenMultyLinkOptions) > 0 {
+		matched := false
+		for _, opt := range player.OpenMultyLinkOptions {
+			if strings.EqualFold(opt, destMap) {
+				matched = true
+				break
+			}
+		}
+		if !matched {
+			h.sendUint16Ack(client, protocol.PROTO_NC_MAP_MULTY_LINK_SELECT_ACK, 0x2029)
+			return
+		}
+	}
+
+	allowed, targetField := h.canEnterField(player, destMap)
+	if !allowed {
+		h.sendUint16Ack(client, protocol.PROTO_NC_MAP_MULTY_LINK_SELECT_ACK, 0x2029)
+		return
+	}
 
 	// PROTO_NC_MAP_MULTY_LINK_SELECT_ACK (0x1820, wire len = 4, payload = 2)
-	ack := protocol.NewPacketWriter(protocol.PROTO_NC_MAP_MULTY_LINK_SELECT_ACK)
-	ack.WriteUint16(0) // OK
-	_ = client.SendPacket(ack)
+	h.sendUint16Ack(client, protocol.PROTO_NC_MAP_MULTY_LINK_SELECT_ACK, 0)
 
 	spawnX := 6208
 	spawnY := 6405
-	if h.fieldStore != nil {
-		if f, ok := h.fieldStore.GetField(destMap); ok && f != nil && len(f.Respawn.Spots) > 0 {
-			spawnX = f.Respawn.Spots[0].X
-			spawnY = f.Respawn.Spots[0].Y
-		}
+	if targetField != nil && len(targetField.Respawn.Spots) > 0 {
+		spawnX = targetField.Respawn.Spots[0].X
+		spawnY = targetField.Respawn.Spots[0].Y
 	}
 
 	h.WarpPlayer(player, destMap, spawnX, spawnY, 0x55)
@@ -2271,7 +2390,20 @@ func (h *Handler) handleTownPortal(client *network.Client, pkt *protocol.Packet)
 		return
 	}
 
-	portalIndex, _ := pkt.Reader.ReadByte()
+	portalIndex, err := pkt.Reader.ReadByte()
+	if err != nil {
+		return
+	}
+	// sp_NC_MAP_TOWNPORTAL_REQ (0x0049FF2d): estado inválido (bitmask 0x46: 1, 2, 6) -> 0x19C2
+	if player.State != 0 && player.State != 1 && player.State != 2 && player.State != 6 {
+		h.sendUint16Ack(client, protocol.PROTO_NC_MAP_TOWNPORTAL_ACK, 0x19C2)
+		return
+	}
+	if portalIndex >= 5 {
+		h.sendUint16Ack(client, protocol.PROTO_NC_MAP_TOWNPORTAL_ACK, 0x19C3)
+		return
+	}
+
 	log.Printf("[Zone][%s] Town portal request (Index: %d) from '%s'",
 		client.RemoteAddr(), portalIndex, player.Char.Name)
 
@@ -2284,13 +2416,18 @@ func (h *Handler) handleTownPortal(client *network.Client, pkt *protocol.Packet)
 			targetMap = f0.MapID
 		}
 	}
+	allowed, targetField := h.canEnterField(player, targetMap)
+	if !allowed {
+		h.sendUint16Ack(client, protocol.PROTO_NC_MAP_TOWNPORTAL_ACK, 0x19C3)
+		return
+	}
+	h.sendUint16Ack(client, protocol.PROTO_NC_MAP_TOWNPORTAL_ACK, 0x19C1)
+
 	spawnX := 6208
 	spawnY := 6405
-	if h.fieldStore != nil && targetMap != "" {
-		if f, ok := h.fieldStore.GetField(targetMap); ok && f != nil && len(f.Respawn.Spots) > 0 {
-			spawnX = f.Respawn.Spots[0].X
-			spawnY = f.Respawn.Spots[0].Y
-		}
+	if targetField != nil && len(targetField.Respawn.Spots) > 0 {
+		spawnX = targetField.Respawn.Spots[0].X
+		spawnY = targetField.Respawn.Spots[0].Y
 	}
 	h.WarpPlayer(player, targetMap, spawnX, spawnY, 0x55)
 }
@@ -2302,7 +2439,23 @@ func (h *Handler) handleWingFly(client *network.Client, pkt *protocol.Packet) {
 		return
 	}
 
-	where, _ := pkt.Reader.ReadByte()
+	where, err := pkt.Reader.ReadByte()
+	if err != nil {
+		return
+	}
+	// sp_NC_MAP_WING_FLY_REQ (0x00589FBC): estado inválido (bitmask 0x46: 1, 2, 6) -> 0x1146
+	if player.State != 0 && player.State != 1 && player.State != 2 && player.State != 6 {
+		h.sendUint16Ack(client, protocol.PROTO_NC_MAP_WING_FLY_ACK, 0x1146)
+		return
+	}
+	// sp_CanRecallInThisMap (0x00589FE7): mapa bloqueado (!LinkOut) -> 0x1143
+	if player.CurrentMap != nil && h.fieldStore != nil {
+		if curField, okF := h.fieldStore.GetField(player.CurrentMap.MapID); okF && curField != nil && !curField.Teleport.LinkOut {
+			h.sendUint16Ack(client, protocol.PROTO_NC_MAP_WING_FLY_ACK, 0x1143)
+			return
+		}
+	}
+
 	log.Printf("[Zone][%s] Wing fly request (Where: %d) from '%s'",
 		client.RemoteAddr(), where, player.Char.Name)
 
@@ -2315,13 +2468,18 @@ func (h *Handler) handleWingFly(client *network.Client, pkt *protocol.Packet) {
 			targetMap = f0.MapID
 		}
 	}
+	allowed, targetField := h.canEnterField(player, targetMap)
+	if !allowed {
+		h.sendUint16Ack(client, protocol.PROTO_NC_MAP_WING_FLY_ACK, 0x1143)
+		return
+	}
+	h.sendUint16Ack(client, protocol.PROTO_NC_MAP_WING_FLY_ACK, 0x1141)
+
 	spawnX := 6208
 	spawnY := 6405
-	if h.fieldStore != nil && targetMap != "" {
-		if f, ok := h.fieldStore.GetField(targetMap); ok && f != nil && len(f.Respawn.Spots) > 0 {
-			spawnX = f.Respawn.Spots[0].X
-			spawnY = f.Respawn.Spots[0].Y
-		}
+	if targetField != nil && len(targetField.Respawn.Spots) > 0 {
+		spawnX = targetField.Respawn.Spots[0].X
+		spawnY = targetField.Respawn.Spots[0].Y
 	}
 	h.WarpPlayer(player, targetMap, spawnX, spawnY, 0x55)
 }

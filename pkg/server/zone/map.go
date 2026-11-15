@@ -1204,7 +1204,7 @@ func (m *ZoneMap) NormalChat(p *ZonePlayer, text string, color byte) {
 func (m *ZoneMap) NormalChatWithLinks(p *ZonePlayer, text string, color byte, linkCount byte, linkData []byte) {
 	pw := protocol.NewPacketWriter(protocol.PROTO_NC_ACT_SOMEONECHAT_CMD)
 	var flag byte = 0x02 // bit 1 = chatwin
-	if color == 0x03 || (p.Client != nil && p.Client.Admin > 0) || (p.Char != nil && p.Char.AdminLevel > 0) {
+	if color == 0x03 || isZoneGM(p) {
 		flag |= 0x01 // bit 0 = GMColor
 	}
 	pw.WriteByte(linkCount)

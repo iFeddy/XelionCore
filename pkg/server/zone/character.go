@@ -162,8 +162,13 @@ type ZonePlayer struct {
 	RestExpBonusRate    int
 
 	// Campos de subsistemas de la Fase 14 (Economía, Comercio, Booth, Forja & Crafting)
-	OpenNPCMobID        uint16
-	ChargedInvenOpened  bool
+	OpenNPCMobID         uint16
+	OpenNPCHandle        uint16
+	OpenNPCX             int32
+	OpenNPCY             int32
+	OpenMultyLinkNPC     uint16
+	OpenMultyLinkOptions []string
+	ChargedInvenOpened   bool
 	AccountStorageOpen  bool
 	AcademyStorageOpen  bool
 	RepurchaseItems     []*RepurchaseEntry

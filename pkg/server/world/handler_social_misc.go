@@ -186,7 +186,7 @@ func (h *Handler) handleWhisper(client *network.Client, pkt *protocol.Packet) {
 	targetClient := h.findOnlineClientByCharName(targetName)
 	if targetClient == nil || targetClient.CharacterID == 0 {
 		failResp := protocol.NewPacketWriter(protocol.PROTO_NC_ACT_WHISPERFAIL_ACK)
-		failResp.WriteUint16(1) // Not online
+		failResp.WriteUint16(0x0F69) // fc_NC_ACT_WHISPER_REQ (0x0041C610): target offline -> 3945
 		failResp.WriteString(targetName, 20)
 		_ = client.SendPacket(failResp)
 		return
