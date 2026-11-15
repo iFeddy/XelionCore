@@ -5,6 +5,7 @@ import (
 	"strings"
 	"time"
 
+	"github.com/iFeddy/XelionCore/pkg/database"
 	"github.com/iFeddy/XelionCore/pkg/network"
 	"github.com/iFeddy/XelionCore/pkg/protocol"
 )
@@ -361,6 +362,7 @@ func (h *Handler) handleActRoarReq(client *network.Client, pkt *protocol.Packet)
 // ============================================================================
 
 // handlePartyMemberInfoReqCmd implementa sp_NC_PARTY_MEMBERINFOREQ_CMD (0x3848 -> 0x3832/0x384F).
+// Struct oficial PDB: PROTO_NC_PARTY_MEMBERINFORM_CMD (1 byte membernum + membernum * 32 bytes PROTO_PARTY_MEMBER_INFORM)
 func (h *Handler) handlePartyMemberInfoReqCmd(client *network.Client, pkt *protocol.Packet) {
 	player, ok := h.getPlayer(client)
 	if !ok || player == nil || player.Char == nil {
@@ -373,12 +375,11 @@ func (h *Handler) handlePartyMemberInfoReqCmd(client *network.Client, pkt *proto
 			partyNo = pNo
 		}
 	}
-	var memberCount byte
+	var members []*database.PartyMemberData
 	if h.charRepo != nil && partyNo > 0 {
-		if members, err := h.charRepo.GetPartyMembers(partyNo); err == nil {
-			memberCount = byte(len(members))
-		}
+		members, _ = h.charRepo.GetPartyMembers(partyNo)
 	}
+	memberCount := byte(len(members))
 	h.DispatchWMS("wms_NC_PARTY_MEMBERINFORM_ACK", map[string]interface{}{
 		"charID":      player.Char.ID,
 		"partyNo":     partyNo,
@@ -387,6 +388,23 @@ func (h *Handler) handlePartyMemberInfoReqCmd(client *network.Client, pkt *proto
 
 	cmd := protocol.NewPacketWriter(protocol.PROTO_NC_PARTY_MEMBERINFORM_CMD)
 	cmd.WriteByte(memberCount)
+	for _, m := range members {
+		if m == nil {
+			continue
+		}
+		hp := uint32(m.HP)
+		sp := uint32(m.SP)
+		var lp uint32
+		if zp, online := h.GetPlayerByCharID(m.CharNo); online && zp != nil && zp.Char != nil {
+			hp = uint32(zp.Char.CurHP)
+			sp = uint32(zp.Char.CurSP)
+			lp = 0
+		}
+		cmd.WriteString(m.CharID, 20)
+		cmd.WriteUint32(hp)
+		cmd.WriteUint32(sp)
+		cmd.WriteUint32(lp)
+	}
 	_ = client.SendPacket(cmd)
 }
 

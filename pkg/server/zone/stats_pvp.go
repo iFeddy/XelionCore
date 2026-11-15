@@ -181,21 +181,14 @@ func (h *Handler) handleCharReviveReq(client *network.Client, pkt *protocol.Pack
 		}
 	}
 
-	// 1. Notificar al jugador que resucitó
+	// 1. Notificar al jugador que resucitó (PROTO_NC_CHAR_REVIVESAME_CMD: 10 bytes = mapid[2], location[8])
 	sameCmd := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_REVIVESAME_CMD)
+	sameCmd.WriteUint16(player.CurrentMap.ID)
 	sameCmd.WriteInt32(int32(player.Char.XPos))
 	sameCmd.WriteInt32(int32(player.Char.YPos))
-	sameCmd.WriteUint32(uint32(player.Char.CurHP))
 	_ = client.SendPacket(sameCmd)
 
-	// 2. Notificar al mapa que el personaje revivió
-	otherCmd := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_REVIVEOTHER_CMD)
-	otherCmd.WriteUint16(player.MapObjectID)
-	otherCmd.WriteInt32(int32(player.Char.XPos))
-	otherCmd.WriteInt32(int32(player.Char.YPos))
-	player.CurrentMap.Broadcast(otherCmd, player.MapObjectID)
-
-	// 3. Actualizar barra de vida
+	// 2. Actualizar barra de vida
 	hpCmd := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_HPCHANGE_CMD)
 	hpCmd.WriteUint32(uint32(player.Char.CurHP))
 	hpCmd.WriteUint16(0)

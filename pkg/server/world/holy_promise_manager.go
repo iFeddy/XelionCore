@@ -39,7 +39,10 @@ func (hpm *HolyPromiseManager) HandleSetUpReq(client *network.Client, charID, up
 	hpm.mu.Lock()
 	defer hpm.mu.Unlock()
 
-	reqName := client.Username
+	reqName := client.CharName
+	if reqName == "" {
+		reqName = client.Username
+	}
 	var isUp bool
 	if strings.EqualFold(reqName, upCharID) {
 		isUp = true
@@ -55,16 +58,20 @@ func (hpm *HolyPromiseManager) HandleSetUpReq(client *network.Client, charID, up
 		return
 	}
 
+	targetName := targetClient.CharName
+	if targetName == "" {
+		targetName = targetClient.Username
+	}
 	hpm.pendingInvites[targetID] = &PendingHolyPromiseRequest{
 		RequesterID:   client.CharacterID,
 		RequesterName: reqName,
 		TargetID:      targetID,
-		TargetName:    targetClient.Username,
+		TargetName:    targetName,
 		IsRequesterUp: isUp,
 	}
 
 	_ = targetClient.SendPacket(protocol.New_PROTO_NC_HOLY_PROMISE_SET_UP_CONFIRM_REQ(charID, upCharID))
-	log.Printf("[HolyPromise] '%s' requested holy promise with '%s'", reqName, targetClient.Username)
+	log.Printf("[HolyPromise] '%s' requested holy promise with '%s'", reqName, targetName)
 }
 
 // HandleSetUpConfirmAck procesa la respuesta del invitado (0x9405 PROTO_NC_HOLY_PROMISE_SET_UP_CONFIRM_ACK).
@@ -105,9 +112,10 @@ func (hpm *HolyPromiseManager) HandleSetUpConfirmAck(client *network.Client, cha
 		}
 	}
 
-	_ = client.SendPacket(protocol.New_PROTO_NC_HOLY_PROMISE_SET_UP_ACK(0))
+	upInfo := protocol.HolyPromiseUpInfo{PromiseCharID: upCharID, LogonInfo: 1, Level: 1}
+	_ = client.SendPacket(protocol.New_PROTO_NC_HOLY_PROMISE_SET_UP_ACK(0, upInfo))
 	if requesterClient != nil {
-		_ = requesterClient.SendPacket(protocol.New_PROTO_NC_HOLY_PROMISE_SET_UP_ACK(0))
+		_ = requesterClient.SendPacket(protocol.New_PROTO_NC_HOLY_PROMISE_SET_UP_ACK(0, upInfo))
 	}
 	log.Printf("[HolyPromise] Relationship established between Master %d and Pupil %d", upCharNo, downCharNo)
 }
@@ -115,6 +123,10 @@ func (hpm *HolyPromiseManager) HandleSetUpConfirmAck(client *network.Client, cha
 // HandleDelUpReq procesa la disolución solicitada por el alumno (0x9406 PROTO_NC_HOLY_PROMISE_DEL_UP_REQ).
 func (hpm *HolyPromiseManager) HandleDelUpReq(client *network.Client, masterClient *network.Client) {
 	charNo := client.CharacterID
+	charName := client.CharName
+	if charName == "" {
+		charName = client.Username
+	}
 	if hpm.charRepo != nil {
 		data, err := hpm.charRepo.GetHolyPromise(charNo)
 		if err == nil && data != nil && data.UpCharNo > 0 {
@@ -126,7 +138,7 @@ func (hpm *HolyPromiseManager) HandleDelUpReq(client *network.Client, masterClie
 
 	_ = client.SendPacket(protocol.New_PROTO_NC_HOLY_PROMISE_DEL_UP_ACK(0, 0))
 	if masterClient != nil {
-		_ = masterClient.SendPacket(protocol.New_PROTO_NC_HOLY_PROMISE_DEL_CMD(client.Username, 0))
+		_ = masterClient.SendPacket(protocol.New_PROTO_NC_HOLY_PROMISE_DEL_CMD(charName, 0))
 	}
 	log.Printf("[HolyPromise] Pupil '%s' severed relationship with Master", client.Username)
 }

@@ -65,14 +65,16 @@ func (h *Handler) handleNormalLogout(client *network.Client, pkt *protocol.Packe
 		client.RemoteAddr(), logoutType, client.AccountID, client.Username)
 
 	if client.CharacterID > 0 {
+		charName := h.activeCharName(client)
 		h.partyMgr.UnregisterOnline(client.CharacterID)
-		h.friendMgr.BroadcastLogout(client.CharacterID, client.Username)
+		h.friendMgr.BroadcastLogout(client.CharacterID, charName)
 		h.guildMgr.UnregisterOnline(client.CharacterID)
 		h.kqMgr.UnregisterOnline(client.CharacterID)
 		if h.charRepo != nil {
 			_ = h.charRepo.CharacterLogout(client.CharacterID, 0)
 		}
 		client.CharacterID = 0
+		client.CharName = ""
 	}
 
 	if logoutType == 1 {
@@ -248,9 +250,18 @@ func (h *Handler) handleChangeCharID(client *network.Client, pkt *protocol.Packe
 	if targetChar.ChangeID != nil {
 		targetChar.ChangeID.NeedChangeID = 0
 	}
+	if client.CharacterID == targetChar.ID {
+		client.CharName = newName
+	}
 
 	resp := protocol.New_PROTO_NC_USER_CONNECTION_CHANGE_CHAR_ID_ACK(0, slot, newName)
 	_ = client.SendPacket(resp)
+
+	h.BroadcastToZones("wms_NC_USER_CONNECTION_ZONE_CHANGE_CHAR_ID_CMD", map[string]interface{}{
+		"char_id":  targetChar.ID,
+		"new_name": newName,
+		"inbound":  true,
+	})
 }
 
 // handleSetStyleGetInfo consulta los cupones de belleza disponibles (PROTO_NC_CHAR_SET_STYLE_GET_INFO_REQ - 0x107C).

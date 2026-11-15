@@ -27,6 +27,10 @@ type Config struct {
 	ZoneIP   string
 	ZonePort uint16
 
+	// Red interna S2S WorldService <-> ZoneService
+	WorldS2SHost string
+	WorldS2SPort uint16
+
 	// Debug de red / paquetes (DEBUG=true en .env)
 	Debug bool
 }
@@ -103,6 +107,9 @@ func Load(envPath ...string) (*Config, error) {
 
 		ZoneIP:   getEnv("ZONE_IP", "127.0.0.1"),
 		ZonePort: getEnvUint16("ZONE_PORT", 9210),
+
+		WorldS2SHost: getEnv("WORLD_S2S_HOST", "127.0.0.1"),
+		WorldS2SPort: getEnvUint16("WORLD_S2S_PORT", 9150),
 
 		Debug: getEnvBool("DEBUG", false),
 	}

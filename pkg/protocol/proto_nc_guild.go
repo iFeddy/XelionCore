@@ -400,10 +400,13 @@ func New_PROTO_NC_GUILD_CHAT_CMD(guildNo uint32, talker string, msg string) *Pac
 }
 
 // New_PROTO_NC_GUILD_NAME_ACK responde con el nombre de un gremio (OpCode 0x7477).
-func New_PROTO_NC_GUILD_NAME_ACK(guildNo uint32, guildName string) *PacketWriter {
+// Struct oficial PDB: PROTO_NC_GUILD_NAME_ACK (22 bytes: nNo[4], Name[16], EmblemInfo[2: nPTFileNo[1], nPTIconNo[1]])
+func New_PROTO_NC_GUILD_NAME_ACK(guildNo uint32, guildName string, ptFileNo, ptIconNo byte) *PacketWriter {
 	pw := NewPacketWriter(PROTO_NC_GUILD_NAME_ACK)
 	pw.WriteUint32(guildNo)
 	pw.WriteString(guildName, 16)
+	pw.WriteByte(ptFileNo)
+	pw.WriteByte(ptIconNo)
 	return pw
 }
 

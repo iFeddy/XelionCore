@@ -6,16 +6,18 @@ import (
 
 	"github.com/iFeddy/XelionCore/pkg/database"
 	"github.com/iFeddy/XelionCore/pkg/network"
+	"github.com/iFeddy/XelionCore/pkg/s2s"
 )
 
 // Config holds runtime options for the World Server.
 type Config struct {
-	ID       byte   `json:"id"`
-	Name     string `json:"name"`
-	BindAddr string `json:"bind_addr"`
-	Port     int    `json:"port"`
-	ZoneIP   string `json:"zone_ip"`
-	ZonePort uint16 `json:"zone_port"`
+	ID          byte   `json:"id"`
+	Name        string `json:"name"`
+	BindAddr    string `json:"bind_addr"`
+	Port        int    `json:"port"`
+	ZoneIP      string `json:"zone_ip"`
+	ZonePort    uint16 `json:"zone_port"`
+	S2SBindAddr string `json:"s2s_bind_addr"`
 }
 
 // Server represents a Fiesta World Server instance.
@@ -23,6 +25,7 @@ type Server struct {
 	config    *Config
 	tcpServer *network.TCPServer
 	handler   *Handler
+	s2sServer *s2s.Server
 }
 
 // NewServer initializes a new World Server.
@@ -59,11 +62,15 @@ func NewServer(
 		handler.OnClientDisconnect(c)
 		if c.CharacterID > 0 {
 			handler.partyMgr.UnregisterOnline(c.CharacterID)
-			handler.friendMgr.BroadcastLogout(c.CharacterID, c.Username)
+			handler.friendMgr.BroadcastLogout(c.CharacterID, handler.activeCharName(c))
 			handler.guildMgr.UnregisterOnline(c.CharacterID)
 			handler.kqMgr.UnregisterOnline(c.CharacterID)
 		}
 	})
+	if cfg.S2SBindAddr != "" {
+		s.s2sServer = s2s.NewServer(cfg.S2SBindAddr, handler.HandleZoneEvent)
+		handler.SetS2SSink(s.s2sServer)
+	}
 	return s
 }
 
@@ -89,15 +96,40 @@ func (s *Server) Config() *Config {
 	return s.config
 }
 
+// S2SAddr retorna la dirección del coordinador S2S vivo si está habilitado.
+func (s *Server) S2SAddr() string {
+	if s.s2sServer == nil {
+		return ""
+	}
+	return s.s2sServer.Addr()
+}
+
+// S2SConnectedZones retorna la cantidad de nodos ZoneService enlazados al coordinador S2S.
+func (s *Server) S2SConnectedZones() int {
+	if s.s2sServer == nil {
+		return 0
+	}
+	return s.s2sServer.ConnectedZones()
+}
+
 // Start listens and begins accepting World client connections.
 func (s *Server) Start() error {
 	log.Printf("[WorldServer] Starting World Server '%s' (ID: %d) on %s (Zone -> %s:%d)...",
 		s.config.Name, s.config.ID, s.config.BindAddr, s.config.ZoneIP, s.config.ZonePort)
+	if s.s2sServer != nil {
+		if err := s.s2sServer.Start(); err != nil {
+			return fmt.Errorf("failed to start S2S coordinator on %s: %w", s.config.S2SBindAddr, err)
+		}
+		log.Printf("[WorldServer] Live S2S coordinator listening on %s", s.s2sServer.Addr())
+	}
 	return s.tcpServer.Start()
 }
 
 // Stop gracefully shuts down the World Server.
 func (s *Server) Stop() {
 	log.Printf("[WorldServer] Shutting down '%s'...", s.config.Name)
+	if s.s2sServer != nil {
+		s.s2sServer.Stop()
+	}
 	s.tcpServer.Stop()
 }

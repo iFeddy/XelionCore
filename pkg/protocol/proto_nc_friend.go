@@ -4,60 +4,76 @@ package protocol
 // Nomenclatura y offsets 100% idénticos a WorldManager.pdb / WorldManager.md (Dept: 21)
 
 // PROTO_NC_FRIEND_SET_CONFIRM_REQ envía la solicitud de amistad al jugador objetivo (OpCode 0x5403).
-// Struct oficial PDB: PROTO_NC_FRIEND_SET_CONFIRM_REQ (20 bytes: Name5 requestername)
-func New_PROTO_NC_FRIEND_SET_CONFIRM_REQ(requesterName string) *PacketWriter {
+// Struct oficial PDB: PROTO_NC_FRIEND_SET_CONFIRM_REQ (40 bytes: Name5 charid[20], Name5 friendid[20])
+func New_PROTO_NC_FRIEND_SET_CONFIRM_REQ(requesterName, targetName string) *PacketWriter {
 	pw := NewPacketWriter(PROTO_NC_FRIEND_SET_CONFIRM_REQ)
 	pw.WriteString(requesterName, 20)
+	pw.WriteString(targetName, 20)
 	return pw
 }
 
 // New_PROTO_NC_FRIEND_SET_ACK responde el resultado del intento de agregar amigo (OpCode 0x5402).
-// Struct oficial PDB: PROTO_NC_FRIEND_SET_ACK (22 bytes: Name5 targetname, unsigned short err)
-func New_PROTO_NC_FRIEND_SET_ACK(targetName string, errCode uint16) *PacketWriter {
+// Struct oficial PDB: PROTO_NC_FRIEND_SET_ACK (42 bytes: Name5 charid[20], Name5 friendid[20], unsigned short err)
+func New_PROTO_NC_FRIEND_SET_ACK(charName, friendName string, errCode uint16) *PacketWriter {
 	pw := NewPacketWriter(PROTO_NC_FRIEND_SET_ACK)
-	pw.WriteString(targetName, 20)
+	pw.WriteString(charName, 20)
+	pw.WriteString(friendName, 20)
 	pw.WriteUint16(errCode)
 	return pw
 }
 
-// FriendEntry representa la información de cada amigo en PROTO_NC_FRIEND_LIST_CMD.
-// Struct oficial PDB: PROTO_FRIEND_INFO (charid[20], bIsLogin[1], map[12], charclass[1], level[1])
+// FriendEntry representa la información de cada amigo en PROTO_FRIEND_INFO (72 bytes).
+// Struct oficial PDB: PROTO_FRIEND_INFO (logininfo[4], charid[20], classid[1], level[1], isparty[1], flag[1], map[12], statustitle[32])
 type FriendEntry struct {
-	CharName string // Name5 (20 bytes)
-	IsOnline bool   // 1 byte
-	Map      string // Name3 (12 bytes)
-	Class    byte   // 1 byte
-	Level    byte   // 1 byte
+	CharName    string // Name5 (20 bytes)
+	IsOnline    bool   // bit 0 de logininfo (4 bytes)
+	Map         string // Name3 (12 bytes)
+	Class       byte   // 1 byte
+	Level       byte   // 1 byte
+	IsParty     byte   // 1 byte
+	Flag        byte   // 1 byte
+	StatusTitle string // char[32] (32 bytes)
+}
+
+func writeFriendInfo(pw *PacketWriter, f FriendEntry) {
+	var loginInfo uint32
+	if f.IsOnline {
+		loginInfo = 1
+	}
+	pw.WriteUint32(loginInfo)
+	pw.WriteString(f.CharName, 20)
+	pw.WriteByte(f.Class)
+	pw.WriteByte(f.Level)
+	pw.WriteByte(f.IsParty)
+	pw.WriteByte(f.Flag)
+	pw.WriteString(f.Map, 12)
+	pw.WriteString(f.StatusTitle, 32)
 }
 
 // New_PROTO_NC_FRIEND_LIST_CMD construye la lista oficial de amigos del jugador (OpCode 0x5407).
+// Struct oficial PDB: PROTO_NC_FRIEND_LIST_CMD (1 + N * 72 bytes)
 func New_PROTO_NC_FRIEND_LIST_CMD(friends []FriendEntry) *PacketWriter {
 	pw := NewPacketWriter(PROTO_NC_FRIEND_LIST_CMD)
 	pw.WriteByte(byte(len(friends)))
 	for _, f := range friends {
-		pw.WriteString(f.CharName, 20)
-		pw.WriteBool(f.IsOnline)
-		pw.WriteString(f.Map, 12)
-		pw.WriteByte(f.Class)
-		pw.WriteByte(f.Level)
+		writeFriendInfo(pw, f)
 	}
 	return pw
 }
 
 // New_PROTO_NC_FRIEND_ADD_CMD notifica la incorporación de un nuevo amigo a la lista (OpCode 0x5408).
+// Struct oficial PDB: PROTO_NC_FRIEND_ADD_CMD (72 bytes: PROTO_FRIEND_INFO)
 func New_PROTO_NC_FRIEND_ADD_CMD(f FriendEntry) *PacketWriter {
 	pw := NewPacketWriter(PROTO_NC_FRIEND_ADD_CMD)
-	pw.WriteString(f.CharName, 20)
-	pw.WriteBool(f.IsOnline)
-	pw.WriteString(f.Map, 12)
-	pw.WriteByte(f.Class)
-	pw.WriteByte(f.Level)
+	writeFriendInfo(pw, f)
 	return pw
 }
 
 // New_PROTO_NC_FRIEND_DEL_ACK confirma la eliminación de un amigo (OpCode 0x5406).
-func New_PROTO_NC_FRIEND_DEL_ACK(friendName string, errCode uint16) *PacketWriter {
+// Struct oficial PDB: PROTO_NC_FRIEND_DEL_ACK (42 bytes: Name5 charid[20], Name5 friendid[20], unsigned short err)
+func New_PROTO_NC_FRIEND_DEL_ACK(charName, friendName string, errCode uint16) *PacketWriter {
 	pw := NewPacketWriter(PROTO_NC_FRIEND_DEL_ACK)
+	pw.WriteString(charName, 20)
 	pw.WriteString(friendName, 20)
 	pw.WriteUint16(errCode)
 	return pw
@@ -81,27 +97,21 @@ func New_PROTO_NC_FRIEND_LOGOUT_CMD(charName string) *PacketWriter {
 }
 
 // New_PROTO_NC_FRIEND_POINT_ACK responde la consulta de puntos de amistad (OpCode 0x541E).
-func New_PROTO_NC_FRIEND_POINT_ACK(points uint32) *PacketWriter {
+// Struct oficial PDB: PROTO_NC_FRIEND_POINT_ACK (2 bytes: unsigned short friendpoint)
+func New_PROTO_NC_FRIEND_POINT_ACK(points uint16) *PacketWriter {
 	pw := NewPacketWriter(PROTO_NC_FRIEND_POINT_ACK)
-	pw.WriteUint32(points)
+	pw.WriteUint16(points)
 	return pw
 }
 
 // New_PROTO_NC_FRIEND_FIND_FRIENDS_ACK construye la respuesta a la búsqueda de amigos (OpCode 0x5420).
+// Struct oficial PDB: PROTO_NC_FRIEND_FIND_FRIENDS_ACK (4 + N * 72 bytes)
 func New_PROTO_NC_FRIEND_FIND_FRIENDS_ACK(errCode uint16, results []FriendEntry) *PacketWriter {
 	pw := NewPacketWriter(PROTO_NC_FRIEND_FIND_FRIENDS_ACK)
 	pw.WriteUint16(errCode)
 	pw.WriteUint16(uint16(len(results)))
 	for _, f := range results {
-		pw.WriteString(f.CharName, 16)
-		pw.WriteByte(f.Class)
-		pw.WriteByte(f.Level)
-		pw.WriteString(f.Map, 12)
-		if f.IsOnline {
-			pw.WriteByte(1)
-		} else {
-			pw.WriteByte(0)
-		}
+		writeFriendInfo(pw, f)
 	}
 	return pw
 }

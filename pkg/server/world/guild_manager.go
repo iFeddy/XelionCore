@@ -47,6 +47,27 @@ func NewGuildManager(repo database.CharacterRepository) *GuildManager {
 	}
 }
 
+// SyncRenameCache difunde a los miembros conectados del gremio un cambio de nombre recibido desde ZoneService.
+func (gm *GuildManager) SyncRenameCache(guildID int, newName string) {
+	if guildID <= 0 || strings.TrimSpace(newName) == "" {
+		return
+	}
+	pkt := protocol.New_PROTO_NC_GUILD_NAME_ACK(uint32(guildID), newName, 0, 0)
+	gm.BroadcastToGuild(guildID, pkt, 0)
+}
+
+// SyncRetypeCache actualiza/notifica a miembros conectados cuando ZoneService cambia el tipo de gremio.
+func (gm *GuildManager) SyncRetypeCache(guildID int, newType byte) {
+	if guildID <= 0 || gm.charRepo == nil {
+		return
+	}
+	g, err := gm.charRepo.GetGuild(guildID)
+	if err == nil && g != nil {
+		_ = newType
+		gm.BroadcastToGuild(guildID, protocol.New_PROTO_NC_GUILD_NAME_ACK(uint32(guildID), g.Name, 0, 0), 0)
+	}
+}
+
 // RegisterOnline registra la sesión de un jugador y notifica su conexión al gremio si corresponde.
 func (gm *GuildManager) RegisterOnline(client *network.Client, charID int, charName string) {
 	gm.mu.Lock()
@@ -712,54 +733,116 @@ func (gm *GuildManager) HandleWarListReq(client *network.Client) {
 	_ = client.SendPacket(resp)
 }
 
-// HandleGuildNameReq permite cambiar el nombre del gremio (0x7476).
+func writeGuildTM(pw *protocol.PacketWriter, t time.Time) {
+	if t.IsZero() {
+		pw.Fill(36, 0)
+		return
+	}
+	pw.WriteInt32(int32(t.Second()))
+	pw.WriteInt32(int32(t.Minute()))
+	pw.WriteInt32(int32(t.Hour()))
+	pw.WriteInt32(int32(t.Day()))
+	pw.WriteInt32(int32(t.Month() - 1))
+	pw.WriteInt32(int32(t.Year() - 1900))
+	pw.WriteInt32(int32(t.Weekday()))
+	pw.WriteInt32(int32(t.YearDay() - 1))
+	pw.WriteInt32(0)
+}
+
+func writeGuildHistoryEntries(pw *protocol.PacketWriter, history []*database.GuildHistoryData) {
+	now := time.Now()
+	total := uint16(len(history))
+	pw.WriteUint16(0)     // Error
+	pw.WriteUint16(total) // TotalHistoryCount
+	pw.WriteUint16(total) // HistoryCount
+	pw.WriteUint16(0)     // HistoryIndex
+	for i, h := range history {
+		pw.WriteUint32(uint32(i + 1))             // nHistoryNumber (4B)
+		pw.WriteUint16(uint16(now.Year()))        // nYear (2B)
+		pw.WriteByte(byte(now.Month()))           // nMon (1B)
+		pw.WriteByte(byte(now.Day()))             // nDay (1B)
+		pw.WriteString(h.Text, 20)                // sCharName (20B)
+		pw.WriteUint32(uint32(h.HistoryType))     // nMessageType (4B)
+	}
+}
+
+// HandleGuildNameReq permite cambiar o consultar el nombre del gremio (0x7476).
+// Struct oficial PDB: PROTO_NC_GUILD_NAME_ACK (22 bytes: nNo[4], Name[16], EmblemInfo[2])
 func (gm *GuildManager) HandleGuildNameReq(client *network.Client, newName string) {
-	resp := protocol.NewPacketWriter(protocol.PROTO_NC_GUILD_NAME_ACK)
-	resp.WriteString(newName, 16)
-	resp.WriteUint16(0)
-	_ = client.SendPacket(resp)
+	var guildNo uint32
+	if gm.charRepo != nil && client.CharacterID > 0 {
+		if g, _, err := gm.charRepo.GetGuildByCharID(client.CharacterID); err == nil && g != nil {
+			guildNo = uint32(g.ID)
+			if strings.TrimSpace(newName) == "" {
+				newName = g.Name
+			}
+		}
+	}
+	_ = client.SendPacket(protocol.New_PROTO_NC_GUILD_NAME_ACK(guildNo, newName, 0, 0))
 }
 
 // HandleTournamentJoinReq inscribe al gremio en el torneo (0x747A).
+// Struct oficial PDB: PROTO_NC_GUILD_TOURNAMENT_JOIN_ACK (8 bytes: nGuildNo[4], nTeamPosition[2], nError[2])
 func (gm *GuildManager) HandleTournamentJoinReq(client *network.Client, gtNo int) {
 	resp := protocol.NewPacketWriter(protocol.PROTO_NC_GUILD_TOURNAMENT_JOIN_ACK)
-	resp.WriteUint16(uint16(gtNo))
-	resp.WriteUint16(0)
+	resp.WriteUint32(uint32(gtNo)) // nGuildNo
+	resp.WriteUint16(0)            // nTeamPosition
+	resp.WriteUint16(0)            // nError
 	_ = client.SendPacket(resp)
 }
 
 // HandleTournamentListReq devuelve los torneos de gremio programados (0x747E).
+// Struct oficial PDB: PROTO_NC_GUILD_TOURNAMENT_LIST_ACK (1014 bytes)
 func (gm *GuildManager) HandleTournamentListReq(client *network.Client) {
 	tournaments, _ := gm.charRepo.GetAllGuildTournaments()
+	now := time.Now()
 	resp := protocol.NewPacketWriter(protocol.PROTO_NC_GUILD_TOURNAMENT_LIST_ACK)
-	resp.WriteUint16(0) // Error
-	resp.WriteUint16(uint16(len(tournaments)))
-	for _, t := range tournaments {
-		resp.WriteUint16(uint16(t.GTNo))
-		resp.WriteByte(t.State)
-		resp.WriteByte(t.MinLevel)
-		resp.WriteByte(t.MaxLevel)
+	resp.WriteUint16(0) // nError
+	for i := 0; i < 9; i++ {
+		resp.WriteInt32(int32(now.Unix())) // 9 x time_t timestamps (Time_Start .. Time_Finish)
+	}
+	for i := 0; i < 9; i++ {
+		writeGuildTM(resp, now) // 9 x struct tm (36 bytes cada uno)
+	}
+	resp.WriteByte(0) // nMatchType
+	for i := 0; i < 31; i++ {
+		if i < len(tournaments) {
+			resp.WriteByte(tournaments[i].State)
+			resp.WriteUint32(uint32(tournaments[i].GTNo))
+			resp.WriteString("", 16)
+		} else {
+			resp.Fill(21, 0) // GUILD_TOURNAMENT_LIST (21 bytes)
+		}
 	}
 	_ = client.SendPacket(resp)
 }
 
 // HandleMyTournamentMatchTimeReq consulta el horario del torneo del gremio (0x74C3).
+// Struct oficial PDB: PROTO_NC_GUILD_MY_GUILD_TOURNAMENT_MATCH_TIME_ACK (45 bytes: Error[2], GT_COND_INFO[43])
 func (gm *GuildManager) HandleMyTournamentMatchTimeReq(client *network.Client) {
 	resp := protocol.NewPacketWriter(protocol.PROTO_NC_GUILD_MY_GUILD_TOURNAMENT_MATCH_TIME_ACK)
-	resp.WriteUint16(0)
-	resp.WriteUint32(0)
+	resp.WriteUint16(0)  // Error (2B)
+	resp.WriteByte(0)    // nMyGTCondition (1B)
+	resp.WriteInt32(0)   // nMatchTime (4B)
+	resp.Fill(36, 0)     // tm_nMatchTime (36B)
+	resp.WriteByte(0)    // nGTGrade (1B)
+	resp.WriteByte(0)    // bIsJoin (1B)
 	_ = client.SendPacket(resp)
 }
 
 // HandleTournamentJoinListReq lista de gremios inscritos en el torneo (0x74E9).
+// Struct oficial PDB: PROTO_NC_GUILD_TOURNAMENT_JOIN_LIST_ACK (9 bytes: Error[2], PartMask[1], nGTNo[4], nJoinGuildNum[2])
 func (gm *GuildManager) HandleTournamentJoinListReq(client *network.Client, gtNo int) {
 	resp := protocol.NewPacketWriter(protocol.PROTO_NC_GUILD_TOURNAMENT_JOIN_LIST_ACK)
-	resp.WriteUint16(uint16(gtNo))
-	resp.WriteUint16(0) // Count: 0
+	resp.WriteUint16(0)            // Error
+	resp.WriteByte(0x03)           // PartMask
+	resp.WriteUint32(uint32(gtNo)) // nGTNo
+	resp.WriteUint16(0)            // nJoinGuildNum
 	_ = client.SendPacket(resp)
 }
 
 // HandleTokenInfoReq consulta los tokens acumulados por el gremio en tGuild (0x74BE).
+// Struct oficial PDB: PROTO_NC_GUILD_MY_GUILD_TOKEN_INFO_ACK (10 bytes: Error[2], nGuildToken[8])
 func (gm *GuildManager) HandleTokenInfoReq(client *network.Client) {
 	charID := client.CharacterID
 	guild, _, err := gm.charRepo.GetGuildByCharID(charID)
@@ -768,11 +851,13 @@ func (gm *GuildManager) HandleTokenInfoReq(client *network.Client) {
 		token, _ = gm.charRepo.GetGuildToken(guild.ID)
 	}
 	resp := protocol.NewPacketWriter(protocol.PROTO_NC_GUILD_MY_GUILD_TOKEN_INFO_ACK)
+	resp.WriteUint16(0) // Error
 	resp.WriteUint64(uint64(token))
 	_ = client.SendPacket(resp)
 }
 
 // HandleHistoryListReq consulta el historial oficial del gremio en tGuildHistory (0x74FD).
+// Struct oficial PDB: PROTO_NC_GUILD_HISTORY_LIST_ACK (8 bytes + N * 32 GUILD_HISTORY)
 func (gm *GuildManager) HandleHistoryListReq(client *network.Client) {
 	charID := client.CharacterID
 	guild, _, err := gm.charRepo.GetGuildByCharID(charID)
@@ -781,14 +866,7 @@ func (gm *GuildManager) HandleHistoryListReq(client *network.Client) {
 		history, _ = gm.charRepo.GetGuildHistory(guild.ID)
 	}
 	resp := protocol.NewPacketWriter(protocol.PROTO_NC_GUILD_HISTORY_LIST_ACK)
-	resp.WriteUint16(0)
-	resp.WriteUint16(uint16(len(history)))
-	for _, h := range history {
-		resp.WriteByte(h.HistoryType)
-		resp.WriteUint32(uint32(h.Param1))
-		resp.WriteUint32(uint32(h.Param2))
-		resp.WriteString(h.Text, 64)
-	}
+	writeGuildHistoryEntries(resp, history)
 	_ = client.SendPacket(resp)
 }
 
@@ -811,10 +889,13 @@ func (gm *GuildManager) HandleEmblemSaveReq(client *network.Client, emblemData [
 // ============================================================================
 
 // HandleAcademyRankInfo consulta el ranking de la academia (0x9809).
+// Struct oficial PDB: PROTO_NC_GUILD_ACADEMY_MY_ACADEMY_RANK_INFO_ACK (14 bytes: Error[2], Point[4], Rank[4], BuffUntil[4])
 func (gm *GuildManager) HandleAcademyRankInfo(client *network.Client) {
 	resp := protocol.NewPacketWriter(protocol.PROTO_NC_GUILD_ACADEMY_MY_ACADEMY_RANK_INFO_ACK)
-	resp.WriteUint16(0)
-	resp.WriteUint32(1) // Rank 1
+	resp.WriteUint16(0) // Error
+	resp.WriteUint32(0) // nAcademyPoint
+	resp.WriteUint32(1) // nAcademyRank
+	resp.WriteInt32(0)  // dAcademyBuffUntilTime
 	_ = client.SendPacket(resp)
 }
 
@@ -841,6 +922,7 @@ func (gm *GuildManager) HandleAcademyMasterTeleport(client *network.Client) {
 }
 
 // HandleAcademyChatBan silencia a un alumno en el chat de academia en tGuildAcademy (0x9821).
+// Struct oficial PDB: PROTO_NC_GUILD_ACADEMY_MEMBER_CHAT_BAN_ACK (2 bytes: Error[2])
 func (gm *GuildManager) HandleAcademyChatBan(client *network.Client, targetName string, minutes int) {
 	charID := client.CharacterID
 	guild, _, _ := gm.charRepo.GetGuildByCharID(charID)
@@ -849,12 +931,12 @@ func (gm *GuildManager) HandleAcademyChatBan(client *network.Client, targetName 
 		_ = gm.charRepo.SetAcademyChatBan(guild.ID, targetCh.ID, minutes)
 	}
 	resp := protocol.NewPacketWriter(protocol.PROTO_NC_GUILD_ACADEMY_MEMBER_CHAT_BAN_ACK)
-	resp.WriteString(targetName, 20)
 	resp.WriteUint16(0)
 	_ = client.SendPacket(resp)
 }
 
 // HandleAcademyChatBanCancel cancela el silencio de un alumno en tGuildAcademy (0x988A).
+// Struct oficial PDB: PROTO_NC_GUILD_ACADEMY_MEMBER_CHAT_BAN_CANCEL_ACK (2 bytes: Error[2])
 func (gm *GuildManager) HandleAcademyChatBanCancel(client *network.Client, targetName string) {
 	charID := client.CharacterID
 	guild, _, _ := gm.charRepo.GetGuildByCharID(charID)
@@ -863,7 +945,6 @@ func (gm *GuildManager) HandleAcademyChatBanCancel(client *network.Client, targe
 		_ = gm.charRepo.SetAcademyChatBan(guild.ID, targetCh.ID, 0)
 	}
 	resp := protocol.NewPacketWriter(protocol.PROTO_NC_GUILD_ACADEMY_MEMBER_CHAT_BAN_CANCEL_ACK)
-	resp.WriteString(targetName, 20)
 	resp.WriteUint16(0)
 	_ = client.SendPacket(resp)
 }
@@ -872,8 +953,12 @@ func (gm *GuildManager) HandleAcademyChatBanCancel(client *network.Client, targe
 func (gm *GuildManager) HandleAcademyNotify(client *network.Client, notify string) {
 	charID := client.CharacterID
 	guild, _, _ := gm.charRepo.GetGuildByCharID(charID)
+	senderName := client.CharName
+	if senderName == "" {
+		senderName = client.Username
+	}
 	if guild != nil {
-		_ = gm.charRepo.SetAcademyNotify(guild.ID, client.Username, notify)
+		_ = gm.charRepo.SetAcademyNotify(guild.ID, senderName, notify)
 	}
 	resp := protocol.NewPacketWriter(protocol.PROTO_NC_GUILD_ACADEMY_NOTIFY_ACK)
 	resp.WriteUint16(0)
@@ -889,26 +974,30 @@ func (gm *GuildManager) HandleAcademyGuildInvite(client *network.Client, targetN
 }
 
 // HandleAcademyGuildJoinAck respuesta a la promoción a miembro de gremio (0x982C).
-func (gm *GuildManager) HandleAcademyGuildJoinAck(client *network.Client, isAccept byte) {
+// Struct oficial PDB: PROTO_NC_GUILD_ACADEMY_MEMBER_GUILD_JOIN_ACK (37 bytes: GuildName[16], sInviteSourceCharID[20], JoinAck[1])
+func (gm *GuildManager) HandleAcademyGuildJoinAck(client *network.Client, guildName, inviteSource string, isAccept byte) {
 	resp := protocol.NewPacketWriter(protocol.PROTO_NC_GUILD_ACADEMY_MEMBER_GUILD_JOIN_ACK)
+	resp.WriteString(guildName, 16)
+	resp.WriteString(inviteSource, 20)
 	resp.WriteByte(isAccept)
-	resp.WriteUint16(0)
 	_ = client.SendPacket(resp)
 }
 
 // HandleAcademyGetRewardMoney consulta recompensa de dinero (0x9831).
+// Struct oficial PDB: PROTO_NC_GUILD_ACADEMY_GET_REWARD_MONEY_ACK (3 bytes header: Error[2], NumOfRewardGood[1])
 func (gm *GuildManager) HandleAcademyGetRewardMoney(client *network.Client) {
 	resp := protocol.NewPacketWriter(protocol.PROTO_NC_GUILD_ACADEMY_GET_REWARD_MONEY_ACK)
-	resp.WriteUint16(0)
-	resp.WriteUint64(0)
+	resp.WriteUint16(0) // Error
+	resp.WriteByte(0)   // NumOfRewardGood
 	_ = client.SendPacket(resp)
 }
 
 // HandleAcademyGetRewardItem consulta recompensa de item (0x9835).
+// Struct oficial PDB: PROTO_NC_GUILD_ACADEMY_GET_REWARD_ITEM_ACK (3 bytes header: Error[2], NumOfRewardGood[1])
 func (gm *GuildManager) HandleAcademyGetRewardItem(client *network.Client) {
 	resp := protocol.NewPacketWriter(protocol.PROTO_NC_GUILD_ACADEMY_GET_REWARD_ITEM_ACK)
-	resp.WriteUint16(0)
-	resp.WriteUint16(0)
+	resp.WriteUint16(0) // Error
+	resp.WriteByte(0)   // NumOfRewardGood
 	_ = client.SendPacket(resp)
 }
 
@@ -941,54 +1030,80 @@ func (gm *GuildManager) HandleAcademyClearRewardItem(client *network.Client) {
 }
 
 // HandleAcademyGetGraduate consulta alumnos graduados en tGuildAcademyGraduate (0x9849).
+// Struct oficial PDB: PROTO_NC_GUILD_ACADEMY_GET_GRADUATE_ACK (67 bytes + N * 103 EACH_GRADUATE_DATA)
 func (gm *GuildManager) HandleAcademyGetGraduate(client *network.Client) {
 	charID := client.CharacterID
 	guild, _, _ := gm.charRepo.GetGuildByCharID(charID)
 	var grads []int
+	var guildNo uint32
+	var guildName string
 	if guild != nil {
+		guildNo = uint32(guild.ID)
+		guildName = guild.Name
 		grads, _ = gm.charRepo.GetAcademyGraduates(guild.ID)
 	}
+	now := time.Now()
 	resp := protocol.NewPacketWriter(protocol.PROTO_NC_GUILD_ACADEMY_GET_GRADUATE_ACK)
-	resp.WriteUint16(0)
-	resp.WriteUint16(uint16(len(grads)))
+	resp.WriteUint16(0)                 // Error (2B)
+	resp.WriteByte(0x03)                // PartMask (1B)
+	resp.WriteUint32(guildNo)           // nGuildNo (4B)
+	resp.WriteString(guildName, 16)     // sGuildName (16B)
+	resp.WriteInt32(int32(now.Unix()))  // dGuildMakeDate (4B)
+	writeGuildTM(resp, now)             // tm_dGuildMakeDate (36B)
+	resp.WriteUint16(uint16(len(grads))) // nAllGraduateCount (2B)
+	resp.WriteUint16(uint16(len(grads))) // NumOfEachGraduateData (2B)
 	for _, gid := range grads {
-		resp.WriteUint32(uint32(gid))
+		gradName := ""
+		var classID, lv byte = 1, 20
+		if ch, err := gm.charRepo.GetCharacterByID(gid); err == nil && ch != nil {
+			gradName = ch.Name
+			classID = ch.Job
+			lv = ch.Level
+		}
+		resp.WriteString(gradName, 20)
+		resp.WriteByte(classID)
+		resp.WriteByte(1) // nJoinLevel
+		resp.WriteInt32(int32(now.Unix()))
+		writeGuildTM(resp, now)
+		resp.WriteByte(lv) // nGraduateLevel
+		resp.WriteInt32(int32(now.Unix()))
+		writeGuildTM(resp, now)
 	}
 	_ = client.SendPacket(resp)
 }
 
 // HandleAcademyGetRankingList consulta el ranking de academias (0x984D).
+// Struct oficial PDB: PROTO_NC_GUILD_ACADEMY_GET_RANKING_LIST_ACK (51 bytes + N * 44 GUILD_ACADEMY_EACH_RANKING_DATA)
 func (gm *GuildManager) HandleAcademyGetRankingList(client *network.Client) {
+	now := time.Now()
 	resp := protocol.NewPacketWriter(protocol.PROTO_NC_GUILD_ACADEMY_GET_RANKING_LIST_ACK)
-	resp.WriteUint16(0)
-	resp.WriteUint16(0)
+	resp.WriteUint16(0)                // Error (2B)
+	resp.WriteByte(0x03)               // PartMask (1B)
+	resp.WriteInt32(int32(now.Unix())) // dAggregationDate (4B)
+	writeGuildTM(resp, now)            // tm_dAggregationDate (36B)
+	resp.WriteUint32(0)                // nAllRankingCount (4B)
+	resp.WriteUint32(0)                // NumOfEachRankingData (4B)
 	_ = client.SendPacket(resp)
 }
 
 // HandleAcademySetMaster nombra al director de la academia (0x9859).
+// Struct oficial PDB: PROTO_NC_GUILD_ACADEMY_SET_MASTER_ACK (2 bytes: Error[2])
 func (gm *GuildManager) HandleAcademySetMaster(client *network.Client, newMasterName string) {
 	resp := protocol.NewPacketWriter(protocol.PROTO_NC_GUILD_ACADEMY_SET_MASTER_ACK)
-	resp.WriteString(newMasterName, 20)
 	resp.WriteUint16(0)
 	_ = client.SendPacket(resp)
 }
 
 // HandleAcademyHistoryList consulta el historial de la academia en tGuildHistory (0x988F).
+// Struct oficial PDB: PROTO_NC_GUILD_ACADEMY_HISTORY_LIST_ACK (8 bytes + N * 32 GUILD_HISTORY)
 func (gm *GuildManager) HandleAcademyHistoryList(client *network.Client) {
 	charID := client.CharacterID
-	guild, _, _ := gm.charRepo.GetGuildByCharID(charID)
+	guild, _, err := gm.charRepo.GetGuildByCharID(charID)
 	var history []*database.GuildHistoryData
-	if guild != nil {
+	if err == nil && guild != nil {
 		history, _ = gm.charRepo.GetGuildHistory(guild.ID)
 	}
 	resp := protocol.NewPacketWriter(protocol.PROTO_NC_GUILD_ACADEMY_HISTORY_LIST_ACK)
-	resp.WriteUint16(0)
-	resp.WriteUint16(uint16(len(history)))
-	for _, h := range history {
-		resp.WriteByte(h.HistoryType)
-		resp.WriteUint32(uint32(h.Param1))
-		resp.WriteUint32(uint32(h.Param2))
-		resp.WriteString(h.Text, 64)
-	}
+	writeGuildHistoryEntries(resp, history)
 	_ = client.SendPacket(resp)
 }

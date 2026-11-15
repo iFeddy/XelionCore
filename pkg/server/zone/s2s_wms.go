@@ -120,6 +120,38 @@ func (h *Handler) DispatchWMS(symbol string, payload map[string]interface{}) boo
 	return true
 }
 
+// ApplyIncomingWMS ejecuta un evento wms_NC_* recibido desde WorldService sin re-publicarlo al puente S2S.
+func (h *Handler) ApplyIncomingWMS(symbol string, worldID byte, zoneNo uint16, payload map[string]interface{}) bool {
+	if h.s2s == nil {
+		h.mu.Lock()
+		if h.s2s == nil {
+			h.s2s = NewS2SCoordinator()
+		}
+		h.mu.Unlock()
+	}
+	h.s2s.mu.RLock()
+	fn, ok := h.s2s.wmsHandlers[symbol]
+	h.s2s.mu.RUnlock()
+	if !ok || fn == nil {
+		return false
+	}
+	ev := WMSEvent{
+		Symbol:  symbol,
+		WorldID: worldID,
+		ZoneNo:  zoneNo,
+		Payload: payload,
+	}
+	h.s2s.mu.Lock()
+	if len(h.s2s.eventHistory) >= 512 {
+		h.s2s.eventHistory = h.s2s.eventHistory[1:]
+	}
+	h.s2s.eventHistory = append(h.s2s.eventHistory, ev)
+	h.s2s.mu.Unlock()
+
+	fn(h, ev)
+	return true
+}
+
 // DispatchGDS valida y ejecuta un flujo S2S gds_NC_* sobre CharacterRepository (100% SP).
 func (h *Handler) DispatchGDS(symbol string) (string, bool) {
 	if h.s2s == nil {
@@ -135,29 +167,141 @@ func (h *Handler) DispatchGDS(symbol string) (string, bool) {
 	return sp, ok
 }
 
+func payloadString(m map[string]interface{}, key string) string {
+	if m == nil {
+		return ""
+	}
+	v, ok := m[key]
+	if !ok || v == nil {
+		return ""
+	}
+	if s, ok := v.(string); ok {
+		return s
+	}
+	return fmt.Sprintf("%v", v)
+}
+
+func payloadInt(m map[string]interface{}, key string) (int, bool) {
+	if m == nil {
+		return 0, false
+	}
+	v, ok := m[key]
+	if !ok || v == nil {
+		return 0, false
+	}
+	switch n := v.(type) {
+	case int:
+		return n, true
+	case int64:
+		return int(n), true
+	case uint16:
+		return int(n), true
+	case uint32:
+		return int(n), true
+	case byte:
+		return int(n), true
+	case float64:
+		return int(n), true
+	default:
+		return 0, false
+	}
+}
+
+func payloadBool(m map[string]interface{}, key string) bool {
+	if m == nil {
+		return false
+	}
+	v, ok := m[key]
+	if !ok {
+		return false
+	}
+	b, _ := v.(bool)
+	return b
+}
+
 func defaultWMSHandlerFor(sym string) WMSHandlerFunc {
 	return func(h *Handler, ev WMSEvent) {
 		switch sym {
-		case "wms_NC_USER_KICKOFFFROMWORLD_CMD", "wms_NC_USER_CONNECTCUT2ZONE_CMD":
-			if charName, ok := ev.Payload["charName"].(string); ok && charName != "" {
+		case "wms_NC_USER_KICKOFFFROMWORLD_CMD":
+			if charName := payloadString(ev.Payload, "charName"); charName != "" {
+				if p, found := h.GetPlayerByName(charName); found && p != nil && p.Client != nil {
+					p.Client.Close()
+					return
+				}
+			}
+			if charID, ok := payloadInt(ev.Payload, "char_id"); ok && charID > 0 {
+				if p, found := h.GetPlayerByCharID(charID); found && p != nil && p.Client != nil {
+					p.Client.Close()
+					return
+				}
+			}
+			if accID, ok := payloadInt(ev.Payload, "account_id"); ok && accID > 0 {
+				if p, found := h.GetPlayerByAccountID(accID); found && p != nil && p.Client != nil {
+					p.Client.Close()
+				}
+			}
+		case "wms_NC_USER_CONNECTCUT2ZONE_CMD":
+			if charName := payloadString(ev.Payload, "charName"); charName != "" {
 				if p, found := h.GetPlayerByName(charName); found && p != nil && p.Client != nil {
 					p.Client.Close()
 				}
 			}
 		case "wms_NC_CT_CHARTTING_CMD", "wms_NC_MISC_START_THE_BOOM_CMD":
-			if msg, ok := ev.Payload["message"].(string); ok && msg != "" && h.mapManager != nil {
+			msg := payloadString(ev.Payload, "message")
+			if msg == "" {
+				return
+			}
+			typ := payloadString(ev.Payload, "type")
+			sender := payloadString(ev.Payload, "sender")
+			if typ == "whisper" {
+				target := payloadString(ev.Payload, "target")
+				if target != "" {
+					if p, found := h.GetPlayerByName(target); found && p != nil && p.Client != nil {
+						flagVal, _ := payloadInt(ev.Payload, "senderFlag")
+						if len(msg) > 250 {
+							msg = msg[:250]
+						}
+						cmd := protocol.NewPacketWriter(protocol.PROTO_NC_ACT_SOMEONEWHISPER_CMD)
+						cmd.WriteByte(byte(flagVal))
+						cmd.WriteString(sender, 20)
+						cmd.WriteByte(byte(len(msg)))
+						cmd.WriteBytes([]byte(msg))
+						_ = p.Client.SendPacket(cmd)
+					}
+				}
+				return
+			}
+			if (typ == "roar" || typ == "shout") && !payloadBool(ev.Payload, "inbound") {
+				return
+			}
+			if h.mapManager != nil {
+				if (typ == "roar" || typ == "shout") && sender != "" {
+					if len(msg) > 250 {
+						msg = msg[:250]
+					}
+					cmd := protocol.NewPacketWriter(protocol.PROTO_NC_ACT_SOMEONESHOUT_CMD)
+					cmd.WriteByte(0)
+					cmd.WriteString(sender, 20)
+					cmd.WriteByte(1)
+					cmd.WriteByte(byte(len(msg)))
+					cmd.WriteBytes([]byte(msg))
+					for _, m := range h.mapManager.GetAllMaps() {
+						m.Broadcast(cmd, 0)
+					}
+					return
+				}
 				for _, m := range h.mapManager.GetAllMaps() {
 					m.bridgeBroadcastNotice(msg)
 				}
 			}
 		case "wms_NC_ZONE_PRISON_GO_REQ":
-			if charName, ok := ev.Payload["charName"].(string); ok && charName != "" {
+			if charName := payloadString(ev.Payload, "charName"); charName != "" {
 				if p, found := h.GetPlayerByName(charName); found && p != nil {
 					h.WarpPlayer(p, "EldPri", 1500, 1500, 0)
 				}
 			}
 		case "wms_NC_ZONE_PRISON_END_CMD":
-			if charName, ok := ev.Payload["charName"].(string); ok && charName != "" {
+			if charName := payloadString(ev.Payload, "charName"); charName != "" {
 				if p, found := h.GetPlayerByName(charName); found && p != nil {
 					destMap := ""
 					rx, ry := 5000, 5000
@@ -176,10 +320,25 @@ func defaultWMSHandlerFor(sym string) WMSHandlerFunc {
 				}
 			}
 		case "wms_NC_CHAR_ZONE_CHAT_COLOR_CMD":
-			if charID, ok := ev.Payload["charID"].(int); ok && h.charRepo != nil {
+			if charID, ok := payloadInt(ev.Payload, "charID"); ok {
 				if p, found := h.GetPlayerByCharID(charID); found && p != nil && p.Client != nil {
+					fontID, _ := payloadInt(ev.Payload, "fontColorID")
+					balloonID, _ := payloadInt(ev.Payload, "balloonColorID")
 					cmd := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_CHAT_COLOR_CMD)
+					cmd.WriteUint32(uint32(charID))
+					cmd.WriteByte(byte(fontID))
+					cmd.WriteByte(byte(balloonID))
 					_ = p.Client.SendPacket(cmd)
+				}
+			}
+		case "wms_NC_USER_CONNECTION_ZONE_CHANGE_CHAR_ID_CMD":
+			if payloadBool(ev.Payload, "inbound") {
+				if charID, ok := payloadInt(ev.Payload, "char_id"); ok {
+					if newName := payloadString(ev.Payload, "new_name"); newName != "" {
+						if p, found := h.GetPlayerByCharID(charID); found && p != nil && p.Char != nil {
+							p.Char.Name = newName
+						}
+					}
 				}
 			}
 		case "wms_NC_MISC_S2SCONNECTION_RDY", "wms_NC_MISC_S2SCONNECTION_ACK":
@@ -190,6 +349,18 @@ func defaultWMSHandlerFor(sym string) WMSHandlerFunc {
 			}
 		}
 	}
+}
+
+// GetPlayerByAccountID localiza un jugador conectado por su nUserNo.
+func (h *Handler) GetPlayerByAccountID(accountID int) (*ZonePlayer, bool) {
+	h.mu.RLock()
+	defer h.mu.RUnlock()
+	for _, p := range h.players {
+		if p != nil && p.Char != nil && p.Char.AccountID == accountID {
+			return p, true
+		}
+	}
+	return nil, false
 }
 
 // GetPlayerByCharID localiza un jugador conectado por su nCharNo.

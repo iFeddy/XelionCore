@@ -68,6 +68,22 @@ func (km *KQManager) QuestCount() int {
 	return len(km.instances)
 }
 
+// RemovePlayer desconecta a un personaje de las sesiones activas y colas de Kingdom Quest.
+func (km *KQManager) RemovePlayer(charID int) {
+	if charID <= 0 {
+		return
+	}
+	km.mu.Lock()
+	delete(km.onlinePlayers, charID)
+	if handle, ok := km.charToKQ[charID]; ok {
+		if kq, exists := km.instances[handle]; exists && kq.Participants != nil {
+			delete(kq.Participants, charID)
+		}
+		delete(km.charToKQ, charID)
+	}
+	km.mu.Unlock()
+}
+
 // NewKQManager inicializa el gestor de Kingdom Quests a partir de archivos SHN oficiales y persiste en tKingdomQuest.
 func NewKQManager(dataStore *WorldDataStore, charRepo database.CharacterRepository) *KQManager {
 	km := &KQManager{
@@ -523,9 +539,17 @@ func (km *KQManager) HandleVoteStart(client *network.Client, targetName string) 
 	_ = client.SendPacket(ackPw)
 
 	// Broadcast voting cmd (0x5829)
+	// Struct oficial PDB: PROTO_NC_KQ_VOTE_VOTING_CMD (78 + nLen bytes: sStarter[20], sTarget[20], nVoteType[1], tEndTime[36], nLen[1], sContents[nLen])
+	starterName := client.CharName
+	if starterName == "" {
+		starterName = client.Username
+	}
 	votingCmd := protocol.NewPacketWriter(protocol.PROTO_NC_KQ_VOTE_VOTING_CMD)
-	votingCmd.WriteString(targetName, 16)
-	votingCmd.WriteString(client.Username, 16)
+	votingCmd.WriteString(starterName, 20)
+	votingCmd.WriteString(targetName, 20)
+	votingCmd.WriteByte(0)          // nVoteType
+	votingCmd.Fill(36, 0)           // tEndTime (tm)
+	votingCmd.WriteByte(0)          // nLen
 	for _, p := range inst.Participants {
 		if p.Client != nil {
 			_ = p.Client.SendPacket(votingCmd)
@@ -581,24 +605,37 @@ func (km *KQManager) HandleVoteCast(client *network.Client, agree bool) {
 	}
 
 	if vote.VotesAgree >= threshold {
-		// Voto exitoso: expulsar objetivo
+		// Voto exitoso: expulsar objetivo (24 bytes: sTarget[20], nVoteRate[1], nYesNum[1], nNoNum[1], nCancelNum[1])
 		targetID := vote.TargetCharID
 		targetName := vote.TargetCharName
+		yesNum := byte(vote.VotesAgree)
+		noNum := byte(vote.VotesDisagree)
 		delete(inst.Participants, targetID)
 		delete(km.charToKQ, targetID)
 		inst.ActiveVote = nil
 
 		sucCmd := protocol.NewPacketWriter(protocol.PROTO_NC_KQ_VOTE_RESULT_SUC_CMD)
-		sucCmd.WriteString(targetName, 16)
+		sucCmd.WriteString(targetName, 20)
+		sucCmd.WriteByte(inst.VoteAgreeRate)
+		sucCmd.WriteByte(yesNum)
+		sucCmd.WriteByte(noNum)
+		sucCmd.WriteByte(0) // nCancelNum
 		for _, p := range inst.Participants {
 			if p.Client != nil {
 				_ = p.Client.SendPacket(sucCmd)
 			}
 		}
 	} else if vote.VotesDisagree > totalParticipants-threshold {
-		// Voto fallido
+		// Voto fallido (23 bytes: sTarget[20], nYesNum[1], nNoNum[1], nCancelNum[1])
+		targetName := vote.TargetCharName
+		yesNum := byte(vote.VotesAgree)
+		noNum := byte(vote.VotesDisagree)
 		inst.ActiveVote = nil
 		failCmd := protocol.NewPacketWriter(protocol.PROTO_NC_KQ_VOTE_RESULT_FAIL_CMD)
+		failCmd.WriteString(targetName, 20)
+		failCmd.WriteByte(yesNum)
+		failCmd.WriteByte(noNum)
+		failCmd.WriteByte(0) // nCancelNum
 		for _, p := range inst.Participants {
 			if p.Client != nil {
 				_ = p.Client.SendPacket(failCmd)

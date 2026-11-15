@@ -4,14 +4,15 @@ import "strings"
 
 // Config holds runtime options for the Zone Server.
 type Config struct {
-	BindAddr  string `json:"bind_addr"`
-	Port      int    `json:"port"`
-	IP        string `json:"ip"`
-	MapID     uint16 `json:"map_id"`
-	WorldNo   byte   `json:"world_no"`
-	ZoneNo    uint16 `json:"zone_no"`
-	ZoneID    string `json:"zone_id"`
-	MultiNode bool   `json:"multi_node"`
+	BindAddr     string `json:"bind_addr"`
+	Port         int    `json:"port"`
+	IP           string `json:"ip"`
+	MapID        uint16 `json:"map_id"`
+	WorldNo      byte   `json:"world_no"`
+	ZoneNo       uint16 `json:"zone_no"`
+	ZoneID       string `json:"zone_id"`
+	MultiNode    bool   `json:"multi_node"`
+	WorldS2SAddr string `json:"world_s2s_addr"`
 }
 
 // ZoneNodePorts contiene los puertos oficiales S2S/C2S por nodo Zone00..Zone04 (Zone.md / FASE 16).

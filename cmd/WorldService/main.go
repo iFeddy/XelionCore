@@ -79,15 +79,21 @@ func main() {
 		zonePort = 9210
 	}
 
+	s2sPort := cfg.WorldS2SPort
+	if s2sPort == 0 {
+		s2sPort = 9150
+	}
+
 	var worldServers []*world.Server
 	for _, w := range dbWorlds {
 		worldCfg := &world.Config{
-			ID:       w.WorldNo,
-			Name:     w.WorldName,
-			BindAddr: fmt.Sprintf("0.0.0.0:%d", w.WorldPort),
-			Port:     int(w.WorldPort),
-			ZoneIP:   zoneIP,
-			ZonePort: zonePort,
+			ID:          w.WorldNo,
+			Name:        w.WorldName,
+			BindAddr:    fmt.Sprintf("0.0.0.0:%d", w.WorldPort),
+			Port:        int(w.WorldPort),
+			ZoneIP:      zoneIP,
+			ZonePort:    zonePort,
+			S2SBindAddr: fmt.Sprintf("0.0.0.0:%d", s2sPort+uint16(w.WorldNo)),
 		}
 
 		srv := world.NewServer(worldCfg, charRepo, transfers, dataStore, accountRepo)

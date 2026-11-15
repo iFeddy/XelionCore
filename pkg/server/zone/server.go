@@ -21,11 +21,29 @@ import (
 
 	"github.com/iFeddy/XelionCore/pkg/network"
 
+	"github.com/iFeddy/XelionCore/pkg/s2s"
+
 )
 
 
 
 // Server represents a Fiesta Zone Server instance.
+
+type liveZoneWMSBridge struct {
+	client *s2s.Client
+}
+
+func (b *liveZoneWMSBridge) PublishWMS(ev WMSEvent) {
+	if b == nil || b.client == nil {
+		return
+	}
+	_ = b.client.Publish(s2s.Event{
+		Symbol:  ev.Symbol,
+		WorldID: ev.WorldID,
+		ZoneNo:  ev.ZoneNo,
+		Payload: ev.Payload,
+	})
+}
 
 type Server struct {
 
@@ -34,6 +52,8 @@ type Server struct {
 	tcpServer *network.TCPServer
 
 	handler   *Handler
+
+	s2sClient *s2s.Client
 
 }
 
@@ -81,6 +101,14 @@ func NewServer(cfg *Config, charRepo database.CharacterRepository, transfers *da
 
 	}
 
+	if cfg != nil && cfg.WorldS2SAddr != "" {
+		s2sCli := s2s.NewClient(cfg.WorldS2SAddr, cfg.WorldNo, cfg.ZoneNo, func(ev s2s.Event) {
+			handler.ApplyIncomingWMS(ev.Symbol, ev.WorldID, ev.ZoneNo, ev.Payload)
+		})
+		s.s2sClient = s2sCli
+		handler.SetWMSBridge(&liveZoneWMSBridge{client: s2sCli})
+	}
+
 
 
 	onConnect := func(client *network.Client) {
@@ -111,8 +139,19 @@ func (s *Server) Start() error {
 
 		s.config.BindAddr)
 
+	if s.s2sClient != nil {
+		_ = s.s2sClient.Start()
+		log.Printf("[ZoneServer] S2S WMS bridge targeting WorldService at %s (World=%d, Zone=%d)",
+			s.config.WorldS2SAddr, s.config.WorldNo, s.config.ZoneNo)
+	}
+
 	return s.tcpServer.Start()
 
+}
+
+// S2SConnected indica si el enlace S2S vivo hacia WorldService está conectado.
+func (s *Server) S2SConnected() bool {
+	return s.s2sClient != nil && s.s2sClient.Connected()
 }
 
 
@@ -122,6 +161,10 @@ func (s *Server) Start() error {
 func (s *Server) Stop() {
 
 	log.Printf("[ZoneServer] Shutting down Zone Server...")
+
+	if s.s2sClient != nil {
+		s.s2sClient.Stop()
+	}
 
 	s.tcpServer.Stop()
 

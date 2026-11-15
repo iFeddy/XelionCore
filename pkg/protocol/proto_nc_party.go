@@ -43,18 +43,26 @@ func New_PROTO_NC_PARTY_MEMBER_LIST_CMD(members []PartyMemberInfo) *PacketWriter
 }
 
 // New_PROTO_NC_PARTY_LEAVE_ACK construye la confirmación de salida de grupo (OpCode 0x380B).
-func New_PROTO_NC_PARTY_LEAVE_ACK(errCode uint16) *PacketWriter {
+// Struct oficial PDB: PROTO_NC_PARTY_LEAVE_ACK (22 bytes: Name5 memberid, unsigned short err)
+func New_PROTO_NC_PARTY_LEAVE_ACK(memberName string, errCode uint16) *PacketWriter {
 	pw := NewPacketWriter(PROTO_NC_PARTY_LEAVE_ACK)
+	pw.WriteString(memberName, 20)
 	pw.WriteUint16(errCode)
 	return pw
 }
 
 // New_PROTO_NC_PARTY_LEAVE_CMD notifica la salida de un miembro a todo el grupo (OpCode 0x380C).
-// Struct oficial PDB: PROTO_NC_PARTY_LEAVE_CMD (6 bytes: unsigned short partyregnum, unsigned int leavememberregnum)
-func New_PROTO_NC_PARTY_LEAVE_CMD(partyID uint16, charID uint32) *PacketWriter {
+// Struct oficial PDB: PROTO_NC_PARTY_LEAVE_CMD (33 bytes: unsigned short partyregnum, PROTO_PARTY_MEMBER[31])
+func New_PROTO_NC_PARTY_LEAVE_CMD(partyID uint16, charRegNum uint32, zoneHandle, wmHandle uint16, memberName string, level, flag, charClass byte) *PacketWriter {
 	pw := NewPacketWriter(PROTO_NC_PARTY_LEAVE_CMD)
 	pw.WriteUint16(partyID)
-	pw.WriteUint32(charID)
+	pw.WriteUint32(charRegNum)
+	pw.WriteUint16(zoneHandle)
+	pw.WriteUint16(wmHandle)
+	pw.WriteString(memberName, 20)
+	pw.WriteByte(level)
+	pw.WriteByte(flag)
+	pw.WriteByte(charClass)
 	return pw
 }
 
@@ -76,8 +84,10 @@ func New_PROTO_NC_PARTY_DISMISS_CMD(partyID uint16) *PacketWriter {
 }
 
 // New_PROTO_NC_PARTY_CHANGEMASTER_ACK construye la confirmación de cambio de líder (OpCode 0x3829).
-func New_PROTO_NC_PARTY_CHANGEMASTER_ACK(errCode uint16) *PacketWriter {
+// Struct oficial PDB: PROTO_NC_PARTY_CHANGEMASTER_ACK (22 bytes: Name5 newmaster, unsigned short err)
+func New_PROTO_NC_PARTY_CHANGEMASTER_ACK(newMaster string, errCode uint16) *PacketWriter {
 	pw := NewPacketWriter(PROTO_NC_PARTY_CHANGEMASTER_ACK)
+	pw.WriteString(newMaster, 20)
 	pw.WriteUint16(errCode)
 	return pw
 }
@@ -107,23 +117,28 @@ func New_PROTO_NC_PARTY_SET_LOOTER_BROAD_CMD(commanderName, looterName string) *
 	return pw
 }
 
-// PartyFinderEntry representa una entrada en el buscador de grupos (0x3854 / 0x3855).
+// PartyFinderEntry modela PROTO_NC_PARTY_FINDER_INFO (154 bytes: nPastSecond[2], dRegistTime[4], sCharID[20], sMsg[128]).
 type PartyFinderEntry struct {
+	PastSecond uint16
+	RegistTime int32
 	MasterName string
-	Level      byte
-	MemberCnt  byte
 	Purpose    string
 }
 
-// New_PROTO_NC_PARTY_FINDER_LIST_ACK construye la lista del buscador de grupos (OpCode 0x3855).
+// New_PROTO_NC_PARTY_FINDER_LIST_ACK construye la lista oficial del buscador de grupos (OpCode 0x3855).
+// Struct oficial PDB: PROTO_NC_PARTY_FINDER_LIST_ACK (8 bytes header + N * 154 bytes)
 func New_PROTO_NC_PARTY_FINDER_LIST_ACK(entries []PartyFinderEntry) *PacketWriter {
 	pw := NewPacketWriter(PROTO_NC_PARTY_FINDER_LIST_ACK)
-	pw.WriteByte(byte(len(entries)))
+	pw.WriteUint16(0)                    // nPageNo
+	pw.WriteByte(byte(len(entries)))     // nCountOfOnePage
+	pw.WriteByte(0)                      // bYouAreRegisted
+	pw.WriteUint16(1)                    // nMaxPages
+	pw.WriteUint16(uint16(len(entries))) // nNumOfList
 	for _, e := range entries {
+		pw.WriteUint16(e.PastSecond)
+		pw.WriteInt32(e.RegistTime)
 		pw.WriteString(e.MasterName, 20)
-		pw.WriteByte(e.Level)
-		pw.WriteByte(e.MemberCnt)
-		pw.WriteString(e.Purpose, 64)
+		pw.WriteString(e.Purpose, 128)
 	}
 	return pw
 }

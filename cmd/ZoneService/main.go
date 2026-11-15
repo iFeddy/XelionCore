@@ -85,15 +85,26 @@ func main() {
 		}
 	}
 
+	worldS2SHost := cfg.WorldS2SHost
+	if worldS2SHost == "" {
+		worldS2SHost = "127.0.0.1"
+	}
+	worldS2SPort := cfg.WorldS2SPort
+	if worldS2SPort == 0 {
+		worldS2SPort = 9150
+	}
+	worldS2SAddr := fmt.Sprintf("%s:%d", worldS2SHost, worldS2SPort+uint16(worldNo))
+
 	zoneCfg := &zone.Config{
-		BindAddr:  fmt.Sprintf("0.0.0.0:%d", zonePort),
-		Port:      zonePort,
-		IP:        zoneIP,
-		MapID:     0,
-		WorldNo:   worldNo,
-		ZoneNo:    zoneNo,
-		ZoneID:    zoneID,
-		MultiNode: multiNode,
+		BindAddr:     fmt.Sprintf("0.0.0.0:%d", zonePort),
+		Port:         zonePort,
+		IP:           zoneIP,
+		MapID:        0,
+		WorldNo:      worldNo,
+		ZoneNo:       zoneNo,
+		ZoneID:       zoneID,
+		MultiNode:    multiNode,
+		WorldS2SAddr: worldS2SAddr,
 	}
 
 	// 2. Cargar la totalidad de subsistemas y datos en memoria RAM (Zero-Disk-I/O durante runtime)

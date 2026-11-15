@@ -70,7 +70,7 @@ func (fm *FriendManager) RequestFriend(requester *network.Client, targetName str
 
 	if !exists || targetMem.Client == nil {
 		log.Printf("[Friend] Target friend '%s' is not online", targetName)
-		_ = requester.SendPacket(protocol.New_PROTO_NC_FRIEND_SET_ACK(targetName, 1)) // 1: Not found / offline
+		_ = requester.SendPacket(protocol.New_PROTO_NC_FRIEND_SET_ACK(requester.CharName, targetName, 1)) // 1: Not found / offline
 		return
 	}
 
@@ -85,7 +85,10 @@ func (fm *FriendManager) RequestFriend(requester *network.Client, targetName str
 	fm.mu.Unlock()
 
 	// Obtener nombre del solicitante
-	requesterName := requester.Username
+	requesterName := requester.CharName
+	if requesterName == "" {
+		requesterName = requester.Username
+	}
 	fm.partyMgr.mu.RLock()
 	for _, m := range fm.partyMgr.onlineChars {
 		if m.CharID == requester.CharacterID {
@@ -96,11 +99,16 @@ func (fm *FriendManager) RequestFriend(requester *network.Client, targetName str
 	fm.partyMgr.mu.RUnlock()
 
 	log.Printf("[Friend] '%s' requested friendship with '%s'", requesterName, targetMem.CharName)
-	_ = targetMem.Client.SendPacket(protocol.New_PROTO_NC_FRIEND_SET_CONFIRM_REQ(requesterName))
+	_ = targetMem.Client.SendPacket(protocol.New_PROTO_NC_FRIEND_SET_CONFIRM_REQ(requesterName, targetMem.CharName))
 }
 
 // AcceptFriend procesa la aceptación de solicitud (0x5404 PROTO_NC_FRIEND_SET_CONFIRM_ACK).
 func (fm *FriendManager) AcceptFriend(target *network.Client) {
+	fm.AcceptFriendConfirm(target, true)
+}
+
+// AcceptFriendConfirm procesa la respuesta accept_friend de PROTO_NC_FRIEND_SET_CONFIRM_ACK (41 bytes).
+func (fm *FriendManager) AcceptFriendConfirm(target *network.Client, accept bool) {
 	fm.mu.Lock()
 	requesterID, hasInvite := fm.pendingInvites[target.CharacterID]
 	if hasInvite {
@@ -109,6 +117,26 @@ func (fm *FriendManager) AcceptFriend(target *network.Client) {
 	fm.mu.Unlock()
 
 	if !hasInvite {
+		return
+	}
+
+	if !accept {
+		targetName := target.CharName
+		if targetName == "" {
+			targetName = target.Username
+		}
+		fm.partyMgr.mu.RLock()
+		for _, m := range fm.partyMgr.onlineChars {
+			if m.CharID == requesterID && m.Client != nil {
+				reqName := m.Client.CharName
+				if reqName == "" {
+					reqName = m.Client.Username
+				}
+				_ = m.Client.SendPacket(protocol.New_PROTO_NC_FRIEND_SET_ACK(reqName, targetName, 1))
+				break
+			}
+		}
+		fm.partyMgr.mu.RUnlock()
 		return
 	}
 
@@ -139,20 +167,24 @@ func (fm *FriendManager) AcceptFriend(target *network.Client) {
 // DeleteFriend procesa la eliminación de un amigo (0x5405 PROTO_NC_FRIEND_DEL_REQ).
 func (fm *FriendManager) DeleteFriend(client *network.Client, friendName string) {
 	charID := client.CharacterID
+	charName := client.CharName
+	if charName == "" {
+		charName = client.Username
+	}
 	friendChar, err := fm.charRepo.GetCharacterByName(friendName)
 	if err != nil || friendChar == nil {
-		_ = client.SendPacket(protocol.New_PROTO_NC_FRIEND_DEL_ACK(friendName, 1))
+		_ = client.SendPacket(protocol.New_PROTO_NC_FRIEND_DEL_ACK(charName, friendName, 1))
 		return
 	}
 
 	if err := fm.charRepo.RemoveFriend(charID, friendChar.ID); err != nil {
 		log.Printf("[Friend] Error removing friend %s for char %d: %v", friendName, charID, err)
-		_ = client.SendPacket(protocol.New_PROTO_NC_FRIEND_DEL_ACK(friendName, 1))
+		_ = client.SendPacket(protocol.New_PROTO_NC_FRIEND_DEL_ACK(charName, friendName, 1))
 		return
 	}
 
-	log.Printf("[Friend] '%s' removed friend '%s'", client.Username, friendName)
-	_ = client.SendPacket(protocol.New_PROTO_NC_FRIEND_DEL_ACK(friendName, 0))
+	log.Printf("[Friend] '%s' removed friend '%s'", charName, friendName)
+	_ = client.SendPacket(protocol.New_PROTO_NC_FRIEND_DEL_ACK(charName, friendName, 0))
 
 	// Notificar a ambos clientes actualizando su lista
 	fm.SendFriendList(client)
@@ -171,7 +203,7 @@ func (fm *FriendManager) SendFriendPoints(client *network.Client) {
 	if err != nil {
 		points = 0
 	}
-	_ = client.SendPacket(protocol.New_PROTO_NC_FRIEND_POINT_ACK(uint32(points)))
+	_ = client.SendPacket(protocol.New_PROTO_NC_FRIEND_POINT_ACK(uint16(points)))
 }
 
 // BroadcastLogin notifica a todos los amigos que el jugador se conectó (0x5409).

@@ -3,7 +3,6 @@ package world
 import (
 	"log"
 	"strings"
-	"time"
 
 	"github.com/iFeddy/XelionCore/pkg/database"
 	"github.com/iFeddy/XelionCore/pkg/network"
@@ -15,20 +14,23 @@ import (
 // ============================================================================
 
 func (h *Handler) handleClientDebug(client *network.Client, pkt *protocol.Packet) {
+	msgBytes, _ := pkt.Reader.ReadBytes(pkt.Reader.Remaining())
 	resp := protocol.NewPacketWriter(protocol.PROTO_NC_MISC_CLIENT_DEBUG_MSG_CMD)
-	resp.WriteUint16(0)
+	resp.WriteUint16(uint16(client.CharacterID)) // wldmanhandle
+	resp.WriteUint16(uint16(len(msgBytes)))    // msg_size
+	if len(msgBytes) > 0 {
+		resp.WriteBytes(msgBytes)
+	}
 	_ = client.SendPacket(resp)
 }
 
 func (h *Handler) handleHeartbeat(client *network.Client, pkt *protocol.Packet) {
-	resp := protocol.NewPacketWriter(protocol.PROTO_NC_MISC_HEARTBEAT_ACK)
-	resp.WriteUint16(0)
-	_ = client.SendPacket(resp)
+	_ = client.SendPacket(protocol.New_PROTO_NC_MISC_HEARTBEAT_ACK())
 }
 
 func (h *Handler) handlePing(client *network.Client, pkt *protocol.Packet) {
 	resp := protocol.NewPacketWriter(protocol.PROTO_NC_MISC_PINGTEST_TOOL_WM_CLIENT_ZONE_DB)
-	resp.WriteUint32(uint32(time.Now().Unix()))
+	resp.Fill(130, 0)
 	_ = client.SendPacket(resp)
 }
 
@@ -41,14 +43,18 @@ func (h *Handler) handleWebKey(client *network.Client, pkt *protocol.Packet) {
 		}
 	}
 	resp := protocol.NewPacketWriter(protocol.PROTO_NC_MISC_WEB_KEY_ACK)
-	resp.WriteString(key, 64)
+	resp.WriteUint16(0) // Error (2B)
+	var keyBuf [32]byte
+	copy(keyBuf[:], key)
+	resp.WriteBytes(keyBuf[:]) // WebKey (32B)
 	_ = client.SendPacket(resp)
 }
 
 func (h *Handler) handleItemShopURL(client *network.Client, pkt *protocol.Packet) {
 	shopURL := "https://xelion.online/itemshop"
 	resp := protocol.NewPacketWriter(protocol.PROTO_NC_MISC_ITEMSHOP_URL_ACK)
-	resp.WriteByte(byte(len(shopURL)))
+	resp.WriteUint16(0)                   // nError (2B)
+	resp.WriteUint16(uint16(len(shopURL))) // nLen (2B)
 	resp.WriteBytes([]byte(shopURL))
 	_ = client.SendPacket(resp)
 }
@@ -115,13 +121,51 @@ func (h *Handler) handleSpamFilterSet(client *network.Client, pkt *protocol.Pack
 	}
 }
 
+func (h *Handler) findOnlineClientByCharName(charName string) *network.Client {
+	targetKey := strings.ToLower(strings.TrimSpace(strings.TrimRight(charName, "\x00")))
+	if targetKey == "" {
+		return nil
+	}
+	h.mu.Lock()
+	var found *network.Client
+	for _, c := range h.activeClients {
+		if strings.ToLower(strings.TrimSpace(c.CharName)) == targetKey {
+			found = c
+			break
+		}
+	}
+	h.mu.Unlock()
+	if found != nil {
+		return found
+	}
+	if h.partyMgr != nil {
+		h.partyMgr.mu.RLock()
+		if mem, ok := h.partyMgr.onlineChars[targetKey]; ok && mem.Client != nil {
+			found = mem.Client
+		}
+		h.partyMgr.mu.RUnlock()
+	}
+	return found
+}
+
 func (h *Handler) handleChatBan(client *network.Client, pkt *protocol.Packet) {
-	targetCharID, _ := pkt.Reader.ReadUint32()
-	duration, _ := pkt.Reader.ReadInt32()
-	if h.charRepo != nil {
-		_ = h.charRepo.SetSpamBlockTime(int(targetCharID), int(duration), 0)
+	var spammerName string
+	if pkt.Reader.Remaining() >= 20 {
+		spammerName, _ = pkt.Reader.ReadString(20)
+		if h.charRepo != nil {
+			if ch, err := h.charRepo.GetCharacterByName(spammerName); err == nil && ch != nil {
+				_ = h.charRepo.SetSpamBlockTime(ch.ID, 600, 0)
+			}
+		}
+	} else {
+		targetCharID, _ := pkt.Reader.ReadUint32()
+		duration, _ := pkt.Reader.ReadInt32()
+		if h.charRepo != nil {
+			_ = h.charRepo.SetSpamBlockTime(int(targetCharID), int(duration), 0)
+		}
 	}
 	resp := protocol.NewPacketWriter(protocol.PROTO_NC_MISC_SPAMMER_CHAT_BAN_ACK)
+	resp.WriteString(spammerName, 20)
 	resp.WriteUint16(0)
 	_ = client.SendPacket(resp)
 }
@@ -131,24 +175,15 @@ func (h *Handler) handleChatBan(client *network.Client, pkt *protocol.Packet) {
 // ============================================================================
 
 func (h *Handler) handleWhisper(client *network.Client, pkt *protocol.Packet) {
-	_, _ = pkt.Reader.ReadByte() // itemLinkDataCount
+	itemLinkCount, _ := pkt.Reader.ReadByte()
 	targetNameBytes, _ := pkt.Reader.ReadBytes(20)
 	targetName := strings.TrimRight(string(targetNameBytes), "\x00")
 	msgLen, _ := pkt.Reader.ReadByte()
 	msgBytes, _ := pkt.Reader.ReadBytes(int(msgLen))
 	msg := string(msgBytes)
+	senderName := h.activeCharName(client)
 
-	targetKey := strings.ToLower(strings.TrimSpace(targetName))
-	h.mu.Lock()
-	var targetClient *network.Client
-	for _, c := range h.activeClients {
-		if strings.ToLower(c.Username) == targetKey {
-			targetClient = c
-			break
-		}
-	}
-	h.mu.Unlock()
-
+	targetClient := h.findOnlineClientByCharName(targetName)
 	if targetClient == nil || targetClient.CharacterID == 0 {
 		failResp := protocol.NewPacketWriter(protocol.PROTO_NC_ACT_WHISPERFAIL_ACK)
 		failResp.WriteUint16(1) // Not online
@@ -157,21 +192,30 @@ func (h *Handler) handleWhisper(client *network.Client, pkt *protocol.Packet) {
 		return
 	}
 
-	// Sender success ACK
+	// Sender success ACK (22 + len bytes)
 	succResp := protocol.NewPacketWriter(protocol.PROTO_NC_ACT_WHISPERSUCCESS_ACK)
-	succResp.WriteByte(0) // itemLinkDataCount
+	succResp.WriteByte(itemLinkCount)
 	succResp.WriteString(targetName, 20)
 	succResp.WriteByte(byte(len(msg)))
 	succResp.WriteBytes([]byte(msg))
 	_ = client.SendPacket(succResp)
 
-	// Delivery to receiver: PROTO_NC_ACT_WHISPER_CMD (OpCode 0x200D)
-	cmd := protocol.NewPacketWriter((8 << 10) | 13)
-	cmd.WriteByte(0) // itemLinkDataCount
-	cmd.WriteString(client.Username, 20)
+	// Delivery to receiver: PROTO_NC_ACT_SOMEONEWHISPER_CMD (OpCode 0x200D)
+	cmd := protocol.NewPacketWriter(protocol.PROTO_NC_ACT_SOMEONEWHISPER_CMD)
+	cmd.WriteByte(itemLinkCount)
+	cmd.WriteString(senderName, 20)
 	cmd.WriteByte(byte(len(msg)))
 	cmd.WriteBytes([]byte(msg))
 	_ = targetClient.SendPacket(cmd)
+
+	// Coordinar entrega viva si el destinatario ya transfirió su sesión activa a ZoneService
+	h.BroadcastToZones("wms_NC_CT_CHARTTING_CMD", map[string]interface{}{
+		"type":       "whisper",
+		"sender":     senderName,
+		"target":     targetName,
+		"message":    msg,
+		"senderFlag": itemLinkCount,
+	})
 }
 
 func (h *Handler) handleNotice(client *network.Client, pkt *protocol.Packet) {
@@ -187,14 +231,23 @@ func (h *Handler) handleNotice(client *network.Client, pkt *protocol.Packet) {
 	cmd.WriteBytes([]byte(noticeMsg))
 
 	h.mu.Lock()
-	defer h.mu.Unlock()
+	clients := make([]*network.Client, 0, len(h.activeClients))
 	for _, c := range h.activeClients {
+		clients = append(clients, c)
+	}
+	h.mu.Unlock()
+	for _, c := range clients {
 		_ = c.SendPacket(cmd)
 	}
+
+	h.BroadcastToZones("wms_NC_CT_CHARTTING_CMD", map[string]interface{}{
+		"type":    "notice",
+		"message": noticeMsg,
+	})
 }
 
 func (h *Handler) handlePartyChat(client *network.Client, pkt *protocol.Packet) {
-	_, _ = pkt.Reader.ReadByte() // itemLinkDataCount
+	itemLinkCount, _ := pkt.Reader.ReadByte()
 	msgLen, _ := pkt.Reader.ReadByte()
 	msgBytes, _ := pkt.Reader.ReadBytes(int(msgLen))
 	msg := string(msgBytes)
@@ -210,9 +263,11 @@ func (h *Handler) handlePartyChat(client *network.Client, pkt *protocol.Packet) 
 		return
 	}
 
+	// Struct oficial PDB: PROTO_NC_ACT_PARTYCHAT_CMD (talker[20], itemLinkDataCount[1], len[1], content[len])
 	cmd := protocol.NewPacketWriter(protocol.PROTO_NC_ACT_PARTYCHAT_CMD)
-	cmd.WriteString(client.Username, 20)
-	cmd.WriteUint16(uint16(len(msg)))
+	cmd.WriteString(h.activeCharName(client), 20)
+	cmd.WriteByte(itemLinkCount)
+	cmd.WriteByte(byte(len(msg)))
 	cmd.WriteBytes([]byte(msg))
 
 	for _, m := range party.Members {
@@ -229,36 +284,67 @@ func (h *Handler) handlePartyChat(client *network.Client, pkt *protocol.Packet) 
 func (h *Handler) handlePrisonSendIn(client *network.Client, pkt *protocol.Packet) {
 	targetName, _ := pkt.Reader.ReadString(20)
 	minutes, _ := pkt.Reader.ReadInt16()
-	reason, _ := pkt.Reader.ReadString(pkt.Reader.Remaining())
+	var reason, remark string
+	if pkt.Reader.Remaining() >= 80 {
+		reason, _ = pkt.Reader.ReadString(16)
+		remark, _ = pkt.Reader.ReadString(64)
+	} else {
+		reason, _ = pkt.Reader.ReadString(pkt.Reader.Remaining())
+	}
 
 	if h.charRepo != nil {
-		_ = h.charRepo.AddPrison(client.Username, targetName, minutes, reason, "")
+		_ = h.charRepo.AddPrison(h.activeCharName(client), targetName, minutes, reason, remark)
 	}
 
 	resp := protocol.NewPacketWriter(protocol.PROTO_NC_PRISON_ADD_GM_ACK)
 	resp.WriteString(targetName, 20)
 	resp.WriteUint16(0)
 	_ = client.SendPacket(resp)
+
+	h.BroadcastToZones("wms_NC_ZONE_PRISON_GO_REQ", map[string]interface{}{
+		"charName": targetName,
+	})
 }
 
 func (h *Handler) handlePrisonTakeOut(client *network.Client, pkt *protocol.Packet) {
-	targetCharID, _ := pkt.Reader.ReadUint32()
-	if h.charRepo != nil {
-		_ = h.charRepo.EndPrison(int(targetCharID))
+	targetCharID := client.CharacterID
+	if pkt.Reader.Remaining() >= 4 {
+		v, _ := pkt.Reader.ReadUint32()
+		if v > 0 {
+			targetCharID = int(v)
+		}
+	}
+	var targetName string
+	if h.charRepo != nil && targetCharID > 0 {
+		_ = h.charRepo.EndPrison(targetCharID)
+		if ch, err := h.charRepo.GetCharacterByID(targetCharID); err == nil && ch != nil {
+			targetName = ch.Name
+		}
 	}
 	resp := protocol.NewPacketWriter(protocol.PROTO_NC_PRISON_END_ACK)
-	resp.WriteUint32(targetCharID)
+	resp.WriteUint32(uint32(targetCharID))
 	resp.WriteUint16(0)
 	_ = client.SendPacket(resp)
+
+	h.BroadcastToZones("wms_NC_ZONE_PRISON_END_CMD", map[string]interface{}{
+		"charName": targetName,
+		"char_id":  targetCharID,
+	})
 }
 
 func (h *Handler) handlePrisonAlterTime(client *network.Client, pkt *protocol.Packet) {
 	targetName, _ := pkt.Reader.ReadString(20)
 	minutes, _ := pkt.Reader.ReadInt16()
-	reason, _ := pkt.Reader.ReadString(pkt.Reader.Remaining())
+	var reason, remark string
+	if pkt.Reader.Remaining() >= 80 {
+		reason, _ = pkt.Reader.ReadString(16)
+		remark, _ = pkt.Reader.ReadString(64)
+	} else {
+		reason, _ = pkt.Reader.ReadString(pkt.Reader.Remaining())
+	}
 
 	if h.charRepo != nil {
-		_ = h.charRepo.AlterPrison(client.Username, targetName, minutes, reason, "")
+		_ = h.charRepo.AlterPrison(h.activeCharName(client), targetName, minutes, reason, remark)
 	}
 
 	resp := protocol.NewPacketWriter(protocol.PROTO_NC_PRISON_ALTER_GM_ACK)
@@ -268,8 +354,12 @@ func (h *Handler) handlePrisonAlterTime(client *network.Client, pkt *protocol.Pa
 }
 
 func (h *Handler) handlePrisonConfirm(client *network.Client, pkt *protocol.Packet) {
+	// Struct oficial PDB: PROTO_NC_PRISON_GET_ACK (84 bytes: err[2], nMinute[2], sReason[16], sRemark[64])
 	resp := protocol.NewPacketWriter(protocol.PROTO_NC_PRISON_GET_ACK)
-	resp.WriteUint16(0)
+	resp.WriteUint16(0) // err
+	resp.WriteUint16(0) // nMinute
+	resp.Fill(16, 0)    // sReason[16]
+	resp.Fill(64, 0)    // sRemark[64]
 	_ = client.SendPacket(resp)
 }
 
@@ -279,24 +369,39 @@ func (h *Handler) handlePrisonConfirm(client *network.Client, pkt *protocol.Pack
 
 func (h *Handler) handleReportAdd(client *network.Client, pkt *protocol.Packet) {
 	targetName, _ := pkt.Reader.ReadString(20)
-	reason, _ := pkt.Reader.ReadString(64)
-	chatLog, _ := pkt.Reader.ReadString(pkt.Reader.Remaining())
+	var reportType, reason, chatLog string
+	if pkt.Reader.Remaining() >= 274 {
+		reportType, _ = pkt.Reader.ReadString(16)
+		reason, _ = pkt.Reader.ReadString(256)
+		chatLogSize, _ := pkt.Reader.ReadUint16()
+		if int(chatLogSize) > 0 && pkt.Reader.Remaining() >= int(chatLogSize) {
+			chatLog, _ = pkt.Reader.ReadString(int(chatLogSize))
+		} else {
+			chatLog, _ = pkt.Reader.ReadString(pkt.Reader.Remaining())
+		}
+	} else {
+		reportType = "IN_GAME"
+		reason, _ = pkt.Reader.ReadString(64)
+		chatLog, _ = pkt.Reader.ReadString(pkt.Reader.Remaining())
+	}
 
 	var regNo int
 	if h.logRepo != nil {
 		r := &database.Report{
 			Reporter:       client.AccountID,
-			ReporterCharID: client.Username,
+			ReporterCharID: h.activeCharName(client),
 			Harmer:         targetName,
 			WorldNo:        h.worldID,
-			ReportType:     "IN_GAME",
+			ReportType:     reportType,
 			Reason:         reason,
 			ChatLog:        chatLog,
 		}
 		regNo, _ = h.logRepo.AddReport(r)
 	}
 
+	// Struct oficial PDB: PROTO_NC_REPORT_ADD_ACK (26 bytes: sHarmer[20], nRegNumber[4], err[2])
 	resp := protocol.NewPacketWriter(protocol.PROTO_NC_REPORT_ADD_ACK)
+	resp.WriteString(targetName, 20)
 	resp.WriteUint32(uint32(regNo))
 	resp.WriteUint16(0)
 	_ = client.SendPacket(resp)
@@ -350,22 +455,15 @@ func (h *Handler) handleHolyPromiseSetUp(client *network.Client, pkt *protocol.P
 	upCharID, _ := pkt.Reader.ReadString(20)
 
 	targetName := upCharID
-	if strings.EqualFold(client.Username, upCharID) {
+	if strings.EqualFold(h.activeCharName(client), upCharID) {
 		targetName = charID
 	}
 
-	var targetClient *network.Client
+	targetClient := h.findOnlineClientByCharName(targetName)
 	var targetID int
-	targetKey := strings.ToLower(strings.TrimSpace(targetName))
-	h.mu.Lock()
-	for _, c := range h.activeClients {
-		if strings.ToLower(c.Username) == targetKey {
-			targetClient = c
-			targetID = c.CharacterID
-			break
-		}
+	if targetClient != nil {
+		targetID = targetClient.CharacterID
 	}
-	h.mu.Unlock()
 
 	h.holyPromiseMgr.HandleSetUpReq(client, charID, upCharID, targetClient, targetID)
 }
@@ -376,21 +474,11 @@ func (h *Handler) handleHolyPromiseSetUpConfirm(client *network.Client, pkt *pro
 	accept, _ := pkt.Reader.ReadByte()
 
 	requesterName := charID
-	if strings.EqualFold(client.Username, charID) {
+	if strings.EqualFold(h.activeCharName(client), charID) {
 		requesterName = upCharID
 	}
 
-	var reqClient *network.Client
-	targetKey := strings.ToLower(strings.TrimSpace(requesterName))
-	h.mu.Lock()
-	for _, c := range h.activeClients {
-		if strings.ToLower(c.Username) == targetKey {
-			reqClient = c
-			break
-		}
-	}
-	h.mu.Unlock()
-
+	reqClient := h.findOnlineClientByCharName(requesterName)
 	h.holyPromiseMgr.HandleSetUpConfirmAck(client, charID, upCharID, accept, reqClient)
 }
 
@@ -412,19 +500,11 @@ func (h *Handler) handleHolyPromiseDelUp(client *network.Client, pkt *protocol.P
 
 func (h *Handler) handleHolyPromiseDelDown(client *network.Client, pkt *protocol.Packet) {
 	downCharName, _ := pkt.Reader.ReadString(20)
-	var pupilClient *network.Client
+	pupilClient := h.findOnlineClientByCharName(downCharName)
 	var pupilID int
-	targetKey := strings.ToLower(strings.TrimSpace(downCharName))
-	h.mu.Lock()
-	for _, c := range h.activeClients {
-		if strings.ToLower(c.Username) == targetKey {
-			pupilClient = c
-			pupilID = c.CharacterID
-			break
-		}
-	}
-	h.mu.Unlock()
-	if pupilID == 0 {
+	if pupilClient != nil {
+		pupilID = pupilClient.CharacterID
+	} else {
 		ch, err := h.charRepo.GetCharacterByName(downCharName)
 		if err == nil && ch != nil {
 			pupilID = ch.ID
@@ -437,31 +517,32 @@ func (h *Handler) handleHolyPromiseDelDown(client *network.Client, pkt *protocol
 // DEPARTAMENTO 41: BATTLE RANK / INSTANCE DUNGEONS
 // ============================================================================
 
-func (h *Handler) handleBattleRankClearTime(client *network.Client, pkt *protocol.Packet) {
-	resp := protocol.NewPacketWriter(protocol.PROTO_NC_INSTANCE_DUNGEON_RANK_TAB_DAMAGEDEALT_ACK)
-	resp.WriteUint16(0)
-	resp.WriteUint16(0) // Count
+func writeIndunRankEmptyTab(client *network.Client, op uint16) {
+	// Struct oficial PDB: PROTO_NC_INSTANCE_DUNGEON_RANK_TAB_*_ACK (19 bytes header: 3*4B shape, uint16 err, uint32 rank, uint8 count)
+	resp := protocol.NewPacketWriter(op)
+	resp.Fill(12, 0)    // shapeInfo1st, 2nd, 3th (3 * 4B)
+	resp.WriteUint16(0) // nErr
+	resp.WriteUint32(0) // nRank
+	resp.WriteByte(0)   // nCount
 	_ = client.SendPacket(resp)
+}
+
+func (h *Handler) handleBattleRankClearTime(client *network.Client, pkt *protocol.Packet) {
+	writeIndunRankEmptyTab(client, protocol.PROTO_NC_INSTANCE_DUNGEON_RANK_TAB_DAMAGEDEALT_ACK)
 }
 
 func (h *Handler) handleBattleRankScore(client *network.Client, pkt *protocol.Packet) {
-	resp := protocol.NewPacketWriter(protocol.PROTO_NC_INSTANCE_DUNGEON_RANK_TAB_DAMAGETAKEN_ACK)
-	resp.WriteUint16(0)
-	resp.WriteUint16(0)
-	_ = client.SendPacket(resp)
+	writeIndunRankEmptyTab(client, protocol.PROTO_NC_INSTANCE_DUNGEON_RANK_TAB_DAMAGETAKEN_ACK)
 }
 
 func (h *Handler) handleBattleRankPoint(client *network.Client, pkt *protocol.Packet) {
-	resp := protocol.NewPacketWriter(protocol.PROTO_NC_INSTANCE_DUNGEON_RANK_TAB_HEALINGDONE_ACK)
-	resp.WriteUint16(0)
-	resp.WriteUint16(0)
-	_ = client.SendPacket(resp)
+	writeIndunRankEmptyTab(client, protocol.PROTO_NC_INSTANCE_DUNGEON_RANK_TAB_HEALINGDONE_ACK)
 }
 
 func (h *Handler) handleBattleRankMyScore(client *network.Client, pkt *protocol.Packet) {
+	// Struct oficial PDB: PROTO_NC_INSTANCE_DUNGEON_RANK_TAB_MYRANK_ACK (62 bytes)
 	resp := protocol.NewPacketWriter(protocol.PROTO_NC_INSTANCE_DUNGEON_RANK_TAB_MYRANK_ACK)
-	resp.WriteUint16(0)
-	resp.WriteUint32(0)
+	resp.Fill(62, 0)
 	_ = client.SendPacket(resp)
 }
 
@@ -470,24 +551,50 @@ func (h *Handler) handleBattleRankMyScore(client *network.Client, pkt *protocol.
 // ============================================================================
 
 func (h *Handler) handleChatRestrictAdd(client *network.Client, pkt *protocol.Packet) {
-	targetCharID, _ := pkt.Reader.ReadUint32()
-	if h.charRepo != nil {
+	var targetName string
+	var targetCharID uint32
+	if pkt.Reader.Remaining() >= 20 {
+		targetName, _ = pkt.Reader.ReadString(20)
+		if h.charRepo != nil {
+			if ch, err := h.charRepo.GetCharacterByName(targetName); err == nil && ch != nil {
+				targetCharID = uint32(ch.ID)
+			}
+		}
+	} else {
+		targetCharID, _ = pkt.Reader.ReadUint32()
+	}
+	if h.charRepo != nil && targetCharID > 0 {
 		_ = h.charRepo.AddChatRestrict(client.AccountID, int(targetCharID))
 	}
+	// Struct oficial PDB: PROTO_NC_CHAT_RESTRICT_ADD_ACK (24 bytes: nError[2], sCharID[20], bIsGM[1], bIsDeleted[1])
 	resp := protocol.NewPacketWriter(protocol.PROTO_NC_CHAT_RESTRICT_ADD_ACK)
-	resp.WriteUint32(targetCharID)
 	resp.WriteUint16(0)
+	resp.WriteString(targetName, 20)
+	resp.WriteByte(0)
+	resp.WriteByte(0)
 	_ = client.SendPacket(resp)
 }
 
 func (h *Handler) handleChatRestrictDel(client *network.Client, pkt *protocol.Packet) {
-	targetCharID, _ := pkt.Reader.ReadUint32()
-	if h.charRepo != nil {
+	var targetName string
+	var targetCharID uint32
+	if pkt.Reader.Remaining() >= 20 {
+		targetName, _ = pkt.Reader.ReadString(20)
+		if h.charRepo != nil {
+			if ch, err := h.charRepo.GetCharacterByName(targetName); err == nil && ch != nil {
+				targetCharID = uint32(ch.ID)
+			}
+		}
+	} else {
+		targetCharID, _ = pkt.Reader.ReadUint32()
+	}
+	if h.charRepo != nil && targetCharID > 0 {
 		_ = h.charRepo.DelChatRestrict(client.AccountID, int(targetCharID))
 	}
+	// Struct oficial PDB: PROTO_NC_CHAT_RESTRICT_DEL_ACK (22 bytes: nError[2], sChatRestrictCharID[20])
 	resp := protocol.NewPacketWriter(protocol.PROTO_NC_CHAT_RESTRICT_DEL_ACK)
-	resp.WriteUint32(targetCharID)
 	resp.WriteUint16(0)
+	resp.WriteString(targetName, 20)
 	_ = client.SendPacket(resp)
 }
 

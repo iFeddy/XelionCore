@@ -80,6 +80,31 @@ func (pm *PartyManager) RegisterOnline(client *network.Client, charID int, charN
 	}
 }
 
+// RenameOnlineChar actualiza el nombre en línea de un personaje tras wms_NC_USER_CONNECTION_ZONE_CHANGE_CHAR_ID_CMD.
+func (pm *PartyManager) RenameOnlineChar(charID int, newName string) {
+	if charID <= 0 || strings.TrimSpace(newName) == "" {
+		return
+	}
+	pm.mu.Lock()
+	defer pm.mu.Unlock()
+	for k, m := range pm.onlineChars {
+		if m != nil && m.CharID == charID {
+			delete(pm.onlineChars, k)
+			m.CharName = newName
+			pm.onlineChars[strings.ToLower(strings.TrimSpace(newName))] = m
+			break
+		}
+	}
+}
+
+// LeavePartyByCharID remueve un personaje desconectado en ZoneService de su grupo y presencia en línea.
+func (pm *PartyManager) LeavePartyByCharID(charID int) {
+	if charID <= 0 {
+		return
+	}
+	pm.UnregisterOnline(charID)
+}
+
 // UnregisterOnline remueve al personaje de la sesión y gestiona su salida del grupo si correspondía.
 func (pm *PartyManager) UnregisterOnline(charID int) {
 	pm.mu.Lock()
@@ -311,7 +336,7 @@ func (pm *PartyManager) LeaveParty(client *network.Client) {
 	charID := client.CharacterID
 	partyID, inParty := pm.charToParty[charID]
 	if !inParty {
-		_ = client.SendPacket(protocol.New_PROTO_NC_PARTY_LEAVE_ACK(1))
+		_ = client.SendPacket(protocol.New_PROTO_NC_PARTY_LEAVE_ACK(client.CharName, 1))
 		return
 	}
 
@@ -325,16 +350,23 @@ func (pm *PartyManager) LeaveParty(client *network.Client) {
 		_ = pm.charRepo.RemovePartyMember(int(partyID), charID)
 	}
 
+	var leaver *PartyMember
 	newMembers := make([]*PartyMember, 0, len(party.Members)-1)
 	for _, m := range party.Members {
 		if m.CharID != charID {
 			newMembers = append(newMembers, m)
+		} else {
+			leaver = m
 		}
 	}
 	party.Members = newMembers
 
 	// Confirmación al que se retira
-	_ = client.SendPacket(protocol.New_PROTO_NC_PARTY_LEAVE_ACK(0))
+	leaverName := client.CharName
+	if leaver != nil {
+		leaverName = leaver.CharName
+	}
+	_ = client.SendPacket(protocol.New_PROTO_NC_PARTY_LEAVE_ACK(leaverName, 0))
 
 	// Si queda 1 o 0 miembros, disolver grupo
 	if len(party.Members) <= 1 {
@@ -391,7 +423,7 @@ func (pm *PartyManager) KickMember(master *network.Client, targetName string) {
 	}
 
 	if kickedMember.Client != nil {
-		_ = kickedMember.Client.SendPacket(protocol.New_PROTO_NC_PARTY_LEAVE_ACK(0))
+		_ = kickedMember.Client.SendPacket(protocol.New_PROTO_NC_PARTY_LEAVE_ACK(kickedMember.CharName, 0))
 	}
 	_ = master.SendPacket(protocol.New_PROTO_NC_PARTY_KICKOFF_ACK(targetName, 0))
 
@@ -428,7 +460,7 @@ func (pm *PartyManager) ChangeMaster(master *network.Client, newMasterName strin
 	}
 
 	if newMaster == nil {
-		_ = master.SendPacket(protocol.New_PROTO_NC_PARTY_CHANGEMASTER_ACK(1))
+		_ = master.SendPacket(protocol.New_PROTO_NC_PARTY_CHANGEMASTER_ACK(newMasterName, 1))
 		return
 	}
 
@@ -442,7 +474,7 @@ func (pm *PartyManager) ChangeMaster(master *network.Client, newMasterName strin
 		_ = pm.charRepo.SetPartyMaster(int(partyID), newMaster.CharID)
 	}
 
-	_ = master.SendPacket(protocol.New_PROTO_NC_PARTY_CHANGEMASTER_ACK(0))
+	_ = master.SendPacket(protocol.New_PROTO_NC_PARTY_CHANGEMASTER_ACK(newMaster.CharName, 0))
 	pm.broadcastMemberListLocked(party)
 }
 
@@ -552,7 +584,7 @@ func (pm *PartyManager) AddFinderAd(client *network.Client, purpose string) {
 	}
 
 	resp := protocol.NewPacketWriter(protocol.PROTO_NC_PARTY_FINDER_ADD_ACK)
-	resp.WriteByte(0) // Success
+	resp.WriteUint16(0) // Error: 0 (Success)
 	_ = client.SendPacket(resp)
 }
 
@@ -568,7 +600,7 @@ func (pm *PartyManager) DeleteFinderAd(client *network.Client) {
 	}
 
 	resp := protocol.NewPacketWriter(protocol.PROTO_NC_PARTY_FINDER_DELETE_ACK)
-	resp.WriteByte(0)
+	resp.WriteUint16(0) // Error: 0 (Success)
 	_ = client.SendPacket(resp)
 }
 
@@ -578,16 +610,9 @@ func (pm *PartyManager) ListFinderAds(client *network.Client) {
 	defer pm.mu.RUnlock()
 
 	entries := make([]protocol.PartyFinderEntry, 0, len(pm.finderAds))
-	for partyID, ad := range pm.finderAds {
-		party, exists := pm.parties[partyID]
-		cnt := byte(1)
-		if exists {
-			cnt = byte(len(party.Members))
-		}
+	for _, ad := range pm.finderAds {
 		entries = append(entries, protocol.PartyFinderEntry{
 			MasterName: ad.MasterName,
-			Level:      ad.Level,
-			MemberCnt:  cnt,
 			Purpose:    ad.Purpose,
 		})
 	}

@@ -504,10 +504,22 @@ func (m *ZoneMap) bridgeRewardGuildTournament(winningGuild string) {
 	if m.handler == nil {
 		return
 	}
+	var winnerNo, loseNo uint32
+	if m.GTState != nil {
+		if winningGuild == m.GTState.GuildB || (m.GTState.ScoreB > m.GTState.ScoreA && winningGuild != m.GTState.GuildA) {
+			winnerNo, loseNo = m.GTState.GuildBID, m.GTState.GuildAID
+		} else {
+			winnerNo, loseNo = m.GTState.GuildAID, m.GTState.GuildBID
+		}
+	}
 	for _, p := range m.GetPlayers() {
 		if p.Char != nil && p.Client != nil {
 			res := protocol.NewPacketWriter(protocol.PROTO_NC_GUILD_TOURNAMENT_RESULT_CMD)
-			writeFixedStr(res, winningGuild, 20)
+			res.WriteByte(0)              // nTournamentSeed
+			res.WriteUint16(m.ID)         // nTournamentMapNo
+			res.WriteByte(1)              // nStatus
+			res.WriteUint32(winnerNo)     // nWinnerGuildNo
+			res.WriteUint32(loseNo)       // nLoseGuildNo
 			_ = p.Client.SendPacket(res)
 		}
 	}
@@ -914,10 +926,19 @@ func (h *Handler) handleActWeddingHallReservReq(client *network.Client, pkt *pro
 	if h.gameLogDispatcher != nil && player.CurrentMap != nil {
 		h.gameLogDispatcher.EnqueueTypeJ(2, player.Char.ID, player.CurrentMap.MapID, player.Char.XPos, player.Char.YPos, 0, 0, nowUnix, 1, 0)
 	}
+	now := time.Unix(nowUnix, 0)
 	ack := protocol.NewPacketWriter(protocol.PROTO_NC_ACT_WEDDING_HALL_RESERV_ACK)
 	ack.WriteUint16(0)
 	ack.WriteInt64(nowUnix)
-	writeFixedStr(ack, time.Unix(nowUnix, 0).Format(time.RFC3339), 36)
+	ack.WriteInt32(int32(now.Second()))
+	ack.WriteInt32(int32(now.Minute()))
+	ack.WriteInt32(int32(now.Hour()))
+	ack.WriteInt32(int32(now.Day()))
+	ack.WriteInt32(int32(now.Month() - 1))
+	ack.WriteInt32(int32(now.Year() - 1900))
+	ack.WriteInt32(int32(now.Weekday()))
+	ack.WriteInt32(int32(now.YearDay() - 1))
+	ack.WriteInt32(0)
 	_ = client.SendPacket(ack)
 }
 
@@ -1000,22 +1021,32 @@ func (h *Handler) handleActWeddingDivorceRefuseCmd(client *network.Client, pkt *
 }
 
 // handleCharWeddingPartnerInfoReq maneja PROTO_NC_CHAR_WEDDING_PARTNER_INFO_REQ (0x1093).
+// Struct oficial PDB: PROTO_NC_CHAR_WEDDING_PARTNER_INFO_ACK (14 bytes: NETPACKETZONEHEADER[6], PartnerInfo[8])
 func (h *Handler) handleCharWeddingPartnerInfoReq(client *network.Client, pkt *protocol.Packet) {
 	player := h.GetPlayer(client)
 	if player == nil || player.Char == nil {
 		return
 	}
-	var partnerName string
+	var partnerClass, partnerOnline byte
+	var partnerHandle uint16
 	if h.charRepo != nil {
 		if st, err := h.charRepo.GetWeddingStatus(player.Char.ID); err == nil && st != nil && st.PartnerCharNo > 0 {
-			if pCh, errCh := h.charRepo.GetCharacterByID(st.PartnerCharNo); errCh == nil && pCh != nil {
-				partnerName = pCh.Name
+			if p, found := h.GetPlayerByCharID(st.PartnerCharNo); found && p != nil && p.Char != nil {
+				partnerClass = p.Char.Job
+				partnerOnline = 1
+				partnerHandle = p.MapObjectID
+			} else if pCh, errCh := h.charRepo.GetCharacterByID(st.PartnerCharNo); errCh == nil && pCh != nil {
+				partnerClass = pCh.Job
 			}
 		}
 	}
 	ack := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_WEDDING_PARTNER_INFO_ACK)
-	ack.WriteUint16(0)
-	writeFixedStr(ack, partnerName, 20)
+	ack.WriteUint32(uint32(player.Char.ID)) // NETPACKETZONEHEADER.charregnum (4B)
+	ack.WriteUint16(player.MapObjectID)     // NETPACKETZONEHEADER.handle (2B)
+	ack.WriteByte(partnerClass)             // PartnerInfo[0]: class
+	ack.WriteByte(partnerOnline)            // PartnerInfo[1]: online
+	ack.WriteUint32(0)                      // PartnerInfo[2..5]: reserved/map
+	ack.WriteUint16(partnerHandle)          // PartnerInfo[6..7]: handle
 	_ = client.SendPacket(ack)
 }
 

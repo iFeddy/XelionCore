@@ -285,9 +285,27 @@ type PROTO_NC_HOLY_PROMISE_WITHDRAW_CEN_REWARD_ACK_DATA struct {
 // Packet Builders Oficiales para Holy Promise (Dept 37)
 // ============================================================================
 
-func New_PROTO_NC_HOLY_PROMISE_SET_UP_ACK(errCode uint16) *PacketWriter {
+// HolyPromiseUpInfo modela PROTO_HOLY_PROMISE_INFO (26 bytes) para SET_UP_ACK.
+type HolyPromiseUpInfo struct {
+	PromiseCharID string
+	LogonInfo     uint32
+	Level         byte
+	Flags         byte
+}
+
+func New_PROTO_NC_HOLY_PROMISE_SET_UP_ACK(errCode uint16, upInfo ...HolyPromiseUpInfo) *PacketWriter {
 	pw := NewPacketWriter(PROTO_NC_HOLY_PROMISE_SET_UP_ACK)
 	pw.WriteUint16(errCode)
+	var info HolyPromiseUpInfo
+	if len(upInfo) > 0 {
+		info = upInfo[0]
+	}
+	pw.WriteString(info.PromiseCharID, 20)
+	pw.WriteUint32(info.LogonInfo)
+	pw.WriteByte(info.Level)
+	pw.WriteByte(info.Flags)
+	pw.WriteInt32(0) // ResetableDateTime
+	pw.WriteBytes(make([]byte, 36))
 	return pw
 }
 

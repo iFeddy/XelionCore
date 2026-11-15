@@ -30,6 +30,7 @@ type Handler struct {
 	raidMgr        *RaidManager
 	holyPromiseMgr    *HolyPromiseManager
 	gameLogDispatcher *database.GameLogDispatcher
+	s2sSink           S2SSink
 	zoneIP            string
 	zonePort       uint16
 	activeClients  map[int]*network.Client
@@ -347,7 +348,13 @@ func (h *Handler) HandlePacket(client *network.Client, pkt *protocol.Packet) {
 		h.friendMgr.RequestFriend(client, targetName)
 
 	case protocol.PROTO_NC_FRIEND_SET_CONFIRM_ACK:
-		h.friendMgr.AcceptFriend(client)
+		accept := byte(1)
+		if pkt.Reader.Remaining() >= 41 {
+			_, _ = pkt.Reader.ReadString(20) // charid
+			_, _ = pkt.Reader.ReadString(20) // friendid
+			accept, _ = pkt.Reader.ReadByte()
+		}
+		h.friendMgr.AcceptFriendConfirm(client, accept == 1)
 
 	case protocol.PROTO_NC_FRIEND_DEL_REQ:
 		targetName, _ := pkt.Reader.ReadString(20)
@@ -425,7 +432,7 @@ func (h *Handler) HandlePacket(client *network.Client, pkt *protocol.Packet) {
 		h.guildMgr.HandleGuildNameReq(client, newName)
 
 	case protocol.PROTO_NC_GUILD_TOURNAMENT_JOIN_REQ:
-		gtNo, _ := pkt.Reader.ReadUint16()
+		gtNo, _ := pkt.Reader.ReadUint32()
 		h.guildMgr.HandleTournamentJoinReq(client, int(gtNo))
 
 	case protocol.PROTO_NC_GUILD_TOURNAMENT_LIST_REQ:
@@ -438,8 +445,7 @@ func (h *Handler) HandlePacket(client *network.Client, pkt *protocol.Packet) {
 		h.guildMgr.HandleMyTournamentMatchTimeReq(client)
 
 	case protocol.PROTO_NC_GUILD_TOURNAMENT_JOIN_LIST_REQ:
-		gtNo, _ := pkt.Reader.ReadUint16()
-		h.guildMgr.HandleTournamentJoinListReq(client, int(gtNo))
+		h.guildMgr.HandleTournamentJoinListReq(client, 0)
 
 	case protocol.PROTO_NC_GUILD_HISTORY_LIST_REQ:
 		h.guildMgr.HandleHistoryListReq(client)
@@ -480,7 +486,10 @@ func (h *Handler) HandlePacket(client *network.Client, pkt *protocol.Packet) {
 
 	case protocol.PROTO_NC_GUILD_ACADEMY_MEMBER_CHAT_BAN_REQ:
 		targetName, _ := pkt.Reader.ReadString(20)
-		min, _ := pkt.Reader.ReadInt32()
+		var min int32 = 10
+		if pkt.Reader.Remaining() >= 4 {
+			min, _ = pkt.Reader.ReadInt32()
+		}
 		h.guildMgr.HandleAcademyChatBan(client, targetName, int(min))
 
 	case protocol.PROTO_NC_GUILD_ACADEMY_NOTIFY_REQ:
@@ -493,8 +502,15 @@ func (h *Handler) HandlePacket(client *network.Client, pkt *protocol.Packet) {
 		h.guildMgr.HandleAcademyGuildInvite(client, targetName)
 
 	case protocol.PROTO_NC_GUILD_ACADEMY_MEMBER_GUILD_JOIN_ACK:
-		isAccept, _ := pkt.Reader.ReadByte()
-		h.guildMgr.HandleAcademyGuildJoinAck(client, isAccept)
+		if pkt.Reader.Remaining() >= 37 {
+			guildName, _ := pkt.Reader.ReadString(16)
+			inviteSource, _ := pkt.Reader.ReadString(20)
+			isAccept, _ := pkt.Reader.ReadByte()
+			h.guildMgr.HandleAcademyGuildJoinAck(client, guildName, inviteSource, isAccept)
+		} else {
+			isAccept, _ := pkt.Reader.ReadByte()
+			h.guildMgr.HandleAcademyGuildJoinAck(client, "", "", isAccept)
+		}
 
 	case protocol.PROTO_NC_GUILD_ACADEMY_GET_REWARD_MONEY_REQ:
 		h.guildMgr.HandleAcademyGetRewardMoney(client)
@@ -1178,14 +1194,16 @@ func (h *Handler) handleBackToWorldSelect(client *network.Client, pkt *protocol.
 	}
 
 	if client.CharacterID > 0 {
+		charName := h.activeCharName(client)
 		h.partyMgr.UnregisterOnline(client.CharacterID)
-		h.friendMgr.BroadcastLogout(client.CharacterID, client.Username)
+		h.friendMgr.BroadcastLogout(client.CharacterID, charName)
 		h.guildMgr.UnregisterOnline(client.CharacterID)
 		h.kqMgr.UnregisterOnline(client.CharacterID)
 		if h.charRepo != nil {
 			_ = h.charRepo.CharacterLogout(client.CharacterID, 0)
 		}
 		client.CharacterID = 0
+		client.CharName = ""
 	}
 
 	var otp [32]byte
@@ -1528,6 +1546,7 @@ func (h *Handler) handleCharSelect(client *network.Client, pkt *protocol.Packet)
 	}
 
 	client.CharacterID = selected.ID
+	client.CharName = selected.Name
 	client.Slot = slot
 	h.partyMgr.RegisterOnline(client, selected.ID, selected.Name, selected.Job, selected.Level)
 
@@ -1815,15 +1834,35 @@ func (h *Handler) handleSaveSettings(client *network.Client, pkt *protocol.Packe
 		client.RemoteAddr(), optType, len(payload), charNo)
 }
 
+func (h *Handler) activeCharName(client *network.Client) string {
+	if client == nil {
+		return ""
+	}
+	if strings.TrimSpace(client.CharName) != "" {
+		return client.CharName
+	}
+	if h.charRepo != nil && client.CharacterID > 0 {
+		if ch, err := h.charRepo.GetCharacterByID(client.CharacterID); err == nil && ch != nil && ch.Name != "" {
+			client.CharName = ch.Name
+			return ch.Name
+		}
+	}
+	return client.Username
+}
+
 func (h *Handler) handlePrisonGet(client *network.Client, pkt *protocol.Packet) {
 	resp := protocol.NewPacketWriter(protocol.PROTO_NC_PRISON_GET_ACK)
-	resp.WriteByte(0) // bInPrison = 0 (libre / no encarcelado)
+	resp.WriteUint16(0)   // err
+	resp.WriteUint16(0)   // nMinute
+	resp.Fill(16, 0)      // sReason[16]
+	resp.Fill(64, 0)      // sRemark[64]
 	_ = client.SendPacket(resp)
 }
 
 func (h *Handler) handleGotIngame(client *network.Client, pkt *protocol.Packet) {
+	charName := h.activeCharName(client)
 	log.Printf("[World][%s] Player '%s' entering in-game zone (0x%04X). Dispatching official in-game ACKs...",
-		client.RemoteAddr(), client.Username, pkt.OpCode)
+		client.RemoteAddr(), charName, pkt.OpCode)
 
 	// 1. Registrar en KQManager y despachar reloj y lista oficial de Kingdom Quests
 	h.kqMgr.RegisterOnline(client, client.CharacterID)
@@ -1842,20 +1881,29 @@ func (h *Handler) handleGotIngame(client *network.Client, pkt *protocol.Packet) 
 			}
 		}
 	}
-	h.friendMgr.BroadcastLogin(client, client.Username, currentMap)
+	h.friendMgr.BroadcastLogin(client, charName, currentMap)
 
 	// 3. Registrar en GuildManager y enviar información de gremio si pertenece a uno
-	h.guildMgr.RegisterOnline(client, client.CharacterID, client.Username)
+	h.guildMgr.RegisterOnline(client, client.CharacterID, charName)
 	h.guildMgr.HandleMyGuildInfo(client)
 	h.guildMgr.HandleMemberList(client)
 
-	// 4. Packet PROTO_NC_MISC_SERVER_TIME_NOTIFY_CMD (0x0845 / Dept:2, Cmd:69) - Sincronización oficial del reloj
+	// 4. Packet PROTO_NC_MISC_SERVER_TIME_NOTIFY_CMD (0x0845, 37 bytes: tm[36], nTimeZone[1])
 	p4 := protocol.NewPacketWriter(protocol.PROTO_NC_MISC_SERVER_TIME_NOTIFY_CMD)
 	now := time.Now()
-	millis := uint32(now.Hour()*3600000 + now.Minute()*60000 + now.Second()*1000 + now.Nanosecond()/1000000)
-	p4.WriteUint32(millis)
+	p4.WriteInt32(int32(now.Second()))
+	p4.WriteInt32(int32(now.Minute()))
+	p4.WriteInt32(int32(now.Hour()))
+	p4.WriteInt32(int32(now.Day()))
+	p4.WriteInt32(int32(now.Month() - 1))
+	p4.WriteInt32(int32(now.Year() - 1900))
+	p4.WriteInt32(int32(now.Weekday()))
+	p4.WriteInt32(int32(now.YearDay() - 1))
+	p4.WriteInt32(0)
+	_, tzOff := now.Zone()
+	p4.WriteByte(byte(int8(tzOff / 3600)))
 	_ = client.SendPacket(p4)
 
 	log.Printf("[World][%s] Official in-game ACK sequence sent successfully for '%s'",
-		client.RemoteAddr(), client.Username)
+		client.RemoteAddr(), charName)
 }
