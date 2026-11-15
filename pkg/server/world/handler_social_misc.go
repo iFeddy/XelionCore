@@ -201,20 +201,27 @@ func (h *Handler) handleWhisper(client *network.Client, pkt *protocol.Packet) {
 	_ = client.SendPacket(succResp)
 
 	// Delivery to receiver: PROTO_NC_ACT_SOMEONEWHISPER_CMD (OpCode 0x200D)
+	// WorldManager.exe fc_NC_ACT_WHISPER_REQ (0x41c80a): itemLinkDataCount[1] + talker[20] + flag[1] + len[1] + content[len]
+	var gmFlag byte
+	if client.Admin > 0 {
+		gmFlag = 1
+	}
 	cmd := protocol.NewPacketWriter(protocol.PROTO_NC_ACT_SOMEONEWHISPER_CMD)
 	cmd.WriteByte(itemLinkCount)
 	cmd.WriteString(senderName, 20)
+	cmd.WriteByte(gmFlag)
 	cmd.WriteByte(byte(len(msg)))
 	cmd.WriteBytes([]byte(msg))
 	_ = targetClient.SendPacket(cmd)
 
 	// Coordinar entrega viva si el destinatario ya transfirió su sesión activa a ZoneService
 	h.BroadcastToZones("wms_NC_CT_CHARTTING_CMD", map[string]interface{}{
-		"type":       "whisper",
-		"sender":     senderName,
-		"target":     targetName,
-		"message":    msg,
-		"senderFlag": itemLinkCount,
+		"type":          "whisper",
+		"sender":        senderName,
+		"target":        targetName,
+		"message":       msg,
+		"itemLinkCount": itemLinkCount,
+		"senderFlag":    gmFlag,
 	})
 }
 

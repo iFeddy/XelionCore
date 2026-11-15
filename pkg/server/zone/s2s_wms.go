@@ -257,13 +257,15 @@ func defaultWMSHandlerFor(sym string) WMSHandlerFunc {
 				target := payloadString(ev.Payload, "target")
 				if target != "" {
 					if p, found := h.GetPlayerByName(target); found && p != nil && p.Client != nil {
+						linkCnt, _ := payloadInt(ev.Payload, "itemLinkCount")
 						flagVal, _ := payloadInt(ev.Payload, "senderFlag")
 						if len(msg) > 250 {
 							msg = msg[:250]
 						}
 						cmd := protocol.NewPacketWriter(protocol.PROTO_NC_ACT_SOMEONEWHISPER_CMD)
-						cmd.WriteByte(byte(flagVal))
+						cmd.WriteByte(byte(linkCnt))
 						cmd.WriteString(sender, 20)
+						cmd.WriteByte(byte(flagVal))
 						cmd.WriteByte(byte(len(msg)))
 						cmd.WriteBytes([]byte(msg))
 						_ = p.Client.SendPacket(cmd)

@@ -34,7 +34,7 @@ func TestFase21_Control1_PDB_DisassemblyToolAndGroundTruth(t *testing.T) {
 
 	requiredFiles := []string{
 		filepath.Join(root, "scripts", "disasm_pdb_handler.py"),
-		filepath.Join(root, "docs", "PLAN_SANEAMIENTO_BINARIO_EXE_PDB_100.md"),
+		filepath.Join(root, "docs", "plan", "PLAN_SANEAMIENTO_BINARIO_EXE_PDB_100.md"),
 		filepath.Join(root, "docs", "Servicios", "WorldManager.md"),
 		filepath.Join(root, "docs", "Servicios", "Zone.md"),
 	}
