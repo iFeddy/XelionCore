@@ -146,13 +146,17 @@ type ZonePlayer struct {
 	GatheringObj uint16
 
 	// Campos de subsistemas de la Fase 12 (Combate, Skills, AbState, PK)
-	TargetHandle    uint16
-	IsAutoAttacking bool
-	LastAttackTime  time.Time
-	CastingSkillID  uint16
-	ActiveStates    map[uint16]*ActiveAbState
-	PKCount         int
-	PKYellowTime    int
+	TargetHandle          uint16
+	SecondaryTargetHandle uint16
+	IsAutoAttacking       bool
+	LastAttackTime        time.Time
+	CastingSkillID        uint16
+	SkillCooldowns        map[uint16]time.Time
+	ActiveStates          map[uint16]*ActiveAbState
+	PKCount               int
+	PKYellowTime          int
+	LastSaveAt            time.Time
+	RestTickCount         int
 
 	// Campos de subsistemas de la Fase 13 (AutoPick, Títulos, RestExp)
 	IsAutoPick          bool

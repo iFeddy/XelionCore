@@ -135,42 +135,54 @@ func (h *Handler) handleSkillReplyReviveCmd(client *network.Client, pkt *protoco
 		return
 	}
 
-	// Si el jugador estaba muerto, revivir con 50% de HP
-	if player.State == 3 || player.Char.CurHP <= 0 {
-		player.State = 1 // Normal
-		player.Char.CurHP = player.MaxHP / 2
-		if player.Char.CurHP <= 0 {
-			player.Char.CurHP = 50
-		}
-
-		hp := uint32(player.Char.CurHP)
-		sp := uint32(player.Char.CurSP)
-		lp := uint32(0)
-
-		reviveCmd := protocol.NewPacketWriter(protocol.PROTO_NC_SKILL_REVIVE_CMD)
-		reviveCmd.WriteUint32(hp)
-		reviveCmd.WriteUint32(sp)
-		reviveCmd.WriteUint32(lp)
-		_ = client.SendPacket(reviveCmd)
-
-		if player.CurrentMap != nil {
-			someRevive := protocol.NewPacketWriter(protocol.PROTO_NC_SKILL_SOMEONEREVIVE_CMD)
-			someRevive.WriteUint16(player.MapObjectID)
-			someRevive.WriteUint32(hp)
-			someRevive.WriteUint32(sp)
-			someRevive.WriteUint32(lp)
-			player.CurrentMap.Broadcast(someRevive, 0)
-		}
-
-		hpCmd := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_HPCHANGE_CMD)
-		hpCmd.WriteUint32(hp)
-		hpCmd.WriteUint16(0)
-		_ = client.SendPacket(hpCmd)
-
-		spCmd := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_SPCHANGE_CMD)
-		spCmd.WriteUint32(sp)
-		_ = client.SendPacket(spCmd)
+	// Verificado en Zone.exe sp_NC_SKILL_REPLYREVIVE_CMD (0x00418A30):
+	// si el personaje está vivo (sin estado muerto/pendiente de resurrección), responde PROTO_NC_SKILL_REPLYREVIVEFAIL_CMD (0x482B, 0x1506).
+	if player.State != 3 && player.Char.CurHP > 0 {
+		failCmd := protocol.NewPacketWriter(protocol.PROTO_NC_SKILL_REPLYREVIVEFAIL_CMD)
+		failCmd.WriteUint16(0x1506)
+		_ = client.SendPacket(failCmd)
+		return
 	}
+
+	// Si el jugador estaba muerto, revivir con 50% de HP y limpiar estados negativos
+	player.State = 1 // Normal
+	player.Char.CurHP = player.MaxHP / 2
+	if player.Char.CurHP <= 0 {
+		player.Char.CurHP = 50
+	}
+	for id, st := range player.ActiveStates {
+		if st != nil && (st.IsDebuff || st.IsStun || st.IsRoot || st.IsSilence) {
+			player.RemoveAbState(id)
+		}
+	}
+
+	hp := uint32(player.Char.CurHP)
+	sp := uint32(player.Char.CurSP)
+	lp := uint32(0)
+
+	reviveCmd := protocol.NewPacketWriter(protocol.PROTO_NC_SKILL_REVIVE_CMD)
+	reviveCmd.WriteUint32(hp)
+	reviveCmd.WriteUint32(sp)
+	reviveCmd.WriteUint32(lp)
+	_ = client.SendPacket(reviveCmd)
+
+	if player.CurrentMap != nil {
+		someRevive := protocol.NewPacketWriter(protocol.PROTO_NC_SKILL_SOMEONEREVIVE_CMD)
+		someRevive.WriteUint16(player.MapObjectID)
+		someRevive.WriteUint32(hp)
+		someRevive.WriteUint32(sp)
+		someRevive.WriteUint32(lp)
+		player.CurrentMap.Broadcast(someRevive, 0)
+	}
+
+	hpCmd := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_HPCHANGE_CMD)
+	hpCmd.WriteUint32(hp)
+	hpCmd.WriteUint16(0)
+	_ = client.SendPacket(hpCmd)
+
+	spCmd := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_SPCHANGE_CMD)
+	spCmd.WriteUint32(sp)
+	_ = client.SendPacket(spCmd)
 }
 
 // handleItemUseActiveSkillReq implementa PROTO_NC_ITEM_USE_ACTIVESKILL_REQ (0x304E).

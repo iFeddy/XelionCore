@@ -10,7 +10,7 @@ import (
 )
 
 // CalculateAngleDeg calcula la diferencia angular en grados (0..180) entre el encaramiento del defensor y la posición del atacante.
-// 0 grados = ataque por la espalda, 90 grados = ataque por el flanco, 180 grados = ataque frontal.
+// En DamageByAngle.json / Zone.exe roe_Damage: 0 grados = frontal (1000), 90 grados = flanco (1100), 180 grados = espalda (1200).
 func CalculateAngleDeg(attX, attY, defX, defY float64, defDirect int16) int {
 	// En Fiesta, Direct va de 0 a 360 o 0 a 255. Normalizamos a radianes.
 	defAngleRad := float64(defDirect) * math.Pi / 180.0
@@ -63,31 +63,99 @@ func CalculatePhysicalDamage(attackerAtk, defenderDef, angleDeg int, isMonster b
 	return int(math.Round(total))
 }
 
-// CheckHit evalúa precisión (AimRate) frente a evasión (EvasionRate).
+// CheckHit evalúa precisión (TH) frente a evasión (TB) usando la fórmula oficial de Zone.exe roe_HitRate:
+// permille = int(TH * 850.0 / TB), comparado contra well512_GetRandom(1000).
 func CheckHit(aimRate, evasionRate int) bool {
-	if aimRate <= 0 {
-		aimRate = 10
-	}
-	if evasionRate <= 0 {
-		evasionRate = 5
-	}
-	chance := float64(aimRate) / float64(aimRate+evasionRate)
-	return rand.Float64() <= chance
+	return CheckHitPermille(ROECalcHitRatePermille(aimRate, evasionRate, 0))
 }
 
-// CheckCrit evalúa probabilidad de golpe crítico.
+// ROECalcHitRatePermille replica RulesOfEngagementNormalPY::roe_HitRate (0x005011F0, const 850.0 / 1000.0).
+func ROECalcHitRatePermille(th, tb, freeStatHitRate int) int {
+	if th <= 0 {
+		th = 10
+	}
+	if tb <= 0 {
+		tb = 1
+	}
+	permille := int((float64(th)*850.0)/float64(tb)) - freeStatHitRate
+	if permille < 50 {
+		permille = 50
+	}
+	return permille
+}
+
+// CheckHitPermille tira contra 1000 per-mille (Zone.exe well512_GetRandom(1000)).
+func CheckHitPermille(permille int) bool {
+	if permille >= 1000 {
+		return true
+	}
+	if permille <= 0 {
+		return false
+	}
+	return rand.Intn(1000) < permille
+}
+
+// ROECalcCritRatePermille replica RulesOfEngagementNormalPY::roe_CriticalRate (0x00501700, mínimo 1.0 per-mille).
+func ROECalcCritRatePermille(criSum, targetCritResist, freeStatCritRate int) int {
+	rate := criSum - targetCritResist + freeStatCritRate
+	if rate < 1 {
+		rate = 1
+	}
+	return rate
+}
+
+// CheckCritPermille evalúa un crítico en escala oficial per-mille (0..1000).
+func CheckCritPermille(permille int) bool {
+	if permille < 1 {
+		permille = 1
+	}
+	if permille >= 1000 {
+		return true
+	}
+	return rand.Intn(1000) < permille
+}
+
+// ROECalcShieldBlockPermille replica RulesOfEngagementNormalPY::roe_ShieldBlock (0x004FF860):
+// ((DefSB + EquipSB) * sbRate) / 1000 en escala per-mille.
+func ROECalcShieldBlockPermille(defSB, equipSB, sbRate int) int {
+	if sbRate <= 0 {
+		sbRate = 1000
+	}
+	block := ((defSB + equipSB) * sbRate) / 1000
+	if block < 0 {
+		return 0
+	}
+	return block
+}
+
+// CheckShieldBlock evalúa bloqueo con escudo cuando el defensor lleva escudo equipado (Zone.exe 0x004FF860).
+func CheckShieldBlock(defSB, equipSB, sbRate int, shieldEquipped bool) bool {
+	if !shieldEquipped {
+		return false
+	}
+	permille := ROECalcShieldBlockPermille(defSB, equipSB, sbRate)
+	if permille <= 0 {
+		return false
+	}
+	if permille >= 1000 {
+		return true
+	}
+	return rand.Intn(1000) < permille
+}
+
+// CheckCrit evalúa probabilidad de golpe crítico (porcentaje 0..100 escalado a per-mille oficial).
 func CheckCrit(critRate, critResist int) bool {
 	if critRate <= 0 {
 		return false
 	}
-	rate := float64(critRate-critResist) / 100.0
-	if rate < 0.05 {
-		rate = 0.05
+	permille := (critRate - critResist) * 10
+	if permille < 50 {
+		permille = 50
 	}
-	if rate > 0.80 {
-		rate = 0.80
+	if permille > 800 {
+		permille = 800
 	}
-	return rand.Float64() <= rate
+	return rand.Intn(1000) < permille
 }
 
 // writeTargetInfo construye PROTO_NC_BAT_TARGETINFO_CMD (0x2402, 30B payload = 32B wire).
@@ -177,6 +245,10 @@ func (h *Handler) handleTargettingReq(client *network.Client, pkt *protocol.Pack
 	if !ok || player == nil || player.CurrentMap == nil {
 		return
 	}
+	// sp_NC_BAT_TARGETTING_REQ: jugador muerto o con estado bloqueante (0x188=392) no puede targetear
+	if player.State == 3 || (player.Char != nil && player.Char.CurHP <= 0) || player.GetAbState(392) != nil {
+		return
+	}
 
 	targetHandle, err := pkt.Reader.ReadUint16()
 	if err != nil {
@@ -189,23 +261,35 @@ func (h *Handler) handleTargettingReq(client *network.Client, pkt *protocol.Pack
 	}
 
 	player.TargetHandle = targetHandle
+	switch e := entity.(type) {
+	case *ZonePlayer:
+		player.SecondaryTargetHandle = e.TargetHandle
+	case *ZoneMonster:
+		e.mu.RLock()
+		player.SecondaryTargetHandle = e.TargetHandle
+		e.mu.RUnlock()
+	default:
+		player.SecondaryTargetHandle = 0
+	}
 	sendTargetInfoWithSecondary(client, player.CurrentMap, targetHandle)
 }
 
 // handleUntargetReq implementa PROTO_NC_BAT_UNTARGET_REQ (0x2408).
+// Verificado en Zone.exe sp_NC_BAT_UNTARGET_REQ (0x0042B6A0).
 func (h *Handler) handleUntargetReq(client *network.Client, pkt *protocol.Packet) {
 	player, ok := h.getPlayer(client)
 	if !ok || player == nil {
 		return
 	}
 	player.TargetHandle = 0
+	player.SecondaryTargetHandle = 0
 	player.IsAutoAttacking = false
 }
 
 // handleBashStartCmd implementa PROTO_NC_BAT_BASHSTART_CMD (0x242B).
 func (h *Handler) handleBashStartCmd(client *network.Client, pkt *protocol.Packet) {
 	player, ok := h.getPlayer(client)
-	if !ok || player == nil || player.TargetHandle == 0 || !player.CanAttack() {
+	if !ok || player == nil || player.State == 3 || (player.Char != nil && player.Char.CurHP <= 0) || player.TargetHandle == 0 || !player.CanAttack() {
 		return
 	}
 	player.IsAutoAttacking = true
@@ -381,11 +465,22 @@ func emitSwingDamage(zMap *ZoneMap, attacker, defender GridEntity, attackerHandl
 	}
 }
 
+// sendSkillBashCastFail envía PROTO_NC_BAT_SKILLBASH_CAST_FAIL_ACK (0x2434, 2B uint16 errCode)
+// alineado con Zone.exe so_SendErrorCode / smo_ply_SkillCastFail (0x00579480).
+func sendSkillBashCastFail(client *network.Client, errCode uint16) {
+	if client == nil {
+		return
+	}
+	failAck := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_SKILLBASH_CAST_FAIL_ACK)
+	failAck.WriteUint16(errCode)
+	_ = client.SendPacket(failAck)
+}
+
 // handleSkillBashObjCastReq implementa PROTO_NC_BAT_SKILLBASH_OBJ_CAST_REQ (0x2440).
 // Verificado en Zone.exe sp_NC_BAT_SKILLBASH_OBJ_CAST_REQ (0x0057FA50) + smo_SkillBash_Casting (0x0057BEF0).
 func (h *Handler) handleSkillBashObjCastReq(client *network.Client, pkt *protocol.Packet) {
 	player, ok := h.getPlayer(client)
-	if !ok || player == nil || player.CurrentMap == nil || !player.CanCast() {
+	if !ok || player == nil || player.CurrentMap == nil || player.Char == nil {
 		return
 	}
 
@@ -398,29 +493,83 @@ func (h *Handler) handleSkillBashObjCastReq(client *network.Client, pkt *protoco
 		return
 	}
 
-	// Validar objetivo en mapa
-	targetEntity := player.CurrentMap.GetEntity(targetObj)
-	if targetEntity == nil {
+	// Ramas de rechazo oficiales de Zone.exe sp_NC_BAT_SKILLBASH_OBJ_CAST_REQ -> SKILLBASH_CAST_FAIL_ACK (0x2434)
+	if player.State == 3 || player.Char.CurHP <= 0 {
+		sendSkillBashCastFail(client, 0x0FC0)
+		return
+	}
+	if !player.CanCast() {
+		sendSkillBashCastFail(client, 0x0FCC)
 		return
 	}
 
-	// Validar línea de visión (LoS) con .shbd
+	// Validar objetivo en mapa y si sigue vivo
+	targetEntity := player.CurrentMap.GetEntity(targetObj)
+	if targetEntity == nil {
+		sendSkillBashCastFail(client, 0x0FC4)
+		return
+	}
+	switch te := targetEntity.(type) {
+	case *ZoneMonster:
+		te.mu.RLock()
+		dead := te.IsDead || te.CurHP <= 0
+		te.mu.RUnlock()
+		if dead {
+			sendSkillBashCastFail(client, 0x0FC3)
+			return
+		}
+	case *ZonePlayer:
+		if te.State == 3 || (te.Char != nil && te.Char.CurHP <= 0) {
+			sendSkillBashCastFail(client, 0x0FC3)
+			return
+		}
+	}
+
+	// Validar línea de visión (LoS) con .shbd (Zone.exe so_FindBlockLocate -> 0x0FD1)
 	px, py := player.GetPosition()
 	tx, ty := targetEntity.GetPosition()
 	if player.CurrentMap.blockInfo != nil && player.CurrentMap.blockInfo.IsWorldAttackBlocked(float64(px), float64(py), float64(tx), float64(ty)) {
+		sendSkillBashCastFail(client, 0x0FD1)
+		return
+	}
+
+	// Validar cooldown activo (0x0FC8)
+	now := time.Now()
+	if player.SkillCooldowns != nil {
+		if cdUntil, onCD := player.SkillCooldowns[skillID]; onCD && now.Before(cdUntil) {
+			sendSkillBashCastFail(client, 0x0FC8)
+			return
+		}
+	}
+
+	// Validar distancia máxima del skill (0x0FCA fuera de rango)
+	const defaultMaxCastRange = 450.0
+	if math.Hypot(float64(px-tx), float64(py-ty)) > defaultMaxCastRange {
+		sendSkillBashCastFail(client, 0x0FCA)
+		return
+	}
+
+	// Validar consumo de SP (0x0FC9 sin SP suficiente)
+	spCost := 10
+	if player.Char.CurSP < spCost {
+		sendSkillBashCastFail(client, 0x0FC9)
 		return
 	}
 
 	player.CastingSkillID = skillID
-
-	// Costo de SP base si tiene maná suficiente
-	spCost := 10
-	if player.Char.CurSP >= spCost {
-		player.Char.CurSP -= spCost
-		spCmd := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_SPCHANGE_CMD)
-		spCmd.WriteUint32(uint32(player.Char.CurSP))
-		_ = client.SendPacket(spCmd)
+	if player.SkillCooldowns == nil {
+		player.SkillCooldowns = make(map[uint16]time.Time)
 	}
+	player.SkillCooldowns[skillID] = now.Add(50 * time.Millisecond)
+
+	// Consumir SP y notificar PROTO_NC_BAT_SPCHANGE_CMD (0x240F)
+	player.Char.CurSP -= spCost
+	spCmd := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_SPCHANGE_CMD)
+	spCmd.WriteUint32(uint32(player.Char.CurSP))
+	_ = client.SendPacket(spCmd)
+
+	// Confirmar inicio de casteo exitoso: PROTO_NC_BAT_SKILLBASH_CAST_SUC_ACK (0x2435, vacío)
+	_ = client.SendPacket(protocol.NewPacketWriter(protocol.PROTO_NC_BAT_SKILLBASH_CAST_SUC_ACK))
 
 	const castIndex uint16 = 1
 
@@ -479,7 +628,7 @@ func (h *Handler) handleSkillBashObjCastReq(client *network.Client, pkt *protoco
 // Verificado en Zone.exe sp_NC_BAT_SKILLBASH_FLD_CAST_REQ (0x0057F400).
 func (h *Handler) handleSkillBashFldCastReq(client *network.Client, pkt *protocol.Packet) {
 	player, ok := h.getPlayer(client)
-	if !ok || player == nil || player.CurrentMap == nil || !player.CanCast() {
+	if !ok || player == nil || player.CurrentMap == nil || player.Char == nil {
 		return
 	}
 
@@ -496,7 +645,48 @@ func (h *Handler) handleSkillBashFldCastReq(client *network.Client, pkt *protoco
 		return
 	}
 
+	if player.State == 3 || player.Char.CurHP <= 0 {
+		sendSkillBashCastFail(client, 0x0FC0)
+		return
+	}
+	if !player.CanCast() {
+		sendSkillBashCastFail(client, 0x0FCC)
+		return
+	}
+
+	now := time.Now()
+	if player.SkillCooldowns != nil {
+		if cdUntil, onCD := player.SkillCooldowns[skillID]; onCD && now.Before(cdUntil) {
+			sendSkillBashCastFail(client, 0x0FC8)
+			return
+		}
+	}
+
+	px, py := player.GetPosition()
+	if math.Hypot(float64(px)-float64(fldX), float64(py)-float64(fldY)) > 600.0 {
+		sendSkillBashCastFail(client, 0x0FCA)
+		return
+	}
+
+	spCost := 15
+	if player.Char.CurSP < spCost {
+		sendSkillBashCastFail(client, 0x0FC9)
+		return
+	}
+
 	player.CastingSkillID = skillID
+	if player.SkillCooldowns == nil {
+		player.SkillCooldowns = make(map[uint16]time.Time)
+	}
+	player.SkillCooldowns[skillID] = now.Add(50 * time.Millisecond)
+
+	player.Char.CurSP -= spCost
+	spCmd := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_SPCHANGE_CMD)
+	spCmd.WriteUint32(uint32(player.Char.CurSP))
+	_ = client.SendPacket(spCmd)
+
+	_ = client.SendPacket(protocol.NewPacketWriter(protocol.PROTO_NC_BAT_SKILLBASH_CAST_SUC_ACK))
+
 	const castIndex uint16 = 1
 
 	// Lanzador recibe PROTO_NC_BAT_SKILLBASH_HIT_FLD_START_CMD (0x2450, 12B payload)
@@ -553,7 +743,7 @@ func (h *Handler) handleSkillBashCastAbortReq(client *network.Client, pkt *proto
 		return
 	}
 
-	var errCode uint16 = 0x20EA // no está casteando / modo inválido
+	var errCode uint16 = 0x20EA // no está casteando / modo inválido (Zone.exe 0x0057C552)
 	if player.State == 6 {
 		errCode = 0x20E9
 	} else if player.CastingSkillID != 0 {
@@ -564,9 +754,6 @@ func (h *Handler) handleSkillBashCastAbortReq(client *network.Client, pkt *proto
 			cutCmd.WriteUint16(player.MapObjectID)
 			player.CurrentMap.Broadcast(cutCmd, player.MapObjectID)
 		}
-	} else {
-		// Permitir también abortar limpiamente si el cliente solicita abortar tras casteo reciente
-		errCode = 0x20E8
 	}
 
 	ack := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_SKILLBASH_CASTABORT_ACK)

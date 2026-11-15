@@ -232,22 +232,33 @@ func (h *Handler) handleAbStateEraseReq(client *network.Client, pkt *protocol.Pa
 		return
 	}
 
-	hadState := player.GetAbState(stateIndex) != nil
-	if hadState {
-		player.RemoveAbState(stateIndex)
-	}
+	st := player.GetAbState(stateIndex)
 
 	// Verificado en Zone.exe sp_NC_BAT_ABSTATE_ERASE_REQ (0x0042B900) / EraseGoodBuff (0x0042ACC0):
-	// PROTO_NC_BAT_ABSTATE_ERASE_ACK (0x2455, 2B) devuelve 0x1C70 en éxito, 0x1C71 si no existe.
-	var errCode uint16 = 0x1C71
-	if hadState {
+	// PROTO_NC_BAT_ABSTATE_ERASE_ACK (0x2455, 2B):
+	//   - 0x1C70: borrado exitoso (buff válido dentro de rango < 792)
+	//   - 0x1C71: el estado no está activo en el personaje
+	//   - 0x1C72: ID fuera de bitfield (>= 0x318 / 792) o debuff no removible manualmente
+	var errCode uint16
+	removed := false
+	switch {
+	case stateIndex >= 792:
+		errCode = 0x1C72
+	case st == nil:
+		errCode = 0x1C71
+	case st.IsDebuff && !st.IsBuff:
+		errCode = 0x1C72
+	default:
+		player.RemoveAbState(stateIndex)
 		errCode = 0x1C70
+		removed = true
 	}
+
 	ack := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_ABSTATE_ERASE_ACK)
 	ack.WriteUint16(errCode)
 	_ = client.SendPacket(ack)
 
-	if hadState {
+	if removed {
 		inform := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_ABSTATEINFORM_CMD)
 		inform.WriteUint32(uint32(stateIndex))
 		inform.WriteUint32(0)

@@ -278,6 +278,11 @@ func (m *ZoneMap) SetCollisionData(mbi *blockinfo.MapBlockInformation, doors *bl
 	}
 }
 
+// GameLoop retorna el bucle de simulación del mapa.
+func (m *ZoneMap) GameLoop() *MapGameLoop {
+	return m.gameLoop
+}
+
 // Close finaliza el bucle de juego y libera recursos del mapa.
 func (m *ZoneMap) Close() {
 	if m.gameLoop != nil {
@@ -631,18 +636,20 @@ func (m *ZoneMap) AddPlayer(p *ZonePlayer) {
 	}
 
 	// 1. Enviar jugadores en AOI al jugador entrante (lotes de máx 28 según bixc_Exchange 0x0043FD00)
-	for i := 0; i < len(otherPlayers); i += BriefInfoMaxBatch {
-		end := i + BriefInfoMaxBatch
-		if end > len(otherPlayers) {
-			end = len(otherPlayers)
+	if p.Client != nil {
+		for i := 0; i < len(otherPlayers); i += BriefInfoMaxBatch {
+			end := i + BriefInfoMaxBatch
+			if end > len(otherPlayers) {
+				end = len(otherPlayers)
+			}
+			chunk := otherPlayers[i:end]
+			spawnOthers := protocol.NewPacketWriter(protocol.PROTO_NC_BRIEFINFO_CHARACTER_CMD)
+			spawnOthers.WriteByte(byte(len(chunk)))
+			for _, other := range chunk {
+				other.WriteCharacterDisplay(spawnOthers)
+			}
+			_ = p.Client.SendPacket(spawnOthers)
 		}
-		chunk := otherPlayers[i:end]
-		spawnOthers := protocol.NewPacketWriter(protocol.PROTO_NC_BRIEFINFO_CHARACTER_CMD)
-		spawnOthers.WriteByte(byte(len(chunk)))
-		for _, other := range chunk {
-			other.WriteCharacterDisplay(spawnOthers)
-		}
-		_ = p.Client.SendPacket(spawnOthers)
 	}
 
 	// 2. Enviar jugador entrante a los otros jugadores en AOI

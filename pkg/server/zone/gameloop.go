@@ -25,6 +25,16 @@ func NewMapGameLoop(zMap *ZoneMap) *MapGameLoop {
 	}
 }
 
+// Step1s ejecuta un ciclo de 1 segundo (DoT/HoT, expiración de AbState y regeneración pasiva).
+func (gl *MapGameLoop) Step1s() {
+	gl.tick1s()
+}
+
+// Step30s ejecuta un ciclo de 30 segundos (expiración de drops, pets y CHARSAVE cada 60s).
+func (gl *MapGameLoop) Step30s() {
+	gl.tick30s()
+}
+
 // Start inicia las rutinas periódicas de simulación del mapa.
 func (gl *MapGameLoop) Start() {
 	gl.mu.Lock()
@@ -214,9 +224,13 @@ func (gl *MapGameLoop) tick1s() {
 		for id, st := range p.ActiveStates {
 			if st.DotDamage > 0 && (st.LastDotTick.IsZero() || now.Sub(st.LastDotTick) >= st.DotInterval) {
 				st.LastDotTick = now
+				killedByDot := false
 				if p.Char.CurHP <= st.DotDamage {
 					p.Char.CurHP = 0
 					p.State = 3 // Dead
+					p.IsAutoAttacking = false
+					p.TargetHandle = 0
+					killedByDot = true
 				} else {
 					p.Char.CurHP -= st.DotDamage
 				}
@@ -230,19 +244,40 @@ func (gl *MapGameLoop) tick1s() {
 				dotCmd.WriteUint16(0)
 				dotCmd.WriteUint8(0) // hit
 				gl.zMap.Broadcast(dotCmd, 0)
+
+				if killedByDot {
+					emitReallyKill(gl.zMap, p.MapObjectID, 0)
+				}
+			} else if st.DotDamage < 0 && (st.LastDotTick.IsZero() || now.Sub(st.LastDotTick) >= st.DotInterval) {
+				st.LastDotTick = now
+				if p.Char.CurHP > 0 && p.Char.CurHP < p.MaxHP {
+					p.Char.CurHP += -st.DotDamage
+					if p.Char.CurHP > p.MaxHP {
+						p.Char.CurHP = p.MaxHP
+					}
+					hpChanged = true
+				}
 			}
 
-			if now.After(st.ExpiresAt) {
+			if !st.ExpiresAt.IsZero() && now.After(st.ExpiresAt) {
 				p.RemoveAbState(id)
-				resetCmd := protocol.NewPacketWriter(protocol.PROTO_NC_SKILL_RESETABSTATE_CMD)
-				resetCmd.WriteUint16(id)
 				if p.Client != nil {
-					_ = p.Client.SendPacket(resetCmd)
+					informCmd := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_ABSTATEINFORM_CMD)
+					informCmd.WriteUint32(uint32(id))
+					informCmd.WriteUint32(0)
+					_ = p.Client.SendPacket(informCmd)
 				}
+				// Verificado en Zone.exe so_AbnormalState_BroadcastReset (0x00405800):
+				// broadcast PROTO_NC_BAT_ABSTATERESET_CMD (0x2428, Handle[2] + Abstate[4]).
+				resetCmd := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_ABSTATERESET_CMD)
+				resetCmd.WriteUint16(p.MapObjectID)
+				resetCmd.WriteUint32(uint32(id))
+				gl.zMap.Broadcast(resetCmd, 0)
 			}
 		}
 
-		// Estado 4 = Resting en Tent: regeneración rápida de HP y SP (10% por segundo)
+		// Regeneración oficial por estado (Zone.exe sp_RecoverPoint_House / sp_RecoverPoint_Rest):
+		// Estado 4 = Tent (10%/s); Estado 6 = Rest/Sit (cada 3s); Estado 1 = Normal pasivo (cada 3s).
 		if p.State == 4 {
 			regenHP := p.MaxHP / 10
 			if regenHP < 5 {
@@ -267,6 +302,45 @@ func (gl *MapGameLoop) tick1s() {
 				}
 				spChanged = true
 			}
+		} else if p.State == 6 || p.State == 1 {
+			p.RestTickCount++
+			if p.RestTickCount >= 3 {
+				p.RestTickCount = 0
+				var regenHP, regenSP int
+				if p.State == 6 {
+					regenHP = (p.MaxHP * 3) / 100
+					if regenHP < 5 {
+						regenHP = 5
+					}
+					regenSP = (p.MaxSP * 5) / 100
+					if regenSP < 5 {
+						regenSP = 5
+					}
+				} else {
+					regenHP = p.MaxHP / 100
+					if regenHP < 1 {
+						regenHP = 1
+					}
+					regenSP = p.MaxSP / 50
+					if regenSP < 1 {
+						regenSP = 1
+					}
+				}
+				if p.Char.CurHP > 0 && p.Char.CurHP < p.MaxHP {
+					p.Char.CurHP += regenHP
+					if p.Char.CurHP > p.MaxHP {
+						p.Char.CurHP = p.MaxHP
+					}
+					hpChanged = true
+				}
+				if p.Char.CurSP < p.MaxSP {
+					p.Char.CurSP += regenSP
+					if p.Char.CurSP > p.MaxSP {
+						p.Char.CurSP = p.MaxSP
+					}
+					spChanged = true
+				}
+			}
 		}
 
 		if hpChanged && p.Client != nil {
@@ -284,13 +358,41 @@ func (gl *MapGameLoop) tick1s() {
 	}
 }
 
-// tick30s limpia ítems del suelo expirados y estados periódicos lentos (Pets GTI).
+// tick30s limpia ítems del suelo expirados, ejecuta auto-guardado periódico CHARSAVE (60s ws_save2DB) y estados lentos (Pets GTI).
 func (gl *MapGameLoop) tick30s() {
 	gl.zMap.CleanupExpiredDrops(2 * time.Minute)
+	now := time.Now()
 	if gl.zMap.handler != nil {
 		for _, p := range gl.zMap.GetPlayers() {
-			if p != nil && p.ActivePet != nil {
+			if p == nil {
+				continue
+			}
+			if p.ActivePet != nil {
 				gl.zMap.handler.TickActivePet(p)
+			}
+			// Auto-guardado periódico CHARSAVE (Zone.exe ws_save2DB 0x00455A10: cada 0x258=600 ticks = 60s)
+			if p.Char != nil && gl.zMap.handler.charRepo != nil {
+				if p.LastSaveAt.IsZero() {
+					p.LastSaveAt = now
+				} else if now.Sub(p.LastSaveAt) >= 60*time.Second {
+					px, py := p.GetPosition()
+					p.Char.XPos = int(px)
+					p.Char.YPos = int(py)
+					if gl.zMap.MapID != "" {
+						p.Char.TownName = gl.zMap.MapID
+					}
+					p.Char.TCharacterState.XPos = p.Char.XPos
+					p.Char.TCharacterState.YPos = p.Char.YPos
+					p.Char.TCharacterState.HP = p.Char.CurHP
+					p.Char.TCharacterState.SP = p.Char.CurSP
+					p.Char.TCharacterState.HPStones = p.StonesHP
+					p.Char.TCharacterState.SPStones = p.StonesSP
+					p.Char.TCharacterState.Rotation = p.Rotation
+					_ = gl.zMap.handler.charRepo.SaveCharLocation(p.Char.ID, p.Char.TownName, p.Char.XPos, p.Char.YPos, p.Rotation)
+					_ = gl.zMap.handler.charRepo.SaveCharStats(p.Char.ID, int16(p.Char.CurHP), int16(p.Char.CurSP), p.StonesHP, p.StonesSP)
+					_ = gl.zMap.handler.charRepo.UpdateCharacter(p.Char)
+					p.LastSaveAt = now
+				}
 			}
 		}
 	}

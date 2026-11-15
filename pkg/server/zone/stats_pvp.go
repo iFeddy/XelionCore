@@ -158,35 +158,67 @@ func (h *Handler) handleCharStatDecPointReq(client *network.Client, pkt *protoco
 }
 
 // handleCharReviveReq implementa PROTO_NC_CHAR_REVIVE_REQ (0x104E).
-// Resucita al personaje en el punto oficial de reaparición del mapa gobernado por FieldList.json.
+// Verificado en Zone.exe sp_NC_CHAR_REVIVE_REQ (0x00452980) -> sp_ReviveReqProcess (0x00451BD0):
+// restaura (MaxHP * 0x133) >> 10 (~30%), limpia debuffs y emite REVIVESAME_CMD (0x104F) o REVIVEOTHER_CMD (0x1050).
 func (h *Handler) handleCharReviveReq(client *network.Client, pkt *protocol.Packet) {
 	player, ok := h.getPlayer(client)
 	if !ok || player == nil || player.Char == nil || player.CurrentMap == nil {
 		return
 	}
 
-	// Restaurar estado de vida
+	// Restaurar estado de vida: (MaxHP * 0x133) >> 10 (~30% en Zone.exe 0x00452046)
 	player.State = 1 // Normal
-	player.Char.CurHP = player.MaxHP / 10
+	player.Char.CurHP = (player.MaxHP * 0x133) >> 10
 	if player.Char.CurHP <= 0 {
 		player.Char.CurHP = 50
 	}
-
-	// Coordenadas oficiales de respawn desde FieldList.json si están configuradas
-	if player.CurrentMap.FieldEntry != nil && len(player.CurrentMap.FieldEntry.Respawn.Spots) > 0 {
-		spot := player.CurrentMap.FieldEntry.Respawn.Spots[0]
-		if spot.X > 0 && spot.Y > 0 {
-			player.Char.XPos = spot.X
-			player.Char.YPos = spot.Y
+	// ab_Recover / as_Remove: limpiar debuffs/estados incapacitantes al revivir
+	for id, st := range player.ActiveStates {
+		if st != nil && (st.IsDebuff || st.IsStun || st.IsRoot || st.IsSilence) {
+			player.RemoveAbState(id)
 		}
 	}
 
-	// 1. Notificar al jugador que resucitó (PROTO_NC_CHAR_REVIVESAME_CMD: 10 bytes = mapid[2], location[8])
-	sameCmd := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_REVIVESAME_CMD)
-	sameCmd.WriteUint16(player.CurrentMap.ID)
-	sameCmd.WriteInt32(int32(player.Char.XPos))
-	sameCmd.WriteInt32(int32(player.Char.YPos))
-	_ = client.SendPacket(sameCmd)
+	// Coordenadas y mapa de respawn desde FieldList.json si están configurados
+	targetMapName := ""
+	if player.CurrentMap.FieldEntry != nil {
+		if player.CurrentMap.FieldEntry.Respawn.City != "" {
+			targetMapName = player.CurrentMap.FieldEntry.Respawn.City
+		}
+		if len(player.CurrentMap.FieldEntry.Respawn.Spots) > 0 {
+			spot := player.CurrentMap.FieldEntry.Respawn.Spots[0]
+			if spot.X > 0 && spot.Y > 0 {
+				player.Char.XPos = spot.X
+				player.Char.YPos = spot.Y
+			}
+		}
+	}
+
+	var targetMap *ZoneMap = player.CurrentMap
+	if targetMapName != "" && player.CurrentMap.MapID != "" && targetMapName != player.CurrentMap.MapID && h.mapManager != nil {
+		if rm := h.mapManager.GetMap(targetMapName); rm != nil {
+			targetMap = rm
+		}
+	}
+
+	if targetMap != nil && targetMap != player.CurrentMap {
+		// PROTO_NC_CHAR_REVIVEOTHER_CMD (0x1050, 30B): mapid(2), x(4), y(4), ip[16], port(2), linkflag/id(2)
+		otherCmd := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_REVIVEOTHER_CMD)
+		otherCmd.WriteUint16(targetMap.ID)
+		otherCmd.WriteInt32(int32(player.Char.XPos))
+		otherCmd.WriteInt32(int32(player.Char.YPos))
+		writeFixedStr(otherCmd, "127.0.0.1", 16)
+		otherCmd.WriteUint16(9013)
+		otherCmd.WriteUint16(player.MapObjectID)
+		_ = client.SendPacket(otherCmd)
+	} else {
+		// 1. Notificar al jugador que resucitó en el mismo mapa (PROTO_NC_CHAR_REVIVESAME_CMD: 10 bytes = mapid[2], location[8])
+		sameCmd := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_REVIVESAME_CMD)
+		sameCmd.WriteUint16(player.CurrentMap.ID)
+		sameCmd.WriteInt32(int32(player.Char.XPos))
+		sameCmd.WriteInt32(int32(player.Char.YPos))
+		_ = client.SendPacket(sameCmd)
+	}
 
 	// 2. Actualizar barra de vida
 	hpCmd := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_HPCHANGE_CMD)

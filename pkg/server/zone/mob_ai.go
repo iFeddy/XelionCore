@@ -941,6 +941,7 @@ func (m *ZoneMap) TickMonsters1s(now time.Time) {
 
 		// Ticks de DoT y expiración de AbState
 		var dotTotal int
+		var expiredAbStates []uint16
 		for id, st := range mob.ActiveStates {
 			if st.DotDamage > 0 && (st.LastDotTick.IsZero() || now.Sub(st.LastDotTick) >= st.DotInterval) {
 				st.LastDotTick = now
@@ -948,10 +949,18 @@ func (m *ZoneMap) TickMonsters1s(now time.Time) {
 			}
 			if !st.ExpiresAt.IsZero() && now.After(st.ExpiresAt) {
 				delete(mob.ActiveStates, id)
+				expiredAbStates = append(expiredAbStates, id)
 			}
 		}
 		lastAttackerHandle := mob.LastAttacker
 		mob.mu.Unlock()
+
+		for _, id := range expiredAbStates {
+			resetCmd := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_ABSTATERESET_CMD)
+			resetCmd.WriteUint16(mob.Handle)
+			resetCmd.WriteUint32(uint32(id))
+			m.Broadcast(resetCmd, 0)
+		}
 
 		if dotTotal > 0 {
 			var killer *ZonePlayer
@@ -1249,7 +1258,8 @@ func (m *ZoneMap) tickMobCombat(mob *ZoneMonster, now time.Time, ds *DataStore, 
 	}
 
 	// Llamada de auxilio de familia si HP < 50% o según trigger
-	if !helpCalled && familyCount > 0 && maxHP > 0 && hp*2 <= maxHP {
+	// Verificado en Zone.exe sm_DuringBattle (0x00568E36): umbral ((MaxHP * 0x19a) >> 10) (~40% HP).
+	if !helpCalled && familyCount > 0 && maxHP > 0 && hp <= (maxHP*410)/1024 {
 		mob.mu.Lock()
 		mob.HelpCalled = true
 		mob.mu.Unlock()
