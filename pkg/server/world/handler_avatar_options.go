@@ -65,6 +65,7 @@ func (h *Handler) handleNormalLogout(client *network.Client, pkt *protocol.Packe
 		client.RemoteAddr(), logoutType, client.AccountID, client.Username)
 
 	if client.CharacterID > 0 {
+		client.StyleCharID = client.CharacterID
 		charName := h.activeCharName(client)
 		h.partyMgr.UnregisterOnline(client.CharacterID)
 		h.friendMgr.BroadcastLogout(client.CharacterID, charName)
@@ -274,18 +275,48 @@ func (h *Handler) handleSetStyleGetInfo(client *network.Client, pkt *protocol.Pa
 		return
 	}
 
+	charID := client.CharacterID
+	if charID <= 0 {
+		charID = client.StyleCharID
+	}
+	if pkt != nil && pkt.Reader != nil && pkt.Reader.Remaining() >= 1 && h.charRepo != nil {
+		if slot, err := pkt.Reader.ReadByte(); err == nil && slot <= 5 {
+			if chars, err := h.charRepo.GetCharactersByAccount(client.AccountID); err == nil {
+				for _, ch := range chars {
+					if ch != nil && ch.Slot == slot {
+						charID = ch.ID
+						client.StyleCharID = ch.ID
+						break
+					}
+				}
+			}
+		}
+	}
+	if charID <= 0 && h.charRepo != nil {
+		if chars, err := h.charRepo.GetCharactersByAccount(client.AccountID); err == nil {
+			for _, ch := range chars {
+				if ch != nil {
+					charID = ch.ID
+					client.StyleCharID = ch.ID
+					break
+				}
+			}
+		}
+	}
+
 	var items [6][2]uint16
 	if h.dataStore != nil {
 		for grade := 1; grade <= 5; grade++ {
 			couponID := h.dataStore.GetStyleCouponID(byte(grade))
 			items[grade][0] = couponID
 			count := uint16(0)
-			if client.CharacterID > 0 {
-				if charItems, err := h.charRepo.GetCharacterItems(client.CharacterID); err == nil {
+			if charID > 0 && h.charRepo != nil {
+				if charItems, err := h.charRepo.GetCharacterItems(charID); err == nil {
 					for _, item := range charItems {
 						if item != nil && item.ItemID == couponID {
-							count += uint16(item.Flags)
-							if item.Flags <= 0 {
+							if item.Flags > 0 {
+								count += uint16(item.Flags)
+							} else {
 								count++
 							}
 						}
@@ -302,7 +333,17 @@ func (h *Handler) handleSetStyleGetInfo(client *network.Client, pkt *protocol.Pa
 
 // handleSetStyle actualiza el corte, color o rostro (PROTO_NC_CHAR_SET_STYLE_REQ - 0x1078).
 func (h *Handler) handleSetStyle(client *network.Client, pkt *protocol.Packet) {
-	if !client.IsAuthenticated || client.CharacterID <= 0 {
+	charID := client.CharacterID
+	if charID <= 0 {
+		charID = client.StyleCharID
+	}
+	if charID <= 0 && h.charRepo != nil {
+		if chars, err := h.charRepo.GetCharactersByAccount(client.AccountID); err == nil && len(chars) > 0 && chars[0] != nil {
+			charID = chars[0].ID
+			client.StyleCharID = charID
+		}
+	}
+	if !client.IsAuthenticated || charID <= 0 {
 		resp := protocol.New_PROTO_NC_CHAR_SET_STYLE_ACK(1)
 		_ = client.SendPacket(resp)
 		return
@@ -315,9 +356,10 @@ func (h *Handler) handleSetStyle(client *network.Client, pkt *protocol.Packet) {
 	face, _ := pkt.Reader.ReadByte()
 	_ = jobGender
 
+	var reqGrade byte
 	var ok bool
 	if h.dataStore != nil {
-		_, ok = h.dataStore.ValidateStyleChange(hair, color, face)
+		reqGrade, ok = h.dataStore.ValidateStyleChange(hair, color, face)
 	} else {
 		ok = true
 	}
@@ -335,11 +377,30 @@ func (h *Handler) handleSetStyle(client *network.Client, pkt *protocol.Packet) {
 		return
 	}
 
-	charInfo, err := h.charRepo.GetCharacterByID(client.CharacterID)
+	charInfo, err := h.charRepo.GetCharacterByID(charID)
 	if err != nil || charInfo == nil {
 		resp := protocol.New_PROTO_NC_CHAR_SET_STYLE_ACK(1)
 		_ = client.SendPacket(resp)
 		return
+	}
+
+	if reqGrade > 0 && h.dataStore != nil && h.charRepo != nil {
+		couponID := h.dataStore.GetStyleCouponID(reqGrade)
+		if couponID > 0 {
+			if charItems, err := h.charRepo.GetCharacterItems(charID); err == nil {
+				for _, it := range charItems {
+					if it != nil && it.ItemID == couponID {
+						if it.Flags <= 1 {
+							_ = h.charRepo.DeleteItem(it.ItemKey)
+						} else {
+							it.Flags--
+							_ = h.charRepo.UpdateItemFlags(it.ItemKey, int(it.Flags))
+						}
+						break
+					}
+				}
+			}
+		}
 	}
 
 	genderByte := byte(0)
@@ -347,8 +408,8 @@ func (h *Handler) handleSetStyle(client *network.Client, pkt *protocol.Packet) {
 		genderByte = 1
 	}
 
-	if err := avatarRepo.SetCharacterShape(client.CharacterID, charInfo.Race, byte(charInfo.Job), genderByte, hair, color, face); err != nil {
-		log.Printf("[World][%s] SetCharacterShape failed for char %d: %v", client.RemoteAddr(), client.CharacterID, err)
+	if err := avatarRepo.SetCharacterShape(charID, charInfo.Race, byte(charInfo.Job), genderByte, hair, color, face); err != nil {
+		log.Printf("[World][%s] SetCharacterShape failed for char %d: %v", client.RemoteAddr(), charID, err)
 		resp := protocol.New_PROTO_NC_CHAR_SET_STYLE_ACK(1)
 		_ = client.SendPacket(resp)
 		return

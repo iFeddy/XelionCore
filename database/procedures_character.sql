@@ -1834,7 +1834,7 @@ DROP PROCEDURE IF EXISTS `p_Char_SetOptGame`;
 DELIMITER $$
 CREATE PROCEDURE `p_Char_SetOptGame`(
     IN in_nCharNo INT,
-    IN in_sData VARBINARY(64),
+    IN in_sData VARBINARY(1024),
     OUT out_nRet INT
 )
 sp_body: BEGIN
@@ -1842,12 +1842,8 @@ sp_body: BEGIN
 
     proc_logic: BEGIN
         SET out_nRet = 0;
-        UPDATE tCharacterOptions SET sGame=in_sData WHERE nCharNo=in_nCharNo;
-        IF ROW_COUNT ( ) = 0 THEN
-            INSERT INTO tCharacterOptions(nCharNo,sGame) VALUES (in_nCharNo,in_sData);
-            SET out_nRet=ROW_COUNT();
-            LEAVE proc_logic;
-        END IF;
+        INSERT INTO tCharacterOptions(nCharNo,sGame) VALUES (in_nCharNo,in_sData)
+        ON DUPLICATE KEY UPDATE sGame=VALUES(sGame);
         SET out_nRet=1;
     END proc_logic;
     IF IFNULL(@_xc_nested_sp, 0) = 0 THEN
@@ -1864,7 +1860,7 @@ DROP PROCEDURE IF EXISTS `p_Char_SetOptKeyMapping`;
 DELIMITER $$
 CREATE PROCEDURE `p_Char_SetOptKeyMapping`(
     IN in_nCharNo INT,
-    IN in_sData VARBINARY(308),
+    IN in_sData VARBINARY(1024),
     OUT out_nRet INT
 )
 sp_body: BEGIN
@@ -1872,12 +1868,8 @@ sp_body: BEGIN
 
     proc_logic: BEGIN
         SET out_nRet = 0;
-        UPDATE tCharacterOptions SET sKeyMapping=in_sData WHERE nCharNo=in_nCharNo;
-        IF ROW_COUNT ( ) = 0 THEN
-            INSERT INTO tCharacterOptions(nCharNo,sKeyMapping) VALUES (in_nCharNo,in_sData);
-            SET out_nRet=ROW_COUNT();
-            LEAVE proc_logic;
-        END IF;
+        INSERT INTO tCharacterOptions(nCharNo,sKeyMapping) VALUES (in_nCharNo,in_sData)
+        ON DUPLICATE KEY UPDATE sKeyMapping=VALUES(sKeyMapping);
         SET out_nRet=1;
     END proc_logic;
     IF IFNULL(@_xc_nested_sp, 0) = 0 THEN
@@ -1902,12 +1894,8 @@ sp_body: BEGIN
 
     proc_logic: BEGIN
         SET out_nRet = 0;
-        UPDATE tCharacterOptions SET sShortCutData=in_sData WHERE nCharNo=in_nCharNo;
-        IF ROW_COUNT ( ) = 0 THEN
-            INSERT INTO tCharacterOptions(nCharNo,sShortCutData) VALUES (in_nCharNo,in_sData);
-            SET out_nRet=ROW_COUNT();
-            LEAVE proc_logic;
-        END IF;
+        INSERT INTO tCharacterOptions(nCharNo,sShortCutData) VALUES (in_nCharNo,in_sData)
+        ON DUPLICATE KEY UPDATE sShortCutData=VALUES(sShortCutData);
         SET out_nRet=1;
     END proc_logic;
     IF IFNULL(@_xc_nested_sp, 0) = 0 THEN
@@ -1932,12 +1920,8 @@ sp_body: BEGIN
 
     proc_logic: BEGIN
         SET out_nRet = 0;
-        UPDATE tCharacterOptions SET sShortCutSize=in_sData WHERE nCharNo=in_nCharNo;
-        IF ROW_COUNT ( ) = 0 THEN
-            INSERT INTO tCharacterOptions(nCharNo,sShortCutSize) VALUES (in_nCharNo,in_sData);
-            SET out_nRet=ROW_COUNT();
-            LEAVE proc_logic;
-        END IF;
+        INSERT INTO tCharacterOptions(nCharNo,sShortCutSize) VALUES (in_nCharNo,in_sData)
+        ON DUPLICATE KEY UPDATE sShortCutSize=VALUES(sShortCutSize);
         SET out_nRet=1;
     END proc_logic;
     IF IFNULL(@_xc_nested_sp, 0) = 0 THEN
@@ -1962,12 +1946,8 @@ sp_body: BEGIN
 
     proc_logic: BEGIN
         SET out_nRet = 0;
-        UPDATE tCharacterOptions SET sSound=in_sData WHERE nCharNo=in_nCharNo;
-        IF ROW_COUNT ( ) = 0 THEN
-            INSERT INTO tCharacterOptions(nCharNo,sSound) VALUES (in_nCharNo,in_sData);
-            SET out_nRet=ROW_COUNT();
-            LEAVE proc_logic;
-        END IF;
+        INSERT INTO tCharacterOptions(nCharNo,sSound) VALUES (in_nCharNo,in_sData)
+        ON DUPLICATE KEY UPDATE sSound=VALUES(sSound);
         SET out_nRet=1;
     END proc_logic;
     IF IFNULL(@_xc_nested_sp, 0) = 0 THEN
@@ -1992,12 +1972,8 @@ sp_body: BEGIN
 
     proc_logic: BEGIN
         SET out_nRet = 0;
-        UPDATE tCharacterOptions SET sVideo=in_sData WHERE nCharNo=in_nCharNo;
-        IF ROW_COUNT ( ) = 0 THEN
-            INSERT INTO tCharacterOptions(nCharNo,sVideo) VALUES (in_nCharNo,in_sData);
-            SET out_nRet=ROW_COUNT();
-            LEAVE proc_logic;
-        END IF;
+        INSERT INTO tCharacterOptions(nCharNo,sVideo) VALUES (in_nCharNo,in_sData)
+        ON DUPLICATE KEY UPDATE sVideo=VALUES(sVideo);
         SET out_nRet=1;
     END proc_logic;
     IF IFNULL(@_xc_nested_sp, 0) = 0 THEN
@@ -2014,7 +1990,7 @@ DROP PROCEDURE IF EXISTS `p_Char_SetOptWindowsPos`;
 DELIMITER $$
 CREATE PROCEDURE `p_Char_SetOptWindowsPos`(
     IN in_nCharNo INT,
-    IN in_sData VARBINARY(392),
+    IN in_sData VARBINARY(1024),
     OUT out_nRet INT
 )
 sp_body: BEGIN
@@ -2022,12 +1998,8 @@ sp_body: BEGIN
 
     proc_logic: BEGIN
         SET out_nRet = 0;
-        UPDATE tCharacterOptions SET sWindowsPos=in_sData WHERE nCharNo=in_nCharNo;
-        IF ROW_COUNT ( ) = 0 THEN
-            INSERT INTO tCharacterOptions(nCharNo,sWindowsPos) VALUES (in_nCharNo,in_sData);
-            SET out_nRet=ROW_COUNT();
-            LEAVE proc_logic;
-        END IF;
+        INSERT INTO tCharacterOptions(nCharNo,sWindowsPos) VALUES (in_nCharNo,in_sData)
+        ON DUPLICATE KEY UPDATE sWindowsPos=VALUES(sWindowsPos);
         SET out_nRet=1;
     END proc_logic;
     IF IFNULL(@_xc_nested_sp, 0) = 0 THEN

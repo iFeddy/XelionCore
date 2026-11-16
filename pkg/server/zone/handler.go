@@ -659,6 +659,15 @@ func (h *Handler) OnClientDisconnect(client *network.Client) {
 			_ = h.charRepo.CharacterLogout(player.Char.ID, playMin)
 
 			// 2. Persistencia integral de ubicación y estadísticas
+			player.Char.TownName = mapID
+			player.Char.TCharacter.Level = player.Char.Level
+			player.Char.TCharacterState.XPos = player.Char.XPos
+			player.Char.TCharacterState.YPos = player.Char.YPos
+			player.Char.TCharacterState.Rotation = player.Rotation
+			player.Char.TCharacterState.HP = player.Char.CurHP
+			player.Char.TCharacterState.SP = player.Char.CurSP
+			player.Char.TCharacterState.HPStones = player.StonesHP
+			player.Char.TCharacterState.SPStones = player.StonesSP
 			_ = h.charRepo.SaveCharLocation(player.Char.ID, mapID, player.Char.XPos, player.Char.YPos, player.Rotation)
 			_ = h.charRepo.SaveCharStats(player.Char.ID, int16(player.Char.CurHP), int16(player.Char.CurSP), player.StonesHP, player.StonesSP)
 			_ = h.charRepo.SaveCharLevelExp(player.Char.ID, int16(player.Char.Level), player.Char.TCharacterState.Exp)
@@ -2310,6 +2319,9 @@ func (h *Handler) WarpPlayer(player *ZonePlayer, targetMapID string, x, y int, r
 	player.Char.TownName = newMap.MapID
 	player.Char.XPos = x
 	player.Char.YPos = y
+	player.Char.TCharacterState.XPos = x
+	player.Char.TCharacterState.YPos = y
+	player.Char.TCharacterState.Rotation = rotation
 	player.Rotation = rotation
 	player.LastWarpTime = time.Now()
 

@@ -293,8 +293,8 @@ func TestFase16_MultiNode_Zone00ToZone04_And_OfficialGM_AdminLvSet(t *testing.T)
 	regCmd := "&makeitem 100 1"
 	regPayload := append([]byte{0, byte(len(regCmd))}, []byte(regCmd)...)
 	h.HandlePacket(regular.Client, buildTestPacket(protocol.PROTO_NC_ACT_CHAT_REQ, regPayload))
-	if len(regConn.findByOpcode(protocol.PROTO_NC_ACT_NOTICE_CMD)) == 0 {
-		t.Fatalf("expected denial notice for unauthorized GM command")
+	if len(regConn.findByOpcode(protocol.PROTO_NC_ACT_NOTICE_CMD)) != 0 {
+		t.Fatalf("expected no notice for AdminLevel=0 on unauthorized GM command")
 	}
 
 	// 3. Test GM execution strictly via AdminLvSet.shn + tGMItemReward* + GameLog Type L

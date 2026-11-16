@@ -196,6 +196,7 @@ func (m *ZoneMap) bridgeBroadcastNotice(msg string) {
 	if len(msgBytes) > 250 {
 		msgBytes = msgBytes[:250]
 	}
+	pw.WriteByte(0)
 	pw.WriteByte(byte(len(msgBytes)))
 	pw.WriteBytes(msgBytes)
 	for _, p := range m.GetPlayers() {

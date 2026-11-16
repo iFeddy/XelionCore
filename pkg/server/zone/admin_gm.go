@@ -91,6 +91,7 @@ func (h *Handler) sendPlayerNotice(player *ZonePlayer, msg string) {
 		msgBytes = msgBytes[:250]
 	}
 	pw := protocol.NewPacketWriter(protocol.PROTO_NC_ACT_NOTICE_CMD)
+	pw.WriteByte(0)
 	pw.WriteByte(byte(len(msgBytes)))
 	pw.WriteBytes(msgBytes)
 	_ = player.Client.SendPacket(pw)
@@ -132,9 +133,8 @@ func (h *Handler) handleGMCommand(player *ZonePlayer, rawText string) bool {
 
 	// Validación estricta: tCharacter.nAdminLevel >= AdminLvSet.shn[cmd].ALS_Lv
 	if player.Char.AdminLevel < reqLv {
-		// Arreglo para no mostrar si es un usuario normal
-		if (player.Char.AdminLevel == 0) {
-			return true
+		if player.Char.AdminLevel == 0 {
+			return false
 		}
 		if h.gameLogDispatcher != nil {
 			h.gameLogDispatcher.EnqueueTypeL(
@@ -202,7 +202,18 @@ func (h *Handler) handleGMCommand(player *ZonePlayer, rawText string) bool {
 				h.sendPlayerNotice(player, fmt.Sprintf("GM reward grant failed: %v", grantErr))
 				return true
 			}
-			h.sendCellChangeFull(player.Client, 9, 0, h.findItemAt(player.Char.ID, 9, 0), 0xFFFF)
+			if count > 1 {
+				_ = h.charRepo.UpdateItemFlags(itemKey, count)
+			}
+			if invItems, invErr := h.charRepo.GetItemsByStorage(player.Char.ID, 9); invErr == nil && len(invItems) > 0 {
+				for _, it := range invItems {
+					if it != nil {
+						h.sendCellChangeFull(player.Client, 9, it.Storage, it, 0xFFFF)
+					}
+				}
+			} else {
+				h.sendCellChangeFull(player.Client, 9, 0, h.findItemAt(player.Char.ID, 9, 0), 0xFFFF)
+			}
 		}
 		logType = 2
 		replyMsg = fmt.Sprintf("[GM] Granted item %d x%d (group=%d, key=%d)", itemID, count, bigint1, itemKey)

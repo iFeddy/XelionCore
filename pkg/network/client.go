@@ -63,6 +63,7 @@ type Client struct {
 	Username        string
 	CharName        string
 	CharacterID     int
+	StyleCharID     int
 	Slot            byte
 	IsAuthenticated bool
 	ClientYear      uint16

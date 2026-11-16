@@ -131,10 +131,19 @@ func (h *Handler) handleUserUseBeautyShopCmd(client *network.Client, pkt *protoc
 		return
 	}
 	player.BeautyShopOpen = true
+	if client != nil {
+		ack := protocol.NewPacketWriter(protocol.PROTO_NC_USER_USE_BEAUTY_SHOP_CMD)
+		_ = client.SendPacket(ack)
+	}
 	if pkt != nil && pkt.Reader.Remaining() >= 3 {
 		hair, _ := pkt.Reader.ReadByte()
 		hairColor, _ := pkt.Reader.ReadByte()
 		face, _ := pkt.Reader.ReadByte()
+		// El cliente oficial envía [0x18, 0x0C, 0x01] (PROTO_NC_USER_NORMALLOGOUT_CMD type=1)
+		// adjunto en el buffer de 0x0C32 al iniciar la transición hacia el salón de belleza.
+		if hair == 0x18 && hairColor == 0x0C && face == 0x01 {
+			return
+		}
 		player.Char.Hair = hair
 		player.Char.HairColor = hairColor
 		player.Char.Face = face

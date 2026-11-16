@@ -305,9 +305,9 @@ CREATE TABLE IF NOT EXISTS `tCharacterOptions` (
     `sShortCutSize` VARBINARY(24) DEFAULT NULL,
     `sVideo` VARBINARY(60) DEFAULT NULL,
     `sSound` VARBINARY(1) DEFAULT NULL,
-    `sGame` VARBINARY(64) DEFAULT NULL,
-    `sWindowsPos` VARBINARY(136) DEFAULT NULL,
-    `sKeyMapping` VARBINARY(52) DEFAULT NULL,
+    `sGame` VARBINARY(1024) DEFAULT NULL,
+    `sWindowsPos` VARBINARY(1024) DEFAULT NULL,
+    `sKeyMapping` VARBINARY(1024) DEFAULT NULL,
     PRIMARY KEY (`nCharNo`),
     CONSTRAINT `fk_tcharacteroptions_char` FOREIGN KEY (`nCharNo`) REFERENCES `tCharacter` (`nCharNo`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
