@@ -526,8 +526,10 @@ func TestE2EWorldService_Fase05_Comprehensive(t *testing.T) {
 	if err != nil || pkt.OpCode != protocol.PROTO_NC_CHAR_SET_STYLE_GET_INFO_ACK {
 		t.Fatalf("expected 0x107D for style info, got 0x%04X (err: %v)", pkt.OpCode, err)
 	}
-	_ = pkt.Reader.Skip(2) // Error code
-	_ = pkt.Reader.Skip(4) // Grade 0 item (2 bytes id + 2 bytes count)
+	errCode, _ := pkt.Reader.ReadUint16()
+	if errCode != 0x1280 {
+		t.Fatalf("expected style info error code 0x1280, got 0x%04X", errCode)
+	}
 	coupon1ID, _ := pkt.Reader.ReadUint16()
 	if coupon1ID != 30490 {
 		t.Fatalf("expected coupon grade 1 to be 30490, got %d", coupon1ID)
@@ -572,8 +574,8 @@ func TestE2EWorldService_Fase05_Comprehensive(t *testing.T) {
 		t.Fatalf("expected 0x1079 for set style, got 0x%04X (err: %v)", pkt.OpCode, err)
 	}
 	styleErr, _ := pkt.Reader.ReadUint16()
-	if styleErr != 0 {
-		t.Fatalf("expected style change success (0), got %d", styleErr)
+	if styleErr != 0x1280 {
+		t.Fatalf("expected style change success (0x1280), got 0x%04X", styleErr)
 	}
 	var dbHair, dbColor, dbFace byte
 	_ = db.QueryRow("SELECT nHairType, nHairColor, nFaceShape FROM tCharacterShape WHERE nCharNo = ?", sentChar.ID).Scan(&dbHair, &dbColor, &dbFace)

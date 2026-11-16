@@ -308,7 +308,7 @@ func (h *Handler) handleSetStyleGetInfo(client *network.Client, pkt *protocol.Pa
 	if h.dataStore != nil {
 		for grade := 1; grade <= 5; grade++ {
 			couponID := h.dataStore.GetStyleCouponID(byte(grade))
-			items[grade][0] = couponID
+			items[grade-1][0] = couponID
 			count := uint16(0)
 			if charID > 0 && h.charRepo != nil {
 				if charItems, err := h.charRepo.GetCharacterItems(charID); err == nil {
@@ -323,11 +323,12 @@ func (h *Handler) handleSetStyleGetInfo(client *network.Client, pkt *protocol.Pa
 					}
 				}
 			}
-			items[grade][1] = count
+			items[grade-1][1] = count
 		}
 	}
 
-	resp := protocol.New_PROTO_NC_CHAR_SET_STYLE_GET_INFO_ACK(0, items)
+	log.Printf("[World][%s][BeautyShop] GetStyleInfo char=%d items=%v err=0x1280", client.RemoteAddr(), charID, items)
+	resp := protocol.New_PROTO_NC_CHAR_SET_STYLE_GET_INFO_ACK(0x1280, items)
 	_ = client.SendPacket(resp)
 }
 
@@ -344,7 +345,7 @@ func (h *Handler) handleSetStyle(client *network.Client, pkt *protocol.Packet) {
 		}
 	}
 	if !client.IsAuthenticated || charID <= 0 {
-		resp := protocol.New_PROTO_NC_CHAR_SET_STYLE_ACK(1)
+		resp := protocol.New_PROTO_NC_CHAR_SET_STYLE_ACK(0x1284)
 		_ = client.SendPacket(resp)
 		return
 	}
@@ -365,42 +366,59 @@ func (h *Handler) handleSetStyle(client *network.Client, pkt *protocol.Packet) {
 	}
 
 	if !ok {
-		resp := protocol.New_PROTO_NC_CHAR_SET_STYLE_ACK(2)
+		log.Printf("[World][%s][BeautyShop] SetStyle rejected char=%d hair=%d color=%d face=%d err=0x1282",
+			client.RemoteAddr(), charID, hair, color, face)
+		resp := protocol.New_PROTO_NC_CHAR_SET_STYLE_ACK(0x1282)
 		_ = client.SendPacket(resp)
 		return
 	}
 
 	avatarRepo := h.getAvatarRepo()
 	if avatarRepo == nil {
-		resp := protocol.New_PROTO_NC_CHAR_SET_STYLE_ACK(1)
+		resp := protocol.New_PROTO_NC_CHAR_SET_STYLE_ACK(0x1284)
 		_ = client.SendPacket(resp)
 		return
 	}
 
 	charInfo, err := h.charRepo.GetCharacterByID(charID)
 	if err != nil || charInfo == nil {
-		resp := protocol.New_PROTO_NC_CHAR_SET_STYLE_ACK(1)
+		resp := protocol.New_PROTO_NC_CHAR_SET_STYLE_ACK(0x1284)
 		_ = client.SendPacket(resp)
 		return
 	}
 
 	if reqGrade > 0 && h.dataStore != nil && h.charRepo != nil {
-		couponID := h.dataStore.GetStyleCouponID(reqGrade)
-		if couponID > 0 {
-			if charItems, err := h.charRepo.GetCharacterItems(charID); err == nil {
+		var couponItem *database.Item
+		var usedGrade byte
+		if charItems, err := h.charRepo.GetCharacterItems(charID); err == nil {
+			for g := reqGrade; g <= 5 && couponItem == nil; g++ {
+				couponID := h.dataStore.GetStyleCouponID(g)
+				if couponID == 0 {
+					continue
+				}
 				for _, it := range charItems {
 					if it != nil && it.ItemID == couponID {
-						if it.Flags <= 1 {
-							_ = h.charRepo.DeleteItem(it.ItemKey)
-						} else {
-							it.Flags--
-							_ = h.charRepo.UpdateItemFlags(it.ItemKey, int(it.Flags))
-						}
+						couponItem = it
+						usedGrade = g
 						break
 					}
 				}
 			}
 		}
+		if couponItem == nil {
+			log.Printf("[World][%s][BeautyShop] SetStyle missing coupon for reqGrade=%d char=%d err=0x1283",
+				client.RemoteAddr(), reqGrade, charID)
+			resp := protocol.New_PROTO_NC_CHAR_SET_STYLE_ACK(0x1283)
+			_ = client.SendPacket(resp)
+			return
+		}
+		if couponItem.Flags <= 1 {
+			_ = h.charRepo.DeleteItem(couponItem.ItemKey)
+		} else {
+			couponItem.Flags--
+			_ = h.charRepo.UpdateItemFlags(couponItem.ItemKey, int(couponItem.Flags))
+		}
+		_ = usedGrade
 	}
 
 	genderByte := byte(0)
@@ -410,7 +428,7 @@ func (h *Handler) handleSetStyle(client *network.Client, pkt *protocol.Packet) {
 
 	if err := avatarRepo.SetCharacterShape(charID, charInfo.Race, byte(charInfo.Job), genderByte, hair, color, face); err != nil {
 		log.Printf("[World][%s] SetCharacterShape failed for char %d: %v", client.RemoteAddr(), charID, err)
-		resp := protocol.New_PROTO_NC_CHAR_SET_STYLE_ACK(1)
+		resp := protocol.New_PROTO_NC_CHAR_SET_STYLE_ACK(0x1284)
 		_ = client.SendPacket(resp)
 		return
 	}
@@ -419,7 +437,9 @@ func (h *Handler) handleSetStyle(client *network.Client, pkt *protocol.Packet) {
 	charInfo.HairColor = color
 	charInfo.Face = face
 
-	resp := protocol.New_PROTO_NC_CHAR_SET_STYLE_ACK(0)
+	log.Printf("[World][%s][BeautyShop] SetStyle applied char=%d hair=%d color=%d face=%d grade=%d err=0x1280",
+		client.RemoteAddr(), charID, hair, color, face, reqGrade)
+	resp := protocol.New_PROTO_NC_CHAR_SET_STYLE_ACK(0x1280)
 	_ = client.SendPacket(resp)
 }
 
