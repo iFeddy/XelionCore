@@ -20,8 +20,13 @@ type S2SSink interface {
 // SetS2SSink inyecta el coordinador S2S vivo en el despachador de WorldService.
 func (h *Handler) SetS2SSink(sink S2SSink) {
 	h.mu.Lock()
-	defer h.mu.Unlock()
 	h.s2sSink = sink
+	worldID := h.worldID
+	km := h.kqMgr
+	h.mu.Unlock()
+	if km != nil {
+		km.SetS2SSink(sink, worldID)
+	}
 }
 
 // BroadcastToZones publica un evento oficial wms_NC_* hacia todos los nodos ZoneService conectados.
@@ -131,6 +136,25 @@ func (h *Handler) HandleZoneEvent(zoneNo uint16, ev s2s.Event) {
 				"party_no": partyNo,
 				"inbound":  true,
 			})
+		}
+
+	case "wms_NC_KQ_Z2W_MAKE_ACK", "PROTO_NC_KQ_Z2W_MAKE_ACK":
+		if h.kqMgr != nil {
+			handle, okH := s2sInt(ev.Payload, "handle")
+			errCode, okE := s2sInt(ev.Payload, "err")
+			if !okE {
+				errCode, _ = s2sInt(ev.Payload, "error")
+			}
+			if okH {
+				h.kqMgr.HandleZ2WMakeAck(uint32(handle), uint16(errCode))
+			}
+		}
+
+	case "wms_NC_KQ_Z2W_END_CMD", "PROTO_NC_KQ_Z2W_END_CMD":
+		if h.kqMgr != nil {
+			if handle, ok := s2sInt(ev.Payload, "handle"); ok {
+				h.kqMgr.HandleZ2WEndCmd(uint32(handle))
+			}
 		}
 	}
 }

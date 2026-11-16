@@ -215,11 +215,161 @@ func New_PROTO_NC_KQ_JOINING_ALARM_END_CMD(handle uint32, id uint16) *PacketWrit
 }
 
 // New_PROTO_NC_KQ_NOTIFY_CMD envía un anuncio oficial sobre la Kingdom Quest (OpCode 0x580B).
+// WorldManager.exe @ 0x004525D0 (Send_NC_KQ_NOTIFY_CMD_ToJoiner)
 func New_PROTO_NC_KQ_NOTIFY_CMD(msg string) *PacketWriter {
 	pw := NewPacketWriter(PROTO_NC_KQ_NOTIFY_CMD)
 	msgBytes := []byte(msg)
 	pw.WriteByte(byte(len(msgBytes)))
 	pw.WriteBytes(msgBytes)
+	return pw
+}
+
+// New_PROTO_NC_KQ_SCHEDULE_ACK construye el calendario completo de Kingdom Quests (OpCode 0x580A).
+// WorldManager.exe @ 0x00413E00 (fc_NC_KQ_SCHEDULE_REQ)
+// Struct oficial: PROTO_NC_KQ_SCHEDULE_ACK (10 bytes + N * 141 PROTO_KQ_INFO_CLIENT)
+func New_PROTO_NC_KQ_SCHEDULE_ACK(startHandle, endHandle uint32, quests []ProtoKQInfoClient) *PacketWriter {
+	pw := NewPacketWriter(PROTO_NC_KQ_SCHEDULE_ACK)
+	pw.WriteUint32(startHandle)
+	pw.WriteUint32(endHandle)
+	pw.WriteUint16(uint16(len(quests)))
+	for _, q := range quests {
+		writeProtoKQInfoClient(pw, q)
+	}
+	return pw
+}
+
+// KQJoiningAlarmItem modela cada entrada de 8 bytes de PROTO_NC_KQ_JOINING_ALARM_LIST.
+// WorldManager.exe @ 0x00452BE1..0x00452C35
+type KQJoiningAlarmItem struct {
+	Handle   uint32
+	ID       uint16
+	MinLevel byte
+	MaxLevel byte
+}
+
+// New_PROTO_NC_KQ_JOINING_ALARM_LIST envía la lista de KQs actualmente en Status Joining (0x5826).
+// WorldManager.exe @ 0x00452B60 (Send_NC_KQ_JOINING_ALARM_LIST)
+func New_PROTO_NC_KQ_JOINING_ALARM_LIST(items []KQJoiningAlarmItem) *PacketWriter {
+	pw := NewPacketWriter(PROTO_NC_KQ_JOINING_ALARM_LIST)
+	pw.WriteUint16(uint16(len(items)))
+	for _, it := range items {
+		pw.WriteUint32(it.Handle)
+		pw.WriteUint16(it.ID)
+		pw.WriteByte(it.MinLevel)
+		pw.WriteByte(it.MaxLevel)
+	}
+	return pw
+}
+
+// New_PROTO_NC_KQ_VOTE_START_CHECK_ACK responde si puede iniciar una votación de expulsión (0x5835).
+// WorldManager.exe @ 0x00453340 (Recv_NC_KQ_VOTE_START_CHECK_REQ)
+func New_PROTO_NC_KQ_VOTE_START_CHECK_ACK(errCode uint16) *PacketWriter {
+	pw := NewPacketWriter(PROTO_NC_KQ_VOTE_START_CHECK_ACK)
+	pw.WriteUint16(errCode)
+	return pw
+}
+
+// New_PROTO_NC_KQ_VOTE_START_ACK responde a la solicitud de inicio de votación (0x5828).
+// WorldManager.exe @ 0x00456310 (Recv_NC_KQ_VOTE_START_REQ)
+func New_PROTO_NC_KQ_VOTE_START_ACK(errCode uint16) *PacketWriter {
+	pw := NewPacketWriter(PROTO_NC_KQ_VOTE_START_ACK)
+	pw.WriteUint16(errCode)
+	return pw
+}
+
+// New_PROTO_NC_KQ_VOTE_VOTING_CMD difunde el inicio de una votación a los participantes de la KQ (0x5829).
+// WorldManager.exe @ 0x00456310
+// Struct oficial: PROTO_NC_KQ_VOTE_VOTING_CMD (78 bytes header + nLen bytes)
+func New_PROTO_NC_KQ_VOTE_VOTING_CMD(starter, target string, voteType byte, endTime time.Time, contents string) *PacketWriter {
+	pw := NewPacketWriter(PROTO_NC_KQ_VOTE_VOTING_CMD)
+	pw.WriteString(starter, 20)
+	pw.WriteString(target, 20)
+	pw.WriteByte(voteType)
+	pw.WriteBytes(packTm(endTime))
+	cBytes := []byte(contents)
+	if len(cBytes) > 255 {
+		cBytes = cBytes[:255]
+	}
+	pw.WriteByte(byte(len(cBytes)))
+	pw.WriteBytes(cBytes)
+	return pw
+}
+
+// New_PROTO_NC_KQ_VOTE_VOTING_ACK responde al voto individual de un participante (0x582B).
+// WorldManager.exe @ 0x00452EE0 (Recv_NC_KQ_VOTE_VOTING_REQ)
+func New_PROTO_NC_KQ_VOTE_VOTING_ACK(errCode uint16) *PacketWriter {
+	pw := NewPacketWriter(PROTO_NC_KQ_VOTE_VOTING_ACK)
+	pw.WriteUint16(errCode)
+	return pw
+}
+
+// New_PROTO_NC_KQ_VOTE_RESULT_SUC_CMD notifica que la votación alcanzó mayoría de expulsión (0x582C).
+// WorldManager.exe @ 0x00454F60 (VoteProcessing)
+func New_PROTO_NC_KQ_VOTE_RESULT_SUC_CMD(target string, voteRate, yesNum, noNum, cancelNum byte) *PacketWriter {
+	pw := NewPacketWriter(PROTO_NC_KQ_VOTE_RESULT_SUC_CMD)
+	pw.WriteString(target, 20)
+	pw.WriteByte(voteRate)
+	pw.WriteByte(yesNum)
+	pw.WriteByte(noNum)
+	pw.WriteByte(cancelNum)
+	return pw
+}
+
+// New_PROTO_NC_KQ_VOTE_RESULT_FAIL_CMD notifica que la votación no alcanzó mayoría (0x582D).
+// WorldManager.exe @ 0x00454F60 (VoteProcessing)
+func New_PROTO_NC_KQ_VOTE_RESULT_FAIL_CMD(target string, yesNum, noNum, cancelNum byte) *PacketWriter {
+	pw := NewPacketWriter(PROTO_NC_KQ_VOTE_RESULT_FAIL_CMD)
+	pw.WriteString(target, 20)
+	pw.WriteByte(yesNum)
+	pw.WriteByte(noNum)
+	pw.WriteByte(cancelNum)
+	return pw
+}
+
+// New_PROTO_NC_KQ_VOTE_CANCEL_CMD notifica la cancelación de votación por desconexión del objetivo (0x582E).
+// WorldManager.exe @ 0x00454F60 / PlayerDisjoin
+func New_PROTO_NC_KQ_VOTE_CANCEL_CMD(target string) *PacketWriter {
+	pw := NewPacketWriter(PROTO_NC_KQ_VOTE_CANCEL_CMD)
+	pw.WriteString(target, 20)
+	return pw
+}
+
+// New_PROTO_NC_KQ_VOTE_BAN_MSG_CMD notifica directamente al jugador expulsado el resultado de la votación (0x582F).
+// WorldManager.exe @ 0x00454F60 (VoteProcessing, lines 224-242)
+func New_PROTO_NC_KQ_VOTE_BAN_MSG_CMD(voteRate, yesNum, noNum, cancelNum byte) *PacketWriter {
+	pw := NewPacketWriter(PROTO_NC_KQ_VOTE_BAN_MSG_CMD)
+	pw.WriteByte(voteRate)
+	pw.WriteByte(yesNum)
+	pw.WriteByte(noNum)
+	pw.WriteByte(cancelNum)
+	return pw
+}
+
+// New_PROTO_NC_KQ_VOTE_BAN_MSG_LOGOFF_CMD notifica en el siguiente link-end al jugador que se desconectó expulsado (0x5830).
+// WorldManager.exe @ 0x004530E0 (CSendPacket::ID con size=1)
+func New_PROTO_NC_KQ_VOTE_BAN_MSG_LOGOFF_CMD() *PacketWriter {
+	pw := NewPacketWriter(PROTO_NC_KQ_VOTE_BAN_MSG_LOGOFF_CMD)
+	pw.WriteByte(0)
+	return pw
+}
+
+// New_PROTO_NC_KQ_LINK_TO_FORCE_BY_BAN_CMD ordena al ZoneService expulsar del mapa KQ a un jugador baneado (0x5833).
+// WorldManager.exe @ 0x004531A0 (52 bytes: nCharNum[4] + 4x Name3 OutMap[48])
+func New_PROTO_NC_KQ_LINK_TO_FORCE_BY_BAN_CMD(charNum uint32, outMaps [4][12]byte) *PacketWriter {
+	pw := NewPacketWriter(PROTO_NC_KQ_LINK_TO_FORCE_BY_BAN_CMD)
+	pw.WriteUint32(charNum)
+	for i := 0; i < 4; i++ {
+		pw.WriteBytes(outMaps[i][:])
+	}
+	return pw
+}
+
+// New_PROTO_NC_KQ_PLAYER_DISJOIN_CMD notifica a ZoneService que un participante abandonó la KQ (0x583B).
+// WorldManager.exe @ 0x00453B10
+func New_PROTO_NC_KQ_PLAYER_DISJOIN_CMD(handle, charNum uint32) *PacketWriter {
+	pw := NewPacketWriter(PROTO_NC_KQ_PLAYER_DISJOIN_CMD)
+	pw.WriteUint32(handle)
+	pw.WriteUint32(charNum)
 	return pw
 }
 

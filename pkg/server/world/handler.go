@@ -66,6 +66,9 @@ func NewHandler(
 	fm := NewFriendManager(charRepo, pm)
 	gm := NewGuildManager(charRepo)
 	km := NewKQManager(dataStore, charRepo)
+	km.SetLeavePartyHook(func(charID int) {
+		pm.LeavePartyByCharID(charID)
+	})
 	rm := NewRaidManager(charRepo, pm)
 	hpm := NewHolyPromiseManager(charRepo)
 	return &Handler{
@@ -604,11 +607,19 @@ func (h *Handler) HandlePacket(client *network.Client, pkt *protocol.Packet) {
 
 	case protocol.PROTO_NC_KQ_JOIN_REQ:
 		handle, _ := pkt.Reader.ReadUint32()
-		var level, class byte = 1, 1
+		var level, class, gender byte = 1, 1, 0
+		var prisonMin uint16
 		ch, err := h.charRepo.GetCharacterByID(client.CharacterID)
 		if err == nil && ch != nil {
 			level = ch.Level
 			class = ch.Job
+			gender = ch.TCharacterShape.Gender
+			h.prisonMu.Lock()
+			if ps, ok := h.activePrisons[ch.Name]; ok && time.Now().Before(ps.ExpiresAt) {
+				prisonMin = uint16(time.Until(ps.ExpiresAt).Minutes()) + 1
+			}
+			h.prisonMu.Unlock()
+			h.kqMgr.SetSessionCharacterStats(client, level, class, gender, prisonMin)
 		}
 		h.kqMgr.HandleJoin(client, handle, level, class)
 
@@ -632,7 +643,15 @@ func (h *Handler) HandlePacket(client *network.Client, pkt *protocol.Packet) {
 
 	case protocol.PROTO_NC_KQ_VOTE_START_REQ:
 		targetName, _ := pkt.Reader.ReadString(20)
-		h.kqMgr.HandleVoteStart(client, targetName)
+		voteType, _ := pkt.Reader.ReadByte()
+		cLen, _ := pkt.Reader.ReadByte()
+		contents := ""
+		if cLen > 0 && pkt.Reader.Remaining() >= int(cLen) {
+			if raw, err := pkt.Reader.ReadBytes(int(cLen)); err == nil {
+				contents = string(raw)
+			}
+		}
+		h.kqMgr.HandleVoteStartFull(client, targetName, voteType, contents)
 
 	// Struct oficial PDB: PROTO_NC_KQ_VOTE_VOTING_REQ (4 bytes: enum KQ_VOTING_TYPE eVoteType)
 	case protocol.PROTO_NC_KQ_VOTE_VOTING_REQ:
@@ -643,7 +662,7 @@ func (h *Handler) HandlePacket(client *network.Client, pkt *protocol.Packet) {
 			b, _ := pkt.Reader.ReadByte()
 			voteVal = uint32(b)
 		}
-		h.kqMgr.HandleVoteCast(client, voteVal != 0)
+		h.kqMgr.HandleVoteCastType(client, voteVal)
 
 	// Subsistema Oficial de Prisión (Prison - Dept: 31)
 	case protocol.PROTO_NC_PRISON_ADD_GM_REQ:
@@ -1967,16 +1986,16 @@ func (h *Handler) handlePrisonGet(client *network.Client, pkt *protocol.Packet) 
 }
 
 func (h *Handler) handleGotIngame(client *network.Client, pkt *protocol.Packet) {
+	if h.kqMgr.HasSessionTimeAck(client) {
+		h.kqMgr.HandleRefresh(client)
+		return
+	}
 	charName := h.activeCharName(client)
 	log.Printf("[World][%s] Player '%s' entering in-game zone (0x%04X). Dispatching official in-game ACKs...",
 		client.RemoteAddr(), charName, pkt.OpCode)
 
-	// 1. Registrar en KQManager y despachar reloj y lista oficial de Kingdom Quests
+	// 1. Registrar en KQManager, ejecutar LinkEndProcessing (0x5826) y primer LIST_REFRESH_REQ (0x581C + 0x581D)
 	h.kqMgr.RegisterOnline(client, client.CharacterID)
-	h.kqMgr.HandleList(client)
-
-	// 2. Despachar lista oficial de amigos del jugador desde tFriend (0x5407)
-	h.friendMgr.SendFriendList(client)
 	currentMap := ""
 	if h.charRepo != nil && client.CharacterID > 0 {
 		if ch, err := h.charRepo.GetCharacterByID(client.CharacterID); err == nil && ch != nil {
@@ -1988,6 +2007,11 @@ func (h *Handler) handleGotIngame(client *network.Client, pkt *protocol.Packet) 
 			}
 		}
 	}
+	h.kqMgr.OnLinkEnd(client, currentMap)
+	h.kqMgr.HandleRefresh(client)
+
+	// 2. Despachar lista oficial de amigos del jugador desde tFriend (0x5407)
+	h.friendMgr.SendFriendList(client)
 	h.friendMgr.BroadcastLogin(client, charName, currentMap)
 
 	// 3. Registrar en GuildManager y enviar información de gremio si pertenece a uno
