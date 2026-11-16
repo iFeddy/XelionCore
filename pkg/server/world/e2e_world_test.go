@@ -777,4 +777,9 @@ func TestE2EWorldService_Fase05_Comprehensive(t *testing.T) {
 		t.Fatalf("failed to send normal logout: %v", err)
 	}
 	t.Logf("Control 5A E2E: PROTO_NC_USER_NORMALLOGOUT_CMD (0x0C18) enviado y procesado limpiamente")
+
+	// Limpiar personajes soft-deleted de prueba creados bajo nUserNo = 1
+	_, _ = db.Exec("DELETE FROM tItemOptions WHERE nItemKey IN (SELECT k FROM (SELECT i.nItemKey AS k FROM tItem i JOIN tCharacter c ON i.nOwner = c.nCharNo WHERE c.nUserNo = 1 AND c.nCharNo > 1) AS tmp)")
+	_, _ = db.Exec("DELETE FROM tItem WHERE nOwner IN (SELECT id FROM (SELECT nCharNo AS id FROM tCharacter WHERE nUserNo = 1 AND nCharNo > 1) AS tmp)")
+	_, _ = db.Exec("DELETE FROM tCharacter WHERE nUserNo = 1 AND nCharNo > 1")
 }

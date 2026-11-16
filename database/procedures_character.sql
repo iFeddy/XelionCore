@@ -55,7 +55,7 @@ sp_body: BEGIN
     proc_logic: BEGIN
         SET out_nRet = 0;
         UPDATE tCharacter SET sID=in_sID WHERE nCharNo=in_nCharNo;
-        IF ROW_COUNT ( ) = 0 THEN
+        IF NOT EXISTS (SELECT 1 FROM tCharacter WHERE nCharNo=in_nCharNo) THEN
             SET out_nRet=0;
             LEAVE proc_logic;
         END IF;
@@ -185,7 +185,7 @@ sp_body: BEGIN
     proc_logic: BEGIN
         SET out_nRet = 0;
         UPDATE tCharacter SET sLoginZone=in_sLoginZone,nLoginZoneX=in_nLoginZoneX,nLoginZoneY=in_nLoginZoneY,nHP=in_nHP,nSP=in_nSP,nHPS=in_nHPS,nSPS=in_nSPS,nMoney=in_nMoney WHERE nCharNo=in_nCharNo;
-        IF ROW_COUNT ( ) = 0 THEN
+        IF NOT EXISTS (SELECT 1 FROM tCharacter WHERE nCharNo=in_nCharNo) THEN
             SET out_nRet=0;
             LEAVE proc_logic;
         END IF;
@@ -290,7 +290,7 @@ sp_body: BEGIN
             sID = v_sChangedID
         WHERE nCharNo = in_nCharNo;
 
-        IF ROW_COUNT() = 1 THEN
+        IF EXISTS (SELECT 1 FROM tCharacter WHERE nCharNo = in_nCharNo) THEN
             SET out_nRet = 0;
         ELSE
             SET out_nRet = 3;
@@ -444,7 +444,7 @@ sp_body: BEGIN
         SET out_nRet = 0;
         SET out_nRet=0;
         UPDATE tCharacter SET nFame=in_nSetFame WHERE nCharNo=in_nCharNo;
-        IF ROW_COUNT ( ) = 1 THEN
+        IF EXISTS (SELECT 1 FROM tCharacter WHERE nCharNo=in_nCharNo) THEN
             SET out_nRet=1;
         END IF;
         LEAVE proc_logic;
@@ -593,7 +593,7 @@ sp_body: BEGIN
         SET out_sID = '';
         SET out_nRet = 0;
         SELECT sID INTO out_sID FROM tCharacter WHERE nCharNo=in_nCharNo;
-        SET out_nRet=ROW_COUNT();
+        SET out_nRet = IF(EXISTS(SELECT 1 FROM tCharacter WHERE nCharNo=in_nCharNo), 1, 0);
     END proc_logic;
     IF IFNULL(@_xc_nested_sp, 0) = 0 THEN
         SELECT out_sID AS sID, out_nRet AS nRet;
@@ -769,7 +769,7 @@ DELIMITER $$
 CREATE PROCEDURE `p_Char_GetOptGame`(
     IN in_nCharNo INT,
     OUT out_nRet TINYINT,
-    OUT out_sData VARBINARY(64)
+    OUT out_sData VARBINARY(1024)
 )
 sp_body: BEGIN
     DECLARE CONTINUE HANDLER FOR NOT FOUND BEGIN END;
@@ -795,7 +795,7 @@ DELIMITER $$
 CREATE PROCEDURE `p_Char_GetOptKeyMapping`(
     IN in_nCharNo INT,
     OUT out_nRet TINYINT,
-    OUT out_sData VARBINARY(308)
+    OUT out_sData VARBINARY(1024)
 )
 sp_body: BEGIN
     DECLARE CONTINUE HANDLER FOR NOT FOUND BEGIN END;
@@ -821,7 +821,7 @@ DELIMITER $$
 CREATE PROCEDURE `p_Char_GetOptShortCutData`(
     IN in_nCharNo INT,
     OUT out_nRet TINYINT,
-    OUT out_sData VARBINARY(1024)
+    OUT out_sData VARBINARY(2048)
 )
 sp_body: BEGIN
     DECLARE CONTINUE HANDLER FOR NOT FOUND BEGIN END;
@@ -925,7 +925,7 @@ DELIMITER $$
 CREATE PROCEDURE `p_Char_GetOptWindowsPos`(
     IN in_nCharNo INT,
     OUT out_nRet TINYINT,
-    OUT out_sData VARBINARY(392)
+    OUT out_sData VARBINARY(1024)
 )
 sp_body: BEGIN
     DECLARE CONTINUE HANDLER FOR NOT FOUND BEGIN END;
@@ -992,7 +992,7 @@ sp_body: BEGIN
         SET out_nCasterAttackPower = 0;
         SET out_nRet = 0;
         SELECT nStateLevel,nStateTime,nStateCount,nStatePowerDemage,nStatePowerSP,nStatePowerKeepTime,nStatePowerCoolTime,nCasterLevel,out_nCasterAttackPower INTO out_nStateLevel,out_nStateTime,out_nStateCount,out_nStatePowerDemage,out_nStatePowerSP,out_nStatePowerKeepTime,out_nStatePowerCoolTime,out_nCasterLevel,out_nCasterAttackPower FROM tCharacterState WHERE nCharNo=in_nCharNo AND nStateNo=in_nStateNo;
-        SET out_nRet=ROW_COUNT();
+        SET out_nRet = IF(EXISTS(SELECT 1 FROM tCharacterState WHERE nCharNo=in_nCharNo AND nStateNo=in_nStateNo), 1, 0);
     END proc_logic;
     IF IFNULL(@_xc_nested_sp, 0) = 0 THEN
         SELECT out_nStateLevel AS nStateLevel, out_nStateTime AS nStateTime, out_nStateCount AS nStateCount, out_nStatePowerDemage AS nStatePowerDemage, out_nStatePowerSP AS nStatePowerSP, out_nStatePowerKeepTime AS nStatePowerKeepTime, out_nStatePowerCoolTime AS nStatePowerCoolTime, out_nCasterLevel AS nCasterLevel, out_nCasterAttackPower AS nCasterAttackPower, out_nRet AS nRet;
@@ -1097,7 +1097,7 @@ sp_body: BEGIN
         SET out_nCasterAttackPower = 0;
         SET out_nRet = 0;
         SELECT nStateLevel,nStateTime,nRestTime,nStateCount,nStatePowerDemage,nStatePowerSP,nStatePowerKeepTime,nStatePowerCoolTime,nCasterLevel,out_nCasterAttackPower INTO out_nStateLevel,out_nStateTime,out_nRestTime,out_nStateCount,out_nStatePowerDemage,out_nStatePowerSP,out_nStatePowerKeepTime,out_nStatePowerCoolTime,out_nCasterLevel,out_nCasterAttackPower FROM tCharacterState WHERE nCharNo=in_nCharNo AND nStateNo=in_nStateNo;
-        SET out_nRet=ROW_COUNT();
+        SET out_nRet = IF(EXISTS(SELECT 1 FROM tCharacterState WHERE nCharNo=in_nCharNo AND nStateNo=in_nStateNo), 1, 0);
     END proc_logic;
     IF IFNULL(@_xc_nested_sp, 0) = 0 THEN
         SELECT out_nStateLevel AS nStateLevel, out_nStateTime AS nStateTime, out_nRestTime AS nRestTime, out_nStateCount AS nStateCount, out_nStatePowerDemage AS nStatePowerDemage, out_nStatePowerSP AS nStatePowerSP, out_nStatePowerKeepTime AS nStatePowerKeepTime, out_nStatePowerCoolTime AS nStatePowerCoolTime, out_nCasterLevel AS nCasterLevel, out_nCasterAttackPower AS nCasterAttackPower, out_nRet AS nRet;
@@ -1156,7 +1156,7 @@ sp_body: BEGIN
         SET out_nCasterAttackPower = 0;
         SET out_nRet = 0;
         SELECT nStateLevel,nStateTime,nStateCount,nStatePowerDemage,nStatePowerSP,nStatePowerKeepTime,nStatePowerCoolTime,nSetItemIndexA,nSetItemValueA,nSetItemIndexB,nSetItemValueB,nSetItemIndexC,nSetItemValueC,nSetItemIndexD,nSetItemValueD,nCasterLevel,out_nCasterAttackPower INTO out_nStateLevel,out_nStateTime,out_nStateCount,out_nStatePowerDemage,out_nStatePowerSP,out_nStatePowerKeepTime,out_nStatePowerCoolTime,out_nSetItemIndexA,out_nSetItemValueA,out_nSetItemIndexB,out_nSetItemValueB,out_nSetItemIndexC,out_nSetItemValueC,out_nSetItemIndexD,out_nSetItemValueD,out_nCasterLevel,out_nCasterAttackPower FROM tCharacterState WHERE nCharNo=in_nCharNo AND nStateNo=in_nStateNo;
-        SET out_nRet=ROW_COUNT();
+        SET out_nRet = IF(EXISTS(SELECT 1 FROM tCharacterState WHERE nCharNo=in_nCharNo AND nStateNo=in_nStateNo), 1, 0);
     END proc_logic;
     IF IFNULL(@_xc_nested_sp, 0) = 0 THEN
         SELECT out_nStateLevel AS nStateLevel, out_nStateTime AS nStateTime, out_nStateCount AS nStateCount, out_nStatePowerDemage AS nStatePowerDemage, out_nStatePowerSP AS nStatePowerSP, out_nStatePowerKeepTime AS nStatePowerKeepTime, out_nStatePowerCoolTime AS nStatePowerCoolTime, out_nSetItemIndexA AS nSetItemIndexA, out_nSetItemValueA AS nSetItemValueA, out_nSetItemIndexB AS nSetItemIndexB, out_nSetItemValueB AS nSetItemValueB, out_nSetItemIndexC AS nSetItemIndexC, out_nSetItemValueC AS nSetItemValueC, out_nSetItemIndexD AS nSetItemIndexD, out_nSetItemValueD AS nSetItemValueD, out_nCasterLevel AS nCasterLevel, out_nCasterAttackPower AS nCasterAttackPower, out_nRet AS nRet;
@@ -1217,7 +1217,7 @@ sp_body: BEGIN
         SET out_nCasterAttackPower = 0;
         SET out_nRet = 0;
         SELECT nStateLevel,nStateTime,nRestTime,nStateCount,nStatePowerDemage,nStatePowerSP,nStatePowerKeepTime,nStatePowerCoolTime,nSetItemIndexA,nSetItemValueA,nSetItemIndexB,nSetItemValueB,nSetItemIndexC,nSetItemValueC,nSetItemIndexD,nSetItemValueD,nCasterLevel,out_nCasterAttackPower INTO out_nStateLevel,out_nStateTime,out_nRestTime,out_nStateCount,out_nStatePowerDemage,out_nStatePowerSP,out_nStatePowerKeepTime,out_nStatePowerCoolTime,out_nSetItemIndexA,out_nSetItemValueA,out_nSetItemIndexB,out_nSetItemValueB,out_nSetItemIndexC,out_nSetItemValueC,out_nSetItemIndexD,out_nSetItemValueD,out_nCasterLevel,out_nCasterAttackPower FROM tCharacterState WHERE nCharNo=in_nCharNo AND nStateNo=in_nStateNo;
-        SET out_nRet=ROW_COUNT();
+        SET out_nRet = IF(EXISTS(SELECT 1 FROM tCharacterState WHERE nCharNo=in_nCharNo AND nStateNo=in_nStateNo), 1, 0);
     END proc_logic;
     IF IFNULL(@_xc_nested_sp, 0) = 0 THEN
         SELECT out_nStateLevel AS nStateLevel, out_nStateTime AS nStateTime, out_nRestTime AS nRestTime, out_nStateCount AS nStateCount, out_nStatePowerDemage AS nStatePowerDemage, out_nStatePowerSP AS nStatePowerSP, out_nStatePowerKeepTime AS nStatePowerKeepTime, out_nStatePowerCoolTime AS nStatePowerCoolTime, out_nSetItemIndexA AS nSetItemIndexA, out_nSetItemValueA AS nSetItemValueA, out_nSetItemIndexB AS nSetItemIndexB, out_nSetItemValueB AS nSetItemValueB, out_nSetItemIndexC AS nSetItemIndexC, out_nSetItemValueC AS nSetItemValueC, out_nSetItemIndexD AS nSetItemIndexD, out_nSetItemValueD AS nSetItemValueD, out_nCasterLevel AS nCasterLevel, out_nCasterAttackPower AS nCasterAttackPower, out_nRet AS nRet;
@@ -1480,13 +1480,13 @@ sp_body: BEGIN
         SELECT nMoney INTO v_money FROM tCharacter WHERE nCharNo=in_nCharNoFrom AND bDeleted=0;
         IF v_money >= in_nMoveMoney THEN
             UPDATE tCharacter SET nMoney=v_money-in_nMoveMoney WHERE nCharNo=in_nCharNoFrom AND bDeleted=0;
-            IF ROW_COUNT ( ) <> 1 THEN
+            IF NOT EXISTS (SELECT 1 FROM tCharacter WHERE nCharNo=in_nCharNoFrom AND bDeleted=0) THEN
             SET out_nRet=0;
             ROLLBACK;
             LEAVE proc_logic;
         END IF;
             UPDATE tCharacter SET nMoney=nMoney+in_nMoveMoney WHERE nCharNo=in_nCharNoTo AND bDeleted=0;
-            IF ROW_COUNT ( ) <> 1 THEN
+            IF NOT EXISTS (SELECT 1 FROM tCharacter WHERE nCharNo=in_nCharNoTo AND bDeleted=0) THEN
             SET out_nRet=0;
             ROLLBACK;
             LEAVE proc_logic;
@@ -1691,7 +1691,7 @@ sp_body: BEGIN
     proc_logic: BEGIN
         SET out_nRet = 0;
         UPDATE tCharacter SET nAdminLevel=in_nAdmin WHERE nCharNo=in_nCharNo;
-        IF ROW_COUNT ( ) = 0 THEN
+        IF NOT EXISTS (SELECT 1 FROM tCharacter WHERE nCharNo=in_nCharNo) THEN
             SET out_nRet=0;
             LEAVE proc_logic;
         END IF;
@@ -1753,7 +1753,7 @@ sp_body: BEGIN
     proc_logic: BEGIN
         SET out_nRet = 0;
         UPDATE tCharacter SET nUserNo=in_nUserNo,nSlotNo=in_nSlotNo,sID=in_sID,nLevel=in_nLevel,nExp=in_nExp,nHP=in_nHP,nSP=in_nSP,nAP=in_nAP,nHPS=in_nHPS,nSPS=in_nSPS,nPS=in_nPS,nGS=in_nGS,nMoney=in_nMoney,nFame=in_nFame,nFlags=in_nFlags,nAdminLevel=in_nAdminLevel,sLoginZone=in_sLoginZone,nLoginZoneX=in_nLoginZoneX,nLoginZoneY=in_nLoginZoneY,nLoginZoneD=in_nLoginZoneD,nPrisonMin=in_nPrisonMin,nPKCount=in_nPKCount,nPKYellowTime=in_nPKYellowTime,nStrength=in_nStrength,nConstitute=in_nConstitute,nDexterity=in_nDexterity,nIntelligence=in_nIntelligence,nMentalPower=in_nMentalPower,nRedistributePoint=in_nRedistributePoint,nPlayMin=in_nPlayMin,nLoginCount=in_nLoginCount,dLastLoginDate=in_dLastLoginDate,dCreateDate=in_dCreateDate,nCreateWorld=in_nCreateWorld,bDeleted=in_bDeleted,dDeletedDate=in_dDeletedDate WHERE nCharNo=in_nCharNo;
-        IF ROW_COUNT ( ) = 0 THEN
+        IF NOT EXISTS (SELECT 1 FROM tCharacter WHERE nCharNo=in_nCharNo) THEN
             SET out_nRet=0;
             LEAVE proc_logic;
         END IF;
@@ -1814,7 +1814,7 @@ sp_body: BEGIN
     proc_logic: BEGIN
         SET out_nRet = 0;
         UPDATE tCharacter SET nLevel=in_nLevel,nExp=in_nExp WHERE nCharNo=in_nCharNo;
-        IF ROW_COUNT ( ) = 0 THEN
+        IF NOT EXISTS (SELECT 1 FROM tCharacter WHERE nCharNo=in_nCharNo) THEN
             SET out_nRet=0;
             LEAVE proc_logic;
         END IF;
@@ -1886,7 +1886,7 @@ DROP PROCEDURE IF EXISTS `p_Char_SetOptShortCutData`;
 DELIMITER $$
 CREATE PROCEDURE `p_Char_SetOptShortCutData`(
     IN in_nCharNo INT,
-    IN in_sData VARBINARY(1024),
+    IN in_sData VARBINARY(2048),
     OUT out_nRet INT
 )
 sp_body: BEGIN
@@ -2028,7 +2028,7 @@ sp_body: BEGIN
     proc_logic: BEGIN
         SET out_nRet = 0;
         UPDATE tCharacterShape SET nRace=in_nRace,nClass=in_nClass,nGender=in_nGender,nHairType=in_nHairType,nHairColor=in_nHairColor,nFaceShape=in_nFaceShape WHERE nCharNo=in_nCharNo;
-        IF ROW_COUNT ( ) = 0 THEN
+        IF NOT EXISTS (SELECT 1 FROM tCharacterShape WHERE nCharNo=in_nCharNo) THEN
             SET out_nRet=0;
             LEAVE proc_logic;
         END IF;
@@ -2235,7 +2235,7 @@ sp_body: BEGIN
         SET out_nRet=0;
         IF EXISTS ( SELECT nCharNo FROM tCharacterTitle WHERE nCharNo = in_nCharNo AND nType = in_nType AND nElementNo = in_nElementNo ) THEN
             UPDATE tCharacterTitle SET nElementValue=in_nElementValue WHERE nCharNo=in_nCharNo AND nType=in_nType AND nElementNo=in_nElementNo;
-            IF ROW_COUNT ( ) = 1 THEN
+            IF EXISTS (SELECT 1 FROM tCharacterTitle WHERE nCharNo=in_nCharNo AND nType=in_nType AND nElementNo=in_nElementNo) THEN
             SET out_nRet=1;
             LEAVE proc_logic;
         END IF;
@@ -3046,7 +3046,7 @@ sp_body: BEGIN
             LEAVE proc_logic;
         END IF;
         SELECT dCreateDate INTO v_dRegisterDate FROM tCharacter WHERE nCharNo=in_nCharNo;
-        IF ROW_COUNT ( ) = 0 THEN
+        IF NOT EXISTS (SELECT 1 FROM tCharacter WHERE nCharNo=in_nCharNo) THEN
             SET out_bNewJoiner=0;
             LEAVE proc_logic;
         END IF;
@@ -3691,7 +3691,7 @@ sp_body: BEGIN
         SET out_nRet = 0;
         SET out_nRet=0;
         UPDATE tGuildMember SET nExpRatio=in_nExpRatio WHERE nNo=in_nNo AND nCharNo=in_nCharNo;
-        SET out_nRet=ROW_COUNT();
+        SET out_nRet = IF(EXISTS(SELECT 1 FROM tGuildMember WHERE nNo=in_nNo AND nCharNo=in_nCharNo), 1, 0);
         IF out_nRet <> 1 THEN
             SET out_nRet=0;
             LEAVE proc_logic;
@@ -3720,7 +3720,7 @@ sp_body: BEGIN
         SET out_nRet = 0;
         SET out_nRet=0;
         UPDATE tGuildMember SET nFlags=in_nFlags WHERE nNo=in_nNo AND nCharNo=in_nCharNo;
-        SET out_nRet=ROW_COUNT();
+        SET out_nRet = IF(EXISTS(SELECT 1 FROM tGuildMember WHERE nNo=in_nNo AND nCharNo=in_nCharNo), 1, 0);
         IF out_nRet <> 1 THEN
             SET out_nRet=0;
             LEAVE proc_logic;
@@ -3793,7 +3793,7 @@ sp_body: BEGIN
         END IF;
 
         UPDATE tGuildMember SET nGrade = in_nGrade WHERE nNo = in_nNo AND nCharNo = in_nCharNo;
-        IF ROW_COUNT() <> 1 THEN
+        IF NOT EXISTS (SELECT 1 FROM tGuildMember WHERE nNo = in_nNo AND nCharNo = in_nCharNo) THEN
             ROLLBACK;
             SET out_nRet = -1325;
         ELSE
@@ -3828,7 +3828,7 @@ sp_body: BEGIN
         SET out_nRet = 0;
         SET out_nRet=0;
         UPDATE tGuildMember SET sIntro=in_sIntro WHERE nNo=in_nNo AND nCharNo=in_nCharNo;
-        SET out_nRet=ROW_COUNT();
+        SET out_nRet = IF(EXISTS(SELECT 1 FROM tGuildMember WHERE nNo=in_nNo AND nCharNo=in_nCharNo), 1, 0);
         IF out_nRet <> 1 THEN
             SET out_nRet=0;
             LEAVE proc_logic;
@@ -3889,14 +3889,14 @@ sp_body: BEGIN
             LEAVE proc_logic;
         END IF;
         UPDATE tGuild SET nMoney=nMoney+in_nMoneyAdd WHERE nNo=in_nNo;
-        SET out_nRet=ROW_COUNT();
+        SET out_nRet = IF(EXISTS(SELECT 1 FROM tGuild WHERE nNo=in_nNo), 1, 0);
         IF out_nRet <> 1 THEN
             ROLLBACK;
             SET out_nRet=0;
             LEAVE proc_logic;
         END IF;
         SELECT nMoney INTO out_nTotalMoney FROM tGuild WHERE nNo=in_nNo;
-        IF ROW_COUNT ( ) <> 1 THEN
+        IF NOT EXISTS (SELECT 1 FROM tGuild WHERE nNo=in_nNo) THEN
             ROLLBACK;
             SET out_nRet=0;
             LEAVE proc_logic;
@@ -3945,7 +3945,7 @@ sp_body: BEGIN
         END IF;
         START TRANSACTION;
         UPDATE tGuild SET nMoney=nMoney-in_nMoneySub WHERE nNo=in_nNo;
-        SET out_nRet=ROW_COUNT();
+        SET out_nRet = IF(EXISTS(SELECT 1 FROM tGuild WHERE nNo=in_nNo), 1, 0);
         IF out_nRet <> 1 THEN
             ROLLBACK;
             SET out_nRet=3;
@@ -3968,7 +3968,7 @@ sp_body: BEGIN
             LEAVE proc_logic;
         END IF;
         SELECT nMoney INTO out_nTotalMoney FROM tGuild WHERE nNo=in_nNo;
-        IF ROW_COUNT ( ) <> 1 THEN
+        IF NOT EXISTS (SELECT 1 FROM tGuild WHERE nNo=in_nNo) THEN
             ROLLBACK;
             SET out_nRet=6;
             LEAVE proc_logic;
@@ -4020,7 +4020,7 @@ sp_body: BEGIN
         SET out_nRet = 0;
         SET out_nRet=0;
         UPDATE tGuild SET sName=in_sName,sPassword=in_sPassword,nMaxMembers=in_nMaxMembers,nMoney=in_nMoney,nType=in_nType,nGrade=in_nGrade,nFame=in_nFame,nStoneLevel=in_nStoneLevel,nExp=in_nExp,dCreateDate=in_dCreateDate,dWarRequestDate=in_dWarRequestDate,dWarStartDate=in_dWarStartDate,dWarEndDate=in_dWarEndDate,nWarEnemy=in_nWarEnemy,nWarWinCount=in_nWarWinCount,nWarLoseCount=in_nWarLoseCount,nWarDrawCount=in_nWarDrawCount,nDismissStatus=in_nDismissStatus,dDismissDate=in_dDismissDate,dNotifyDate=in_dNotifyDate,sNotifyCharID=in_sNotifyCharID,sNotify=in_sNotify,sIntro=in_sIntro WHERE in_nNo=nNo;
-        SET out_nRet=ROW_COUNT();
+        SET out_nRet = IF(EXISTS(SELECT 1 FROM tGuild WHERE in_nNo=nNo), 1, 0);
         IF out_nRet <> 1 THEN
             SET out_nRet=0;
             LEAVE proc_logic;
@@ -4049,7 +4049,7 @@ sp_body: BEGIN
         SET out_nRet = 0;
         SET out_nRet=0;
         UPDATE tGuild SET nDismissStatus=in_nDismissStatus,dDismissDate=in_dDismissDate WHERE nNo=in_nNo;
-        SET out_nRet=ROW_COUNT();
+        SET out_nRet = IF(EXISTS(SELECT 1 FROM tGuild WHERE nNo=in_nNo), 1, 0);
         IF out_nRet <> 1 THEN
             SET out_nRet=0;
             LEAVE proc_logic;
@@ -4077,7 +4077,7 @@ sp_body: BEGIN
         SET out_nRet = 0;
         SET out_nRet=0;
         UPDATE tGuild SET nExp=in_nExp WHERE nNo=in_nNo;
-        SET out_nRet=ROW_COUNT();
+        SET out_nRet = IF(EXISTS(SELECT 1 FROM tGuild WHERE nNo=in_nNo), 1, 0);
         IF out_nRet <> 1 THEN
             SET out_nRet=0;
             LEAVE proc_logic;
@@ -4105,7 +4105,7 @@ sp_body: BEGIN
         SET out_nRet = 0;
         SET out_nRet=0;
         UPDATE tGuild SET nFame=in_nFame WHERE nNo=in_nNo;
-        SET out_nRet=ROW_COUNT();
+        SET out_nRet = IF(EXISTS(SELECT 1 FROM tGuild WHERE nNo=in_nNo), 1, 0);
         IF out_nRet <> 1 THEN
             SET out_nRet=0;
             LEAVE proc_logic;
@@ -4133,7 +4133,7 @@ sp_body: BEGIN
         SET out_nRet = 0;
         SET out_nRet=0;
         UPDATE tGuild SET nGrade=in_nGrade WHERE nNo=in_nNo;
-        SET out_nRet=ROW_COUNT();
+        SET out_nRet = IF(EXISTS(SELECT 1 FROM tGuild WHERE nNo=in_nNo), 1, 0);
         IF out_nRet <> 1 THEN
             SET out_nRet=0;
             LEAVE proc_logic;
@@ -4161,7 +4161,7 @@ sp_body: BEGIN
         SET out_nRet = 0;
         SET out_nRet=0;
         UPDATE tGuild SET sIntro=in_sIntro WHERE nNo=in_nNo;
-        SET out_nRet=ROW_COUNT();
+        SET out_nRet = IF(EXISTS(SELECT 1 FROM tGuild WHERE nNo=in_nNo), 1, 0);
         IF out_nRet <> 1 THEN
             SET out_nRet=0;
             LEAVE proc_logic;
@@ -4188,7 +4188,7 @@ sp_body: BEGIN
     SET out_nRet = 0;
     proc_logic: BEGIN
         UPDATE tGuild SET nMoney = in_nMoney WHERE nNo = in_nNo;
-        IF ROW_COUNT() = 1 THEN
+        IF EXISTS (SELECT 1 FROM tGuild WHERE nNo = in_nNo) THEN
             SET out_nRet = 1;
         ELSE
             SET out_nRet = 0;
@@ -4228,7 +4228,7 @@ sp_body: BEGIN
         ELSE
             START TRANSACTION;
             UPDATE tGuild SET sName=in_sName WHERE nNo=in_nNo;
-            IF ROW_COUNT ( ) <> 1 THEN
+            IF NOT EXISTS (SELECT 1 FROM tGuild WHERE nNo=in_nNo) THEN
             ROLLBACK;
             SET out_nRet=-1393;
         ELSE
@@ -4263,7 +4263,7 @@ sp_body: BEGIN
         SET out_nRet = 0;
         SET out_nRet=0;
         UPDATE tGuild SET dNotifyDate=NOW(),sNotifyCharID=in_sNotifyCharID,sNotify=in_sNotify WHERE nNo=in_nNo;
-        SET out_nRet=ROW_COUNT();
+        SET out_nRet = IF(EXISTS(SELECT 1 FROM tGuild WHERE nNo=in_nNo), 1, 0);
         IF out_nRet <> 1 THEN
             SET out_nRet=0;
             LEAVE proc_logic;
@@ -4291,7 +4291,7 @@ sp_body: BEGIN
         SET out_nRet = 0;
         SET out_nRet=0;
         UPDATE tGuild SET nStoneLevel=in_nStoneLevel WHERE nNo=in_nNo;
-        SET out_nRet=ROW_COUNT();
+        SET out_nRet = IF(EXISTS(SELECT 1 FROM tGuild WHERE nNo=in_nNo), 1, 0);
         IF out_nRet <> 1 THEN
             SET out_nRet=0;
             LEAVE proc_logic;
@@ -4319,7 +4319,7 @@ sp_body: BEGIN
         SET out_nRet = 0;
         SET out_nRet=0;
         UPDATE tGuild SET nType=in_nType WHERE nNo=in_nNo;
-        SET out_nRet=ROW_COUNT();
+        SET out_nRet = IF(EXISTS(SELECT 1 FROM tGuild WHERE nNo=in_nNo), 1, 0);
         IF out_nRet <> 1 THEN
             SET out_nRet=0;
             LEAVE proc_logic;
@@ -4350,7 +4350,7 @@ sp_body: BEGIN
         SET out_nRet = 0;
         SET out_nRet=0;
         UPDATE tGuild SET dWarRequestDate=in_dWarRequestDate,dWarStartDate=in_dWarStartDate,dWarEndDate=in_dWarEndDate,nWarEnemy=in_nWarEnemy WHERE nNo=in_nNo;
-        SET out_nRet=ROW_COUNT();
+        SET out_nRet = IF(EXISTS(SELECT 1 FROM tGuild WHERE nNo=in_nNo), 1, 0);
         IF out_nRet <> 1 THEN
             SET out_nRet=0;
             LEAVE proc_logic;
@@ -4380,7 +4380,7 @@ sp_body: BEGIN
         SET out_nRet = 0;
         SET out_nRet=0;
         UPDATE tGuild SET nWarWinCount=in_nWarWinCount,nWarLoseCount=in_nWarLoseCount,nWarDrawCount=in_nWarDrawCount WHERE nNo=in_nNo;
-        SET out_nRet=ROW_COUNT();
+        SET out_nRet = IF(EXISTS(SELECT 1 FROM tGuild WHERE nNo=in_nNo), 1, 0);
         IF out_nRet <> 1 THEN
             SET out_nRet=0;
             LEAVE proc_logic;
@@ -4450,8 +4450,9 @@ sp_body: BEGIN
 
     proc_logic: BEGIN
         SET out_nRet = 0;
-        UPDATE tGuildTournament SET nData=in_nData WHERE nGTNo=in_nGTNo AND nType=in_nType;
-        IF ROW_COUNT ( ) = 0 THEN
+        IF EXISTS (SELECT 1 FROM tGuildTournament WHERE nGTNo=in_nGTNo AND nType=in_nType) THEN
+            UPDATE tGuildTournament SET nData=in_nData WHERE nGTNo=in_nGTNo AND nType=in_nType;
+        ELSE
             INSERT INTO tGuildTournament(nGTNo,nType,nData) VALUES (in_nGTNo,in_nType,in_nData);
         END IF;
         SET out_nRet=0;
@@ -5247,19 +5248,19 @@ sp_body: BEGIN
         SET out_nRet=0;
         START TRANSACTION;
         UPDATE tItem SET nStorageType=11 WHERE nItemKey=in_nItemKey1;
-        IF ROW_COUNT ( ) = 0 THEN
+        IF NOT EXISTS (SELECT 1 FROM tItem WHERE nItemKey=in_nItemKey1) THEN
             SET out_nRet=1;
             ROLLBACK;
             LEAVE proc_logic;
         END IF;
         UPDATE tItem SET nStorageType=in_nStorageType2,nStorage=in_nStorage2 WHERE nItemKey=in_nItemKey2;
-        IF ROW_COUNT ( ) = 0 THEN
+        IF NOT EXISTS (SELECT 1 FROM tItem WHERE nItemKey=in_nItemKey2) THEN
             SET out_nRet=2;
             ROLLBACK;
             LEAVE proc_logic;
         END IF;
         UPDATE tItem SET nStorageType=in_nStorageType1,nStorage=in_nStorage1 WHERE nItemKey=in_nItemKey1;
-        IF ROW_COUNT ( ) = 0 THEN
+        IF NOT EXISTS (SELECT 1 FROM tItem WHERE nItemKey=in_nItemKey1) THEN
             SET out_nRet=3;
             ROLLBACK;
             LEAVE proc_logic;
@@ -5295,19 +5296,19 @@ sp_body: BEGIN
         SET out_nRet=0;
         START TRANSACTION;
         UPDATE tItem SET nStorageType=11 WHERE nItemKey=in_nItemKey1;
-        IF ROW_COUNT ( ) = 0 THEN
+        IF NOT EXISTS (SELECT 1 FROM tItem WHERE nItemKey=in_nItemKey1) THEN
             SET out_nRet=1;
             ROLLBACK;
             LEAVE proc_logic;
         END IF;
         UPDATE tItem SET nStorageType=in_nStorageType2,nStorage=in_nStorage2,nOwner=in_nOwner2 WHERE nItemKey=in_nItemKey2;
-        IF ROW_COUNT ( ) = 0 THEN
+        IF NOT EXISTS (SELECT 1 FROM tItem WHERE nItemKey=in_nItemKey2) THEN
             SET out_nRet=2;
             ROLLBACK;
             LEAVE proc_logic;
         END IF;
         UPDATE tItem SET nStorageType=in_nStorageType1,nStorage=in_nStorage1,nOwner=in_nOwner1 WHERE nItemKey=in_nItemKey1;
-        IF ROW_COUNT ( ) = 0 THEN
+        IF NOT EXISTS (SELECT 1 FROM tItem WHERE nItemKey=in_nItemKey1) THEN
             SET out_nRet=3;
             ROLLBACK;
             LEAVE proc_logic;
@@ -5425,7 +5426,7 @@ sp_body: BEGIN
         SET out_nRet = 0;
         SET out_nRet=0;
         SELECT nOwner,nStorageType,nStorage,nItemID,nFlags,dDate INTO out_nOwner,out_nStorageType,out_nStorage,out_nItemID,out_nFlags,out_dDate FROM tItem WHERE nItemKey=in_nItemKey;
-        SET out_nRet=ROW_COUNT();
+        SET out_nRet = IF(EXISTS(SELECT 1 FROM tItem WHERE nItemKey=in_nItemKey), 1, 0);
     END proc_logic;
     IF IFNULL(@_xc_nested_sp, 0) = 0 THEN
         SELECT out_nOwner AS nOwner, out_nStorageType AS nStorageType, out_nStorage AS nStorage, out_nItemID AS nItemID, out_nFlags AS nFlags, out_dDate AS dDate, out_nRet AS nRet;
@@ -5485,7 +5486,7 @@ sp_body: BEGIN
         SET out_nKillCount = 0;
         SET out_nRet = 0;
         SELECT nGrade,nKillCount INTO out_nGrade,out_nKillCount FROM tItemMobList WHERE nItemKey=in_nItemKey AND nMobID=in_nMobID;
-        SET out_nRet=ROW_COUNT();
+        SET out_nRet = IF(EXISTS(SELECT 1 FROM tItemMobList WHERE nItemKey=in_nItemKey AND nMobID=in_nMobID), 1, 0);
     END proc_logic;
     IF IFNULL(@_xc_nested_sp, 0) = 0 THEN
         SELECT out_nGrade AS nGrade, out_nKillCount AS nKillCount, out_nRet AS nRet;
@@ -5551,7 +5552,7 @@ sp_body: BEGIN
         SET out_nOptionData = 0;
         SET out_nRet = 0;
         SELECT nOptionData INTO out_nOptionData FROM tItemOptions WHERE nItemKey=in_nItemKey AND nOptionType=in_nOptionType;
-        SET out_nRet=ROW_COUNT();
+        SET out_nRet = IF(EXISTS(SELECT 1 FROM tItemOptions WHERE nItemKey=in_nItemKey AND nOptionType=in_nOptionType), 1, 0);
     END proc_logic;
     IF IFNULL(@_xc_nested_sp, 0) = 0 THEN
         SELECT out_nOptionData AS nOptionData, out_nRet AS nRet;
@@ -5617,7 +5618,7 @@ sp_body: BEGIN
         SET out_nStorage = 0;
         SET out_nRet = 0;
         SELECT nStorageType,nStorage INTO out_nStorageType,out_nStorage FROM tItem WHERE nItemKey=in_nItemKey;
-        IF ROW_COUNT ( ) <> 1 THEN
+        IF NOT EXISTS (SELECT 1 FROM tItem WHERE nItemKey=in_nItemKey) THEN
             SET out_nRet=0;
         END IF;
     END proc_logic;
@@ -5649,7 +5650,7 @@ sp_body: BEGIN
         SET out_nStorage = 0;
         SET out_nRet = 0;
         SELECT nOwner,nStorageType,nStorage INTO out_nOwner,out_nStorageType,out_nStorage FROM tItem WHERE nItemKey=in_nItemKey;
-        IF ROW_COUNT ( ) <> 1 THEN
+        IF NOT EXISTS (SELECT 1 FROM tItem WHERE nItemKey=in_nItemKey) THEN
             SET out_nRet=0;
         ELSE
             SET out_nRet=1;
@@ -5784,7 +5785,7 @@ CREATE PROCEDURE `p_Item_GetTitle`(
     IN in_nItemKey BIGINT,
     OUT out_nTitleType SMALLINT,
     OUT out_nTitleCharNo INT,
-    OUT out_sTitle VARCHAR(24),
+    OUT out_sTitle VARCHAR(255),
     OUT out_nRet INT
 )
 sp_body: BEGIN
@@ -5796,7 +5797,7 @@ sp_body: BEGIN
         SET out_sTitle = '';
         SET out_nRet = 0;
         SELECT nTitleType,nTitleCharNo,sTitle INTO out_nTitleType,out_nTitleCharNo,out_sTitle FROM tItemTitle WHERE nItemKey=in_nItemKey;
-        SET out_nRet=ROW_COUNT();
+        SET out_nRet = IF(EXISTS(SELECT 1 FROM tItemTitle WHERE nItemKey=in_nItemKey), 1, 0);
     END proc_logic;
     IF IFNULL(@_xc_nested_sp, 0) = 0 THEN
         SELECT out_nTitleType AS nTitleType, out_nTitleCharNo AS nTitleCharNo, out_sTitle AS sTitle, out_nRet AS nRet;
@@ -5824,7 +5825,7 @@ sp_body: BEGIN
         SET v_nDBOwner=0;
         SET out_nRet=0;
         SELECT nOwner INTO v_nDBOwner FROM tItem WHERE nItemKey=in_nItemKey;
-        IF ROW_COUNT ( ) <> 1 THEN
+        IF NOT EXISTS (SELECT 1 FROM tItem WHERE nItemKey=in_nItemKey) THEN
             SET out_nRet=1;
             LEAVE proc_logic;
         END IF;
@@ -6292,7 +6293,7 @@ sp_body: BEGIN
         SET out_nRet = 0;
         SET out_nRet=0;
         UPDATE tItem SET nOwner=in_nOwner,nStorageType=in_nStorageType,nStorage=in_nStorage,nItemID=in_nItemID,nFlags=in_nFlags,dDate=in_dDate WHERE nItemKey=in_nItemKey;
-        IF ROW_COUNT ( ) = 1 THEN
+        IF EXISTS (SELECT 1 FROM tItem WHERE nItemKey=in_nItemKey) THEN
             SET out_nRet=1;
         END IF;
     END proc_logic;
@@ -6320,8 +6321,9 @@ sp_body: BEGIN
 
     proc_logic: BEGIN
         SET out_nRet = 0;
-        UPDATE tItemMobList SET nGrade=in_nGrade,nKillCount=in_nKillCount WHERE nItemKey=in_nItemKey AND nMobID=in_nMobID;
-        IF ROW_COUNT ( ) = 0 THEN
+        IF EXISTS (SELECT 1 FROM tItemMobList WHERE nItemKey=in_nItemKey AND nMobID=in_nMobID) THEN
+            UPDATE tItemMobList SET nGrade=in_nGrade,nKillCount=in_nKillCount WHERE nItemKey=in_nItemKey AND nMobID=in_nMobID;
+        ELSE
             INSERT INTO tItemMobList(nItemKey,nMobID,nGrade,nKillCount) VALUES (in_nItemKey,in_nMobID,in_nGrade,in_nKillCount);
         END IF;
         SET out_nRet=0;
@@ -6377,7 +6379,7 @@ sp_body: BEGIN
     proc_logic: BEGIN
         SET out_nRet = 0;
         UPDATE tItem SET nStorageType=in_nStorageType,nStorage=in_nStorage WHERE nItemKey=in_nItemKey;
-        SET out_nRet=ROW_COUNT();
+        SET out_nRet = IF(EXISTS(SELECT 1 FROM tItem WHERE nItemKey=in_nItemKey), 1, 0);
     END proc_logic;
     IF IFNULL(@_xc_nested_sp, 0) = 0 THEN
         SELECT out_nRet AS nRet;
@@ -6402,7 +6404,7 @@ sp_body: BEGIN
     proc_logic: BEGIN
         SET out_nRet = 0;
         UPDATE tItem SET nOwner=in_nOwner,nStorageType=in_nStorageType,nStorage=in_nStorage WHERE nItemKey=in_nItemKey;
-        SET out_nRet=ROW_COUNT();
+        SET out_nRet = IF(EXISTS(SELECT 1 FROM tItem WHERE nItemKey=in_nItemKey), 1, 0);
     END proc_logic;
     IF IFNULL(@_xc_nested_sp, 0) = 0 THEN
         SELECT out_nRet AS nRet;
@@ -6436,7 +6438,7 @@ sp_body: BEGIN
             LEAVE proc_logic;
         END IF;
         UPDATE tItem SET nOwner=in_nOwner,nStorageType=in_nStorageType,nStorage=out_nStorage WHERE nItemKey=in_nItemKey;
-        SET out_nRet=ROW_COUNT();
+        SET out_nRet = IF(EXISTS(SELECT 1 FROM tItem WHERE nItemKey=in_nItemKey), 1, 0);
     END proc_logic;
     IF IFNULL(@_xc_nested_sp, 0) = 0 THEN
         SELECT out_nStorage AS nStorage, out_nRet AS nRet;
@@ -6454,7 +6456,7 @@ CREATE PROCEDURE `p_Item_SetTitle`(
     IN in_nItemKey BIGINT,
     IN in_nTitleType SMALLINT,
     IN in_nTitleCharNo INT,
-    IN in_sTitle VARCHAR(24),
+    IN in_sTitle VARCHAR(255),
     OUT out_nRet INT
 )
 sp_body: BEGIN
@@ -6462,8 +6464,9 @@ sp_body: BEGIN
 
     proc_logic: BEGIN
         SET out_nRet = 0;
-        UPDATE tItemTitle SET nTitleType=in_nTitleType,nTitleCharNo=in_nTitleCharNo,sTitle=in_sTitle WHERE nItemKey=in_nItemKey;
-        IF ROW_COUNT ( ) = 0 THEN
+        IF EXISTS (SELECT 1 FROM tItemTitle WHERE nItemKey=in_nItemKey) THEN
+            UPDATE tItemTitle SET nTitleType=in_nTitleType,nTitleCharNo=in_nTitleCharNo,sTitle=in_sTitle WHERE nItemKey=in_nItemKey;
+        ELSE
             INSERT INTO tItemTitle(nItemKey,nTitleType,nTitleCharNo,sTitle) VALUES (in_nItemKey,in_nTitleType,in_nTitleCharNo,in_sTitle);
         END IF;
         SET out_nRet=0;
@@ -7244,7 +7247,7 @@ sp_body: BEGIN
         SET out_sData = '';
         SET out_nRet = 0;
         SELECT sData INTO out_sData FROM tKingdomQuest WHERE nQuestNo=in_nQuestNo;
-        SET out_nRet=ROW_COUNT();
+        SET out_nRet = IF(EXISTS(SELECT 1 FROM tKingdomQuest WHERE nQuestNo=in_nQuestNo), 1, 0);
     END proc_logic;
     IF IFNULL(@_xc_nested_sp, 0) = 0 THEN
         SELECT out_sData AS sData, out_nRet AS nRet;
@@ -7303,8 +7306,9 @@ sp_body: BEGIN
 
     proc_logic: BEGIN
         SET out_nRet = 0;
-        UPDATE tKingdomQuest SET sData=in_sData WHERE nQuestNo=in_nQuestNo;
-        IF ROW_COUNT ( ) = 0 THEN
+        IF EXISTS (SELECT 1 FROM tKingdomQuest WHERE nQuestNo=in_nQuestNo) THEN
+            UPDATE tKingdomQuest SET sData=in_sData WHERE nQuestNo=in_nQuestNo;
+        ELSE
             INSERT INTO tKingdomQuest(nQuestNo,sData) VALUES (in_nQuestNo,in_sData);
         END IF;
         SET out_nRet=0;
@@ -7424,8 +7428,9 @@ sp_body: BEGIN
             SET out_nRet=2;
             LEAVE proc_logic;
         END IF;
-        UPDATE tMasterPupils SET nMaster=in_nMaster,nFlags=in_nFlags WHERE nPupils=in_nCharNo;
-        IF ROW_COUNT ( ) = 0 THEN
+        IF EXISTS (SELECT 1 FROM tMasterPupils WHERE nPupils=in_nCharNo) THEN
+            UPDATE tMasterPupils SET nMaster=in_nMaster,nFlags=in_nFlags WHERE nPupils=in_nCharNo;
+        ELSE
             INSERT INTO tMasterPupils(nMaster,nPupils,nFlags) VALUES (in_nMaster,in_nCharNo,in_nFlags);
         END IF;
         SET out_nRet=0;
@@ -7522,14 +7527,14 @@ sp_body: BEGIN
     INSERT IGNORE INTO tMinihouse (nCharNo, nVisitor, dDate)
     VALUES (in_nCharNo, 0, NOW());
 
-    UPDATE tMinihouseGuest
+    IF EXISTS (SELECT 1 FROM tMinihouseGuest WHERE nCharNo = in_nCharNo AND nWriterNo = 0 AND sWriterID = '__MINIHOUSE_URL__') THEN
+            UPDATE tMinihouseGuest
     SET sContent = in_sURL, dDate = NOW()
     WHERE nCharNo = in_nCharNo AND nWriterNo = 0 AND sWriterID = '__MINIHOUSE_URL__';
-
-    IF ROW_COUNT() = 0 THEN
-        INSERT INTO tMinihouseGuest (nCharNo, nWriterNo, sWriterID, sContent, dDate)
+        ELSE
+            INSERT INTO tMinihouseGuest (nCharNo, nWriterNo, sWriterID, sContent, dDate)
         VALUES (in_nCharNo, 0, '__MINIHOUSE_URL__', in_sURL, NOW());
-    END IF;
+        END IF;
 END$$
 DELIMITER ;
 
@@ -7603,7 +7608,7 @@ sp_body: BEGIN
         SET out_err = 0;
         SET out_err=0;
         SELECT nCharNo,nPrisonMin INTO v_nImprisonRegNum,v_nPrisonMin FROM tCharacter WHERE sID=in_sImprison;
-        IF ROW_COUNT ( ) = 0 THEN
+        IF NOT EXISTS (SELECT 1 FROM tCharacter WHERE sID=in_sImprison) THEN
             SET out_err=1;
             LEAVE proc_logic;
         END IF;
@@ -7710,7 +7715,7 @@ sp_body: BEGIN
         SET out_err = 0;
         SET out_err=0;
         SELECT nCharNo,nPrisonMin INTO v_nImprisonRegNum,v_nPrisonMin FROM tCharacter WHERE sID=in_sImprison;
-        IF ROW_COUNT ( ) = 0 THEN
+        IF NOT EXISTS (SELECT 1 FROM tCharacter WHERE sID=in_sImprison) THEN
             SET out_err=1;
             LEAVE proc_logic;
         END IF;
@@ -7858,11 +7863,11 @@ sp_body: BEGIN
     SET v_type = 250 + in_nPromotionType;
 
     proc_logic: BEGIN
-        UPDATE tCharacterTitle
+        IF EXISTS (SELECT 1 FROM tCharacterTitle WHERE nCharNo = in_nCharNo AND nType = v_type AND nElementNo = in_nStep) THEN
+            UPDATE tCharacterTitle
         SET nElementValue = in_nCount, dDate = NOW()
         WHERE nCharNo = in_nCharNo AND nType = v_type AND nElementNo = in_nStep;
-
-        IF ROW_COUNT() = 0 THEN
+        ELSE
             INSERT INTO tCharacterTitle (dDate, nCharNo, nType, nElementNo, nElementValue)
             VALUES (NOW(), in_nCharNo, v_type, in_nStep, in_nCount);
         END IF;
@@ -7949,7 +7954,7 @@ sp_body: BEGIN
         SET out_sData = 0;
         SET out_nRet = 0;
         SELECT nStatus,sData INTO out_nStatus,out_sData FROM tQuest WHERE nCharNo=in_nCharNo AND nQuestNo=in_nQuestNo;
-        SET out_nRet=ROW_COUNT();
+        SET out_nRet = IF(EXISTS(SELECT 1 FROM tQuest WHERE nCharNo=in_nCharNo AND nQuestNo=in_nQuestNo), 1, 0);
     END proc_logic;
     IF IFNULL(@_xc_nested_sp, 0) = 0 THEN
         SELECT out_nStatus AS nStatus, out_sData AS sData, out_nRet AS nRet;
@@ -8021,11 +8026,11 @@ sp_body: BEGIN
     DECLARE CONTINUE HANDLER FOR NOT FOUND BEGIN END;
     SET out_nRet = 0;
     proc_logic: BEGIN
-        UPDATE tQuest
+        IF EXISTS (SELECT 1 FROM tQuest WHERE nCharNo = in_nCharNo AND nQuestNo = in_nQuestNo) THEN
+            UPDATE tQuest
         SET nStatus = in_nStatus, sData = in_sData
         WHERE nCharNo = in_nCharNo AND nQuestNo = in_nQuestNo;
-
-        IF ROW_COUNT() = 0 THEN
+        ELSE
             INSERT INTO tQuest (nCharNo, nQuestNo, nStatus, sData)
             VALUES (in_nCharNo, in_nQuestNo, in_nStatus, in_sData);
         END IF;
@@ -8093,7 +8098,7 @@ sp_body: BEGIN
         SET out_nSkillPowerCoolTime = 0;
         SET out_nRet = 0;
         SELECT nSkillLevel,nSkillExp,nSkillWriteTime,nSkillCoolTime,nSkillPowerDemage,nSkillPowerSP,nSkillPowerKeepTime,nSkillPowerCoolTime INTO out_nSkillLevel,out_nSkillExp,out_nSkillWriteTime,out_nSkillCoolTime,out_nSkillPowerDemage,out_nSkillPowerSP,out_nSkillPowerKeepTime,out_nSkillPowerCoolTime FROM tSkill WHERE nCharNo=in_nCharNo AND nSkillNo=in_nSkillNo;
-        SET out_nRet=ROW_COUNT();
+        SET out_nRet = IF(EXISTS(SELECT 1 FROM tSkill WHERE nCharNo=in_nCharNo AND nSkillNo=in_nSkillNo), 1, 0);
     END proc_logic;
     IF IFNULL(@_xc_nested_sp, 0) = 0 THEN
         SELECT out_nSkillLevel AS nSkillLevel, out_nSkillExp AS nSkillExp, out_nSkillWriteTime AS nSkillWriteTime, out_nSkillCoolTime AS nSkillCoolTime, out_nSkillPowerDemage AS nSkillPowerDemage, out_nSkillPowerSP AS nSkillPowerSP, out_nSkillPowerKeepTime AS nSkillPowerKeepTime, out_nSkillPowerCoolTime AS nSkillPowerCoolTime, out_nRet AS nRet;
@@ -8158,7 +8163,7 @@ sp_body: BEGIN
         SET out_nRet = 0;
         SET out_nRet=0;
         SELECT nFlags INTO v_nFlagsTemp FROM tCharacter WHERE nCharNo=in_nCharNo;
-        IF ROW_COUNT ( ) = 0 THEN
+        IF NOT EXISTS (SELECT 1 FROM tCharacter WHERE nCharNo=in_nCharNo) THEN
             LEAVE proc_logic;
         END IF;
         START TRANSACTION;
@@ -8202,8 +8207,9 @@ sp_body: BEGIN
 
     proc_logic: BEGIN
         SET out_nRet = 0;
-        UPDATE tSkill SET nSkillLevel=in_nSkillLevel,nSkillExp=in_nSkillExp,nSkillWriteTime=in_nSkillWriteTime,nSkillCoolTime=in_nSkillCoolTime,nSkillPowerDemage=in_nSkillPowerDemage,nSkillPowerSP=in_nSkillPowerSP,nSkillPowerKeepTime=in_nSkillPowerKeepTime,nSkillPowerCoolTime=in_nSkillPowerCoolTime WHERE nCharNo=in_nCharNo AND nSkillNo=in_nSkillNo;
-        IF ROW_COUNT ( ) = 0 THEN
+        IF EXISTS (SELECT 1 FROM tSkill WHERE nCharNo=in_nCharNo AND nSkillNo=in_nSkillNo) THEN
+            UPDATE tSkill SET nSkillLevel=in_nSkillLevel,nSkillExp=in_nSkillExp,nSkillWriteTime=in_nSkillWriteTime,nSkillCoolTime=in_nSkillCoolTime,nSkillPowerDemage=in_nSkillPowerDemage,nSkillPowerSP=in_nSkillPowerSP,nSkillPowerKeepTime=in_nSkillPowerKeepTime,nSkillPowerCoolTime=in_nSkillPowerCoolTime WHERE nCharNo=in_nCharNo AND nSkillNo=in_nSkillNo;
+        ELSE
             INSERT INTO tSkill(nCharNo,nSkillNo,nSkillLevel,nSkillExp,nSkillWriteTime,nSkillCoolTime,nSkillPowerDemage,nSkillPowerSP,nSkillPowerKeepTime,nSkillPowerCoolTime) VALUES (in_nCharNo,in_nSkillNo,in_nSkillLevel,in_nSkillExp,in_nSkillWriteTime,in_nSkillCoolTime,in_nSkillPowerDemage,in_nSkillPowerSP,in_nSkillPowerKeepTime,in_nSkillPowerCoolTime);
         END IF;
         SET out_nRet=0;
@@ -8231,7 +8237,7 @@ sp_body: BEGIN
     proc_logic: BEGIN
         SET out_nRet = 0;
         UPDATE tSkill SET nSkillWriteTime=in_nSkillWriteTime,nSkillCoolTime=in_nSkillCoolTime WHERE nCharNo=in_nCharNo AND nSkillNo=in_nSkillNo;
-        IF ROW_COUNT ( ) = 0 THEN
+        IF NOT EXISTS (SELECT 1 FROM tSkill WHERE nCharNo=in_nCharNo AND nSkillNo=in_nSkillNo) THEN
             SET out_nRet=0;
         ELSE
             SET out_nRet=1;
@@ -8263,7 +8269,7 @@ sp_body: BEGIN
         SET out_nRet = 0;
         IF in_bSkillOld = 1 THEN
             UPDATE tSkill SET nSkillNo=in_nSkillNewNo WHERE nCharNo=in_nCharNo AND nSkillNo=in_nSkillOldNo;
-            IF ROW_COUNT ( ) = 0 THEN
+            IF NOT EXISTS (SELECT 1 FROM tSkill WHERE nCharNo=in_nCharNo AND nSkillNo=in_nSkillNewNo) THEN
             SET out_nRet=1;
         ELSE
             SET out_nRet=0;
@@ -8301,7 +8307,7 @@ sp_body: BEGIN
         END IF;
         IF in_nSkillPowerSlot = 0 THEN
             UPDATE tSkill SET nSkillPowerDemage=in_nSkillPowerValue WHERE nCharNo=in_nCharNo AND nSkillNo=in_nSkillNo;
-            IF ROW_COUNT ( ) = 0 THEN
+            IF NOT EXISTS (SELECT 1 FROM tSkill WHERE nCharNo=in_nCharNo AND nSkillNo=in_nSkillNo) THEN
             SET out_nRet=0;
         ELSE
             SET out_nRet=1;
@@ -8310,7 +8316,7 @@ sp_body: BEGIN
         END IF;
         IF in_nSkillPowerSlot = 1 THEN
             UPDATE tSkill SET nSkillPowerSP=in_nSkillPowerValue WHERE nCharNo=in_nCharNo AND nSkillNo=in_nSkillNo;
-            IF ROW_COUNT ( ) = 0 THEN
+            IF NOT EXISTS (SELECT 1 FROM tSkill WHERE nCharNo=in_nCharNo AND nSkillNo=in_nSkillNo) THEN
             SET out_nRet=0;
         ELSE
             SET out_nRet=1;
@@ -8319,7 +8325,7 @@ sp_body: BEGIN
         END IF;
         IF in_nSkillPowerSlot = 2 THEN
             UPDATE tSkill SET nSkillPowerKeepTime=in_nSkillPowerValue WHERE nCharNo=in_nCharNo AND nSkillNo=in_nSkillNo;
-            IF ROW_COUNT ( ) = 0 THEN
+            IF NOT EXISTS (SELECT 1 FROM tSkill WHERE nCharNo=in_nCharNo AND nSkillNo=in_nSkillNo) THEN
             SET out_nRet=0;
         ELSE
             SET out_nRet=1;
@@ -8328,7 +8334,7 @@ sp_body: BEGIN
         END IF;
         IF in_nSkillPowerSlot = 3 THEN
             UPDATE tSkill SET nSkillPowerCoolTime=in_nSkillPowerValue WHERE nCharNo=in_nCharNo AND nSkillNo=in_nSkillNo;
-            IF ROW_COUNT ( ) = 0 THEN
+            IF NOT EXISTS (SELECT 1 FROM tSkill WHERE nCharNo=in_nCharNo AND nSkillNo=in_nSkillNo) THEN
             SET out_nRet=0;
         ELSE
             SET out_nRet=1;
@@ -8366,7 +8372,7 @@ sp_body: BEGIN
             LEAVE proc_logic;
         END IF;
         UPDATE tSkill SET nSkillPowerDemage=in_nSkillPowerDemage,nSkillPowerSP=in_nSkillPowerSP,nSkillPowerKeepTime=in_nSkillPowerKeepTime,nSkillPowerCoolTime=in_nSkillPowerCoolTime WHERE nCharNo=in_nCharNo AND nSkillNo=in_nSkillNo;
-        IF ROW_COUNT ( ) = 0 THEN
+        IF NOT EXISTS (SELECT 1 FROM tSkill WHERE nCharNo=in_nCharNo AND nSkillNo=in_nSkillNo) THEN
             SET out_nRet=0;
         ELSE
             SET out_nRet=1;
@@ -9292,7 +9298,7 @@ sp_body: BEGIN
         START TRANSACTION;
         IF EXISTS ( SELECT nCharNo FROM tCharacterSingleOption WHERE nCharNo = in_nCharNo ) THEN
             UPDATE tCharacterSingleOption SET nAutoBuff=in_nAutoBuff WHERE nCharNo=in_nCharNo;
-            IF ROW_COUNT ( ) <> 1 THEN
+            IF NOT EXISTS (SELECT 1 FROM tCharacterSingleOption WHERE nCharNo=in_nCharNo) THEN
             SET out_nRet=1;
             IF 1 > 0 THEN
             ROLLBACK;
@@ -9327,13 +9333,13 @@ DELIMITER $$
 CREATE PROCEDURE `usp_Character_setChangeID`(
     IN in_nRowNo INT,
     IN in_nCharNo INT,
-    IN in_sID VARCHAR(16),
+    IN in_sID VARCHAR(40),
     IN in_bInit TINYINT,
     IN in_nUserNo INT,
     OUT out_nRet INT
 )
 sp_body: BEGIN
-    DECLARE v_sOldID VARCHAR(50);
+    DECLARE v_sOldID VARCHAR(255);
     DECLARE v_nDBUserNo INT;
     DECLARE v_nGrade TINYINT;
     DECLARE v_nMyGuildNo INT;
@@ -9370,7 +9376,7 @@ sp_body: BEGIN
             LEAVE proc_logic;
         ELSE
             UPDATE tCharacter SET sID=in_sID WHERE nCharNo=in_nCharNo;
-            IF ROW_COUNT ( ) <> 1 THEN
+            IF NOT EXISTS (SELECT 1 FROM tCharacter WHERE nCharNo=in_nCharNo) THEN
             SET out_nRet=-3026;
             ROLLBACK;
             LEAVE proc_logic;
@@ -9421,7 +9427,7 @@ sp_body: BEGIN
             UPDATE tCharacterChangeID
                SET bFlag = 1, sOldID = v_sOldID, sNewID = in_sID, sys_update_date = NOW()
              WHERE nRowNo = in_nRowNo AND nCharNo = in_nCharNo AND bFlag = 0;
-            IF ROW_COUNT() < 1 THEN
+            IF NOT EXISTS (SELECT 1 FROM tCharacterChangeID WHERE nRowNo = in_nRowNo AND nCharNo = in_nCharNo AND bFlag = 1) THEN
                 SET out_nRet = -3026;
                 ROLLBACK;
                 LEAVE proc_logic;
@@ -9534,7 +9540,7 @@ sp_body: BEGIN
         START TRANSACTION;
         IF EXISTS ( SELECT nCharNo FROM tCharacterSingleOption WHERE nCharNo = in_nCharNo ) THEN
             UPDATE tCharacterSingleOption SET nAutoChargedBuff=in_nAutoChargedBuff WHERE nCharNo=in_nCharNo;
-            IF ROW_COUNT ( ) <> 1 THEN
+            IF NOT EXISTS (SELECT 1 FROM tCharacterSingleOption WHERE nCharNo=in_nCharNo) THEN
             SET out_nRet=1;
             IF 1 > 0 THEN
             ROLLBACK;
@@ -9621,7 +9627,7 @@ sp_body: BEGIN
         IF EXISTS ( SELECT nCharNo FROM tCharacter WHERE nCharNo = in_nCharNo ) THEN
             START TRANSACTION;
             UPDATE tCharacter SET nFriendPoint=in_nFriendPoint WHERE nCharNo=in_nCharNo;
-            IF ROW_COUNT ( ) <> 1 THEN
+            IF NOT EXISTS (SELECT 1 FROM tCharacter WHERE nCharNo=in_nCharNo) THEN
             SET out_nRet=1;
             IF 1 > 0 THEN
             ROLLBACK;
@@ -9664,7 +9670,7 @@ sp_body: BEGIN
         SET out_nRet=0;
         IF EXISTS ( SELECT nCharNo FROM tCharacterGameOption WHERE nCharNo = in_nCharNo AND nOptionNo = in_nOptionNo ) THEN
             UPDATE tCharacterGameOption SET nValue=in_nValue WHERE nCharNo=in_nCharNo AND nOptionNo=in_nOptionNo;
-            IF ROW_COUNT ( ) <> 1 THEN
+            IF NOT EXISTS (SELECT 1 FROM tCharacterGameOption WHERE nCharNo=in_nCharNo AND nOptionNo=in_nOptionNo) THEN
             SET out_nRet=-2792;
             LEAVE proc_logic;
         END IF;
@@ -9725,7 +9731,7 @@ sp_body: BEGIN
         IF EXISTS ( SELECT nCharNo FROM tItemActionCoolTime WHERE nCharNo = in_nCharNo AND nActionGroup = in_nActionGroup ) THEN
             START TRANSACTION;
             UPDATE tItemActionCoolTime SET dEndTime=in_dEndTime WHERE nCharNo=in_nCharNo AND nActionGroup=in_nActionGroup;
-            IF ROW_COUNT ( ) <> 1 THEN
+            IF NOT EXISTS (SELECT 1 FROM tItemActionCoolTime WHERE nCharNo=in_nCharNo AND nActionGroup=in_nActionGroup) THEN
             SET out_nRet=-3291;
             ROLLBACK;
             LEAVE proc_logic;
@@ -9767,7 +9773,7 @@ sp_body: BEGIN
         START TRANSACTION;
         IF EXISTS ( SELECT nCharNo FROM tCharacterKeyMap WHERE nCharNo = in_nCharNo AND nFunctionNo = in_nFunctionNo ) THEN
             UPDATE tCharacterKeyMap SET nExtendedKey=in_nExtendedKey,nASCIICode=in_nASCIICode WHERE nCharNo=in_nCharNo AND nFunctionNo=in_nFunctionNo;
-            IF ROW_COUNT ( ) <> 1 THEN
+            IF NOT EXISTS (SELECT 1 FROM tCharacterKeyMap WHERE nCharNo=in_nCharNo AND nFunctionNo=in_nFunctionNo) THEN
             SET out_nRet=-2793;
             ROLLBACK;
             LEAVE proc_logic;
@@ -9898,7 +9904,7 @@ sp_body: BEGIN
             SET out_nRet=-2722;
         ELSE
             UPDATE tCharacterShortCut SET nCodeNo=in_nCodeNo,nValue=in_nValue,sys_update_date=NOW() WHERE nCharNo=in_nCharNo AND nSlotNo=in_nSlotNo;
-            IF ROW_COUNT ( ) <> 1 THEN
+            IF NOT EXISTS (SELECT 1 FROM tCharacterShortCut WHERE nCharNo=in_nCharNo AND nSlotNo=in_nSlotNo) THEN
             SET out_nRet=-2793;
         END IF;
         END IF;
@@ -9985,7 +9991,7 @@ sp_body: BEGIN
         END IF;
             START TRANSACTION;
             UPDATE tCharacter SET nStrength=in_nStrength,nConstitute=in_nConstitute,nDexterity=in_nDexterity,nIntelligence=in_nIntelligence,nMentalPower=in_nMentalPower WHERE nCharNo=in_nCharNo;
-            IF ROW_COUNT ( ) <> 1 THEN
+            IF NOT EXISTS (SELECT 1 FROM tCharacter WHERE nCharNo=in_nCharNo) THEN
             SET out_nRet=-1093;
             ROLLBACK;
             LEAVE proc_logic;
@@ -10076,13 +10082,13 @@ sp_body: BEGIN
     DECLARE CONTINUE HANDLER FOR NOT FOUND BEGIN END;
     SET out_nRet = 0;
     proc_logic: BEGIN
-        UPDATE tCharacterLoading
+        IF EXISTS (SELECT 1 FROM tCharacterLoading WHERE nCharNo = in_nCharNo AND nSeqNo = in_nSeqNo) THEN
+            UPDATE tCharacterLoading
         SET nFailType = in_nFailType,
             nLoadingFailCnt = CAST(in_nLoadingFailCnt AS SIGNED),
             dDBTime = NOW()
         WHERE nCharNo = in_nCharNo AND nSeqNo = in_nSeqNo;
-
-        IF ROW_COUNT() = 0 THEN
+        ELSE
             INSERT INTO tCharacterLoading (nCharNo, nSeqNo, dWorldTime, dDBTime, sLoadingMapName, nFailType, nLoadingFailCnt)
             VALUES (in_nCharNo, in_nSeqNo, NOW(), NOW(), '', in_nFailType, CAST(in_nLoadingFailCnt AS SIGNED));
         END IF;
@@ -10661,7 +10667,7 @@ sp_body: BEGIN
         IF EXISTS ( SELECT nCharNo FROM tChatColor WHERE nCharNo = in_nCharNo ) THEN
             START TRANSACTION;
             UPDATE tChatColor SET nBalloonColorID=in_nBalloonColorID WHERE nCharNo=in_nCharNo;
-            IF ROW_COUNT ( ) <> 1 THEN
+            IF NOT EXISTS (SELECT 1 FROM tChatColor WHERE nCharNo=in_nCharNo) THEN
             ROLLBACK;
             SET out_nRet=-1;
         ELSE
@@ -10702,7 +10708,7 @@ sp_body: BEGIN
         IF EXISTS ( SELECT nCharNo FROM tChatColor WHERE nCharNo = in_nCharNo ) THEN
             START TRANSACTION;
             UPDATE tChatColor SET nFontColorID=in_nFontColorID WHERE nCharNo=in_nCharNo;
-            IF ROW_COUNT ( ) <> 1 THEN
+            IF NOT EXISTS (SELECT 1 FROM tChatColor WHERE nCharNo=in_nCharNo) THEN
             ROLLBACK;
             SET out_nRet=-1;
         ELSE
@@ -10845,7 +10851,7 @@ sp_body: BEGIN
             START TRANSACTION;
             IF EXISTS ( SELECT nCharNo FROM tCollectionCard WHERE nCharNo = in_nCharNo AND nCardID = in_nCardID ) THEN
             UPDATE tCollectionCard SET nSerialNo=in_nSerialNo,nStarNumber=in_nStarNumber WHERE nCharNo=in_nCharNo AND nCardID=in_nCardID;
-            IF ROW_COUNT ( ) <> 1 THEN
+            IF NOT EXISTS (SELECT 1 FROM tCollectionCard WHERE nCharNo=in_nCharNo AND nCardID=in_nCardID) THEN
             SET out_nRet=-9999;
             ROLLBACK;
             LEAVE proc_logic;
@@ -10912,7 +10918,7 @@ sp_body: BEGIN
         END IF;
             IF EXISTS ( SELECT nCharNo FROM tCollectionFavorites WHERE nCharNo = in_nCharNo AND nSlotNo = in_nSlotNo ) THEN
             UPDATE tCollectionFavorites SET nCardID=in_nCardID WHERE nCharNo=in_nCharNo AND nSlotNo=in_nSlotNo;
-            IF ROW_COUNT ( ) <> 1 THEN
+            IF NOT EXISTS (SELECT 1 FROM tCollectionFavorites WHERE nCharNo=in_nCharNo AND nSlotNo=in_nSlotNo) THEN
             SET out_nRet=-9999;
             ROLLBACK;
             LEAVE proc_logic;
@@ -11009,7 +11015,7 @@ sp_body: BEGIN
         IF EXISTS ( SELECT nCardID FROM tCollectionSerialCount WHERE nCardID = in_nCardID ) THEN
             START TRANSACTION;
             UPDATE tCollectionSerialCount SET sys_update_date=NOW(),nCount=in_nCount WHERE nCardID=in_nCardID;
-            IF ROW_COUNT ( ) <> 1 THEN
+            IF NOT EXISTS (SELECT 1 FROM tCollectionSerialCount WHERE nCardID=in_nCardID) THEN
             SET out_nRet=-4444;
             ROLLBACK;
             LEAVE proc_logic;
@@ -11079,18 +11085,18 @@ sp_body: BEGIN
         IF EXISTS ( SELECT nItemKey FROM tItem WHERE nItemKey = in_nItemKey AND nItemID = in_nItemIDOld ) THEN
             START TRANSACTION;
             UPDATE tItem SET nItemID=in_nItemIDNew WHERE nItemKey=in_nItemKey;
-            IF ROW_COUNT ( ) <> 1 THEN
+            IF NOT EXISTS (SELECT 1 FROM tItem WHERE nItemKey=in_nItemKey) THEN
             SET out_nRet=-2493;
             ROLLBACK;
             LEAVE proc_logic;
         END IF;
             UPDATE tItemOptions SET nOptionData=v_nIsPlaceValue WHERE nItemKey=in_nItemKey AND nOptionType=v_nIsPlace;
-            IF ROW_COUNT ( ) <> 1 THEN
+            IF NOT EXISTS (SELECT 1 FROM tItemOptions WHERE nItemKey=in_nItemKey AND nOptionType=v_nIsPlace) THEN
             SET out_nRet=-2493;
             ROLLBACK;
         END IF;
             UPDATE tItemOptions SET nOptionData=in_nTotalDividend WHERE nItemKey=in_nItemKey AND nOptionType=in_nOptionType;
-            IF ROW_COUNT ( ) <> 1 THEN
+            IF NOT EXISTS (SELECT 1 FROM tItemOptions WHERE nItemKey=in_nItemKey AND nOptionType=in_nOptionType) THEN
             SET out_nRet=-2493;
             ROLLBACK;
         ELSE
@@ -11284,7 +11290,7 @@ sp_body: BEGIN
             LEAVE proc_logic;
         END IF;
             UPDATE tCharacter SET nMoney=nMoney+in_nTotalDividend WHERE nCharNo=in_nCharNo;
-            IF ROW_COUNT ( ) <> 1 THEN
+            IF NOT EXISTS (SELECT 1 FROM tCharacter WHERE nCharNo=in_nCharNo) THEN
             SET out_nRet=-2493;
             ROLLBACK;
             LEAVE proc_logic;
@@ -11347,7 +11353,7 @@ sp_body: BEGIN
             SET v_resultMoney=0;
         END IF;
         UPDATE tCharacter SET nMoney=v_resultMoney WHERE nCharNo=in_nCustomCharNo;
-        IF 0 <> 0 OR ROW_COUNT ( ) > 1 THEN
+        IF NOT EXISTS (SELECT 1 FROM tCharacter WHERE nCharNo=in_nCustomCharNo) THEN
             SET out_nRet=-2493;
             ROLLBACK;
             LEAVE proc_logic;
@@ -11413,7 +11419,7 @@ sp_body: BEGIN
             SET v_coin=0;
         ELSE
             UPDATE tGambleCoin SET sys_update_date=NOW(),nCoin=nCoin+in_nCoin WHERE nCharNo=in_nCharNo;
-            IF ROW_COUNT ( ) <> 1 THEN
+            IF NOT EXISTS (SELECT 1 FROM tGambleCoin WHERE nCharNo=in_nCharNo) THEN
             ROLLBACK;
             SET out_nRet=-3323;
             LEAVE proc_logic;
@@ -11583,7 +11589,7 @@ sp_body: BEGIN
             LEAVE proc_logic;
         END IF;
         UPDATE tGambleCoin SET sys_update_date=NOW(),nCoin=nCoin-in_nCoin WHERE nCharNo=in_nCharNo AND nCoin>=v_coin;
-        IF ROW_COUNT ( ) <> 1 THEN
+        IF NOT EXISTS (SELECT 1 FROM tGambleCoin WHERE nCharNo=in_nCharNo) THEN
             ROLLBACK;
             SET out_nRet=-3323;
             LEAVE proc_logic;
@@ -11595,7 +11601,7 @@ sp_body: BEGIN
             LEAVE proc_logic;
         ELSE
             UPDATE tCharacter SET nMoney=nMoney+in_nMoney WHERE nCharNo=in_nCharNo AND bDeleted=0;
-            IF ROW_COUNT ( ) <> 1 THEN
+            IF NOT EXISTS (SELECT 1 FROM tCharacter WHERE nCharNo=in_nCharNo AND bDeleted=0) THEN
             ROLLBACK;
             SET out_nRet=-3325;
             LEAVE proc_logic;
@@ -11729,7 +11735,7 @@ sp_body: BEGIN
             SET v_resultCoin=0;
         END IF;
         UPDATE tGambleCoin SET nCoin=v_resultCoin,sys_update_date=NOW() WHERE nCharNo=in_nCharNo;
-        IF ROW_COUNT ( ) <> 1 THEN
+        IF NOT EXISTS (SELECT 1 FROM tGambleCoin WHERE nCharNo=in_nCharNo) THEN
             SET out_nRet=-3323;
             ROLLBACK;
             LEAVE proc_logic;
@@ -11802,7 +11808,7 @@ sp_body: BEGIN
             LEAVE proc_logic;
         END IF;
         UPDATE tCharacter SET nMoney=nMoney-in_nMoney WHERE nCharNo=in_nCharNo AND bDeleted=0 AND nMoney>=in_nMoney;
-        IF ROW_COUNT ( ) <> 1 THEN
+        IF NOT EXISTS (SELECT 1 FROM tCharacter WHERE nCharNo=in_nCharNo AND bDeleted=0) THEN
             ROLLBACK;
             SET out_nRet=-3325;
             LEAVE proc_logic;
@@ -11818,7 +11824,7 @@ sp_body: BEGIN
             SET v_coin=0;
         ELSE
             UPDATE tGambleCoin SET sys_update_date=NOW(),nCoin=nCoin+in_nCoin WHERE nCharNo=in_nCharNo;
-            IF ROW_COUNT ( ) <> 1 THEN
+            IF NOT EXISTS (SELECT 1 FROM tGambleCoin WHERE nCharNo=in_nCharNo) THEN
             ROLLBACK;
             SET out_nRet=-3323;
             LEAVE proc_logic;
@@ -11907,7 +11913,7 @@ sp_body: BEGIN
             SET v_resultCoin=0;
         END IF;
             UPDATE tGambleCoin SET nCoin=v_resultCoin,sys_update_date=NOW() WHERE nCharNo=in_nCharNo;
-            IF ROW_COUNT ( ) <> 1 THEN
+            IF NOT EXISTS (SELECT 1 FROM tGambleCoin WHERE nCharNo=in_nCharNo) THEN
             SET out_nRet=-3334;
             ROLLBACK;
             LEAVE proc_logic;
@@ -11918,13 +11924,13 @@ sp_body: BEGIN
             SET v_jackpotCoin=v_jackpotCoin*in_nJackpotRate/1000;
         END IF;
             UPDATE tGambleCoin SET nCoin=nCoin+v_jackpotCoin,sys_update_date=NOW() WHERE nCharNo=in_nCharNo;
-            IF ROW_COUNT ( ) <> 1 THEN
+            IF NOT EXISTS (SELECT 1 FROM tGambleCoin WHERE nCharNo=in_nCharNo) THEN
             SET out_nRet=-3335;
             ROLLBACK;
             LEAVE proc_logic;
         END IF;
             UPDATE tGambleJackpot SET nJackpotCoin=0,sys_update_date=NOW() WHERE sGameName=v_gameName AND nBattingUnit=in_nBattingUnit;
-            IF ROW_COUNT ( ) <> 1 THEN
+            IF NOT EXISTS (SELECT 1 FROM tGambleJackpot WHERE sGameName=v_gameName AND nBattingUnit=in_nBattingUnit) THEN
             SET out_nRet=-3336;
             ROLLBACK;
             LEAVE proc_logic;
@@ -11938,7 +11944,7 @@ sp_body: BEGIN
         ELSE
             IF EXISTS ( SELECT sGameName FROM tGambleJackpot WHERE sGameName = v_gameName AND nBattingUnit = in_nBattingUnit ) THEN
             UPDATE tGambleJackpot SET nJackpotCoin=nJackpotCoin+v_battingCoin,sys_update_date=NOW() WHERE sGameName=v_gameName AND nBattingUnit=in_nBattingUnit;
-            IF ROW_COUNT ( ) <> 1 THEN
+            IF NOT EXISTS (SELECT 1 FROM tGambleJackpot WHERE sGameName=v_gameName AND nBattingUnit=in_nBattingUnit) THEN
             SET out_nRet=-3338;
             ROLLBACK;
             LEAVE proc_logic;
@@ -12002,7 +12008,7 @@ sp_body: BEGIN
         ELSE
             START TRANSACTION;
             UPDATE tGambleCoin SET sys_update_date=NOW(),nCoin=nCoin-in_nCoin WHERE nCharNo=in_nCharNo;
-            IF ROW_COUNT ( ) <> 1 THEN
+            IF NOT EXISTS (SELECT 1 FROM tGambleCoin WHERE nCharNo=in_nCharNo) THEN
             ROLLBACK;
             SET out_nRet=-3323;
             LEAVE proc_logic;
@@ -12258,7 +12264,7 @@ sp_body: BEGIN
         SET out_nRet=0;
         IF EXISTS ( SELECT nNo FROM tGuildToken WHERE nNo = in_nNo ) THEN
             UPDATE tGuildToken SET nToken=in_nToken WHERE nNo=in_nNo;
-            IF ROW_COUNT ( ) <> 1 THEN
+            IF NOT EXISTS (SELECT 1 FROM tGuildToken WHERE nNo=in_nNo) THEN
             SET out_nRet=-1;
             LEAVE proc_logic;
         END IF;
@@ -12476,13 +12482,13 @@ sp_body: BEGIN
             LEAVE proc_logic;
         ELSE
             UPDATE tCharacter SET nMoney=nMoney-in_nMoney WHERE nCharNo=in_nCharNo;
-            IF ROW_COUNT ( ) <> 1 THEN
+            IF NOT EXISTS (SELECT 1 FROM tCharacter WHERE nCharNo=in_nCharNo) THEN
             SET out_nRet=-1593;
             ROLLBACK;
             LEAVE proc_logic;
         END IF;
             UPDATE tGuildAcademy SET nMoney=nMoney+in_nMoney WHERE nNo=in_nNo;
-            IF ROW_COUNT ( ) <> 1 THEN
+            IF NOT EXISTS (SELECT 1 FROM tGuildAcademy WHERE nNo=in_nNo) THEN
             SET out_nRet=-1593;
             ROLLBACK;
             LEAVE proc_logic;
@@ -12862,7 +12868,7 @@ sp_body: BEGIN
         SET out_nRet=0;
         IF EXISTS ( SELECT nNo FROM tGuildAcademyMember WHERE nNo = in_nNo AND nCharNo = in_nCharNo ) THEN
             UPDATE tGuildAcademyMember SET nChatBanTime=in_nChatBanTime WHERE nNo=in_nNo AND nCharNo=in_nCharNo;
-            IF ROW_COUNT ( ) <> 1 THEN
+            IF NOT EXISTS (SELECT 1 FROM tGuildAcademyMember WHERE nNo=in_nNo AND nCharNo=in_nCharNo) THEN
             SET out_nRet=-1593;
             LEAVE proc_logic;
         END IF;
@@ -12986,7 +12992,7 @@ sp_body: BEGIN
         SET out_nRet=0;
         IF EXISTS ( SELECT nNo FROM tGuildMember WHERE nNo = in_nNo AND nCharNo = in_nCharNo ) THEN
             UPDATE tGuildAcademy SET nMasterCharNo=in_nCharNo WHERE nNo=in_nNo;
-            IF ROW_COUNT ( ) <> 1 THEN
+            IF NOT EXISTS (SELECT 1 FROM tGuildAcademy WHERE nNo=in_nNo) THEN
             SET out_nRet=-1593;
             LEAVE proc_logic;
         END IF;
@@ -13082,7 +13088,7 @@ sp_body: BEGIN
             SET v_BUFF_END_TIME=DATE_ADD(NOW(),INTERVAL in_nBuffTime MINUTE);
         END IF;
             UPDATE tGuildAcademy SET nPoint=nPoint+in_nPoint,dBuffEndTime=v_BUFF_END_TIME WHERE nNo=in_nNo;
-            IF ROW_COUNT ( ) <> 1 THEN
+            IF NOT EXISTS (SELECT 1 FROM tGuildAcademy WHERE nNo=in_nNo) THEN
             SET out_nRet=-1593;
             ROLLBACK;
             LEAVE proc_logic;
@@ -13119,7 +13125,7 @@ sp_body: BEGIN
             LEAVE proc_logic;
         END IF;
         UPDATE tGuildAcademy SET dNotifyDate=NOW(),sNotify=in_sNotify WHERE nNo=in_nNo;
-        IF ROW_COUNT ( ) <> 1 THEN
+        IF NOT EXISTS (SELECT 1 FROM tGuildAcademy WHERE nNo=in_nNo) THEN
             SET out_nRet=-1593;
         ELSE
             SET out_nRet=0;
@@ -13156,7 +13162,7 @@ sp_body: BEGIN
             LEAVE proc_logic;
         END IF;
         UPDATE tGuildAcademy SET nPoint=0;
-        IF ROW_COUNT ( ) = 0 THEN
+        IF NOT EXISTS (SELECT 1 FROM tGuildAcademy) THEN
             SET out_nRet=-1593;
             ROLLBACK;
             LEAVE proc_logic;
@@ -13257,13 +13263,13 @@ sp_body: BEGIN
             LEAVE proc_logic;
         ELSE
             UPDATE tGuildAcademy SET nMoney=nMoney-in_nMoney WHERE nNo=in_nNo AND nMoney>=in_nMoney;
-            IF ROW_COUNT ( ) <> 1 THEN
+            IF NOT EXISTS (SELECT 1 FROM tGuildAcademy WHERE nNo=in_nNo) THEN
             SET out_nRet=-1593;
             ROLLBACK;
             LEAVE proc_logic;
         END IF;
             UPDATE tCharacter SET nMoney=nMoney+in_nMoney WHERE nCharNo=in_nCharNo;
-            IF ROW_COUNT ( ) <> 1 THEN
+            IF NOT EXISTS (SELECT 1 FROM tCharacter WHERE nCharNo=in_nCharNo) THEN
             SET out_nRet=-1593;
             ROLLBACK;
             LEAVE proc_logic;
@@ -13330,7 +13336,7 @@ sp_body: BEGIN
         SET out_nRet=0;
         IF EXISTS ( SELECT nGuildNo FROM tGuildEmblem WHERE nGuildNo = in_nGuildNo ) THEN
             UPDATE tGuildEmblem SET nColor=in_nColor,nIcon=in_nIcon,dUpdated=in_dUpdated,nUnk=in_nUnk WHERE nGuildNo=in_nGuildNo;
-            IF ROW_COUNT ( ) <> 1 THEN
+            IF NOT EXISTS (SELECT 1 FROM tGuildEmblem WHERE nGuildNo=in_nGuildNo) THEN
             SET out_nRet=-1;
             LEAVE proc_logic;
         END IF;
@@ -13585,7 +13591,7 @@ sp_body: BEGIN
         SET out_nRet=0;
         IF EXISTS ( SELECT nGTNo FROM tGuildTournament WHERE nGTNo = in_nGTNo AND nType = in_nType ) THEN
             UPDATE tGuildTournament SET nData=in_nData,nGuildNo=in_nGuildNo WHERE nGTNo=in_nGTNo AND nType=in_nType;
-            IF ROW_COUNT ( ) <> 1 THEN
+            IF NOT EXISTS (SELECT 1 FROM tGuildTournament WHERE nGTNo=in_nGTNo AND nType=in_nType) THEN
             SET out_nRet=-1493;
         END IF;
         ELSE
@@ -14192,7 +14198,7 @@ sp_body: BEGIN
         SET out_nRet = 0;
         SET out_nRet=0;
         UPDATE tItemEnchant SET nRestCount=in_nRestGemCount WHERE nItemKey=in_nEquipmentItemKey AND nSlot=in_nSlot;
-        IF ROW_COUNT ( ) <> 1 OR 0 <> 0 THEN
+        IF NOT EXISTS (SELECT 1 FROM tItemEnchant WHERE nItemKey=in_nEquipmentItemKey AND nSlot=in_nSlot) THEN
             SET out_nRet=-101;
             LEAVE proc_logic;
         END IF;
@@ -14225,7 +14231,7 @@ sp_body: BEGIN
         START TRANSACTION;
         IF EXISTS ( SELECT nCharNo , nType , nSlot FROM tAutoMon WHERE nCharNo = in_nCharNo AND nType = in_nType AND nSlot = in_nSlot ) THEN
             UPDATE tAutoMon SET nItemID=in_nItemID WHERE nCharNo=in_nCharNo AND nType=in_nType AND nSlot=in_nSlot;
-            IF ROW_COUNT ( ) <> 1 THEN
+            IF NOT EXISTS (SELECT 1 FROM tAutoMon WHERE nCharNo=in_nCharNo AND nType=in_nType AND nSlot=in_nSlot) THEN
             SET out_nRet=1;
             IF 1 > 0 THEN
             ROLLBACK;
@@ -14272,14 +14278,14 @@ sp_body: BEGIN
         SET out_nRet=0;
         START TRANSACTION;
         UPDATE tItem SET nStorageType=in_nStorageType,nStorage=in_nStorage WHERE nItemKey=in_nItemKey;
-        IF ROW_COUNT ( ) = 0 THEN
+        IF NOT EXISTS (SELECT 1 FROM tItem WHERE nItemKey=in_nItemKey) THEN
             SET out_nRet=-2593;
             ROLLBACK;
             LEAVE proc_logic;
         END IF;
         IF EXISTS ( SELECT nItemKey FROM tItemOptions WHERE nItemKey = in_nItemKey AND nOptionType = in_nOptionType ) THEN
             UPDATE tItemOptions SET nOptionType=in_nOptionType,nOptionData=in_nOptionData WHERE nItemKey=in_nItemKey AND nOptionType=in_nOptionType;
-            IF ROW_COUNT ( ) = 0 THEN
+            IF NOT EXISTS (SELECT 1 FROM tItemOptions WHERE nItemKey=in_nItemKey AND nOptionType=in_nOptionType) THEN
             SET out_nRet=-2593;
             ROLLBACK;
             LEAVE proc_logic;
@@ -14413,26 +14419,26 @@ sp_body: BEGIN
         SET out_nRet=0;
         START TRANSACTION;
         UPDATE tItem SET nStorageType=11 WHERE nItemKey=in_nItemKey1;
-        IF ROW_COUNT ( ) = 0 THEN
+        IF NOT EXISTS (SELECT 1 FROM tItem WHERE nItemKey=in_nItemKey1) THEN
             SET out_nRet=-2593;
             ROLLBACK;
             LEAVE proc_logic;
         END IF;
         UPDATE tItem SET nStorageType=in_nStorageType2,nStorage=in_nStorage2 WHERE nItemKey=in_nItemKey2;
-        IF ROW_COUNT ( ) = 0 THEN
+        IF NOT EXISTS (SELECT 1 FROM tItem WHERE nItemKey=in_nItemKey2) THEN
             SET out_nRet=-2593;
             ROLLBACK;
             LEAVE proc_logic;
         END IF;
         UPDATE tItem SET nStorageType=in_nStorageType1,nStorage=in_nStorage1 WHERE nItemKey=in_nItemKey1;
-        IF ROW_COUNT ( ) = 0 THEN
+        IF NOT EXISTS (SELECT 1 FROM tItem WHERE nItemKey=in_nItemKey1) THEN
             SET out_nRet=-2593;
             ROLLBACK;
             LEAVE proc_logic;
         END IF;
         IF EXISTS ( SELECT nItemKey FROM tItemOptions WHERE nItemKey = in_nItemKey1 AND nOptionType = in_nOptionType1 ) THEN
             UPDATE tItemOptions SET nOptionType=in_nOptionType1,nOptionData=in_nOptionData1 WHERE nItemKey=in_nItemKey1 AND nOptionType=in_nOptionType1;
-            IF ROW_COUNT ( ) = 0 THEN
+            IF NOT EXISTS (SELECT 1 FROM tItemOptions WHERE nItemKey=in_nItemKey1 AND nOptionType=in_nOptionType1) THEN
             SET out_nRet=-2593;
             ROLLBACK;
             LEAVE proc_logic;
@@ -14644,7 +14650,7 @@ sp_body: BEGIN
         SET out_nRet=0;
         IF EXISTS ( SELECT nCharNo FROM tMinihouse WHERE nCharNo = in_nCharNo ) THEN
             UPDATE tMinihouse SET nVisitor=nVisitor+1 WHERE nCharNo=in_nCharNo;
-            IF ROW_COUNT ( ) <> 1 THEN
+            IF NOT EXISTS (SELECT 1 FROM tMinihouse WHERE nCharNo=in_nCharNo) THEN
             SET out_nRet=-1693;
         END IF;
         ELSE
@@ -14654,7 +14660,7 @@ sp_body: BEGIN
             LEAVE proc_logic;
         END IF;
             UPDATE tMinihouse SET nVisitor=nVisitor+1 WHERE nCharNo=in_nCharNo;
-            IF ROW_COUNT ( ) <> 1 THEN
+            IF NOT EXISTS (SELECT 1 FROM tMinihouse WHERE nCharNo=in_nCharNo) THEN
             SET out_nRet=-1693;
         END IF;
         END IF;
@@ -14679,7 +14685,7 @@ sp_body: BEGIN
     proc_logic: BEGIN
         SET out_nRet = 0;
         SELECT nOwnerNo,sPetName,nPetMind,nPetStress FROM tPetNew WHERE nPetNo=in_nPetNo;
-        SET out_nRet=ROW_COUNT();
+        SET out_nRet = IF(EXISTS(SELECT 1 FROM tPetNew WHERE nPetNo=in_nPetNo), 1, 0);
         IF out_nRet <> 1 THEN
             SET out_nRet=-1;
             LEAVE proc_logic;
@@ -14765,7 +14771,7 @@ sp_body: BEGIN
     proc_logic: BEGIN
         SET out_nRet = 0;
         UPDATE tPetNew SET sPetName=in_sPetName WHERE nPetNo=in_nPetNo;
-        SET out_nRet=ROW_COUNT();
+        SET out_nRet = IF(EXISTS(SELECT 1 FROM tPetNew WHERE nPetNo=in_nPetNo), 1, 0);
         IF out_nRet <> 1 THEN
             SET out_nRet=-1;
             LEAVE proc_logic;
@@ -14797,7 +14803,7 @@ sp_body: BEGIN
             nPetStress = in_nPetStress
         WHERE nPetNo = in_nPetNo;
 
-        IF ROW_COUNT() = 1 THEN
+        IF EXISTS (SELECT 1 FROM tPetNew WHERE nPetNo = in_nPetNo) THEN
             SET out_nRet = 1;
         ELSE
             SET out_nRet = -1;
@@ -15187,7 +15193,7 @@ sp_body: BEGIN
         SET out_nRet=0;
         IF EXISTS ( SELECT nCharNo FROM tSpamBlockTime WHERE nCharNo = in_nCharNo ) THEN
             UPDATE tSpamBlockTime SET sys_update_date=NOW(),nBlockTime=in_nBlockTime,nStandbyTime=in_nStandbyTime WHERE nCharNo=in_nCharNo;
-            IF ROW_COUNT ( ) <> 1 THEN
+            IF NOT EXISTS (SELECT 1 FROM tSpamBlockTime WHERE nCharNo=in_nCharNo) THEN
             SET out_nRet=-2893;
         END IF;
         ELSE
@@ -15246,7 +15252,7 @@ sp_body: BEGIN
         SET out_nRet=0;
         IF EXISTS ( SELECT nUserNo FROM tSpamFilter WHERE nUserNo = in_nUserNo ) THEN
             UPDATE tSpamFilter SET sys_update_date=NOW(),bIsSpamSpread=in_bIsSpamSpread,bIsSpamBlock=in_bIsSpamBlock,nSpamFilterRate=in_nSpamFilterRate WHERE nUserNo=in_nUserNo;
-            IF ROW_COUNT ( ) <> 1 THEN
+            IF NOT EXISTS (SELECT 1 FROM tSpamFilter WHERE nUserNo=in_nUserNo) THEN
             SET out_nRet=-2893;
         END IF;
         ELSE
@@ -15449,7 +15455,7 @@ sp_body: BEGIN
         dLastHeartbeat = NOW()
     WHERE nWorldNo = in_nWorldNo AND nZoneNo = in_nZoneNo;
 
-    SELECT ROW_COUNT() AS nRet;
+    SELECT IF(EXISTS(SELECT 1 FROM tWorldZoneNode WHERE nWorldNo = in_nWorldNo AND nZoneNo = in_nZoneNo), 1, 0) AS nRet;
 END$$
 DELIMITER ;
 

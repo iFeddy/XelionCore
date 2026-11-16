@@ -101,12 +101,22 @@ func (h *Handler) handleClientLoadingBug(client *network.Client, pkt *protocol.P
 	log.Printf("[World][%s] Client loading bug detected on map %s (failType=%d, failCnt=%d)", client.RemoteAddr(), mapName, failType, failCnt)
 }
 
+// handleSpammerReport procesa PROTO_NC_MISC_SPAMMER_REPORT_REQ (20 bytes: Name5 sSpammerName).
 func (h *Handler) handleSpammerReport(client *network.Client, pkt *protocol.Packet) {
-	targetCharID, _ := pkt.Reader.ReadUint32()
-	blockTime, _ := pkt.Reader.ReadInt32()
-	standbyTime, _ := pkt.Reader.ReadInt32()
-	if h.charRepo != nil {
-		_ = h.charRepo.SetSpamBlockTime(int(targetCharID), int(blockTime), int(standbyTime))
+	if pkt.Reader.Remaining() >= 20 {
+		spammerName, _ := pkt.Reader.ReadString(20)
+		if h.charRepo != nil {
+			if ch, err := h.charRepo.GetCharacterByName(spammerName); err == nil && ch != nil {
+				_ = h.charRepo.SetSpamBlockTime(ch.ID, 600, 0)
+			}
+		}
+	} else if pkt.Reader.Remaining() >= 12 {
+		targetCharID, _ := pkt.Reader.ReadUint32()
+		blockTime, _ := pkt.Reader.ReadInt32()
+		standbyTime, _ := pkt.Reader.ReadInt32()
+		if h.charRepo != nil {
+			_ = h.charRepo.SetSpamBlockTime(int(targetCharID), int(blockTime), int(standbyTime))
+		}
 	}
 	resp := protocol.NewPacketWriter(protocol.PROTO_NC_MISC_SPAMMER_REPORT_ACK)
 	resp.WriteUint16(0)
@@ -333,14 +343,10 @@ func (h *Handler) handlePrisonSendIn(client *network.Client, pkt *protocol.Packe
 	}
 }
 
-func (h *Handler) handlePrisonTakeOut(client *network.Client, pkt *protocol.Packet) {
+// handlePrisonTakeOut procesa PROTO_NC_PRISON_END_REQ (0x7C09, estructura vacía / 0 bytes en PDB).
+// Struct oficial S2C PDB: PROTO_NC_PRISON_END_ACK (6 bytes: err uint16, nPrisonSecond uint32).
+func (h *Handler) handlePrisonTakeOut(client *network.Client, _ *protocol.Packet) {
 	targetCharID := client.CharacterID
-	if pkt.Reader.Remaining() >= 4 {
-		v, _ := pkt.Reader.ReadUint32()
-		if v > 0 {
-			targetCharID = int(v)
-		}
-	}
 	var targetName string
 	if h.charRepo != nil && targetCharID > 0 {
 		_ = h.charRepo.EndPrison(targetCharID)
@@ -354,8 +360,8 @@ func (h *Handler) handlePrisonTakeOut(client *network.Client, pkt *protocol.Pack
 		h.prisonMu.Unlock()
 	}
 	resp := protocol.NewPacketWriter(protocol.PROTO_NC_PRISON_END_ACK)
-	resp.WriteUint32(uint32(targetCharID))
 	resp.WriteUint16(0)
+	resp.WriteUint32(0)
 	_ = client.SendPacket(resp)
 
 	h.BroadcastToZones("wms_NC_ZONE_PRISON_END_CMD", map[string]interface{}{

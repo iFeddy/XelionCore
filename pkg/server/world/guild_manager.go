@@ -898,6 +898,25 @@ func (gm *GuildManager) HandleGuildNameReq(client *network.Client, newName strin
 	_ = client.SendPacket(protocol.New_PROTO_NC_GUILD_NAME_ACK(guildNo, newName, 0, 0))
 }
 
+// HandleGuildNameByIDReq responde PROTO_NC_GUILD_NAME_ACK por ID de gremio (PROTO_NC_GUILD_NAME_REQ: 4B uint32 nNo).
+func (gm *GuildManager) HandleGuildNameByIDReq(client *network.Client, guildNo uint32) {
+	var gName string
+	if gm.charRepo != nil && guildNo > 0 {
+		if g, err := gm.charRepo.GetGuild(int(guildNo)); err == nil && g != nil {
+			gName = g.Name
+		}
+	}
+	if gName == "" && gm.charRepo != nil && client.CharacterID > 0 {
+		if g, _, err := gm.charRepo.GetGuildByCharID(client.CharacterID); err == nil && g != nil {
+			if guildNo == 0 {
+				guildNo = uint32(g.ID)
+			}
+			gName = g.Name
+		}
+	}
+	_ = client.SendPacket(protocol.New_PROTO_NC_GUILD_NAME_ACK(guildNo, gName, 0, 0))
+}
+
 // HandleTournamentJoinReq inscribe al gremio en el torneo (0x747A).
 // Struct oficial PDB: PROTO_NC_GUILD_TOURNAMENT_JOIN_ACK (8 bytes: nGuildNo[4], nTeamPosition[2], nError[2])
 func (gm *GuildManager) HandleTournamentJoinReq(client *network.Client, gtNo int) {

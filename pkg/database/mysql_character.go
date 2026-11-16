@@ -240,7 +240,7 @@ func (r *MySQLCharacterRepository) GetCharacterByID(id int) (*Character, error) 
 		ch.TutorialStep = tutStep
 	}
 
-	ch.Sync()
+	ch.PopulateFromCanonical()
 	return ch, nil
 }
 
@@ -427,9 +427,9 @@ func (r *MySQLCharacterRepository) CreateCharacter(ch *Character) error {
 	return nil
 }
 
-// UpdateCharacter sincroniza el estado completo del personaje en tCharacter invocando p_Char_SetAllData.
+// UpdateCharacter sincroniza el estado completo del personaje en tCharacter y tCharacterShape invocando p_Char_SetAllData y p_Char_SetShape.
 func (r *MySQLCharacterRepository) UpdateCharacter(ch *Character) error {
-	ch.Sync()
+	ch.SyncToCanonical()
 	var ret int
 	err := r.db.QueryRow(
 		"CALL p_Char_SetAllData(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, @out_nRet)",
@@ -445,6 +445,7 @@ func (r *MySQLCharacterRepository) UpdateCharacter(ch *Character) error {
 	if err != nil {
 		return fmt.Errorf("error calling p_Char_SetAllData: %w", err)
 	}
+	_ = r.SetCharacterShape(ch.ID, ch.Race, ch.Job, ch.TCharacterShape.Gender, ch.Hair, ch.HairColor, ch.Face)
 	return nil
 }
 
@@ -655,7 +656,7 @@ func (r *MySQLCharacterRepository) GetCharacterStates(charNo int) ([]*CharacterS
 func (r *MySQLCharacterRepository) SetCharacterState(charNo int, stateNo int16, level int16, stateTime int, restTime int, count int16, pd, ps, pk, pc byte) error {
 	var ret int
 	err := r.db.QueryRow(
-		"CALL p_Char_SetStateWithRestTime(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, @out_nRet)",
+		"CALL p_Char_SetStateWithRestTime(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 0, 0, @out_nRet)",
 		charNo, stateNo, level, stateTime, restTime, count, pd, ps, pk, pc,
 	).Scan(&ret)
 	if err != nil {

@@ -172,6 +172,7 @@ func (h *Handler) handleRenameCharacter(client *network.Client, pkt *protocol.Pa
 	}
 
 	targetChar.Name = newName
+	targetChar.TCharacter.CharName = newName
 	resp := protocol.New_PROTO_NC_AVATAR_RENAME_ACK(slot, newName, 0x00D0)
 	_ = client.SendPacket(resp)
 }
@@ -252,6 +253,7 @@ func (h *Handler) handleChangeCharID(client *network.Client, pkt *protocol.Packe
 	}
 
 	targetChar.Name = newName
+	targetChar.TCharacter.CharName = newName
 	if targetChar.ChangeID != nil {
 		targetChar.ChangeID.NeedChangeID = 0
 	}
@@ -270,7 +272,8 @@ func (h *Handler) handleChangeCharID(client *network.Client, pkt *protocol.Packe
 }
 
 // handleSetStyleGetInfo consulta los cupones de belleza disponibles (PROTO_NC_CHAR_SET_STYLE_GET_INFO_REQ - 0x107C).
-func (h *Handler) handleSetStyleGetInfo(client *network.Client, pkt *protocol.Packet) {
+// Struct oficial PDB: PROTO_NC_CHAR_SET_STYLE_GET_INFO_REQ (estructura vacía / 0 bytes de payload).
+func (h *Handler) handleSetStyleGetInfo(client *network.Client, _ *protocol.Packet) {
 	if !client.IsAuthenticated {
 		return
 	}
@@ -278,19 +281,6 @@ func (h *Handler) handleSetStyleGetInfo(client *network.Client, pkt *protocol.Pa
 	charID := client.CharacterID
 	if charID <= 0 {
 		charID = client.StyleCharID
-	}
-	if pkt != nil && pkt.Reader != nil && pkt.Reader.Remaining() >= 1 && h.charRepo != nil {
-		if slot, err := pkt.Reader.ReadByte(); err == nil && slot <= 5 {
-			if chars, err := h.charRepo.GetCharactersByAccount(client.AccountID); err == nil {
-				for _, ch := range chars {
-					if ch != nil && ch.Slot == slot {
-						charID = ch.ID
-						client.StyleCharID = ch.ID
-						break
-					}
-				}
-			}
-		}
 	}
 	if charID <= 0 && h.charRepo != nil {
 		if chars, err := h.charRepo.GetCharactersByAccount(client.AccountID); err == nil {
@@ -436,6 +426,7 @@ func (h *Handler) handleSetStyle(client *network.Client, pkt *protocol.Packet) {
 	charInfo.Hair = hair
 	charInfo.HairColor = color
 	charInfo.Face = face
+	charInfo.SyncToCanonical()
 
 	log.Printf("[World][%s][BeautyShop] SetStyle applied char=%d hair=%d color=%d face=%d grade=%d err=0x1280",
 		client.RemoteAddr(), charID, hair, color, face, reqGrade)

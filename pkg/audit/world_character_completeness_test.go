@@ -195,6 +195,14 @@ func TestFase07_Control7_E2E_Forensic_MultiService(t *testing.T) {
 	if err != nil {
 		t.Fatalf("Error creando usuario de prueba: %v", err)
 	}
+	t.Cleanup(func() {
+		_, _ = db.Exec("DELETE FROM tItemOptions WHERE nItemKey IN (SELECT k FROM (SELECT i.nItemKey AS k FROM tItem i JOIN tCharacter c ON i.nOwner = c.nCharNo WHERE c.nUserNo = ?) AS tmp)", testUserNo)
+		_, _ = db.Exec("DELETE FROM tItem WHERE nOwner IN (SELECT id FROM (SELECT nCharNo AS id FROM tCharacter WHERE nUserNo = ?) AS tmp)", testUserNo)
+		_, _ = db.Exec("DELETE FROM tActiveZoneTransfer WHERE nUserNo = ?", testUserNo)
+		_, _ = db.Exec("DELETE FROM tActiveAccountSession WHERE nUserNo = ?", testUserNo)
+		_, _ = db.Exec("DELETE FROM tCharacter WHERE nUserNo = ?", testUserNo)
+		_, _ = db.Exec("DELETE FROM tUser WHERE nUserNo = ?", testUserNo)
+	})
 
 	// 1. Emitir token de 64 bytes para WorldServer vía transfers.CreateTransfer
 	worldToken := transfers.CreateTransfer(testUserNo, testUsername, 1, "127.0.0.1", byte(1))

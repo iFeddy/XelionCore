@@ -24,7 +24,7 @@ DROP PROCEDURE IF EXISTS `p_UserKey_Get_FromAccount`;
 DELIMITER $$
 CREATE PROCEDURE `p_UserKey_Get_FromAccount`(
     IN in_nUserNo INT,
-    OUT out_sWebKey VARCHAR(64),
+    OUT out_sWebKey VARCHAR(65),
     OUT out_dExpire DATETIME,
     OUT out_nRet INT
 )
@@ -106,7 +106,7 @@ BEGIN
         dLastUpdate = NOW()
     WHERE nUserNo = in_nUserNo;
 
-    IF ROW_COUNT() > 0 THEN
+    IF EXISTS (SELECT 1 FROM tUserPlayRemainTime WHERE nUserNo = in_nUserNo) THEN
         SELECT nRemainSec INTO out_nRemainSec FROM tUserPlayRemainTime WHERE nUserNo = in_nUserNo LIMIT 1;
         SET out_nRet = 0;
     ELSE
@@ -132,7 +132,7 @@ BEGIN
 
     IF EXISTS(SELECT 1 FROM tUser WHERE nUserNo = in_userNo AND bIsDelete = 0) THEN
         UPDATE tUser SET nAuthID = in_AuthID WHERE nUserNo = in_userNo;
-        IF ROW_COUNT() = 1 THEN
+        IF EXISTS (SELECT 1 FROM tUser WHERE nUserNo = in_userNo) THEN
             SET v_ret = 0;
         ELSE
             SET v_ret = -9;
@@ -340,7 +340,7 @@ BEGIN
         SET isDraw = 1, drawDate = NOW()
         WHERE rowNo = in_rowNo AND (in_userNo = 0 OR userNo = in_userNo);
 
-        IF ROW_COUNT() = 1 THEN
+        IF EXISTS (SELECT 1 FROM tChargeItem WHERE rowNo = in_rowNo AND (in_userNo = 0 OR userNo = in_userNo)) THEN
             SET out_RET = 1;
         ELSE
             SET out_RET = 0;
@@ -730,7 +730,7 @@ DELIMITER $$
 CREATE PROCEDURE `usp_Item_getUser`(
     IN in_userNo INT,
     IN in_serialKey BIGINT,
-    OUT out_USER_ID VARCHAR(20),
+    OUT out_USER_ID VARCHAR(260),
     OUT out_AUTH_ID INT
 )
 BEGIN
@@ -810,7 +810,7 @@ BEGIN
             SET toUserNo = v_owner, isPay = 1
             WHERE orderNo = in_orderNo;
 
-            IF ROW_COUNT() <> 1 THEN
+            IF NOT EXISTS (SELECT 1 FROM tOrder WHERE orderNo = in_orderNo) THEN
                 SET out_RET = -9;
                 ROLLBACK;
             ELSE
@@ -922,7 +922,7 @@ BEGIN
             discountEndDate = in_discountEndDate
         WHERE goodsNo = in_goodsNo;
 
-        IF ROW_COUNT() = 1 THEN
+        IF EXISTS (SELECT 1 FROM tAccountItem WHERE goodsNo = in_goodsNo) THEN
             SET out_RET = 1;
         ELSE
             SET out_RET = -1;
@@ -1785,7 +1785,7 @@ CREATE PROCEDURE `usp_User_getAge`(
     OUT out_AGE INT
 )
 BEGIN
-    DECLARE v_juminNo VARCHAR(20);
+    DECLARE v_juminNo VARCHAR(50);
     DECLARE v_genderDigit CHAR(1);
     DECLARE v_century VARCHAR(2);
     DECLARE v_birthday VARCHAR(10);
@@ -2298,7 +2298,7 @@ BEGIN
 
     IF EXISTS(SELECT 1 FROM tUserAuth WHERE nAuthID = in_authID) THEN
         UPDATE tUserAuth SET bIsLoginAble = in_isLoginable WHERE nAuthID = in_authID;
-        IF ROW_COUNT() = 1 THEN
+        IF EXISTS (SELECT 1 FROM tUserAuth WHERE nAuthID = in_authID) THEN
             SET out_RET = 1;
         ELSE
             SET out_RET = 0;

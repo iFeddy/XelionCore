@@ -355,8 +355,15 @@ func (h *Handler) HandlePacket(client *network.Client, pkt *protocol.Packet) {
 		h.partyMgr.SetLooter(client, looterName)
 
 	// Subsistema Oficial de Amigos (Friend - Dept: 21)
+	// Struct oficial PDB: PROTO_NC_FRIEND_SET_REQ (40 bytes: Name5 charid[20], Name5 friendid[20])
 	case protocol.PROTO_NC_FRIEND_SET_REQ:
-		targetName, _ := pkt.Reader.ReadString(20)
+		var targetName string
+		if pkt.Reader.Remaining() >= 40 {
+			_, _ = pkt.Reader.ReadString(20) // charid
+			targetName, _ = pkt.Reader.ReadString(20)
+		} else {
+			targetName, _ = pkt.Reader.ReadString(20)
+		}
 		h.friendMgr.RequestFriend(client, targetName)
 
 	case protocol.PROTO_NC_FRIEND_SET_CONFIRM_ACK:
@@ -368,8 +375,15 @@ func (h *Handler) HandlePacket(client *network.Client, pkt *protocol.Packet) {
 		}
 		h.friendMgr.AcceptFriendConfirm(client, accept == 1)
 
+	// Struct oficial PDB: PROTO_NC_FRIEND_DEL_REQ (40 bytes: Name5 charid[20], Name5 friendid[20])
 	case protocol.PROTO_NC_FRIEND_DEL_REQ:
-		targetName, _ := pkt.Reader.ReadString(20)
+		var targetName string
+		if pkt.Reader.Remaining() >= 40 {
+			_, _ = pkt.Reader.ReadString(20) // charid
+			targetName, _ = pkt.Reader.ReadString(20)
+		} else {
+			targetName, _ = pkt.Reader.ReadString(20)
+		}
 		h.friendMgr.DeleteFriend(client, targetName)
 
 	case protocol.PROTO_NC_FRIEND_POINT_REQ:
@@ -439,9 +453,16 @@ func (h *Handler) HandlePacket(client *network.Client, pkt *protocol.Packet) {
 	case protocol.PROTO_NC_GUILD_WAR_LIST_REQ:
 		h.guildMgr.HandleWarListReq(client)
 
+	// Struct oficial PDB: PROTO_NC_GUILD_NAME_REQ (4 bytes: unsigned int nNo)
 	case protocol.PROTO_NC_GUILD_NAME_REQ:
-		newName, _ := pkt.Reader.ReadString(16)
-		h.guildMgr.HandleGuildNameReq(client, newName)
+		var guildNo uint32
+		if pkt.Reader.Remaining() >= 4 && pkt.Reader.Remaining() < 16 {
+			guildNo, _ = pkt.Reader.ReadUint32()
+			h.guildMgr.HandleGuildNameByIDReq(client, guildNo)
+		} else {
+			newName, _ := pkt.Reader.ReadString(16)
+			h.guildMgr.HandleGuildNameReq(client, newName)
+		}
 
 	case protocol.PROTO_NC_GUILD_TOURNAMENT_JOIN_REQ:
 		gtNo, _ := pkt.Reader.ReadUint32()
@@ -496,11 +517,17 @@ func (h *Handler) HandlePacket(client *network.Client, pkt *protocol.Packet) {
 	case protocol.PROTO_NC_GUILD_ACADEMY_MASTER_TELEPORT_REQ:
 		h.guildMgr.HandleAcademyMasterTeleport(client)
 
+	// Struct oficial PDB: PROTO_NC_GUILD_ACADEMY_MEMBER_CHAT_BAN_REQ (20 bytes: Name5 sChatBanTargetCharID)
 	case protocol.PROTO_NC_GUILD_ACADEMY_MEMBER_CHAT_BAN_REQ:
-		targetName, _ := pkt.Reader.ReadString(20)
+		var targetName string
 		var min int32 = 10
-		if pkt.Reader.Remaining() >= 4 {
-			min, _ = pkt.Reader.ReadInt32()
+		if pkt.Reader.Remaining() == 20 {
+			targetName, _ = pkt.Reader.ReadString(20)
+		} else {
+			targetName, _ = pkt.Reader.ReadString(20)
+			if pkt.Reader.Remaining() >= 4 {
+				min, _ = pkt.Reader.ReadInt32()
+			}
 		}
 		h.guildMgr.HandleAcademyChatBan(client, targetName, int(min))
 
@@ -607,8 +634,15 @@ func (h *Handler) HandlePacket(client *network.Client, pkt *protocol.Packet) {
 		targetName, _ := pkt.Reader.ReadString(20)
 		h.kqMgr.HandleVoteStart(client, targetName)
 
+	// Struct oficial PDB: PROTO_NC_KQ_VOTE_VOTING_REQ (4 bytes: enum KQ_VOTING_TYPE eVoteType)
 	case protocol.PROTO_NC_KQ_VOTE_VOTING_REQ:
-		voteVal, _ := pkt.Reader.ReadByte()
+		var voteVal uint32
+		if pkt.Reader.Remaining() >= 4 {
+			voteVal, _ = pkt.Reader.ReadUint32()
+		} else {
+			b, _ := pkt.Reader.ReadByte()
+			voteVal = uint32(b)
+		}
 		h.kqMgr.HandleVoteCast(client, voteVal != 0)
 
 	// Subsistema Oficial de Prisión (Prison - Dept: 31)

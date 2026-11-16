@@ -391,8 +391,40 @@ type JackpotRankEntry struct {
 	JackpotCoin int64  `json:"jackpot_coin"`
 }
 
-// Sync ensures bidirectional alignment between flat fields and the canonical tables.
-func (c *Character) Sync() {
+// PopulateFromCanonical populates the flat convenience fields from the canonical relational structs
+// (TCharacter, TCharacterShape, TCharacterState). Use this only when loading a Character from storage
+// or initializing a struct whose flat fields are not yet populated.
+func (c *Character) PopulateFromCanonical() {
+	if c.Equips == nil {
+		c.Equips = make(map[byte]uint16)
+	}
+	if c.EquipUpgrades == nil {
+		c.EquipUpgrades = make(map[byte]byte)
+	}
+	if c.TCharacter.CharNo == 0 {
+		return
+	}
+	c.ID = c.TCharacter.CharNo
+	c.AccountID = c.TCharacter.UserNo
+	c.Name = c.TCharacter.CharName
+	c.Slot = c.TCharacter.Slot
+	c.Job = c.TCharacter.Class
+	c.Level = c.TCharacter.Level
+	c.Male = (c.TCharacterShape.Gender != 0)
+	c.Hair = c.TCharacterShape.Hair
+	c.HairColor = c.TCharacterShape.HairColor
+	c.Face = c.TCharacterShape.Face
+	c.Map = c.TCharacterState.Map
+	c.XPos = c.TCharacterState.XPos
+	c.YPos = c.TCharacterState.YPos
+	c.CurHP = c.TCharacterState.HP
+	c.CurSP = c.TCharacterState.SP
+}
+
+// SyncToCanonical writes the flat gameplay fields into the canonical relational structs
+// (TCharacter, TCharacterShape, TCharacterState) so that flat field mutations made by
+// ZoneService or WorldService handlers are never overwritten by stale sub-struct values.
+func (c *Character) SyncToCanonical() {
 	if c.Equips == nil {
 		c.Equips = make(map[byte]uint16)
 	}
@@ -400,62 +432,62 @@ func (c *Character) Sync() {
 		c.EquipUpgrades = make(map[byte]byte)
 	}
 
-	// If flat fields are set but canonical tables are empty:
-	if c.TCharacter.CharNo == 0 && c.ID != 0 {
+	if c.ID != 0 {
 		c.TCharacter.CharNo = c.ID
-		c.TCharacter.UserNo = c.AccountID
-		c.TCharacter.CharName = c.Name
-		c.TCharacter.Slot = c.Slot
-		c.TCharacter.Class = c.Job
-		c.TCharacter.Level = c.Level
-		c.TCharacter.IsDelete = 0
-
-		genderByte := byte(0)
-		if c.Male {
-			genderByte = 1
-		}
 		c.TCharacterShape.CharNo = c.ID
-		c.TCharacterShape.Gender = genderByte
-		c.TCharacterShape.Hair = c.Hair
-		c.TCharacterShape.HairColor = c.HairColor
-		c.TCharacterShape.Face = c.Face
-
 		c.TCharacterState.CharNo = c.ID
-		c.TCharacterState.Map = c.Map
-		c.TCharacterState.XPos = c.XPos
-		c.TCharacterState.YPos = c.YPos
-		c.TCharacterState.Rotation = 0x55 // Standard AstraServer/NextGen default (85 deg)
-		c.TCharacterState.HP = c.CurHP
-		c.TCharacterState.SP = c.CurSP
-		if c.TCharacterState.HPStones == 0 {
-			c.TCharacterState.HPStones = 15
-		}
-		if c.TCharacterState.SPStones == 0 {
-			c.TCharacterState.SPStones = 7
-		}
-
 		c.TCharacterKeyMap.CharNo = c.ID
 		c.TCharacterShortCut.CharNo = c.ID
 		c.TCharacterGameOpt.CharNo = c.ID
 		c.TCharacterSingleOpt.CharNo = c.ID
-	} else if c.TCharacter.CharNo != 0 {
-		// Populate flat fields from canonical tables
-		c.ID = c.TCharacter.CharNo
-		c.AccountID = c.TCharacter.UserNo
-		c.Name = c.TCharacter.CharName
-		c.Slot = c.TCharacter.Slot
-		c.Job = c.TCharacter.Class
-		c.Level = c.TCharacter.Level
-		c.Male = (c.TCharacterShape.Gender != 0)
-		c.Hair = c.TCharacterShape.Hair
-		c.HairColor = c.TCharacterShape.HairColor
-		c.Face = c.TCharacterShape.Face
-		c.Map = c.TCharacterState.Map
-		c.XPos = c.TCharacterState.XPos
-		c.YPos = c.TCharacterState.YPos
-		c.CurHP = c.TCharacterState.HP
-		c.CurSP = c.TCharacterState.SP
 	}
+	if c.AccountID != 0 {
+		c.TCharacter.UserNo = c.AccountID
+	}
+	if c.Name != "" {
+		c.TCharacter.CharName = c.Name
+	}
+	c.TCharacter.Slot = c.Slot
+	if c.Job != 0 || c.TCharacter.Class == 0 {
+		c.TCharacter.Class = c.Job
+	}
+	if c.Level != 0 || c.TCharacter.Level == 0 {
+		c.TCharacter.Level = c.Level
+	}
+
+	genderByte := byte(0)
+	if c.Male {
+		genderByte = 1
+	}
+	c.TCharacterShape.Gender = genderByte
+	c.TCharacterShape.Hair = c.Hair
+	c.TCharacterShape.HairColor = c.HairColor
+	c.TCharacterShape.Face = c.Face
+
+	c.TCharacterState.Map = c.Map
+	c.TCharacterState.XPos = c.XPos
+	c.TCharacterState.YPos = c.YPos
+	if c.TCharacterState.Rotation == 0 {
+		c.TCharacterState.Rotation = 0x55 // Standard AstraServer/NextGen default (85 deg)
+	}
+	c.TCharacterState.HP = c.CurHP
+	c.TCharacterState.SP = c.CurSP
+	if c.TCharacterState.HPStones == 0 {
+		c.TCharacterState.HPStones = 15
+	}
+	if c.TCharacterState.SPStones == 0 {
+		c.TCharacterState.SPStones = 7
+	}
+}
+
+// Sync ensures alignment between flat gameplay fields and the canonical tables without
+// overwriting mutated flat fields when TCharacter.CharNo is already populated.
+func (c *Character) Sync() {
+	if c.ID == 0 && c.TCharacter.CharNo != 0 {
+		c.PopulateFromCanonical()
+		return
+	}
+	c.SyncToCanonical()
 }
 
 // GetEquip returns the equipped item ID for a slot, or 0xFFFF if empty.
@@ -1219,6 +1251,7 @@ func (r *MemoryCharacterRepository) ChangeCharacterClass(charNo int, newClass by
 		return ErrCharacterNotFound
 	}
 	ch.Job = newClass
+	ch.TCharacter.Class = newClass
 	return nil
 }
 
@@ -1229,11 +1262,18 @@ func (r *MemoryCharacterRepository) SetCharacterShape(charNo int, race, class, g
 	if !ok {
 		return ErrCharacterNotFound
 	}
+	ch.Race = race
 	ch.Job = class
 	ch.Male = (gender != 0)
 	ch.Hair = hair
 	ch.HairColor = hairColor
 	ch.Face = face
+	ch.TCharacter.Class = class
+	ch.TCharacterShape.CharNo = charNo
+	ch.TCharacterShape.Gender = gender
+	ch.TCharacterShape.Hair = hair
+	ch.TCharacterShape.HairColor = hairColor
+	ch.TCharacterShape.Face = face
 	return nil
 }
 
@@ -1247,6 +1287,9 @@ func (r *MemoryCharacterRepository) SaveCharLocation(charNo int, mapName string,
 		ch.TownName = mapName
 		ch.XPos = x
 		ch.YPos = y
+		ch.TCharacterState.XPos = x
+		ch.TCharacterState.YPos = y
+		ch.TCharacterState.Rotation = rotation
 		return nil
 	}
 	return ErrCharacterNotFound
@@ -1258,6 +1301,10 @@ func (r *MemoryCharacterRepository) SaveCharStats(charNo int, hp, sp, hps, sps i
 	if ch, ok := r.characters[charNo]; ok {
 		ch.CurHP = int(hp)
 		ch.CurSP = int(sp)
+		ch.TCharacterState.HP = int(hp)
+		ch.TCharacterState.SP = int(sp)
+		ch.TCharacterState.HPStones = hps
+		ch.TCharacterState.SPStones = sps
 		return nil
 	}
 	return ErrCharacterNotFound
@@ -1268,6 +1315,7 @@ func (r *MemoryCharacterRepository) SaveCharLevelExp(charNo int, level int16, ex
 	defer r.mu.Unlock()
 	if ch, ok := r.characters[charNo]; ok {
 		ch.Level = byte(level)
+		ch.TCharacter.Level = byte(level)
 		ch.TCharacterState.Exp = exp
 		return nil
 	}

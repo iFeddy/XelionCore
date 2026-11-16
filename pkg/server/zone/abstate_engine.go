@@ -198,14 +198,27 @@ func (h *Handler) handleDepolymorphCmd(client *network.Client, pkt *protocol.Pac
 }
 
 // handleChargedBuffEraseReq implementa PROTO_NC_CHAR_CHARGEDBUFF_ERASE_REQ (0x112E).
+// Struct oficial PDB: PROTO_NC_CHAR_CHARGEDBUFF_ERASE_REQ (4 bytes: unsigned int nChargedBuffKey).
 func (h *Handler) handleChargedBuffEraseReq(client *network.Client, pkt *protocol.Packet) {
 	player, ok := h.getPlayer(client)
 	if !ok || player == nil || player.Char == nil {
 		return
 	}
 
-	key, err := pkt.Reader.ReadUint16()
-	if err != nil {
+	var key uint32
+	if pkt.Reader.Remaining() >= 4 {
+		v, err := pkt.Reader.ReadUint32()
+		if err != nil {
+			return
+		}
+		key = v
+	} else if pkt.Reader.Remaining() >= 2 {
+		v, err := pkt.Reader.ReadUint16()
+		if err != nil {
+			return
+		}
+		key = uint32(v)
+	} else {
 		return
 	}
 
@@ -213,10 +226,10 @@ func (h *Handler) handleChargedBuffEraseReq(client *network.Client, pkt *protoco
 		_ = h.charRepo.DelChargedBuff(player.Char.ID, int(key))
 	}
 
-	player.RemoveAbState(key)
+	player.RemoveAbState(uint16(key))
 
 	ack := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_CHARGEDBUFF_ERASE_ACK)
-	ack.WriteUint16(key)
+	ack.WriteUint16(uint16(key))
 	_ = client.SendPacket(ack)
 }
 

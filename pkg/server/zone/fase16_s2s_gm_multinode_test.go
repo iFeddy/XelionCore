@@ -64,15 +64,14 @@ func TestFase16_All22NewC2SHandlersAndNoUnhandled(t *testing.T) {
 		t.Fatalf("expected PROTO_NC_MISC_SERVERPARAMETER_ACK")
 	}
 
-	// 3. USER_REGISENUMBER_REQ & USER_USE_BEAUTY_SHOP_CMD
+	// 3. USER_REGISENUMBER_REQ & USER_USE_BEAUTY_SHOP_CMD (struct vacío de 0B en PDB)
 	h.HandlePacket(p.Client, buildTestPacket(protocol.PROTO_NC_USER_REGISENUMBER_REQ, nil))
 	if len(conn.findByOpcode(protocol.PROTO_NC_USER_REGISENUMBER_ACK)) == 0 {
 		t.Fatalf("expected PROTO_NC_USER_REGISENUMBER_ACK")
 	}
-	h.HandlePacket(p.Client, buildTestPacket(protocol.PROTO_NC_USER_USE_BEAUTY_SHOP_CMD, []byte{4, 3, 2}))
-	if !p.BeautyShopOpen || p.Char.Hair != 4 || p.Char.HairColor != 3 || p.Char.Face != 2 {
-		t.Fatalf("expected BeautyShop state updated, got open=%v hair=%d color=%d face=%d",
-			p.BeautyShopOpen, p.Char.Hair, p.Char.HairColor, p.Char.Face)
+	h.HandlePacket(p.Client, buildTestPacket(protocol.PROTO_NC_USER_USE_BEAUTY_SHOP_CMD, nil))
+	if !p.BeautyShopOpen || len(conn.findByOpcode(protocol.PROTO_NC_USER_USE_BEAUTY_SHOP_CMD)) == 0 {
+		t.Fatalf("expected BeautyShopOpen=true and PROTO_NC_USER_USE_BEAUTY_SHOP_CMD ack, got open=%v", p.BeautyShopOpen)
 	}
 
 	// 4. CHAR_LOGOUTREADY_CMD & CHAR_LOGOUTCANCEL_CMD

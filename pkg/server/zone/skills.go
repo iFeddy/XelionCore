@@ -186,6 +186,7 @@ func (h *Handler) handleSkillReplyReviveCmd(client *network.Client, pkt *protoco
 }
 
 // handleItemUseActiveSkillReq implementa PROTO_NC_ITEM_USE_ACTIVESKILL_REQ (0x304E).
+// Struct oficial PDB: PROTO_NC_ITEM_USE_ACTIVESKILL_REQ (11 bytes: nInvenSlot uint8, nTargetHnd uint16, TargetLoc SHINE_XY_TYPE 8B).
 // Aprende una habilidad activa a partir del uso de un pergamino en inventario.
 func (h *Handler) handleItemUseActiveSkillReq(client *network.Client, pkt *protocol.Packet) {
 	player, ok := h.getPlayer(client)
@@ -198,7 +199,9 @@ func (h *Handler) handleItemUseActiveSkillReq(client *network.Client, pkt *proto
 		return
 	}
 	targetHnd, _ := pkt.Reader.ReadUint16()
-	_ = targetHnd
+	targetX, _ := pkt.Reader.ReadInt32()
+	targetY, _ := pkt.Reader.ReadInt32()
+	_, _, _ = targetHnd, targetX, targetY
 
 	sendUseSkillAck := func(errCode uint16) {
 		ack := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_USE_ACTIVESKILL_ACK)

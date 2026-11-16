@@ -125,7 +125,8 @@ func (h *Handler) handleUserRegiseNumberReq(client *network.Client, pkt *protoco
 }
 
 // handleUserUseBeautyShopCmd implementa sp_NC_USER_USE_BEAUTY_SHOP_CMD (0x0C32).
-func (h *Handler) handleUserUseBeautyShopCmd(client *network.Client, pkt *protocol.Packet) {
+// Struct oficial PDB: PROTO_NC_USER_USE_BEAUTY_SHOP_CMD (estructura vacía / 0 bytes de payload).
+func (h *Handler) handleUserUseBeautyShopCmd(client *network.Client, _ *protocol.Packet) {
 	player, ok := h.getPlayer(client)
 	if !ok || player == nil || player.Char == nil {
 		return
@@ -134,35 +135,6 @@ func (h *Handler) handleUserUseBeautyShopCmd(client *network.Client, pkt *protoc
 	if client != nil {
 		ack := protocol.NewPacketWriter(protocol.PROTO_NC_USER_USE_BEAUTY_SHOP_CMD)
 		_ = client.SendPacket(ack)
-	}
-	if pkt != nil && pkt.Reader.Remaining() >= 3 {
-		hair, _ := pkt.Reader.ReadByte()
-		hairColor, _ := pkt.Reader.ReadByte()
-		face, _ := pkt.Reader.ReadByte()
-		// El cliente oficial envía [0x18, 0x0C, 0x01] (PROTO_NC_USER_NORMALLOGOUT_CMD type=1)
-		// adjunto en el buffer de 0x0C32 al iniciar la transición hacia el salón de belleza.
-		if hair == 0x18 && hairColor == 0x0C && face == 0x01 {
-			return
-		}
-		player.Char.Hair = hair
-		player.Char.HairColor = hairColor
-		player.Char.Face = face
-		player.Char.TCharacterShape.CharNo = player.Char.ID
-		player.Char.TCharacterShape.Hair = hair
-		player.Char.TCharacterShape.HairColor = hairColor
-		player.Char.TCharacterShape.Face = face
-		if h.charRepo != nil {
-			_ = h.charRepo.UpdateCharacter(player.Char)
-		}
-		if h.gameLogDispatcher != nil && player.CurrentMap != nil {
-			h.gameLogDispatcher.EnqueueType4(6, player.Char.ID, player.CurrentMap.MapID, player.Char.XPos, player.Char.YPos, 0, int(hair), int(hairColor), int(face))
-		}
-		h.DispatchWMS("wms_NC_CHAR_ZONE_SHAPE_CMD", map[string]interface{}{
-			"charID":    player.Char.ID,
-			"hair":      hair,
-			"hairColor": hairColor,
-			"face":      face,
-		})
 	}
 }
 

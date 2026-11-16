@@ -25,8 +25,8 @@ CREATE TABLE IF NOT EXISTS `tUserAuth` (
 -- ----------------------------------------------------------------------------
 CREATE TABLE IF NOT EXISTS `tUser` (
     `nUserNo` INT NOT NULL AUTO_INCREMENT,
-    `sUserID` VARCHAR(60) NOT NULL,
-    `sUserPW` VARCHAR(32) NOT NULL,
+    `sUserID` VARCHAR(260) NOT NULL,
+    `sUserPW` VARCHAR(64) NOT NULL,
     `sUserName` VARCHAR(60) NOT NULL DEFAULT '',
     `bIsBlock` TINYINT(1) NOT NULL DEFAULT 0,
     `bIsDelete` TINYINT(1) NOT NULL DEFAULT 0,
@@ -713,7 +713,7 @@ CREATE TABLE IF NOT EXISTS `tGMItemReward` (
     `sys_update_date` DATETIME DEFAULT CURRENT_TIMESTAMP,
     `sOperID` VARCHAR(255) NOT NULL DEFAULT '',
     `sIP` VARCHAR(255) NOT NULL DEFAULT '',
-    `sCause` VARCHAR(255) NOT NULL DEFAULT '',
+    `sCause` VARCHAR(1000) NOT NULL DEFAULT '',
     PRIMARY KEY (`nGroupNo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -885,7 +885,7 @@ CREATE TABLE IF NOT EXISTS `tGuild` (
     `sIntro` VARCHAR(255) NOT NULL DEFAULT '',
     `dNotifyDate` DATETIME DEFAULT CURRENT_TIMESTAMP,
     `sNotifyCharID` VARCHAR(255) NOT NULL DEFAULT '',
-    `sNotify` VARCHAR(255) NOT NULL DEFAULT '',
+    `sNotify` VARCHAR(512) NOT NULL DEFAULT '',
     PRIMARY KEY (`nNo`),
     UNIQUE KEY `idx_name` (`sName`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -901,7 +901,7 @@ CREATE TABLE IF NOT EXISTS `tGuildAcademy` (
     `nPoint` INT NOT NULL DEFAULT 0,
     `dBuffEndTime` DATETIME DEFAULT CURRENT_TIMESTAMP,
     `dNotifyDate` DATETIME DEFAULT CURRENT_TIMESTAMP,
-    `sNotify` VARCHAR(255) NOT NULL DEFAULT '',
+    `sNotify` VARCHAR(1024) NOT NULL DEFAULT '',
     `sIntro` VARCHAR(255) NOT NULL DEFAULT '',
     PRIMARY KEY (`nNo`),
     KEY `idx_master` (`nMasterCharNo`)
@@ -1173,7 +1173,7 @@ CREATE TABLE IF NOT EXISTS `tKeyMapInit` (
 -- ----------------------------------------------------------------------------
 CREATE TABLE IF NOT EXISTS `tKingdomQuest` (
     `nQuestNo` SMALLINT NOT NULL DEFAULT 0,
-    `sData` VARCHAR(255) NOT NULL DEFAULT '',
+    `sData` VARCHAR(256) NOT NULL DEFAULT '',
     PRIMARY KEY (`nQuestNo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
