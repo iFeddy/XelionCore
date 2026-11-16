@@ -200,15 +200,41 @@ func (h *Handler) handleItemUseActiveSkillReq(client *network.Client, pkt *proto
 	targetHnd, _ := pkt.Reader.ReadUint16()
 	_ = targetHnd
 
+	sendUseSkillAck := func(errCode uint16) {
+		ack := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_USE_ACTIVESKILL_ACK)
+		ack.WriteUint16(errCode)
+		_ = client.SendPacket(ack)
+	}
+
+	// Verificado en Zone.exe sp_NC_ITEM_USE_ACTIVESKILL_REQ (0x00540B90):
+	// estado inválido (muerto/vendor) -> 0x3129; ítem inexistente -> 0x312C; éxito -> 0x3128.
+	if player.State == 3 || player.State == 5 {
+		sendUseSkillAck(0x3129)
+		return
+	}
+
+	it := h.findItemAt(player.Char.ID, 9, int16(invenSlot))
+	if it == nil {
+		sendUseSkillAck(0x312C)
+		return
+	}
+
+	// Consumir pergamino de inventario (Box 9)
+	if !h.consumeItemUnits(player, it, 1) {
+		sendUseSkillAck(0x312C)
+		return
+	}
+
 	// Persistir la nueva habilidad aprendida en base de datos mediante CALL p_Skill_Set
 	newSkill := &database.CharacterSkill{
 		CharNo:     player.Char.ID,
-		SkillNo:    uint16(invenSlot),
+		SkillNo:    it.ItemID,
 		SkillLevel: 1,
 	}
 	_ = h.charRepo.SaveCharacterSkill(player.Char.ID, newSkill)
 
 	sucCmd := protocol.NewPacketWriter(protocol.PROTO_NC_SKILL_SKILL_LEARNSUC_CMD)
-	sucCmd.WriteUint16(uint16(invenSlot))
+	sucCmd.WriteUint16(it.ItemID)
 	_ = client.SendPacket(sucCmd)
+	sendUseSkillAck(0x3128)
 }

@@ -1923,6 +1923,15 @@ func (h *Handler) handleChargedWithdraw(client *network.Client, pkt *protocol.Pa
 		_ = client.SendPacket(ack)
 	}
 
+	if player.State == 3 || player.ActiveTrade != nil || player.ActiveBooth != nil {
+		sendWithdrawAck(0x1042)
+		return
+	}
+	if !player.ChargedInvenOpened {
+		sendWithdrawAck(0x1043) // ChargedInven no abierto aún en sp_NC_ITEM_CHARGED_WITHDRAW_REQ
+		return
+	}
+
 	shopRepo := h.getChargedShopRepo()
 	if shopRepo == nil || h.charRepo == nil {
 		sendWithdrawAck(0x1044)
@@ -1980,6 +1989,9 @@ func (h *Handler) handleChargedWithdraw(client *network.Client, pkt *protocol.Pa
 			return
 		}
 		h.sendCellChange(client, 9, freeSlots[i], newIt, 0xFFFF)
+		if h.gameLogDispatcher != nil && player.CurrentMap != nil {
+			h.gameLogDispatcher.EnqueueType6(1, player.Char.ID, player.CurrentMap.MapID, player.Char.XPos, player.Char.YPos, 0, int(newIt.ItemID), newIt.ItemKey)
+		}
 	}
 
 	sendWithdrawAck(0x1041) // Éxito oficial en so_ply_ChargedWithdraw (VA 0x00492DF5)
@@ -2696,6 +2708,13 @@ func (h *Handler) handleItemReloc(client *network.Client, pkt *protocol.Packet) 
 	toBox := uint8(toLoc >> 10)
 	toSlot := int16(toLoc & 0x03FF)
 
+	if player.State == 3 || player.ActiveTrade != nil || player.ActiveBooth != nil {
+		ack := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_RELOC_ACK)
+		ack.WriteUint16(0x0242)
+		_ = client.SendPacket(ack)
+		return
+	}
+
 	// sp_ItemReloc (0x00536780): Box 2 (Reward Inventory) es solo origen, nunca destino (err 0x0243).
 	if toBox == 2 {
 		ack := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_RELOC_ACK)
@@ -2845,7 +2864,18 @@ func (h *Handler) handleItemSplit(client *network.Client, pkt *protocol.Packet) 
 		return
 	}
 	splitLot, err := pkt.Reader.ReadUint32()
-	if err != nil || splitLot == 0 {
+	if err != nil {
+		return
+	}
+
+	sendSplitErr := func(code uint16) {
+		ack := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_SPLIT_ACK)
+		ack.WriteUint16(code)
+		_ = client.SendPacket(ack)
+	}
+
+	if player.State == 3 || player.ActiveTrade != nil || player.ActiveBooth != nil {
+		sendSplitErr(0x0442)
 		return
 	}
 
@@ -2854,12 +2884,27 @@ func (h *Handler) handleItemSplit(client *network.Client, pkt *protocol.Packet) 
 	toBox := uint8(toLoc >> 10)
 	toSlot := int16(toLoc & 0x03FF)
 
+	if fromBox != 9 || toBox != 9 {
+		sendSplitErr(0x0443)
+		return
+	}
+	if fromLoc == toLoc {
+		sendSplitErr(0x0445)
+		return
+	}
+
 	srcItem := h.findItemAt(player.Char.ID, fromBox, fromSlot)
+	if srcItem == nil {
+		sendSplitErr(0x0448)
+		return
+	}
 	dstItem := h.findItemAt(player.Char.ID, toBox, toSlot)
-	if srcItem == nil || dstItem != nil || srcItem.Flags <= int32(splitLot) {
-		ack := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_SPLIT_ACK)
-		ack.WriteUint16(0x0442) // Split fail
-		_ = client.SendPacket(ack)
+	if dstItem != nil {
+		sendSplitErr(0x0446)
+		return
+	}
+	if splitLot == 0 || srcItem.Flags <= int32(splitLot) {
+		sendSplitErr(0x0449)
 		return
 	}
 
@@ -2900,10 +2945,17 @@ func (h *Handler) handleItemEquip(client *network.Client, pkt *protocol.Packet) 
 		return
 	}
 
+	if player.State == 3 || player.ActiveTrade != nil || player.ActiveBooth != nil {
+		ack := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_EQUIP_ACK)
+		ack.WriteUint16(0x0282)
+		_ = client.SendPacket(ack)
+		return
+	}
+
 	srcItem := h.findItemAt(player.Char.ID, 9, int16(invenSlot))
 	if srcItem == nil {
 		ack := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_EQUIP_ACK)
-		ack.WriteUint16(0x0282)
+		ack.WriteUint16(0x0283)
 		_ = client.SendPacket(ack)
 		return
 	}
@@ -2937,10 +2989,17 @@ func (h *Handler) handleItemRingEquip(client *network.Client, pkt *protocol.Pack
 		return
 	}
 
-	srcItem := h.findItemAt(player.Char.ID, 9, int16(invenSlot))
-	if srcItem == nil {
+	if player.State == 3 || player.ActiveTrade != nil || player.ActiveBooth != nil {
 		ack := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_EQUIP_ACK)
 		ack.WriteUint16(0x0282)
+		_ = client.SendPacket(ack)
+		return
+	}
+
+	srcItem := h.findItemAt(player.Char.ID, 9, int16(invenSlot))
+	if srcItem == nil || (ringSlot != 0x0F && ringSlot != 0x10) {
+		ack := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_EQUIP_ACK)
+		ack.WriteUint16(0x0283)
 		_ = client.SendPacket(ack)
 		return
 	}
@@ -2952,7 +3011,7 @@ func (h *Handler) equipItemToSlot(player *ZonePlayer, srcItem *database.Item, in
 	client := player.Client
 	if !h.canEquipItem(player, srcItem) {
 		ack := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_EQUIP_ACK)
-		ack.WriteUint16(0x0282)
+		ack.WriteUint16(0x0285) // Restricción de clase o nivel en Zone.exe (0x0285)
 		_ = client.SendPacket(ack)
 		return
 	}
@@ -3062,10 +3121,17 @@ func (h *Handler) handleItemUnequip(client *network.Client, pkt *protocol.Packet
 		return
 	}
 
+	if player.State == 3 || player.ActiveTrade != nil || player.ActiveBooth != nil {
+		ack := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_UNEQUIP_ACK)
+		ack.WriteUint16(0x02C2)
+		_ = client.SendPacket(ack)
+		return
+	}
+
 	srcEquip := h.findItemAt(player.Char.ID, 8, int16(equipSlot))
 	if srcEquip == nil {
-		ack := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_EQUIP_ACK)
-		ack.WriteUint16(0x0282)
+		ack := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_UNEQUIP_ACK)
+		ack.WriteUint16(0x02C2)
 		_ = client.SendPacket(ack)
 		return
 	}
@@ -3075,8 +3141,8 @@ func (h *Handler) handleItemUnequip(client *network.Client, pkt *protocol.Packet
 		if freeSlot, found := h.findFreeInvenSlot(player.Char.ID); found {
 			targetSlot = freeSlot
 		} else {
-			ack := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_EQUIP_ACK)
-			ack.WriteUint16(0x0282)
+			ack := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_UNEQUIP_ACK)
+			ack.WriteUint16(0x02C4)
 			_ = client.SendPacket(ack)
 			return
 		}
@@ -3127,18 +3193,28 @@ func (h *Handler) handleItemDrop(client *network.Client, pkt *protocol.Packet) {
 		dropY = int32(player.Char.YPos)
 	}
 
-	if box != 9 {
+	sendDropErr := func(code uint16) {
 		ack := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_DROP_ACK)
-		ack.WriteUint16(0x0302) // Sólo Box 9 droppable en Zone.exe
+		ack.WriteUint16(code)
 		_ = client.SendPacket(ack)
+	}
+
+	if player.State == 3 || player.ActiveTrade != nil {
+		sendDropErr(0x0302)
+		return
+	}
+	if player.ActiveBooth != nil {
+		sendDropErr(0x030F)
+		return
+	}
+	if box != 9 {
+		sendDropErr(0x030D) // Sólo Box 9 droppable en Zone.exe (0x030D)
 		return
 	}
 
 	srcItem := h.findItemAt(player.Char.ID, 9, slot)
 	if srcItem == nil {
-		ack := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_DROP_ACK)
-		ack.WriteUint16(0x0304) // Drop fail en Zone.exe
-		_ = client.SendPacket(ack)
+		sendDropErr(0x0303) // Drop slot vacío / no encontrado
 		return
 	}
 
@@ -3192,42 +3268,55 @@ func (h *Handler) handleItemPick(client *network.Client, pkt *protocol.Packet) {
 		return
 	}
 
-	freeSlot, hasFree := h.findFreeInvenSlot(player.Char.ID)
-	if !hasFree {
+	sendPickErr := func(code uint16) {
 		ack := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_PICK_ACK)
 		ack.WriteUint16(0xFFFF)
 		ack.WriteUint32(0)
-		ack.WriteUint16(0x0344) // Inventory full
+		ack.WriteUint16(code)
 		ack.WriteUint16(itemHandle)
 		_ = client.SendPacket(ack)
+	}
+
+	if player.State == 3 || player.ActiveTrade != nil || player.ActiveBooth != nil {
+		sendPickErr(0x0342)
+		return
+	}
+
+	ent := player.CurrentMap.GetEntity(itemHandle)
+	pre, ok := ent.(*ZoneDroppedItem)
+	if !ok || pre == nil {
+		sendPickErr(0x034B) // Item not found on field (Zone.exe 0x034B)
+		return
+	}
+
+	dx := int64(player.Char.XPos) - int64(pre.X)
+	dy := int64(player.Char.YPos) - int64(pre.Y)
+	if dx*dx+dy*dy >= 0x3D09 { // 125^2 en so_DistanceSquar (VA 0x530C31)
+		sendPickErr(0x0344)
 		return
 	}
 
 	// Verificar propiedad temporal del drop antes de consumirlo del suelo
-	if ent := player.CurrentMap.GetEntity(itemHandle); ent != nil {
-		if pre, ok := ent.(*ZoneDroppedItem); ok && pre != nil {
-			if pre.OwnerCharID != 0 && !pre.AllCanLoot && pre.OwnerCharID != player.Char.ID {
-				if pre.OwnerExpiresAt.IsZero() || time.Now().Before(pre.OwnerExpiresAt) {
-					ack := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_PICK_ACK)
-					ack.WriteUint16(0xFFFF)
-					ack.WriteUint32(0)
-					ack.WriteUint16(0x0343) // Ownership locked by another player
-					ack.WriteUint16(itemHandle)
-					_ = client.SendPacket(ack)
-					return
-				}
-			}
+	if pre.OwnerCharID != 0 && !pre.AllCanLoot && pre.OwnerCharID != player.Char.ID {
+		if pre.OwnerExpiresAt.IsZero() || time.Now().Before(pre.OwnerExpiresAt) {
+			sendPickErr(0x0345) // Ownership locked (ii_PickAll push 0x345)
+			return
+		}
+	}
+
+	var freeSlot int16
+	if !pre.IsCenDrop {
+		var hasFree bool
+		freeSlot, hasFree = h.findFreeInvenSlot(player.Char.ID)
+		if !hasFree {
+			sendPickErr(0x0346) // Inventory full (ii_PickAll push 0x346)
+			return
 		}
 	}
 
 	dropped, found := player.CurrentMap.ConsumeDroppedItem(itemHandle)
 	if !found || dropped == nil {
-		ack := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_PICK_ACK)
-		ack.WriteUint16(0xFFFF)
-		ack.WriteUint32(0)
-		ack.WriteUint16(0x0342) // Item not found on field
-		ack.WriteUint16(itemHandle)
-		_ = client.SendPacket(ack)
+		sendPickErr(0x034B)
 		return
 	}
 
@@ -3297,13 +3386,26 @@ func (h *Handler) handleItemUse(client *network.Client, pkt *protocol.Packet) {
 		invenType = 9
 	}
 
-	srcItem := h.findItemAt(player.Char.ID, invenType, int16(slot))
-	if srcItem == nil {
+	sendUseErr := func(code uint16, itemID uint16) {
 		ack := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_USE_ACK)
-		ack.WriteUint16(0x0701) // Use fail
-		ack.WriteUint16(0xFFFF)
+		ack.WriteUint16(code)
+		ack.WriteUint16(itemID)
 		ack.WriteByte(invenType)
 		_ = client.SendPacket(ack)
+	}
+
+	if player.State == 3 || player.ActiveTrade != nil || player.ActiveBooth != nil {
+		sendUseErr(0x0701, 0xFFFF)
+		return
+	}
+	if invenType != 9 && invenType != 8 {
+		sendUseErr(0x0702, 0xFFFF)
+		return
+	}
+
+	srcItem := h.findItemAt(player.Char.ID, invenType, int16(slot))
+	if srcItem == nil {
+		sendUseErr(0x0701, 0xFFFF)
 		return
 	}
 
@@ -3312,6 +3414,9 @@ func (h *Handler) handleItemUse(client *network.Client, pkt *protocol.Packet) {
 	if h.itemStore != nil {
 		if info, ok := h.itemStore.GetItemInfo(usedItemID); ok && info != nil {
 			usedItemName = info.InxName
+		} else {
+			sendUseErr(0x0703, usedItemID)
+			return
 		}
 	}
 
@@ -3411,6 +3516,19 @@ func (h *Handler) handleItemUse(client *network.Client, pkt *protocol.Packet) {
 func (h *Handler) handleAutoArrangeInven(client *network.Client, pkt *protocol.Packet) {
 	player, ok := h.getPlayer(client)
 	if !ok || player == nil || player.Char == nil || h.charRepo == nil {
+		return
+	}
+
+	if player.State == 3 {
+		ack := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_AUTO_ARRANGE_INVEN_ACK)
+		ack.WriteUint16(0x30AA)
+		_ = client.SendPacket(ack)
+		return
+	}
+	if player.ActiveTrade != nil || player.ActiveBooth != nil {
+		ack := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_AUTO_ARRANGE_INVEN_ACK)
+		ack.WriteUint16(0x30AC)
+		_ = client.SendPacket(ack)
 		return
 	}
 

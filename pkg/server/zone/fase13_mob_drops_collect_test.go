@@ -460,6 +460,9 @@ func TestFase13_DeathExpPartyRaidDropsAutoPickAndAnnounce(t *testing.T) {
 
 	// 3. Propiedad temporal de drop en el suelo vs expiración y recogida con StatOptions
 	dropObj := zMap.SpawnMonsterDrop(optInfoID, 1, 1, 3020, 3020, mob.Handle, killer.Char.ID, 5*time.Second, false, false, opts)
+	// Posicionar al looter en rango de recogida (< 125u, Zone.exe 0x3D09) para probar bloqueo por dueño y expiración
+	looter.Char.XPos = 3020
+	looter.Char.YPos = 3020
 	// looter (no dueño) intenta recoger antes de expirar -> denegado (drop permanece en suelo)
 	h.HandlePacket(looter.Client, makeIncomingPacket(protocol.PROTO_NC_ITEM_PICK_REQ, func(pw *protocol.PacketWriter) {
 		pw.WriteUint16(dropObj.Handle)

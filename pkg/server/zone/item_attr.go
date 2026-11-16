@@ -741,10 +741,12 @@ type BelongRule struct {
 }
 
 type phase14SHNCache struct {
-	once          sync.Once
-	belongRules   map[string]BelongRule
-	itemShopLots  map[string]uint32
-	itemMoneyCost map[string]struct {
+	mu             sync.RWMutex
+	belongInit     bool
+	belongRules    map[int]BelongRule
+	belongByItemID map[uint16]BelongRule
+	itemShopLots   map[string]uint32
+	itemMoneyCost  map[string]struct {
 		MoneyIdx string
 		MoneyLot uint16
 	}
@@ -761,35 +763,30 @@ func (h *Handler) getSHN(name string) *shn.File {
 }
 
 func (h *Handler) getBelongRule(itemID uint16) BelongRule {
-	if h == nil || h.dataStore == nil || h.itemStore == nil {
+	if h == nil || h.dataStore == nil {
 		return BelongRule{}
 	}
-	info, ok := h.itemStore.GetItemInfo(itemID)
-	if !ok || info == nil {
-		return BelongRule{}
+	p14Cache.mu.RLock()
+	ready := p14Cache.belongInit
+	if ready {
+		rule := p14Cache.belongByItemID[itemID]
+		p14Cache.mu.RUnlock()
+		return rule
 	}
-	// Leer BelongType de ItemInfo.shn si existe columna, y mapear en BelongTypeInfo.shn
+	p14Cache.mu.RUnlock()
+
 	itemInfoSHN := h.getSHN("ItemInfo")
 	belongTbl := h.getSHN("BelongTypeInfo")
 	if itemInfoSHN == nil || belongTbl == nil {
 		return BelongRule{}
 	}
-	row := itemInfoSHN.FindRow("InxName", info.InxName)
-	if row == nil {
-		return BelongRule{}
-	}
-	btInx := strings.TrimSpace(row.GetString("BelongType"))
-	if btInx == "" || btInx == "-" {
-		return BelongRule{}
-	}
-	p14Cache.once.Do(func() {
-		p14Cache.belongRules = make(map[string]BelongRule)
+
+	p14Cache.mu.Lock()
+	if !p14Cache.belongInit {
+		p14Cache.belongRules = make(map[int]BelongRule, len(belongTbl.Rows))
 		for _, r := range belongTbl.Rows {
-			k := strings.TrimSpace(r.GetString("BT_Inx"))
-			if k == "" {
-				continue
-			}
-			p14Cache.belongRules[strings.ToLower(k)] = BelongRule{
+			k := r.GetInt("BT_Inx")
+			p14Cache.belongRules[k] = BelongRule{
 				PutOnBelonged: r.GetInt("PutOnBelonged") != 0,
 				NoDrop:        r.GetInt("NoDrop") != 0,
 				NoSell:        r.GetInt("NoSell") != 0,
@@ -798,11 +795,21 @@ func (h *Handler) getBelongRule(itemID uint16) BelongRule {
 				NoDelete:      r.GetInt("NoDelete") != 0,
 			}
 		}
-	})
-	if rule, ok := p14Cache.belongRules[strings.ToLower(btInx)]; ok {
-		return rule
+		p14Cache.belongByItemID = make(map[uint16]BelongRule, len(itemInfoSHN.Rows))
+		for _, r := range itemInfoSHN.Rows {
+			bt := r.GetInt("BT_Inx")
+			if bt == 0 {
+				continue
+			}
+			if rule, ok := p14Cache.belongRules[bt]; ok {
+				p14Cache.belongByItemID[r.GetUint16("ID")] = rule
+			}
+		}
+		p14Cache.belongInit = true
 	}
-	return BelongRule{}
+	rule := p14Cache.belongByItemID[itemID]
+	p14Cache.mu.Unlock()
+	return rule
 }
 
 func (h *Handler) isItemBound(it *database.Item) bool {

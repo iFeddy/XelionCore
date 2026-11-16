@@ -6381,10 +6381,9 @@ sp_body: BEGIN
 
     proc_logic: BEGIN
         SET out_nRet = 0;
-        UPDATE tItemOptions SET nOptionData=in_nOptionData WHERE nItemKey=in_nItemKey AND nOptionType=in_nOptionType;
-        IF ROW_COUNT ( ) = 0 THEN
-            INSERT INTO tItemOptions(nItemKey,nOptionType,nOptionData) VALUES (in_nItemKey,in_nOptionType,in_nOptionData);
-        END IF;
+        INSERT INTO tItemOptions(nItemKey,nOptionType,nOptionData)
+            VALUES (in_nItemKey,in_nOptionType,in_nOptionData)
+            ON DUPLICATE KEY UPDATE nOptionData=VALUES(nOptionData);
         SET out_nRet=0;
         LEAVE proc_logic;
     END proc_logic;

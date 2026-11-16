@@ -85,7 +85,27 @@ func (h *Handler) findPlayerByCharID(charID int) *ZonePlayer {
 	return nil
 }
 
+func (h *Handler) inRangeSq(a, b *ZonePlayer, maxSq int64) bool {
+	if a == nil || b == nil || a.Char == nil || b.Char == nil || a.CurrentMap == nil || a.CurrentMap != b.CurrentMap {
+		return false
+	}
+	dx := int64(a.Char.XPos) - int64(b.Char.XPos)
+	dy := int64(a.Char.YPos) - int64(b.Char.YPos)
+	return dx*dx+dy*dy <= maxSq
+}
+
+func sendTradeErrPacket(client *network.Client, op uint16, errCode uint16) {
+	if client == nil {
+		return
+	}
+	pw := protocol.NewPacketWriter(op)
+	pw.WriteUint16(errCode)
+	_ = client.SendPacket(pw)
+}
+
 // 1. 0x4C01 PROTO_NC_TRADE_PROPOSE_REQ
+// Verificado en Zone.exe sp_NC_TRADE_PROPOSE_REQ (0x005925A0):
+// errores vía PROTO_NC_TRADE_PROPOSENO_ACK (0x4C04): estado inválido 0x06C2, distancia>1000 0x06C3, objetivo ocupado/booth/muerto 0x06CA, sin objetivo 0x06C8.
 func (h *Handler) handleTradeProposeReq(client *network.Client, pkt *protocol.Packet) {
 	player, ok := h.getPlayer(client)
 	if !ok || player == nil || player.Char == nil {
@@ -95,9 +115,21 @@ func (h *Handler) handleTradeProposeReq(client *network.Client, pkt *protocol.Pa
 	if err != nil {
 		return
 	}
+	if player.State == 3 || player.State == 5 || player.ActiveTrade != nil || player.ActiveBooth != nil {
+		sendTradeErrPacket(client, protocol.PROTO_NC_TRADE_PROPOSENO_ACK, 0x06C2)
+		return
+	}
 	target := h.findPlayerByHandle(targetHandle)
-	if target == nil || target == player || player.ActiveTrade != nil || target.ActiveTrade != nil || target.ActiveBooth != nil {
-		_ = client.SendPacket(protocol.NewPacketWriter(protocol.PROTO_NC_TRADE_PROPOSENO_ACK))
+	if target == nil || target == player || target.Char == nil || target.Client == nil {
+		sendTradeErrPacket(client, protocol.PROTO_NC_TRADE_PROPOSENO_ACK, 0x06C8)
+		return
+	}
+	if !h.inRangeSq(player, target, 1000000) {
+		sendTradeErrPacket(client, protocol.PROTO_NC_TRADE_PROPOSENO_ACK, 0x06C3)
+		return
+	}
+	if target.ActiveTrade != nil || target.ActiveBooth != nil || target.State == 3 || target.State == 5 {
+		sendTradeErrPacket(client, protocol.PROTO_NC_TRADE_PROPOSENO_ACK, 0x06CA)
 		return
 	}
 	target.PendingTradeFrom = player.MapObjectID
@@ -115,7 +147,7 @@ func (h *Handler) handleTradeProposeAskNoAck(client *network.Client, pkt *protoc
 	proposer := h.findPlayerByHandle(player.PendingTradeFrom)
 	player.PendingTradeFrom = 0
 	if proposer != nil && proposer.Client != nil {
-		_ = proposer.Client.SendPacket(protocol.NewPacketWriter(protocol.PROTO_NC_TRADE_PROPOSENO_ACK))
+		sendTradeErrPacket(proposer.Client, protocol.PROTO_NC_TRADE_PROPOSENO_ACK, 0x06C7)
 	}
 }
 
@@ -127,8 +159,13 @@ func (h *Handler) handleTradeProposeYesAck(client *network.Client, pkt *protocol
 	}
 	proposer := h.findPlayerByHandle(player.PendingTradeFrom)
 	player.PendingTradeFrom = 0
-	if proposer == nil || proposer.Char == nil || proposer.ActiveTrade != nil || player.ActiveTrade != nil {
-		_ = client.SendPacket(protocol.NewPacketWriter(protocol.PROTO_NC_TRADE_PROPOSENO_ACK))
+	if proposer == nil || proposer.Char == nil || proposer.Client == nil || proposer.ActiveTrade != nil || player.ActiveTrade != nil ||
+		player.State == 3 || player.State == 5 || proposer.State == 3 || proposer.State == 5 {
+		sendTradeErrPacket(client, protocol.PROTO_NC_TRADE_PROPOSENO_ACK, 0x06C8)
+		return
+	}
+	if !h.inRangeSq(player, proposer, 1000000) {
+		sendTradeErrPacket(client, protocol.PROTO_NC_TRADE_PROPOSENO_ACK, 0x06C3)
 		return
 	}
 
@@ -214,32 +251,53 @@ func (h *Handler) handleEndOfTradeCmd(client *network.Client, pkt *protocol.Pack
 }
 
 // 6. 0x4C0D PROTO_NC_TRADE_UPBOARD_REQ
+// Verificado en Zone.exe sp_NC_TRADE_UPBOARD_REQ (0x00595280):
+// errores PROTO_NC_TRADE_UPBOARDFAIL_ACK (0x4C0E): estado 0x0842, faltante 0x0843, slot lleno 0x0844, duplicado 0x0846, NoTrade/Ligado 0x0851; distancia>1000 -> sp_tradebreak.
 func (h *Handler) handleTradeUpboardReq(client *network.Client, pkt *protocol.Packet) {
 	player, ok := h.getPlayer(client)
-	if !ok || player == nil || player.Char == nil || player.ActiveTrade == nil {
+	if !ok || player == nil || player.Char == nil {
+		return
+	}
+	if player.ActiveTrade == nil || player.State == 3 || player.State == 5 {
+		sendTradeErrPacket(client, protocol.PROTO_NC_TRADE_UPBOARDFAIL_ACK, 0x0842)
 		return
 	}
 	slotInven, err := pkt.Reader.ReadByte()
 	if err != nil {
 		return
 	}
-	it := h.findItemAt(player.Char.ID, 9, int16(slotInven))
-	if it == nil || h.getBelongRule(it.ItemID).NoTrade || h.isItemBound(it) {
-		_ = client.SendPacket(protocol.NewPacketWriter(protocol.PROTO_NC_TRADE_UPBOARDFAIL_ACK))
-		return
-	}
 
 	sess := player.ActiveTrade
 	sess.mu.Lock()
-	defer sess.mu.Unlock()
 	if sess.Finished {
+		sess.mu.Unlock()
 		return
 	}
 	mine, peerSide := sess.getSides(player.Char.ID)
+	peer := h.findPlayerByCharID(peerSide.CharID)
+	if !h.inRangeSq(player, peer, 1000000) {
+		sess.mu.Unlock()
+		h.cancelTradeSession(player)
+		return
+	}
+
+	it := h.findItemAt(player.Char.ID, 9, int16(slotInven))
+	if it == nil {
+		sess.mu.Unlock()
+		sendTradeErrPacket(client, protocol.PROTO_NC_TRADE_UPBOARDFAIL_ACK, 0x0843)
+		return
+	}
+	if h.getBelongRule(it.ItemID).NoTrade || h.isItemBound(it) {
+		sess.mu.Unlock()
+		sendTradeErrPacket(client, protocol.PROTO_NC_TRADE_UPBOARDFAIL_ACK, 0x0851)
+		return
+	}
+
 	freeBoard := -1
 	for i := 0; i < maxTradeBoardSlots; i++ {
 		if mine.Board[i].Occupied && mine.Board[i].ItemKey == it.ItemKey {
-			_ = client.SendPacket(protocol.NewPacketWriter(protocol.PROTO_NC_TRADE_UPBOARDFAIL_ACK))
+			sess.mu.Unlock()
+			sendTradeErrPacket(client, protocol.PROTO_NC_TRADE_UPBOARDFAIL_ACK, 0x0846)
 			return
 		}
 		if !mine.Board[i].Occupied && freeBoard < 0 {
@@ -247,7 +305,8 @@ func (h *Handler) handleTradeUpboardReq(client *network.Client, pkt *protocol.Pa
 		}
 	}
 	if freeBoard < 0 {
-		_ = client.SendPacket(protocol.NewPacketWriter(protocol.PROTO_NC_TRADE_UPBOARDFAIL_ACK))
+		sess.mu.Unlock()
+		sendTradeErrPacket(client, protocol.PROTO_NC_TRADE_UPBOARDFAIL_ACK, 0x0844)
 		return
 	}
 
@@ -268,7 +327,6 @@ func (h *Handler) handleTradeUpboardReq(client *network.Client, pkt *protocol.Pa
 	ack.WriteByte(byte(freeBoard))
 	_ = client.SendPacket(ack)
 
-	peer := h.findPlayerByCharID(peerSide.CharID)
 	if peer != nil && peer.Client != nil {
 		// Zone.exe 0x00595610: PROTO_NC_TRADE_OPPOSITUPBOARD_CMD = slotboard(1B) + iti_fill2buffer_union(itemid+attr)
 		opp := protocol.NewPacketWriter(protocol.PROTO_NC_TRADE_OPPOSITUPBOARD_CMD)
@@ -277,12 +335,17 @@ func (h *Handler) handleTradeUpboardReq(client *network.Client, pkt *protocol.Pa
 		_ = peer.Client.SendPacket(opp)
 	}
 	sess.unlockBoth(h, player, peer)
+	sess.mu.Unlock()
 }
 
 // 7. 0x4C11 PROTO_NC_TRADE_DOWNBOARD_REQ
 func (h *Handler) handleTradeDownboardReq(client *network.Client, pkt *protocol.Packet) {
 	player, ok := h.getPlayer(client)
-	if !ok || player == nil || player.Char == nil || player.ActiveTrade == nil {
+	if !ok || player == nil || player.Char == nil {
+		return
+	}
+	if player.ActiveTrade == nil || player.State == 3 || player.State == 5 {
+		sendTradeErrPacket(client, protocol.PROTO_NC_TRADE_DOWNBOARDFAIL_ACK, 0x0842)
 		return
 	}
 	slotBoard, err := pkt.Reader.ReadByte()
@@ -292,14 +355,25 @@ func (h *Handler) handleTradeDownboardReq(client *network.Client, pkt *protocol.
 
 	sess := player.ActiveTrade
 	sess.mu.Lock()
-	defer sess.mu.Unlock()
-	if sess.Finished || int(slotBoard) >= maxTradeBoardSlots {
-		_ = client.SendPacket(protocol.NewPacketWriter(protocol.PROTO_NC_TRADE_DOWNBOARDFAIL_ACK))
+	if sess.Finished {
+		sess.mu.Unlock()
 		return
 	}
 	mine, peerSide := sess.getSides(player.Char.ID)
+	peer := h.findPlayerByCharID(peerSide.CharID)
+	if !h.inRangeSq(player, peer, 1000000) {
+		sess.mu.Unlock()
+		h.cancelTradeSession(player)
+		return
+	}
+	if int(slotBoard) >= maxTradeBoardSlots {
+		sess.mu.Unlock()
+		sendTradeErrPacket(client, protocol.PROTO_NC_TRADE_DOWNBOARDFAIL_ACK, 0x0843)
+		return
+	}
 	if !mine.Board[slotBoard].Occupied {
-		_ = client.SendPacket(protocol.NewPacketWriter(protocol.PROTO_NC_TRADE_DOWNBOARDFAIL_ACK))
+		sess.mu.Unlock()
+		sendTradeErrPacket(client, protocol.PROTO_NC_TRADE_DOWNBOARDFAIL_ACK, 0x0847)
 		return
 	}
 	mine.Board[slotBoard] = TradeBoardSlot{}
@@ -308,77 +382,104 @@ func (h *Handler) handleTradeDownboardReq(client *network.Client, pkt *protocol.
 	ack.WriteByte(slotBoard)
 	_ = client.SendPacket(ack)
 
-	peer := h.findPlayerByCharID(peerSide.CharID)
 	if peer != nil && peer.Client != nil {
 		opp := protocol.NewPacketWriter(protocol.PROTO_NC_TRADE_OPPOSITDOWNBOARD_CMD)
 		opp.WriteByte(slotBoard)
 		_ = peer.Client.SendPacket(opp)
 	}
 	sess.unlockBoth(h, player, peer)
+	sess.mu.Unlock()
 }
 
 // 8. 0x4C15 PROTO_NC_TRADE_CENBOARDING_REQ
 func (h *Handler) handleTradeCenBoardingReq(client *network.Client, pkt *protocol.Packet) {
 	player, ok := h.getPlayer(client)
-	if !ok || player == nil || player.Char == nil || player.ActiveTrade == nil {
+	if !ok || player == nil || player.Char == nil {
+		return
+	}
+	if player.ActiveTrade == nil || player.State == 3 || player.State == 5 {
+		sendTradeErrPacket(client, protocol.PROTO_NC_TRADE_CENBOARDINGFAIL_ACK, 0x0842)
 		return
 	}
 	cen, err := pkt.Reader.ReadUint64()
 	if err != nil {
 		return
 	}
-	if uint64(player.Char.TCharacterState.Money) < cen {
-		_ = client.SendPacket(protocol.NewPacketWriter(protocol.PROTO_NC_TRADE_CENBOARDINGFAIL_ACK))
-		return
-	}
 
 	sess := player.ActiveTrade
 	sess.mu.Lock()
-	defer sess.mu.Unlock()
 	if sess.Finished {
+		sess.mu.Unlock()
 		return
 	}
 	mine, peerSide := sess.getSides(player.Char.ID)
+	peer := h.findPlayerByCharID(peerSide.CharID)
+	if !h.inRangeSq(player, peer, 1000000) {
+		sess.mu.Unlock()
+		h.cancelTradeSession(player)
+		return
+	}
+	if player.Char.TCharacterState.Money < 0 || uint64(player.Char.TCharacterState.Money) < cen {
+		sess.mu.Unlock()
+		sendTradeErrPacket(client, protocol.PROTO_NC_TRADE_CENBOARDINGFAIL_ACK, 0x0848)
+		return
+	}
+
 	mine.Cen = cen
 
 	ack := protocol.NewPacketWriter(protocol.PROTO_NC_TRADE_CENBOARDING_ACK)
 	ack.WriteUint64(cen)
 	_ = client.SendPacket(ack)
 
-	peer := h.findPlayerByCharID(peerSide.CharID)
 	if peer != nil && peer.Client != nil {
 		opp := protocol.NewPacketWriter(protocol.PROTO_NC_TRADE_OPPOSITCENBOARDING_CMD)
 		opp.WriteUint64(cen)
 		_ = peer.Client.SendPacket(opp)
 	}
 	sess.unlockBoth(h, player, peer)
+	sess.mu.Unlock()
 }
 
 // 9. 0x4C19 PROTO_NC_TRADE_BOARDLOCK_REQ
 func (h *Handler) handleTradeBoardLockReq(client *network.Client, pkt *protocol.Packet) {
 	player, ok := h.getPlayer(client)
-	if !ok || player == nil || player.Char == nil || player.ActiveTrade == nil {
+	if !ok || player == nil || player.Char == nil {
+		return
+	}
+	if player.ActiveTrade == nil || player.State == 3 || player.State == 5 {
+		sendTradeErrPacket(client, protocol.PROTO_NC_TRADE_BOARDLOCKFAIL_ACK, 0x0842)
 		return
 	}
 	sess := player.ActiveTrade
 	sess.mu.Lock()
-	defer sess.mu.Unlock()
 	if sess.Finished {
+		sess.mu.Unlock()
 		return
 	}
 	mine, peerSide := sess.getSides(player.Char.ID)
+	peer := h.findPlayerByCharID(peerSide.CharID)
+	if !h.inRangeSq(player, peer, 1000000) {
+		sess.mu.Unlock()
+		h.cancelTradeSession(player)
+		return
+	}
 	mine.Locked = true
 
 	_ = client.SendPacket(protocol.NewPacketWriter(protocol.PROTO_NC_TRADE_BOARDLOCK_ACK))
-	if peer := h.findPlayerByCharID(peerSide.CharID); peer != nil && peer.Client != nil {
+	if peer != nil && peer.Client != nil {
 		_ = peer.Client.SendPacket(protocol.NewPacketWriter(protocol.PROTO_NC_TRADE_OPPOSITBOARDLOCK_CMD))
 	}
+	sess.mu.Unlock()
 }
 
 // 10. 0x4C1F PROTO_NC_TRADE_DECIDE_REQ — intercambio atómico libre de duplicación
 func (h *Handler) handleTradeDecideReq(client *network.Client, pkt *protocol.Packet) {
 	player, ok := h.getPlayer(client)
-	if !ok || player == nil || player.Char == nil || player.ActiveTrade == nil || h.charRepo == nil {
+	if !ok || player == nil || player.Char == nil || h.charRepo == nil {
+		return
+	}
+	if player.ActiveTrade == nil || player.State == 3 || player.State == 5 {
+		sendTradeErrPacket(client, protocol.PROTO_NC_TRADE_DECIDEFAIL_ACK, 0x0842)
 		return
 	}
 	sess := player.ActiveTrade
@@ -389,7 +490,7 @@ func (h *Handler) handleTradeDecideReq(client *network.Client, pkt *protocol.Pac
 	}
 	mine, peerSide := sess.getSides(player.Char.ID)
 	if !mine.Locked {
-		_ = client.SendPacket(protocol.NewPacketWriter(protocol.PROTO_NC_TRADE_DECIDEFAIL_ACK))
+		sendTradeErrPacket(client, protocol.PROTO_NC_TRADE_DECIDEFAIL_ACK, 0x084A)
 		return
 	}
 	mine.Decided = true
@@ -404,10 +505,12 @@ func (h *Handler) handleTradeDecideReq(client *network.Client, pkt *protocol.Pac
 		return
 	}
 
-	// Ambos jugadores bloquearon y confirmaron: validar inventario, Cen e ítems anti-duplicación
+	// Ambos jugadores bloquearon y confirmaron: validar inventario, distancia, Cen e ítems anti-duplicación
 	pA := h.findPlayerByCharID(sess.SideA.CharID)
 	pB := h.findPlayerByCharID(sess.SideB.CharID)
 	if pA == nil || pB == nil || pA.Char == nil || pB.Char == nil ||
+		!h.inRangeSq(pA, pB, 1000000) ||
+		pA.Char.TCharacterState.Money < 0 || pB.Char.TCharacterState.Money < 0 ||
 		uint64(pA.Char.TCharacterState.Money) < sess.SideA.Cen ||
 		uint64(pB.Char.TCharacterState.Money) < sess.SideB.Cen {
 		sess.Finished = true
@@ -543,9 +646,20 @@ type PlayerBooth struct {
 }
 
 // 1. 0x6801 PROTO_NC_BOOTH_OPEN_REQ
+// Verificado en Zone.exe sp_NC_BOOTH_OPEN_REQ (0x0058E900):
+// errores PROTO_NC_BOOTH_OPEN_ACK (0x6802): estado 0x0A42, ítem faltante 0x0A43, NoTrade/Ligado 0x0A44, cerca de otro booth (<400u) 0x0A53; éxito 0x0A41.
 func (h *Handler) handleBoothOpenReq(client *network.Client, pkt *protocol.Packet) {
 	player, ok := h.getPlayer(client)
-	if !ok || player == nil || player.Char == nil || player.CurrentMap == nil || player.ActiveTrade != nil {
+	if !ok || player == nil || player.Char == nil || player.CurrentMap == nil {
+		return
+	}
+	sendOpenAck := func(errCode uint16) {
+		ack := protocol.NewPacketWriter(protocol.PROTO_NC_BOOTH_OPEN_ACK)
+		ack.WriteUint16(errCode)
+		_ = client.SendPacket(ack)
+	}
+	if player.State == 3 || player.State == 5 || player.ActiveTrade != nil || player.ActiveBooth != nil {
+		sendOpenAck(0x0A42)
 		return
 	}
 	signBytes, err := pkt.Reader.ReadBytes(30)
@@ -556,6 +670,23 @@ func (h *Handler) handleBoothOpenReq(client *network.Client, pkt *protocol.Packe
 	if err != nil {
 		return
 	}
+	// Distancia mínima a otro kiosco en el mismo mapa (Zone.exe 0x58EA9F range 0x190 = 400)
+	h.mu.RLock()
+	tooClose := false
+	for _, other := range h.players {
+		if other != nil && other != player && other.ActiveBooth != nil && other.CurrentMap == player.CurrentMap {
+			if h.inRangeSq(player, other, 160000) {
+				tooClose = true
+				break
+			}
+		}
+	}
+	h.mu.RUnlock()
+	if tooClose {
+		sendOpenAck(0x0A53)
+		return
+	}
+
 	isSell := (flag & 0x01) != 0
 	numItems := int(flag >> 1)
 
@@ -587,10 +718,12 @@ func (h *Handler) handleBoothOpenReq(client *network.Client, pkt *protocol.Packe
 		}
 		if isSell {
 			it := h.findItemAt(player.Char.ID, 9, int16(invSlot))
-			if it == nil || h.getBelongRule(it.ItemID).NoTrade || h.isItemBound(it) {
-				ack := protocol.NewPacketWriter(protocol.PROTO_NC_BOOTH_OPEN_ACK)
-				ack.WriteUint16(0x0701)
-				_ = client.SendPacket(ack)
+			if it == nil {
+				sendOpenAck(0x0A43)
+				return
+			}
+			if h.getBelongRule(it.ItemID).NoTrade || h.isItemBound(it) {
+				sendOpenAck(0x0A44)
 				return
 			}
 			entry.ItemKey = it.ItemKey
@@ -605,9 +738,7 @@ func (h *Handler) handleBoothOpenReq(client *network.Client, pkt *protocol.Packe
 	player.ActiveBooth = booth
 	player.State = 5 // Vendor
 
-	ack := protocol.NewPacketWriter(protocol.PROTO_NC_BOOTH_OPEN_ACK)
-	ack.WriteUint16(0)
-	_ = client.SendPacket(ack)
+	sendOpenAck(0x0A41)
 
 	var tent [12]byte
 	copy(tent[:], "Tent01")
@@ -648,9 +779,14 @@ func (h *Handler) handleBoothCloseReq(client *network.Client, pkt *protocol.Pack
 	if !ok || player == nil {
 		return
 	}
-	h.closePlayerBooth(player)
 	ack := protocol.NewPacketWriter(protocol.PROTO_NC_BOOTH_CLOSE_ACK)
-	ack.WriteUint16(0)
+	if player.ActiveBooth == nil {
+		ack.WriteUint16(0x0A44)
+		_ = client.SendPacket(ack)
+		return
+	}
+	h.closePlayerBooth(player)
+	ack.WriteUint16(0x0A41)
 	_ = client.SendPacket(ack)
 }
 
@@ -709,9 +845,16 @@ func (h *Handler) handleBoothEntryReq(client *network.Client, pkt *protocol.Pack
 	if err != nil {
 		return
 	}
-	if owner := h.findPlayerByHandle(handle); owner != nil {
-		h.sendBoothEntry(client, owner, false)
+	owner := h.findPlayerByHandle(handle)
+	if owner == nil || owner.ActiveBooth == nil || owner.State != 5 {
+		pw := protocol.NewPacketWriter(protocol.PROTO_NC_BOOTH_ENTRY_SELL_ACK)
+		pw.WriteUint16(0x0A5B)
+		pw.WriteUint16(handle)
+		pw.WriteByte(0)
+		_ = client.SendPacket(pw)
+		return
 	}
+	h.sendBoothEntry(client, owner, false)
 }
 
 func (h *Handler) handleBoothRefreshReq(client *network.Client, pkt *protocol.Packet) {
@@ -719,12 +862,21 @@ func (h *Handler) handleBoothRefreshReq(client *network.Client, pkt *protocol.Pa
 	if err != nil {
 		return
 	}
-	if owner := h.findPlayerByHandle(handle); owner != nil {
-		h.sendBoothEntry(client, owner, true)
+	owner := h.findPlayerByHandle(handle)
+	if owner == nil || owner.ActiveBooth == nil || owner.State != 5 {
+		pw := protocol.NewPacketWriter(protocol.PROTO_NC_BOOTH_REFRESH_SELL_ACK)
+		pw.WriteUint16(0x0A5B)
+		pw.WriteUint16(handle)
+		pw.WriteByte(0)
+		_ = client.SendPacket(pw)
+		return
 	}
+	h.sendBoothEntry(client, owner, true)
 }
 
 // 5. 0x680D PROTO_NC_BOOTH_ITEMTRADE_REQ
+// Verificado en Zone.exe sp_NC_BOOTH_ITEMTRADE_REQ (0x0058DA30):
+// errores PROTO_NC_BOOTH_ITEMTRADE_ACK (0x680E): estado 0x0A42, booth cerrado 0x0A5B, distancia>=300 0x0A4C, sin cen 0x020E, inventario lleno 0x0203; éxito 0x0A41.
 func (h *Handler) handleBoothItemTradeReq(client *network.Client, pkt *protocol.Packet) {
 	buyer, ok := h.getPlayer(client)
 	if !ok || buyer == nil || buyer.Char == nil || h.charRepo == nil {
@@ -749,41 +901,62 @@ func (h *Handler) handleBoothItemTradeReq(client *network.Client, pkt *protocol.
 		_ = client.SendPacket(ack)
 	}
 
-	seller := h.findPlayerByHandle(boothHandle)
-	if seller == nil || seller.Char == nil || seller.ActiveBooth == nil || seller == buyer {
-		sendAck(0x0701)
+	if buyer.State == 3 || buyer.State == 5 || buyer.ActiveTrade != nil {
+		sendAck(0x0A42)
 		return
 	}
+
+	seller := h.findPlayerByHandle(boothHandle)
+	if seller == nil || seller.Char == nil || seller == buyer {
+		sendAck(0x0A42)
+		return
+	}
+	if seller.ActiveBooth == nil || seller.State != 5 {
+		sendAck(0x0A5B)
+		return
+	}
+	if !h.inRangeSq(buyer, seller, 89999) {
+		sendAck(0x0A4C)
+		return
+	}
+
 	booth := seller.ActiveBooth
 	booth.mu.Lock()
 	defer booth.mu.Unlock()
 
 	entry, exists := booth.Slots[slot]
-	if !exists || entry == nil || reqNum > entry.Lot {
-		sendAck(0x0701)
+	if !exists || entry == nil || reqNum > entry.Lot || !booth.IsSell {
+		sendAck(0x0A42)
 		return
 	}
 	totalCost := entry.UnitCost * uint64(reqNum)
-	if !booth.IsSell || uint64(buyer.Char.TCharacterState.Money) < totalCost {
-		sendAck(0x0701)
+	if buyer.Char.TCharacterState.Money < 0 || uint64(buyer.Char.TCharacterState.Money) < totalCost {
+		sendAck(0x020E)
 		return
 	}
 
 	srcItem := h.findItemAt(seller.Char.ID, 9, int16(entry.InvenSlot))
-	if srcItem == nil || srcItem.ItemKey != entry.ItemKey || uint32(srcItem.Flags) < uint32(reqNum) {
-		sendAck(0x0701)
+	srcLot := uint32(0)
+	if srcItem != nil {
+		srcLot = uint32(srcItem.Flags)
+		if srcLot == 0 {
+			srcLot = 1
+		}
+	}
+	if srcItem == nil || srcItem.ItemKey != entry.ItemKey || srcLot < uint32(reqNum) {
+		sendAck(0x0A43)
 		return
 	}
 
 	freeBuyerSlot, ok := h.findFreeInvenSlot(buyer.Char.ID)
 	if !ok {
-		sendAck(0x0701)
+		sendAck(0x0203)
 		return
 	}
 
-	if uint32(srcItem.Flags) == uint32(reqNum) {
+	if srcLot == uint32(reqNum) {
 		if err := h.charRepo.SafeTradeAll(buyer.Char.ID, seller.Char.ID, 0, srcItem.ItemKey, 9, freeBuyerSlot); err != nil {
-			sendAck(0x0701)
+			sendAck(0x0A42)
 			return
 		}
 		h.sendCellChangeFull(seller.Client, 9, srcItem.Storage, nil, 0xFFFF)
@@ -793,7 +966,7 @@ func (h *Handler) handleBoothItemTradeReq(client *network.Client, pkt *protocol.
 		delete(booth.Slots, slot)
 	} else {
 		if _, added := h.addItemToInventory(buyer, srcItem.ItemID, uint32(reqNum), nil); !added {
-			sendAck(0x0701)
+			sendAck(0x0203)
 			return
 		}
 		h.consumeItemUnits(seller, srcItem, uint32(reqNum))
@@ -817,7 +990,7 @@ func (h *Handler) handleBoothItemTradeReq(client *network.Client, pkt *protocol.
 	}
 	_ = client.SendPacket(ref)
 
-	sendAck(0)
+	sendAck(0x0A41)
 
 	if h.gameLogDispatcher != nil && buyer.CurrentMap != nil {
 		h.gameLogDispatcher.EnqueueTypeC(1, buyer.Char.ID, buyer.CurrentMap.MapID, buyer.Char.XPos, buyer.Char.YPos, 0, seller.Char.ID, entry.ItemKey, int(entry.ItemID), int(reqNum), int(totalCost))

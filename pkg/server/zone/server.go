@@ -168,6 +168,12 @@ func (s *Server) Stop() {
 
 	s.tcpServer.Stop()
 
+	if s.handler != nil {
+		if mm := s.handler.MapManager(); mm != nil {
+			mm.StopAll()
+		}
+	}
+
 }
 
 

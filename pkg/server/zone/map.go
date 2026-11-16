@@ -424,6 +424,25 @@ func (mm *MapManager) GetAllMaps() []*ZoneMap {
 	return res
 }
 
+// StopAll detiene todos los MapGameLoop activos y libera los mapas administrados.
+func (mm *MapManager) StopAll() {
+	mm.mu.Lock()
+	maps := make([]*ZoneMap, 0, len(mm.maps))
+	for _, m := range mm.maps {
+		if m != nil {
+			maps = append(maps, m)
+		}
+	}
+	mm.maps = make(map[string]*ZoneMap)
+	mm.mu.Unlock()
+
+	for _, m := range maps {
+		if gl := m.GameLoop(); gl != nil {
+			gl.Stop()
+		}
+	}
+}
+
 // SetBlockStore configura el repositorio de colisiones .shbd y puertas .sbi.
 func (mm *MapManager) SetBlockStore(blockStore *blockinfo.Store) {
 	mm.mu.Lock()

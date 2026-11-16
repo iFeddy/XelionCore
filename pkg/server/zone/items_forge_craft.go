@@ -14,31 +14,119 @@ import (
 
 // === Mejora de Ítems (0x3017, 0x306D, 0x306F, 0x3051) ===
 
-func (h *Handler) lookupEquipUpgradeSuccessRate(itemInx string, curLv int) int {
-	// Leer de UpgradeInfo.shn (columnas posicion 3..14: Updata[0..11]) y ItemUpgrade.shn
-	if tbl := h.getSHN("UpgradeInfo"); tbl != nil && itemInx != "" {
-		if row := tbl.FindRow("InxName", itemInx); row != nil {
-			colIdx := 3 + curLv
-			if colIdx < row.ColumnCount() {
-				if val := row.GetIntAt(colIdx); val > 0 {
-					return val * 10
+// Códigos de resultado/error oficiales de Zone.exe para forja, encantamiento y producción
+const (
+	errUpgradeSuccess       uint16 = 0x08C3
+	errUpgradeCritSuccess   uint16 = 0x08C4
+	errUpgradeFail          uint16 = 0x08C5
+	errUpgradeDowngrade     uint16 = 0x08C6
+	errUpgradeDestroy       uint16 = 0x08C7
+	errUpgradeNoTarget      uint16 = 0x08C8
+	errUpgradeNotEquip      uint16 = 0x08C9
+	errUpgradeBadStone      uint16 = 0x08CA
+	errUpgradeNoCen         uint16 = 0x08CB
+	errUpgradeBadState      uint16 = 0x08D6
+
+	errNewUpgradeNotEquip   uint16 = 0x3801
+	errNewUpgradeSuccess    uint16 = 0x3803
+	errNewUpgradeFail       uint16 = 0x3804
+	errNewUpgradeDestroy    uint16 = 0x3805
+	errNewUpgradeBadState   uint16 = 0x3806
+	errNewUpgradeBadStone   uint16 = 0x3807
+	errNewUpgradeNoCen      uint16 = 0x3808
+
+	errBraceletBadStone     uint16 = 0x3C02
+	errBraceletBadState     uint16 = 0x3C04
+	errBraceletNotTarget    uint16 = 0x3C05
+	errBraceletSuccess      uint16 = 0x3C07
+	errBraceletCritSuccess  uint16 = 0x3C08
+	errBraceletFail         uint16 = 0x3C09
+	errBraceletDowngrade    uint16 = 0x3C0A
+	errBraceletDestroy      uint16 = 0x3C0B
+
+	errMoverUpgradeSuccess  uint16 = 0x3228
+	errMoverUpgradeNoItem   uint16 = 0x3229
+	errMoverUpgradeBadState uint16 = 0x322A
+	errMoverUpgradeFail     uint16 = 0x322C
+
+	errEnchantSocketSuccess uint16 = 0x20A0
+	errEnchantSocketState   uint16 = 0x20A1
+	errEnchantSocketNoItem  uint16 = 0x20A3
+	errEnchantSocketMax     uint16 = 0x20A4
+	errEnchantSocketFail    uint16 = 0x20A5
+
+	errEnchantAddGemSuccess uint16 = 0x2080
+	errEnchantAddGemState   uint16 = 0x2081
+	errEnchantAddGemNoSlot  uint16 = 0x2083
+	errEnchantAddGemNoItem  uint16 = 0x2085
+
+	errEnchantRemGemSuccess uint16 = 0x2090
+	errEnchantRemGemState   uint16 = 0x2091
+	errEnchantRemGemEmpty   uint16 = 0x2093
+	errEnchantRemGemNoItem  uint16 = 0x2094
+
+	errRandomOptSuccess     uint16 = 0x3248
+	errRandomOptNoItem      uint16 = 0x3249
+	errRandomOptBadState    uint16 = 0x324A
+	errRandomRecoverSuccess uint16 = 0x3251
+	errRandomRecoverState   uint16 = 0x3252
+	errRandomRecoverNoItem  uint16 = 0x3255
+
+	errDismantleSuccess     uint16 = 0x1680
+	errDismantleBadState    uint16 = 0x1681
+	errDismantleNoItem      uint16 = 0x1682
+	errDismantleFail        uint16 = 0x1686
+	errDismantleFull        uint16 = 0x1688
+
+	errMixSuccess           uint16 = 0x37C0
+	errMixCannot            uint16 = 0x37C1
+	errMixNoItem            uint16 = 0x37C2
+	errMixBadState          uint16 = 0x37C5
+	errMixInvalidRecipe     uint16 = 0x37C6
+	errMixFull              uint16 = 0x37C7
+
+	errProduceSuccess       uint16 = 0x0B01
+	errProduceInvalidRecipe uint16 = 0x0B04
+	errProduceBadState      uint16 = 0x0B07
+	errProduceNoMat         uint16 = 0x0B08
+	errProduceFail          uint16 = 0x0B09
+	errProduceFull          uint16 = 0x0B11
+)
+
+func (h *Handler) lookupEquipUpgradeRates(itemInx string, curLv int, isBracelet bool) (succRate, critRate, downRate, criFailRate int) {
+	shnName := "ItemUpgrade"
+	if isBracelet {
+		shnName = "BRAccUpgrade"
+	}
+	succRate = 800
+	critRate = 50
+	downRate = 100
+	criFailRate = 50
+	if !isBracelet {
+		if tbl := h.getSHN("UpgradeInfo"); tbl != nil && itemInx != "" {
+			if row := tbl.FindRow("InxName", itemInx); row != nil {
+				colIdx := 3 + curLv
+				if colIdx < row.ColumnCount() {
+					if val := row.GetIntAt(colIdx); val > 0 {
+						succRate = val * 10
+					}
 				}
 			}
 		}
 	}
-	if tbl := h.getSHN("ItemUpgrade"); tbl != nil {
+	if tbl := h.getSHN(shnName); tbl != nil {
 		if row := tbl.FindRowInt("ID", int64(curLv+1)); row != nil {
-			cri := row.GetInt("CriFail")
-			down := row.GetInt("DownFail")
+			criFailRate = row.GetInt("CriFail")
+			downRate = row.GetInt("DownFail")
 			norm := row.GetInt("NormalFail")
-			rate := 1000 - (cri + down + norm)
+			rate := 1000 - (criFailRate + downRate + norm)
 			if rate < 50 {
 				rate = 50
 			}
-			return rate
+			succRate = rate
 		}
 	}
-	return 800
+	return succRate, critRate, downRate, criFailRate
 }
 
 func (h *Handler) handleItemUpgradeReq(client *network.Client, pkt *protocol.Packet) {
@@ -92,79 +180,125 @@ func (h *Handler) executeEquipmentUpgrade(player *ZonePlayer, equipSlot, rawSlot
 		_ = player.Client.SendPacket(ack)
 	}
 
-	eq := h.findItemAt(player.Char.ID, 9, int16(equipSlot))
-	raw := h.findItemAt(player.Char.ID, 9, int16(rawSlot))
-	if eq == nil || raw == nil || uint64(player.Char.TCharacterState.Money) < uint64(giftMoney) {
-		sendAck(0x0701)
+	pickCodes := func() (succ, crit, fail, down, destroy, noTarget, notEquip, badStone, noCen, badState uint16) {
+		switch ackOpcode {
+		case protocol.PROTO_NC_ITEM_NEW_UPGRADE_ACK:
+			return errNewUpgradeSuccess, errNewUpgradeSuccess, errNewUpgradeFail, errNewUpgradeFail, errNewUpgradeDestroy,
+				errNewUpgradeBadState, errNewUpgradeNotEquip, errNewUpgradeBadStone, errNewUpgradeNoCen, errNewUpgradeBadState
+		case protocol.PROTO_NC_ITEM_BRACELET_UPGRADE_ACK:
+			return errBraceletSuccess, errBraceletCritSuccess, errBraceletFail, errBraceletDowngrade, errBraceletDestroy,
+				errBraceletBadState, errBraceletNotTarget, errBraceletBadStone, errBraceletBadState, errBraceletBadState
+		default:
+			return errUpgradeSuccess, errUpgradeCritSuccess, errUpgradeFail, errUpgradeDowngrade, errUpgradeDestroy,
+				errUpgradeNoTarget, errUpgradeNotEquip, errUpgradeBadStone, errUpgradeNoCen, errUpgradeBadState
+		}
+	}
+	cSucc, cCrit, cFail, cDown, cDestroy, cNoTarget, cNotEquip, cBadStone, cNoCen, cBadState := pickCodes()
+
+	if player.State == 3 || player.ActiveTrade != nil || player.ActiveBooth != nil {
+		sendAck(cBadState)
 		return
 	}
 
-	var leftKey, rightKey, midKey int64
-	if leftSlot != 0xFF {
-		if l := h.findItemAt(player.Char.ID, 9, int16(leftSlot)); l != nil {
-			leftKey = l.ItemKey
-			h.consumeItemUnits(player, l, 1)
-		}
+	eq := h.findItemAt(player.Char.ID, 9, int16(equipSlot))
+	if eq == nil {
+		sendAck(cNoTarget)
+		return
 	}
-	if rightSlot != 0xFF {
-		if r := h.findItemAt(player.Char.ID, 9, int16(rightSlot)); r != nil {
-			rightKey = r.ItemKey
-			h.consumeItemUnits(player, r, 1)
-		}
+	raw := h.findItemAt(player.Char.ID, 9, int16(rawSlot))
+	if raw == nil || rawSlot == equipSlot {
+		sendAck(cBadStone)
+		return
 	}
-	if midSlot != 0xFF {
-		if m := h.findItemAt(player.Char.ID, 9, int16(midSlot)); m != nil {
-			midKey = m.ItemKey
-			h.consumeItemUnits(player, m, 1)
-		}
+	if uint64(player.Char.TCharacterState.Money) < uint64(giftMoney) {
+		sendAck(cNoCen)
+		return
 	}
-
-	opts, _ := h.charRepo.GetItemOptions(eq.ItemKey)
-	curLv := int(opts[iotUpgradeGrade])
-	failCount := int(opts[iotFailCount])
 
 	var inx string
 	upLimit := 12
 	if h.itemStore != nil {
 		if info, ok := h.itemStore.GetItemInfo(eq.ItemID); ok && info != nil {
 			inx = info.InxName
+			if info.Equip == 0 || info.Equip == 255 {
+				sendAck(cNotEquip)
+				return
+			}
 			if info.UpLimit > 0 {
 				upLimit = int(info.UpLimit)
 			}
+		} else {
+			sendAck(cNoTarget)
+			return
 		}
 	}
+
+	opts, _ := h.charRepo.GetItemOptions(eq.ItemKey)
+	curLv := int(opts[iotUpgradeGrade])
+	failCount := int(opts[iotFailCount])
 	if curLv >= upLimit {
-		sendAck(0x0701)
+		sendAck(cBadStone)
 		return
 	}
 
-	rate := h.lookupEquipUpgradeSuccessRate(inx, curLv)
-	if isBracelet {
-		if tbl := h.getSHN("BRAccUpgrade"); tbl != nil {
-			if row := tbl.FindRowInt("ID", int64(curLv+1)); row != nil {
-				rate = 1000 - (row.GetInt("CriFail") + row.GetInt("DownFail") + row.GetInt("NormalFail"))
-				if rate < 50 {
-					rate = 50
-				}
-			}
+	var lIt, rIt, mIt *database.Item
+	if leftSlot != 0xFF {
+		lIt = h.findItemAt(player.Char.ID, 9, int16(leftSlot))
+	}
+	if rightSlot != 0xFF {
+		rIt = h.findItemAt(player.Char.ID, 9, int16(rightSlot))
+	}
+	if midSlot != 0xFF {
+		mIt = h.findItemAt(player.Char.ID, 9, int16(midSlot))
+	}
+
+	rate, _, downRate, criFailRate := h.lookupEquipUpgradeRates(inx, curLv, isBracelet)
+	if rIt != nil {
+		rate += 50
+		if rate > 1000 {
+			rate = 1000
 		}
 	}
 
 	roll := rand.Intn(1000)
-	success := roll < rate
 	destroy := 0
 	newLv := curLv
-	if success {
-		newLv = curLv + 1
+	resCode := cFail
+
+	if roll < rate {
+		// Éxito (+2 crítico en ~5% si hay margen hasta UpLimit, sino +1 normal)
+		if curLv+2 <= upLimit && roll < rate/20 {
+			newLv = curLv + 2
+			resCode = cCrit
+		} else {
+			newLv = curLv + 1
+			resCode = cSucc
+		}
+		failCount = 0
 	} else {
 		failCount++
-		if midKey == 0 && leftKey == 0 && curLv >= 6 && roll >= 950 {
+		hasProtection := mIt != nil || lIt != nil
+		if !hasProtection && curLv >= 6 && criFailRate > 0 && roll >= 1000-criFailRate {
 			destroy = 1
+			resCode = cDestroy
+		} else if !hasProtection && curLv > 0 && downRate > 0 && roll >= rate+((1000-rate-criFailRate)/2) {
+			newLv = curLv - 1
+			resCode = cDown
+		} else {
+			resCode = cFail
 		}
 	}
 
-	_ = h.charRepo.UpgradeItemFull(player.Char.ID, eq.ItemKey, destroy, iotUpgradeGrade, int64(newLv), iotFailCount, int64(failCount), raw.ItemKey, leftKey, rightKey, midKey, int64(giftMoney))
-	h.consumeItemUnits(player, raw, 1)
+	if err := h.charRepo.UpgradeItemFull(
+		player.Char.ID, eq.ItemKey, destroy, iotUpgradeGrade, int64(newLv), iotFailCount, int64(failCount),
+		spDeleteKeyIfLast(raw), spDeleteKeyIfLast(lIt), spDeleteKeyIfLast(rIt), spDeleteKeyIfLast(mIt), int64(giftMoney),
+	); err != nil {
+		sendAck(cBadState)
+		return
+	}
+	for _, it := range []*database.Item{raw, lIt, rIt, mIt} {
+		h.finishSPConsumedItem(player, it)
+	}
 	if giftMoney > 0 {
 		player.Char.TCharacterState.Money -= int64(giftMoney)
 		h.syncPlayerMoney(player)
@@ -175,11 +309,7 @@ func (h *Handler) executeEquipmentUpgrade(player *ZonePlayer, equipSlot, rawSlot
 		h.sendCellChangeFull(player.Client, 9, int16(equipSlot), eq, 0xFFFF)
 	}
 
-	if success {
-		sendAck(0x0700)
-	} else {
-		sendAck(0x0702)
-	}
+	sendAck(resCode)
 
 	if h.gameLogDispatcher != nil && player.CurrentMap != nil {
 		h.gameLogDispatcher.EnqueueType7(1, player.Char.ID, player.CurrentMap.MapID, player.Char.XPos, player.Char.YPos, 0, int(eq.ItemID), newLv, failCount)
@@ -221,8 +351,12 @@ func (h *Handler) handleItemMoverUpgradeReq(client *network.Client, pkt *protoco
 		_ = client.SendPacket(ack)
 	}
 
+	if player.State == 3 || player.ActiveTrade != nil || player.ActiveBooth != nil {
+		sendAck(errMoverUpgradeBadState, 0, 0, nil)
+		return
+	}
 	if mainIt == nil || subIt == nil {
-		sendAck(0x0701, 0, 0, nil)
+		sendAck(errMoverUpgradeNoItem, 0, 0, nil)
 		return
 	}
 	opts, _ := h.charRepo.GetItemOptions(mainIt.ItemKey)
@@ -237,6 +371,7 @@ func (h *Handler) handleItemMoverUpgradeReq(client *network.Client, pkt *protoco
 		}
 	}
 	rareFlag := uint8(0)
+	errCode := errMoverUpgradeSuccess
 	if rand.Intn(1000) < rate {
 		curUpg++
 		rareFlag = 1
@@ -246,11 +381,12 @@ func (h *Handler) handleItemMoverUpgradeReq(client *network.Client, pkt *protoco
 		_ = h.charRepo.SetItemOption(mainIt.ItemKey, iotUpgradeGrade, int64(curUpg))
 		_ = h.charRepo.SetItemOption(mainIt.ItemKey, iotMoverGrade, int64(curGrade))
 	} else {
+		errCode = errMoverUpgradeFail
 		_ = h.charRepo.SetItemOption(mainIt.ItemKey, iotRareFailCount, opts[iotRareFailCount]+1)
 	}
 	h.consumeItemUnits(player, subIt, 1)
 	h.sendCellChangeFull(client, 9, int16(mainSlot), mainIt, 0xFFFF)
-	sendAck(0x0700, rareFlag, curUpg, mainIt)
+	sendAck(errCode, rareFlag, curUpg, mainIt)
 
 	if h.gameLogDispatcher != nil && player.CurrentMap != nil {
 		h.gameLogDispatcher.EnqueueType7(2, player.Char.ID, player.CurrentMap.MapID, player.Char.XPos, player.Char.YPos, 0, int(mainIt.ItemID), int(curUpg), int(rareFlag))
@@ -271,6 +407,26 @@ func (h *Handler) readItemInvenSlot(pkt *protocol.Packet) (uint8, int16, uint16,
 	return box, int16(loc & 0x03FF), loc, true
 }
 
+// spDeleteKeyIfLast devuelve el ItemKey solo cuando se consume la última unidad del stack,
+// evitando que los SPs legacy que llaman p_Item_Delete destruyan el stack completo.
+func spDeleteKeyIfLast(it *database.Item) int64 {
+	if it != nil && it.Flags <= 1 {
+		return it.ItemKey
+	}
+	return 0
+}
+
+func (h *Handler) finishSPConsumedItem(player *ZonePlayer, it *database.Item) {
+	if player == nil || it == nil {
+		return
+	}
+	if it.Flags <= 1 {
+		h.sendCellChangeFull(player.Client, it.StorageType, it.Storage, nil, 0xFFFF)
+		return
+	}
+	h.consumeItemUnits(player, it, 1)
+}
+
 func (h *Handler) handleItemEnchantAddNewSocketReq(client *network.Client, pkt *protocol.Packet) {
 	player, ok := h.getPlayer(client)
 	if !ok || player == nil || player.Char == nil || h.charRepo == nil {
@@ -288,10 +444,14 @@ func (h *Handler) handleItemEnchantAddNewSocketReq(client *network.Client, pkt *
 		ack.WriteByte(count)
 		_ = client.SendPacket(ack)
 	}
+	if player.State == 3 || player.ActiveTrade != nil || player.ActiveBooth != nil {
+		sendAck(errEnchantSocketState, 0)
+		return
+	}
 	eq := h.findItemAt(player.Char.ID, eqBox, eqSlot)
 	drill := h.findItemAt(player.Char.ID, drBox, drSlot)
 	if eq == nil || drill == nil {
-		sendAck(0x0701, 0)
+		sendAck(errEnchantSocketNoItem, 0)
 		return
 	}
 	opts, _ := h.charRepo.GetItemOptions(eq.ItemKey)
@@ -302,27 +462,18 @@ func (h *Handler) handleItemEnchantAddNewSocketReq(client *network.Client, pkt *
 		_ = h.charRepo.SetItemOption(eq.ItemKey, 524, 0)
 	}
 	curCreated := opts[iotCreatedSocket]
-	if tbl := h.getSHN("EnchantSocketRate"); tbl != nil && h.itemStore != nil {
-		if info, ok := h.itemStore.GetItemInfo(eq.ItemID); ok && info != nil {
-			for _, r := range tbl.Rows {
-				if curCreated >= 3 {
-					sendAck(0x0701, uint8(curCreated))
-					return
-				}
-				// EnchantSocketRate.shn valida tasa por slot
-				_ = r
-				break
-			}
-		}
-	}
-	newCount, _, err := h.charRepo.EnchantAddSocket(player.Char.ID, eq.ItemKey, drill.ItemKey, iotCreatedSocket)
-	if err != nil {
-		sendAck(0x0701, uint8(curCreated))
+	if curCreated >= 3 {
+		sendAck(errEnchantSocketMax, uint8(curCreated))
 		return
 	}
-	h.consumeItemUnits(player, drill, 1)
+	newCount, _, err := h.charRepo.EnchantAddSocket(player.Char.ID, eq.ItemKey, spDeleteKeyIfLast(drill), iotCreatedSocket)
+	if err != nil {
+		sendAck(errEnchantSocketFail, uint8(curCreated))
+		return
+	}
+	h.finishSPConsumedItem(player, drill)
 	h.sendCellChangeFull(client, eqBox, eqSlot, eq, 0xFFFF)
-	sendAck(0x0700, newCount)
+	sendAck(errEnchantSocketSuccess, newCount)
 
 	if h.gameLogDispatcher != nil && player.CurrentMap != nil {
 		h.gameLogDispatcher.EnqueueType7(3, player.Char.ID, player.CurrentMap.MapID, player.Char.XPos, player.Char.YPos, 0, int(eq.ItemID), int(newCount), 0)
@@ -347,16 +498,20 @@ func (h *Handler) handleItemEnchantAddGemReq(client *network.Client, pkt *protoc
 		ack.WriteByte(sockIdx)
 		_ = client.SendPacket(ack)
 	}
+	if player.State == 3 || player.ActiveTrade != nil || player.ActiveBooth != nil {
+		sendAck(errEnchantAddGemState, 0, 0)
+		return
+	}
 	eq := h.findItemAt(player.Char.ID, eqBox, eqSlot)
 	gem := h.findItemAt(player.Char.ID, gmBox, gmSlot)
 	if eq == nil || gem == nil {
-		sendAck(0x0701, 0, 0)
+		sendAck(errEnchantAddGemNoItem, 0, 0)
 		return
 	}
 	opts, _ := h.charRepo.GetItemOptions(eq.ItemKey)
 	created := int(opts[iotCreatedSocket])
 	if created <= 0 {
-		sendAck(0x0701, 0, 0)
+		sendAck(errEnchantAddGemNoSlot, 0, 0)
 		return
 	}
 	sockIdx := -1
@@ -367,21 +522,21 @@ func (h *Handler) handleItemEnchantAddGemReq(client *network.Client, pkt *protoc
 		}
 	}
 	if sockIdx < 0 {
-		sendAck(0x0701, 0, 0)
+		sendAck(errEnchantAddGemNoSlot, 0, 0)
 		return
 	}
 	gemLot := int(gem.Flags)
 	if gemLot <= 0 {
 		gemLot = 1
 	}
-	if err := h.charRepo.EnchantAddGem(player.Char.ID, eq.ItemKey, gem.ItemKey, byte(sockIdx), int(gem.ItemID), byte(gemLot-1)); err != nil {
-		sendAck(0x0701, 0, 0)
+	if err := h.charRepo.EnchantAddGem(player.Char.ID, eq.ItemKey, spDeleteKeyIfLast(gem), byte(sockIdx), int(gem.ItemID), byte(gemLot-1)); err != nil {
+		sendAck(errEnchantAddGemNoSlot, 0, 0)
 		return
 	}
 	_ = h.charRepo.SetItemOption(eq.ItemKey, iotSocketGem0+int16(sockIdx), int64(gem.ItemID))
-	h.consumeItemUnits(player, gem, 1)
+	h.finishSPConsumedItem(player, gem)
 	h.sendCellChangeFull(client, eqBox, eqSlot, eq, 0xFFFF)
-	sendAck(0x0700, gem.ItemID, uint8(sockIdx))
+	sendAck(errEnchantAddGemSuccess, gem.ItemID, uint8(sockIdx))
 
 	if h.gameLogDispatcher != nil && player.CurrentMap != nil {
 		h.gameLogDispatcher.EnqueueType7(4, player.Char.ID, player.CurrentMap.MapID, player.Char.XPos, player.Char.YPos, 0, int(eq.ItemID), int(gem.ItemID), sockIdx)
@@ -406,25 +561,34 @@ func (h *Handler) handleItemEnchantRemoveGemReq(client *network.Client, pkt *pro
 		ack.WriteByte(sockIdx)
 		_ = client.SendPacket(ack)
 	}
+	if player.State == 3 || player.ActiveTrade != nil || player.ActiveBooth != nil {
+		sendAck(errEnchantRemGemState)
+		return
+	}
 	eq := h.findItemAt(player.Char.ID, eqBox, eqSlot)
 	rem := h.findItemAt(player.Char.ID, rmBox, rmSlot)
 	if eq == nil || rem == nil {
-		sendAck(0x0701)
+		sendAck(errEnchantRemGemNoItem)
 		return
 	}
 	opts, _ := h.charRepo.GetItemOptions(eq.ItemKey)
 	if opts[iotSocketGem0+int16(sockIdx)] == 0 {
-		sendAck(0x0701)
+		sendAck(errEnchantRemGemEmpty)
 		return
 	}
-	if _, err := h.charRepo.EnchantRemoveGem(player.Char.ID, eq.ItemKey, rem.ItemKey, sockIdx, 1, 0); err != nil {
-		sendAck(0x0701)
+	remKey := spDeleteKeyIfLast(rem)
+	needItem := byte(0)
+	if remKey != 0 {
+		needItem = 1
+	}
+	if _, err := h.charRepo.EnchantRemoveGem(player.Char.ID, eq.ItemKey, remKey, sockIdx, needItem, 0); err != nil {
+		sendAck(errEnchantRemGemEmpty)
 		return
 	}
 	_ = h.charRepo.SetItemOption(eq.ItemKey, iotSocketGem0+int16(sockIdx), 0)
-	h.consumeItemUnits(player, rem, 1)
+	h.finishSPConsumedItem(player, rem)
 	h.sendCellChangeFull(client, eqBox, eqSlot, eq, 0xFFFF)
-	sendAck(0x0700)
+	sendAck(errEnchantRemGemSuccess)
 
 	if h.gameLogDispatcher != nil && player.CurrentMap != nil {
 		h.gameLogDispatcher.EnqueueType7(5, player.Char.ID, player.CurrentMap.MapID, player.Char.XPos, player.Char.YPos, 0, int(eq.ItemID), int(sockIdx), 0)
@@ -455,10 +619,14 @@ func (h *Handler) handleRandomOptionChangeReq(client *network.Client, pkt *proto
 		_ = client.SendPacket(ack)
 	}
 
+	if player.State == 3 || player.ActiveTrade != nil || player.ActiveBooth != nil {
+		sendAck(errRandomOptBadState, nil)
+		return
+	}
 	it := h.findItemAt(player.Char.ID, 9, int16(itemSlot))
 	stuff := h.findItemAt(player.Char.ID, 9, int16(stuffSlot))
 	if it == nil || stuff == nil {
-		sendAck(0x0701, nil)
+		sendAck(errRandomOptNoItem, nil)
 		return
 	}
 
@@ -505,7 +673,7 @@ func (h *Handler) handleRandomOptionChangeReq(client *network.Client, pkt *proto
 		InvenSlot: itemSlot,
 		Options:   pairs,
 	}
-	sendAck(0x0700, rolled)
+	sendAck(errRandomOptSuccess, rolled)
 
 	if h.gameLogDispatcher != nil && player.CurrentMap != nil {
 		h.gameLogDispatcher.EnqueueType7(6, player.Char.ID, player.CurrentMap.MapID, player.Char.XPos, player.Char.YPos, 0, int(it.ItemID), len(pairs), 0)
@@ -518,8 +686,8 @@ func (h *Handler) handleRandomOptionChangeAcceptReq(client *network.Client, pkt 
 		return
 	}
 	ack := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_RANDOMOPTION_CHANGE_ACCEPT_ACK)
-	if player.PendingRandomOpt == nil {
-		ack.WriteUint16(0x0701)
+	if player.State == 3 || player.ActiveTrade != nil || player.ActiveBooth != nil || player.PendingRandomOpt == nil {
+		ack.WriteUint16(errRandomOptBadState)
 		_ = client.SendPacket(ack)
 		return
 	}
@@ -537,7 +705,7 @@ func (h *Handler) handleRandomOptionChangeAcceptReq(client *network.Client, pkt 
 	if it := h.findItemAt(player.Char.ID, 9, int16(pending.InvenSlot)); it != nil {
 		h.sendCellChangeFull(client, 9, int16(pending.InvenSlot), it, 0xFFFF)
 	}
-	ack.WriteUint16(0x0700)
+	ack.WriteUint16(errRandomOptSuccess)
 	_ = client.SendPacket(ack)
 }
 
@@ -552,15 +720,20 @@ func (h *Handler) handleRandomOptionRecoverCountLimitReq(client *network.Client,
 	}
 	_, _ = pkt.Reader.ReadByte()
 	ack := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_RANDOMOPTION_RECOVER_COUNT_LIMIT_ACK)
+	if player.State == 3 || player.ActiveTrade != nil || player.ActiveBooth != nil {
+		ack.WriteUint16(errRandomRecoverState)
+		_ = client.SendPacket(ack)
+		return
+	}
 	it := h.findItemAt(player.Char.ID, 9, int16(itemSlot))
 	if it == nil {
-		ack.WriteUint16(0x0701)
+		ack.WriteUint16(errRandomRecoverNoItem)
 		_ = client.SendPacket(ack)
 		return
 	}
 	_ = h.charRepo.SetItemOption(it.ItemKey, iotRandomChangeCount, 0)
 	h.sendCellChangeFull(client, 9, int16(itemSlot), it, 0xFFFF)
-	ack.WriteUint16(0x0700)
+	ack.WriteUint16(errRandomRecoverSuccess)
 	_ = client.SendPacket(ack)
 }
 
@@ -581,15 +754,20 @@ func (h *Handler) handleItemDismantleReq(client *network.Client, pkt *protocol.P
 		_ = client.SendPacket(ack)
 	}
 
+	if player.State == 3 || player.ActiveTrade != nil || player.ActiveBooth != nil {
+		sendAck(errDismantleBadState)
+		return
+	}
+
 	it := h.findItemAt(player.Char.ID, 9, int16(slot))
 	tbl := h.getSHN("ItemDismantle")
 	if it == nil || tbl == nil || h.itemStore == nil {
-		sendAck(0x0701)
+		sendAck(errDismantleNoItem)
 		return
 	}
 	info, ok := h.itemStore.GetItemInfo(it.ItemID)
 	if !ok || info == nil {
-		sendAck(0x0701)
+		sendAck(errDismantleNoItem)
 		return
 	}
 
@@ -621,14 +799,21 @@ func (h *Handler) handleItemDismantleReq(client *network.Client, pkt *protocol.P
 		}
 	}
 	if len(rewards) == 0 {
-		sendAck(0x0701)
+		sendAck(errDismantleFail)
+		return
+	}
+	if _, hasSpace := h.findFreeInvenSlot(player.Char.ID); !hasSpace && it.Flags > 1 {
+		sendAck(errDismantleFull)
 		return
 	}
 
 	chosen := rewards[rand.Intn(len(rewards))]
 	h.consumeItemUnits(player, it, 1)
-	h.addItemToInventory(player, chosen, 1, nil)
-	sendAck(0x0700)
+	if _, added := h.addItemToInventory(player, chosen, 1, nil); !added {
+		sendAck(errDismantleFull)
+		return
+	}
+	sendAck(errDismantleSuccess)
 
 	if h.gameLogDispatcher != nil {
 		h.gameLogDispatcher.EnqueueTypeD(1, player.Char.ID, it.ItemKey, int(chosen), 1)
@@ -658,31 +843,40 @@ func (h *Handler) handleItemMixItemReq(client *network.Client, pkt *protocol.Pac
 		_ = client.SendPacket(ack)
 	}
 
+	if player.State == 3 || player.ActiveTrade != nil || player.ActiveBooth != nil {
+		sendAck(errMixBadState)
+		return
+	}
+
 	leftIt := h.findItemAt(player.Char.ID, 9, int16(leftSlot))
 	rightIt := h.findItemAt(player.Char.ID, 9, int16(rightSlot))
 	if leftIt == nil || rightIt == nil || h.itemStore == nil {
-		sendAck(0x0701)
+		sendAck(errMixNoItem)
 		return
 	}
 	leftInfo, ok := h.itemStore.GetItemInfo(leftIt.ItemID)
 	if !ok || leftInfo == nil {
-		sendAck(0x0701)
+		sendAck(errMixInvalidRecipe)
 		return
 	}
 	tbl := h.getSHN("ItemMix")
 	if tbl == nil {
-		sendAck(0x0701)
+		sendAck(errMixCannot)
 		return
 	}
 	row := tbl.FindRow("Raw_ItemIDX", leftInfo.InxName)
 	if row == nil {
-		sendAck(0x0701)
+		sendAck(errMixInvalidRecipe)
 		return
 	}
 	mixIdx := strings.TrimSpace(row.GetString("Mix_ItemIDX"))
 	mixInfo, ok := h.itemStore.GetItemInfoByName(mixIdx)
 	if !ok || mixInfo == nil {
-		sendAck(0x0701)
+		sendAck(errMixInvalidRecipe)
+		return
+	}
+	if _, hasSpace := h.findFreeInvenSlot(player.Char.ID); !hasSpace && leftIt.Flags > 1 && rightIt.Flags > 1 {
+		sendAck(errMixFull)
 		return
 	}
 
@@ -697,10 +891,10 @@ func (h *Handler) handleItemMixItemReq(client *network.Client, pkt *protocol.Pac
 	}
 	created, ok := h.addItemToInventory(player, mixInfo.ID, 1, nil)
 	if !ok {
-		sendAck(0x0701)
+		sendAck(errMixFull)
 		return
 	}
-	sendAck(0x0700)
+	sendAck(errMixSuccess)
 
 	if h.gameLogDispatcher != nil {
 		h.gameLogDispatcher.EnqueueTypeD(2, player.Char.ID, created.ItemKey, int(mixInfo.ID), 1)
@@ -723,14 +917,19 @@ func (h *Handler) handleActProduceCastReq(client *network.Client, pkt *protocol.
 		_ = client.SendPacket(ack)
 	}
 
+	if player.State == 3 || player.ActiveTrade != nil || player.ActiveBooth != nil {
+		sendFail(errProduceBadState)
+		return
+	}
+
 	tbl := h.getSHN("Produce")
 	if tbl == nil || h.itemStore == nil {
-		sendFail(0x0701)
+		sendFail(errProduceFail)
 		return
 	}
 	row := tbl.FindRowInt("ProductID", int64(prodID))
 	if row == nil {
-		sendFail(0x0701)
+		sendFail(errProduceInvalidRecipe)
 		return
 	}
 
@@ -750,7 +949,7 @@ func (h *Handler) handleActProduceCastReq(client *network.Client, pkt *protocol.
 		qty := uint32(qInt)
 		rawInfo, rOk := h.itemStore.GetItemInfoByName(rawName)
 		if !rOk || rawInfo == nil {
-			sendFail(0x0702)
+			sendFail(errProduceNoMat)
 			return
 		}
 		var matched *database.Item
@@ -761,7 +960,7 @@ func (h *Handler) handleActProduceCastReq(client *network.Client, pkt *protocol.
 			}
 		}
 		if matched == nil {
-			sendFail(0x0702)
+			sendFail(errProduceNoMat)
 			return
 		}
 		toConsume = append(toConsume, matNeed{it: matched, qty: qty})
@@ -770,12 +969,16 @@ func (h *Handler) handleActProduceCastReq(client *network.Client, pkt *protocol.
 	prodIdx := strings.TrimSpace(row.GetString("Product"))
 	prodInfo, ok := h.itemStore.GetItemInfoByName(prodIdx)
 	if !ok || prodInfo == nil {
-		sendFail(0x0701)
+		sendFail(errProduceInvalidRecipe)
 		return
 	}
 	prodLot := uint32(row.GetInt("Lot"))
 	if prodLot == 0 {
 		prodLot = 1
+	}
+	if _, hasSpace := h.findFreeInvenSlot(player.Char.ID); !hasSpace {
+		sendFail(errProduceFull)
+		return
 	}
 
 	player.ActiveProduce = &ProduceSession{
@@ -785,7 +988,7 @@ func (h *Handler) handleActProduceCastReq(client *network.Client, pkt *protocol.
 	}
 	suc := protocol.NewPacketWriter(protocol.PROTO_NC_ACT_PRODUCE_CAST_SUC_ACK)
 	suc.WriteUint16(prodID)
-	suc.WriteUint16(0)
+	suc.WriteUint16(errProduceSuccess)
 	_ = client.SendPacket(suc)
 
 	for _, c := range toConsume {
@@ -793,14 +996,15 @@ func (h *Handler) handleActProduceCastReq(client *network.Client, pkt *protocol.
 	}
 	created, ok := h.addItemToInventory(player, prodInfo.ID, prodLot, nil)
 	if !ok {
-		sendFail(0x0703)
+		player.ActiveProduce = nil
+		sendFail(errProduceFull)
 		return
 	}
 	player.ActiveProduce = nil
 
 	makeCmd := protocol.NewPacketWriter(protocol.PROTO_NC_ACT_PRODUCE_MAKE_CMD)
 	makeCmd.WriteUint16(prodInfo.ID)
-	makeCmd.WriteUint16(0)
+	makeCmd.WriteUint16(errProduceSuccess)
 	_ = client.SendPacket(makeCmd)
 
 	if h.gameLogDispatcher != nil {
@@ -814,4 +1018,9 @@ func (h *Handler) handleActProduceCastAbortCmd(client *network.Client, pkt *prot
 		return
 	}
 	player.ActiveProduce = nil
+	if player.CurrentMap != nil {
+		abortCmd := protocol.NewPacketWriter(protocol.PROTO_NC_ACT_PRODUCE_CASTABORT_CMD)
+		abortCmd.WriteUint16(player.MapObjectID)
+		player.CurrentMap.Broadcast(abortCmd, 0)
+	}
 }

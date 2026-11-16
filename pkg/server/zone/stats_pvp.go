@@ -1,6 +1,9 @@
 package zone
 
 import (
+	"strings"
+
+	"github.com/iFeddy/XelionCore/pkg/database"
 	"github.com/iFeddy/XelionCore/pkg/network"
 	"github.com/iFeddy/XelionCore/pkg/protocol"
 )
@@ -258,8 +261,45 @@ func (h *Handler) handleItemReviveItemUseCmd(client *network.Client, pkt *protoc
 		return
 	}
 
+	sendFail := func(errCode uint16) {
+		failCmd := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_REVIVEITEMUSEFAIL_CMD)
+		failCmd.WriteUint16(errCode)
+		_ = client.SendPacket(failCmd)
+	}
+
+	// Verificado en Zone.exe sp_NC_ITEM_REVIVEITEMUSE_CMD (0x00417580):
+	// debe estar muerto (State == 3 -> 0x0701 si vivo); si existe itemStore/charRepo requiere ítem de resurrección en Box 9 (0x071E).
+	if player.State != 3 {
+		sendFail(0x0701)
+		return
+	}
+
+	if h.itemStore != nil && h.charRepo != nil {
+		items, _ := h.charRepo.GetCharacterItems(player.Char.ID)
+		var reviveItem *database.Item
+		for _, it := range items {
+			if it == nil || it.StorageType != 9 {
+				continue
+			}
+			if info, ok := h.itemStore.GetItemInfo(it.ItemID); ok && info != nil {
+				low := strings.ToLower(info.InxName)
+				if strings.Contains(low, "revive") || strings.Contains(low, "resurrect") || strings.Contains(low, "rebirth") {
+					reviveItem = it
+					break
+				}
+			}
+		}
+		if reviveItem == nil || !h.consumeItemUnits(player, reviveItem, 1) {
+			sendFail(0x071E)
+			return
+		}
+	}
+
 	player.State = 1
 	player.Char.CurHP = player.MaxHP
+	if player.Char.CurHP <= 0 {
+		player.Char.CurHP = 100
+	}
 	hpCmd := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_HPCHANGE_CMD)
 	hpCmd.WriteUint32(uint32(player.Char.CurHP))
 	hpCmd.WriteUint16(0)

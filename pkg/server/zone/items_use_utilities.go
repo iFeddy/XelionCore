@@ -101,13 +101,38 @@ func (h *Handler) handleMinimonEquipReq(client *network.Client, pkt *protocol.Pa
 	if err != nil {
 		return
 	}
+	sendEquipAck := func(errCode uint16) {
+		ack := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_EQUIP_ACK)
+		ack.WriteUint16(errCode)
+		_ = client.SendPacket(ack)
+	}
+	// Verificado en Zone.exe sp_NC_ITEM_MINIMON_EQUIP_REQ (0x0052D020):
+	// estado inválido / vendor / trade -> 0x0282; slot inválido / sin ítem / no es Minimon -> 0x0283; nivel/clase -> 0x0285; éxito -> 0x0281.
+	if player.State == 3 || player.State == 5 || player.ActiveTrade != nil || player.ActiveBooth != nil {
+		sendEquipAck(0x0282)
+		return
+	}
+	if equipSlot != 0x19 && equipSlot != 0x1C {
+		sendEquipAck(0x0283)
+		return
+	}
 	it := h.findItemAt(player.Char.ID, 9, int16(slotNo))
 	if it == nil {
+		sendEquipAck(0x0283)
 		return
 	}
 	if tbl := h.getSHN("MinimonInfo"); tbl != nil && h.itemStore != nil {
 		if info, ok := h.itemStore.GetItemInfo(it.ItemID); ok && info != nil {
 			if tbl.FindRow("ItemIDX", info.InxName) == nil {
+				sendEquipAck(0x0283)
+				return
+			}
+		}
+	}
+	if h.itemStore != nil {
+		if info, ok := h.itemStore.GetItemInfo(it.ItemID); ok && info != nil {
+			if info.DemandLv > 0 && int(player.Char.Level) < int(info.DemandLv) {
+				sendEquipAck(0x0285)
 				return
 			}
 		}
@@ -126,6 +151,7 @@ func (h *Handler) handleMinimonEquipReq(client *network.Client, pkt *protocol.Pa
 	it.Storage = int16(equipSlot)
 	h.sendCellChangeFull(client, 8, int16(equipSlot), it, 0xFFFF)
 	h.syncPlayerEquipsAndStats(player)
+	sendEquipAck(0x0281)
 }
 
 func (h *Handler) readMinimonSlots(pkt *protocol.Packet) [12]uint16 {
@@ -218,10 +244,17 @@ func (h *Handler) handleMHFurnitureEndureKitUseReq(client *network.Client, pkt *
 		return
 	}
 	kit := h.findItemAt(player.Char.ID, 9, int16(invenSlot))
+	if player.State == 3 || player.ActiveTrade != nil || player.ActiveBooth != nil {
+		ack := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_MH_FURNITURE_ENDURE_KIT_USE_ACK)
+		ack.WriteUint32(0)
+		ack.WriteUint16(0x1A71)
+		_ = client.SendPacket(ack)
+		return
+	}
 	if kit == nil {
 		ack := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_MH_FURNITURE_ENDURE_KIT_USE_ACK)
 		ack.WriteUint32(0)
-		ack.WriteUint16(0x0701)
+		ack.WriteUint16(0x1A72)
 		_ = client.SendPacket(ack)
 		return
 	}
@@ -239,7 +272,7 @@ func (h *Handler) handleMHFurnitureEndureKitUseReq(client *network.Client, pkt *
 
 	ack := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_MH_FURNITURE_ENDURE_KIT_USE_ACK)
 	ack.WriteUint32(newEndure)
-	ack.WriteUint16(0x0700)
+	ack.WriteUint16(0x1A70)
 	_ = client.SendPacket(ack)
 }
 
@@ -270,10 +303,18 @@ func (h *Handler) handleEndureChargeCommon(player *ZonePlayer, pkt *protocol.Pac
 		_ = player.Client.SendPacket(ack)
 	}
 
+	if player.State == 3 || player.ActiveTrade != nil || player.ActiveBooth != nil {
+		sendAck(0, 0x1A81)
+		return
+	}
 	kit := h.findItemAt(player.Char.ID, 9, int16(chargingSlot))
+	if kit == nil {
+		sendAck(0, 0x1A82)
+		return
+	}
 	target := h.findItemAt(player.Char.ID, box, slot)
-	if kit == nil || target == nil {
-		sendAck(0, 0x0701)
+	if target == nil {
+		sendAck(0, 0x1A83)
 		return
 	}
 	addEndure := uint32(1000)
@@ -290,7 +331,7 @@ func (h *Handler) handleEndureChargeCommon(player *ZonePlayer, pkt *protocol.Pac
 	h.consumeItemUnits(player, kit, 1)
 	h.sendCellChangeFull(player.Client, box, slot, target, 0xFFFF)
 
-	sendAck(cur, 0x0700)
+	sendAck(cur, 0x1A80)
 	setOp := protocol.PROTO_NC_ITEM_WEAPONENDURESET_CMD
 	if isShield {
 		setOp = protocol.PROTO_NC_ITEM_SHIELDENDURESET_CMD
@@ -335,19 +376,23 @@ func (h *Handler) handleEquipBelongedCancelUseReq(client *network.Client, pkt *p
 		_ = client.SendPacket(ack)
 	}
 
+	if player.State == 3 || player.ActiveTrade != nil || player.ActiveBooth != nil {
+		sendAck(0x2882)
+		return
+	}
 	cancelIt := h.findItemAt(player.Char.ID, 9, int16(cancelSlot))
 	targetIt := h.findItemAt(player.Char.ID, 9, int16(belongSlot))
 	if cancelIt == nil || targetIt == nil {
-		sendAck(0x0701)
+		sendAck(0x2883)
 		return
 	}
 	if err := h.charRepo.PutOnBelongedCancel(player.Char.ID, cancelIt.ItemKey, 0, 0, targetIt.ItemKey, iotIsPutOnBelonged, 0); err != nil {
-		sendAck(0x0701)
+		sendAck(0x2882)
 		return
 	}
 	h.consumeItemUnits(player, cancelIt, 1)
 	h.sendCellChangeFull(client, 9, int16(belongSlot), targetIt, 0xFFFF)
-	sendAck(0x0700)
+	sendAck(0x2880)
 
 	if h.gameLogDispatcher != nil && player.CurrentMap != nil {
 		h.gameLogDispatcher.EnqueueType6(10, player.Char.ID, player.CurrentMap.MapID, player.Char.XPos, player.Char.YPos, 0, int(targetIt.ItemID), targetIt.ItemKey)
@@ -370,8 +415,12 @@ func (h *Handler) handleChatColorChangeReq(client *network.Client, pkt *protocol
 		ack.WriteByte(colorID)
 		_ = client.SendPacket(ack)
 	}
+	if player.State == 3 || player.ActiveTrade != nil || player.ActiveBooth != nil {
+		sendAck(0x3601, 0)
+		return
+	}
 	if it == nil {
-		sendAck(0x0701, 0)
+		sendAck(0x3602, 0)
 		return
 	}
 	colorID := uint8(1)
@@ -389,7 +438,7 @@ func (h *Handler) handleChatColorChangeReq(client *network.Client, pkt *protocol
 		}
 	}
 	h.consumeItemUnits(player, it, 1)
-	sendAck(0x0700, colorID)
+	sendAck(0x3600, colorID)
 }
 
 func (h *Handler) handleTermExtendReq(client *network.Client, pkt *protocol.Packet) {
@@ -410,10 +459,14 @@ func (h *Handler) handleTermExtendReq(client *network.Client, pkt *protocol.Pack
 		ack.WriteUint16(errCode)
 		_ = client.SendPacket(ack)
 	}
+	if player.State == 3 || player.ActiveTrade != nil || player.ActiveBooth != nil {
+		sendAck(0x3619)
+		return
+	}
 	extIt := h.findItemAt(player.Char.ID, 9, int16(extSlot))
 	termIt := h.findItemAt(player.Char.ID, 9, int16(termSlot))
 	if extIt == nil || termIt == nil || h.itemStore == nil {
-		sendAck(0x0701)
+		sendAck(0x361A)
 		return
 	}
 	extInfo, _ := h.itemStore.GetItemInfo(extIt.ItemID)
@@ -440,7 +493,7 @@ func (h *Handler) handleTermExtendReq(client *network.Client, pkt *protocol.Pack
 				}
 			}
 			if !matched {
-				sendAck(0x0701)
+				sendAck(0x361B)
 				return
 			}
 		}
@@ -451,7 +504,7 @@ func (h *Handler) handleTermExtendReq(client *network.Client, pkt *protocol.Pack
 	_ = h.charRepo.SetItemOption(termIt.ItemKey, iotUseableDateTime, int64(newEnd))
 	h.consumeItemUnits(player, extIt, 1)
 	h.sendCellChangeFull(client, 9, int16(termSlot), termIt, 0xFFFF)
-	sendAck(0x0700)
+	sendAck(0x3618)
 
 	if h.gameLogDispatcher != nil && player.CurrentMap != nil {
 		h.gameLogDispatcher.EnqueueType6(11, player.Char.ID, player.CurrentMap.MapID, player.Char.XPos, player.Char.YPos, 0, int(termIt.ItemID), int64(newEnd))
@@ -473,9 +526,17 @@ func (h *Handler) handleClassChangeReq(client *network.Client, pkt *protocol.Pac
 		_ = client.SendPacket(ack)
 	}
 
+	if player.State == 3 || player.ActiveTrade != nil || player.ActiveBooth != nil {
+		sendAck(0x3681)
+		return
+	}
 	stuff := h.findItemAt(player.Char.ID, 9, int16(stuffSlot))
-	if stuff == nil || player.Char.Job >= 25 {
-		sendAck(0x0701)
+	if stuff == nil {
+		sendAck(0x3682)
+		return
+	}
+	if player.Char.Job >= 25 {
+		sendAck(0x3681)
 		return
 	}
 	newClass := player.Char.Job + 1
@@ -487,10 +548,10 @@ func (h *Handler) handleClassChangeReq(client *network.Client, pkt *protocol.Pac
 	openCmd := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_OPENCLASSCHANGEMENU_CMD)
 	openCmd.WriteByte(newClass)
 	openCmd.WriteUint64(0)
-	openCmd.WriteUint16(0x0700)
+	openCmd.WriteUint16(0x3680)
 	_ = client.SendPacket(openCmd)
 
-	sendAck(0x0700)
+	sendAck(0x3680)
 
 	if h.gameLogDispatcher != nil && player.CurrentMap != nil {
 		h.gameLogDispatcher.EnqueueType6(12, player.Char.ID, player.CurrentMap.MapID, player.Char.XPos, player.Char.YPos, 0, int(newClass), stuff.ItemKey)
@@ -515,14 +576,19 @@ func (h *Handler) handleMapLinkScrollReq(client *network.Client, pkt *protocol.P
 		_ = client.SendPacket(ack)
 	}
 
+	if player.State == 3 || player.ActiveTrade != nil || player.ActiveBooth != nil {
+		sendAck(0x3749, 0, 0)
+		return
+	}
+
 	// Verificar si el mapa destino existe en FieldList
 	if h.fieldStore == nil {
-		sendAck(0x0701, 0, 0)
+		sendAck(0x374C, 0, 0)
 		return
 	}
 	fld, ok := h.fieldStore.GetFieldBySerial(int(targetMapID))
 	if !ok || fld == nil {
-		sendAck(0x0701, 0, 0)
+		sendAck(0x374C, 0, 0)
 		return
 	}
 	lvFrom := uint8(0)
@@ -536,7 +602,7 @@ func (h *Handler) handleMapLinkScrollReq(client *network.Client, pkt *protocol.P
 		}
 	}
 	if player.Char.Level < lvFrom {
-		sendAck(0x0702, lvFrom, lvTo)
+		sendAck(0x374D, lvFrom, lvTo)
 		return
 	}
 	rx, ry := 0, 0
@@ -544,7 +610,7 @@ func (h *Handler) handleMapLinkScrollReq(client *network.Client, pkt *protocol.P
 		rx = fld.Respawn.Spots[0].X
 		ry = fld.Respawn.Spots[0].Y
 	}
-	sendAck(0x0700, lvFrom, lvTo)
+	sendAck(0x3748, lvFrom, lvTo)
 	h.triggerGateWarp(player, fmt.Sprintf("Map:%s,%d,%d", fld.MapID, rx, ry))
 }
 

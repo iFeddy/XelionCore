@@ -8,17 +8,48 @@ import (
 	"github.com/iFeddy/XelionCore/pkg/protocol"
 )
 
-// Codes de respuesta oficiales Shine para NC_ITEM Buy/Sell/Repurchase/Storage
+// Códigos de respuesta oficiales de Zone.exe para NC_ITEM Buy/Sell/Repurchase/Storage
 const (
-	errItemBuySuccess          uint16 = 0x0201
-	errItemBuyFail             uint16 = 0x0202
-	errItemSellSuccess         uint16 = 0x0381
-	errItemSellFail            uint16 = 0x0203
-	errItemRepurchaseSuccess   uint16 = 0x3668
-	errItemRepurchaseFail      uint16 = 0x366A
-	errItemStorageFail         uint16 = 0x0301
-	errItemStorageSuccess      uint16 = 0x0300
-	errAcademyStorageSuccess   uint16 = 0x17D8
+	errItemBuySuccess uint16 = 0x0201
+	errItemBuyFull    uint16 = 0x0203
+	errItemBuyState   uint16 = 0x0204
+	errItemBuyNoCen   uint16 = 0x020E
+	errItemBuyFail    uint16 = 0x0211
+
+	errItemSellSuccess uint16 = 0x0381
+	errItemSellState   uint16 = 0x0382
+	errItemSellMissing uint16 = 0x0383
+	errItemSellNoSell  uint16 = 0x0384
+
+	errItemRepurchaseSuccess uint16 = 0x3668
+	errItemRepurchaseFail    uint16 = 0x366A
+	errItemRepurchaseNoCen   uint16 = 0x366B
+	errItemRepurchaseFull    uint16 = 0x3671
+
+	errItemStorageSuccess uint16 = 0x0F80
+	errItemStorageState   uint16 = 0x0F81
+	errItemStorageFail    uint16 = 0x0F82
+	errItemStorageNoCen   uint16 = 0x0F83
+
+	errGuildStorageSuccess uint16 = 0x1480
+	errGuildStorageState   uint16 = 0x1481
+	errGuildStorageNoGuild uint16 = 0x1482
+	errGuildStorageNoCen   uint16 = 0x1483
+	errGuildStorageDenied  uint16 = 0x1484
+
+	errAcademyWithdrawSuccess uint16 = 0x17E0
+	errAcademyWithdrawFail    uint16 = 0x17E1
+	errAcademyWithdrawState   uint16 = 0x17E2
+	errAcademyWithdrawNoGuild uint16 = 0x17E3
+	errAcademyWithdrawNoCen   uint16 = 0x17E5
+
+	errAcademyDepositSuccess uint16 = 0x19A0
+	errAcademyDepositNoCen   uint16 = 0x19A1
+	errAcademyDepositState   uint16 = 0x19A2
+	errAcademyDepositNoGuild uint16 = 0x19A3
+	errAcademyDepositFail    uint16 = 0x19A4
+
+	errAcademyStorageSuccess uint16 = 0x17D8
 )
 
 func (h *Handler) findNPCMerchantName(mobID uint16) string {
@@ -47,6 +78,10 @@ func (h *Handler) handleItemBuyReq(client *network.Client, pkt *protocol.Packet)
 		_ = client.SendPacket(ack)
 	}
 
+	if player.State == 3 || player.ActiveTrade != nil || player.ActiveBooth != nil {
+		sendBuyAck(errItemBuyState)
+		return
+	}
 	if lot == 0 || h.itemStore == nil {
 		sendBuyAck(errItemBuyFail)
 		return
@@ -72,7 +107,7 @@ func (h *Handler) handleItemBuyReq(client *network.Client, pkt *protocol.Packet)
 		if npcRoleArg != "" {
 			if merchant, exists := h.dataStore.NPCItem.GetMerchant(npcRoleArg); exists && merchant != nil {
 				if !merchant.HasItem(info.InxName) {
-					sendBuyAck(errItemBuyFail)
+					sendBuyAck(errItemBuyState)
 					return
 				}
 			}
@@ -104,7 +139,7 @@ func (h *Handler) handleItemBuyReq(client *network.Client, pkt *protocol.Packet)
 						}
 					}
 					if tokenItem == nil {
-						sendBuyAck(errItemBuyFail)
+						sendBuyAck(errItemBuyNoCen)
 						return
 					}
 				}
@@ -117,7 +152,7 @@ func (h *Handler) handleItemBuyReq(client *network.Client, pkt *protocol.Packet)
 		totalPrice = 0
 	}
 	if uint64(player.Char.TCharacterState.Money) < totalPrice {
-		sendBuyAck(errItemBuyFail)
+		sendBuyAck(errItemBuyNoCen)
 		return
 	}
 
@@ -156,7 +191,7 @@ func (h *Handler) handleItemBuyReq(client *network.Client, pkt *protocol.Packet)
 	} else {
 		freeSlot, ok := h.findFreeInvenSlot(player.Char.ID)
 		if !ok {
-			sendBuyAck(errItemBuyFail)
+			sendBuyAck(errItemBuyFull)
 			return
 		}
 		newIt := &database.Item{
@@ -225,14 +260,19 @@ func (h *Handler) handleItemSellReq(client *network.Client, pkt *protocol.Packet
 		_ = client.SendPacket(ack)
 	}
 
+	if player.State == 3 || player.ActiveTrade != nil || player.ActiveBooth != nil {
+		sendSellAck(errItemSellState)
+		return
+	}
+
 	srcItem := h.findItemAt(player.Char.ID, 9, int16(slot))
 	if srcItem == nil || lot == 0 {
-		sendSellAck(errItemSellFail)
+		sendSellAck(errItemSellMissing)
 		return
 	}
 	rule := h.getBelongRule(srcItem.ItemID)
 	if rule.NoSell {
-		sendSellAck(errItemSellFail)
+		sendSellAck(errItemSellNoSell)
 		return
 	}
 
@@ -241,7 +281,7 @@ func (h *Handler) handleItemSellReq(client *network.Client, pkt *protocol.Packet
 		curLot = 1
 	}
 	if lot > curLot {
-		sendSellAck(errItemSellFail)
+		sendSellAck(errItemSellMissing)
 		return
 	}
 
@@ -256,14 +296,14 @@ func (h *Handler) handleItemSellReq(client *network.Client, pkt *protocol.Packet
 
 	if lot == curLot {
 		if err := h.charRepo.SellItemAll(srcItem.ItemKey, player.Char.ID, int64(sellTotal)); err != nil {
-			sendSellAck(errItemSellFail)
+			sendSellAck(errItemSellMissing)
 			return
 		}
 		h.sendCellChangeFull(client, 9, int16(slot), nil, 0xFFFF)
 	} else {
 		rem := int32(curLot - lot)
 		if err := h.charRepo.SellItemLot(srcItem.ItemKey, player.Char.ID, 0, 0, int64(sellTotal)); err != nil {
-			sendSellAck(errItemSellFail)
+			sendSellAck(errItemSellMissing)
 			return
 		}
 		srcItem.Flags = rem
@@ -328,6 +368,11 @@ func (h *Handler) handleItemRepurchaseReq(client *network.Client, pkt *protocol.
 		_ = client.SendPacket(ack)
 	}
 
+	if player.State == 3 || player.ActiveTrade != nil || player.ActiveBooth != nil {
+		sendAck(errItemRepurchaseFail)
+		return
+	}
+
 	idx := -1
 	var found *RepurchaseEntry
 	for i, rp := range player.RepurchaseItems {
@@ -337,14 +382,18 @@ func (h *Handler) handleItemRepurchaseReq(client *network.Client, pkt *protocol.
 			break
 		}
 	}
-	if found == nil || uint64(player.Char.TCharacterState.Money) < found.Price {
+	if found == nil {
 		sendAck(errItemRepurchaseFail)
+		return
+	}
+	if uint64(player.Char.TCharacterState.Money) < found.Price {
+		sendAck(errItemRepurchaseNoCen)
 		return
 	}
 
 	freeSlot, ok := h.findFreeInvenSlot(player.Char.ID)
 	if !ok {
-		sendAck(errItemRepurchaseFail)
+		sendAck(errItemRepurchaseFull)
 		return
 	}
 
@@ -401,9 +450,14 @@ func (h *Handler) handleItemDepositReq(client *network.Client, pkt *protocol.Pac
 		_ = client.SendPacket(ack)
 	}
 
+	if player.State == 3 || player.ActiveTrade != nil || player.ActiveBooth != nil {
+		cur, _ := h.charRepo.UserGetMoney(player.Char.AccountID)
+		sendAck(uint64(cur), errItemStorageState)
+		return
+	}
 	if cen == 0 || uint64(player.Char.TCharacterState.Money) < cen {
 		cur, _ := h.charRepo.UserGetMoney(player.Char.AccountID)
-		sendAck(uint64(cur), errItemStorageFail)
+		sendAck(uint64(cur), errItemStorageNoCen)
 		return
 	}
 
@@ -440,16 +494,21 @@ func (h *Handler) handleItemWithdrawReq(client *network.Client, pkt *protocol.Pa
 		_ = client.SendPacket(ack)
 	}
 
+	if player.State == 3 || player.ActiveTrade != nil || player.ActiveBooth != nil {
+		cur, _ := h.charRepo.UserGetMoney(player.Char.AccountID)
+		sendAck(uint64(cur), errItemStorageState)
+		return
+	}
 	if cen == 0 {
 		cur, _ := h.charRepo.UserGetMoney(player.Char.AccountID)
-		sendAck(uint64(cur), errItemStorageFail)
+		sendAck(uint64(cur), errItemStorageNoCen)
 		return
 	}
 
 	storedCen, err := h.charRepo.UserWithdrawMoney(player.Char.AccountID, player.Char.ID, int64(cen))
 	if err != nil {
 		cur, _ := h.charRepo.UserGetMoney(player.Char.AccountID)
-		sendAck(uint64(cur), errItemStorageFail)
+		sendAck(uint64(cur), errItemStorageNoCen)
 		return
 	}
 	player.Char.TCharacterState.Money += int64(cen)
@@ -541,19 +600,27 @@ func (h *Handler) handleItemGuildStorageWithdrawReq(client *network.Client, pkt 
 		_ = client.SendPacket(ack)
 	}
 
+	if player.State == 3 || player.ActiveTrade != nil || player.ActiveBooth != nil {
+		sendAck(0, errGuildStorageState)
+		return
+	}
 	gid := h.resolvePlayerGuildID(player)
-	if gid <= 0 || cen == 0 {
-		sendAck(0, errItemStorageFail)
+	if gid <= 0 {
+		sendAck(0, errGuildStorageNoGuild)
+		return
+	}
+	if cen == 0 {
+		sendAck(0, errGuildStorageNoCen)
 		return
 	}
 	rem, _, err := h.charRepo.SubGuildMoney(gid, player.Char.ID, int64(cen))
 	if err != nil {
-		sendAck(0, errItemStorageFail)
+		sendAck(0, errGuildStorageDenied)
 		return
 	}
 	player.Char.TCharacterState.Money += int64(cen)
 	h.syncPlayerMoney(player)
-	sendAck(uint64(rem), errItemStorageSuccess)
+	sendAck(uint64(rem), errGuildStorageSuccess)
 
 	if h.gameLogDispatcher != nil && player.CurrentMap != nil {
 		h.gameLogDispatcher.EnqueueTypeB(1, player.Char.ID, player.CurrentMap.MapID, player.Char.XPos, player.Char.YPos, 0, gid, 0, int64(cen), int(rem), 0, 0)
@@ -590,20 +657,29 @@ func (h *Handler) handleItemAcademyStorageWithdrawReq(client *network.Client, pk
 		ack.WriteUint16(errCode)
 		_ = client.SendPacket(ack)
 	}
+	if player.State == 3 || player.ActiveTrade != nil || player.ActiveBooth != nil {
+		sendAck(0, errAcademyWithdrawState)
+		return
+	}
 	gid := h.resolvePlayerGuildID(player)
-	if gid <= 0 || cen == 0 {
-		sendAck(0, errItemStorageFail)
+	if gid <= 0 {
+		sendAck(0, errAcademyWithdrawNoGuild)
+		return
+	}
+	if cen == 0 {
+		cur, _ := h.charRepo.GetAcademyMoney(gid)
+		sendAck(uint64(cur), errAcademyWithdrawFail)
 		return
 	}
 	if err := h.charRepo.WithdrawAcademyMoney(gid, player.Char.ID, int64(cen)); err != nil {
 		cur, _ := h.charRepo.GetAcademyMoney(gid)
-		sendAck(uint64(cur), errItemStorageFail)
+		sendAck(uint64(cur), errAcademyWithdrawNoCen)
 		return
 	}
 	rem, _ := h.charRepo.GetAcademyMoney(gid)
 	player.Char.TCharacterState.Money += int64(cen)
 	h.syncPlayerMoney(player)
-	sendAck(uint64(rem), errItemStorageSuccess)
+	sendAck(uint64(rem), errAcademyWithdrawSuccess)
 
 	if h.gameLogDispatcher != nil && player.CurrentMap != nil {
 		h.gameLogDispatcher.EnqueueTypeB(2, player.Char.ID, player.CurrentMap.MapID, player.Char.XPos, player.Char.YPos, 0, gid, 0, int64(cen), int(rem), 0, 0)
@@ -625,21 +701,29 @@ func (h *Handler) handleItemAcademyStorageDepositReq(client *network.Client, pkt
 		ack.WriteUint16(errCode)
 		_ = client.SendPacket(ack)
 	}
+	if player.State == 3 || player.ActiveTrade != nil || player.ActiveBooth != nil {
+		sendAck(0, errAcademyDepositState)
+		return
+	}
 	gid := h.resolvePlayerGuildID(player)
-	if gid <= 0 || cen == 0 || uint64(player.Char.TCharacterState.Money) < cen {
+	if gid <= 0 {
+		sendAck(0, errAcademyDepositNoGuild)
+		return
+	}
+	if cen == 0 || uint64(player.Char.TCharacterState.Money) < cen {
 		cur, _ := h.charRepo.GetAcademyMoney(gid)
-		sendAck(uint64(cur), errItemStorageFail)
+		sendAck(uint64(cur), errAcademyDepositNoCen)
 		return
 	}
 	if err := h.charRepo.DepositAcademyMoney(gid, player.Char.ID, int64(cen)); err != nil {
 		cur, _ := h.charRepo.GetAcademyMoney(gid)
-		sendAck(uint64(cur), errItemStorageFail)
+		sendAck(uint64(cur), errAcademyDepositFail)
 		return
 	}
 	rem, _ := h.charRepo.GetAcademyMoney(gid)
 	player.Char.TCharacterState.Money -= int64(cen)
 	h.syncPlayerMoney(player)
-	sendAck(uint64(rem), errItemStorageSuccess)
+	sendAck(uint64(rem), errAcademyDepositSuccess)
 
 	if h.gameLogDispatcher != nil && player.CurrentMap != nil {
 		h.gameLogDispatcher.EnqueueTypeB(3, player.Char.ID, player.CurrentMap.MapID, player.Char.XPos, player.Char.YPos, 0, gid, 0, int64(cen), int(rem), 0, 0)
