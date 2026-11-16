@@ -714,6 +714,16 @@ func (h *Handler) getPlayer(client *network.Client) (*ZonePlayer, bool) {
 	return p, ok
 }
 
+// RegisterPlayerForTest registra una sesión de jugador directamente en el Handler (para suites de auditoría).
+func (h *Handler) RegisterPlayerForTest(p *ZonePlayer) {
+	if p == nil || p.Client == nil {
+		return
+	}
+	h.mu.Lock()
+	h.players[p.Client] = p
+	h.mu.Unlock()
+}
+
 // GetPlayerByName busca un jugador activo por su nombre.
 func (h *Handler) GetPlayerByName(name string) (*ZonePlayer, bool) {
 	h.mu.RLock()

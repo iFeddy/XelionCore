@@ -177,6 +177,7 @@ func (pm *PartyManager) InviteMember(inviter *network.Client, targetName string)
 
 	if target.CharID == inviterID {
 		log.Printf("[Party] Cannot invite oneself")
+		_ = inviter.SendPacket(protocol.New_PROTO_NC_PARTY_JOIN_ACK(targetName, 0, 5))
 		return
 	}
 
@@ -194,6 +195,7 @@ func (pm *PartyManager) InviteMember(inviter *network.Client, targetName string)
 		party = pm.parties[partyID]
 		if party.MasterID != inviterID {
 			log.Printf("[Party] Inviter %d is not party master", inviterID)
+			_ = inviter.SendPacket(protocol.New_PROTO_NC_PARTY_JOIN_ACK(targetName, target.Class, 6))
 			return
 		}
 		if len(party.Members) >= 5 {

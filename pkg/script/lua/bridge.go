@@ -252,3 +252,72 @@ func (b *DefaultBridge) ScenarioEvaluateMatchScore(field string) string         
 func (b *DefaultBridge) ScenarioRewardGuildTournament(field, winningGuild string)          {}
 func (b *DefaultBridge) ScenarioWait(seconds int)                                          {}
 
+// LuaFieldRuntimeBridge extiende WorldBridge con las firmas exactas de Zone.exe
+// para scripts reales de data/LuaScript/ (spawns por índice, puertas con handle,
+// listado múltiple de jugadores, AbState por nombre y hooks FieldScript/AIScript).
+type LuaFieldRuntimeBridge interface {
+	MobRegenXYByName(mapName, mobInx string, x, y float64, dir, layer int) uint32
+	MobRegenCircleByName(mapName, mobInx string, x, y, radius float64) uint32
+	MobRegenRectByName(mapName, mobInx string, x1, y1, x2, y2 float64) uint32
+	GroupRegenByName(mapName, groupInx string) int
+	GroupRegenInstanceXY(mapName, groupInx string, x, y, radius float64, maxCount int) int
+	NPCRegenByName(mapName, npcInx string, x, y float64, dir int) uint32
+	MobSuicideByMap(mapName string, handle uint32)
+	VanishAll(mapName, mobInx string)
+	VanishReserv(mapName, mobInx string, seconds int)
+	VanishTimer(mapName string, seconds int)
+	ObjectCount(mapName string, objType int) int
+	GetPlayerListInMap(mapName string) []uint32
+	LinkToAll(srcMap, destMap string, x, y float64)
+	DoorBuildByField(fieldName, mobInx string, x, y float64, dir int, scale float64) uint32
+	DoorActionByField(fieldOrHandle interface{}, blockName, action string) bool
+	IsInAreaByMap(handle uint32, mapName, areaName string) bool
+	SetAbstateByName(handle uint32, staName string, level, durationMs int)
+	SetAbstateInArea(mapName, staName string, level, durationMs int, areaName string, cx, cy, radius float64)
+	EndOfKingdomQuestMap(mapName string) bool
+	RegisterFieldScriptFunc(mapName, eventName, funcName string) bool
+	RegisterAIScriptFunc(handle uint32, eventName, funcName string) bool
+	TimerStartMap(mapName string, timerID, seconds int)
+	TimerEndMap(mapName string, timerID int)
+}
+
+func (b *DefaultBridge) MobRegenXYByName(mapName, mobInx string, x, y float64, dir, layer int) uint32 {
+	return 1001
+}
+func (b *DefaultBridge) MobRegenCircleByName(mapName, mobInx string, x, y, radius float64) uint32 {
+	return 1002
+}
+func (b *DefaultBridge) MobRegenRectByName(mapName, mobInx string, x1, y1, x2, y2 float64) uint32 {
+	return 1003
+}
+func (b *DefaultBridge) GroupRegenByName(mapName, groupInx string) int { return 1 }
+func (b *DefaultBridge) GroupRegenInstanceXY(mapName, groupInx string, x, y, radius float64, maxCount int) int {
+	return maxCount
+}
+func (b *DefaultBridge) NPCRegenByName(mapName, npcInx string, x, y float64, dir int) uint32 {
+	return 2001
+}
+func (b *DefaultBridge) MobSuicideByMap(mapName string, handle uint32)                          {}
+func (b *DefaultBridge) VanishAll(mapName, mobInx string)                                       {}
+func (b *DefaultBridge) VanishReserv(mapName, mobInx string, seconds int)                       {}
+func (b *DefaultBridge) VanishTimer(mapName string, seconds int)                                {}
+func (b *DefaultBridge) ObjectCount(mapName string, objType int) int                            { return 0 }
+func (b *DefaultBridge) GetPlayerListInMap(mapName string) []uint32                             { return nil }
+func (b *DefaultBridge) LinkToAll(srcMap, destMap string, x, y float64)                         {}
+func (b *DefaultBridge) DoorBuildByField(fieldName, mobInx string, x, y float64, dir int, scale float64) uint32 {
+	return 3001
+}
+func (b *DefaultBridge) DoorActionByField(fieldOrHandle interface{}, blockName, action string) bool {
+	return true
+}
+func (b *DefaultBridge) IsInAreaByMap(handle uint32, mapName, areaName string) bool { return true }
+func (b *DefaultBridge) SetAbstateByName(handle uint32, staName string, level, durationMs int) {}
+func (b *DefaultBridge) SetAbstateInArea(mapName, staName string, level, durationMs int, areaName string, cx, cy, radius float64) {
+}
+func (b *DefaultBridge) EndOfKingdomQuestMap(mapName string) bool                        { return true }
+func (b *DefaultBridge) RegisterFieldScriptFunc(mapName, eventName, funcName string) bool { return true }
+func (b *DefaultBridge) RegisterAIScriptFunc(handle uint32, eventName, funcName string) bool { return true }
+func (b *DefaultBridge) TimerStartMap(mapName string, timerID, seconds int)              {}
+func (b *DefaultBridge) TimerEndMap(mapName string, timerID int)                         {}
+
+

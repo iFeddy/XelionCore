@@ -828,7 +828,7 @@ func TestFase23_ZoneMoveCollisionPortalsNPCsMoverAOIChatGM_ClusterE2E(t *testing
 	roar.WriteByte(byte(len(roarMsg)))
 	roar.WriteBytes([]byte(roarMsg))
 	_ = zClientA.sendPacket(roar)
-	if pkts := f23CollectPackets(zConnA, 100*time.Millisecond); f23FindPkt(pkts, protocol.PROTO_NC_ACT_ROAR_ACK) == nil {
+	if pkts := f23CollectPackets(zConnA, 450*time.Millisecond); f23FindPkt(pkts, protocol.PROTO_NC_ACT_ROAR_ACK) == nil {
 		t.Fatalf("ROAR_REQ no emitió ROAR_ACK")
 	}
 

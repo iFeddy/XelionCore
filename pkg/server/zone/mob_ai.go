@@ -718,6 +718,179 @@ func (b *ZoneWorldBridge) ScenarioWait(seconds int) {
 	// No bloquea invocaciones síncronas dentro del GameLoop o tests unitarios
 }
 
+// ============================================================================
+// Implementación LuaFieldRuntimeBridge (firmas oficiales Zone.exe)
+// ============================================================================
+
+func (b *ZoneWorldBridge) MobRegenXYByName(mapName, mobInx string, x, y float64, dir, layer int) uint32 {
+	if b.zMap != nil {
+		return b.zMap.bridgeMobRegenXYByName(mapName, mobInx, x, y, dir, layer)
+	}
+	return 0
+}
+func (b *ZoneWorldBridge) MobRegenCircleByName(mapName, mobInx string, x, y, radius float64) uint32 {
+	if b.zMap != nil {
+		angle := rand.Float64() * 2 * math.Pi
+		dist := rand.Float64() * radius
+		return b.zMap.bridgeMobRegenXYByName(mapName, mobInx, x+math.Cos(angle)*dist, y+math.Sin(angle)*dist, 0, 0)
+	}
+	return 0
+}
+func (b *ZoneWorldBridge) MobRegenRectByName(mapName, mobInx string, x1, y1, x2, y2 float64) uint32 {
+	if b.zMap != nil {
+		rx := x1
+		if x2 > x1 {
+			rx = x1 + rand.Float64()*(x2-x1)
+		}
+		ry := y1
+		if y2 > y1 {
+			ry = y1 + rand.Float64()*(y2-y1)
+		}
+		return b.zMap.bridgeMobRegenXYByName(mapName, mobInx, rx, ry, 0, 0)
+	}
+	return 0
+}
+func (b *ZoneWorldBridge) GroupRegenByName(mapName, groupInx string) int {
+	if b.zMap != nil {
+		return b.zMap.bridgeGroupRegenByName(mapName, groupInx, 0, 0, 0, 0)
+	}
+	return 0
+}
+func (b *ZoneWorldBridge) GroupRegenInstanceXY(mapName, groupInx string, x, y, radius float64, maxCount int) int {
+	if b.zMap != nil {
+		return b.zMap.bridgeGroupRegenByName(mapName, groupInx, x, y, radius, maxCount)
+	}
+	return 0
+}
+func (b *ZoneWorldBridge) NPCRegenByName(mapName, npcInx string, x, y float64, dir int) uint32 {
+	if b.zMap != nil {
+		return b.zMap.bridgeSpawnNamedNPC(npcInx, x, y, dir)
+	}
+	return 0
+}
+func (b *ZoneWorldBridge) MobSuicideByMap(mapName string, handle uint32) {
+	if b.zMap != nil {
+		b.zMap.bridgeMobSuicideByMap(mapName, handle)
+	}
+}
+func (b *ZoneWorldBridge) VanishAll(mapName, mobInx string) {
+	if b.zMap != nil {
+		b.zMap.bridgeVanishAll(mapName, mobInx)
+	}
+}
+func (b *ZoneWorldBridge) VanishReserv(mapName, mobInx string, seconds int) {
+	if b.zMap != nil {
+		b.zMap.mu.Lock()
+		if b.zMap.VanishTimers == nil {
+			b.zMap.VanishTimers = make(map[string]int64)
+		}
+		b.zMap.VanishTimers[mobInx] = time.Now().Unix() + int64(seconds)
+		b.zMap.mu.Unlock()
+	}
+}
+func (b *ZoneWorldBridge) VanishTimer(mapName string, seconds int) {
+	if b.zMap != nil {
+		b.zMap.mu.Lock()
+		if b.zMap.VanishTimers == nil {
+			b.zMap.VanishTimers = make(map[string]int64)
+		}
+		b.zMap.VanishTimers["*"] = time.Now().Unix() + int64(seconds)
+		b.zMap.mu.Unlock()
+	}
+}
+func (b *ZoneWorldBridge) ObjectCount(mapName string, objType int) int {
+	if b.zMap != nil {
+		return b.zMap.bridgeObjectCount(mapName, objType)
+	}
+	return 0
+}
+func (b *ZoneWorldBridge) GetPlayerListInMap(mapName string) []uint32 {
+	if b.zMap != nil {
+		return b.zMap.bridgeGetPlayerList(mapName)
+	}
+	return nil
+}
+func (b *ZoneWorldBridge) LinkToAll(srcMap, destMap string, x, y float64) {
+	if b.zMap != nil {
+		b.zMap.bridgeLinkToAll(srcMap, destMap, x, y)
+	}
+}
+func (b *ZoneWorldBridge) DoorBuildByField(fieldName, mobInx string, x, y float64, dir int, scale float64) uint32 {
+	if b.zMap != nil {
+		return b.zMap.bridgeDoorBuildByField(fieldName, mobInx, x, y, dir, scale)
+	}
+	return 0
+}
+func (b *ZoneWorldBridge) DoorActionByField(fieldOrHandle interface{}, blockName, action string) bool {
+	if b.zMap != nil {
+		return b.zMap.bridgeDoorActionByField(fieldOrHandle, blockName, action)
+	}
+	return false
+}
+func (b *ZoneWorldBridge) IsInAreaByMap(handle uint32, mapName, areaName string) bool {
+	if b.zMap != nil {
+		return b.zMap.bridgeIsInAreaByMap(handle, mapName, areaName)
+	}
+	return false
+}
+func (b *ZoneWorldBridge) SetAbstateByName(handle uint32, staName string, level, durationMs int) {
+	if b.zMap != nil {
+		b.zMap.bridgeApplyAbstateByName(handle, staName, level, durationMs)
+	}
+}
+func (b *ZoneWorldBridge) SetAbstateInArea(mapName, staName string, level, durationMs int, areaName string, cx, cy, radius float64) {
+	if b.zMap != nil {
+		b.zMap.bridgeSetAbstateInArea(mapName, staName, level, durationMs, areaName, cx, cy, radius)
+	}
+}
+func (b *ZoneWorldBridge) EndOfKingdomQuestMap(mapName string) bool {
+	if b.zMap != nil {
+		b.zMap.bridgeEndOfKingdomQuest(true)
+		return true
+	}
+	return false
+}
+func (b *ZoneWorldBridge) RegisterFieldScriptFunc(mapName, eventName, funcName string) bool {
+	if b.zMap != nil {
+		b.zMap.mu.Lock()
+		if b.zMap.FieldScriptFuncs == nil {
+			b.zMap.FieldScriptFuncs = make(map[string]string)
+		}
+		b.zMap.FieldScriptFuncs[eventName] = funcName
+		b.zMap.mu.Unlock()
+		return true
+	}
+	return false
+}
+func (b *ZoneWorldBridge) RegisterAIScriptFunc(handle uint32, eventName, funcName string) bool {
+	if b.zMap != nil && handle != 0 {
+		b.zMap.mu.Lock()
+		if b.zMap.AIScriptFuncs == nil {
+			b.zMap.AIScriptFuncs = make(map[uint32]map[string]string)
+		}
+		if b.zMap.AIScriptFuncs[handle] == nil {
+			b.zMap.AIScriptFuncs[handle] = make(map[string]string)
+		}
+		b.zMap.AIScriptFuncs[handle][eventName] = funcName
+		b.zMap.mu.Unlock()
+		if strings.EqualFold(eventName, "Entrance") || strings.EqualFold(eventName, "Routine") {
+			if mob := b.zMap.GetMonster(uint16(handle)); mob != nil {
+				mob.mu.Lock()
+				mob.AIScriptFunc = funcName
+				mob.mu.Unlock()
+			}
+		}
+		return true
+	}
+	return false
+}
+func (b *ZoneWorldBridge) TimerStartMap(mapName string, timerID, seconds int) {
+	b.TimerStart(timerID, seconds)
+}
+func (b *ZoneWorldBridge) TimerEndMap(mapName string, timerID int) {
+	b.TimerEnd(timerID)
+}
+
 func resolveZoneDataDir() string {
 	for _, cand := range []string{"data", filepath.Join("..", "..", "..", "data"), filepath.Join("..", "..", "data")} {
 		if fi, err := os.Stat(filepath.Join(cand, "MobBehaviorDescript")); err == nil && fi.IsDir() {

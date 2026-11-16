@@ -3,6 +3,7 @@ package world
 import (
 	"log"
 	"strings"
+	"time"
 
 	"github.com/iFeddy/XelionCore/pkg/database"
 	"github.com/iFeddy/XelionCore/pkg/network"
@@ -299,18 +300,37 @@ func (h *Handler) handlePrisonSendIn(client *network.Client, pkt *protocol.Packe
 		reason, _ = pkt.Reader.ReadString(pkt.Reader.Remaining())
 	}
 
-	if h.charRepo != nil {
-		_ = h.charRepo.AddPrison(h.activeCharName(client), targetName, minutes, reason, remark)
+	cleanTarget := strings.TrimSpace(targetName)
+	var errCode uint16
+	if cleanTarget == "" || minutes <= 0 {
+		errCode = 1
+	} else {
+		if h.charRepo != nil {
+			_ = h.charRepo.AddPrison(h.activeCharName(client), cleanTarget, minutes, reason, remark)
+		}
+		h.prisonMu.Lock()
+		if h.activePrisons == nil {
+			h.activePrisons = make(map[string]*PrisonSentence)
+		}
+		h.activePrisons[strings.ToLower(cleanTarget)] = &PrisonSentence{
+			CharName:  cleanTarget,
+			Reason:    reason,
+			Remark:    remark,
+			ExpiresAt: time.Now().Add(time.Duration(minutes) * time.Minute),
+		}
+		h.prisonMu.Unlock()
 	}
 
 	resp := protocol.NewPacketWriter(protocol.PROTO_NC_PRISON_ADD_GM_ACK)
 	resp.WriteString(targetName, 20)
-	resp.WriteUint16(0)
+	resp.WriteUint16(errCode)
 	_ = client.SendPacket(resp)
 
-	h.BroadcastToZones("wms_NC_ZONE_PRISON_GO_REQ", map[string]interface{}{
-		"charName": targetName,
-	})
+	if errCode == 0 {
+		h.BroadcastToZones("wms_NC_ZONE_PRISON_GO_REQ", map[string]interface{}{
+			"charName": cleanTarget,
+		})
+	}
 }
 
 func (h *Handler) handlePrisonTakeOut(client *network.Client, pkt *protocol.Packet) {
@@ -327,6 +347,11 @@ func (h *Handler) handlePrisonTakeOut(client *network.Client, pkt *protocol.Pack
 		if ch, err := h.charRepo.GetCharacterByID(targetCharID); err == nil && ch != nil {
 			targetName = ch.Name
 		}
+	}
+	if targetName != "" {
+		h.prisonMu.Lock()
+		delete(h.activePrisons, strings.ToLower(strings.TrimSpace(targetName)))
+		h.prisonMu.Unlock()
 	}
 	resp := protocol.NewPacketWriter(protocol.PROTO_NC_PRISON_END_ACK)
 	resp.WriteUint32(uint32(targetCharID))
@@ -350,25 +375,122 @@ func (h *Handler) handlePrisonAlterTime(client *network.Client, pkt *protocol.Pa
 		reason, _ = pkt.Reader.ReadString(pkt.Reader.Remaining())
 	}
 
-	if h.charRepo != nil {
-		_ = h.charRepo.AlterPrison(h.activeCharName(client), targetName, minutes, reason, remark)
+	cleanTarget := strings.TrimSpace(targetName)
+	var errCode uint16
+	if cleanTarget == "" || minutes <= 0 {
+		errCode = 1
+	} else {
+		if h.charRepo != nil {
+			_ = h.charRepo.AlterPrison(h.activeCharName(client), cleanTarget, minutes, reason, remark)
+		}
+		h.prisonMu.Lock()
+		if h.activePrisons == nil {
+			h.activePrisons = make(map[string]*PrisonSentence)
+		}
+		h.activePrisons[strings.ToLower(cleanTarget)] = &PrisonSentence{
+			CharName:  cleanTarget,
+			Reason:    reason,
+			Remark:    remark,
+			ExpiresAt: time.Now().Add(time.Duration(minutes) * time.Minute),
+		}
+		h.prisonMu.Unlock()
 	}
 
 	resp := protocol.NewPacketWriter(protocol.PROTO_NC_PRISON_ALTER_GM_ACK)
 	resp.WriteString(targetName, 20)
-	resp.WriteUint16(0)
+	resp.WriteUint16(errCode)
 	_ = client.SendPacket(resp)
 }
 
 func (h *Handler) handlePrisonConfirm(client *network.Client, pkt *protocol.Packet) {
 	// Struct oficial PDB: PROTO_NC_PRISON_GET_ACK (84 bytes: err[2], nMinute[2], sReason[16], sRemark[64])
+	charName := strings.ToLower(strings.TrimSpace(h.activeCharName(client)))
+	var remMin uint16
+	var reason, remark string
+	h.prisonMu.Lock()
+	if st := h.activePrisons[charName]; st != nil {
+		diff := time.Until(st.ExpiresAt)
+		if diff > 0 {
+			remMin = uint16((diff.Seconds() + 59) / 60)
+			reason = st.Reason
+			remark = st.Remark
+		}
+	}
+	h.prisonMu.Unlock()
 	resp := protocol.NewPacketWriter(protocol.PROTO_NC_PRISON_GET_ACK)
-	resp.WriteUint16(0) // err
-	resp.WriteUint16(0) // nMinute
-	resp.Fill(16, 0)    // sReason[16]
-	resp.Fill(64, 0)    // sRemark[64]
+	resp.WriteUint16(0)      // err
+	resp.WriteUint16(remMin) // nMinute
+	resp.WriteString(reason, 16)
+	resp.WriteString(remark, 64)
 	_ = client.SendPacket(resp)
 }
+
+// OnPrisonTimer ejecuta CPrisonServer::OnPrisonTimer (WorldManager.exe 0x00458360):
+// libera automáticamente personajes cuya condena venció y notifica a ZoneService vía S2S.
+func (h *Handler) OnPrisonTimer(now time.Time) int {
+	h.prisonMu.Lock()
+	var expired []*PrisonSentence
+	for k, st := range h.activePrisons {
+		if st == nil || !now.Before(st.ExpiresAt) {
+			if st != nil {
+				expired = append(expired, st)
+			}
+			delete(h.activePrisons, k)
+		}
+	}
+	h.prisonMu.Unlock()
+
+	for _, st := range expired {
+		var charID int
+		if h.charRepo != nil {
+			if ch, err := h.charRepo.GetCharacterByName(st.CharName); err == nil && ch != nil {
+				charID = ch.ID
+				_ = h.charRepo.EndPrison(charID)
+			}
+		}
+		h.BroadcastToZones("wms_NC_ZONE_PRISON_END_CMD", map[string]interface{}{
+			"charName": st.CharName,
+			"char_id":  charID,
+		})
+	}
+	return len(expired)
+}
+
+// ForcePrisonExpiryForTest adelanta el vencimiento de prisión de un personaje para tests determinísticos.
+func (h *Handler) ForcePrisonExpiryForTest(charName string) {
+	h.prisonMu.Lock()
+	defer h.prisonMu.Unlock()
+	if st := h.activePrisons[strings.ToLower(strings.TrimSpace(charName))]; st != nil {
+		st.ExpiresAt = time.Now().Add(-1 * time.Second)
+	}
+}
+
+// ActivePrisonCount retorna la cantidad de condenas activas registradas en WorldManager.
+func (h *Handler) ActivePrisonCount() int {
+	h.prisonMu.Lock()
+	defer h.prisonMu.Unlock()
+	return len(h.activePrisons)
+}
+
+// RunWorldTick ejecuta un ciclo autónomo completo de WorldManager (KQ + Prison + GuildWar).
+func (h *Handler) RunWorldTick(now time.Time) {
+	if h.kqMgr != nil {
+		h.kqMgr.DoKingdomQuest(now)
+	}
+	if h.guildMgr != nil {
+		h.guildMgr.UpdateGuildWars(now)
+	}
+	h.OnPrisonTimer(now)
+}
+
+// KQManager retorna el gestor KQ (usado por suites de auditoría).
+func (h *Handler) KQManager() *KQManager { return h.kqMgr }
+
+// GuildManager retorna el gestor de gremios (usado por suites de auditoría).
+func (h *Handler) GuildManager() *GuildManager { return h.guildMgr }
+
+// PartyManager retorna el gestor de grupos (usado por suites de auditoría).
+func (h *Handler) PartyManager() *PartyManager { return h.partyMgr }
 
 // ============================================================================
 // DEPARTAMENTO 32: REPORT (tReport en AccountLog)

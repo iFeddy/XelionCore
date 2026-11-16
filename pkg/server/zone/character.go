@@ -186,6 +186,7 @@ type ZonePlayer struct {
 
 	// Campos de subsistemas de la Fase 15 (Quests, Instancias/KQ/GT/Wedding, MiniHouse, Pets y Casino)
 	PendingQuestRewardSelect uint16
+	LastQuestGiveUpAt        time.Time
 	PendingMenuNPC           uint16
 	PendingMenuCallbacks     []string
 	ActivePet                *ActivePetState

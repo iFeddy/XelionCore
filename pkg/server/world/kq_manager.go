@@ -643,3 +643,57 @@ func (km *KQManager) HandleVoteCast(client *network.Client, agree bool) {
 		}
 	}
 }
+
+// DoKingdomQuest ejecuta CKQServer::DoKingdomQuest (WorldManager.exe 0x00456190):
+// transiciona lobbies de KQ Recruiting -> Running -> Scheduled y limpia sesiones expiradas.
+func (km *KQManager) DoKingdomQuest(now time.Time) int {
+	km.mu.Lock()
+	defer km.mu.Unlock()
+	transitions := 0
+	for _, inst := range km.instances {
+		if inst == nil {
+			continue
+		}
+		waitDur := time.Duration(inst.StartWaitTime) * time.Second
+		if waitDur <= 0 {
+			waitDur = 60 * time.Second
+		}
+		limitDur := time.Duration(inst.LimitTime) * time.Second
+		if limitDur <= 0 {
+			limitDur = 1800 * time.Second
+		}
+		switch inst.Status {
+		case 1: // Recruiting -> Running o Abort si insuficiente gente
+			if !inst.StartTime.IsZero() && !now.Before(inst.StartTime.Add(waitDur)) {
+				if len(inst.Participants) >= int(inst.MinPlayers) || len(inst.Participants) > 0 {
+					inst.Status = 2
+					endAlarm := protocol.New_PROTO_NC_KQ_JOINING_ALARM_END_CMD(inst.Handle, 0)
+					for _, p := range inst.Participants {
+						if p != nil && p.Client != nil {
+							_ = p.Client.SendPacket(endAlarm)
+						}
+					}
+					transitions++
+				} else {
+					inst.Status = 0
+					transitions++
+				}
+			}
+		case 2: // Running -> Expire / Scheduled
+			if !inst.StartTime.IsZero() && !now.Before(inst.StartTime.Add(waitDur+limitDur)) {
+				inst.Status = 0
+				endAlarm := protocol.New_PROTO_NC_KQ_JOINING_ALARM_END_CMD(inst.Handle, 1)
+				for charID, p := range inst.Participants {
+					if p != nil && p.Client != nil {
+						_ = p.Client.SendPacket(endAlarm)
+					}
+					delete(km.charToKQ, charID)
+				}
+				inst.Participants = make(map[int]*KQParticipant)
+				inst.ActiveVote = nil
+				transitions++
+			}
+		}
+	}
+	return transitions
+}

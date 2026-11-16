@@ -36,6 +36,16 @@ type Handler struct {
 	zonePort       uint16
 	activeClients  map[int]*network.Client
 	mu             sync.Mutex
+	prisonMu       sync.Mutex
+	activePrisons  map[string]*PrisonSentence
+}
+
+// PrisonSentence modela una condena activa en CPrisonServer (WorldManager.exe 0x00458360).
+type PrisonSentence struct {
+	CharName  string
+	Reason    string
+	Remark    string
+	ExpiresAt time.Time
 }
 
 // NewHandler inicializa un nuevo despachador de paquetes para WorldService.
@@ -71,6 +81,7 @@ func NewHandler(
 		zoneIP:         zoneIP,
 		zonePort:       zonePort,
 		activeClients:  make(map[int]*network.Client),
+		activePrisons:  make(map[string]*PrisonSentence),
 	}
 }
 

@@ -680,6 +680,14 @@ func (e *Engine) registerAllOfficialAPIs() {
 		return 0
 	}))
 	L.SetGlobal("cGetPlayerList", L.NewFunction(func(L *glua.LState) int {
+		mapName := L.OptString(1, "")
+		if ext, ok := br.(LuaFieldRuntimeBridge); ok {
+			handles := ext.GetPlayerListInMap(mapName)
+			for _, h := range handles {
+				L.Push(glua.LNumber(h))
+			}
+			return len(handles)
+		}
 		tbl := L.NewTable()
 		L.Push(tbl)
 		return 1
@@ -717,6 +725,12 @@ func (e *Engine) registerAllOfficialAPIs() {
 		return 1
 	}))
 	L.SetGlobal("cObjectCount", L.NewFunction(func(L *glua.LState) int {
+		mapName := L.OptString(1, "")
+		objType := L.OptInt(2, -1)
+		if ext, ok := br.(LuaFieldRuntimeBridge); ok {
+			L.Push(glua.LNumber(ext.ObjectCount(mapName, objType)))
+			return 1
+		}
 		L.Push(glua.LNumber(1))
 		return 1
 	}))
@@ -758,10 +772,26 @@ func (e *Engine) registerAllOfficialAPIs() {
 		return 0
 	}))
 	L.SetGlobal("cSetFieldScript", L.NewFunction(func(L *glua.LState) int {
-		return 0
+		mapName := L.OptString(1, "")
+		scriptName := L.OptString(2, "")
+		if mapName == "" {
+			L.Push(glua.LNil)
+			return 1
+		}
+		br.ScenarioSetScriptFile(mapName, scriptName)
+		L.Push(glua.LNumber(1))
+		return 1
 	}))
 	L.SetGlobal("cFieldScriptFunc", L.NewFunction(func(L *glua.LState) int {
-		return 0
+		mapName := L.OptString(1, "")
+		eventName := L.OptString(2, "")
+		funcName := L.OptString(3, "")
+		if ext, ok := br.(LuaFieldRuntimeBridge); ok && ext.RegisterFieldScriptFunc(mapName, eventName, funcName) {
+			L.Push(glua.LNumber(1))
+			return 1
+		}
+		L.Push(glua.LNil)
+		return 1
 	}))
 	L.SetGlobal("cSetFreeBattle", L.NewFunction(func(L *glua.LState) int {
 		return 0
@@ -785,12 +815,28 @@ func (e *Engine) registerAllOfficialAPIs() {
 		return 0
 	}))
 	L.SetGlobal("cVanishAll", L.NewFunction(func(L *glua.LState) int {
+		mapName := L.OptString(1, "")
+		mobInx := L.OptString(2, "")
+		if ext, ok := br.(LuaFieldRuntimeBridge); ok {
+			ext.VanishAll(mapName, mobInx)
+		}
 		return 0
 	}))
 	L.SetGlobal("cVanishReserv", L.NewFunction(func(L *glua.LState) int {
+		mapName := L.OptString(1, "")
+		mobInx := L.OptString(2, "")
+		sec := L.OptInt(3, 0)
+		if ext, ok := br.(LuaFieldRuntimeBridge); ok {
+			ext.VanishReserv(mapName, mobInx, sec)
+		}
 		return 0
 	}))
 	L.SetGlobal("cVanishTimer", L.NewFunction(func(L *glua.LState) int {
+		mapName := L.OptString(1, "")
+		sec := L.OptInt(2, 0)
+		if ext, ok := br.(LuaFieldRuntimeBridge); ok {
+			ext.VanishTimer(mapName, sec)
+		}
 		return 0
 	}))
 	L.SetGlobal("cWaitIdle", L.NewFunction(func(L *glua.LState) int {
@@ -814,9 +860,26 @@ func (e *Engine) registerAllOfficialAPIs() {
 		return 0
 	}))
 	L.SetGlobal("cLinkToAll", L.NewFunction(func(L *glua.LState) int {
+		if L.GetTop() >= 4 {
+			srcMap := L.OptString(1, "")
+			destMap := L.OptString(2, "")
+			x := L.OptNumber(3, 0)
+			y := L.OptNumber(4, 0)
+			if ext, ok := br.(LuaFieldRuntimeBridge); ok {
+				ext.LinkToAll(srcMap, destMap, float64(x), float64(y))
+				L.Push(glua.LNumber(1))
+				return 1
+			}
+			br.CastTeleport(0, destMap, float64(x), float64(y))
+			return 0
+		}
 		mapName := L.OptString(1, "")
 		x := L.OptNumber(2, 0)
 		y := L.OptNumber(3, 0)
+		if ext, ok := br.(LuaFieldRuntimeBridge); ok {
+			ext.LinkToAll("", mapName, float64(x), float64(y))
+			return 0
+		}
 		br.CastTeleport(0, mapName, float64(x), float64(y))
 		return 0
 	}))
@@ -948,7 +1011,33 @@ func (e *Engine) registerAllOfficialAPIs() {
 	// 6. Mapa, Geometría, Puertas (.sbi) y Áreas
 	// ==========================================
 	L.SetGlobal("cDoorAction", L.NewFunction(func(L *glua.LState) int {
-		// Soporta tanto (doorHandle, blockName, "open"|"close") como (doorName, intAction)
+		if ext, ok := br.(LuaFieldRuntimeBridge); ok && L.GetTop() >= 3 {
+			var fieldOrHandle interface{}
+			if num, okN := L.Get(1).(glua.LNumber); okN {
+				fieldOrHandle = uint32(num)
+			} else {
+				fieldOrHandle = L.OptString(1, "")
+			}
+			blockName := L.OptString(2, "")
+			var actStr string
+			switch v := L.Get(3).(type) {
+			case glua.LString:
+				actStr = string(v)
+			case glua.LNumber:
+				if int(v) == 1 {
+					actStr = "open"
+				} else {
+					actStr = "close"
+				}
+			}
+			if ext.DoorActionByField(fieldOrHandle, blockName, actStr) {
+				L.Push(glua.LNumber(1))
+			} else {
+				L.Push(glua.LNil)
+			}
+			return 1
+		}
+		// Legacy (doorHandle, blockName, "open"|"close") o (doorName, intAction)
 		var doorName string
 		var action int
 		if L.GetTop() >= 3 {
@@ -973,7 +1062,24 @@ func (e *Engine) registerAllOfficialAPIs() {
 		return 1
 	}))
 	L.SetGlobal("cDoorBuild", L.NewFunction(func(L *glua.LState) int {
-		// Soporta (doorName) o (mapIdx, doorIdx, x, y, dir, scale)
+		// Zone.exe: cDoorBuild(Field, MobIndex, x, y, dir, scale) -> handle uint32 | nil
+		if L.GetTop() >= 5 {
+			if ext, ok := br.(LuaFieldRuntimeBridge); ok {
+				fieldName := L.OptString(1, "")
+				mobInx := L.OptString(2, "")
+				x := float64(L.OptNumber(3, 0))
+				y := float64(L.OptNumber(4, 0))
+				dir := L.OptInt(5, 0)
+				scale := float64(L.OptNumber(6, 1000))
+				hnd := ext.DoorBuildByField(fieldName, mobInx, x, y, dir, scale)
+				if hnd != 0 {
+					L.Push(glua.LNumber(hnd))
+				} else {
+					L.Push(glua.LNil)
+				}
+				return 1
+			}
+		}
 		var doorName string
 		if L.GetTop() >= 2 {
 			doorName = L.OptString(2, "")
@@ -1006,7 +1112,25 @@ func (e *Engine) registerAllOfficialAPIs() {
 		return 1
 	}))
 	L.SetGlobal("cIsInArea", L.NewFunction(func(L *glua.LState) int {
-		areaName := L.CheckString(1)
+		if _, okNum := L.Get(1).(glua.LNumber); okNum {
+			handle := uint32(L.OptInt(1, 0))
+			mapName := L.OptString(2, "")
+			areaName := L.OptString(3, "")
+			var ok bool
+			if ext, isExt := br.(LuaFieldRuntimeBridge); isExt {
+				ok = ext.IsInAreaByMap(handle, mapName, areaName)
+			} else {
+				x, y, _, exists := br.GetObjectCoord(handle)
+				ok = exists && br.IsInArea(areaName, x, y)
+			}
+			if ok {
+				L.Push(glua.LNumber(1))
+			} else {
+				L.Push(glua.LNil)
+			}
+			return 1
+		}
+		areaName := L.OptString(1, "")
 		x := L.OptNumber(2, 0)
 		y := L.OptNumber(3, 0)
 		if br.IsInArea(areaName, float64(x), float64(y)) {
@@ -1048,6 +1172,18 @@ func (e *Engine) registerAllOfficialAPIs() {
 	// 7. IA Monstruos, Spawns y NPCs
 	// ==========================================
 	L.SetGlobal("cMobRegen_XY", L.NewFunction(func(L *glua.LState) int {
+		if _, isStr := L.Get(1).(glua.LString); isStr {
+			if ext, ok := br.(LuaFieldRuntimeBridge); ok {
+				mapName := L.OptString(1, "")
+				mobInx := L.OptString(2, "")
+				x := float64(L.OptNumber(3, 0))
+				y := float64(L.OptNumber(4, 0))
+				dir := L.OptInt(5, 0)
+				handle := ext.MobRegenXYByName(mapName, mobInx, x, y, dir, 0)
+				L.Push(glua.LNumber(handle))
+				return 1
+			}
+		}
 		mobID := uint32(L.OptInt(1, 0))
 		mapName := L.OptString(2, "")
 		x := L.OptNumber(3, 0)
@@ -1057,6 +1193,19 @@ func (e *Engine) registerAllOfficialAPIs() {
 		return 1
 	}))
 	L.SetGlobal("cMobRegen_XY_Layer", L.NewFunction(func(L *glua.LState) int {
+		if _, isStr := L.Get(1).(glua.LString); isStr {
+			if ext, ok := br.(LuaFieldRuntimeBridge); ok {
+				mapName := L.OptString(1, "")
+				mobInx := L.OptString(2, "")
+				x := float64(L.OptNumber(3, 0))
+				y := float64(L.OptNumber(4, 0))
+				dir := L.OptInt(5, 0)
+				layer := L.OptInt(6, 0)
+				handle := ext.MobRegenXYByName(mapName, mobInx, x, y, dir, layer)
+				L.Push(glua.LNumber(handle))
+				return 1
+			}
+		}
 		mobID := uint32(L.OptInt(1, 0))
 		mapName := L.OptString(2, "")
 		x := L.OptNumber(3, 0)
@@ -1067,6 +1216,18 @@ func (e *Engine) registerAllOfficialAPIs() {
 		return 1
 	}))
 	L.SetGlobal("cMobRegen_Circle", L.NewFunction(func(L *glua.LState) int {
+		if _, isStr := L.Get(1).(glua.LString); isStr {
+			if ext, ok := br.(LuaFieldRuntimeBridge); ok {
+				mapName := L.OptString(1, "")
+				mobInx := L.OptString(2, "")
+				cx := float64(L.OptNumber(3, 0))
+				cy := float64(L.OptNumber(4, 0))
+				r := float64(L.OptNumber(5, 50))
+				handle := ext.MobRegenCircleByName(mapName, mobInx, cx, cy, r)
+				L.Push(glua.LNumber(handle))
+				return 1
+			}
+		}
 		mobID := uint32(L.OptInt(1, 0))
 		mapName := L.OptString(2, "")
 		cx := L.OptNumber(3, 0)
@@ -1077,6 +1238,19 @@ func (e *Engine) registerAllOfficialAPIs() {
 		return 1
 	}))
 	L.SetGlobal("cMobRegen_Rectangle", L.NewFunction(func(L *glua.LState) int {
+		if _, isStr := L.Get(1).(glua.LString); isStr {
+			if ext, ok := br.(LuaFieldRuntimeBridge); ok {
+				mapName := L.OptString(1, "")
+				mobInx := L.OptString(2, "")
+				x1 := float64(L.OptNumber(3, 0))
+				y1 := float64(L.OptNumber(4, 0))
+				x2 := float64(L.OptNumber(5, 0))
+				y2 := float64(L.OptNumber(6, 0))
+				handle := ext.MobRegenRectByName(mapName, mobInx, x1, y1, x2, y2)
+				L.Push(glua.LNumber(handle))
+				return 1
+			}
+		}
 		mobID := uint32(L.OptInt(1, 0))
 		mapName := L.OptString(2, "")
 		x1 := L.OptNumber(3, 0)
@@ -1114,6 +1288,36 @@ func (e *Engine) registerAllOfficialAPIs() {
 		return 1
 	}))
 	L.SetGlobal("cNPCRegen", L.NewFunction(func(L *glua.LState) int {
+		if _, isStr := L.Get(1).(glua.LString); isStr {
+			if ext, ok := br.(LuaFieldRuntimeBridge); ok {
+				mapName := L.OptString(1, "")
+				if tbl, isTbl := L.Get(2).(*glua.LTable); isTbl {
+					inx := ""
+					if v, okS := tbl.RawGetString("Index").(glua.LString); okS {
+						inx = string(v)
+					}
+					var x, y float64
+					var dir int
+					if v, okN := tbl.RawGetString("x").(glua.LNumber); okN {
+						x = float64(v)
+					}
+					if v, okN := tbl.RawGetString("y").(glua.LNumber); okN {
+						y = float64(v)
+					}
+					if v, okN := tbl.RawGetString("dir").(glua.LNumber); okN {
+						dir = int(v)
+					}
+					L.Push(glua.LNumber(ext.NPCRegenByName(mapName, inx, x, y, dir)))
+					return 1
+				}
+				inx := L.OptString(2, "")
+				x := float64(L.OptNumber(3, 0))
+				y := float64(L.OptNumber(4, 0))
+				dir := L.OptInt(5, 0)
+				L.Push(glua.LNumber(ext.NPCRegenByName(mapName, inx, x, y, dir)))
+				return 1
+			}
+		}
 		npcID := uint32(L.OptInt(1, 0))
 		mapName := L.OptString(2, "")
 		x := L.OptNumber(3, 0)
@@ -1128,18 +1332,42 @@ func (e *Engine) registerAllOfficialAPIs() {
 		return 0
 	}))
 	L.SetGlobal("cGroupRegen", L.NewFunction(func(L *glua.LState) int {
+		if _, isStr := L.Get(1).(glua.LString); isStr {
+			if ext, ok := br.(LuaFieldRuntimeBridge); ok {
+				L.Push(glua.LNumber(ext.GroupRegenByName(L.OptString(1, ""), L.OptString(2, ""))))
+				return 1
+			}
+		}
 		grpID := uint32(L.OptInt(1, 0))
 		mapName := L.OptString(2, "")
 		L.Push(glua.LNumber(br.GroupRegen(grpID, mapName)))
 		return 1
 	}))
 	L.SetGlobal("cGroupRegenInstance", L.NewFunction(func(L *glua.LState) int {
+		if _, isStr := L.Get(1).(glua.LString); isStr {
+			if ext, ok := br.(LuaFieldRuntimeBridge); ok {
+				L.Push(glua.LNumber(ext.GroupRegenByName(L.OptString(1, ""), L.OptString(2, ""))))
+				return 1
+			}
+		}
 		grpID := uint32(L.OptInt(1, 0))
 		mapName := L.OptString(2, "")
 		L.Push(glua.LNumber(br.GroupRegen(grpID, mapName)))
 		return 1
 	}))
 	L.SetGlobal("cGroupRegenInstance_XY", L.NewFunction(func(L *glua.LState) int {
+		if _, isStr := L.Get(1).(glua.LString); isStr {
+			if ext, ok := br.(LuaFieldRuntimeBridge); ok {
+				mapName := L.OptString(1, "")
+				grpInx := L.OptString(2, "")
+				x := float64(L.OptNumber(3, 0))
+				y := float64(L.OptNumber(4, 0))
+				r := float64(L.OptNumber(5, 50))
+				maxCnt := L.OptInt(6, 1)
+				L.Push(glua.LNumber(ext.GroupRegenInstanceXY(mapName, grpInx, x, y, r, maxCnt)))
+				return 1
+			}
+		}
 		grpID := uint32(L.OptInt(1, 0))
 		mapName := L.OptString(2, "")
 		L.Push(glua.LNumber(br.GroupRegen(grpID, mapName)))
@@ -1187,6 +1415,18 @@ func (e *Engine) registerAllOfficialAPIs() {
 		return 1
 	}))
 	L.SetGlobal("cMobSuicide", L.NewFunction(func(L *glua.LState) int {
+		if _, isStr := L.Get(1).(glua.LString); isStr {
+			mapName := L.OptString(1, "")
+			handle := uint32(L.OptInt(2, 0))
+			if ext, ok := br.(LuaFieldRuntimeBridge); ok {
+				ext.MobSuicideByMap(mapName, handle)
+				return 0
+			}
+			if handle != 0 {
+				br.KillObject(handle)
+			}
+			return 0
+		}
 		handle := uint32(L.OptInt(1, 0))
 		br.KillObject(handle)
 		return 0
@@ -1232,13 +1472,39 @@ func (e *Engine) registerAllOfficialAPIs() {
 		return 0
 	}))
 	L.SetGlobal("cAIScriptSet", L.NewFunction(func(L *glua.LState) int {
-		return 0
+		var handle uint32
+		if _, isNum := L.Get(1).(glua.LNumber); isNum {
+			handle = uint32(L.OptInt(1, 0))
+		} else {
+			handle = uint32(L.OptInt(2, 0))
+		}
+		scriptName := L.OptString(1, "")
+		if ext, ok := br.(LuaFieldRuntimeBridge); ok && handle != 0 {
+			ext.RegisterAIScriptFunc(handle, "Script", scriptName)
+		}
+		L.Push(glua.LNumber(1))
+		return 1
 	}))
 	L.SetGlobal("cAIScriptFunc", L.NewFunction(func(L *glua.LState) int {
-		return 0
+		handle := uint32(L.OptInt(1, 0))
+		eventName := L.OptString(2, "")
+		funcName := L.OptString(3, "")
+		if ext, ok := br.(LuaFieldRuntimeBridge); ok && ext.RegisterAIScriptFunc(handle, eventName, funcName) {
+			L.Push(glua.LNumber(1))
+			return 1
+		}
+		L.Push(glua.LNil)
+		return 1
 	}))
 	L.SetGlobal("cSetAIScript", L.NewFunction(func(L *glua.LState) int {
-		return 0
+		scriptName := L.OptString(1, "")
+		handle := uint32(L.OptInt(2, 0))
+		if ext, ok := br.(LuaFieldRuntimeBridge); ok && ext.RegisterAIScriptFunc(handle, "Script", scriptName) {
+			L.Push(glua.LNumber(1))
+			return 1
+		}
+		L.Push(glua.LNil)
+		return 1
 	}))
 	L.SetGlobal("cSetItemDropMobID", L.NewFunction(func(L *glua.LState) int {
 		return 0
@@ -1280,6 +1546,17 @@ func (e *Engine) registerAllOfficialAPIs() {
 	// ==========================================
 	L.SetGlobal("cSetAbstate", L.NewFunction(func(L *glua.LState) int {
 		handle := uint32(L.OptInt(1, 0))
+		if staName, isStr := L.Get(2).(glua.LString); isStr {
+			lv := L.OptInt(3, 1)
+			durMs := L.OptInt(4, 10000)
+			if ext, ok := br.(LuaFieldRuntimeBridge); ok {
+				ext.SetAbstateByName(handle, string(staName), lv, durMs)
+			} else {
+				br.ScenarioApplyAbnormalState(handle, string(staName), lv, durMs)
+			}
+			L.Push(glua.LNumber(1))
+			return 1
+		}
 		stateID := uint16(L.OptInt(2, 0))
 		strength := uint16(L.OptInt(3, 1))
 		durationSec := uint32(L.OptInt(4, 10))
@@ -1287,6 +1564,16 @@ func (e *Engine) registerAllOfficialAPIs() {
 		return 0
 	}))
 	L.SetGlobal("cSetAbstateInArea", L.NewFunction(func(L *glua.LState) int {
+		if staName, isStr := L.Get(2).(glua.LString); isStr {
+			mapName := L.OptString(1, "")
+			lv := L.OptInt(3, 1)
+			durMs := L.OptInt(4, 10000)
+			areaName := L.OptString(5, "")
+			if ext, ok := br.(LuaFieldRuntimeBridge); ok {
+				ext.SetAbstateInArea(mapName, string(staName), lv, durMs, areaName, 0, 0, 0)
+			}
+			return 0
+		}
 		stateID := uint16(L.OptInt(2, 0))
 		strength := uint16(L.OptInt(3, 1))
 		durationSec := uint32(L.OptInt(4, 10))
@@ -1294,6 +1581,17 @@ func (e *Engine) registerAllOfficialAPIs() {
 		return 0
 	}))
 	L.SetGlobal("cSetAbstate_Range", L.NewFunction(func(L *glua.LState) int {
+		handle := uint32(L.OptInt(1, 0))
+		if staName, isStr := L.Get(4).(glua.LString); isStr {
+			r := float64(L.OptNumber(2, 200))
+			lv := L.OptInt(5, 1)
+			durMs := L.OptInt(6, 10000)
+			cx, cy, mapName, _ := br.GetObjectCoord(handle)
+			if ext, ok := br.(LuaFieldRuntimeBridge); ok {
+				ext.SetAbstateInArea(mapName, string(staName), lv, durMs, "", cx, cy, r)
+			}
+			return 0
+		}
 		stateID := uint16(L.OptInt(2, 0))
 		strength := uint16(L.OptInt(3, 1))
 		durationSec := uint32(L.OptInt(4, 10))
@@ -1386,17 +1684,50 @@ func (e *Engine) registerAllOfficialAPIs() {
 	// 9. Kingdom Quest, Rankings y Temporizadores
 	// ==========================================
 	L.SetGlobal("cEndOfKingdomQuest", L.NewFunction(func(L *glua.LState) int {
+		if mapStr, isStr := L.Get(1).(glua.LString); isStr {
+			if ext, ok := br.(LuaFieldRuntimeBridge); ok && ext.EndOfKingdomQuestMap(string(mapStr)) {
+				L.Push(glua.LNumber(1))
+				return 1
+			}
+			br.EndOfKingdomQuest(true)
+			L.Push(glua.LNumber(1))
+			return 1
+		}
 		success := L.OptBool(1, true)
 		br.EndOfKingdomQuest(success)
-		return 0
+		L.Push(glua.LNumber(1))
+		return 1
 	}))
 	L.SetGlobal("cTimerStart", L.NewFunction(func(L *glua.LState) int {
+		if _, isStr := L.Get(1).(glua.LString); isStr {
+			mapName := L.OptString(1, "")
+			timerID := L.OptInt(2, 0)
+			sec := L.OptInt(3, 10)
+			if ext, ok := br.(LuaFieldRuntimeBridge); ok {
+				ext.TimerStartMap(mapName, timerID, sec)
+				L.Push(glua.LNumber(1))
+				return 1
+			}
+			br.TimerStart(timerID, sec)
+			return 0
+		}
 		timerID := L.OptInt(1, 0)
 		sec := L.OptInt(2, 10)
 		br.TimerStart(timerID, sec)
 		return 0
 	}))
 	L.SetGlobal("cTimerEnd", L.NewFunction(func(L *glua.LState) int {
+		if _, isStr := L.Get(1).(glua.LString); isStr {
+			mapName := L.OptString(1, "")
+			timerID := L.OptInt(2, 0)
+			if ext, ok := br.(LuaFieldRuntimeBridge); ok {
+				ext.TimerEndMap(mapName, timerID)
+				L.Push(glua.LNumber(1))
+				return 1
+			}
+			br.TimerEnd(timerID)
+			return 0
+		}
 		timerID := L.OptInt(1, 0)
 		br.TimerEnd(timerID)
 		return 0

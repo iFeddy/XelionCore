@@ -207,6 +207,7 @@ func (gl *MapGameLoop) tick1s() {
 
 	now := time.Now()
 	gl.zMap.TickMonsters1s(now)
+	gl.zMap.TickInstanceLua(now)
 	for _, p := range players {
 		if p.Char == nil || p.Char.CurHP <= 0 {
 			continue

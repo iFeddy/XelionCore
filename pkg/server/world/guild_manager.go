@@ -28,22 +28,36 @@ type GuildPendingInvite struct {
 	ExpiresAt       time.Time
 }
 
+// ActiveGuildWar modela una guerra activa entre dos gremios (CGuildWar en WorldManager.exe).
+type ActiveGuildWar struct {
+	GuildAID   int
+	GuildAName string
+	GuildBID   int
+	GuildBName string
+	StartedAt  time.Time
+	ExpiresAt  time.Time
+}
+
 // GuildManager administra la lógica de negocios y la difusión de eventos de Gremios y Academia.
 type GuildManager struct {
-	mu             sync.RWMutex
-	charRepo       database.CharacterRepository
-	onlinePlayers  map[int]*GuildOnlinePlayer        // CharID -> Session
-	onlineByName   map[string]*GuildOnlinePlayer     // lowercase(CharName) -> Session
-	pendingInvites map[int]*GuildPendingInvite       // TargetCharID -> Invite
+	mu               sync.RWMutex
+	charRepo         database.CharacterRepository
+	onlinePlayers    map[int]*GuildOnlinePlayer        // CharID -> Session
+	onlineByName     map[string]*GuildOnlinePlayer     // lowercase(CharName) -> Session
+	pendingInvites   map[int]*GuildPendingInvite       // TargetCharID -> Invite
+	activeWars       map[int]*ActiveGuildWar           // GuildID -> ActiveGuildWar
+	tournamentJoined map[int]int                       // GuildID -> GTNo
 }
 
 // NewGuildManager inicializa el administrador de Gremios y Academia.
 func NewGuildManager(repo database.CharacterRepository) *GuildManager {
 	return &GuildManager{
-		charRepo:       repo,
-		onlinePlayers:  make(map[int]*GuildOnlinePlayer),
-		onlineByName:   make(map[string]*GuildOnlinePlayer),
-		pendingInvites: make(map[int]*GuildPendingInvite),
+		charRepo:         repo,
+		onlinePlayers:    make(map[int]*GuildOnlinePlayer),
+		onlineByName:     make(map[string]*GuildOnlinePlayer),
+		pendingInvites:   make(map[int]*GuildPendingInvite),
+		activeWars:       make(map[int]*ActiveGuildWar),
+		tournamentJoined: make(map[int]int),
 	}
 }
 
@@ -185,8 +199,23 @@ func (gm *GuildManager) HandleGuildMake(client *network.Client, name, password s
 
 	cleanName := strings.TrimSpace(name)
 	if len(cleanName) < 2 || len(cleanName) > 16 {
-		_ = client.SendPacket(protocol.New_PROTO_NC_GUILD_MAKE_ACK(1, 0, cleanName, guildType, time.Now()))
+		_ = client.SendPacket(protocol.New_PROTO_NC_GUILD_MAKE_ACK(0x1a28, 0, cleanName, guildType, time.Now())) // WorldManager.exe: bad guild name
 		return
+	}
+
+	if gm.charRepo != nil {
+		if existing, _, _ := gm.charRepo.GetGuildByCharID(charID); existing != nil {
+			_ = client.SendPacket(protocol.New_PROTO_NC_GUILD_MAKE_ACK(0x0cc5, uint32(existing.ID), cleanName, guildType, time.Now())) // already in guild
+			return
+		}
+		if acad, _, _ := gm.charRepo.GetAcademyByCharID(charID); acad != nil {
+			_ = client.SendPacket(protocol.New_PROTO_NC_GUILD_MAKE_ACK(0x0cc8, 0, cleanName, guildType, time.Now())) // currently in academy
+			return
+		}
+		if ch, err := gm.charRepo.GetCharacterByID(charID); err == nil && ch != nil && ch.Level < 20 {
+			_ = client.SendPacket(protocol.New_PROTO_NC_GUILD_MAKE_ACK(0x0cc2, 0, cleanName, guildType, time.Now())) // level < 20 (0x14)
+			return
+		}
 	}
 
 	guildID, err := gm.charRepo.CreateGuild(charID, cleanName, password, guildType)
@@ -710,9 +739,97 @@ func (gm *GuildManager) HandleAcademyChat(client *network.Client, msg string) {
 
 // HandleWarReq procesa la declaración de guerra entre gremios (0x7422).
 func (gm *GuildManager) HandleWarReq(client *network.Client, targetName string) {
-	resp := protocol.NewPacketWriter(protocol.PROTO_NC_GUILD_WAR_ACK)
-	resp.WriteUint16(0) // Success / Pending
-	_ = client.SendPacket(resp)
+	sendErr := func(code uint16) {
+		resp := protocol.NewPacketWriter(protocol.PROTO_NC_GUILD_WAR_ACK)
+		resp.WriteUint16(code)
+		_ = client.SendPacket(resp)
+	}
+	charID := client.CharacterID
+	if gm.charRepo == nil || charID <= 0 {
+		sendErr(0x0d24)
+		return
+	}
+	myGuild, myMember, err := gm.charRepo.GetGuildByCharID(charID)
+	if err != nil || myGuild == nil || myMember == nil || myMember.Grade != 0 {
+		sendErr(0x0d24) // no tiene gremio o no es maestro (WorldManager.exe Recv_NC_GUILD_WAR_REQ)
+		return
+	}
+	cleanTarget := strings.TrimSpace(targetName)
+	var targetGuildID int
+	var targetGuildName string
+	if guilds, gErr := gm.charRepo.GetAllGuilds(); gErr == nil {
+		for _, g := range guilds {
+			if strings.EqualFold(g.GuildName, cleanTarget) {
+				targetGuildID = int(g.GuildID)
+				targetGuildName = g.GuildName
+				break
+			}
+		}
+	}
+	if targetGuildID == 0 || targetGuildID == myGuild.ID {
+		sendErr(0x0d25) // gremio objetivo no existe / inválido
+		return
+	}
+	gm.mu.Lock()
+	if gm.tournamentJoined[myGuild.ID] > 0 {
+		gm.mu.Unlock()
+		sendErr(0x1bc0) // self in tournament
+		return
+	}
+	if gm.tournamentJoined[targetGuildID] > 0 {
+		gm.mu.Unlock()
+		sendErr(0x1bc1) // target in tournament
+		return
+	}
+	if existing, busy := gm.activeWars[myGuild.ID]; busy && existing != nil {
+		gm.mu.Unlock()
+		sendErr(0x0d23) // ya en guerra / cooldown
+		return
+	}
+	now := time.Now()
+	war := &ActiveGuildWar{
+		GuildAID:   myGuild.ID,
+		GuildAName: myGuild.Name,
+		GuildBID:   targetGuildID,
+		GuildBName: targetGuildName,
+		StartedAt:  now,
+		ExpiresAt:  now.Add(60 * time.Minute),
+	}
+	gm.activeWars[myGuild.ID] = war
+	gm.activeWars[targetGuildID] = war
+	gm.mu.Unlock()
+
+	sendErr(0)
+}
+
+// UpdateGuildWars ejecuta CGuildWar::Update (expiración autónoma de guerras de gremio activas).
+func (gm *GuildManager) UpdateGuildWars(now time.Time) int {
+	gm.mu.Lock()
+	defer gm.mu.Unlock()
+	ended := 0
+	for gid, war := range gm.activeWars {
+		if war == nil || !now.Before(war.ExpiresAt) {
+			delete(gm.activeWars, gid)
+			ended++
+		}
+	}
+	return ended
+}
+
+// ForceWarExpiryForTest expira manualmente una guerra activa (para pruebas de CGuildWar::Update).
+func (gm *GuildManager) ForceWarExpiryForTest(guildID int) {
+	gm.mu.Lock()
+	defer gm.mu.Unlock()
+	if war := gm.activeWars[guildID]; war != nil {
+		war.ExpiresAt = time.Now().Add(-1 * time.Second)
+	}
+}
+
+// ActiveWarCount retorna la cantidad de entradas en tabla de guerras activas.
+func (gm *GuildManager) ActiveWarCount() int {
+	gm.mu.RLock()
+	defer gm.mu.RUnlock()
+	return len(gm.activeWars)
 }
 
 // HandleWarAbleListReq retorna la lista de gremios disponibles para guerra (0x7424).
@@ -784,11 +901,35 @@ func (gm *GuildManager) HandleGuildNameReq(client *network.Client, newName strin
 // HandleTournamentJoinReq inscribe al gremio en el torneo (0x747A).
 // Struct oficial PDB: PROTO_NC_GUILD_TOURNAMENT_JOIN_ACK (8 bytes: nGuildNo[4], nTeamPosition[2], nError[2])
 func (gm *GuildManager) HandleTournamentJoinReq(client *network.Client, gtNo int) {
-	resp := protocol.NewPacketWriter(protocol.PROTO_NC_GUILD_TOURNAMENT_JOIN_ACK)
-	resp.WriteUint32(uint32(gtNo)) // nGuildNo
-	resp.WriteUint16(0)            // nTeamPosition
-	resp.WriteUint16(0)            // nError
-	_ = client.SendPacket(resp)
+	sendAck := func(gNo uint32, errCode uint16) {
+		resp := protocol.NewPacketWriter(protocol.PROTO_NC_GUILD_TOURNAMENT_JOIN_ACK)
+		resp.WriteUint32(gNo)     // nGuildNo
+		resp.WriteUint16(0)       // nTeamPosition
+		resp.WriteUint16(errCode) // nError
+		_ = client.SendPacket(resp)
+	}
+	charID := client.CharacterID
+	if gm.charRepo == nil || charID <= 0 {
+		sendAck(uint32(gtNo), 0x0d47)
+		return
+	}
+	guild, member, err := gm.charRepo.GetGuildByCharID(charID)
+	if err != nil || guild == nil || member == nil || member.Grade > 1 {
+		sendAck(uint32(gtNo), 0x0d47) // invalid guild or rank (WorldManager.exe Recv_NC_GUILD_TOURNAMENT_JOIN_REQ)
+		return
+	}
+	gm.mu.Lock()
+	if prevGT := gm.tournamentJoined[guild.ID]; prevGT > 0 {
+		gm.mu.Unlock()
+		sendAck(uint32(guild.ID), 0x0d4a) // already joined
+		return
+	}
+	if gtNo == 0 {
+		gtNo = 1
+	}
+	gm.tournamentJoined[guild.ID] = gtNo
+	gm.mu.Unlock()
+	sendAck(uint32(guild.ID), 0)
 }
 
 // HandleTournamentListReq devuelve los torneos de gremio programados (0x747E).

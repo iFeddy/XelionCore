@@ -434,11 +434,13 @@ func (h *Handler) handleQuestReadReq(client *network.Client, pkt *protocol.Packe
 	questID, _ := pkt.Reader.ReadUint16()
 	var errCode uint16
 	if qCat := h.getQuestCatalog(); qCat != nil && qCat.GetQuest(questID) == nil {
-		errCode = 1
+		errCode = 0x0B59 // Zone.exe sp_NC_QUEST_READ_REQ: quest not found / DB read fail
 	} else if h.charRepo != nil {
 		quests, _ := h.charRepo.GetCharacterQuests(player.Char.ID)
+		found := false
 		for _, q := range quests {
 			if uint16(q.QuestNo) == questID {
+				found = true
 				buf := make([]byte, 30)
 				copy(buf, q.Data)
 				buf[qdataStatus] = byte(q.Status)
@@ -446,6 +448,9 @@ func (h *Handler) handleQuestReadReq(client *network.Client, pkt *protocol.Packe
 				_ = h.charRepo.SetCharacterQuest(player.Char.ID, int(questID), q.Status, buf)
 				break
 			}
+		}
+		if !found {
+			errCode = 0x0B59
 		}
 	}
 	ack := protocol.NewPacketWriter(protocol.PROTO_NC_QUEST_READ_ACK)
@@ -488,13 +493,16 @@ func (h *Handler) startQuestForPlayer(player *ZonePlayer, questID, npcID uint16)
 	if qCat != nil {
 		qDef := qCat.GetQuest(questID)
 		if qDef == nil {
-			return 1 // misión inexistente en QuestData.shn
+			if npcID != 0 {
+				return 0x0B47 // Recv_NC_QUEST_SELECT_START_REQ: QuestData nil
+			}
+			return 0x0B51 // sp_NC_QUEST_START_REQ: invalid quest/NPC
 		}
 		if qDef.CheckLevel && (player.Char.Level < qDef.MinLevel || (qDef.MaxLevel > 0 && player.Char.Level > qDef.MaxLevel)) {
-			return 2 // nivel fuera de rango
+			return 0x0B50 // QuestPlayer_NotCheckNPC / requisitos incumplidos
 		}
 		if npcID != 0 && qDef.StartNPCID != 0 && qDef.StartNPCID != npcID {
-			return 3 // NPC incorrecto
+			return 0x0B47 // Recv_NC_QUEST_SELECT_START_REQ: GetQuestStatusWithNPC == 0
 		}
 		if qDef.CheckPrevQuest && qDef.PrevQuestID > 0 && h.charRepo != nil {
 			doneList, _ := h.charRepo.GetCharacterDoneQuests(player.Char.ID)
@@ -506,7 +514,7 @@ func (h *Handler) startQuestForPlayer(player *ZonePlayer, questID, npcID uint16)
 				}
 			}
 			if !foundPrev {
-				return 4 // misión previa pendiente
+				return 0x0B50
 			}
 		}
 	}
@@ -514,7 +522,7 @@ func (h *Handler) startQuestForPlayer(player *ZonePlayer, questID, npcID uint16)
 		existing, _ := h.charRepo.GetCharacterQuests(player.Char.ID)
 		for _, q := range existing {
 			if uint16(q.QuestNo) == questID && q.Status == 1 {
-				return 5 // ya activa
+				return 0x0B41 // ya activa
 			}
 		}
 		data := make([]byte, 30)
@@ -566,10 +574,30 @@ func (h *Handler) handleQuestGiveUpReq(client *network.Client, pkt *protocol.Pac
 		return
 	}
 	questID, _ := pkt.Reader.ReadUint16()
+	now := time.Now()
 	var errCode uint16
-	if h.charRepo != nil {
-		if err := h.charRepo.DeleteCharacterQuest(player.Char.ID, int(questID)); err != nil {
-			errCode = 1
+	if !player.LastQuestGiveUpAt.IsZero() && now.Sub(player.LastQuestGiveUpAt) < 100*time.Millisecond {
+		errCode = 0x0B49 // Zone.exe sp_NC_QUEST_GIVE_UP_REQ 100ms cooldown
+	} else {
+		if qCat := h.getQuestCatalog(); qCat != nil && qCat.GetQuest(questID) == nil {
+			errCode = 0x0B45
+		}
+		if errCode == 0 && h.charRepo != nil {
+			quests, _ := h.charRepo.GetCharacterQuests(player.Char.ID)
+			doing := false
+			for _, q := range quests {
+				if uint16(q.QuestNo) == questID && q.Status == 1 {
+					doing = true
+					break
+				}
+			}
+			if !doing {
+				errCode = 0x0B45 // !IsDoingQuest
+			} else if err := h.charRepo.DeleteCharacterQuest(player.Char.ID, int(questID)); err != nil {
+				errCode = 0x0B45
+			} else {
+				player.LastQuestGiveUpAt = now
+			}
 		}
 	}
 	ack := protocol.NewPacketWriter(protocol.PROTO_NC_QUEST_GIVE_UP_ACK)
@@ -604,7 +632,7 @@ func (h *Handler) handleQuestScriptCmdAck(client *network.Client, pkt *protocol.
 	result, _ := pkt.Reader.ReadUint32()
 
 	if result == 0 {
-		h.sendQuestErr(player, 10)
+		h.sendQuestErr(player, 0x0C0C) // Zone.exe Recv_NC_QUEST_SCRIPT_CMD_ACK (3084)
 		return
 	}
 	qCat := h.getQuestCatalog()
@@ -825,6 +853,11 @@ func (h *Handler) handleMenuServerMenuAck(client *network.Client, pkt *protocol.
 	}
 	reply, _ := pkt.Reader.ReadByte()
 	idx := int(reply)
+	if idx >= 10 || (player.OpenNPCHandle != 0 && !h.withinNPCRange(player, player.OpenNPCX, player.OpenNPCY)) {
+		// Zone.exe sp_NC_MENU_SERVERMENU_ACK / sma_Reply (0x50FD40): distancia > 1000^2 o reply >= 10 -> sma_Reset
+		h.resetPlayerNPCState(player)
+		return
+	}
 	var cbName string
 	if idx >= 0 && idx < len(player.PendingMenuCallbacks) {
 		cbName = player.PendingMenuCallbacks[idx]

@@ -300,10 +300,14 @@ func (h *Handler) handleDiceTaisaiBettingReq(client *network.Client, pkt *protoc
 	bType, coins := resolveTaisaiBet(betInfo)
 
 	var errCode uint16
-	if player.CasinoCoins < coins {
-		// Permitir apostar directamente con Coins o fallback a Money en mesa personal
+	if coins == 0 {
+		errCode = 0x1cbc // Zone.exe so_mh_DiceTaiSai_CanBetting: 0 coins
+	} else if !player.CasinoDiceJoined || bType >= 0x34 {
+		errCode = 0x1cb8 // not at table or invalid bet type
+	} else if player.CasinoCoins < coins {
+		// Permitir apostar directamente con Coins o fallback a Money si supera Coins
 		if uint64(player.Char.TCharacterState.Money) < coins {
-			errCode = 1
+			errCode = 0x1cb9 // over balance / max bet
 		} else {
 			player.Char.TCharacterState.Money -= int64(coins)
 			if h.charRepo != nil {
@@ -559,8 +563,10 @@ func (h *Handler) handleGambleCoinBuyReq(client *network.Client, pkt *protocol.P
 	costCen := int64(coins * 100) // 1 Coin = 100 Copper
 
 	var errCode uint16
-	if coins == 0 || player.Char.TCharacterState.Money < costCen {
-		errCode = 1
+	if coins == 0 {
+		errCode = 0x280c // Zone.exe sp_NC_GAMBLE_COIN_BUY_REQ: range/0
+	} else if player.Char.TCharacterState.Money < costCen {
+		errCode = 0x280d // insufficient money
 	} else {
 		player.Char.TCharacterState.Money -= costCen
 		player.CasinoCoins += coins
@@ -594,8 +600,10 @@ func (h *Handler) handleGambleCoinSellReq(client *network.Client, pkt *protocol.
 	gainCen := int64(coins * 100)
 
 	var errCode uint16
-	if coins == 0 || player.CasinoCoins < coins {
-		errCode = 1
+	if coins == 0 {
+		errCode = 0x2814 // Zone.exe sp_NC_GAMBLE_COIN_SELL_REQ: range/0
+	} else if player.CasinoCoins < coins {
+		errCode = 0x2813 // insufficient coins
 	} else {
 		player.CasinoCoins -= coins
 		player.Char.TCharacterState.Money += gainCen
@@ -739,8 +747,12 @@ func (h *Handler) handleGambleDiceTaisaiBettingReq(client *network.Client, pkt *
 	bType, coins := resolveTaisaiBet(betInfo)
 
 	var errCode uint16
-	if player.CasinoCoins < coins {
-		errCode = 1
+	if coins == 0 {
+		errCode = 0x1cbc
+	} else if !player.CasinoDiceJoined || bType >= 0x34 {
+		errCode = 0x1cb8
+	} else if player.CasinoCoins < coins || (globalDiceTable.MaxBet > 0 && coins > globalDiceTable.MaxBet) {
+		errCode = 0x1cb9
 	} else {
 		player.CasinoCoins -= coins
 		if h.charRepo != nil {
@@ -886,8 +898,8 @@ func (h *Handler) handleGambleSlotMachineStartReq(client *network.Client, pkt *p
 		betting = 10
 	}
 	var errCode uint16
-	if player.CasinoCoins < uint64(betting) {
-		errCode = 1
+	if betting == 0 || player.CasinoCoins < uint64(betting) {
+		errCode = 0x28ce // Zone.exe sp_NC_GAMBLE_SLOTMACHINE_START_REQ
 	} else {
 		player.CasinoCoins -= uint64(betting)
 		if h.charRepo != nil {

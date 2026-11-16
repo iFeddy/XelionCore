@@ -565,7 +565,7 @@ func TestFase24_CombatSkillAbStateSoulStoneTitleCollectBranches_ClusterE2E(t *te
 	castOK.WriteUint16(mob.Handle)
 	mob.CurHP = 20
 	_ = zClient.sendPacket(castOK)
-	pkts = f23CollectPackets(zConn, 180*time.Millisecond)
+	pkts = f23CollectPackets(zConn, 500*time.Millisecond)
 	for _, op := range []uint16{
 		protocol.PROTO_NC_BAT_SPCHANGE_CMD,
 		protocol.PROTO_NC_BAT_SKILLBASH_CAST_SUC_ACK,

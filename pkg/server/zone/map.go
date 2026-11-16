@@ -236,6 +236,9 @@ type ZoneMap struct {
 	InstanceLimitSec   int
 	InstanceStartedAt  time.Time
 	ScenarioInterrupts map[string]string // EventName -> Lua callback
+	FieldScriptFuncs   map[string]string // EventName ("MapLogin", etc.) -> Lua func name
+	AIScriptFuncs      map[uint32]map[string]string
+	VanishTimers       map[string]int64
 	NPCInteractCB      map[uint32]string // npcHandle -> Lua callback
 	KQScoreRed         int
 	KQScoreBlue        int
@@ -708,6 +711,9 @@ func (m *ZoneMap) AddPlayer(p *ZonePlayer) {
 		hpUpdate.WriteUint16(0)
 		_ = p.Client.SendPacket(hpUpdate)
 	}
+
+	// 6. Hook oficial FieldScript "MapLogin" en instancias Lua (Zone.exe cFieldScriptFunc)
+	m.NotifyPlayerMapLogin(p)
 }
 
 // SpawnDroppedItem spawns an item on the ground and broadcasts PROTO_NC_BRIEFINFO_DROPEDITEM_CMD (0x1C0A, 15 bytes) to AOI.

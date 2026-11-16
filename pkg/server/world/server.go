@@ -3,6 +3,8 @@ package world
 import (
 	"fmt"
 	"log"
+	"sync"
+	"time"
 
 	"github.com/iFeddy/XelionCore/pkg/database"
 	"github.com/iFeddy/XelionCore/pkg/network"
@@ -26,6 +28,8 @@ type Server struct {
 	tcpServer *network.TCPServer
 	handler   *Handler
 	s2sServer *s2s.Server
+	tickMu    sync.Mutex
+	stopTick  chan struct{}
 }
 
 // NewServer initializes a new World Server.
@@ -122,12 +126,43 @@ func (s *Server) Start() error {
 		}
 		log.Printf("[WorldServer] Live S2S coordinator listening on %s", s.s2sServer.Addr())
 	}
+	s.startWorldTicker()
 	return s.tcpServer.Start()
+}
+
+func (s *Server) startWorldTicker() {
+	s.tickMu.Lock()
+	defer s.tickMu.Unlock()
+	if s.stopTick != nil {
+		return
+	}
+	ch := make(chan struct{})
+	s.stopTick = ch
+	go func() {
+		ticker := time.NewTicker(1 * time.Second)
+		defer ticker.Stop()
+		for {
+			select {
+			case <-ch:
+				return
+			case now := <-ticker.C:
+				if s.handler != nil {
+					s.handler.RunWorldTick(now)
+				}
+			}
+		}
+	}()
 }
 
 // Stop gracefully shuts down the World Server.
 func (s *Server) Stop() {
 	log.Printf("[WorldServer] Shutting down '%s'...", s.config.Name)
+	s.tickMu.Lock()
+	if s.stopTick != nil {
+		close(s.stopTick)
+		s.stopTick = nil
+	}
+	s.tickMu.Unlock()
 	if s.s2sServer != nil {
 		s.s2sServer.Stop()
 	}

@@ -373,22 +373,27 @@ func (h *Handler) handleMiniHouseVisitReq(client *network.Client, pkt *protocol.
 
 	ack := protocol.NewPacketWriter(protocol.PROTO_NC_MINIHOUSE_VISIT_ACK)
 	if st == nil || !st.Active {
-		ack.WriteUint16(1)
+		ack.WriteUint16(0x1187) // MiniHouse not found / inactive
+		_ = client.SendPacket(ack)
+		return
+	}
+	if player.InsideMiniHouseOwner != 0 {
+		ack.WriteUint16(0x1185) // Already inside MiniHouse
 		_ = client.SendPacket(ack)
 		return
 	}
 	if st.Kicked[uint32(player.Char.ID)] && player.Char.ID != st.OwnerCharNo {
-		ack.WriteUint16(2)
+		ack.WriteUint16(0x118d) // Kicked out
 		_ = client.SendPacket(ack)
 		return
 	}
 	if st.Password != "" && pw != st.Password && player.Char.ID != st.OwnerCharNo {
-		ack.WriteUint16(3)
+		ack.WriteUint16(0x1182)
 		_ = client.SendPacket(ack)
 		return
 	}
 	if uint8(len(st.Guests)) >= st.MaxGuests && player.Char.ID != st.OwnerCharNo {
-		ack.WriteUint16(4)
+		ack.WriteUint16(0x1195)
 		_ = client.SendPacket(ack)
 		return
 	}
@@ -423,11 +428,21 @@ func (h *Handler) handleMiniHouseKickoutReq(client *network.Client, pkt *protoco
 	targetHnd, _ := pkt.Reader.ReadUint16()
 	st := h.getOrCreateMiniHouse(player)
 
+	var errCode uint16
+	target := h.findPlayerByHandle(targetHnd)
+	if st.OwnerCharNo != player.Char.ID {
+		errCode = 0x1188 // not owner
+	} else if targetHnd == player.MapObjectID {
+		errCode = 0x1191 // self-kick invalid
+	} else if target == nil || target.Char == nil {
+		errCode = 0x1194 // target invalid
+	}
+
 	ack := protocol.NewPacketWriter(protocol.PROTO_NC_MINIHOUSE_KICKOUT_ACK)
-	ack.WriteUint16(0)
+	ack.WriteUint16(errCode)
 	_ = client.SendPacket(ack)
 
-	if target := h.findPlayerByHandle(targetHnd); target != nil && target.Char != nil {
+	if errCode == 0 && target != nil && target.Char != nil {
 		st.Kicked[uint32(target.Char.ID)] = true
 		delete(st.Guests, targetHnd)
 		target.InsideMiniHouseOwner = 0
@@ -672,12 +687,22 @@ func (h *Handler) handleMiniHouseModifyPasswordReq(client *network.Client, pkt *
 	}
 	pw := readFixedStr(pkt.Reader, 9)
 	st := h.getOrCreateMiniHouse(player)
-	st.Password = pw
-	player.MiniHousePassword = pw
-	player.MiniHouseOpen = (pw == "")
+	var errCode uint16
+	if player.Char == nil || st.OwnerCharNo != player.Char.ID {
+		errCode = 0x1188 // not owner
+	} else {
+		st.Password = pw
+		player.MiniHousePassword = pw
+		player.MiniHouseOpen = (pw == "")
+		if pw == "" {
+			errCode = 0x11d6 // password cleared
+		} else {
+			errCode = 0x11d7 // password set
+		}
+	}
 
 	ack := protocol.NewPacketWriter(protocol.PROTO_NC_MINIHOUSE_MODIFY_PASSWORD_ACK)
-	ack.WriteUint16(0)
+	ack.WriteUint16(errCode)
 	_ = client.SendPacket(ack)
 
 	cmd := protocol.NewPacketWriter(protocol.PROTO_NC_MINIHOUSE_MODIFY_PASSWORD_CMD)
@@ -1052,15 +1077,16 @@ func (h *Handler) handlePetSetNameReq(client *network.Client, pkt *protocol.Pack
 	if player.ActivePet != nil {
 		petID = uint32(player.ActivePet.PetID)
 	}
+	cleanName := strings.TrimSpace(petName)
 	var errCode uint16
-	if strings.TrimSpace(petName) == "" {
-		errCode = 1
+	if len(cleanName) < 4 || len(cleanName) > 16 || strings.ContainsAny(cleanName, " \t\r\n") {
+		errCode = 0x34c0 // Zone.exe sp_NC_PET_SET_NAME_REQ (0x4d1d59): len 4..16 / GetIsBadName
 	} else if h.charRepo != nil {
 		if petID == 0 {
-			newNo, _ := h.charRepo.CreatePet(player.Char.ID, petName, 100, 0)
+			newNo, _ := h.charRepo.CreatePet(player.Char.ID, cleanName, 100, 0)
 			petID = uint32(newNo)
 		} else {
-			_ = h.charRepo.SetPetName(int(petID), player.Char.ID, petName)
+			_ = h.charRepo.SetPetName(int(petID), player.Char.ID, cleanName)
 		}
 	}
 
