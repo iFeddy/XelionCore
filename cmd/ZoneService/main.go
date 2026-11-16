@@ -104,6 +104,7 @@ func main() {
 		ZoneNo:       zoneNo,
 		ZoneID:       zoneID,
 		MultiNode:    multiNode,
+		PreloadAll:   cfg != nil && cfg.ZonePreloadAll,
 		WorldS2SAddr: worldS2SAddr,
 	}
 

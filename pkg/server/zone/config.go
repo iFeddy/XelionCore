@@ -12,6 +12,7 @@ type Config struct {
 	ZoneNo       uint16 `json:"zone_no"`
 	ZoneID       string `json:"zone_id"`
 	MultiNode    bool   `json:"multi_node"`
+	PreloadAll   bool   `json:"preload_all"`
 	WorldS2SAddr string `json:"world_s2s_addr"`
 }
 

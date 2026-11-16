@@ -24,8 +24,9 @@ type Config struct {
 	DBName     string
 
 	// Red de ZoneService
-	ZoneIP   string
-	ZonePort uint16
+	ZoneIP         string
+	ZonePort       uint16
+	ZonePreloadAll bool
 
 	// Red interna S2S WorldService <-> ZoneService
 	WorldS2SHost string
@@ -105,8 +106,9 @@ func Load(envPath ...string) (*Config, error) {
 		DBPassword: getEnv("DB_PASSWORD", ""),
 		DBName:     getEnv("DB_NAME", getEnv("DB_DATABASE", "xelion_online")),
 
-		ZoneIP:   getEnv("ZONE_IP", "127.0.0.1"),
-		ZonePort: getEnvUint16("ZONE_PORT", 9210),
+		ZoneIP:         getEnv("ZONE_IP", "127.0.0.1"),
+		ZonePort:       getEnvUint16("ZONE_PORT", 9210),
+		ZonePreloadAll: getEnvBool("ZONE_PRELOAD_ALL", false),
 
 		WorldS2SHost: getEnv("WORLD_S2S_HOST", "127.0.0.1"),
 		WorldS2SPort: getEnvUint16("WORLD_S2S_PORT", 9150),

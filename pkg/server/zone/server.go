@@ -183,9 +183,13 @@ func (s *Server) Stop() {
 // SetItemStore sets the item data store for the handler.
 func (s *Server) SetDataStore(ds *DataStore) {
 	s.handler.SetDataStore(ds)
-	if s.config != nil && s.config.MultiNode && s.handler != nil && s.handler.MapManager() != nil {
+	if s.config != nil && (s.config.MultiNode || s.config.PreloadAll) && s.handler != nil && s.handler.MapManager() != nil {
 		loaded := s.handler.MapManager().PreloadZoneMaps()
-		log.Printf("[ZoneServer] Multi-node %s (ZoneNo=%d) preloaded %d owned maps", s.config.ZoneID, s.config.ZoneNo, loaded)
+		if s.config.MultiNode {
+			log.Printf("[ZoneServer] Multi-node %s (ZoneNo=%d) preloaded %d owned maps", s.config.ZoneID, s.config.ZoneNo, loaded)
+		} else {
+			log.Printf("[ZoneServer] Single-node preload enabled (ZONE_PRELOAD_ALL=true): preloaded %d maps", loaded)
+		}
 	}
 }
 
