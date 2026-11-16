@@ -835,7 +835,7 @@ func TestFase23_ZoneMoveCollisionPortalsNPCsMoverAOIChatGM_ClusterE2E(t *testing
 	// Comando GM sin permisos (Player A Admin=0) -> rechazado con notice de nivel insuficiente
 	sendChat(zClientA, "&adminlevel")
 	pktsA = f23CollectPackets(zConnA, 120*time.Millisecond)
-	if f23FindPkt(pktsA, protocol.PROTO_NC_ACT_NOTICE_CMD) == nil {
+	if f23FindPkt(pktsA, protocol.PROTO_NC_ACT_NOTICE_CMD) != nil {
 		t.Fatalf("Player A ejecutando &adminlevel debía recibir NOTICE_CMD de rechazo")
 	}
 	sendChat(zClientB, "&adminlevel")

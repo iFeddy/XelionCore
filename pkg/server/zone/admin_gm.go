@@ -132,6 +132,10 @@ func (h *Handler) handleGMCommand(player *ZonePlayer, rawText string) bool {
 
 	// Validación estricta: tCharacter.nAdminLevel >= AdminLvSet.shn[cmd].ALS_Lv
 	if player.Char.AdminLevel < reqLv {
+		// Arreglo para no mostrar si es un usuario normal
+		if (player.Char.AdminLevel == 0) {
+			return true
+		}
 		if h.gameLogDispatcher != nil {
 			h.gameLogDispatcher.EnqueueTypeL(
 				99,
