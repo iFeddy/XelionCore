@@ -1,0 +1,162 @@
+[
+  {
+    "t_character": {
+      "nCharNo": 1,
+      "nUserNo": 77,
+      "sCharName": "S2SHero",
+      "nSlot": 0,
+      "nClass": 1,
+      "nLevel": 20,
+      "bIsDelete": 0,
+      "nStrength": 0,
+      "nConstitute": 0,
+      "nDexterity": 0,
+      "nIntelligence": 0,
+      "nMentalPower": 0,
+      "nRedistributePoint": 0
+    },
+    "t_character_shape": {
+      "nCharNo": 1,
+      "nGender": 0,
+      "nHair": 0,
+      "nHairColor": 0,
+      "nFace": 0
+    },
+    "t_character_state": {
+      "nCharNo": 1,
+      "nMap": 0,
+      "nXPos": 0,
+      "nYPos": 0,
+      "nRotation": 85,
+      "nHP": 0,
+      "nSP": 0,
+      "nHPStones": 15,
+      "nSPStones": 7,
+      "nExp": 0,
+      "nMoney": 0,
+      "nFame": 0
+    },
+    "t_character_key_map": {
+      "nCharNo": 1,
+      "sQuickBar": null,
+      "sQuickBarState": null
+    },
+    "t_character_short_cut": {
+      "nCharNo": 1,
+      "sShortCut": null
+    },
+    "t_character_game_option": {
+      "nCharNo": 1,
+      "sGameOption": null
+    },
+    "t_character_single_option": {
+      "nCharNo": 1,
+      "sSingleOption": null
+    },
+    "equips": {},
+    "id": 1,
+    "account_id": 77,
+    "name": "S2SHero",
+    "slot": 0,
+    "race": 0,
+    "job": 1,
+    "level": 20,
+    "admin_level": 0,
+    "create_world": 0,
+    "male": false,
+    "hair": 0,
+    "hair_color": 0,
+    "face": 0,
+    "map": 0,
+    "x_pos": 0,
+    "y_pos": 0,
+    "cur_hp": 0,
+    "cur_sp": 0,
+    "town_name": "",
+    "tutorial_state": 0,
+    "tutorial_step": 0,
+    "items": null,
+    "shortcuts": null,
+    "skills": null
+  },
+  {
+    "t_character": {
+      "nCharNo": 2,
+      "nUserNo": 88,
+      "sCharName": "S2STarget",
+      "nSlot": 0,
+      "nClass": 6,
+      "nLevel": 25,
+      "bIsDelete": 0,
+      "nStrength": 0,
+      "nConstitute": 0,
+      "nDexterity": 0,
+      "nIntelligence": 0,
+      "nMentalPower": 0,
+      "nRedistributePoint": 0
+    },
+    "t_character_shape": {
+      "nCharNo": 2,
+      "nGender": 0,
+      "nHair": 0,
+      "nHairColor": 0,
+      "nFace": 0
+    },
+    "t_character_state": {
+      "nCharNo": 2,
+      "nMap": 1,
+      "nXPos": 0,
+      "nYPos": 0,
+      "nRotation": 85,
+      "nHP": 0,
+      "nSP": 0,
+      "nHPStones": 15,
+      "nSPStones": 7,
+      "nExp": 0,
+      "nMoney": 0,
+      "nFame": 0
+    },
+    "t_character_key_map": {
+      "nCharNo": 2,
+      "sQuickBar": null,
+      "sQuickBarState": null
+    },
+    "t_character_short_cut": {
+      "nCharNo": 2,
+      "sShortCut": null
+    },
+    "t_character_game_option": {
+      "nCharNo": 2,
+      "sGameOption": null
+    },
+    "t_character_single_option": {
+      "nCharNo": 2,
+      "sSingleOption": null
+    },
+    "equips": {},
+    "id": 2,
+    "account_id": 88,
+    "name": "S2STarget",
+    "slot": 0,
+    "race": 0,
+    "job": 6,
+    "level": 25,
+    "admin_level": 0,
+    "create_world": 0,
+    "male": false,
+    "hair": 0,
+    "hair_color": 0,
+    "face": 0,
+    "map": 1,
+    "x_pos": 0,
+    "y_pos": 0,
+    "cur_hp": 0,
+    "cur_sp": 0,
+    "town_name": "",
+    "tutorial_state": 0,
+    "tutorial_step": 0,
+    "items": null,
+    "shortcuts": null,
+    "skills": null
+  }
+]

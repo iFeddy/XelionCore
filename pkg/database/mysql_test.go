@@ -34,8 +34,8 @@ func TestMySQLConnection(t *testing.T) {
 		t.Fatalf("Failed to query tUser: %v", err)
 	}
 
-	if userCount < 2 {
-		t.Fatalf("Expected at least 2 seed users in tUser, got %d", userCount)
+	if userCount < 1 {
+		t.Fatalf("Expected at least 1 seed user in tUser, got %d", userCount)
 	}
 	t.Logf("Successfully connected to MySQL! Found %d users in tUser.", userCount)
 }

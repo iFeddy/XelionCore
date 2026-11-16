@@ -2157,7 +2157,8 @@ func (r *MemoryCharacterRepository) InitImproveKeyMap(charNo int) error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	r.improveKeyMap[charNo] = []*ImproveKeyMapEntry{
-		{FunctionNo: 1, ExtendKey: 0, ASCIICode: 'W'},
+		{FunctionNo: 1, ExtendKey: 0, ASCIICode: 27},
+		{FunctionNo: 23, ExtendKey: 0, ASCIICode: 'W'},
 	}
 	return nil
 }

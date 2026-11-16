@@ -418,10 +418,6 @@ func (r *MySQLCharacterRepository) CreateCharacter(ch *Character) error {
 		_ = r.AddCharacterQuest(ch.ID, q.QuestNo, q.Status, q.Data)
 	}
 
-	// Inicializar mapeo de teclas y opciones de juego NA2016 desde tablas semilla
-	_ = r.InitImproveKeyMap(ch.ID)
-	_ = r.InitImproveGameOptions(ch.ID)
-
 	// Persistir estado de tutorial inicial si aplica
 	if ch.TutorialState > 0 || ch.TutorialStep > 0 {
 		_ = r.SetTutorialCharInfo(ch.AccountID, ch.ID, byte(ch.TutorialState), ch.TutorialStep)

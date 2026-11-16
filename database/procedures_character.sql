@@ -154,10 +154,6 @@ sp_body: BEGIN
         INSERT INTO tCharacterOptions (nCharNo)
         VALUES (v_newCharNo);
 
-        INSERT IGNORE INTO tCharacterKeyMap (nCharNo, nFunctionNo, sys_create_date, sys_update_date, nExtendedKey, nASCIICode)
-        SELECT v_newCharNo, nFunctionNo, NOW(), NOW(), nExtendedKey, nASCIICode
-        FROM tKeyMapInit;
-
         COMMIT;
         SET out_nCharNo = v_newCharNo;
     END proc_logic;
