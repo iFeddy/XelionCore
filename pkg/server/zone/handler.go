@@ -884,6 +884,7 @@ func (h *Handler) handleTransferKey(client *network.Client, pkt *protocol.Packet
 //  7. 0x103E (PROTO_NC_CHAR_CLIENT_PASSIVE_CMD)          - Siempre
 //  8. 0x104A (PROTO_NC_CHAR_CLIENT_CHARGEDBUFF_CMD)      - Siempre (incondicional, 0 si está vacío)
 //  9. 0x103D (PROTO_NC_CHAR_CLIENT_SKILL_CMD)            - Solo si len(activeSkills) > 0 (PartMark = 3)
+//
 // 10. 0x1048 (PROTO_NC_CHAR_CLIENT_GAME_CMD)             - Siempre
 // 11. 0x1047 (PROTO_NC_CHAR_CLIENT_ITEM_CMD, Box 8)      - Solo si len > 0 (Equip)
 // 12. 0x1047 (PROTO_NC_CHAR_CLIENT_ITEM_CMD, Box 9)      - Solo si len > 0 (Inven)
@@ -1015,16 +1016,16 @@ func (h *Handler) sendInGameChunk(p *ZonePlayer) {
 	// 9. 0x103D - PROTO_NC_CHAR_CLIENT_SKILL_CMD (Solo si tiene skills activas, con PartMark = 3)
 	if len(activeSkills) > 0 {
 		skillPkt := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_CLIENT_SKILL_CMD)
-		skillPkt.WriteByte(0)                               // restempow (1 byte)
-		skillPkt.WriteByte(3)                               // PartMark = 3 (first=1 | last=1, 1 byte)
-		skillPkt.WriteUint16(uint16(len(activeSkills)))     // nMaxNum (2 bytes)
-		skillPkt.WriteUint32(uint32(p.Char.ID))             // chrregnum (4 bytes)
-		skillPkt.WriteUint16(uint16(len(activeSkills)))     // number (2 bytes)
+		skillPkt.WriteByte(0)                           // restempow (1 byte)
+		skillPkt.WriteByte(3)                           // PartMark = 3 (first=1 | last=1, 1 byte)
+		skillPkt.WriteUint16(uint16(len(activeSkills))) // nMaxNum (2 bytes)
+		skillPkt.WriteUint32(uint32(p.Char.ID))         // chrregnum (4 bytes)
+		skillPkt.WriteUint16(uint16(len(activeSkills))) // number (2 bytes)
 		for _, sk := range activeSkills {
-			skillPkt.WriteUint16(sk.SkillNo)                // skillid (2 bytes)
-			skillPkt.WriteUint32(uint32(sk.SkillCoolTime))  // cooltime (4 bytes)
-			skillPkt.WriteUint16(0)                         // empow (2 bytes)
-			skillPkt.WriteUint32(uint32(sk.SkillExp))       // mastery (4 bytes)
+			skillPkt.WriteUint16(sk.SkillNo)               // skillid (2 bytes)
+			skillPkt.WriteUint32(uint32(sk.SkillCoolTime)) // cooltime (4 bytes)
+			skillPkt.WriteUint16(0)                        // empow (2 bytes)
+			skillPkt.WriteUint32(uint32(sk.SkillExp))      // mastery (4 bytes)
 		}
 		_ = p.Client.SendPacket(skillPkt)
 	}
@@ -1351,7 +1352,11 @@ func (h *Handler) handleChatNormal(client *network.Client, pkt *protocol.Packet)
 		return
 	}
 
-	if itemLinkCount == 0 && h.handleGMCommand(player, trimmed) {
+	//Arreglo de Chat & cuando no sos GM
+	if strings.HasPrefix(trimmed, "&") {
+		if itemLinkCount == 0 {
+			h.handleGMCommand(player, trimmed)
+		}
 		return
 	}
 
@@ -1909,9 +1914,9 @@ func (h *Handler) handleChargedInvenOpen(client *network.Client, pkt *protocol.P
 	ack.WriteByte(3)                        // nPartMark = 3 (first=1 | last=1, Zone.exe 0x493007)
 	ack.WriteUint16(uint16(len(pageItems))) // NumOfChargedItem
 	for _, ci := range pageItems {
-		ack.WriteUint32(ci.RowNo)                                   // 0x00: ItemOrderNo (4 bytes)
-		ack.WriteUint32(ci.GoodsNo)                                 // 0x04: ItemCode (4 bytes)
-		ack.WriteUint32(ci.Amount)                                  // 0x08: ItemAmount (4 bytes)
+		ack.WriteUint32(ci.RowNo)                                    // 0x00: ItemOrderNo (4 bytes)
+		ack.WriteUint32(ci.GoodsNo)                                  // 0x04: ItemCode (4 bytes)
+		ack.WriteUint32(ci.Amount)                                   // 0x08: ItemAmount (4 bytes)
 		ack.WriteUint32(database.PackShineDateTime(ci.RegisterDate)) // 0x0C: ItemRegisterDate (ShineDateTime, 4 bytes)
 	}
 	_ = client.SendPacket(ack)
@@ -2632,16 +2637,16 @@ func (h *Handler) syncPlayerEquipsAndStats(player *ZonePlayer) {
 		oldV uint32
 		newV uint32
 	}{
-		{0x06, oldMinWC, player.EquipMinWC},         // WClow
-		{0x07, oldMaxWC, player.EquipMaxWC},         // WChigh
-		{0x08, oldAC, player.EquipAC},               // AC
-		{0x09, oldTH, player.EquipTH},               // TH
-		{0x0A, oldTB, player.EquipTB},               // TB
-		{0x0B, oldMinMA, player.EquipMinMA},         // MAlow
-		{0x0C, oldMaxMA, player.EquipMaxMA},         // MAhigh
-		{0x0D, oldMR, player.EquipMR},               // MR
-		{0x10, oldMaxHP, uint32(player.MaxHP)},      // MaxHP
-		{0x11, oldMaxSP, uint32(player.MaxSP)},      // MaxSP
+		{0x06, oldMinWC, player.EquipMinWC},    // WClow
+		{0x07, oldMaxWC, player.EquipMaxWC},    // WChigh
+		{0x08, oldAC, player.EquipAC},          // AC
+		{0x09, oldTH, player.EquipTH},          // TH
+		{0x0A, oldTB, player.EquipTB},          // TB
+		{0x0B, oldMinMA, player.EquipMinMA},    // MAlow
+		{0x0C, oldMaxMA, player.EquipMaxMA},    // MAhigh
+		{0x0D, oldMR, player.EquipMR},          // MR
+		{0x10, oldMaxHP, uint32(player.MaxHP)}, // MaxHP
+		{0x11, oldMaxSP, uint32(player.MaxSP)}, // MaxSP
 	}
 	var diffs []paramDelta
 	for _, c := range candidates {
@@ -2700,7 +2705,7 @@ func (h *Handler) broadcastUnequipAppearance(player *ZonePlayer, equipSlot byte)
 	}
 	pw := protocol.NewPacketWriter(protocol.PROTO_NC_BRIEFINFO_UNEQUIP_CMD)
 	pw.WriteUint16(player.MapObjectID) // handle
-	pw.WriteByte(equipSlot)         // slot
+	pw.WriteByte(equipSlot)            // slot
 	player.CurrentMap.Broadcast(pw, 0)
 }
 
@@ -2941,7 +2946,6 @@ func (h *Handler) handleItemSplit(client *network.Client, pkt *protocol.Packet) 
 		_ = client.SendPacket(ack)
 		return
 	}
-
 
 	h.sendCellChange(client, fromBox, fromSlot, srcItem, 0xFFFF)
 	h.sendCellChange(client, toBox, toSlot, newItem, 0xFFFF)
@@ -3526,7 +3530,7 @@ func (h *Handler) handleItemUse(client *network.Client, pkt *protocol.Packet) {
 
 	// Enviar PROTO_NC_ITEM_USE_ACK (0x3016, 5B)
 	ack := protocol.NewPacketWriter(protocol.PROTO_NC_ITEM_USE_ACK)
-	ack.WriteUint16(0x0700)   // error = 0x0700 (éxito oficial en so_ply_ItemUseResultPacket)
+	ack.WriteUint16(0x0700) // error = 0x0700 (éxito oficial en so_ply_ItemUseResultPacket)
 	ack.WriteUint16(usedItemID)
 	ack.WriteByte(invenType)
 	_ = client.SendPacket(ack)
@@ -3799,6 +3803,5 @@ func (h *Handler) handleSoulStoneSPUse(client *network.Client, pkt *protocol.Pac
 	spCmd.WriteUint32(uint32(player.Char.CurSP))
 	_ = client.SendPacket(spCmd)
 }
-
 
 const slotWeapon byte = 12 // ItemEquipEnum::ITEMEQUIP_RIGHTHAND (Slot_Weapon)
