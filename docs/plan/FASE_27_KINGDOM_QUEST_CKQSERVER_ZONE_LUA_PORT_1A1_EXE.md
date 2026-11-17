@@ -111,3 +111,23 @@ Al terminar: go build ./... && go test -p 1 -count=1 ./..., actualizá el estado
 3. Prueba manual 27E-4 con el cliente real documentada (log adjunto en `logs/`).
 4. Commit: `feat(fase27): port 1:1 de Kingdom Quest (CKQServer + KingdomQuest Zone + Lua + rewards)`.
 
+
+## 5. Prompts 
+
+/goal Cerrá la sub-fase 27B de docs/plan/FASE_27_KINGDOM_QUEST_CKQSERVER_ZONE_LUA_PORT_1A1_EXE.md siguiendo AGENTS.md.
+1) Corregí el fallo en TestCKQServer_JoinDisjoinTeamSelectAndVoteKick_Behavior (pkg/server/world/kq_test.go:502: expected wms_NC_KQ_LINK_TO_FORCE_BY_BAN_CMD after passed vote) desensamblando Send_NC_KQ_LINK_TO_FORCE_BY_BAN_CMD y VoteProcessing en WorldManager.exe.
+2) Verificá que todos los requisitos de 27B estén completos y con comentario // exe: 0x....
+3) Corré go test -v ./pkg/server/world -run TestCKQServer, marcá 27B como Completado en docs/plan/README.md y hacé commit en main. No toques 27C todavía.
+
+
+/goal Ejecutá la sub-fase 27C de docs/plan/FASE_27_KINGDOM_QUEST_CKQSERVER_ZONE_LUA_PORT_1A1_EXE.md siguiendo AGENTS.md.
+Regla Mandatoria: portá cada función desde su desensamblado (python3 scripts/disasm_pdb_handler.py zone <símbolo>) con // exe: 0x..., sin inventar defaults ni opcodes. Quitá el hack if kqID == 0 { kqID = 1 }.
+Al terminar: go build ./..., corré los tests nuevos de KQ en pkg/server/zone, marcá 27C como Completado en docs/plan/README.md y hacé commit en main. No toques 27D todavía.
+
+/goal Ejecutá la sub-fase 27D de docs/plan/FASE_27_KINGDOM_QUEST_CKQSERVER_ZONE_LUA_PORT_1A1_EXE.md siguiendo AGENTS.md.
+Regla Mandatoria: desensamblá cada binding c*KQ* y los handlers de Character.exe/Zone.exe con python3 scripts/disasm_pdb_handler.py {zone|character} <símbolo>, dejando // exe: 0x... en cada uno.
+Al terminar: go build ./..., corré los tests de pkg/script/lua y recompensas KQ, marcá 27D como Completado en docs/plan/README.md y hacé commit en main. No toques 27E todavía.
+
+/goal Ejecutá los puntos 1, 2 y 3 de la sub-fase 27E de docs/plan/FASE_27_KINGDOM_QUEST_CKQSERVER_ZONE_LUA_PORT_1A1_EXE.md siguiendo AGENTS.md.
+Creá pkg/audit/fase27_kq_no_invention_test.go y los tests de secuencia real de paquetes y reloj simulado.
+Al terminar: go build ./... && go test -v ./pkg/audit -run TestFase27 && go test -v ./pkg/server/world -run TestCKQServer, actualizá docs/plan/README.md (dejando pendiente solo la prueba manual 27E-4 con el cliente) y hacé commit en main.
