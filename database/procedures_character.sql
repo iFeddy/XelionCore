@@ -5185,7 +5185,7 @@ sp_body: BEGIN
         SET out_nRet=0;
         IF out_nRet = 0 THEN
             SET @_xc_nested_sp = IFNULL(@_xc_nested_sp, 0) + 1;
-        CALL `p_Item_SetOption`(in_nItemKey,300,1,_xc_dummy_out);
+        CALL `p_Item_SetOption`(in_nItemKey,300,1,@_xc_dummy_out);
         SET @_xc_nested_sp = GREATEST(0, IFNULL(@_xc_nested_sp, 1) - 1);
             COMMIT;
         ELSE
@@ -10011,7 +10011,7 @@ sp_body: BEGIN
         END IF;
         ELSE
             SET @_xc_nested_sp = IFNULL(@_xc_nested_sp, 0) + 1;
-        CALL `p_Item_Delete`(v_nItemKey,n);
+        CALL `p_Item_Delete`(v_nItemKey,@_xc_dummy_out);
         SET @_xc_nested_sp = GREATEST(0, IFNULL(@_xc_nested_sp, 1) - 1);
         END IF;
         END IF;
