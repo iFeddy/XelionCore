@@ -828,7 +828,7 @@ func (h *Handler) handle_PROTO_NC_MISC_S2SCONNECTION_REQ(client *network.Client,
 		_, _ = pkt.Reader.ReadByte() // ServerToID
 		_, _ = pkt.Reader.ReadByte() // ServerFromID
 		serverFromWorldNum, _ = pkt.Reader.ReadByte()
-		_, _ = pkt.Reader.ReadByte() // ServerFromZoneNum
+		_, _ = pkt.Reader.ReadByte()   // ServerFromZoneNum
 		_, _ = pkt.Reader.ReadUint16() // Key
 	} else if rem >= 1 {
 		echoData, _ = pkt.Reader.ReadByte()
@@ -981,6 +981,7 @@ func (h *Handler) executeLoginPipeline(client *network.Client, acc *database.Acc
 			h.send_PROTO_NC_USER_LOGINFAIL_ACK(client, protocol.ErrBlocked)
 			return
 		}
+		log.Printf("[%s] Login DB error para '%s': %v", client.RemoteAddr(), username, err)
 		h.send_PROTO_NC_USER_LOGINFAIL_ACK(client, protocol.ErrDatabase)
 		return
 	}
