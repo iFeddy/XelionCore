@@ -1,0 +1,2 @@
+/goal Desensamblá <NombreHandler> en Zone.exe (python3 scripts/disasm_pdb_handler.py zone <símbolo>) y comparalo línea por línea contra nuestra implementación en <archivo.go>.
+Listá TODAS las diferencias de fórmulas, condiciones if/else, constantes o paquetes S2C emitidos. No inventes nada y no toques código todavía; mostrame solo la tabla de diferencias con direcciones 0x... del exe.
