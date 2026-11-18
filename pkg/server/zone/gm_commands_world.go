@@ -41,7 +41,7 @@ func init() {
 				return errors.New("[GM] No active map.")
 			}
 			mobID, err := strconv.Atoi(ctx.Args[0])
-			if err != nil || mobID <= 0 {
+			if err != nil || mobID < 0 {
 				return errors.New("Invalid mobID.")
 			}
 			count := 1
