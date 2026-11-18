@@ -911,9 +911,10 @@ func (h *Handler) sendInGameChunk(p *ZonePlayer) {
 	if h.charRepo != nil && p.Char != nil {
 		allQuests, _ := h.charRepo.GetCharacterQuests(p.Char.ID)
 		for _, q := range allQuests {
-			if q.Status == 1 {
+			switch q.Status {
+			case 1:
 				doingList = append(doingList, q)
-			} else if q.Status == 3 {
+			case 3:
 				repeatList = append(repeatList, q)
 			}
 		}
