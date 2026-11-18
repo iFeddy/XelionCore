@@ -3496,7 +3496,7 @@ func (h *Handler) handleItemUse(client *network.Client, pkt *protocol.Packet) {
 	if hpChanged {
 		hpPkt := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_HPCHANGE_CMD)
 		hpPkt.WriteUint32(uint32(player.Char.CurHP))
-		hpPkt.WriteUint16(0) // hpchangeorder
+		hpPkt.WriteUint16(player.NextHPChangeOrder()) // hpchangeorder
 		_ = client.SendPacket(hpPkt)
 	}
 	if spChanged {
@@ -3760,7 +3760,7 @@ func (h *Handler) handleSoulStoneHPUse(client *network.Client, pkt *protocol.Pac
 
 	hpCmd := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_HPCHANGE_CMD)
 	hpCmd.WriteUint32(uint32(player.Char.CurHP))
-	hpCmd.WriteUint16(0) // hpchangeorder
+	hpCmd.WriteUint16(player.NextHPChangeOrder()) // hpchangeorder
 	_ = client.SendPacket(hpCmd)
 }
 

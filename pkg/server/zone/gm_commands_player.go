@@ -79,33 +79,6 @@ func init() {
 				return nil
 			}
 
-			mapID := ""
-			if ctx.Player.CurrentMap != nil {
-				mapID = ctx.Player.CurrentMap.MapID
-			}
-
-			// Caso 1: Subir de nivel -> calcular EXP faltante y usar el pipeline nativo AddPlayerExpAndCheckLevelUp
-			if targetLv > curLv && cs != nil {
-				reqExp, ok := cs.GetNextExp(int(targetLv) - 1)
-				if ok && int64(reqExp) > ctx.Player.Char.TCharacterState.Exp {
-					needed := uint64(int64(reqExp) - ctx.Player.Char.TCharacterState.Exp)
-					ctx.Handler.AddPlayerExpAndCheckLevelUp(
-						ctx.Player,
-						needed,
-						0,
-						0,
-						int32(ctx.Player.Char.XPos),
-						int32(ctx.Player.Char.YPos),
-						mapID,
-					)
-					ctx.Int1 = int(ctx.Player.Char.Level)
-					ctx.BigInt1 = ctx.Player.Char.TCharacterState.Exp
-					ctx.Reply = fmt.Sprintf("[GM] Level set: Lv.%d -> Lv.%d", curLv, ctx.Player.Char.Level)
-					return nil
-				}
-			}
-
-			// Caso 2: Bajar de nivel (o fallback sin CombatStore) -> ajustar estado, recalcular stats y notificar cliente
 			ctx.Player.Char.Level = targetLv
 			ctx.Player.Char.TCharacter.Level = targetLv
 			if cs != nil {
@@ -146,8 +119,6 @@ func init() {
 				ctx.Player.WriteDetailedInfoExtra(lvCmd, true)
 				_ = ctx.Player.Client.SendPacket(lvCmd)
 
-				ctx.Handler.sendPlayerHPUpdate(ctx.Player)
-				ctx.Handler.sendPlayerSPUpdate(ctx.Player)
 				ctx.Handler.syncPlayerVitals(ctx.Player)
 			}
 
@@ -529,7 +500,7 @@ func (h *Handler) sendPlayerHPUpdate(player *ZonePlayer) {
 	}
 	hpCmd := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_HPCHANGE_CMD)
 	hpCmd.WriteUint32(uint32(player.Char.CurHP))
-	hpCmd.WriteUint16(0)
+	hpCmd.WriteUint16(player.NextHPChangeOrder())
 	_ = player.Client.SendPacket(hpCmd)
 }
 
@@ -548,18 +519,15 @@ func (h *Handler) syncPlayerVitals(player *ZonePlayer) {
 	if player == nil || player.Client == nil || player.Char == nil {
 		return
 	}
-	for _, op := range []uint16{
-		protocol.PROTO_NC_CHAR_BASEPARAMCHANGE_CMD,
-		protocol.PROTO_NC_CHAR_CHANGEPARAMCHANGE_CMD,
-	} {
-		pkt := protocol.NewPacketWriter(op)
-		pkt.WriteByte(2)
-		pkt.WriteByte(32)
-		pkt.WriteUint32(uint32(player.MaxHP))
-		pkt.WriteByte(33)
-		pkt.WriteUint32(uint32(player.MaxSP))
-		_ = player.Client.SendPacket(pkt)
-	}
+
+	pkt := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_BASEPARAMCHANGE_CMD)
+	pkt.WriteByte(2)
+	pkt.WriteByte(0x10) // MaxHP
+	pkt.WriteUint32(uint32(player.MaxHP))
+	pkt.WriteByte(0x11) // MaxSP
+	pkt.WriteUint32(uint32(player.MaxSP))
+	_ = player.Client.SendPacket(pkt)
+
 	h.sendPlayerHPUpdate(player)
 	h.sendPlayerSPUpdate(player)
 }
@@ -580,10 +548,11 @@ func parseFiestaMoney(tokens []string) (int64, error) {
 			continue
 		}
 		sign := int64(1)
-		if tok[0] == '-' {
+		switch tok[0] {
+		case '-':
 			sign = -1
 			tok = tok[1:]
-		} else if tok[0] == '+' {
+		case '+':
 			tok = tok[1:]
 		}
 		if tok == "" {

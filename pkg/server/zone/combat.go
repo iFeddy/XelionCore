@@ -165,6 +165,8 @@ func buildTargetInfoPacket(order uint8, targetHandle uint16, entity GridEntity) 
 	info.WriteUint8(order)
 	info.WriteUint16(targetHandle)
 
+	var hpOrder uint16
+
 	switch e := entity.(type) {
 	case *ZonePlayer:
 		var hp, sp uint32
@@ -174,6 +176,7 @@ func buildTargetInfoPacket(order uint8, targetHandle uint16, entity GridEntity) 
 			sp = uint32(e.Char.CurSP)
 			lv = uint8(e.Char.Level)
 		}
+		hpOrder = e.HPChangeOrder
 		info.WriteUint32(hp)
 		info.WriteUint32(uint32(e.MaxHP))
 		info.WriteUint32(sp)
@@ -188,6 +191,7 @@ func buildTargetInfoPacket(order uint8, targetHandle uint16, entity GridEntity) 
 		sp := uint32(e.CurSP)
 		maxSP := uint32(e.MaxSP)
 		lv := e.Level
+		hpOrder = e.HPChangeOrder
 		e.mu.RUnlock()
 		info.WriteUint32(hp)
 		info.WriteUint32(maxHP)
@@ -206,7 +210,7 @@ func buildTargetInfoPacket(order uint8, targetHandle uint16, entity GridEntity) 
 		info.WriteUint8(1)
 	}
 
-	info.WriteUint16(0) // hpchangeorder (vtable+0x7e8)
+	info.WriteUint16(hpOrder) // hpchangeorder
 	return info
 }
 
@@ -379,10 +383,16 @@ func emitSkillBashHitDamage(zMap *ZoneMap, index, caster uint16, targets []skill
 		if t.IsDead {
 			flag |= 0x0100 // isDead
 		}
+		var hpOrder uint16
+		if m := zMap.GetMonster(t.Handle); m != nil {
+			hpOrder = m.NextHPChangeOrder()
+		} else if p := zMap.GetPlayer(t.Handle); p != nil {
+			hpOrder = p.NextHPChangeOrder()
+		}
 		pkt.WriteUint16(flag)
 		pkt.WriteUint32(t.Damage)
 		pkt.WriteUint32(t.RestHP)
-		pkt.WriteUint16(0) // hpchangeorder
+		pkt.WriteUint16(hpOrder) // hpchangeorder
 	}
 	zMap.Broadcast(pkt, 0)
 }
@@ -418,15 +428,20 @@ func emitSwingDamage(zMap *ZoneMap, attacker, defender GridEntity, attackerHandl
 		dmgFlag |= 0x0020 // isDead
 	}
 
+	var hpOrder uint16
+	if defP, ok := defender.(*ZonePlayer); ok && defP != nil {
+		hpOrder = defP.NextHPChangeOrder()
+	}
+
 	swingDmg := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_SWING_DAMAGE_CMD)
 	swingDmg.WriteUint16(attackerHandle)
 	swingDmg.WriteUint16(defenderHandle)
 	swingDmg.WriteUint16(dmgFlag)
 	swingDmg.WriteUint16(dmg)
 	swingDmg.WriteUint32(restHP)
-	swingDmg.WriteUint16(0)      // hpchangeorder
-	swingDmg.WriteUint8(1)       // damageindex
-	swingDmg.WriteUint8(atkSeq)  // attacksequence
+	swingDmg.WriteUint16(hpOrder) // hpchangeorder
+	swingDmg.WriteUint8(1)        // damageindex
+	swingDmg.WriteUint8(atkSeq)   // attacksequence
 
 	if atkP, ok := attacker.(*ZonePlayer); ok && atkP != nil && atkP.Client != nil {
 		_ = atkP.Client.SendPacket(swingDmg)
@@ -444,9 +459,9 @@ func emitSwingDamage(zMap *ZoneMap, attacker, defender GridEntity, attackerHandl
 	someoneDmg.WriteUint16(defenderHandle)
 	someoneDmg.WriteUint8(someoneFlag)
 	someoneDmg.WriteUint32(restHP)
-	someoneDmg.WriteUint16(0)      // hpchangeorder
-	someoneDmg.WriteUint8(1)       // damageindex
-	someoneDmg.WriteUint8(atkSeq)  // attacksequence
+	someoneDmg.WriteUint16(0)     // hpchangeorder
+	someoneDmg.WriteUint8(1)      // damageindex
+	someoneDmg.WriteUint8(atkSeq) // attacksequence
 
 	zMap.mu.RLock()
 	for id, p := range zMap.players {
@@ -606,7 +621,7 @@ func (h *Handler) handleSkillBashObjCastReq(client *network.Client, pkt *protoco
 		if defP.Client != nil {
 			hpCmd := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_HPCHANGE_CMD)
 			hpCmd.WriteUint32(restHP)
-			hpCmd.WriteUint16(0)
+			hpCmd.WriteUint16(defP.NextHPChangeOrder()) //defensor hpchangeorder
 			_ = defP.Client.SendPacket(hpCmd)
 		}
 	}
@@ -848,7 +863,7 @@ func (h *Handler) ExecuteAutoAttack(player *ZonePlayer, now time.Time) {
 		if e.Client != nil {
 			hpCmd := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_HPCHANGE_CMD)
 			hpCmd.WriteUint32(restHP)
-			hpCmd.WriteUint16(0)
+			hpCmd.WriteUint16(e.NextHPChangeOrder())
 			_ = e.Client.SendPacket(hpCmd)
 		}
 	}

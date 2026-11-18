@@ -221,11 +221,11 @@ func (b *ZoneWorldBridge) CastTeleport(handle uint32, mapName string, x, y float
 		b.zMap.bridgeCastTeleport(handle, mapName, x, y)
 	}
 }
-func (b *ZoneWorldBridge) CameraMove(handle uint32, cameraID int)                   {}
-func (b *ZoneWorldBridge) Animate(handle uint32, animID int, forced bool)           {}
-func (b *ZoneWorldBridge) Emotion(handle uint32, emotionID int)                     {}
-func (b *ZoneWorldBridge) PlaySound(soundID int, x, y float64)                      {}
-func (b *ZoneWorldBridge) ObjectEffect(handle uint32, effectID int)                 {}
+func (b *ZoneWorldBridge) CameraMove(handle uint32, cameraID int)         {}
+func (b *ZoneWorldBridge) Animate(handle uint32, animID int, forced bool) {}
+func (b *ZoneWorldBridge) Emotion(handle uint32, emotionID int)           {}
+func (b *ZoneWorldBridge) PlaySound(soundID int, x, y float64)            {}
+func (b *ZoneWorldBridge) ObjectEffect(handle uint32, effectID int)       {}
 
 func (b *ZoneWorldBridge) MobRegenXY(mobID uint32, mapName string, x, y float64, layer int) uint32 {
 	if b.zMap == nil {
@@ -1662,7 +1662,7 @@ func (m *ZoneMap) applyMonsterDamageToPlayer(mob *ZoneMonster, target *ZonePlaye
 	if target.Client != nil {
 		hpCmd := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_HPCHANGE_CMD)
 		hpCmd.WriteUint32(restHP)
-		hpCmd.WriteUint16(0)
+		hpCmd.WriteUint16(target.NextHPChangeOrder())
 		_ = target.Client.SendPacket(hpCmd)
 	}
 
@@ -1748,6 +1748,7 @@ func (m *ZoneMap) ApplyDamageToMonster(mob *ZoneMonster, attacker *ZonePlayer, d
 		mob.CurHP -= dmg
 	}
 	restHP = uint32(mob.CurHP)
+	mob.NextHPChangeOrder()
 	mob.mu.Unlock()
 
 	mob.RecordDamage(atkHandle, charID, dmg)
@@ -1756,6 +1757,11 @@ func (m *ZoneMap) ApplyDamageToMonster(mob *ZoneMonster, attacker *ZonePlayer, d
 		m.NotifyMonsterDeath(mob, attacker)
 	} else {
 		m.BroadcastMobChat(mob, "Damaged")
+		for _, p := range m.GetPlayers() {
+			if p != nil && p.Client != nil && p.TargetHandle == mob.Handle {
+				sendTargetInfoWithSecondary(p.Client, m, mob.Handle)
+			}
+		}
 	}
 	return restHP, isDead
 }

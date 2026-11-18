@@ -177,7 +177,7 @@ func (h *Handler) handleSkillReplyReviveCmd(client *network.Client, pkt *protoco
 
 	hpCmd := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_HPCHANGE_CMD)
 	hpCmd.WriteUint32(hp)
-	hpCmd.WriteUint16(0)
+	hpCmd.WriteUint16(player.NextHPChangeOrder())
 	_ = client.SendPacket(hpCmd)
 
 	spCmd := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_SPCHANGE_CMD)

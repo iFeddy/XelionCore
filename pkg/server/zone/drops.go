@@ -45,8 +45,8 @@ type RandomOptionCatalog struct {
 
 // PartyBonusTables indexa PartyBonusByMember.shn, PartyBonusByLvDiff.shn y PartyBonusLimit.shn.
 type PartyBonusTables struct {
-	ByMember map[int]int   // count -> ratio (1000 = 100%)
-	ByLvDiff map[int]int   // abs(maxLv - memberLv) -> ratio (1000 = 100%)
+	ByMember map[int]int      // count -> ratio (1000 = 100%)
+	ByLvDiff map[int]int      // abs(maxLv - memberLv) -> ratio (1000 = 100%)
 	MaxLvLim map[uint8]uint64 // level -> max bonus exp cap
 	MaxMemK  int
 	MaxDiffK int
@@ -507,14 +507,7 @@ func (h *Handler) AddPlayerExpAndCheckLevelUp(p *ZonePlayer, expGain uint64, mob
 			p.WriteDetailedInfoExtra(lvCmd, true)
 			_ = p.Client.SendPacket(lvCmd)
 
-			hpCmd := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_HPCHANGE_CMD)
-			hpCmd.WriteUint32(uint32(p.Char.CurHP))
-			hpCmd.WriteUint16(0)
-			_ = p.Client.SendPacket(hpCmd)
-
-			spCmd := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_SPCHANGE_CMD)
-			spCmd.WriteUint32(uint32(p.Char.CurSP))
-			_ = p.Client.SendPacket(spCmd)
+			h.syncPlayerVitals(p) //actualiza hp, sp max hp, max sp
 		}
 
 		if p.CurrentMap != nil {

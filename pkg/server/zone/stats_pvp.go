@@ -229,7 +229,7 @@ func (h *Handler) handleCharReviveReq(client *network.Client, pkt *protocol.Pack
 	// 2. Actualizar barra de vida
 	hpCmd := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_HPCHANGE_CMD)
 	hpCmd.WriteUint32(uint32(player.Char.CurHP))
-	hpCmd.WriteUint16(0)
+	hpCmd.WriteUint16(player.NextHPChangeOrder()) // hpchangeorder
 	_ = client.SendPacket(hpCmd)
 }
 
@@ -248,7 +248,7 @@ func (h *Handler) handleCharRebirthCmd(client *network.Client, pkt *protocol.Pac
 
 	hpCmd := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_HPCHANGE_CMD)
 	hpCmd.WriteUint32(uint32(player.Char.CurHP))
-	hpCmd.WriteUint16(0)
+	hpCmd.WriteUint16(player.NextHPChangeOrder()) // hpchangeorder
 	_ = client.SendPacket(hpCmd)
 }
 
@@ -305,6 +305,6 @@ func (h *Handler) handleItemReviveItemUseCmd(client *network.Client, pkt *protoc
 	}
 	hpCmd := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_HPCHANGE_CMD)
 	hpCmd.WriteUint32(uint32(player.Char.CurHP))
-	hpCmd.WriteUint16(0)
+	hpCmd.WriteUint16(player.NextHPChangeOrder()) // hpchangeorder
 	_ = client.SendPacket(hpCmd)
 }

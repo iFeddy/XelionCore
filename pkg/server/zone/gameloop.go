@@ -183,7 +183,7 @@ func (gl *MapGameLoop) executeAutoAttack(player *ZonePlayer, now time.Time) {
 		if e.Client != nil {
 			hpCmd := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_HPCHANGE_CMD)
 			hpCmd.WriteUint32(restHP)
-			hpCmd.WriteUint16(0)
+			hpCmd.WriteUint16(e.NextHPChangeOrder())
 			_ = e.Client.SendPacket(hpCmd)
 		}
 	}
@@ -242,8 +242,8 @@ func (gl *MapGameLoop) tick1s() {
 				dotCmd.WriteUint32(uint32(p.Char.CurHP))
 				dotCmd.WriteUint16(uint16(st.DotDamage))
 				dotCmd.WriteUint16(st.ID)
-				dotCmd.WriteUint16(0)
-				dotCmd.WriteUint8(0) // hit
+				dotCmd.WriteUint16(p.NextHPChangeOrder()) // hpchangeorder
+				dotCmd.WriteUint8(0)                      // hit
 				gl.zMap.Broadcast(dotCmd, 0)
 
 				if killedByDot {
@@ -279,7 +279,8 @@ func (gl *MapGameLoop) tick1s() {
 
 		// Regeneración oficial por estado (Zone.exe sp_RecoverPoint_House / sp_RecoverPoint_Rest):
 		// Estado 4 = Tent (10%/s); Estado 6 = Rest/Sit (cada 3s); Estado 1 = Normal pasivo (cada 3s).
-		if p.State == 4 {
+		switch p.State {
+		case 4: // Recuperacion por Minicasa (tent o tienda)
 			regenHP := p.MaxHP / 10
 			if regenHP < 5 {
 				regenHP = 5
@@ -303,7 +304,7 @@ func (gl *MapGameLoop) tick1s() {
 				}
 				spChanged = true
 			}
-		} else if p.State == 6 || p.State == 1 {
+		case 6: // Recuperacion por estar sentado (?)
 			p.RestTickCount++
 			if p.RestTickCount >= 3 {
 				p.RestTickCount = 0
@@ -347,7 +348,7 @@ func (gl *MapGameLoop) tick1s() {
 		if hpChanged && p.Client != nil {
 			hpUpdate := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_HPCHANGE_CMD)
 			hpUpdate.WriteUint32(uint32(p.Char.CurHP))
-			hpUpdate.WriteUint16(0)
+			hpUpdate.WriteUint16(p.NextHPChangeOrder())
 			_ = p.Client.SendPacket(hpUpdate)
 		}
 

@@ -56,16 +56,16 @@ func (n *ZoneNPC) GetClient() *network.Client {
 // WriteRegenMob serializa la entrada oficial de 149 bytes de PROTO_NC_BRIEFINFO_REGENMOB_CMD / MOB_CMD para un NPC o Gate.
 // Verificado en Zone.exe ShineNPC::so_SetGateBriefInform (0x00557BC0) y ShineMob::so_mob_Regenerate (0x004B41B0).
 func (n *ZoneNPC) WriteRegenMob(pw *protocol.PacketWriter) {
-	pw.WriteUint16(n.Handle)            // 0x00: handle (2B)
-	pw.WriteByte(0)                     // 0x02: mode (1B, 0=vivo/normal en so_mob_Regenerate)
-	pw.WriteUint16(n.MobID)             // 0x03: mobid (2B)
-	pw.WriteInt32(n.X)                  // 0x05: coord.x (4B)
-	pw.WriteInt32(n.Y)                  // 0x09: coord.y (4B)
+	pw.WriteUint16(n.Handle)               // 0x00: handle (2B)
+	pw.WriteByte(0)                        // 0x02: mode (1B, 0=vivo/normal en so_mob_Regenerate)
+	pw.WriteUint16(n.MobID)                // 0x03: mobid (2B)
+	pw.WriteInt32(n.X)                     // 0x05: coord.x (4B)
+	pw.WriteInt32(n.Y)                     // 0x09: coord.y (4B)
 	pw.WriteByte(encodeCoordDir(n.Direct)) // 0x0D: coord.dir (1B, direct/2)
 	if n.IsGate {
-		pw.WriteByte(1)                     // 0x0E: flagstate = 1 (gate)
+		pw.WriteByte(1)                   // 0x0E: flagstate = 1 (gate)
 		pw.WriteString(n.GateToWhere, 12) // 0x0F: gate2where (12B)
-		pw.Fill(87, 0)                      // 0x1B: resto de unión flag[99]
+		pw.Fill(87, 0)                    // 0x1B: resto de unión flag[99]
 	} else {
 		pw.WriteByte(0) // 0x0E: flagstate = 0
 		pw.Fill(99, 0)  // 0x0F: abstatebit (99B)
@@ -708,7 +708,7 @@ func (m *ZoneMap) AddPlayer(p *ZonePlayer) {
 	if p.Client != nil {
 		hpUpdate := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_HPCHANGE_CMD)
 		hpUpdate.WriteUint32(uint32(p.Char.CurHP))
-		hpUpdate.WriteUint16(0)
+		hpUpdate.WriteUint16(p.NextHPChangeOrder())
 		_ = p.Client.SendPacket(hpUpdate)
 	}
 
@@ -869,7 +869,6 @@ func (m *ZoneMap) GetEntity(handle uint16) GridEntity {
 	}
 	return nil
 }
-
 
 // SendDroppedItems transmits all dropped items on the field to a joining player using PROTO_NC_BRIEFINFO_ITEMONFIELD_CMD (0x1C0B), máx 28 por paquete.
 func (m *ZoneMap) SendDroppedItems(p *ZonePlayer) {

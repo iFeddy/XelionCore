@@ -100,38 +100,39 @@ func JobToClassName(job byte) string {
 
 // ZonePlayer representa a un jugador autenticado y activo en una instancia de ZoneServer.
 type ZonePlayer struct {
-	Client       *network.Client
-	Char         *database.Character
-	AccountID    int
-	Username     string
-	Admin        uint8
-	CurrentMap   *ZoneMap
-	MapObjectID  uint16
-	WorldNo      byte
-	State        byte // 1=Normal, 2=Player, 3=Dead, 4=Resting, 5=Vendor, 6=Mount
-	Rotation     byte
-	StonesHP     int16
-	StonesSP     int16
-	MaxStonesHP  int16
-	MaxStonesSP  int16
-	MaxHP        int
-	MaxSP        int
-	Str          byte
-	End          byte
-	Dex          byte
-	Int          byte
-	Spr          byte
-	LevelParam   classparam.LevelParam
-	EquipMinWC   uint32
-	EquipMaxWC   uint32
-	EquipAC      uint32
-	EquipMinMA   uint32
-	EquipMaxMA   uint32
-	EquipMR      uint32
-	EquipTH      uint32
-	EquipTB      uint32
-	LoginTime    time.Time
-	LastWarpTime time.Time
+	Client        *network.Client
+	Char          *database.Character
+	AccountID     int
+	Username      string
+	Admin         uint8
+	CurrentMap    *ZoneMap
+	MapObjectID   uint16
+	WorldNo       byte
+	State         byte // 1=Normal, 2=Player, 3=Dead, 4=Resting, 5=Vendor, 6=Mount
+	Rotation      byte
+	StonesHP      int16
+	StonesSP      int16
+	MaxStonesHP   int16
+	MaxStonesSP   int16
+	HPChangeOrder uint16
+	MaxHP         int
+	MaxSP         int
+	Str           byte
+	End           byte
+	Dex           byte
+	Int           byte
+	Spr           byte
+	LevelParam    classparam.LevelParam
+	EquipMinWC    uint32
+	EquipMaxWC    uint32
+	EquipAC       uint32
+	EquipMinMA    uint32
+	EquipMaxMA    uint32
+	EquipMR       uint32
+	EquipTH       uint32
+	EquipTB       uint32
+	LoginTime     time.Time
+	LastWarpTime  time.Time
 
 	// Campos de subsistemas de la Fase 11
 	HideExceptMe bool
@@ -173,16 +174,16 @@ type ZonePlayer struct {
 	OpenMultyLinkNPC     uint16
 	OpenMultyLinkOptions []string
 	ChargedInvenOpened   bool
-	AccountStorageOpen  bool
-	AcademyStorageOpen  bool
-	RepurchaseItems     []*RepurchaseEntry
-	PendingRandomOpt    *PendingRandomOption
-	ActiveTrade         *SafeTradeSession
-	PendingTradeFrom    uint16
-	ActiveBooth         *PlayerBooth
-	MinimonNormalSlots  [12]uint16
-	MinimonChargedSlots [12]uint16
-	ActiveProduce       *ProduceSession
+	AccountStorageOpen   bool
+	AcademyStorageOpen   bool
+	RepurchaseItems      []*RepurchaseEntry
+	PendingRandomOpt     *PendingRandomOption
+	ActiveTrade          *SafeTradeSession
+	PendingTradeFrom     uint16
+	ActiveBooth          *PlayerBooth
+	MinimonNormalSlots   [12]uint16
+	MinimonChargedSlots  [12]uint16
+	ActiveProduce        *ProduceSession
 
 	// Campos de subsistemas de la Fase 15 (Quests, Instancias/KQ/GT/Wedding, MiniHouse, Pets y Casino)
 	PendingQuestRewardSelect uint16
@@ -226,11 +227,11 @@ type ActivePetState struct {
 
 // RepurchaseEntry guarda un ítem vendido recientemente para PROTO_NC_ITEM_REPURCHASE_REQ (0x3059).
 type RepurchaseEntry struct {
-	Handle    uint16
-	ItemID    uint16
-	Lot       uint32
-	Price     uint64
-	Options   map[int16]int64
+	Handle  uint16
+	ItemID  uint16
+	Lot     uint32
+	Price   uint64
+	Options map[int16]int64
 }
 
 // PendingRandomOption almacena la tirada de opciones aleatorias pendiente de aceptar (0x3053 -> 0x3061).
@@ -530,11 +531,11 @@ func (p *ZonePlayer) WriteDetailedInfo(pw *protocol.PacketWriter) {
 	pw.WriteByte(p.Spr)                                     // MentalPower
 	pw.WriteByte(byte(p.Char.TCharacter.RedistributePoint)) // RedistributePoint real
 
-	pw.WriteByte(0)                  // pkyellowtime
-	pw.WriteUint32(0)                // pkcount
-	pw.WriteUint16(0)                // prisonmin
+	pw.WriteByte(0)                 // pkyellowtime
+	pw.WriteUint32(0)               // pkcount
+	pw.WriteUint16(0)               // prisonmin
 	pw.WriteByte(p.Char.AdminLevel) // adminlevel real
-	pw.Fill(4, 0)                    // flags (4 bytes)
+	pw.Fill(4, 0)                   // flags (4 bytes)
 }
 
 // WriteDetailedInfoExtra serializa PROTO_NC_MAP_LOGIN_ACK (242 bytes oficiales en PDB).
@@ -599,6 +600,15 @@ func (p *ZonePlayer) WriteDetailedInfoExtra(pw *protocol.PacketWriter, levelUp b
 	}
 }
 
+// Funcion para incrementar el contador de cambio de HP que lleva el paquete/cliente de hpchange
+func (p *ZonePlayer) NextHPChangeOrder() uint16 {
+	p.HPChangeOrder++
+	if p.HPChangeOrder == 0 {
+		p.HPChangeOrder = 1
+	}
+	return p.HPChangeOrder
+}
+
 // WriteCharacterDisplay serializa PROTO_NC_BRIEFINFO_LOGINCHARACTER_CMD (235 bytes exactos en PDB).
 // Alineado con Zone.exe 0BriefInformationCharacter (0x00549090), sp_MakeTentBriefInfo (0x0056E720) y bia_Fill.
 func (p *ZonePlayer) WriteCharacterDisplay(pw *protocol.PacketWriter) {
@@ -621,8 +631,8 @@ func (p *ZonePlayer) WriteCharacterDisplay(pw *protocol.PacketWriter) {
 	p.WriteLook(pw)                   // 0x021 (33): PROTO_AVATAR_SHAPE_INFO (4)
 	// 0x025 (37): shapedata union (45 bytes: CHARBRIEFINFO_NOTCAMP / CHARBRIEFINFO_CAMP / CHARBRIEFINFO_RIDE)
 	if p.State == 4 && p.TentID > 0 {
-		pw.WriteUint16(p.TentID)     // tentID (2)
-		pw.WriteUint32(0xFFFFFFFF)   // default camp placeholders (sp_MakeTentBriefInfo 0x0056E78C)
+		pw.WriteUint16(p.TentID)   // tentID (2)
+		pw.WriteUint32(0xFFFFFFFF) // default camp placeholders (sp_MakeTentBriefInfo 0x0056E78C)
 		pw.WriteUint32(0xFFFFFFFF)
 		pw.WriteUint16(0xFFFF)
 		pw.Fill(33, 0)

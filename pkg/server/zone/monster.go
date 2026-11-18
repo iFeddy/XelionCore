@@ -16,42 +16,43 @@ type MobAIState int
 
 const (
 	MobAIIdle   MobAIState = iota // En reposo esperando estímulo o patrullaje
-	MobAIRoam                    // Patrullaje siguiendo MobRoam o desplazamiento aleatorio
-	MobAIChase                   // Persiguiendo al objetivo en tabla de aggro
-	MobAIAttack                  // Ejecutando secuencia de ataque / skill
-	MobAIReturn                  // Retornando (leash) al origen de respawn
-	MobAIDead                    // Muerto esperando timer de respawn
+	MobAIRoam                     // Patrullaje siguiendo MobRoam o desplazamiento aleatorio
+	MobAIChase                    // Persiguiendo al objetivo en tabla de aggro
+	MobAIAttack                   // Ejecutando secuencia de ataque / skill
+	MobAIReturn                   // Retornando (leash) al origen de respawn
+	MobAIDead                     // Muerto esperando timer de respawn
 )
 
 // ZoneMonster representa un monstruo activo instanciado en un ZoneMap con todo su ciclo de vida, IA y combate.
 type ZoneMonster struct {
-	mu           sync.RWMutex
-	Handle       uint16
-	MobID        uint16
-	Name         string // Nombre legible (MobInfo.Name)
-	InxName      string // Índice oficial (MobInfo.InxName)
-	Map          string
-	X            int32
-	Y            int32
-	Direct       int16
-	Level        uint8
-	CurHP        int
-	MaxHP        int
-	CurSP        int
-	MaxSP        int
-	AC           uint32
-	MR           uint32
-	MinWC        uint32
-	MaxWC        uint32
-	MinMA        uint32
-	MaxMA        uint32
-	TH           uint32
-	TB           uint32
-	Exp          uint32
-	IsDead       bool
-	RespawnTime  time.Time
-	TargetHandle uint16
-	ActiveStates map[uint16]*ActiveAbState
+	mu            sync.RWMutex
+	Handle        uint16
+	MobID         uint16
+	Name          string // Nombre legible (MobInfo.Name)
+	InxName       string // Índice oficial (MobInfo.InxName)
+	Map           string
+	X             int32
+	Y             int32
+	Direct        int16
+	Level         uint8
+	CurHP         int
+	MaxHP         int
+	HPChangeOrder uint16
+	CurSP         int
+	MaxSP         int
+	AC            uint32
+	MR            uint32
+	MinWC         uint32
+	MaxWC         uint32
+	MinMA         uint32
+	MaxMA         uint32
+	TH            uint32
+	TB            uint32
+	Exp           uint32
+	IsDead        bool
+	RespawnTime   time.Time
+	TargetHandle  uint16
+	ActiveStates  map[uint16]*ActiveAbState
 
 	// Origen de respawn y parámetros de MobRegen / MobInfoServer
 	SpawnX           int32
@@ -184,6 +185,16 @@ func (m *ZoneMonster) GetEntityType() GridEntityType {
 // GetClient implementa GridEntity para ZoneMonster.
 func (m *ZoneMonster) GetClient() *network.Client {
 	return nil
+}
+
+// NextHPChangeOrder incrementa y devuelve el número de secuencia para paquetes de HP del monstruo.
+// Nota: no bloquea m.mu porque los callers de combate/IA ya toman m.mu.Lock() al descontar HP.
+func (m *ZoneMonster) NextHPChangeOrder() uint16 {
+	m.HPChangeOrder++
+	if m.HPChangeOrder == 0 {
+		m.HPChangeOrder = 1
+	}
+	return m.HPChangeOrder
 }
 
 // AddAbState aplica un estado anormal al monstruo.
