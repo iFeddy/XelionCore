@@ -500,6 +500,7 @@ func TestFase14_LiveMySQLTransactionsAndGameLog(t *testing.T) {
 	if qErr != nil {
 		t.Fatalf("query tuser failed: %v", qErr)
 	}
+	defer rows.Close()
 	for rows.Next() {
 		var u int
 		if err := rows.Scan(&u); err == nil {
@@ -510,7 +511,9 @@ func TestFase14_LiveMySQLTransactionsAndGameLog(t *testing.T) {
 			}
 		}
 	}
-	rows.Close()
+	if err := rows.Err(); err != nil {
+		t.Fatalf("iterating tuser rows failed: %v", err)
+	}
 	if userA == 0 {
 		t.Fatalf("no users in tuser table for MySQL Phase 14 transactional test")
 	}

@@ -62,6 +62,9 @@ func (h *Handler) handleCharStatIncPointReq(client *network.Client, pkt *protoco
 		player.MaxSP = player.LevelParam.MaxSP + freeBonus.MaxSP
 	}
 
+	//Arreglo HP/SP en cliente
+	h.syncPlayerVitals(player)
+
 	// Auditoría oficial en GameLog Tipo 2
 	if h.gameLogDispatcher != nil {
 		mapName := ""

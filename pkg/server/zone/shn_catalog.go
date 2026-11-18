@@ -222,8 +222,9 @@ func LoadAllSHNTables(dataDir string) (map[string]*shn.File, error) {
 		for _, relPath := range ref.Paths {
 			// Normalizar ruta: si relPath empieza con "data/", quitar el prefijo
 			p := relPath
-			if strings.HasPrefix(p, "data/") {
-				p = strings.TrimPrefix(p, "data/")
+			// Arreglo Esto es para evitar que filepath.Join(dataDir, relPath) genere "data/data/..."
+			if after, ok := strings.CutPrefix(p, "data/"); ok {
+				p = after
 			}
 			fullPath := filepath.Join(dataDir, p)
 
