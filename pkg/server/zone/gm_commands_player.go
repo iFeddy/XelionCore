@@ -182,13 +182,32 @@ func init() {
 
 	registerGMCommand([]string{"makeitem"}, gmCommandSpec{
 		MinArgs: 1,
-		Usage:   "&makeitem <itemID> [count]",
+		Usage:   "&makeitem <itemID|InxName> [count]",
 		LogType: 2,
 		Exec: func(ctx *gmContext) error {
-			itemID, err := strconv.Atoi(ctx.Args[0])
-			if err != nil || itemID <= 0 {
-				return errors.New("Invalid itemID.")
+			rawItem := strings.TrimSpace(ctx.Args[0])
+			var itemID int
+			var itemInx string
+
+			if id, err := strconv.Atoi(rawItem); err == nil && id > 0 {
+				itemID = id
+				if ctx.Handler.itemStore != nil {
+					if info, ok := ctx.Handler.itemStore.GetItemInfo(uint16(itemID)); ok && info != nil {
+						itemInx = info.InxName
+					}
+				}
+			} else {
+				if ctx.Handler.itemStore == nil {
+					return errors.New("ItemStore unavailable.")
+				}
+				info, ok := ctx.Handler.itemStore.GetItemInfoByName(rawItem)
+				if !ok || info == nil || info.ID == 0 {
+					return fmt.Errorf("Item '%s' not found.", rawItem)
+				}
+				itemID = int(info.ID)
+				itemInx = info.InxName
 			}
+
 			count := 1
 			if len(ctx.Args) >= 2 {
 				if c, err := strconv.Atoi(ctx.Args[1]); err == nil && c > 0 {
@@ -229,7 +248,11 @@ func init() {
 					ctx.Handler.sendCellChangeFull(ctx.Player.Client, 9, 0, ctx.Handler.findItemAt(ctx.Player.Char.ID, 9, 0), 0xFFFF)
 				}
 			}
-			ctx.Reply = fmt.Sprintf("[GM] Granted item %d x%d (group=%d, key=%d)", itemID, count, ctx.BigInt1, ctx.ItemKey)
+			if itemInx != "" {
+				ctx.Reply = fmt.Sprintf("[GM] Granted item %s (%d) x%d (group=%d, key=%d)", itemInx, itemID, count, ctx.BigInt1, ctx.ItemKey)
+			} else {
+				ctx.Reply = fmt.Sprintf("[GM] Granted item %d x%d (group=%d, key=%d)", itemID, count, ctx.BigInt1, ctx.ItemKey)
+			}
 			return nil
 		},
 	})

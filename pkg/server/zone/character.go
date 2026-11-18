@@ -158,6 +158,8 @@ type ZonePlayer struct {
 	PKYellowTime          int
 	LastSaveAt            time.Time
 	RestTickCount         int
+	HouseHPTickMs         uint32
+	HouseSPTickMs         uint32
 
 	// Campos de subsistemas de la Fase 13 (AutoPick, Títulos, RestExp)
 	IsAutoPick          bool

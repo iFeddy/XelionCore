@@ -280,60 +280,74 @@ func (gl *MapGameLoop) tick1s() {
 		// Regeneración oficial por estado (Zone.exe sp_RecoverPoint_House / sp_RecoverPoint_Rest):
 		// Estado 4 = Tent (10%/s); Estado 6 = Rest/Sit (cada 3s); Estado 1 = Normal pasivo (cada 3s).
 		switch p.State {
-		case 4: // Recuperacion por Minicasa (tent o tienda)
-			regenHP := p.MaxHP / 10
-			if regenHP < 5 {
-				regenHP = 5
-			}
-			if p.Char.CurHP < p.MaxHP {
-				p.Char.CurHP += regenHP
-				if p.Char.CurHP > p.MaxHP {
-					p.Char.CurHP = p.MaxHP
+		case 4: // MiniHouse / Tent (tasas oficiales desde MiniHouse.shn)
+			var mhDef *MiniHouseDef
+			if gl.zMap.handler != nil && gl.zMap.handler.dataStore != nil && gl.zMap.handler.dataStore.MiniHouseCatalog != nil {
+				cat := gl.zMap.handler.dataStore.MiniHouseCatalog
+				var houseKey uint16
+				if st := gl.zMap.handler.currentMiniHouseOf(p); st != nil && st.HouseID > 0 {
+					houseKey = st.HouseID
+				} else if p.TentID > 0 {
+					houseKey = p.TentID
 				}
-				hpChanged = true
+				if houseKey > 0 {
+					mhDef = cat.ByHandle[houseKey]
+					if mhDef == nil {
+						mhDef = cat.ByItemID[houseKey]
+					}
+				}
 			}
 
-			regenSP := p.MaxSP / 10
-			if regenSP < 5 {
-				regenSP = 5
-			}
-			if p.Char.CurSP < p.MaxSP {
-				p.Char.CurSP += regenSP
-				if p.Char.CurSP > p.MaxSP {
-					p.Char.CurSP = p.MaxSP
+			if mhDef != nil {
+				hpTick := mhDef.HPTick
+				if hpTick == 0 {
+					hpTick = 3000
 				}
-				spChanged = true
-			}
-		case 6: // Recuperacion por estar sentado (?)
-			p.RestTickCount++
-			if p.RestTickCount >= 3 {
-				p.RestTickCount = 0
-				var regenHP, regenSP int
-				if p.State == 6 {
-					regenHP = (p.MaxHP * 3) / 100
-					if regenHP < 5 {
-						regenHP = 5
-					}
-					regenSP = (p.MaxSP * 5) / 100
-					if regenSP < 5 {
-						regenSP = 5
-					}
-				} else {
-					regenHP = p.MaxHP / 100
-					if regenHP < 1 {
-						regenHP = 1
-					}
-					regenSP = p.MaxSP / 50
-					if regenSP < 1 {
-						regenSP = 1
+				spTick := mhDef.SPTick
+				if spTick == 0 {
+					spTick = 3000
+				}
+
+				p.HouseHPTickMs += 1000
+				if p.HouseHPTickMs >= hpTick {
+					p.HouseHPTickMs %= hpTick
+					if mhDef.HPRecovery > 0 && p.Char.CurHP < p.MaxHP {
+						p.Char.CurHP += int(mhDef.HPRecovery)
+						if p.Char.CurHP > p.MaxHP {
+							p.Char.CurHP = p.MaxHP
+						}
+						hpChanged = true
 					}
 				}
-				if p.Char.CurHP > 0 && p.Char.CurHP < p.MaxHP {
+
+				p.HouseSPTickMs += 1000
+				if p.HouseSPTickMs >= spTick {
+					p.HouseSPTickMs %= spTick
+					if mhDef.SPRecovery > 0 && p.Char.CurSP < p.MaxSP {
+						p.Char.CurSP += int(mhDef.SPRecovery)
+						if p.Char.CurSP > p.MaxSP {
+							p.Char.CurSP = p.MaxSP
+						}
+						spChanged = true
+					}
+				}
+			} else {
+				// Fallback para PitchTent sin catálogo cargado (tests / carpas genéricas)
+				regenHP := p.MaxHP / 10
+				if regenHP < 5 {
+					regenHP = 5
+				}
+				if p.Char.CurHP < p.MaxHP {
 					p.Char.CurHP += regenHP
 					if p.Char.CurHP > p.MaxHP {
 						p.Char.CurHP = p.MaxHP
 					}
 					hpChanged = true
+				}
+
+				regenSP := p.MaxSP / 10
+				if regenSP < 5 {
+					regenSP = 5
 				}
 				if p.Char.CurSP < p.MaxSP {
 					p.Char.CurSP += regenSP
@@ -343,6 +357,41 @@ func (gl *MapGameLoop) tick1s() {
 					spChanged = true
 				}
 			}
+
+		case 6: // Descanso sentado (Rest/Sit: cada 3s)
+			if !p.IsAutoAttacking {
+				p.RestTickCount++
+				if p.RestTickCount >= 3 {
+					p.RestTickCount = 0
+					regenHP := (p.MaxHP * 3) / 100
+					if regenHP < 5 {
+						regenHP = 5
+					}
+					regenSP := (p.MaxSP * 5) / 100
+					if regenSP < 5 {
+						regenSP = 5
+					}
+					if p.Char.CurHP > 0 && p.Char.CurHP < p.MaxHP {
+						p.Char.CurHP += regenHP
+						if p.Char.CurHP > p.MaxHP {
+							p.Char.CurHP = p.MaxHP
+						}
+						hpChanged = true
+					}
+					if p.Char.CurSP < p.MaxSP {
+						p.Char.CurSP += regenSP
+						if p.Char.CurSP > p.MaxSP {
+							p.Char.CurSP = p.MaxSP
+						}
+						spChanged = true
+					}
+				}
+			}
+
+		default:
+			p.RestTickCount = 0
+			p.HouseHPTickMs = 0
+			p.HouseSPTickMs = 0
 		}
 
 		if hpChanged && p.Client != nil {
