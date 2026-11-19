@@ -2241,15 +2241,44 @@ func (h *Handler) sendUint16Ack(client *network.Client, opCode uint16, errCode u
 	_ = client.SendPacket(ack)
 }
 
+// resolveClientMapID busca mapName en MapInfo.shn (columna MapName, case-insensitive)
+// y devuelve su índice de fila (0-based) en MapInfo.shn, que es el uint16 esperado por Fiesta.bin
+// en LINKSAME (0x1809), LINKOTHER (0x180A) y REVIVESAME (0x104F) para indexar el array de MapInfo
+// (p. ej. RouN está en la fila 129 de 138, mientras que su columna ID=150 cae fuera de rango y hace fallback a fila 0).
+// Si MapInfo.shn no está cargado o no contiene el mapa, devuelve fallbackSerial.
+func (h *Handler) resolveClientMapID(mapName string, fallbackSerial uint16) uint16 {
+	mapName = strings.TrimSpace(mapName)
+	if mapName == "" {
+		return fallbackSerial
+	}
+	if tbl := h.getSHN("MapInfo"); tbl != nil {
+		for i := range tbl.Rows {
+			row := &tbl.Rows[i]
+			if strings.EqualFold(strings.TrimSpace(row.GetString("MapName")), mapName) {
+				return uint16(i)
+			}
+		}
+	}
+	return fallbackSerial
+}
+
 // WarpPlayer traslada al jugador entre mapas oficiales, actualizando mapas, coordenadas y persistencia.
 // Si el mapa pertenece a otra zona según FieldList (fiesta != h.zoneNo), realiza un traspaso inter-zona
 // invocando usp_Session_IssueZoneTransfer y enviando PROTO_NC_CHAR_LOGIN_ACK.
-func (h *Handler) WarpPlayer(player *ZonePlayer, targetMapID string, x, y int, rotation byte) {
+// Devuelve true si el warp se ejecutó (mismo nodo o inter-zona), false si fue rechazado.
+func (h *Handler) WarpPlayer(player *ZonePlayer, targetMapID string, x, y int, rotation byte) bool {
 	if player == nil || player.Client == nil {
-		return
+		return false
 	}
 
 	targetMapID = strings.TrimSpace(targetMapID)
+	// Destino vacío: preferir el mapa actual / ciudad del personaje antes que el field de Serial 0.
+	if targetMapID == "" && player.CurrentMap != nil {
+		targetMapID = strings.TrimSpace(player.CurrentMap.MapID)
+	}
+	if targetMapID == "" && player.Char != nil {
+		targetMapID = strings.TrimSpace(player.Char.TownName)
+	}
 	if targetMapID == "" && h.fieldStore != nil {
 		if f0, ok := h.fieldStore.GetFieldBySerial(0); ok && f0 != nil {
 			targetMapID = f0.MapID
@@ -2258,7 +2287,7 @@ func (h *Handler) WarpPlayer(player *ZonePlayer, targetMapID string, x, y int, r
 
 	allowed, targetField := h.canEnterField(player, targetMapID)
 	if !allowed {
-		return
+		return false
 	}
 	h.resetPlayerNPCState(player)
 
@@ -2307,7 +2336,7 @@ func (h *Handler) WarpPlayer(player *ZonePlayer, targetMapID string, x, y int, r
 
 			// wms_NC_MAP_LINKRESERVE_ACK -> PROTO_NC_MAP_LINKOTHER_CMD (0x180A, 32B wire = PROTO_NC_CHAR_REVIVEOTHER_CMD 30B)
 			linkOther := protocol.NewPacketWriter(protocol.PROTO_NC_MAP_LINKOTHER_CMD)
-			linkOther.WriteUint16(targetMapSerial)
+			linkOther.WriteUint16(h.resolveClientMapID(targetMapID, targetMapSerial))
 			linkOther.WriteUint32(uint32(x))
 			linkOther.WriteUint32(uint32(y))
 			writeFixedStr(linkOther, ip, 16)
@@ -2320,7 +2349,7 @@ func (h *Handler) WarpPlayer(player *ZonePlayer, targetMapID string, x, y int, r
 				oldMap.RemovePlayer(player)
 			}
 			player.Client.Close()
-			return
+			return true
 		}
 	}
 
@@ -2349,12 +2378,17 @@ func (h *Handler) WarpPlayer(player *ZonePlayer, targetMapID string, x, y int, r
 		player.Client.RemoteAddr(), player.Char.Name, newMap.MapID, x, y, rotation)
 
 	newMap.AssignObjectID(player)
+	if targetField == nil {
+		// Sin FieldStore: usar el Serial con el que se instanció el mapa (nunca un 0 implícito).
+		targetMapSerial = newMap.ID
+	}
 	linkSame := protocol.NewPacketWriter(protocol.PROTO_NC_MAP_LINKSAME_CMD)
-	linkSame.WriteUint16(targetMapSerial)
+	linkSame.WriteUint16(h.resolveClientMapID(newMap.MapID, targetMapSerial))
 	linkSame.WriteUint32(uint32(x))
 	linkSame.WriteUint32(uint32(y))
 	_ = player.Client.SendPacket(linkSame)
 	h.sendInGameChunk(player)
+	return true
 }
 
 // handleMultyLinkSelect procesa 0x181F (PROTO_NC_MAP_MULTY_LINK_SELECT_REQ -> sp_NC_MAP_MULTY_LINK_SELECT_REQ en Zone.pdb).

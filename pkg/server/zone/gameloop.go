@@ -193,6 +193,9 @@ func (gl *MapGameLoop) executeAutoAttack(player *ZonePlayer, now time.Time) {
 	if isDead {
 		player.IsAutoAttacking = false
 		player.TargetHandle = 0
+		if defP, ok := targetEntity.(*ZonePlayer); ok {
+			sendCharDeadMenu(defP) // el menú va a la víctima, no al atacante
+		}
 	}
 }
 
@@ -248,6 +251,7 @@ func (gl *MapGameLoop) tick1s() {
 
 				if killedByDot {
 					emitReallyKill(gl.zMap, p.MapObjectID, 0)
+					sendCharDeadMenu(p)
 				}
 			} else if st.DotDamage < 0 && (st.LastDotTick.IsZero() || now.Sub(st.LastDotTick) >= st.DotInterval) {
 				st.LastDotTick = now

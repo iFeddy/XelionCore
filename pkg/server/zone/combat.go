@@ -635,6 +635,9 @@ func (h *Handler) handleSkillBashObjCastReq(client *network.Client, pkt *protoco
 
 	if isDead {
 		emitReallyKill(player.CurrentMap, targetObj, player.MapObjectID)
+		if defP, ok := targetEntity.(*ZonePlayer); ok {
+			sendCharDeadMenu(defP) // el menú va a la víctima, no al atacante
+		}
 	}
 	player.CastingSkillID = 0
 }
@@ -874,5 +877,8 @@ func (h *Handler) ExecuteAutoAttack(player *ZonePlayer, now time.Time) {
 	if isDead {
 		player.IsAutoAttacking = false
 		player.TargetHandle = 0
+		if defP, ok := targetEntity.(*ZonePlayer); ok {
+			sendCharDeadMenu(defP) // el menú va a la víctima, no al atacante
+		}
 	}
 }

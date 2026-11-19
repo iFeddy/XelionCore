@@ -1639,6 +1639,13 @@ func (m *ZoneMap) applyMonsterDamageToPlayer(mob *ZoneMonster, target *ZonePlaye
 	if target == nil || target.Char == nil || dmg <= 0 {
 		return
 	}
+	if target.State == 3 {
+		// Ya muerto: no re-matar (evita DEADMENU duplicados y REVIVE_REQ repetidos).
+		if mob != nil {
+			mob.RemoveAggroTarget(target.MapObjectID)
+		}
+		return
+	}
 	if target.Char.CurHP <= dmg {
 		target.Char.CurHP = 0
 		target.State = 3
@@ -1670,6 +1677,8 @@ func (m *ZoneMap) applyMonsterDamageToPlayer(mob *ZoneMonster, target *ZonePlaye
 		if mob != nil {
 			mob.RemoveAggroTarget(target.MapObjectID)
 		}
+
+		sendCharDeadMenu(target)
 
 		m.mu.RLock()
 		h := m.handler

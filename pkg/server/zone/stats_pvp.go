@@ -3,6 +3,7 @@ package zone
 import (
 	"strings"
 
+	"github.com/iFeddy/XelionCore/pkg/data/field"
 	"github.com/iFeddy/XelionCore/pkg/database"
 	"github.com/iFeddy/XelionCore/pkg/network"
 	"github.com/iFeddy/XelionCore/pkg/protocol"
@@ -163,6 +164,18 @@ func (h *Handler) handleCharStatDecPointReq(client *network.Client, pkt *protoco
 	_ = client.SendPacket(remainCmd)
 }
 
+// sendCharDeadMenu envía PROTO_NC_CHAR_DEADMENU_CMD (0x104D, 9 bytes) para abrir la ventana de resurrección.
+func sendCharDeadMenu(p *ZonePlayer) {
+	if p == nil || p.Client == nil {
+		return
+	}
+	pkt := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_DEADMENU_CMD)
+	pkt.WriteUint32(300) // Second (300s = 5 min antes de respawn automático)
+	pkt.WriteUint8(1)    // priority
+	pkt.WriteUint32(0)   // eMenuType (0 = menú normal de resurrección)
+	_ = p.Client.SendPacket(pkt)
+}
+
 // handleCharReviveReq implementa PROTO_NC_CHAR_REVIVE_REQ (0x104E).
 // Verificado en Zone.exe sp_NC_CHAR_REVIVE_REQ (0x00452980) -> sp_ReviveReqProcess (0x00451BD0):
 // restaura (MaxHP * 0x133) >> 10 (~30%), limpia debuffs y emite REVIVESAME_CMD (0x104F) o REVIVEOTHER_CMD (0x1050).
@@ -172,65 +185,151 @@ func (h *Handler) handleCharReviveReq(client *network.Client, pkt *protocol.Pack
 		return
 	}
 
-	// Restaurar estado de vida: (MaxHP * 0x133) >> 10 (~30% en Zone.exe 0x00452046)
+	// Idempotencia: solo un jugador muerto (State == 3) puede revivir. Evita que REVIVE_REQ duplicados
+	// (varios DEADMENU recibidos, doble click) disparen warps repetidos mientras el cliente aún carga el mapa.
+	if player.State != 3 {
+		return
+	}
+
+	// 1. Restaurar estado de vida: (MaxHP * 0x133) >> 10 (~30% en Zone.exe 0x00452046)
 	player.State = 1 // Normal
 	player.Char.CurHP = (player.MaxHP * 0x133) >> 10
 	if player.Char.CurHP <= 0 {
 		player.Char.CurHP = 50
 	}
-	// ab_Recover / as_Remove: limpiar debuffs/estados incapacitantes al revivir
+	player.IsAutoAttacking = false
+	player.TargetHandle = 0
+
+	// Limpiar debuffs / estados incapacitantes al revivir
 	for id, st := range player.ActiveStates {
 		if st != nil && (st.IsDebuff || st.IsStun || st.IsRoot || st.IsSilence) {
 			player.RemoveAbState(id)
 		}
 	}
 
-	// Coordenadas y mapa de respawn desde FieldList.json si están configurados
-	targetMapName := ""
-	if player.CurrentMap.FieldEntry != nil {
-		if player.CurrentMap.FieldEntry.Respawn.City != "" {
-			targetMapName = player.CurrentMap.FieldEntry.Respawn.City
+	// 2. Resolver mapa y coordenadas de respawn desde FieldList.json (nunca vacío)
+	targetMapName, spawnX, spawnY := h.resolveReviveDestination(player)
+
+	// 3. Traslado: si es el mismo mapa, revivir in-place con REVIVESAME_CMD (0x104F) + broadcast AOI
+	// sin disparar sendInGameChunk; si es otro mapa, usar WarpPlayer (y fallback a REVIVESAME_CMD si se rechaza).
+	sendReviveSame := func(x, y int) {
+		sameCmd := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_REVIVESAME_CMD)
+		sameCmd.WriteUint16(h.resolveClientMapID(player.CurrentMap.MapID, player.CurrentMap.ID))
+		sameCmd.WriteInt32(int32(x))
+		sameCmd.WriteInt32(int32(y))
+		_ = client.SendPacket(sameCmd)
+	}
+
+	if strings.EqualFold(targetMapName, player.CurrentMap.MapID) {
+		player.Char.XPos = spawnX
+		player.Char.YPos = spawnY
+		player.Char.TCharacterState.XPos = spawnX
+		player.Char.TCharacterState.YPos = spawnY
+		if h.charRepo != nil {
+			_ = h.charRepo.SaveCharLocation(player.Char.ID, player.CurrentMap.MapID, spawnX, spawnY, player.Rotation)
 		}
-		if len(player.CurrentMap.FieldEntry.Respawn.Spots) > 0 {
-			spot := player.CurrentMap.FieldEntry.Respawn.Spots[0]
-			if spot.X > 0 && spot.Y > 0 {
-				player.Char.XPos = spot.X
-				player.Char.YPos = spot.Y
+		sendReviveSame(spawnX, spawnY)
+
+		stopPw := protocol.NewPacketWriter(protocol.PROTO_NC_ACT_SOMEONESTOP_CMD)
+		stopPw.WriteUint16(player.MapObjectID)
+		stopPw.WriteInt32(int32(spawnX))
+		stopPw.WriteInt32(int32(spawnY))
+		player.CurrentMap.syncMoveAOI(player, spawnX, spawnY, stopPw)
+	} else if !h.WarpPlayer(player, targetMapName, spawnX, spawnY, player.Rotation) {
+		// Warp rechazado (p. ej. condición de nivel): revivir en el lugar con REVIVESAME_CMD (0x104F, 10 bytes).
+		sendReviveSame(player.Char.XPos, player.Char.YPos)
+	}
+
+	// 4. Sincronizar barra de vida al cliente
+	hpCmd := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_HPCHANGE_CMD)
+	hpCmd.WriteUint32(uint32(player.Char.CurHP))
+	hpCmd.WriteUint16(player.NextHPChangeOrder())
+	_ = client.SendPacket(hpCmd)
+}
+
+// resolveReviveDestination determina el mapa y coordenadas de resurrección según FieldList.json.
+// Orden de resolución del mapa: Respawn.City del field actual -> CurrentMap.MapID -> Char.TownName.
+// Cada candidato se valida contra el FieldStore (si existe) para no devolver jamás un MapID vacío
+// o inexistente, que en WarpPlayer/GetOrCreateMap caería al field de Serial 0.
+// Las coordenadas salen de Respawn.Spots[0] del field cuya configuración de respawn se usó;
+// si no hay spot válido y el destino es el mismo mapa, se conservan las coordenadas actuales.
+func (h *Handler) resolveReviveDestination(player *ZonePlayer) (string, int, int) {
+	curX, curY := player.Char.XPos, player.Char.YPos
+	curMapID := ""
+	if player.CurrentMap != nil {
+		curMapID = strings.TrimSpace(player.CurrentMap.MapID)
+	}
+	townName := strings.TrimSpace(player.Char.TownName)
+
+	valid := func(id string) bool {
+		if id == "" {
+			return false
+		}
+		if h.fieldStore == nil {
+			return true
+		}
+		f, ok := h.fieldStore.GetField(id)
+		return ok && f != nil
+	}
+
+	// Field de origen: el FieldEntry cacheado en el mapa o, si falta, el del FieldStore.
+	var entry *field.FieldEntry
+	if player.CurrentMap != nil {
+		entry = player.CurrentMap.FieldEntry
+	}
+	if entry == nil && h.fieldStore != nil {
+		for _, id := range []string{curMapID, townName} {
+			if id == "" {
+				continue
+			}
+			if f, ok := h.fieldStore.GetField(id); ok && f != nil {
+				entry = f
+				break
 			}
 		}
 	}
 
-	var targetMap *ZoneMap = player.CurrentMap
-	if targetMapName != "" && player.CurrentMap.MapID != "" && targetMapName != player.CurrentMap.MapID && h.mapManager != nil {
-		if rm := h.mapManager.GetMap(targetMapName); rm != nil {
-			targetMap = rm
+	target := ""
+	x, y := curX, curY
+	if entry != nil {
+		city := strings.TrimSpace(entry.Respawn.City)
+		if valid(city) {
+			target = city
+			for _, spot := range entry.Respawn.Spots {
+				if spot.X > 0 && spot.Y > 0 {
+					x, y = spot.X, spot.Y
+					break
+				}
+			}
 		}
 	}
-
-	if targetMap != nil && targetMap != player.CurrentMap {
-		// PROTO_NC_CHAR_REVIVEOTHER_CMD (0x1050, 30B): mapid(2), x(4), y(4), ip[16], port(2), linkflag/id(2)
-		otherCmd := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_REVIVEOTHER_CMD)
-		otherCmd.WriteUint16(targetMap.ID)
-		otherCmd.WriteInt32(int32(player.Char.XPos))
-		otherCmd.WriteInt32(int32(player.Char.YPos))
-		writeFixedStr(otherCmd, "127.0.0.1", 16)
-		otherCmd.WriteUint16(9013)
-		otherCmd.WriteUint16(player.MapObjectID)
-		_ = client.SendPacket(otherCmd)
-	} else {
-		// 1. Notificar al jugador que resucitó en el mismo mapa (PROTO_NC_CHAR_REVIVESAME_CMD: 10 bytes = mapid[2], location[8])
-		sameCmd := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_REVIVESAME_CMD)
-		sameCmd.WriteUint16(player.CurrentMap.ID)
-		sameCmd.WriteInt32(int32(player.Char.XPos))
-		sameCmd.WriteInt32(int32(player.Char.YPos))
-		_ = client.SendPacket(sameCmd)
+	if target == "" {
+		for _, id := range []string{curMapID, townName} {
+			if valid(id) {
+				target = id
+				break
+			}
+		}
 	}
-
-	// 2. Actualizar barra de vida
-	hpCmd := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_HPCHANGE_CMD)
-	hpCmd.WriteUint32(uint32(player.Char.CurHP))
-	hpCmd.WriteUint16(player.NextHPChangeOrder()) // hpchangeorder
-	_ = client.SendPacket(hpCmd)
+	if target == "" {
+		// Último recurso: mapa actual tal cual (aunque no esté en FieldList) para no caer en Serial 0.
+		target = curMapID
+		if target == "" {
+			target = townName
+		}
+	}
+	// Si el destino es otro mapa y no hubo spot, usar el spot de respawn propio del mapa destino.
+	if (x == curX && y == curY) && !strings.EqualFold(target, curMapID) && h.fieldStore != nil {
+		if f, ok := h.fieldStore.GetField(target); ok && f != nil {
+			for _, spot := range f.Respawn.Spots {
+				if spot.X > 0 && spot.Y > 0 {
+					x, y = spot.X, spot.Y
+					break
+				}
+			}
+		}
+	}
+	return target, x, y
 }
 
 // handleCharRebirthCmd implementa PROTO_NC_CHAR_REBIRTH_CMD (0x1102).
