@@ -3,10 +3,9 @@ package zone
 
 
 import (
-
 	"fmt"
-
 	"log"
+	"time"
 
 
 
@@ -46,15 +45,11 @@ func (b *liveZoneWMSBridge) PublishWMS(ev WMSEvent) {
 }
 
 type Server struct {
-
 	config    *Config
-
 	tcpServer *network.TCPServer
-
 	handler   *Handler
-
 	s2sClient *s2s.Client
-
+	kqStopCh  chan struct{}
 }
 
 
@@ -145,6 +140,23 @@ func (s *Server) Start() error {
 			s.config.WorldS2SAddr, s.config.WorldNo, s.config.ZoneNo)
 	}
 
+	// Zone.exe 10Hz event tick (100ms) for KingdomQuestGateKeeper waves (exe: 0x00499699)
+	s.kqStopCh = make(chan struct{})
+	go func(stopCh <-chan struct{}) {
+		ticker := time.NewTicker(100 * time.Millisecond)
+		defer ticker.Stop()
+		for {
+			select {
+			case <-stopCh:
+				return
+			case now := <-ticker.C:
+				if s.handler != nil {
+					s.handler.ProcessKQGateKeepers(now)
+				}
+			}
+		}
+	}(s.kqStopCh)
+
 	return s.tcpServer.Start()
 
 }
@@ -161,6 +173,11 @@ func (s *Server) S2SConnected() bool {
 func (s *Server) Stop() {
 
 	log.Printf("[ZoneServer] Shutting down Zone Server...")
+
+	if s.kqStopCh != nil {
+		close(s.kqStopCh)
+		s.kqStopCh = nil
+	}
 
 	if s.s2sClient != nil {
 		s.s2sClient.Stop()

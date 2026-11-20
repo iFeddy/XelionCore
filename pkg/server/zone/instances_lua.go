@@ -600,52 +600,7 @@ func (h *Handler) handleInstanceDungeonRankListReq(client *network.Client, pkt *
 	_ = client.SendPacket(ack)
 }
 
-// handleKQEntryResponseAck maneja PROTO_NC_KQ_ENTRYRESPONCE_ACK (0x581A).
-func (h *Handler) handleKQEntryResponseAck(client *network.Client, pkt *protocol.Packet) {
-	player := h.GetPlayer(client)
-	if player == nil || player.Char == nil || pkt.Reader.Remaining() < 5 {
-		return
-	}
-	reply, _ := pkt.Reader.ReadByte()
-	encHandle, _ := pkt.Reader.ReadUint32()
-	if reply == 0 || h.mapManager == nil {
-		return
-	}
-
-	kqID := uint16(encHandle)
-	if kqID == 0 {
-		kqID = 1
-	}
-	baseMap := "KQ_HMiniDragon"
-	limitSec := 1800
-	scriptPath := ""
-	if h.dataStore != nil && h.dataStore.KQCatalog != nil {
-		if def := h.dataStore.KQCatalog.ByID[kqID]; def != nil {
-			if def.BaseMap != "" {
-				baseMap = def.BaseMap
-			}
-			if def.LimitTimeSec > 0 {
-				limitSec = def.LimitTimeSec
-			}
-			if def.ScriptName != "" {
-				scriptPath = filepath.Join("KQ", def.ScriptName, def.ScriptName+".lua")
-			}
-		}
-	}
-	instKey := fmt.Sprintf("kq_%d_%d", kqID, time.Now().Unix()/300)
-	kqMap := h.mapManager.CreateInstanceMap(baseMap, instKey, "KQ", kqID, limitSec, scriptPath)
-	if kqMap != nil {
-		if player.KQTeam == 0 {
-			player.KQTeam = 1
-		}
-		h.WarpPlayer(player, kqMap.MapID, 1000, 1000, 0)
-		kqMap.AddPlayer(player)
-		kqMap.bridgeShowKQTimerWithLifeObj(uint32(player.MapObjectID), limitSec)
-	}
-	if h.gameLogDispatcher != nil {
-		h.gameLogDispatcher.EnqueueTypeH(2, player.Char.ID, instKey, player.Char.XPos, player.Char.YPos, 0, int(kqID))
-	}
-}
+// handleKQEntryResponseAck movido a kq_zone.go (port 1:1 de ShinePlayer::sp_NC_KQ_ENTRYRESPONCE_ACK @ 0x00496990).
 
 // ============================================================================
 // Dept 29: Guild Tournament en Mapa (6 C2S)

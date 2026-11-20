@@ -198,9 +198,11 @@ type ItemInfo struct {
 	TH        uint32
 	TB        uint32
 	UseClass  uint32
-	BuyPrice  uint32
-	SellPrice uint32
-	UpLimit   uint8
+	BuyPrice   uint32
+	SellPrice  uint32
+	UpLimit    uint8
+	KQItem     bool // ItemInfoServer.shn +0xDA (exe: 0x0050FA5C sp_RemoveKQItem)
+	KQItemDrop bool // ItemInfoServer.shn +0xDC (exe: 0x0049701F sp_KQItemDrop)
 }
 
 // ItemUseEffect holds the official consumable recovery/buff effect parsed from ItemUseEffect.shn.
@@ -431,12 +433,26 @@ func (s *Store) LoadInventoryDataSHN(itemInfoServerPath, itemSortPath, useClassT
 	if err != nil {
 		return fmt.Errorf("read %s: %w", itemInfoServerPath, err)
 	}
-	itemOrders := make(map[uint16]int, itemInfoServer.RecordCount)
+	type itemServerFlags struct {
+		hasOrder   bool
+		order      int
+		kqItem     bool
+		kqItemDrop bool
+	}
+	itemOrders := make(map[uint16]itemServerFlags, itemInfoServer.RecordCount)
 	for _, row := range itemInfoServer.Rows {
+		id := row.GetUint16("ID")
 		category := strings.ToLower(strings.TrimSpace(row.GetString("ItemSort_Index")))
 		order, ok := sortOrder[category]
-		if ok {
-			itemOrders[row.GetUint16("ID")] = order
+		kqItem := row.GetByte("KQItem") != 0
+		kqItemDrop := row.GetByte("KQ_Item_Drop") != 0
+		if ok || kqItem || kqItemDrop {
+			itemOrders[id] = itemServerFlags{
+				hasOrder:   ok,
+				order:      order,
+				kqItem:     kqItem,
+				kqItemDrop: kqItemDrop,
+			}
 		}
 	}
 
@@ -475,9 +491,13 @@ func (s *Store) LoadInventoryDataSHN(itemInfoServerPath, itemSortPath, useClassT
 
 	s.mu.Lock()
 	defer s.mu.Unlock()
-	for id, order := range itemOrders {
+	for id, flags := range itemOrders {
 		if info, ok := s.itemsByID[id]; ok {
-			info.SortOrder = order
+			if flags.hasOrder {
+				info.SortOrder = flags.order
+			}
+			info.KQItem = flags.kqItem
+			info.KQItemDrop = flags.kqItemDrop
 		}
 	}
 	s.useClasses = useClasses

@@ -145,6 +145,8 @@ func (h *Handler) handleSkillReplyReviveCmd(client *network.Client, pkt *protoco
 	}
 
 	// Si el jugador estaba muerto, revivir con 50% de HP y limpiar estados negativos
+	// exe: 0x0057D354 (sp_ReviveNow -> sp_KQElementFunction(kqpi_KnockDownMinus))
+	h.sp_KQElementFunction(player, (*KQPlayerInform).kqpi_KnockDownMinus)
 	player.State = 1 // Normal
 	player.Char.CurHP = player.MaxHP / 2
 	if player.Char.CurHP <= 0 {

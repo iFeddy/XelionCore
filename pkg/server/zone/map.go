@@ -245,6 +245,11 @@ type ZoneMap struct {
 	KQWinRed           int
 	KQWinBlue          int
 	KQTeamByChar       map[int]int
+	KQHandle           uint32 // FieldMap+0x3C (exe: 0x004980C3 / 0x00497383, 0xFFFFFFFF = unbound)
+	KQID               uint16 // FieldMap+0x40 (exe: 0x004980C6 / 0x00497386, 0xFFFF = unbound)
+	KQScriptActive     bool   // CinemaComplex active film count > 0 (exe: 0x0043FC35)
+	KQScriptName       string // Active KQ script name for cc_DropFilm / cc_PlayFilm
+	KQInitValue        string // Active KQ script init value
 	GTState            *GuildTournamentMatch
 	WeddingState       *WeddingCeremonyState
 }
@@ -263,6 +268,8 @@ func NewZoneMap(id uint16, mapID, name string) *ZoneMap {
 		droppedItems: make(map[uint16]*ZoneDroppedItem),
 		tents:        make(map[uint16]uint16),
 		grid:         NewSpatialGrid(DefaultCellSize),
+		KQHandle:     kqInvalidHandle,
+		KQID:         kqInvalidID,
 	}
 	zm.gameLoop = NewMapGameLoop(zm)
 	zm.gameLoop.Start()

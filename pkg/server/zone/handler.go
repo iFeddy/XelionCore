@@ -41,6 +41,7 @@ type Handler struct {
 	mapManager        *MapManager
 	gameLogDispatcher *database.GameLogDispatcher
 	s2s               *S2SCoordinator
+	kqRuntime         *ZoneKQRuntime
 }
 
 // SetGameLogDispatcher configura el despachador de logs de auditoría para ZoneService.
@@ -96,6 +97,7 @@ func NewHandler(charRepo database.CharacterRepository, transfers *database.Trans
 		players:    make(map[*network.Client]*ZonePlayer),
 		mapManager: NewMapManager(fieldStore),
 		s2s:        NewS2SCoordinator(),
+		kqRuntime:  newZoneKQRuntime(),
 	}
 	h.mapManager.SetHandler(h)
 	return h
@@ -638,6 +640,8 @@ func (h *Handler) OnClientDisconnect(client *network.Client) {
 		h.cancelTradeSession(player)
 		h.closePlayerBooth(player)
 		if player.CurrentMap != nil {
+			// exe: 0x005589D1 (ShinePlayer::so_Unmark -> sp_KQItemDrop)
+			h.sp_KQItemDrop(player)
 			if h.gameLogDispatcher != nil && player.Char != nil {
 				h.gameLogDispatcher.EnqueueType1(2, player.Char.ID, player.CurrentMap.MapID, player.Char.XPos, player.Char.YPos, 0)
 			}
@@ -1144,6 +1148,9 @@ func (h *Handler) handleClientReady(client *network.Client, pkt *protocol.Packet
 
 	// Add player to map and broadcast spawn
 	player.CurrentMap.AddPlayer(player)
+
+	// exe: 0x00443922..0x00444034 (sp_NC_MAP_LOGINCOMPLETE_CMD KQ hooks)
+	h.onPlayerMapLoginCompleteKQ(player)
 
 	// Loguear entrada de mapa en GameLog Tipo 1 (nType = 1 para ingreso)
 	if h.gameLogDispatcher != nil && player.Char != nil {
@@ -2204,6 +2211,12 @@ func (h *Handler) canEnterField(player *ZonePlayer, targetMapID string) (bool, *
 	var f *field.FieldEntry
 	if h.fieldStore != nil {
 		entry, ok := h.fieldStore.GetField(targetMapID)
+		if (!ok || entry == nil) && h.mapManager != nil {
+			if inst := h.mapManager.GetMap(targetMapID); inst != nil && inst.FieldEntry != nil {
+				entry = inst.FieldEntry
+				ok = true
+			}
+		}
 		if !ok || entry == nil {
 			return false, nil
 		}
@@ -2256,6 +2269,17 @@ func (h *Handler) resolveClientMapID(mapName string, fallbackSerial uint16) uint
 			row := &tbl.Rows[i]
 			if strings.EqualFold(strings.TrimSpace(row.GetString("MapName")), mapName) {
 				return uint16(i)
+			}
+		}
+		if h.mapManager != nil {
+			if inst := h.mapManager.GetMap(mapName); inst != nil && inst.FieldEntry != nil && inst.FieldEntry.MapID != "" {
+				baseName := strings.TrimSpace(inst.FieldEntry.MapID)
+				for i := range tbl.Rows {
+					row := &tbl.Rows[i]
+					if strings.EqualFold(strings.TrimSpace(row.GetString("MapName")), baseName) {
+						return uint16(i)
+					}
+				}
 			}
 		}
 	}
@@ -3367,6 +3391,18 @@ func (h *Handler) handleItemPick(client *network.Client, pkt *protocol.Packet) {
 
 	var freeSlot int16
 	if !pre.IsCenDrop {
+		// exe: 0x0052FC5E..0x0052FC8C (so_ply_PickupItem -> gKQItemDataBox.kqidb_CanPickUp -> 0x034A)
+		if h.dataStore != nil && h.dataStore.KQItemBox != nil {
+			dropLot := uint64(pre.Lot)
+			if dropLot == 0 {
+				dropLot = 1
+			}
+			owned := h.sp_GetItemInvenLot(player, pre.ItemID)
+			if !h.dataStore.KQItemBox.kqidb_CanPickUp(pre.ItemID, owned+dropLot) {
+				sendPickErr(kqErrPickupLimit)
+				return
+			}
+		}
 		var hasFree bool
 		freeSlot, hasFree = h.findFreeInvenSlot(player.Char.ID)
 		if !hasFree {

@@ -13,6 +13,7 @@ import (
 	"github.com/iFeddy/XelionCore/pkg/data/drop"
 	"github.com/iFeddy/XelionCore/pkg/data/field"
 	"github.com/iFeddy/XelionCore/pkg/data/item"
+	"github.com/iFeddy/XelionCore/pkg/data/kq"
 	"github.com/iFeddy/XelionCore/pkg/data/misc"
 	"github.com/iFeddy/XelionCore/pkg/data/mobattack"
 	"github.com/iFeddy/XelionCore/pkg/data/mobregen"
@@ -58,6 +59,9 @@ type DataStore struct {
 	CollectCatalog     *CollectCatalog
 	QuestCatalog       *QuestCatalog
 	KQCatalog          *KQCatalog
+	KQStore            *kq.Store
+	KQItemBox          *KQItemDataBox
+	KQMapInfo          map[string]*KQMapInfoEntry
 	GTCatalog          *GTCatalog
 	MiniHouseCatalog   *MiniHouseCatalog
 	PetCatalog         *PetCatalog
@@ -315,6 +319,7 @@ func LoadAllData(dataDir string) (*DataStore, error) {
 	ds.CollectCatalog = BuildCollectCatalog(ds)
 	ds.BuildPhase15Catalogs(dataDir)
 	ds.AdminLvCatalog = BuildAdminLvCatalog(ds)
+	ds.LoadKQOfficialData(dataDir)
 
 	return ds, nil
 }

@@ -79,7 +79,7 @@ Portar 1:1, función por función, con la dirección del exe en el comentario de
 - Timer: el período con que `WorldManagerServer` llama a `DoKingdomQuest` (desensamblar el caller) en lugar del tick genérico de `RunWorldTick`.
 - Eliminar `p_KingdomQuest_Set` en el arranque.
 
-### 27C — `KingdomQuest::*` en `ZoneService`
+### 27C — `KingdomQuest::*` en `ZoneService` — **Completado**
 `wms_NC_KQ_W2Z_MAKE_REQ` → `KingdomQuestContainer` (`kqc_MapUseCheck`, `kqc_SearchHandle`), creación de los mapas de `MapLink[4]` / `KingdomQuestMap`, `Z2W_MAKE_ACK`; `wms_NC_KQ_W2Z_START_CMD` → `KingdomQuestEntrance` (`kqe_newentrance`, `kqe_entry`, `kqe_allentry`, `kqe_sort`, `kqe_search`), `KQ_ENTRYRESPONCE` (`sp_NC_KQ_ENTRYRESPONCE_ACK`), `KingdomQuestGateKeeper::erb_happen`/`erb_CheckLinkMap`; `KQElement` (`kqe_QuestStart`, `kqe_ReviveNumber`, `kqe_GetKQLimitMin`), `KQPlayerInfoList` (knockdowns, team type), `sp_EscapeFromEmptyKQ`, `sp_KQItemDrop` (`KQItem.shn`), `wms_NC_KQ_W2Z_DESTROY_CMD`, `wms_NC_KQ_PLAYER_DISJOIN_CMD`, `wms_NC_KQ_LINK_TO_FORCE_BY_BAN_CMD`, `Z2W_END_CMD`, comandos GM `&kingdomquest` / `&Reroadkingdomquest` / `ac_EndOfKingdomQuest` / `ac_KQReward`. Quitar `if kqID == 0 { kqID = 1 }`.
 
 ### 27D — Lua y recompensas

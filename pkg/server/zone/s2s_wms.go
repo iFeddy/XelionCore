@@ -152,6 +152,34 @@ func (h *Handler) ApplyIncomingWMS(symbol string, worldID byte, zoneNo uint16, p
 	return true
 }
 
+// PublishOutboundWMS publica un evento S2S saliente Zone -> World (p. ej. Z2W_MAKE_ACK, Z2W_END_CMD)
+// sin alterar el mapa oficial de 138 handlers entrantes wms_NC_*.
+func (h *Handler) PublishOutboundWMS(symbol string, payload map[string]interface{}) {
+	if h.s2s == nil {
+		h.mu.Lock()
+		if h.s2s == nil {
+			h.s2s = NewS2SCoordinator()
+		}
+		h.mu.Unlock()
+	}
+	ev := WMSEvent{
+		Symbol:  symbol,
+		WorldID: h.worldID,
+		ZoneNo:  h.zoneNo,
+		Payload: payload,
+	}
+	h.s2s.mu.Lock()
+	if len(h.s2s.eventHistory) >= 512 {
+		h.s2s.eventHistory = h.s2s.eventHistory[1:]
+	}
+	h.s2s.eventHistory = append(h.s2s.eventHistory, ev)
+	bridge := h.s2s.bridge
+	h.s2s.mu.Unlock()
+	if bridge != nil {
+		bridge.PublishWMS(ev)
+	}
+}
+
 // DispatchGDS valida y ejecuta un flujo S2S gds_NC_* sobre CharacterRepository (100% SP).
 func (h *Handler) DispatchGDS(symbol string) (string, bool) {
 	if h.s2s == nil {
@@ -343,6 +371,16 @@ func defaultWMSHandlerFor(sym string) WMSHandlerFunc {
 					}
 				}
 			}
+		case "wms_NC_KQ_W2Z_MAKE_REQ":
+			h.wms_NC_KQ_W2Z_MAKE_REQ(ev)
+		case "wms_NC_KQ_W2Z_START_CMD":
+			h.wms_NC_KQ_W2Z_START_CMD(ev)
+		case "wms_NC_KQ_W2Z_DESTROY_CMD":
+			h.wms_NC_KQ_W2Z_DESTROY_CMD(ev)
+		case "wms_NC_KQ_PLAYER_DISJOIN_CMD":
+			h.wms_NC_KQ_PLAYER_DISJOIN_CMD(ev)
+		case "wms_NC_KQ_LINK_TO_FORCE_BY_BAN_CMD":
+			h.wms_NC_KQ_LINK_TO_FORCE_BY_BAN_CMD(ev)
 		case "wms_NC_MISC_S2SCONNECTION_RDY", "wms_NC_MISC_S2SCONNECTION_ACK":
 			log.Printf("[Zone][S2S] %s ready (World=%d, Zone=%d)", sym, ev.WorldID, ev.ZoneNo)
 		default:

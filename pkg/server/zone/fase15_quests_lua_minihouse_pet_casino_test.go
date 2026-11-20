@@ -5,6 +5,7 @@ import (
 	"testing"
 	"time"
 
+	"github.com/iFeddy/XelionCore/pkg/data/kq"
 	"github.com/iFeddy/XelionCore/pkg/database"
 	"github.com/iFeddy/XelionCore/pkg/protocol"
 )
@@ -247,20 +248,32 @@ func TestFase15_LuaInstancesIDKQGTWeddingAndHolyPromise(t *testing.T) {
 		t.Fatalf("expected PROTO_NC_INSTANCE_DUNGEON_RANK_LIST_ACK")
 	}
 
-	// 2. Dept 22: Kingdom Quest Execution in Map + KQReward + GameLog Type H
+	// 2. Dept 22: Kingdom Quest Execution in Map (via oficial W2Z_MAKE_REQ + EncHandle XOR) + KQReward + GameLog Type H
 	connGroom.clear()
+	var kqHandle uint32 = 1001
+	var firstKQID uint16 = 1
+	var makeInfo kq.PROTO_KQ_INFO
+	makeInfo.Handle = kqHandle
+	makeInfo.ID = firstKQID
+	makeInfo.LimitTime = 30
+	makeInfo.SetScriptLanguage("KQ/KingSlime/KingSlime")
+	makeInfo.SetScriptInitValue("1")
+	makeInfo.MapLink[0].SetMapBase("KDEddyHill")
+	makeInfo.MapLink[0].SetMapName("KDEddyHill00")
+	makeInfo.MapLink[0].MapClear = 1
+	h.ApplyIncomingWMS("wms_NC_KQ_W2Z_MAKE_REQ", 0, 0, map[string]interface{}{
+		"handle":  kqHandle,
+		"id":      firstKQID,
+		"kq_info": makeInfo,
+	})
 	kqBuf := make([]byte, 5)
 	kqBuf[0] = 1
-	var firstKQID uint32 = 1
-	for k := range ds.KQCatalog.ByID {
-		firstKQID = uint32(k)
-		break
-	}
-	binary.LittleEndian.PutUint32(kqBuf[1:5], firstKQID)
+	binary.LittleEndian.PutUint32(kqBuf[1:5], kqHandle^uint32(groom.MapObjectID))
 	h.HandlePacket(groom.Client, buildTestPacket(protocol.PROTO_NC_KQ_ENTRYRESPONCE_ACK, kqBuf))
 	if groom.CurrentMap == nil || groom.CurrentMap.InstanceKind != "KQ" {
 		t.Fatalf("expected Groom warped into KQ instance map, got %+v", groom.CurrentMap)
 	}
+	groom.CurrentMap.bridgeShowKQTimerWithLifeObj(uint32(groom.MapObjectID), int(makeInfo.LimitTime)*60)
 	if len(connGroom.findByOpcode(protocol.PROTO_NC_SCENARIO_TIMER_CMD)) == 0 {
 		t.Fatalf("expected PROTO_NC_SCENARIO_TIMER_CMD from KQ timer")
 	}

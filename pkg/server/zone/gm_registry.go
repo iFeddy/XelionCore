@@ -120,10 +120,11 @@ type gmContext struct {
 
 // gmCommandSpec define la firma, validación mínima y ejecución de un comando GM.
 type gmCommandSpec struct {
-	MinArgs int
-	Usage   string
-	LogType int
-	Exec    func(ctx *gmContext) error
+	MinArgs           int
+	Usage             string
+	LogType           int
+	DefaultAdminLevel byte // Nivel base en Zone.exe AmpersandCommand::ac_Store si no existe override en AdminLvSet.shn
+	Exec              func(ctx *gmContext) error
 }
 
 var gmRegistry = map[string]gmCommandSpec{}
@@ -187,6 +188,12 @@ func (h *Handler) handleGMCommand(player *ZonePlayer, rawText string) bool {
 	}
 
 	reqLv, exists := h.dataStore.AdminLvCatalog.RequiredLevel(cmd)
+	if !exists {
+		if regSpec, okReg := gmRegistry[cmd]; okReg && regSpec.DefaultAdminLevel > 0 {
+			reqLv = regSpec.DefaultAdminLevel
+			exists = true
+		}
+	}
 	if !exists {
 		if strings.HasPrefix(trimmed, "&") {
 			h.sendPlayerNotice(player, fmt.Sprintf("Unknown GM command: %s", cmd))

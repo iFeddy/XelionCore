@@ -169,6 +169,10 @@ func sendCharDeadMenu(p *ZonePlayer) {
 	if p == nil || p.Client == nil {
 		return
 	}
+	// exe: 0x00434630..0x00434637 (so_KilledBy -> sp_KQElementFunction(kqpi_KnockDownPlus))
+	if p.CurrentMap != nil && p.CurrentMap.handler != nil {
+		p.CurrentMap.handler.onPlayerKQKnockDown(p)
+	}
 	pkt := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_DEADMENU_CMD)
 	pkt.WriteUint32(300) // Second (300s = 5 min antes de respawn automático)
 	pkt.WriteUint8(1)    // priority
