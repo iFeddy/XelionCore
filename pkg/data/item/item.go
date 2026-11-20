@@ -356,18 +356,27 @@ func (s *Store) Options() []ItemOptionEntry {
 	return res
 }
 
-// LoadItemInfoSHN loads official item definitions from ItemInfo.shn.
+// LoadItemInfoSHN loads official item definitions from ItemInfo.shn on disk.
 func (s *Store) LoadItemInfoSHN(filePath string) error {
 	file, err := shn.ReadFile(filePath)
 	if err != nil {
 		return fmt.Errorf("read %s: %w", filePath, err)
+	}
+	return s.LoadItemInfoFromSHN(file)
+}
+
+// LoadItemInfoFromSHN loads official item definitions from a pre-parsed ItemInfo.shn.
+func (s *Store) LoadItemInfoFromSHN(file *shn.File) error {
+	if file == nil {
+		return fmt.Errorf("nil ItemInfo SHN file")
 	}
 
 	classes := make(map[uint16]uint8, file.RecordCount)
 	byID := make(map[uint16]*ItemInfo, file.RecordCount)
 	byName := make(map[string]*ItemInfo, file.RecordCount)
 
-	for _, row := range file.Rows {
+	for i := range file.Rows {
+		row := &file.Rows[i]
 		id := row.GetUint16("ID")
 		inxName := strings.TrimSpace(row.GetString("InxName"))
 		cls := uint8(row.GetInt("Class"))
@@ -413,26 +422,45 @@ func (s *Store) LoadItemInfoSHN(filePath string) error {
 	return nil
 }
 
-// LoadInventoryDataSHN loads official inventory sorting and class eligibility data.
+// LoadInventoryDataSHN loads official inventory sorting and class eligibility data from disk.
 func (s *Store) LoadInventoryDataSHN(itemInfoServerPath, itemSortPath, useClassTypeInfoPath, classNamePath string) error {
 	itemSort, err := shn.ReadFile(itemSortPath)
 	if err != nil {
 		return fmt.Errorf("read %s: %w", itemSortPath, err)
 	}
+	itemInfoServer, err := shn.ReadFile(itemInfoServerPath)
+	if err != nil {
+		return fmt.Errorf("read %s: %w", itemInfoServerPath, err)
+	}
+	useClassInfo, err := shn.ReadFile(useClassTypeInfoPath)
+	if err != nil {
+		return fmt.Errorf("read %s: %w", useClassTypeInfoPath, err)
+	}
+	classNameInfo, err := shn.ReadFile(classNamePath)
+	if err != nil {
+		return fmt.Errorf("read %s: %w", classNamePath, err)
+	}
+	return s.LoadInventoryDataFromSHN(itemInfoServer, itemSort, useClassInfo, classNameInfo)
+}
+
+// LoadInventoryDataFromSHN loads official inventory sorting and class eligibility data from pre-parsed SHN tables.
+func (s *Store) LoadInventoryDataFromSHN(itemInfoServer, itemSort, useClassInfo, classNameInfo *shn.File) error {
+	if itemInfoServer == nil || itemSort == nil || useClassInfo == nil || classNameInfo == nil {
+		return fmt.Errorf("missing pre-parsed SHN table for inventory data")
+	}
+
 	sortOrder := make(map[string]int, itemSort.RecordCount)
-	for i, row := range itemSort.Rows {
+	for i := range itemSort.Rows {
+		row := &itemSort.Rows[i]
 		name := strings.ToLower(strings.TrimSpace(row.GetString("ItemSort_Index")))
 		if name != "" {
 			sortOrder[name] = i
 		}
 	}
 
-	itemInfoServer, err := shn.ReadFile(itemInfoServerPath)
-	if err != nil {
-		return fmt.Errorf("read %s: %w", itemInfoServerPath, err)
-	}
 	itemOrders := make(map[uint16]int, itemInfoServer.RecordCount)
-	for _, row := range itemInfoServer.Rows {
+	for i := range itemInfoServer.Rows {
+		row := &itemInfoServer.Rows[i]
 		category := strings.ToLower(strings.TrimSpace(row.GetString("ItemSort_Index")))
 		order, ok := sortOrder[category]
 		if ok {
@@ -440,10 +468,6 @@ func (s *Store) LoadInventoryDataSHN(itemInfoServerPath, itemSortPath, useClassT
 		}
 	}
 
-	useClassInfo, err := shn.ReadFile(useClassTypeInfoPath)
-	if err != nil {
-		return fmt.Errorf("read %s: %w", useClassTypeInfoPath, err)
-	}
 	classColumns := make([]string, 0, len(useClassInfo.Columns)-1)
 	for _, column := range useClassInfo.Columns {
 		if column.Name != "" && column.Name != "UseClass" {
@@ -451,7 +475,8 @@ func (s *Store) LoadInventoryDataSHN(itemInfoServerPath, itemSortPath, useClassT
 		}
 	}
 	useClasses := make(map[uint32]map[string]bool, useClassInfo.RecordCount)
-	for _, row := range useClassInfo.Rows {
+	for i := range useClassInfo.Rows {
+		row := &useClassInfo.Rows[i]
 		useClass := uint32(row.GetInt("UseClass"))
 		allowed := make(map[string]bool, len(classColumns))
 		for _, class := range classColumns {
@@ -460,12 +485,9 @@ func (s *Store) LoadInventoryDataSHN(itemInfoServerPath, itemSortPath, useClassT
 		useClasses[useClass] = allowed
 	}
 
-	classNameInfo, err := shn.ReadFile(classNamePath)
-	if err != nil {
-		return fmt.Errorf("read %s: %w", classNamePath, err)
-	}
 	classPrefixes := make(map[byte]string, classNameInfo.RecordCount)
-	for _, row := range classNameInfo.Rows {
+	for i := range classNameInfo.Rows {
+		row := &classNameInfo.Rows[i]
 		classID := row.GetByte("ClassID")
 		prefix := strings.TrimSpace(row.GetString("acPrefix"))
 		if prefix != "" && prefix != "-" {
@@ -508,15 +530,24 @@ func (s *Store) CanUseItemByClassID(itemID uint16, classID byte) (bool, bool) {
 	return allowed, ok
 }
 
-// LoadItemUseEffectSHN loads official consumable recovery/buff definitions from ItemUseEffect.shn.
+// LoadItemUseEffectSHN loads official consumable recovery/buff definitions from ItemUseEffect.shn on disk.
 func (s *Store) LoadItemUseEffectSHN(filePath string) error {
 	file, err := shn.ReadFile(filePath)
 	if err != nil {
 		return fmt.Errorf("read %s: %w", filePath, err)
 	}
+	return s.LoadItemUseEffectFromSHN(file)
+}
+
+// LoadItemUseEffectFromSHN loads official consumable recovery/buff definitions from a pre-parsed ItemUseEffect.shn.
+func (s *Store) LoadItemUseEffectFromSHN(file *shn.File) error {
+	if file == nil {
+		return fmt.Errorf("nil ItemUseEffect SHN file")
+	}
 
 	effects := make(map[string]*ItemUseEffect, file.RecordCount)
-	for _, row := range file.Rows {
+	for i := range file.Rows {
+		row := &file.Rows[i]
 		idx := strings.TrimSpace(row.GetString("ItemIndex"))
 		if idx == "" {
 			continue

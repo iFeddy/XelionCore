@@ -334,14 +334,7 @@ func LoadWorldDataStore(dataDir string) (*WorldDataStore, error) {
 		log.Printf("[WorldDataStore] Warning: Failed to load classparams from %s: %v", classParamDir, err)
 	}
 
-	// 6. Inicializar motor de Checksums de 49 archivos
-	if chkEngine, err := shn.NewChecksumEngine(dataDir, filepath.Join(dataDir, "View")); err == nil {
-		store.Checksums = chkEngine
-	} else {
-		log.Printf("[WorldDataStore] Warning: Failed to init ChecksumEngine: %v", err)
-	}
-
-	// 7. Cargar el universo completo de los 74+ archivos SHN únicos (54 de Character U 71 de WorldManager)
+	// 6. Cargar el universo completo de los 74+ archivos SHN únicos (54 de Character U 71 de WorldManager)
 	uniqueSHNs := make(map[string]bool)
 	for _, name := range CharacterSHNFiles {
 		uniqueSHNs[name] = true
@@ -361,6 +354,13 @@ func LoadWorldDataStore(dataDir string) (*WorldDataStore, error) {
 			continue
 		}
 		store.LoadedFiles[name] = f
+	}
+
+	// 7. Inicializar motor de Checksums de 49 archivos reutilizando hashes ya calculados en LoadedFiles
+	if chkEngine, err := shn.NewChecksumEngineFromFiles(store.LoadedFiles, dataDir, filepath.Join(dataDir, "View")); err == nil {
+		store.Checksums = chkEngine
+	} else {
+		log.Printf("[WorldDataStore] Warning: Failed to init ChecksumEngine: %v", err)
 	}
 
 	// Asignar referencias tipadas de compatibilidad
