@@ -139,7 +139,7 @@ func (s *Server) startWorldTicker() {
 	ch := make(chan struct{})
 	s.stopTick = ch
 	go func() {
-		ticker := time.NewTicker(1 * time.Second)
+		ticker := time.NewTicker(1 * time.Second) // exe: 0x00406769 (WorldManagerServer timer -> DoKingdomQuest)
 		defer ticker.Stop()
 		for {
 			select {

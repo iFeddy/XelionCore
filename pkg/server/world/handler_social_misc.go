@@ -481,7 +481,7 @@ func (h *Handler) ActivePrisonCount() int {
 // RunWorldTick ejecuta un ciclo autónomo completo de WorldManager (KQ + Prison + GuildWar).
 func (h *Handler) RunWorldTick(now time.Time) {
 	if h.kqMgr != nil {
-		h.kqMgr.DoKingdomQuest(now)
+		h.kqMgr.DoKingdomQuest(now) // exe: 0x00406769
 	}
 	if h.guildMgr != nil {
 		h.guildMgr.UpdateGuildWars(now)

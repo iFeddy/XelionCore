@@ -482,7 +482,8 @@ func TestCKQServer_JoinDisjoinTeamSelectAndVoteKick_Behavior(t *testing.T) {
 		t.Fatalf("expected duplicate vote error 0x3113, got 0x%04X", e)
 	}
 
-	// Advance simulated clock past KQVote_VoteLimitTime (60s) -> VoteProcessing emits SUC + BAN_MSG_CMD + S2S BAN
+	// Advance simulated clock past KQVote_VoteLimitTime (60s) -> VoteProcessing emits SUC + BAN_MSG_CMD
+	// and sets bBan=1 (0x004552A5); the next VoteProcessing tick (0x00454FF5) emits S2S BAN.
 	simNow = simNow.Add(65 * time.Second)
 	km.DoKingdomQuest(simNow)
 	if len(findPacket(p1.drain(t), protocol.PROTO_NC_KQ_VOTE_RESULT_SUC_CMD)) != 1 {
@@ -491,6 +492,8 @@ func TestCKQServer_JoinDisjoinTeamSelectAndVoteKick_Behavior(t *testing.T) {
 	if len(findPacket(p3.drain(t), protocol.PROTO_NC_KQ_VOTE_BAN_MSG_CMD)) != 1 {
 		t.Fatalf("expected PROTO_NC_KQ_VOTE_BAN_MSG_CMD on target")
 	}
+	simNow = simNow.Add(1 * time.Second)
+	km.DoKingdomQuest(simNow)
 	evsBan := sink.popAll()
 	var banSent bool
 	for _, ev := range evsBan {
