@@ -128,6 +128,7 @@ type Character struct {
 	KQMapName        string                   `json:"kq_map_name,omitempty"`
 	KQX              uint32                   `json:"kq_x,omitempty"`
 	KQY              uint32                   `json:"kq_y,omitempty"`
+	KQD              uint16                   `json:"kq_d,omitempty"`
 	KQDate           uint32                   `json:"kq_date,omitempty"`
 	ChangeID         *CharIDChangeInfo        `json:"change_id,omitempty"`
 	TutorialState    int32                    `json:"tutorial_state"`
@@ -522,6 +523,41 @@ type CharacterOptions struct {
 	KeyMapping   []byte `json:"sKeyMapping"`   // 52 bytes (p_Char_GetOptKeyMapping)
 }
 
+// CharKQMapInfo representa los 6 campos devueltos por p_Char_GetKQMap (Character.exe @ 0x0045A130)
+// y enviados en PROTO_NC_CHAR_KQMAP_CMD (0x101A, Character.exe @ 0x0043903B..0x004391A9).
+type CharKQMapInfo struct {
+	KQHandle     uint32
+	KQMapName    string
+	KQX          uint32
+	KQY          uint32
+	KQD          uint16
+	KQDate       time.Time
+	KQDatePacked uint32
+}
+
+// PackKQDateTime empaqueta un timestamp al bitfield 32-bit de PROTO_NC_CHAR_KQMAP_CMD.dKQDate
+// idéntico a Character.exe @ 0x0043911F..0x00439199:
+//
+//	bits  0..3  (4b): year & 0xF
+//	bits  4..7  (4b): month & 0xF
+//	bits  8..12 (5b): day & 0x1F
+//	bits 13..17 (5b): hour & 0x1F
+//	bits 18..23 (6b): minute & 0x3F
+//	bits 24..29 (6b): second & 0x3F
+func PackKQDateTime(t time.Time) uint32 {
+	if t.IsZero() {
+		return 0
+	}
+	var packed uint32
+	packed |= uint32(t.Year()) & 0x0F           // exe: 0x00439134 (and ecx, 0xf)
+	packed |= (uint32(t.Month()) & 0x0F) << 4   // exe: 0x00439140 (shl edx, 4; and 0xf0)
+	packed |= (uint32(t.Day()) & 0x1F) << 8     // exe: 0x00439154 (shl ecx, 8; and 0x1f00)
+	packed |= (uint32(t.Hour()) & 0x1F) << 13   // exe: 0x00439168 (shl edx, 0xd; and 0x3e000)
+	packed |= (uint32(t.Minute()) & 0x3F) << 18 // exe: 0x0043917c (shl ecx, 0x12; and 0xfc0000)
+	packed |= (uint32(t.Second()) & 0x3F) << 24 // exe: 0x0043918c (shl edx, 0x18; and 0x3f000000)
+	return packed
+}
+
 // ============================================================================
 // Interfaces Modulares por Dominio (World00_Character)
 // ============================================================================
@@ -541,6 +577,8 @@ type CharacterAvatarRepository interface {
 	CharacterLogin(charNo int) error
 	CharacterLogout(charNo int, playMin int) error
 	SaveCharLocation(charNo int, mapName string, x, y int, rotation byte) error
+	SaveCharLocationWithKQ(charNo int, mapName string, x, y int, kqHandle uint32, kqMap string, kqX, kqY uint32) error
+	GetCharKQMap(charNo int) (*CharKQMapInfo, error)
 	SaveCharStats(charNo int, hp, sp, hps, sps int16) error
 	SaveCharLevelExp(charNo int, level int16, exp int64) error
 	SaveCharMoney(charNo int, money int64) error
@@ -1293,6 +1331,44 @@ func (r *MemoryCharacterRepository) SaveCharLocation(charNo int, mapName string,
 		return nil
 	}
 	return ErrCharacterNotFound
+}
+
+// SaveCharLocationWithKQ persiste ubicación normal + estado KQ (Character.exe @ 0x00459E90 p_Char_SaveLocation).
+func (r *MemoryCharacterRepository) SaveCharLocationWithKQ(charNo int, mapName string, x, y int, kqHandle uint32, kqMap string, kqX, kqY uint32) error {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if ch, ok := r.characters[charNo]; ok {
+		ch.TownName = mapName
+		ch.XPos = x
+		ch.YPos = y
+		ch.TCharacterState.XPos = x
+		ch.TCharacterState.YPos = y
+		ch.KQHandle = kqHandle
+		ch.KQMapName = kqMap
+		ch.KQX = kqX
+		ch.KQY = kqY
+		ch.KQDate = PackKQDateTime(time.Now())
+		return nil
+	}
+	return ErrCharacterNotFound
+}
+
+// GetCharKQMap lee el estado KQ persistido de un personaje (Character.exe @ 0x0045A130 p_Char_GetKQMap).
+func (r *MemoryCharacterRepository) GetCharKQMap(charNo int) (*CharKQMapInfo, error) {
+	r.mu.RLock()
+	defer r.mu.RUnlock()
+	ch, ok := r.characters[charNo]
+	if !ok {
+		return nil, ErrCharacterNotFound
+	}
+	return &CharKQMapInfo{
+		KQHandle:     ch.KQHandle,
+		KQMapName:    ch.KQMapName,
+		KQX:          ch.KQX,
+		KQY:          ch.KQY,
+		KQD:          ch.KQD,
+		KQDatePacked: ch.KQDate,
+	}, nil
 }
 
 func (r *MemoryCharacterRepository) SaveCharStats(charNo int, hp, sp, hps, sps int16) error {

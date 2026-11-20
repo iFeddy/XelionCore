@@ -250,6 +250,7 @@ type ZoneMap struct {
 	KQScriptActive     bool   // CinemaComplex active film count > 0 (exe: 0x0043FC35)
 	KQScriptName       string // Active KQ script name for cc_DropFilm / cc_PlayFilm
 	KQInitValue        string // Active KQ script init value
+	kqScriptTable      string // Tabla global Lua para scripts KQ migrados (ej. KQConditionOfHero)
 	GTState            *GuildTournamentMatch
 	WeddingState       *WeddingCeremonyState
 }

@@ -1656,10 +1656,27 @@ func (h *Handler) handleCharSelect(client *network.Client, pkt *protocol.Packet)
 	}
 	clientIP := client.RemoteIP()
 
-	// 3. Resolver endpoint de zona para el mapa dinámicamente sin fallback hardcodeado
+	// 3. Resolver mapa de destino (p_Char_GetKQMap @ Character.exe 0x0045A130 + fc_NC_CHAR_KQMAP_CMD @ WorldManager.exe 0x0040AA10)
 	targetIP := h.zoneIP
 	targetPort := h.zonePort
 	mapName := selected.TownName
+	destX := selected.XPos
+	destY := selected.YPos
+	if h.kqMgr != nil && h.charRepo != nil {
+		kqMapName, kqDestX, kqDestY, _, restoredToKQ := h.kqMgr.ResolveCharKQLoginLocation(
+			h.charRepo,
+			selected.ID,
+			selected.Name,
+			mapName,
+			destX,
+			destY,
+		)
+		if restoredToKQ && kqMapName != "" {
+			mapName = kqMapName
+			destX = kqDestX
+			destY = kqDestY
+		}
+	}
 	if mapName == "" && h.dataStore != nil && h.dataStore.Fields != nil {
 		if f, ok := h.dataStore.Fields.GetFieldBySerial(int(selected.Map)); ok {
 			mapName = f.MapID
@@ -1726,7 +1743,7 @@ func (h *Handler) handleCharSelect(client *network.Client, pkt *protocol.Packet)
 		clientIP,
 	)
 	if topo := h.getTopoRepo(); topo != nil {
-		_ = topo.IssueZoneTransfer(h.worldID, zoneNo, client.AccountID, client.Username, selected.ID, selected.Name, randomID, client.Admin, clientIP, mapName, selected.XPos, selected.YPos)
+		_ = topo.IssueZoneTransfer(h.worldID, zoneNo, client.AccountID, client.Username, selected.ID, selected.Name, randomID, client.Admin, clientIP, mapName, destX, destY)
 	}
 	_ = h.charRepo.CharacterLogin(selected.ID)
 

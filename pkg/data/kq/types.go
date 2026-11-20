@@ -19,6 +19,7 @@ const (
 	SizeOfKQVoteMajorityRate  = 1   // KQVoteMajorityRate (WorldManager.pdb, WorldManager.exe @ 0x00451B66)
 	SizeOfKingdomQuestRew     = 128 // KINGDOM_QUEST_REW (Zone.pdb)
 	SizeOfKQItem              = 38  // KQItem (Zone.pdb)
+	SizeOfShineReward         = 66  // ShineReward (Zone.pdb, Zone.exe @ 0x0064C830)
 	SizeOfProtoKQMapInfo      = 26  // PROTO_KQ_MAP_INFO (WorldManager.pdb / Zone.pdb)
 	SizeOfProtoKQInfoClient   = 141 // PROTO_KQ_INFO_CLIENT (WorldManager.pdb)
 	SizeOfProtoKQInfo         = 377 // PROTO_KQ_INFO (WorldManager.pdb / Zone.pdb)
@@ -537,6 +538,68 @@ func (r *KINGDOM_QUEST_REW) UnmarshalBinary(data []byte) error {
 		r.Reward[i] = binary.LittleEndian.Uint16(data[0x44+i*2 : 0x46+i*2])
 		r.RewardRate[i] = binary.LittleEndian.Uint16(data[0x62+i*2 : 0x64+i*2])
 	}
+	return nil
+}
+
+// ShineRewardType mirrors the switch on ShineReward::RewardType in ShinePlayer::sp_KQReward
+// (Zone.exe @ 0x0052DF3C..0x0052DFDB, jump table @ 0x0052E348).
+type ShineRewardType uint8
+
+const (
+	ShineRewardTypeNone ShineRewardType = 0 // exe: 0x0052DF50
+	ShineRewardTypeItem ShineRewardType = 1 // exe: 0x0052DF7D (tcm_ItemMake)
+	ShineRewardTypeExp  ShineRewardType = 2 // exe: 0x0052DFA3 (totalExp += [edi+0x24])
+	ShineRewardTypeCen  ShineRewardType = 3 // exe: 0x0052DFBF (totalMoney += [edi+0x24])
+	ShineRewardTypeFame ShineRewardType = 4 // exe: 0x0052DFDB (totalFame += [edi+0x24])
+)
+
+// SHINE_REWARD models C++ struct ShineReward (66 bytes, ShineReward.shn).
+// Loaded by RewardData::rd_Load (Zone.exe @ 0x0064C830).
+type SHINE_REWARD struct {
+	RewardHandle uint16          // +0x0000
+	RewardType   ShineRewardType // +0x0002
+	Argument     [33]byte        // +0x0003 (item InxName or ItemGroup name)
+	Quantity     uint32          // +0x0024 (Exp / Cen / Fame / item count)
+	Upgrade      [10]uint16      // +0x0028 (upgrade probability weights)
+	OptionDegree uint16          // +0x003C
+	TitleDegree  uint32          // +0x003E
+}
+
+// Size returns the official C++ sizeof(ShineReward) = 66.
+func (SHINE_REWARD) Size() int { return SizeOfShineReward }
+
+// ArgumentString returns Argument as a trimmed Go string.
+func (s SHINE_REWARD) ArgumentString() string { return trimCString(s.Argument[:]) }
+
+// MarshalBinary serializes SHINE_REWARD in packed little-endian format (66 bytes).
+func (s SHINE_REWARD) MarshalBinary() ([]byte, error) {
+	buf := make([]byte, SizeOfShineReward)
+	binary.LittleEndian.PutUint16(buf[0x00:0x02], s.RewardHandle)
+	buf[0x02] = byte(s.RewardType)
+	copy(buf[0x03:0x24], s.Argument[:])
+	binary.LittleEndian.PutUint32(buf[0x24:0x28], s.Quantity)
+	for i := 0; i < 10; i++ {
+		binary.LittleEndian.PutUint16(buf[0x28+i*2:0x2A+i*2], s.Upgrade[i])
+	}
+	binary.LittleEndian.PutUint16(buf[0x3C:0x3E], s.OptionDegree)
+	binary.LittleEndian.PutUint32(buf[0x3E:0x42], s.TitleDegree)
+	return buf, nil
+}
+
+// UnmarshalBinary deserializes 66 bytes into SHINE_REWARD.
+func (s *SHINE_REWARD) UnmarshalBinary(data []byte) error {
+	if len(data) < SizeOfShineReward {
+		return fmt.Errorf("SHINE_REWARD buffer too short: got %d, want %d", len(data), SizeOfShineReward)
+	}
+	s.RewardHandle = binary.LittleEndian.Uint16(data[0x00:0x02])
+	s.RewardType = ShineRewardType(data[0x02])
+	copy(s.Argument[:], data[0x03:0x24])
+	s.Quantity = binary.LittleEndian.Uint32(data[0x24:0x28])
+	for i := 0; i < 10; i++ {
+		s.Upgrade[i] = binary.LittleEndian.Uint16(data[0x28+i*2 : 0x2A+i*2])
+	}
+	s.OptionDegree = binary.LittleEndian.Uint16(data[0x3C:0x3E])
+	s.TitleDegree = binary.LittleEndian.Uint32(data[0x3E:0x42])
 	return nil
 }
 

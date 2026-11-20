@@ -82,7 +82,7 @@ Portar 1:1, función por función, con la dirección del exe en el comentario de
 ### 27C — `KingdomQuest::*` en `ZoneService` — **Completado**
 `wms_NC_KQ_W2Z_MAKE_REQ` → `KingdomQuestContainer` (`kqc_MapUseCheck`, `kqc_SearchHandle`), creación de los mapas de `MapLink[4]` / `KingdomQuestMap`, `Z2W_MAKE_ACK`; `wms_NC_KQ_W2Z_START_CMD` → `KingdomQuestEntrance` (`kqe_newentrance`, `kqe_entry`, `kqe_allentry`, `kqe_sort`, `kqe_search`), `KQ_ENTRYRESPONCE` (`sp_NC_KQ_ENTRYRESPONCE_ACK`), `KingdomQuestGateKeeper::erb_happen`/`erb_CheckLinkMap`; `KQElement` (`kqe_QuestStart`, `kqe_ReviveNumber`, `kqe_GetKQLimitMin`), `KQPlayerInfoList` (knockdowns, team type), `sp_EscapeFromEmptyKQ`, `sp_KQItemDrop` (`KQItem.shn`), `wms_NC_KQ_W2Z_DESTROY_CMD`, `wms_NC_KQ_PLAYER_DISJOIN_CMD`, `wms_NC_KQ_LINK_TO_FORCE_BY_BAN_CMD`, `Z2W_END_CMD`, comandos GM `&kingdomquest` / `&Reroadkingdomquest` / `ac_EndOfKingdomQuest` / `ac_KQReward`. Quitar `if kqID == 0 { kqID = 1 }`.
 
-### 27D — Lua y recompensas
+### 27D — Lua y recompensas — **Completado**
 Bindings C-API de KQ en `pkg/script/lua/` desensamblados uno por uno (`cEndOfKingdomQuest` @ `0x005DF1F0` y el resto de `c*KQ*`), `AxialListKQReward`/`KQRewardLua`/`KQEnd`/`KQEndLua`, `ShinePlayer::so_ply_KQRewardStruct`, `PineEventScriptNode::ShineEndOfKingdomQuest`. Ejecución real de los 23 directorios de `data/LuaScript/KQ/` con el `ScriptLanguage`/`InitValue` de cada fila. Recompensa vía `Character.exe` (`CPFsCharacter::fc_NC_KQ_REWARD_REQ`, `p_Char_GetKQMap`) y `KingdomQuestRew.shn`; guardado/restauración de posición previa (`nKQHandle`, `sKQMap`, `nKQX/Y/D`, `dKQDate`, `PROTO_NC_CHAR_KQMAP_CMD`). GameLog `KQ_ENTER/LEAVE`.
 
 ### 27E — Verificación por comportamiento (no por tamaño)
@@ -113,22 +113,6 @@ Al terminar: go build ./... && go test -p 1 -count=1 ./..., actualizá el estado
 
 
 ## 5. Prompts 
-
-/goal Cerrá la sub-fase 27B de docs/plan/FASE_27_KINGDOM_QUEST_CKQSERVER_ZONE_LUA_PORT_1A1_EXE.md siguiendo AGENTS.md.
-1) Corregí el fallo en TestCKQServer_JoinDisjoinTeamSelectAndVoteKick_Behavior (pkg/server/world/kq_test.go:502: expected wms_NC_KQ_LINK_TO_FORCE_BY_BAN_CMD after passed vote) desensamblando Send_NC_KQ_LINK_TO_FORCE_BY_BAN_CMD y VoteProcessing en WorldManager.exe.
-2) Verificá que todos los requisitos de 27B estén completos y con comentario // exe: 0x....
-3) Corré go test -v ./pkg/server/world -run TestCKQServer, marcá 27B como Completado en docs/plan/README.md y hacé commit en main. No toques 27C todavía.
-
-
-/goal Ejecutá la sub-fase 27C de docs/plan/FASE_27_KINGDOM_QUEST_CKQSERVER_ZONE_LUA_PORT_1A1_EXE.md siguiendo AGENTS.md.
-Regla Mandatoria: portá cada función desde su desensamblado (python3 scripts/disasm_pdb_handler.py zone <símbolo>) con // exe: 0x..., sin inventar defaults ni opcodes. Quitá el hack if kqID == 0 { kqID = 1 }.
-Al terminar: go build ./..., corré los tests nuevos de KQ en pkg/server/zone, marcá 27C como Completado en docs/plan/README.md y hacé commit en main. No toques 27D todavía.
-PROHIBIDO correr go test ./... ni suites completas de zone/world (yo las corro afuera); ejecutá únicamente el comando go test puntual indicado arriba.
-
-/goal Ejecutá la sub-fase 27D de docs/plan/FASE_27_KINGDOM_QUEST_CKQSERVER_ZONE_LUA_PORT_1A1_EXE.md siguiendo AGENTS.md.
-Regla Mandatoria: desensamblá cada binding c*KQ* y los handlers de Character.exe/Zone.exe con python3 scripts/disasm_pdb_handler.py {zone|character} <símbolo>, dejando // exe: 0x... en cada uno.
-Al terminar: go build ./..., corré los tests de pkg/script/lua y recompensas KQ, marcá 27D como Completado en docs/plan/README.md y hacé commit en main. No toques 27E todavía.
-PROHIBIDO correr go test ./... ni suites completas de zone/world (yo las corro afuera); ejecutá únicamente el comando go test puntual indicado arriba.
 
 /goal Ejecutá los puntos 1, 2 y 3 de la sub-fase 27E de docs/plan/FASE_27_KINGDOM_QUEST_CKQSERVER_ZONE_LUA_PORT_1A1_EXE.md siguiendo AGENTS.md.
 Creá pkg/audit/fase27_kq_no_invention_test.go y los tests de secuencia real de paquetes y reloj simulado.

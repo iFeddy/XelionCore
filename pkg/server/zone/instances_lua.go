@@ -164,13 +164,22 @@ func (mm *MapManager) CreateInstanceMap(baseMapID, instanceKey, kind string, def
 // Implementaciones ZoneMap Bridge para KQ, ID, GT, Bodas e Items Lua
 // ============================================================================
 
+// bridgeShowKQTimerWithLife porta cShowKQTimerWithLife (Zone.exe @ 0x005E54F0):
+// broadcast PROTO_NC_MISC_RESTMINUTE_CMD (0x0810, 5 bytes: flag=1, uint16(seconds)).
 func (m *ZoneMap) bridgeShowKQTimerWithLife(seconds int) {
+	pw := protocol.NewPacketWriter(protocol.PROTO_NC_MISC_RESTMINUTE_CMD) // exe: 0x005E560D (0x0810)
+	pw.WriteByte(1)                                                       // exe: 0x005E561F (mov byte [eax+2], 1)
+	pw.WriteUint16(uint16(seconds))                                       // exe: 0x005E5618 (mov word [eax+3], cx)
 	for _, p := range m.GetPlayers() {
-		m.bridgeShowKQTimerWithLifeObj(uint32(p.MapObjectID), seconds)
+		if p != nil && p.Client != nil {
+			_ = p.Client.SendPacket(pw)
+		}
 	}
 }
 
-func (m *ZoneMap) bridgeShowKQTimerWithLifeObj(playerHandle uint32, seconds int) {
+// bridgeShowKQTimerWithLifeObj porta cShowKQTimerWithLife_Obj (Zone.exe @ 0x005E5690):
+// envía PROTO_NC_MISC_RESTMINUTE_CMD (0x0810, 5 bytes: flag=1, uint16(seconds)) al jugador (ObjectType==2).
+func (m *ZoneMap) bridgeShowKQTimerWithLifeObj(playerHandle uint32, seconds int) bool {
 	p := m.GetPlayer(uint16(playerHandle))
 	if p == nil && m.handler != nil {
 		if cand := m.handler.findPlayerByHandle(uint16(playerHandle)); cand != nil && cand.CurrentMap == m {
@@ -178,39 +187,79 @@ func (m *ZoneMap) bridgeShowKQTimerWithLifeObj(playerHandle uint32, seconds int)
 		}
 	}
 	if p == nil || p.Client == nil {
-		return
+		return false
 	}
-	pw := protocol.NewPacketWriter(protocol.PROTO_NC_SCENARIO_TIMER_CMD)
-	pw.WriteUint16(uint16(seconds))
+	pw := protocol.NewPacketWriter(protocol.PROTO_NC_MISC_RESTMINUTE_CMD) // exe: 0x005E5789 (0x0810)
+	pw.WriteByte(1)                                                       // exe: 0x005E57B4 (mov byte [eax+2], 1)
+	pw.WriteUint16(uint16(seconds))                                       // exe: 0x005E57AB (mov word [eax+3], cx)
 	_ = p.Client.SendPacket(pw)
+	return true
 }
 
-func (m *ZoneMap) bridgeGetKQLimitSecond() int {
-	if m.InstanceLimitSec > 0 {
-		rem := m.InstanceLimitSec - int(time.Since(m.InstanceStartedAt).Seconds())
-		if rem < 0 {
-			return 0
-		}
-		return rem
+// bridgeGetKQLimitSecond porta cGetKQLimitSecond (Zone.exe @ 0x005E5390):
+// kqHandle != -1 -> kqc_SearchHandle -> kqe_GetKQLimitMin() * 60.
+func (m *ZoneMap) bridgeGetKQLimitSecond() (int, bool) {
+	if m == nil {
+		return 0, false
 	}
-	return 1800
+	kqHandle := m.fm_GetKQhandle()
+	if kqHandle != kqInvalidHandle && m.handler != nil {
+		if elem, _, ok := m.handler.kqState().container.kqc_SearchHandle(kqHandle); ok && elem != nil {
+			limitMin := elem.kqe_GetKQLimitMin() // exe: 0x005E5489 / 0x005E4D20
+			if limitMin != kqInvalidID {
+				return int(limitMin) * 60, true // exe: 0x005E549F..0x005E54AA (* 60)
+			}
+		}
+	}
+	if m.InstanceLimitSec > 0 {
+		return m.InstanceLimitSec, true
+	}
+	return 0, false
 }
 
+// bridgeGetKQTeamType porta cGetKQTeamType (Zone.exe @ 0x005E81C0):
+// retorna so_GetKQTeamType() o 2 (KQTT_MAX, exe: 0x005E823C) si no se encuentra el objeto.
 func (m *ZoneMap) bridgeGetKQTeamType(handle uint32) int {
 	if p := m.GetPlayer(uint16(handle)); p != nil {
-		return int(p.KQTeam)
+		return int(p.KQTeam) // exe: 0x0055A830 (ShinePlayer::so_GetKQTeamType)
 	}
-	return 0
+	return int(kqTeamMax) // exe: 0x005E823C (push 2 = KQTT_MAX)
 }
 
+// bridgeKQRewardIndex porta cKQRewardIndex (Zone.exe @ 0x005E4000 -> ShinePlayer::so_ply_KQRewardIndex @ 0x0052EA80).
 func (m *ZoneMap) bridgeKQRewardIndex(playerHandle uint32, rewardIndex string) {
 	p := m.GetPlayer(uint16(playerHandle))
-	if p != nil {
-		p.KQRewardIdx = rewardIndex
+	if p == nil && m.handler != nil {
+		if cand := m.handler.findPlayerByHandle(uint16(playerHandle)); cand != nil && cand.CurrentMap == m {
+			p = cand
+		}
 	}
+	if p == nil {
+		return
+	}
+	if m.handler != nil {
+		m.handler.so_ply_KQRewardIndex(p, rewardIndex) // exe: 0x005E40E2 -> 0x0052EA80
+		return
+	}
+	p.KQRewardIdx = rewardIndex
 }
 
+// bridgeScoreBoardAllInMap porta cScoreBoard_AllInMap (Zone.exe @ 0x005EDAD0):
+// broadcast PROTO_NC_KQ_SCORE_BOARD_INFO_CMD (0x583C, 8 bytes totales: show, round, redWin<=5, redScore<=99, blueWin<=5, blueScore<=99).
 func (m *ZoneMap) bridgeScoreBoardAllInMap(show bool, round, redWin, redScore, blueWin, blueScore int) {
+	if redWin > kqScoreBoardMaxWin { // exe: 0x005EDC55
+		redWin = kqScoreBoardMaxWin
+	}
+	if redScore > kqScoreBoardMaxScore { // exe: 0x005EDC65
+		redScore = kqScoreBoardMaxScore
+	}
+	if blueWin > kqScoreBoardMaxWin { // exe: 0x005EDC6F
+		blueWin = kqScoreBoardMaxWin
+	}
+	if blueScore > kqScoreBoardMaxScore { // exe: 0x005EDC79
+		blueScore = kqScoreBoardMaxScore
+	}
+
 	m.mu.Lock()
 	m.KQScoreRed = redScore
 	m.KQScoreBlue = blueScore
@@ -218,17 +267,19 @@ func (m *ZoneMap) bridgeScoreBoardAllInMap(show bool, round, redWin, redScore, b
 	m.KQWinBlue = blueWin
 	m.mu.Unlock()
 
-	pw := protocol.NewPacketWriter(protocol.PROTO_NC_KQ_SCORE_BOARD_INFO_CMD)
+	pw := protocol.NewPacketWriter(protocol.PROTO_NC_KQ_SCORE_BOARD_INFO_CMD) // exe: 0x005EDB7B (0x583C)
 	if show {
-		pw.WriteByte(1)
+		pw.WriteByte(1) // exe: 0x005EDB90 ([esi+2])
 	} else {
 		pw.WriteByte(0)
 	}
-	pw.WriteByte(byte(round))
-	pw.WriteUint16(uint16(redScore))
-	pw.WriteUint16(uint16(blueScore))
+	pw.WriteByte(byte(round))     // exe: 0x005EDBB6 ([esi+3])
+	pw.WriteByte(byte(redWin))    // exe: 0x005EDBDE ([esi+4])
+	pw.WriteByte(byte(redScore))  // exe: 0x005EDC06 ([esi+5])
+	pw.WriteByte(byte(blueWin))   // exe: 0x005EDC2F ([esi+6])
+	pw.WriteByte(byte(blueScore)) // exe: 0x005EDC59 ([esi+7])
 	for _, p := range m.GetPlayers() {
-		if p.Client != nil {
+		if p != nil && p.Client != nil {
 			_ = p.Client.SendPacket(pw)
 		}
 	}
@@ -277,66 +328,32 @@ func (m *ZoneMap) bridgeIndunRankResult(args []int) {
 	}
 }
 
-func (m *ZoneMap) bridgeRewardAll(rewardType string) {
-	if m.handler == nil {
-		return
+// bridgeRewardAll porta cReward (Zone.exe @ 0x005DF060 -> AxialListKQRewardLua @ 0x004288C0 / 0x00428490).
+func (m *ZoneMap) bridgeRewardAll(rewardType string) bool {
+	if m == nil || m.handler == nil {
+		return false
 	}
-	var kqRew *KQRewardGroup
-	if m.dataStore != nil && m.dataStore.KQCatalog != nil {
-		if def := m.dataStore.KQCatalog.ByID[m.InstanceDefID]; def != nil {
-			kqRew = m.dataStore.KQCatalog.RewardByKey[strings.ToLower(def.RewardIndex)]
-		}
+	// exe: 0x005DF105..0x005DF136: strcmp(rewardType, "KQ") == 0
+	if rewardType != "" && rewardType != "KQ" {
+		return true // exe: 0x005DF136 -> 0x005DF1AC (no-op, returns 1)
 	}
-	for _, p := range m.GetPlayers() {
-		if p.Char == nil {
-			continue
-		}
-		rewGrp := kqRew
-		if p.KQRewardIdx != "" && m.dataStore != nil && m.dataStore.KQCatalog != nil {
-			if custom := m.dataStore.KQCatalog.RewardByKey[strings.ToLower(p.KQRewardIdx)]; custom != nil {
-				rewGrp = custom
-			}
-		}
-		var firstItemID uint16
-		if rewGrp != nil && len(rewGrp.Items) > 0 && m.dataStore.ItemStore != nil {
-			if info, ok := m.dataStore.ItemStore.GetItemInfoByName(rewGrp.Items[0].ItemInx); ok && info != nil {
-				firstItemID = info.ID
-				m.handler.addItemToInventory(p, info.ID, 1, nil)
-			}
-		}
-		p.Char.TCharacterState.Fame += 50
-		p.Char.TCharacterState.Money += 1000
-		if m.handler.charRepo != nil {
-			_ = m.handler.charRepo.UpdateCharacter(p.Char)
-		}
-		if p.Client != nil {
-			pw := protocol.NewPacketWriter(protocol.PROTO_NC_KQ_REWARD_REQ)
-			pw.WriteUint32(50)   // Fame
-			pw.WriteUint64(1000) // Cen
-			var itmBuf [23]byte
-			itmBuf[0] = byte(firstItemID & 0xFF)
-			itmBuf[1] = byte(firstItemID >> 8)
-			pw.WriteBytes(itmBuf[:])
-			_ = p.Client.SendPacket(pw)
-		}
-		if m.handler.gameLogDispatcher != nil {
-			m.handler.gameLogDispatcher.EnqueueTypeH(1, p.Char.ID, m.MapID, p.Char.XPos, p.Char.YPos, 0, int(m.InstanceDefID))
-		}
+	kqHandle := m.fm_GetKQhandle() // exe: 0x005DF13B
+	if kqHandle == kqInvalidHandle {
+		return false // exe: 0x005DF144 ("cReward : No KQ info")
 	}
+	iter := m.handler.NewAxialListKQReward(kqHandle) // exe: 0x005DF182
+	iter.RunInMap(m)                                 // exe: 0x005DF19B (so_AllInMap)
+	return true
 }
 
-func (m *ZoneMap) bridgeEndOfKingdomQuest(success bool) {
-	op := protocol.PROTO_NC_KQ_COMPLETE_CMD
-	if !success {
-		op = protocol.PROTO_NC_KQ_FAIL_CMD
+// bridgeEndOfKingdomQuest porta cEndOfKingdomQuest (Zone.exe @ 0x005DF1F0)
+// y PineEventScriptNode::ShineEndOfKingdomQuest::sa_Step (Zone.exe @ 0x004F5FC0).
+func (m *ZoneMap) bridgeEndOfKingdomQuest(success bool) bool {
+	if m == nil || m.handler == nil {
+		return false
 	}
-	pw := protocol.NewPacketWriter(op)
-	pw.WriteUint16(m.InstanceDefID)
-	for _, p := range m.GetPlayers() {
-		if p.Client != nil {
-			_ = p.Client.SendPacket(pw)
-		}
-	}
+	_ = success
+	return m.handler.ShineEndOfKingdomQuest(m) // exe: 0x005DF2E9 / 0x004F609D + fm_ClearObject(0xB0)
 }
 
 func (m *ZoneMap) bridgeRewardItem(playerHandle uint32, itemInx string, count int) {

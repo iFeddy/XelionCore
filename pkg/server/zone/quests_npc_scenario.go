@@ -291,42 +291,54 @@ func (m *ZoneMap) bridgeNPCMenuOpen(npcHandle, playerHandle uint32) {
 	_ = p.Client.SendPacket(pw)
 }
 
-func (m *ZoneMap) bridgeQuestResult(mapName, result string) {
-	if m == nil {
-		return
+// bridgeQuestResult porta cQuestResult (Zone.exe @ 0x005E30D0 -> AxialListKQEndLua @ 0x004289D0 / 0x00429E00).
+func (m *ZoneMap) bridgeQuestResult(mapName, result string) bool {
+	if m == nil || m.handler == nil {
+		return false
 	}
-	isSuccess := strings.EqualFold(result, "Success") || result == "1"
-	for _, p := range m.GetPlayers() {
-		m.bridgeQuestResultIndividual(uint32(p.MapObjectID), result)
-		if m.InstanceKind == "KQ" {
-			m.bridgeEndOfKingdomQuest(isSuccess)
-		}
+	var cmd uint16
+	switch result {
+	case "Success": // exe: 0x005E318E
+		cmd = kqEndCmdComplete // 0x12 -> 0x5812 PROTO_NC_KQ_COMPLETE_CMD
+	case "Fail": // exe: 0x005E31D6
+		cmd = kqEndCmdFail // 0x13 -> 0x5813 PROTO_NC_KQ_FAIL_CMD
+	default:
+		return false
 	}
+	iter := m.handler.NewAxialListKQEndLua(kqEndDept, cmd) // exe: 0x005E31C5 / 0x005E3214
+	iter.RunInMap(m)                                       // exe: 0x005E322C (so_AllInMap)
+	m.fm_ClearObject(kqClearObjectMaskQuestResult)         // exe: 0x005E323D (fm_ClearObject(0x1B0))
+	return true
 }
 
-func (m *ZoneMap) bridgeQuestResultIndividual(playerHandle uint32, result string) {
+// bridgeQuestResultIndividual porta cQuestResult_Individual (Zone.exe @ 0x005ECCA0):
+// envía PROTO_NC_KQ_COMPLETE_CMD (0x5812) o PROTO_NC_KQ_FAIL_CMD (0x5813) al jugador (ObjectType==2).
+func (m *ZoneMap) bridgeQuestResultIndividual(playerHandle uint32, result string) bool {
 	if m == nil || m.handler == nil {
-		return
+		return false
 	}
 	p := m.GetPlayer(uint16(playerHandle))
-	if p == nil || m.handler.charRepo == nil || p.Char == nil {
-		return
-	}
-	isSuccess := strings.EqualFold(result, "Success") || result == "1"
-	if !isSuccess {
-		return
-	}
-	quests, _ := m.handler.charRepo.GetCharacterQuests(p.Char.ID)
-	for _, q := range quests {
-		if q.Status == 1 {
-			if m.dataStore != nil && m.dataStore.QuestCatalog != nil {
-				if qDef := m.dataStore.QuestCatalog.GetQuest(uint16(q.QuestNo)); qDef != nil {
-					m.handler.completeQuestWithRewards(p, qDef, 0)
-					break
-				}
-			}
+	if p == nil {
+		if cand := m.handler.findPlayerByHandle(uint16(playerHandle)); cand != nil && cand.CurrentMap == m {
+			p = cand
 		}
 	}
+	if p == nil || p.Char == nil {
+		return false
+	}
+	var op uint16
+	switch result {
+	case "Success": // exe: 0x005ECD85 -> 0x005ECDB9 (cmd=0x12)
+		op = protocol.PROTO_NC_KQ_COMPLETE_CMD
+	case "Fail": // exe: 0x005ECDBD -> 0x005ECDEB (cmd=0x13)
+		op = protocol.PROTO_NC_KQ_FAIL_CMD
+	default:
+		return false
+	}
+	if p.Client != nil {
+		_ = p.Client.SendPacket(protocol.NewPacketWriter(op)) // exe: 0x005ECDF9
+	}
+	return true
 }
 
 func (m *ZoneMap) bridgeQuestMobKill(playerHandle uint32, questID uint16, mobID uint32, count int) {

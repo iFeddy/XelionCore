@@ -663,16 +663,27 @@ func (h *Handler) OnClientDisconnect(client *network.Client) {
 			_ = h.charRepo.CharacterLogout(player.Char.ID, playMin)
 
 			// 2. Persistencia integral de ubicación y estadísticas
-			player.Char.TownName = mapID
 			player.Char.TCharacter.Level = player.Char.Level
-			player.Char.TCharacterState.XPos = player.Char.XPos
-			player.Char.TCharacterState.YPos = player.Char.YPos
-			player.Char.TCharacterState.Rotation = player.Rotation
 			player.Char.TCharacterState.HP = player.Char.CurHP
 			player.Char.TCharacterState.SP = player.Char.CurSP
 			player.Char.TCharacterState.HPStones = player.StonesHP
 			player.Char.TCharacterState.SPStones = player.StonesSP
-			_ = h.charRepo.SaveCharLocation(player.Char.ID, mapID, player.Char.XPos, player.Char.YPos, player.Rotation)
+			player.Char.TCharacterState.Rotation = player.Rotation
+			if h.isPlayerOnKQMap(player) {
+				// exe: 0x004542F0 (ShinePlayer::so_SaveLocation -> p_Char_SaveLocation con 8 params KQ)
+				if loginMap, loginX, loginY, _, _, _, _, ok := h.so_SaveLocation(player); ok {
+					player.Char.TownName = loginMap
+					player.Char.XPos = loginX
+					player.Char.YPos = loginY
+					player.Char.TCharacterState.XPos = loginX
+					player.Char.TCharacterState.YPos = loginY
+				}
+			} else {
+				player.Char.TownName = mapID
+				player.Char.TCharacterState.XPos = player.Char.XPos
+				player.Char.TCharacterState.YPos = player.Char.YPos
+				_ = h.charRepo.SaveCharLocation(player.Char.ID, mapID, player.Char.XPos, player.Char.YPos, player.Rotation)
+			}
 			_ = h.charRepo.SaveCharStats(player.Char.ID, int16(player.Char.CurHP), int16(player.Char.CurSP), player.StonesHP, player.StonesSP)
 			_ = h.charRepo.SaveCharLevelExp(player.Char.ID, int16(player.Char.Level), player.Char.TCharacterState.Exp)
 			_ = h.charRepo.SaveCharMoney(player.Char.ID, player.Char.TCharacterState.Money)
@@ -2379,6 +2390,7 @@ func (h *Handler) WarpPlayer(player *ZonePlayer, targetMapID string, x, y int, r
 
 	// Mismo nodo de zona: so_LinkTo envía PROTO_NC_MAP_LINKSAME_CMD (0x1809, sizeof=10, wire=12) + actualización local
 	oldMap := player.CurrentMap
+	prevX, prevY := player.Char.XPos, player.Char.YPos
 	if oldMap != nil {
 		oldMap.RemovePlayer(player)
 	}
@@ -2395,7 +2407,14 @@ func (h *Handler) WarpPlayer(player *ZonePlayer, targetMapID string, x, y int, r
 	player.LastWarpTime = time.Now()
 
 	if h.charRepo != nil && player.Char != nil {
-		_ = h.charRepo.SaveCharLocation(player.Char.ID, newMap.MapID, x, y, rotation)
+		if h.isPlayerOnKQMap(player) {
+			if oldMap != nil {
+				h.SavePreKQReturnPos(player, oldMap.MapID, prevX, prevY)
+			}
+			_, _, _, _, _, _, _, _ = h.so_SaveLocation(player) // exe: 0x004542F0
+		} else {
+			_ = h.charRepo.SaveCharLocation(player.Char.ID, newMap.MapID, x, y, rotation)
+		}
 	}
 
 	log.Printf("[Zone][%s] Player '%s' entering new map '%s' (%d, %d, Dir: %d)",

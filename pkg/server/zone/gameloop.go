@@ -411,6 +411,10 @@ func (gl *MapGameLoop) tick1s() {
 			_ = p.Client.SendPacket(spUpdate)
 		}
 	}
+	// Tick de script Lua KQ activo (1 Hz, Zone.exe CinemaComplex @ 0x005089A0)
+	if gl.zMap.KQScriptActive {
+		gl.zMap.TickKQScript()
+	}
 }
 
 // tick30s limpia ítems del suelo expirados, ejecuta auto-guardado periódico CHARSAVE (60s ws_save2DB) y estados lentos (Pets GTI).
@@ -436,14 +440,23 @@ func (gl *MapGameLoop) tick30s() {
 					if gl.zMap.MapID != "" {
 						p.Char.TownName = gl.zMap.MapID
 					}
-					p.Char.TCharacterState.XPos = p.Char.XPos
-					p.Char.TCharacterState.YPos = p.Char.YPos
 					p.Char.TCharacterState.HP = p.Char.CurHP
 					p.Char.TCharacterState.SP = p.Char.CurSP
 					p.Char.TCharacterState.HPStones = p.StonesHP
 					p.Char.TCharacterState.SPStones = p.StonesSP
 					p.Char.TCharacterState.Rotation = p.Rotation
-					_ = gl.zMap.handler.charRepo.SaveCharLocation(p.Char.ID, p.Char.TownName, p.Char.XPos, p.Char.YPos, p.Rotation)
+					if gl.zMap.handler.isPlayerOnKQMap(p) {
+						// exe: 0x004542F0 (so_SaveLocation: preserva sLoginZone previo y guarda nKQHandle/sKQMap/nKQX/nKQY)
+						if loginMap, loginX, loginY, _, _, _, _, ok := gl.zMap.handler.so_SaveLocation(p); ok {
+							p.Char.TownName = loginMap
+							p.Char.TCharacterState.XPos = loginX
+							p.Char.TCharacterState.YPos = loginY
+						}
+					} else {
+						p.Char.TCharacterState.XPos = p.Char.XPos
+						p.Char.TCharacterState.YPos = p.Char.YPos
+						_ = gl.zMap.handler.charRepo.SaveCharLocation(p.Char.ID, p.Char.TownName, p.Char.XPos, p.Char.YPos, p.Rotation)
+					}
 					_ = gl.zMap.handler.charRepo.SaveCharStats(p.Char.ID, int16(p.Char.CurHP), int16(p.Char.CurSP), p.StonesHP, p.StonesSP)
 					_ = gl.zMap.handler.charRepo.UpdateCharacter(p.Char)
 					p.LastSaveAt = now

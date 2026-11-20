@@ -320,4 +320,135 @@ func (b *DefaultBridge) RegisterAIScriptFunc(handle uint32, eventName, funcName 
 func (b *DefaultBridge) TimerStartMap(mapName string, timerID, seconds int)              {}
 func (b *DefaultBridge) TimerEndMap(mapName string, timerID int)                         {}
 
+// LuaKQRuntimeBridge provee las firmas exactas 1:1 desensambladas de Zone.exe para todos los
+// bindings c*KQ* y relacionados de Kingdom Quest (Sub-fase 27D).
+type LuaKQRuntimeBridge interface {
+	// GetKQLimitSecondExact porta cGetKQLimitSecond (Zone.exe @ 0x005E5390):
+	// retorna (limitMin * 60, true) si el mapa pertenece a una KQ activa, o (0, false) si no.
+	GetKQLimitSecondExact(mapName string) (int, bool)
+	// ShowKQTimerWithLifeMap porta cShowKQTimerWithLife (Zone.exe @ 0x005E54F0):
+	// broadcast PROTO_NC_MISC_RESTMINUTE_CMD (0x0810, flag=1, sec=uint16) al mapa; retorna true si existía mapa/center.
+	ShowKQTimerWithLifeMap(mapName string, seconds int) bool
+	// ShowKQTimerWithLifeObjExact porta cShowKQTimerWithLife_Obj (Zone.exe @ 0x005E5690):
+	// envía PROTO_NC_MISC_RESTMINUTE_CMD (0x0810, flag=1, sec=uint16) a un jugador (ObjectType==2).
+	ShowKQTimerWithLifeObjExact(playerHandle uint32, seconds int) bool
+	// VanishTimerMap porta cVanishTimer (Zone.exe @ 0x005E5840):
+	// broadcast PROTO_NC_MISC_RESTMINUTE_CMD (0x0810, flag=1, sec=0) al mapa.
+	VanishTimerMap(mapName string) bool
+	// GetKQTeamTypeExact porta cGetKQTeamType (Zone.exe @ 0x005E81C0):
+	// retorna so_GetKQTeamType() (0=RED, 1=BLUE, 2=KQTT_MAX si nil/inexistente).
+	GetKQTeamTypeExact(handle uint32) int
+	// IsKQJoinerExact porta cIsKQJoiner (Zone.exe @ 0x005E82D0):
+	// retorna so_ply_IsKQJoiner() (false si nil/inexistente).
+	IsKQJoinerExact(handle uint32) bool
+	// KQRewardIndexExact porta cKQRewardIndex (Zone.exe @ 0x005E4000 -> 0x0052EA80):
+	// invoca ShinePlayer::so_ply_KQRewardIndex(rewardIndex) sobre el jugador si no está eliminado.
+	KQRewardIndexExact(playerHandle uint32, rewardIndex string)
+	// RewardKQMap porta cReward (Zone.exe @ 0x005DF060 -> AxialListKQRewardLua @ 0x004288C0 / 0x00428490):
+	// ejecuta AxialListKQRewardLua cuando rewardType=="KQ"; retorna false si el mapa/center/KQHandle es inválido.
+	RewardKQMap(mapName, rewardType string) bool
+	// SetTeamBattleMap porta cSetTeamBattle (Zone.exe @ 0x005E83E0):
+	// muta elem->Info.IsTeamPVP y emite 0x1828 (ON) o 0x1829 (OFF) a todo el mapa.
+	SetTeamBattleMap(mapName string, enabled bool)
+	// QuestResultMap porta cQuestResult (Zone.exe @ 0x005E30D0 -> AxialListKQEndLua @ 0x004289D0 / 0x00429E00):
+	// ejecuta AxialListKQEndLua("Success"|"Fail") + fm_ClearObject(0x1B0); retorna true si aplicó.
+	QuestResultMap(mapName, result string) bool
+	// QuestResultIndividualExact porta cQuestResult_Individual (Zone.exe @ 0x005ECCA0):
+	// envía 0x5812 (Success) o 0x5813 (Fail) a un jugador individual (ObjectType==2).
+	QuestResultIndividualExact(playerHandle uint32, result string) bool
+	// ScoreInfoAllInMap porta cScoreInfo_AllInMap (Zone.exe @ 0x005E3970):
+	// broadcast PROTO_NC_KQ_SCORE_INFO_CMD (0x5836, 2 x uint32) al mapa.
+	ScoreInfoAllInMap(mapName string, scores []uint32)
+	// ScoreInfoObj porta cScoreInfo (Zone.exe @ 0x005E3790):
+	// envía PROTO_NC_KQ_SCORE_INFO_CMD (0x5836, 2 x uint32) a un jugador.
+	ScoreInfoObj(playerHandle uint32, scores []uint32)
+	// TimerMap porta cTimer (Zone.exe @ 0x005DD310):
+	// broadcast PROTO_NC_SCENARIO_TIMER_CMD (0x6C16, uint16 sec) al mapa.
+	TimerMap(mapName string, seconds int) bool
+	// TimerObj porta cTimer_Obj (Zone.exe @ 0x005DD4B0):
+	// envía PROTO_NC_SCENARIO_TIMER_CMD (0x6C16, uint16 sec) a un jugador.
+	TimerObj(playerHandle uint32, seconds int) bool
+}
+
+func (b *DefaultBridge) GetKQLimitSecondExact(mapName string) (int, bool) {
+	if mapName == "" {
+		return 0, false
+	}
+	return b.GetKQLimitSecond(mapName), true
+}
+func (b *DefaultBridge) ShowKQTimerWithLifeMap(mapName string, seconds int) bool {
+	if mapName == "" {
+		return false
+	}
+	b.ShowKQTimerWithLife(mapName, seconds)
+	return true
+}
+func (b *DefaultBridge) ShowKQTimerWithLifeObjExact(playerHandle uint32, seconds int) bool {
+	if playerHandle == 0 {
+		return false
+	}
+	b.ShowKQTimerWithLifeObj(playerHandle, seconds)
+	return true
+}
+func (b *DefaultBridge) VanishTimerMap(mapName string) bool {
+	if mapName == "" {
+		return false
+	}
+	b.VanishTimer(mapName, 0)
+	return true
+}
+func (b *DefaultBridge) GetKQTeamTypeExact(handle uint32) int {
+	if handle == 0 {
+		return 2 // KQTT_MAX (exe: 0x005E823C)
+	}
+	return b.GetKQTeamType(handle)
+}
+func (b *DefaultBridge) IsKQJoinerExact(handle uint32) bool {
+	if handle == 0 {
+		return false // exe: 0x005E8387
+	}
+	return b.IsKQJoiner(handle)
+}
+func (b *DefaultBridge) KQRewardIndexExact(playerHandle uint32, rewardIndex string) {
+	b.KQRewardIndex(playerHandle, rewardIndex)
+}
+func (b *DefaultBridge) RewardKQMap(mapName, rewardType string) bool {
+	if mapName == "" {
+		return false
+	}
+	b.RewardAll(mapName, rewardType)
+	return true
+}
+func (b *DefaultBridge) SetTeamBattleMap(mapName string, enabled bool) {}
+func (b *DefaultBridge) QuestResultMap(mapName, result string) bool {
+	if mapName == "" || (result != "Success" && result != "Fail") {
+		return false
+	}
+	b.QuestResult(mapName, result)
+	return true
+}
+func (b *DefaultBridge) QuestResultIndividualExact(playerHandle uint32, result string) bool {
+	if playerHandle == 0 || (result != "Success" && result != "Fail") {
+		return false
+	}
+	b.QuestResultIndividual(playerHandle, result)
+	return true
+}
+func (b *DefaultBridge) ScoreInfoAllInMap(mapName string, scores []uint32) {}
+func (b *DefaultBridge) ScoreInfoObj(playerHandle uint32, scores []uint32) {}
+func (b *DefaultBridge) TimerMap(mapName string, seconds int) bool {
+	if mapName == "" {
+		return false
+	}
+	b.TimerStart(0, seconds)
+	return true
+}
+func (b *DefaultBridge) TimerObj(playerHandle uint32, seconds int) bool {
+	if playerHandle == 0 {
+		return false
+	}
+	b.TimerStart(int(playerHandle), seconds)
+	return true
+}
+
 

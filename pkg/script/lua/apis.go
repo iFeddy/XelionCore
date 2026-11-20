@@ -796,8 +796,19 @@ func (e *Engine) registerAllOfficialAPIs() {
 	L.SetGlobal("cSetFreeBattle", L.NewFunction(func(L *glua.LState) int {
 		return 0
 	}))
+	// cSetTeamBattle porta cSetTeamBattle (Zone.exe @ 0x005E83E0):
+	// arg1: mapName (string), arg2: enabled (bool) -> muta elem->Info.IsTeamPVP y emite 0x1828/0x1829.
 	L.SetGlobal("cSetTeamBattle", L.NewFunction(func(L *glua.LState) int {
-		return 0
+		mapVal := L.Get(1)
+		if mapVal.Type() != glua.LTString && mapVal.Type() != glua.LTNumber { // exe: 0x005E8453
+			return 0
+		}
+		mapName := mapVal.String()
+		enabled := L.ToBool(2) // exe: 0x005E8468 (lua_toboolean)
+		if kqBr, ok := br.(LuaKQRuntimeBridge); ok {
+			kqBr.SetTeamBattleMap(mapName, enabled)
+		}
+		return 0 // exe: 0x005E8509
 	}))
 	L.SetGlobal("cSetDeadDelayTime", L.NewFunction(func(L *glua.LState) int {
 		return 0
@@ -831,11 +842,25 @@ func (e *Engine) registerAllOfficialAPIs() {
 		}
 		return 0
 	}))
+	// cVanishTimer porta cVanishTimer (Zone.exe @ 0x005E5840):
+	// arg1: mapName -> broadcast PROTO_NC_MISC_RESTMINUTE_CMD (0x0810, flag=1, sec=0), retorna 1.
 	L.SetGlobal("cVanishTimer", L.NewFunction(func(L *glua.LState) int {
-		mapName := L.OptString(1, "")
-		sec := L.OptInt(2, 0)
+		mapVal := L.Get(1)
+		if mapVal.Type() != glua.LTString && mapVal.Type() != glua.LTNumber { // exe: 0x005E58AC
+			return 0
+		}
+		mapName := mapVal.String()
+		if kqBr, ok := br.(LuaKQRuntimeBridge); ok {
+			if !kqBr.VanishTimerMap(mapName) { // exe: 0x005E58E6 / 0x005E58F8
+				return 0
+			}
+			L.Push(glua.LNumber(1)) // exe: 0x005E595F (fld1 -> lua_pushnumber)
+			return 1
+		}
 		if ext, ok := br.(LuaFieldRuntimeBridge); ok {
-			ext.VanishTimer(mapName, sec)
+			ext.VanishTimer(mapName, 0)
+			L.Push(glua.LNumber(1))
+			return 1
 		}
 		return 0
 	}))
@@ -1599,14 +1624,26 @@ func (e *Engine) registerAllOfficialAPIs() {
 		return 0
 	}))
 	L.SetGlobal("cResetAbstate", L.NewFunction(func(L *glua.LState) int {
-		handle := uint32(L.OptInt(1, 0))
-		stateID := uint16(L.OptInt(2, 0))
+		handle := uint32(0)
+		if v := L.Get(1); v.Type() == glua.LTNumber {
+			handle = uint32(v.(glua.LNumber))
+		}
+		var stateID uint16
+		if v := L.Get(2); v.Type() == glua.LTNumber {
+			stateID = uint16(v.(glua.LNumber))
+		}
 		br.ResetAbstate(handle, stateID)
 		return 0
 	}))
 	L.SetGlobal("cGetAbstate", L.NewFunction(func(L *glua.LState) int {
-		handle := uint32(L.OptInt(1, 0))
-		stateID := uint16(L.OptInt(2, 0))
+		handle := uint32(0)
+		if v := L.Get(1); v.Type() == glua.LTNumber {
+			handle = uint32(v.(glua.LNumber))
+		}
+		var stateID uint16
+		if v := L.Get(2); v.Type() == glua.LTNumber {
+			stateID = uint16(v.(glua.LNumber))
+		}
 		val, ok := br.GetAbstate(handle, stateID)
 		if ok {
 			L.Push(glua.LNumber(val))
@@ -1683,18 +1720,22 @@ func (e *Engine) registerAllOfficialAPIs() {
 	// ==========================================
 	// 9. Kingdom Quest, Rankings y Temporizadores
 	// ==========================================
+	// cEndOfKingdomQuest porta cEndOfKingdomQuest (Zone.exe @ 0x005DF1F0):
+	// arg1: mapName (string) -> fc_FindMap -> kqHandle != -1 -> wms_EndOfKQPacket(kqHandle) + fm_ClearObject(0xB0) -> push 1.
 	L.SetGlobal("cEndOfKingdomQuest", L.NewFunction(func(L *glua.LState) int {
-		if mapStr, isStr := L.Get(1).(glua.LString); isStr {
-			if ext, ok := br.(LuaFieldRuntimeBridge); ok && ext.EndOfKingdomQuestMap(string(mapStr)) {
-				L.Push(glua.LNumber(1))
-				return 1
-			}
-			br.EndOfKingdomQuest(true)
-			L.Push(glua.LNumber(1))
-			return 1
+		arg1 := L.Get(1)
+		if arg1.Type() != glua.LTString && arg1.Type() != glua.LTNumber { // exe: 0x005DF25A (lua_tolstring)
+			return 0 // exe: 0x005DF27A
 		}
-		success := L.OptBool(1, true)
-		br.EndOfKingdomQuest(success)
+		mapName := arg1.String()
+		if ext, ok := br.(LuaFieldRuntimeBridge); ok {
+			if !ext.EndOfKingdomQuestMap(mapName) { // exe: 0x005DF29B / 0x005DF2A2 (fm==nil || kqHandle==0xFFFFFFFF)
+				return 0 // exe: 0x005DF2CF
+			}
+			L.Push(glua.LNumber(1)) // exe: 0x005DF2FA (fld1 -> lua_pushnumber)
+			return 1                // exe: 0x005DF323
+		}
+		br.EndOfKingdomQuest(true)
 		L.Push(glua.LNumber(1))
 		return 1
 	}))
@@ -1732,18 +1773,44 @@ func (e *Engine) registerAllOfficialAPIs() {
 		br.TimerEnd(timerID)
 		return 0
 	}))
+	// cTimer porta cTimer (Zone.exe @ 0x005DD310):
+	// arg1: mapName, arg2: seconds -> broadcast 0x6C16 (PROTO_NC_SCENARIO_TIMER_CMD, 4 bytes), push 1.
 	L.SetGlobal("cTimer", L.NewFunction(func(L *glua.LState) int {
+		arg1 := L.Get(1)
+		if arg1.Type() == glua.LTString {
+			sec := L.OptInt(2, 0)
+			if kqBr, ok := br.(LuaKQRuntimeBridge); ok {
+				if !kqBr.TimerMap(string(arg1.(glua.LString)), sec) { // exe: 0x005DD3BB / 0x005DD3C8
+					return 0
+				}
+				L.Push(glua.LNumber(1)) // exe: 0x005DD455
+				return 1
+			}
+		}
 		timerID := L.OptInt(1, 0)
-		sec := L.OptInt(2, 10)
+		sec := L.OptInt(2, 0)
 		br.TimerStart(timerID, sec)
 		return 0
 	}))
+	// cTimer_Obj porta cTimer_Obj (Zone.exe @ 0x005DD4B0):
+	// arg1: playerHandle, arg2: seconds -> envía 0x6C16 (PROTO_NC_SCENARIO_TIMER_CMD) al jugador, push 1.
 	L.SetGlobal("cTimer_Obj", L.NewFunction(func(L *glua.LState) int {
-		timerID := L.OptInt(2, 0)
-		sec := L.OptInt(3, 10)
-		br.TimerStart(timerID, sec)
+		if L.Get(1).Type() == glua.LTNil {
+			return 0
+		}
+		handle := uint32(L.OptInt(1, 0))
+		sec := L.OptInt(2, 0)
+		if kqBr, ok := br.(LuaKQRuntimeBridge); ok {
+			if !kqBr.TimerObj(handle, sec) {
+				return 0
+			}
+			L.Push(glua.LNumber(1))
+			return 1
+		}
+		br.TimerStart(int(handle), sec)
 		return 0
 	}))
+	// cScoreBoard porta cScoreBoard (Zone.exe @ 0x005ED860).
 	L.SetGlobal("cScoreBoard", L.NewFunction(func(L *glua.LState) int {
 		recType := L.OptInt(1, 0)
 		charNo := int64(L.OptInt(2, 0))
@@ -1751,21 +1818,75 @@ func (e *Engine) registerAllOfficialAPIs() {
 		br.ScoreBoard(recType, charNo, score)
 		return 0
 	}))
+	// cScoreBoard_AllInMap porta cScoreBoard_AllInMap (Zone.exe @ 0x005EDAD0):
+	// arg1: mapName, arg2: show(bool), arg3: round, arg4: redWin(<=5), arg5: redScore(<=99), arg6: blueWin(<=5), arg7: blueScore(<=99).
+	// Broadcast 0x583C (8 bytes totales), retorna 0.
 	L.SetGlobal("cScoreBoard_AllInMap", L.NewFunction(func(L *glua.LState) int {
-		mapName := L.OptString(1, "")
-		show := L.OptBool(2, true)
-		round := L.OptInt(3, 1)
+		arg1 := L.Get(1)
+		if arg1.Type() != glua.LTString && arg1.Type() != glua.LTNumber { // exe: 0x005EDB3C
+			return 0
+		}
+		mapName := arg1.String()
+		show := L.ToBool(2) // exe: 0x005EDB86 (lua_toboolean)
+		round := L.OptInt(3, 0)
 		redWin := L.OptInt(4, 0)
 		redScore := L.OptInt(5, 0)
 		blueWin := L.OptInt(6, 0)
 		blueScore := L.OptInt(7, 0)
+		if redWin > 5 { // exe: 0x005EDC55 (cmp byte [esi+4], 5)
+			redWin = 5
+		}
+		if redScore > 99 { // exe: 0x005EDC65 (cmp byte [esi+5], 0x63)
+			redScore = 99
+		}
+		if blueWin > 5 { // exe: 0x005EDC6F (cmp byte [esi+6], 5)
+			blueWin = 5
+		}
+		if blueScore > 99 { // exe: 0x005EDC79 (cmp al, 0x63)
+			blueScore = 99
+		}
 		br.ScoreBoardAllInMap(mapName, show, round, redWin, redScore, blueWin, blueScore)
 		return 0
 	}))
+	// cScoreInfo porta cScoreInfo (Zone.exe @ 0x005E3790):
+	// arg1: playerHandle, arg2: count(<=2), arg3..: uint32 scores -> envía 0x5836 (10 bytes).
 	L.SetGlobal("cScoreInfo", L.NewFunction(func(L *glua.LState) int {
+		if L.Get(1).Type() == glua.LTNil {
+			return 0
+		}
+		handle := uint32(L.OptInt(1, 0))
+		cnt := L.OptInt(2, 0)
+		if cnt > 2 {
+			cnt = 2
+		}
+		scores := make([]uint32, 2)
+		for i := 0; i < cnt; i++ {
+			scores[i] = uint32(L.OptInt(3+i, 0))
+		}
+		if kqBr, ok := br.(LuaKQRuntimeBridge); ok {
+			kqBr.ScoreInfoObj(handle, scores)
+		}
 		return 0
 	}))
+	// cScoreInfo_AllInMap porta cScoreInfo_AllInMap (Zone.exe @ 0x005E3970):
+	// arg1: mapName, arg2: count(<=2), arg3..: uint32 scores -> broadcast 0x5836 (10 bytes).
 	L.SetGlobal("cScoreInfo_AllInMap", L.NewFunction(func(L *glua.LState) int {
+		arg1 := L.Get(1)
+		if arg1.Type() != glua.LTString && arg1.Type() != glua.LTNumber { // exe: 0x005E39D9
+			return 0
+		}
+		mapName := arg1.String()
+		cnt := L.OptInt(2, 0)
+		if cnt > 2 { // exe: 0x005E3A31 (cmp ebx, 2)
+			cnt = 2
+		}
+		scores := make([]uint32, 2)
+		for i := 0; i < cnt; i++ {
+			scores[i] = uint32(L.OptInt(3+i, 0)) // exe: 0x005E3A5D
+		}
+		if kqBr, ok := br.(LuaKQRuntimeBridge); ok {
+			kqBr.ScoreInfoAllInMap(mapName, scores)
+		}
 		return 0
 	}))
 	L.SetGlobal("cScoreResultList", L.NewFunction(func(L *glua.LState) int {
@@ -1778,42 +1899,122 @@ func (e *Engine) registerAllOfficialAPIs() {
 		br.SendRankingList()
 		return 0
 	}))
+	// cGetKQLimitSecond porta cGetKQLimitSecond (Zone.exe @ 0x005E5390):
+	// arg1: mapName -> fc_FindMap -> kqHandle != -1 -> kqc_SearchHandle -> kqe_GetKQLimitMin() * 60.
+	// Si no existe mapa/KQ o limitMin==0xFFFF retorna 0 valores (nil en Lua).
 	L.SetGlobal("cGetKQLimitSecond", L.NewFunction(func(L *glua.LState) int {
-		mapName := L.OptString(1, "")
+		arg1 := L.Get(1)
+		if arg1.Type() != glua.LTString && arg1.Type() != glua.LTNumber { // exe: 0x005E53FC (lua_tolstring)
+			return 0 // exe: 0x005E541C
+		}
+		mapName := arg1.String()
+		if kqBr, ok := br.(LuaKQRuntimeBridge); ok {
+			sec, valid := kqBr.GetKQLimitSecondExact(mapName) // exe: 0x005E5436..0x005E54AA
+			if !valid {
+				return 0 // exe: 0x005E5473
+			}
+			L.Push(glua.LNumber(sec)) // exe: 0x005E54B7 (lua_pushnumber)
+			return 1                  // exe: 0x005E54D7
+		}
 		L.Push(glua.LNumber(br.GetKQLimitSecond(mapName)))
 		return 1
 	}))
+	// cGetKQTeamType porta cGetKQTeamType (Zone.exe @ 0x005E81C0):
+	// arg1: objHandle -> si arg1 es nil o som_GetObject==NULL pushea 2 (KQTT_MAX, exe: 0x005E823C);
+	// sino pushea so_GetKQTeamType() (0=RED, 1=BLUE, 2=KQTT_MAX).
 	L.SetGlobal("cGetKQTeamType", L.NewFunction(func(L *glua.LState) int {
+		if L.Get(1).Type() == glua.LTNil { // exe: 0x005E8230 (lua_type == LUA_TNIL)
+			L.Push(glua.LNumber(2)) // exe: 0x005E823C (push 2 -> lua_pushinteger)
+			return 1
+		}
 		handle := uint32(L.OptInt(1, 0))
+		if kqBr, ok := br.(LuaKQRuntimeBridge); ok {
+			L.Push(glua.LNumber(kqBr.GetKQTeamTypeExact(handle))) // exe: 0x005E8285..0x005E828C
+			return 1
+		}
 		L.Push(glua.LNumber(br.GetKQTeamType(handle)))
 		return 1
 	}))
+	// cIsKQJoiner porta cIsKQJoiner (Zone.exe @ 0x005E82D0):
+	// arg1: objHandle -> si nil o som_GetObject==NULL pushea false (exe: 0x005E8348 / 0x005E8387);
+	// sino pushea bool(so_ply_IsKQJoiner()) vía lua_pushboolean (exe: 0x005E839E).
 	L.SetGlobal("cIsKQJoiner", L.NewFunction(func(L *glua.LState) int {
+		if L.Get(1).Type() == glua.LTNil { // exe: 0x005E8340 (lua_type == LUA_TNIL)
+			L.Push(glua.LFalse) // exe: 0x005E8348 (push 0 -> lua_pushboolean)
+			return 1
+		}
 		handle := uint32(L.OptInt(1, 0))
-		if br.IsKQJoiner(handle) {
-			L.Push(glua.LTrue)
+		isJoiner := false
+		if kqBr, ok := br.(LuaKQRuntimeBridge); ok {
+			isJoiner = kqBr.IsKQJoinerExact(handle)
 		} else {
-			L.Push(glua.LFalse)
+			isJoiner = br.IsKQJoiner(handle)
+		}
+		if isJoiner {
+			L.Push(glua.LTrue) // exe: 0x005E839B
+		} else {
+			L.Push(glua.LFalse) // exe: 0x005E8387
 		}
 		return 1
 	}))
+	// cKQRewardIndex porta cKQRewardIndex (Zone.exe @ 0x005E4000):
+	// arg1: objHandle (non-nil), arg2: rewardIndex (string) -> som_GetObject -> !IsDelete -> so_ply_KQRewardIndex(rewardIndex).
+	// Retorna 0 valores (exe: 0x005E40FC).
 	L.SetGlobal("cKQRewardIndex", L.NewFunction(func(L *glua.LState) int {
+		if L.Get(1).Type() == glua.LTNil { // exe: 0x005E406A (lua_type == LUA_TNIL)
+			return 0
+		}
+		arg2 := L.Get(2)
+		if arg2.Type() != glua.LTString && arg2.Type() != glua.LTNumber { // exe: 0x005E40CB (lua_tolstring)
+			return 0
+		}
 		handle := uint32(L.OptInt(1, 0))
-		rewardIndex := L.OptString(2, "")
-		br.KQRewardIndex(handle, rewardIndex)
-		return 0
+		rewardIndex := arg2.String()
+		if kqBr, ok := br.(LuaKQRuntimeBridge); ok {
+			kqBr.KQRewardIndexExact(handle, rewardIndex) // exe: 0x005E40E2 -> 0x0052EA80
+		} else {
+			br.KQRewardIndex(handle, rewardIndex)
+		}
+		return 0 // exe: 0x005E40FC
 	}))
+	// cShowKQTimerWithLife porta cShowKQTimerWithLife (Zone.exe @ 0x005E54F0):
+	// arg1: mapName, arg2: seconds -> broadcast 0x0810 (PROTO_NC_MISC_RESTMINUTE_CMD, 5 bytes: flag=1, sec=uint16), push 1.
 	L.SetGlobal("cShowKQTimerWithLife", L.NewFunction(func(L *glua.LState) int {
-		mapName := L.OptString(1, "")
-		sec := L.OptInt(2, 0)
+		arg1 := L.Get(1)
+		if arg1.Type() != glua.LTString && arg1.Type() != glua.LTNumber { // exe: 0x005E555C
+			return 0
+		}
+		mapName := arg1.String()
+		sec := L.OptInt(2, 0) // exe: 0x005E55DD
+		if kqBr, ok := br.(LuaKQRuntimeBridge); ok {
+			if !kqBr.ShowKQTimerWithLifeMap(mapName, sec) { // exe: 0x005E559B / 0x005E55A8
+				return 0
+			}
+			L.Push(glua.LNumber(1)) // exe: 0x005E5639 (fld1 -> lua_pushnumber)
+			return 1                // exe: 0x005E566E
+		}
 		br.ShowKQTimerWithLife(mapName, sec)
-		return 0
+		L.Push(glua.LNumber(1))
+		return 1
 	}))
+	// cShowKQTimerWithLife_Obj porta cShowKQTimerWithLife_Obj (Zone.exe @ 0x005E5690):
+	// arg1: playerHandle (ObjectType==2), arg2: seconds -> envía 0x0810 (5 bytes: flag=1, sec=uint16), push 1.
 	L.SetGlobal("cShowKQTimerWithLife_Obj", L.NewFunction(func(L *glua.LState) int {
-		handle := uint32(L.OptInt(1, 0))
-		sec := L.OptInt(2, 0)
+		if L.Get(1).Type() == glua.LTNil {
+			return 0
+		}
+		handle := uint32(L.OptInt(1, 0)) // exe: 0x005E56FC
+		sec := L.OptInt(2, 0)            // exe: 0x005E5775
+		if kqBr, ok := br.(LuaKQRuntimeBridge); ok {
+			if !kqBr.ShowKQTimerWithLifeObjExact(handle, sec) { // exe: 0x005E5730 / 0x005E576C (ObjectType==2)
+				return 0
+			}
+			L.Push(glua.LNumber(1)) // exe: 0x005E57F2 (fld1 -> lua_pushnumber)
+			return 1                // exe: 0x005E581B
+		}
 		br.ShowKQTimerWithLifeObj(handle, sec)
-		return 0
+		L.Push(glua.LNumber(1))
+		return 1
 	}))
 	L.SetGlobal("cWinter_Event_ScoreBoard_AllInMap", L.NewFunction(func(L *glua.LState) int {
 		return 0
@@ -1854,17 +2055,56 @@ func (e *Engine) registerAllOfficialAPIs() {
 		br.ProgressTutorial(handle, step)
 		return 0
 	}))
+	// cQuestResult porta cQuestResult (Zone.exe @ 0x005E30D0):
+	// arg1: mapName, arg2: "Success"|"Fail" -> AxialListKQEndLua(0x16, 0x12|0x13) + fm_ClearObject(0x1B0) -> push 1.
 	L.SetGlobal("cQuestResult", L.NewFunction(func(L *glua.LState) int {
-		mapName := L.OptString(1, "")
-		result := L.OptString(2, "")
+		arg1 := L.Get(1)
+		arg2 := L.Get(2)
+		if (arg1.Type() != glua.LTString && arg1.Type() != glua.LTNumber) ||
+			(arg2.Type() != glua.LTString && arg2.Type() != glua.LTNumber) { // exe: 0x005E313B / 0x005E317C
+			return 0
+		}
+		mapName := arg1.String()
+		result := arg2.String()
+		if result != "Success" && result != "Fail" { // exe: 0x005E318E ("Success") / 0x005E31D6 ("Fail")
+			return 0
+		}
+		if kqBr, ok := br.(LuaKQRuntimeBridge); ok {
+			if !kqBr.QuestResultMap(mapName, result) {
+				return 0
+			}
+			L.Push(glua.LNumber(1)) // exe: 0x005E3249 (fld1 -> lua_pushnumber)
+			return 1
+		}
 		br.QuestResult(mapName, result)
-		return 0
+		L.Push(glua.LNumber(1))
+		return 1
 	}))
+	// cQuestResult_Individual porta cQuestResult_Individual (Zone.exe @ 0x005ECCA0):
+	// arg1: playerHandle (non-nil, ObjectType==2), arg2: "Success"|"Fail" -> envía 0x5812/0x5813 -> push 1.
 	L.SetGlobal("cQuestResult_Individual", L.NewFunction(func(L *glua.LState) int {
+		if L.Get(1).Type() == glua.LTNil { // exe: 0x005ECD0A
+			return 0
+		}
+		arg2 := L.Get(2)
+		if arg2.Type() != glua.LTString && arg2.Type() != glua.LTNumber { // exe: 0x005ECD79
+			return 0
+		}
 		handle := uint32(L.OptInt(1, 0))
-		result := L.OptString(2, "")
+		result := arg2.String()
+		if result != "Success" && result != "Fail" { // exe: 0x005ECD85 / 0x005ECDBD
+			return 0
+		}
+		if kqBr, ok := br.(LuaKQRuntimeBridge); ok {
+			if !kqBr.QuestResultIndividualExact(handle, result) {
+				return 0
+			}
+			L.Push(glua.LNumber(1)) // exe: 0x005ECDFB (fld1 -> lua_pushnumber)
+			return 1
+		}
 		br.QuestResultIndividual(handle, result)
-		return 0
+		L.Push(glua.LNumber(1))
+		return 1
 	}))
 	L.SetGlobal("cServerMenu", L.NewFunction(func(L *glua.LState) int {
 		playerHandle := uint32(L.OptInt(1, 0))
@@ -1930,11 +2170,30 @@ func (e *Engine) registerAllOfficialAPIs() {
 		L.Push(glua.LFalse)
 		return 1
 	}))
+	// cReward porta cReward (Zone.exe @ 0x005DF060):
+	// arg1: mapName, arg2: rewardType -> si rewardType=="KQ": kqHandle != -1 -> AxialListKQRewardLua -> push 1;
+	// si rewardType!="KQ": no-op y push 1 (exe: 0x005DF136 -> 0x005DF1AC).
 	L.SetGlobal("cReward", L.NewFunction(func(L *glua.LState) int {
-		mapName := L.OptString(1, "")
-		rewardType := L.OptString(2, "KQ")
-		br.RewardAll(mapName, rewardType)
-		return 0
+		arg1 := L.Get(1)
+		arg2 := L.Get(2)
+		if (arg1.Type() != glua.LTString && arg1.Type() != glua.LTNumber) ||
+			(arg2.Type() != glua.LTString && arg2.Type() != glua.LTNumber) { // exe: 0x005DF0CB / 0x005DF0F9
+			return 0
+		}
+		mapName := arg1.String()
+		rewardType := arg2.String()
+		if kqBr, ok := br.(LuaKQRuntimeBridge); ok {
+			if !kqBr.RewardKQMap(mapName, rewardType) { // exe: 0x005DF13E ("cReward : No KQ info")
+				return 0
+			}
+			L.Push(glua.LNumber(1)) // exe: 0x005DF1AC (fld1 -> lua_pushnumber)
+			return 1
+		}
+		if rewardType == "KQ" {
+			br.RewardAll(mapName, rewardType)
+		}
+		L.Push(glua.LNumber(1))
+		return 1
 	}))
 	L.SetGlobal("cRewardItem", L.NewFunction(func(L *glua.LState) int {
 		handle := uint32(L.OptInt(1, 0))
@@ -2123,7 +2382,12 @@ func (e *Engine) registerAllOfficialAPIs() {
 	L.SetGlobal("SetInterrupt", L.NewFunction(func(L *glua.LState) int {
 		field := L.OptString(1, "")
 		ev := L.OptString(2, "")
-		cb := L.OptString(3, "")
+		cb := ""
+		if L.GetTop() >= 4 {
+			cb = L.OptString(4, "")
+		} else if v := L.Get(3); v.Type() == glua.LTString {
+			cb = string(v.(glua.LString))
+		}
 		br.ScenarioSetInterrupt(field, ev, cb)
 		return 0
 	}))
@@ -2282,4 +2546,163 @@ func (e *Engine) registerAllOfficialAPIs() {
 		br.ScenarioRewardGuildTournament(field, winner)
 		return 0
 	}))
+
+	// ==========================================
+	// 17. Helpers de Escenarios KQ Migrados (ConditionOfHero, GordonMaster, Honeying, KQHBat, UnderHall)
+	// ==========================================
+	L.SetGlobal("RewardKQ", L.NewFunction(func(L *glua.LState) int {
+		field := L.OptString(1, "")
+		if kqBr, ok := br.(LuaKQRuntimeBridge); ok {
+			kqBr.RewardKQMap(field, "KQ")
+		} else {
+			br.RewardAll(field, "KQ")
+		}
+		return 0
+	}))
+	L.SetGlobal("RewardIndividual", L.NewFunction(func(L *glua.LState) int {
+		handle := uint32(L.OptInt(1, 0))
+		rewardIndex := L.OptString(2, "")
+		if kqBr, ok := br.(LuaKQRuntimeBridge); ok {
+			kqBr.KQRewardIndexExact(handle, rewardIndex)
+		} else {
+			br.KQRewardIndex(handle, rewardIndex)
+		}
+		return 0
+	}))
+	L.SetGlobal("SendQuestResult", L.NewFunction(func(L *glua.LState) int {
+		field := L.OptString(1, "")
+		result := L.OptString(2, "Success")
+		if kqBr, ok := br.(LuaKQRuntimeBridge); ok {
+			kqBr.QuestResultMap(field, result)
+		} else {
+			br.QuestResult(field, result)
+		}
+		return 0
+	}))
+	L.SetGlobal("WaitPlayerLogin", L.NewFunction(func(L *glua.LState) int {
+		field := L.OptString(1, "")
+		if ext, ok := br.(LuaFieldRuntimeBridge); ok {
+			L.Push(glua.LNumber(len(ext.GetPlayerListInMap(field))))
+			return 1
+		}
+		L.Push(glua.LNumber(0))
+		return 1
+	}))
+	L.SetGlobal("GetFieldPlayers", L.NewFunction(func(L *glua.LState) int {
+		field := L.OptString(1, "")
+		tbl := L.NewTable()
+		if ext, ok := br.(LuaFieldRuntimeBridge); ok {
+			for idx, h := range ext.GetPlayerListInMap(field) {
+				tbl.RawSetInt(idx+1, glua.LNumber(h))
+			}
+		}
+		L.Push(tbl)
+		return 1
+	}))
+	L.SetGlobal("GetCharacterName", L.NewFunction(func(L *glua.LState) int {
+		handle := uint32(L.OptInt(1, 0))
+		L.Push(glua.LString(br.GetPlayerName(handle)))
+		return 1
+	}))
+	L.SetGlobal("GetKQResultList", L.NewFunction(func(L *glua.LState) int {
+		field := L.OptString(1, "")
+		tbl := L.NewTable()
+		if ext, ok := br.(LuaFieldRuntimeBridge); ok {
+			for idx, h := range ext.GetPlayerListInMap(field) {
+				tbl.RawSetInt(idx+1, glua.LNumber(h))
+			}
+		}
+		L.Push(tbl)
+		return 1
+	}))
+	L.SetGlobal("StopBattle", L.NewFunction(func(L *glua.LState) int {
+		field := L.OptString(1, "")
+		if kqBr, ok := br.(LuaKQRuntimeBridge); ok {
+			kqBr.SetTeamBattleMap(field, false)
+		}
+		return 0
+	}))
+	L.SetGlobal("StartBattle", L.NewFunction(func(L *glua.LState) int {
+		field := L.OptString(1, "")
+		if kqBr, ok := br.(LuaKQRuntimeBridge); ok {
+			kqBr.SetTeamBattleMap(field, true)
+		}
+		return 0
+	}))
+	L.SetGlobal("SetFreePK", L.NewFunction(func(L *glua.LState) int {
+		field := L.OptString(1, "")
+		enabled := L.ToBool(2)
+		if kqBr, ok := br.(LuaKQRuntimeBridge); ok {
+			kqBr.SetTeamBattleMap(field, enabled)
+		}
+		return 0
+	}))
+	L.SetGlobal("SpawnRegenGroup", L.NewFunction(func(L *glua.LState) int {
+		field := L.OptString(1, "")
+		groupInx := L.OptString(2, "")
+		if ext, ok := br.(LuaFieldRuntimeBridge); ok {
+			L.Push(glua.LNumber(ext.GroupRegenByName(field, groupInx)))
+			return 1
+		}
+		L.Push(glua.LNumber(0))
+		return 1
+	}))
+	L.SetGlobal("SpawnMob", L.NewFunction(func(L *glua.LState) int {
+		field := L.OptString(1, "")
+		mobInx := L.OptString(2, "")
+		x := float64(L.OptNumber(3, 0))
+		y := float64(L.OptNumber(4, 0))
+		dir := L.OptInt(5, 0)
+		if ext, ok := br.(LuaFieldRuntimeBridge); ok {
+			L.Push(glua.LNumber(ext.MobRegenXYByName(field, mobInx, x, y, dir, 0)))
+			return 1
+		}
+		L.Push(glua.LNumber(0))
+		return 1
+	}))
+	L.SetGlobal("SpawnEffectOnObject", L.NewFunction(func(L *glua.LState) int {
+		var handle uint32
+		if v := L.Get(1); v.Type() == glua.LTNumber {
+			handle = uint32(v.(glua.LNumber))
+		}
+		br.ObjectEffect(handle, 1)
+		L.Push(glua.LNumber(handle))
+		return 1
+	}))
+	L.SetGlobal("CreateItem", L.NewFunction(func(L *glua.LState) int {
+		handle := uint32(L.OptInt(1, 0))
+		itemInx := L.OptString(2, "")
+		count := L.OptInt(3, 1)
+		br.RewardItem(handle, itemInx, count)
+		return 0
+	}))
+	L.SetGlobal("MineRegen", L.NewFunction(func(L *glua.LState) int {
+		field := L.OptString(1, "")
+		mobInx := L.OptString(2, "")
+		x := float64(L.OptNumber(3, 0))
+		y := float64(L.OptNumber(4, 0))
+		if ext, ok := br.(LuaFieldRuntimeBridge); ok {
+			L.Push(glua.LNumber(ext.MobRegenXYByName(field, mobInx, x, y, 0, 0)))
+			return 1
+		}
+		L.Push(glua.LNumber(0))
+		return 1
+	}))
+	L.SetGlobal("SetTimer", L.NewFunction(func(L *glua.LState) int {
+		field := L.OptString(1, "")
+		sec := 0
+		if v := L.Get(2); v.Type() == glua.LTNumber {
+			sec = int(v.(glua.LNumber))
+		} else if v := L.Get(3); v.Type() == glua.LTNumber {
+			sec = int(v.(glua.LNumber))
+		}
+		if kqBr, ok := br.(LuaKQRuntimeBridge); ok {
+			kqBr.ShowKQTimerWithLifeMap(field, sec)
+		} else {
+			br.ShowKQTimerWithLife(field, sec)
+		}
+		return 0
+	}))
+	L.SetGlobal("SendSignal", L.NewFunction(func(L *glua.LState) int { return 0 }))
+	L.SetGlobal("WaitSignal", L.NewFunction(func(L *glua.LState) int { return 0 }))
 }

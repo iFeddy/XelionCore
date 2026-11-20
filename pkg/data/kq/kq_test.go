@@ -314,3 +314,73 @@ func TestProtoKQInfoAndMapInfo_SizeofAndOffsets(t *testing.T) {
 	}
 }
 
+func TestLoadShineReward_BinaryParityAndLookups(t *testing.T) {
+	dir := dataDir(t)
+	store, err := LoadDir(dir)
+	if err != nil {
+		t.Fatalf("LoadDir(%s) failed: %v", dir, err)
+	}
+	if len(store.ShineRewards) != 435 {
+		t.Fatalf("ShineReward.shn row count = %d, want 435", len(store.ShineRewards))
+	}
+
+	// Verify 66-byte binary round-trip on every row of ShineReward.shn (Zone.exe @ 0x0064C830)
+	for i, row := range store.ShineRewards {
+		raw, err := row.MarshalBinary()
+		if err != nil {
+			t.Fatalf("ShineReward[%d] MarshalBinary: %v", i, err)
+		}
+		if len(raw) != SizeOfShineReward {
+			t.Fatalf("ShineReward[%d] size = %d, want %d", i, len(raw), SizeOfShineReward)
+		}
+		var rt SHINE_REWARD
+		if err := rt.UnmarshalBinary(raw); err != nil {
+			t.Fatalf("ShineReward[%d] UnmarshalBinary: %v", i, err)
+		}
+		if rt != row {
+			t.Fatalf("ShineReward[%d] round-trip mismatch: got %+v want %+v", i, rt, row)
+		}
+	}
+
+	// Verify KQRewardDataBox::operator[](uint8*) (exe: 0x0049A9A0) and RewardData::rd_FindHandle (exe: 0x0064C850)
+	var namedRow *KINGDOM_QUEST_REW
+	for i := range store.Rewards {
+		if store.Rewards[i].IndexName() != "" {
+			namedRow = &store.Rewards[i]
+			break
+		}
+	}
+	if namedRow == nil {
+		t.Fatalf("expected at least one KingdomQuestRew row with non-empty IndexName")
+	}
+	rewNamed, ok := store.GetRewardByName(namedRow.IndexName())
+	if !ok || rewNamed.ID != namedRow.ID {
+		t.Fatalf("GetRewardByName(%q) = (%+v, %v), want ID=%d", namedRow.IndexName(), rewNamed, ok, namedRow.ID)
+	}
+	if _, ok := store.GetRewardByName("NonExistentKQReward"); ok {
+		t.Fatalf("GetRewardByName should return false for unknown index")
+	}
+
+	// Every non-zero Reward slot in KingdomQuestRew.shn row 0 must resolve in ShineReward.shn
+	rew0 := store.Rewards[0]
+	resolved := 0
+	for slot := 0; slot < 15; slot++ {
+		srID := rew0.Reward[slot]
+		if srID == 0 {
+			continue
+		}
+		sr, ok := store.GetShineReward(srID)
+		if !ok {
+			t.Fatalf("KingdomQuestRew[0].Reward[%d] = %d not found in ShineReward.shn", slot, srID)
+		}
+		if sr.RewardHandle != srID {
+			t.Fatalf("GetShineReward(%d).RewardHandle = %d", srID, sr.RewardHandle)
+		}
+		resolved++
+	}
+	if resolved == 0 {
+		t.Fatalf("expected at least one resolved ShineReward from KingdomQuestRew[0]")
+	}
+}
+
+

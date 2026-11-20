@@ -167,3 +167,42 @@ func (e *Engine) GetGlobalTableField(tableName, fieldName string) (lua.LValue, e
 	val := e.state.GetField(tbl, fieldName)
 	return val, nil
 }
+
+// CallTableFunction invoca una función dentro de una tabla global (ej: KQConditionOfHero.Main).
+func (e *Engine) CallTableFunction(tableName, funcName string, args ...lua.LValue) ([]lua.LValue, error) {
+	e.mu.Lock()
+	defer e.mu.Unlock()
+
+	tbl := e.state.GetGlobal(tableName)
+	if tbl.Type() != lua.LTTable {
+		return nil, fmt.Errorf("tabla global '%s' no encontrada o no es tabla", tableName)
+	}
+	fn := e.state.GetField(tbl, funcName)
+	if fn.Type() != lua.LTFunction {
+		return nil, fmt.Errorf("función '%s.%s' no encontrada o no es función", tableName, funcName)
+	}
+
+	top := e.state.GetTop()
+	if err := e.state.CallByParam(lua.P{
+		Fn:      fn,
+		NRet:    lua.MultRet,
+		Protect: true,
+	}, args...); err != nil {
+		return nil, fmt.Errorf("error ejecutando '%s.%s': %w", tableName, funcName, err)
+	}
+
+	nRet := e.state.GetTop() - top
+	rets := make([]lua.LValue, nRet)
+	for i := 1; i <= nRet; i++ {
+		rets[i-1] = e.state.Get(top + i)
+	}
+	e.state.SetTop(top)
+	return rets, nil
+}
+
+// SetGlobal asigna un valor global en la VM de Lua (p. ej. InitValue para scripts KQ).
+func (e *Engine) SetGlobal(name string, val lua.LValue) {
+	e.mu.Lock()
+	defer e.mu.Unlock()
+	e.state.SetGlobal(name, val)
+}

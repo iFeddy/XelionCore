@@ -273,20 +273,22 @@ func TestFase15_LuaInstancesIDKQGTWeddingAndHolyPromise(t *testing.T) {
 	if groom.CurrentMap == nil || groom.CurrentMap.InstanceKind != "KQ" {
 		t.Fatalf("expected Groom warped into KQ instance map, got %+v", groom.CurrentMap)
 	}
+	groom.CurrentMap.AddPlayer(groom)
 	groom.CurrentMap.bridgeShowKQTimerWithLifeObj(uint32(groom.MapObjectID), int(makeInfo.LimitTime)*60)
-	if len(connGroom.findByOpcode(protocol.PROTO_NC_SCENARIO_TIMER_CMD)) == 0 {
-		t.Fatalf("expected PROTO_NC_SCENARIO_TIMER_CMD from KQ timer")
+	if len(connGroom.findByOpcode(protocol.PROTO_NC_MISC_RESTMINUTE_CMD)) == 0 {
+		t.Fatalf("expected PROTO_NC_MISC_RESTMINUTE_CMD (0x0810) from cShowKQTimerWithLife_Obj")
 	}
 	groom.CurrentMap.bridgeKQRewardIndex(uint32(groom.MapObjectID), "1")
-	groom.CurrentMap.bridgeRewardAll("")
+	groom.CurrentMap.bridgeRewardAll("KQ")
+	groom.CurrentMap.bridgeQuestResult(groom.CurrentMap.MapID, "Success")
 	groom.CurrentMap.bridgeEndOfKingdomQuest(true)
-	if len(connGroom.findByOpcode(protocol.PROTO_NC_KQ_COMPLETE_CMD)) == 0 || len(connGroom.findByOpcode(protocol.PROTO_NC_KQ_REWARD_REQ)) == 0 {
-		t.Fatalf("expected KQ_COMPLETE_CMD and KQ_REWARD_REQ from KQ completion")
+	if len(connGroom.findByOpcode(protocol.PROTO_NC_KQ_COMPLETE_CMD)) == 0 {
+		t.Fatalf("expected PROTO_NC_KQ_COMPLETE_CMD (0x5812) from AxialListKQEndLua / cQuestResult")
 	}
 	if glH := waitForGameLogType(t, glRepo, func(e *database.GameLogEntry) bool {
-		return e.CharNo == groom.Char.ID && e.TargetCharNo == int(firstKQID)
+		return e.CharNo == groom.Char.ID && (e.Type == int(protocol.PROTO_NC_LOG_GAME_KQ_ENTER) || e.Type == int(protocol.PROTO_NC_LOG_GAME_KQ_LEAVE))
 	}); glH == nil {
-		t.Fatalf("expected GameLog Type H recorded for KQ")
+		t.Fatalf("expected GameLog KQ_ENTER (0x0441) or KQ_LEAVE (0x0442) recorded for KQ")
 	}
 
 	// 3. Dept 29: Guild Tournament 6 C2S en mapa real con Lua script

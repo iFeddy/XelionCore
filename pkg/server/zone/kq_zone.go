@@ -721,6 +721,7 @@ func (g *KingdomQuestGateKeeper) erb_happen(h *Handler) int {
 		st.entrance.kqe_entry(g.EntryIdx)
 
 		// exe: 0x004966B2: CT_KQJoin (title hook)
+		h.UnlockOrAdvanceTitle(player, kqTitleTypeKQJoin, 1, false)
 		// exe: 0x004966BD..0x00496722: determine warp destination (TeamRegenXY if teamType < 2)
 		destX := int(g.RegenX)
 		destY := int(g.RegenY)
@@ -730,19 +731,20 @@ func (g *KingdomQuestGateKeeper) erb_happen(h *Handler) int {
 			destY = int(elem.Info.TeamRegenXY[teamType].Y)
 		}
 
-		// Record previous map for GameLog 0x0441 (exe: 0x00496730..0x004967DA)
+		// Record previous map for rollback + GameLog 0x0441 (exe: 0x00496730..0x004967DA)
 		prevMap := ""
 		prevX, prevY := player.Char.XPos, player.Char.YPos
 		if player.CurrentMap != nil {
 			prevMap = player.CurrentMap.MapID
 		}
+		h.SavePreKQReturnPos(player, prevMap, prevX, prevY)
 
 		// exe: 0x004966D8 / 0x00496722: MapLink into KQ map
 		h.WarpPlayer(player, g.MapName, destX, destY, 0)
-
-		if prevMap != "" && h.gameLogDispatcher != nil {
-			h.gameLogDispatcher.EnqueueTypeH(2, player.Char.ID, prevMap, prevX, prevY, 0, int(g.KQID))
-		}
+		// exe: 0x004542F0 / Character.exe 0x00459E90: persistir posición normal + KQMap
+		h.so_SaveLocation(player)
+		// exe: 0x00496740..0x004967DA: emitir PROTO_NC_LOG_GAME_KQ_ENTER (0x0441)
+		h.EmitKQEnterGameLog(player, prevMap, prevX, prevY, g.KQID, g.KQHandle)
 
 		// exe: 0x004967E6: mark joiner consumed (chrregnum = 0xFFFFFFFF)
 		st.entrance.mu.Lock()
@@ -794,25 +796,27 @@ func (c *KQContributeList) kqpl_EndOfKQ(handle uint32) {
 
 // ZoneKQRuntime holds all Zone.exe global KQ singletons scoped to a Handler instance.
 type ZoneKQRuntime struct {
-	mu          sync.Mutex
-	container   *KingdomQuestContainer
-	entrance    *KingdomQuestEntrance
-	contribute  *KQContributeList
-	gateKeepers []*KingdomQuestGateKeeper
-	nowFunc     func() time.Time
-	bootTime    time.Time
-	reloaded    map[string]int // tracks &Reroadkingdomquest reloads for diagnostics/tests
+	mu            sync.Mutex
+	container     *KingdomQuestContainer
+	entrance      *KingdomQuestEntrance
+	contribute    *KQContributeList
+	rewardTracker *KQRewardTracker
+	gateKeepers   []*KingdomQuestGateKeeper
+	nowFunc       func() time.Time
+	bootTime      time.Time
+	reloaded      map[string]int // tracks &Reroadkingdomquest reloads for diagnostics/tests
 }
 
 func newZoneKQRuntime() *ZoneKQRuntime {
 	now := time.Now()
 	return &ZoneKQRuntime{
-		container:  NewKingdomQuestContainer(),
-		entrance:   &KingdomQuestEntrance{},
-		contribute: NewKQContributeList(),
-		nowFunc:    time.Now,
-		bootTime:   now,
-		reloaded:   make(map[string]int),
+		container:     NewKingdomQuestContainer(),
+		entrance:      &KingdomQuestEntrance{},
+		contribute:    NewKQContributeList(),
+		rewardTracker: newKQRewardTracker(),
+		nowFunc:       time.Now,
+		bootTime:      now,
+		reloaded:      make(map[string]int),
 	}
 }
 
@@ -938,12 +942,17 @@ func (m *ZoneMap) cc_DropFilm(scriptName string) {
 	if m == nil {
 		return
 	}
+	shouldStop := false
 	m.mu.Lock()
-	defer m.mu.Unlock()
 	if scriptName == "" || strings.EqualFold(m.KQScriptName, scriptName) {
 		m.KQScriptActive = false
 		m.KQScriptName = ""
 		m.KQInitValue = ""
+		shouldStop = true
+	}
+	m.mu.Unlock()
+	if shouldStop {
+		m.StopKQScript()
 	}
 }
 
@@ -953,11 +962,12 @@ func (m *ZoneMap) cc_PlayFilm(scriptName, initValue string, now time.Time) {
 		return
 	}
 	m.mu.Lock()
-	defer m.mu.Unlock()
 	m.KQScriptActive = true
 	m.KQScriptName = scriptName
 	m.KQInitValue = initValue
 	m.InstanceStartedAt = now
+	m.mu.Unlock()
+	_ = m.StartKQScript(scriptName, initValue)
 }
 
 // EnsureKQMap finds or initializes the sub-map ZoneMap (e.g. KDRockCan00) backed by baseMap (e.g. KDRockCan).
@@ -1520,10 +1530,15 @@ func (h *Handler) handleKQEntryResponseAck(client *network.Client, pkt *protocol
 		return
 	}
 	// exe: 0x00496B26..0x00496B52: MapLink to Maps[0] at MapInfo RegenX/RegenY
-	h.WarpPlayer(player, mapName, int(elem.Maps[0].RegenX), int(elem.Maps[0].RegenY), 0)
-	if h.gameLogDispatcher != nil {
-		h.gameLogDispatcher.EnqueueTypeH(2, player.Char.ID, mapName, player.Char.XPos, player.Char.YPos, 0, int(elem.Info.ID))
+	prevMap := ""
+	prevX, prevY := player.Char.XPos, player.Char.YPos
+	if player.CurrentMap != nil {
+		prevMap = player.CurrentMap.MapID
 	}
+	h.SavePreKQReturnPos(player, prevMap, prevX, prevY)
+	h.WarpPlayer(player, mapName, int(elem.Maps[0].RegenX), int(elem.Maps[0].RegenY), 0)
+	h.so_SaveLocation(player)
+	h.EmitKQEnterGameLog(player, prevMap, prevX, prevY, elem.Info.ID, elem.Info.Handle)
 }
 
 // sp_MyKQElement ports ShinePlayer::sp_MyKQElement (exe: 0x00496C50).
@@ -1987,23 +2002,7 @@ func (h *Handler) ac_KQReward(player *ZonePlayer, args []string) error {
 	return nil
 }
 
-// so_ply_KQRewardStruct is the 27C hook invoked by ac_KQReward (exe: 0x00423D6C -> 0x0052E9C0).
-// Full Character.exe reward transaction and KingdomQuestRew.shn roll is implemented in 27D.
-func (h *Handler) so_ply_KQRewardStruct(player *ZonePlayer, elem *KQElement) {
-	if player == nil || elem == nil {
-		return
-	}
-	player.KQRewardIdx = strconv.Itoa(int(elem.Info.RewardIndex))
-	if h.dataStore != nil && h.dataStore.KQStore != nil {
-		if rew, ok := h.dataStore.KQStore.GetReward(uint32(elem.Info.RewardIndex)); ok && rew != nil {
-			if idx := rew.IndexName(); idx != "" {
-				player.KQRewardIdx = idx
-			} else if box := rew.BoxItemIndex(); box != "" {
-				player.KQRewardIdx = box
-			}
-		}
-	}
-}
+// so_ply_KQRewardStruct está implementado 1:1 en kq_rewards_lua.go (exe: 0x0052E9C0).
 
 func init() {
 	// exe: 0x004265EE (&kingdomquest -> ac_KingdomQuest @ 0x00423DD0, level 0x64 @ 0x004265E9)

@@ -9,6 +9,7 @@ import (
 	"time"
 
 	"github.com/iFeddy/XelionCore/pkg/data/kq"
+	"github.com/iFeddy/XelionCore/pkg/database"
 	"github.com/iFeddy/XelionCore/pkg/network"
 	"github.com/iFeddy/XelionCore/pkg/protocol"
 	"github.com/iFeddy/XelionCore/pkg/s2s"
@@ -564,5 +565,145 @@ func TestKQProtocol_PacketStructures(t *testing.T) {
 	var outMaps [4][12]byte
 	if wire := protocol.New_PROTO_NC_KQ_LINK_TO_FORCE_BY_BAN_CMD(1, outMaps).BuildWirePacket(); len(wire) != 55 {
 		t.Errorf("expected 55 bytes for PROTO_NC_KQ_LINK_TO_FORCE_BY_BAN_CMD, got %d", len(wire))
+	}
+}
+
+func TestCKQServer_KQMapSaveRestoreAndProtoCharKQMapCmd(t *testing.T) {
+	// 1. Verify PackKQDateTime exact bitfields (Character.exe @ 0x0043911F..0x00439199)
+	ts := time.Date(2026, 11, 20, 15, 42, 33, 0, time.UTC)
+	packed := database.PackKQDateTime(ts)
+	if (packed & 0x0F) != uint32(ts.Year()&0x0F) {
+		t.Fatalf("year nibble mismatch: got %d want %d", packed&0x0F, ts.Year()&0x0F)
+	}
+	if ((packed >> 4) & 0x0F) != uint32(ts.Month()) {
+		t.Fatalf("month nibble mismatch: got %d want %d", (packed>>4)&0x0F, ts.Month())
+	}
+	if ((packed >> 8) & 0x1F) != uint32(ts.Day()) {
+		t.Fatalf("day bits mismatch: got %d want %d", (packed>>8)&0x1F, ts.Day())
+	}
+	if ((packed >> 13) & 0x1F) != uint32(ts.Hour()) {
+		t.Fatalf("hour bits mismatch: got %d want %d", (packed>>13)&0x1F, ts.Hour())
+	}
+	if ((packed >> 18) & 0x3F) != uint32(ts.Minute()) {
+		t.Fatalf("minute bits mismatch: got %d want %d", (packed>>18)&0x3F, ts.Minute())
+	}
+	if ((packed >> 24) & 0x3F) != uint32(ts.Second()) {
+		t.Fatalf("second bits mismatch: got %d want %d", (packed>>24)&0x3F, ts.Second())
+	}
+
+	// 2. Verify PROTO_NC_CHAR_KQMAP_CMD (0x101A, 28 bytes payload -> 31 bytes wire)
+	info := &database.CharKQMapInfo{
+		KQHandle:  0x00001234,
+		KQMapName: "KDEddyHill00",
+		KQX:       2400,
+		KQY:       3500,
+		KQDate:    ts,
+	}
+	pw, data := world.BuildProtoCharKQMapCmd(info)
+	wire := pw.BuildWirePacket()
+	// 1-byte length prefix (30) + 2-byte opcode (0x101A) + 28-byte payload = 31 bytes
+	if len(wire) != 31 {
+		t.Fatalf("PROTO_NC_CHAR_KQMAP_CMD wire len = %d, want 31", len(wire))
+	}
+	if op := binary.LittleEndian.Uint16(wire[1:3]); op != protocol.PROTO_NC_CHAR_KQMAP_CMD {
+		t.Fatalf("opcode = 0x%04X, want 0x%04X", op, protocol.PROTO_NC_CHAR_KQMAP_CMD)
+	}
+	if data.NKQHandle != 0x1234 || data.DKQDate != packed {
+		t.Fatalf("PROTO_NC_CHAR_KQMAP_CMD data mismatch: %+v", data)
+	}
+	if uint32(data.NKQCoord&0xFFFFFFFF) != 2400 || uint32(data.NKQCoord>>32) != 3500 {
+		t.Fatalf("NKQCoord mismatch: 0x%016X", data.NKQCoord)
+	}
+
+	// 3. Verify ResolveCharKQLoginLocation (p_Char_GetKQMap + fc_NC_CHAR_KQMAP_CMD)
+	ds, err := world.LoadWorldDataStore("../../../data")
+	if err != nil {
+		t.Fatalf("LoadWorldDataStore: %v", err)
+	}
+	store, err := kq.LoadDir("../../../data")
+	if err != nil {
+		t.Fatalf("kq.LoadDir: %v", err)
+	}
+	km := world.NewKQManager(ds, nil)
+	sink := &recordingS2SSink{}
+	km.SetS2SSink(sink, 1)
+
+	repo := database.NewMemoryCharacterRepositoryWithFile("")
+	ch := &database.Character{
+		AccountID: 99,
+		Slot:      1,
+		Name:      "RestoreHero",
+		TownName:  "Rou",
+		XPos:      5100,
+		YPos:      6200,
+		Level:     15,
+	}
+	if err := repo.CreateCharacter(ch); err != nil {
+		t.Fatalf("CreateCharacter: %v", err)
+	}
+
+	// Start a KQ room and join RestoreHero using its exact StartTime/StartWait from HandleSchedule
+	c1 := newCapturedClient(t, ch.ID, ch.Name)
+	km.RegisterOnline(c1.client, ch.ID)
+	km.HandleSchedule(c1.client)
+	schedAck := findPacket(c1.drain(t), protocol.PROTO_NC_KQ_SCHEDULE_ACK)[0]
+	cnt := int(binary.LittleEndian.Uint16(schedAck.Raw[10:12]))
+
+	var kqHandle uint32
+	var minLv byte = 10
+	var startUnix int64
+	var startWait uint16
+	for i := 0; i < cnt; i++ {
+		off := 12 + i*141
+		id := binary.LittleEndian.Uint16(schedAck.Raw[off+7 : off+9])
+		for _, q := range store.Quests {
+			if q.ID == id && q.MinPlayers <= 1 {
+				kqHandle = binary.LittleEndian.Uint32(schedAck.Raw[off : off+4])
+				minLv = q.MinLevel
+				startUnix = int64(int32(binary.LittleEndian.Uint32(schedAck.Raw[off+0x4B : off+0x4F])))
+				startWait = binary.LittleEndian.Uint16(schedAck.Raw[off+0x73 : off+0x75])
+				break
+			}
+		}
+		if kqHandle != 0 {
+			break
+		}
+	}
+	if kqHandle == 0 {
+		t.Fatalf("no KQ room scheduled with MinPlayers <= 1")
+	}
+	km.HandleZ2WMakeAck(kqHandle, 0x0981)
+	_ = c1.drain(t)
+	km.SetSessionCharacterStats(c1.client, minLv, 1, 1, 0)
+	km.HandleJoin(c1.client, kqHandle, minLv, 1)
+	_ = c1.drain(t)
+
+	// Advance clock to StartTime + StartWait + countdown -> KQStatusRunning
+	simNow := time.Unix(startUnix, 0).Add(time.Duration(startWait+1) * time.Second)
+	km.SetClock(func() time.Time { return simNow })
+	for sec := 0; sec <= 12; sec++ {
+		simNow = simNow.Add(time.Second)
+		km.DoKingdomQuest(simNow)
+	}
+	if !km.InKQStatusRunning(kqHandle) {
+		t.Fatalf("expected KQ handle %d to be KQStatusRunning", kqHandle)
+	}
+
+	// Persist KQ position via p_Char_SaveLocation (SaveCharLocationWithKQ)
+	if err := repo.SaveCharLocationWithKQ(ch.ID, "Rou", 5100, 6200, kqHandle, "KDEddyHill00", 2400, 3500); err != nil {
+		t.Fatalf("SaveCharLocationWithKQ: %v", err)
+	}
+
+	// Case A: KQ is RUNNING and player is joiner -> restores sKQMap (KDEddyHill00, 2400, 3500)
+	destMap, dx, dy, kqPkt, restored := km.ResolveCharKQLoginLocation(repo, ch.ID, ch.Name, "Rou", 5100, 6200)
+	if !restored || destMap != "KDEddyHill00" || dx != 2400 || dy != 3500 || kqPkt == nil {
+		t.Fatalf("expected KQ restore (KDEddyHill00, 2400, 3500), got (%s, %d, %d, restored=%v)", destMap, dx, dy, restored)
+	}
+
+	// Case B: KQ ends via Z2W_END_CMD -> restores pre-KQ position (Rou, 5100, 6200)
+	km.HandleZ2WEndCmd(kqHandle)
+	destMap2, dx2, dy2, _, restored2 := km.ResolveCharKQLoginLocation(repo, ch.ID, ch.Name, "Rou", 5100, 6200)
+	if restored2 || destMap2 != "Rou" || dx2 != 5100 || dy2 != 6200 {
+		t.Fatalf("expected fallback to pre-KQ (Rou, 5100, 6200) after KQ end, got (%s, %d, %d, restored=%v)", destMap2, dx2, dy2, restored2)
 	}
 }

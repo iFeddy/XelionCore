@@ -516,9 +516,24 @@ func (b *ZoneWorldBridge) NPCMenuOpen(npcHandle, playerHandle uint32) {
 		b.zMap.bridgeNPCMenuOpen(npcHandle, playerHandle)
 	}
 }
+func (b *ZoneWorldBridge) resolveMap(mapName string) *ZoneMap {
+	if b == nil || b.zMap == nil {
+		return nil
+	}
+	if mapName == "" || strings.EqualFold(mapName, b.zMap.MapID) {
+		return b.zMap
+	}
+	if b.zMap.handler != nil && b.zMap.handler.mapManager != nil {
+		if target := b.zMap.handler.mapManager.GetMap(mapName); target != nil {
+			return target
+		}
+	}
+	return nil
+}
+
 func (b *ZoneWorldBridge) QuestResult(mapName, result string) {
-	if b.zMap != nil {
-		b.zMap.bridgeQuestResult(mapName, result)
+	if zm := b.resolveMap(mapName); zm != nil {
+		zm.bridgeQuestResult(mapName, result)
 	}
 }
 func (b *ZoneWorldBridge) QuestResultIndividual(playerHandle uint32, result string) {
@@ -553,8 +568,8 @@ func (b *ZoneWorldBridge) ProgressTutorial(playerHandle uint32, step int) {
 	}
 }
 func (b *ZoneWorldBridge) ShowKQTimerWithLife(mapName string, seconds int) {
-	if b.zMap != nil {
-		b.zMap.bridgeShowKQTimerWithLife(seconds)
+	if zm := b.resolveMap(mapName); zm != nil {
+		zm.bridgeShowKQTimerWithLife(seconds)
 	}
 }
 func (b *ZoneWorldBridge) ShowKQTimerWithLifeObj(playerHandle uint32, seconds int) {
@@ -563,39 +578,32 @@ func (b *ZoneWorldBridge) ShowKQTimerWithLifeObj(playerHandle uint32, seconds in
 	}
 }
 func (b *ZoneWorldBridge) GetKQLimitSecond(mapName string) int {
-	if b.zMap != nil {
-		return b.zMap.bridgeGetKQLimitSecond()
-	}
-	return 1800
-}
-func (b *ZoneWorldBridge) GetKQTeamType(handle uint32) int {
-	if b.zMap != nil {
-		return b.zMap.bridgeGetKQTeamType(handle)
+	if sec, ok := b.GetKQLimitSecondExact(mapName); ok {
+		return sec
 	}
 	return 0
 }
+func (b *ZoneWorldBridge) GetKQTeamType(handle uint32) int {
+	return b.GetKQTeamTypeExact(handle)
+}
 func (b *ZoneWorldBridge) IsKQJoiner(handle uint32) bool {
-	return b.zMap != nil && b.zMap.GetPlayer(uint16(handle)) != nil
+	return b.IsKQJoinerExact(handle)
 }
 func (b *ZoneWorldBridge) KQRewardIndex(playerHandle uint32, rewardIndex string) {
-	if b.zMap != nil {
-		b.zMap.bridgeKQRewardIndex(playerHandle, rewardIndex)
-	}
+	b.KQRewardIndexExact(playerHandle, rewardIndex)
 }
 func (b *ZoneWorldBridge) ScoreBoardAllInMap(mapName string, show bool, round, redWin, redScore, blueWin, blueScore int) {
-	if b.zMap != nil {
-		b.zMap.bridgeScoreBoardAllInMap(show, round, redWin, redScore, blueWin, blueScore)
+	if zm := b.resolveMap(mapName); zm != nil {
+		zm.bridgeScoreBoardAllInMap(show, round, redWin, redScore, blueWin, blueScore)
 	}
 }
 func (b *ZoneWorldBridge) IndunRankResult(mapName string, args []int) {
-	if b.zMap != nil {
-		b.zMap.bridgeIndunRankResult(args)
+	if zm := b.resolveMap(mapName); zm != nil {
+		zm.bridgeIndunRankResult(args)
 	}
 }
 func (b *ZoneWorldBridge) RewardAll(mapName, rewardType string) {
-	if b.zMap != nil {
-		b.zMap.bridgeRewardAll(rewardType)
-	}
+	_ = b.RewardKQMap(mapName, rewardType)
 }
 func (b *ZoneWorldBridge) RewardItem(playerHandle uint32, itemInx string, count int) {
 	if b.zMap != nil {
@@ -844,11 +852,217 @@ func (b *ZoneWorldBridge) SetAbstateInArea(mapName, staName string, level, durat
 	}
 }
 func (b *ZoneWorldBridge) EndOfKingdomQuestMap(mapName string) bool {
-	if b.zMap != nil {
-		b.zMap.bridgeEndOfKingdomQuest(true)
+	if zm := b.resolveMap(mapName); zm != nil {
+		return zm.bridgeEndOfKingdomQuest(true) // exe: 0x005DF1F0
+	}
+	return false
+}
+
+// Implementación 1:1 de lua.LuaKQRuntimeBridge (Zone.exe Fase 27D).
+var _ lua.LuaKQRuntimeBridge = (*ZoneWorldBridge)(nil)
+
+func (b *ZoneWorldBridge) GetKQLimitSecondExact(mapName string) (int, bool) {
+	if zm := b.resolveMap(mapName); zm != nil {
+		return zm.bridgeGetKQLimitSecond() // exe: 0x005E5390
+	}
+	return 0, false
+}
+
+func (b *ZoneWorldBridge) ShowKQTimerWithLifeMap(mapName string, seconds int) bool {
+	if zm := b.resolveMap(mapName); zm != nil {
+		zm.bridgeShowKQTimerWithLife(seconds) // exe: 0x005E54F0 (0x0810)
 		return true
 	}
 	return false
+}
+
+func (b *ZoneWorldBridge) ShowKQTimerWithLifeObjExact(playerHandle uint32, seconds int) bool {
+	if b.zMap == nil {
+		return false
+	}
+	return b.zMap.bridgeShowKQTimerWithLifeObj(playerHandle, seconds) // exe: 0x005E5690 (0x0810)
+}
+
+func (b *ZoneWorldBridge) VanishTimerMap(mapName string) bool {
+	zm := b.resolveMap(mapName)
+	if zm == nil {
+		return false
+	}
+	// exe: 0x005E5840 (cVanishTimer -> PROTO_NC_MISC_RESTMINUTE_CMD 0x0810 con flag=1, sec=0)
+	zm.bridgeShowKQTimerWithLife(0)
+	return true
+}
+
+func (b *ZoneWorldBridge) GetKQTeamTypeExact(handle uint32) int {
+	if b.zMap == nil || handle == 0 {
+		return int(kqTeamMax) // exe: 0x005E823C (KQTT_MAX = 2)
+	}
+	if p := b.zMap.GetPlayer(uint16(handle)); p != nil {
+		return int(p.KQTeam) // exe: 0x0055A830
+	}
+	if b.zMap.handler != nil {
+		if p := b.zMap.handler.findPlayerByHandle(uint16(handle)); p != nil {
+			return int(p.KQTeam)
+		}
+	}
+	return int(kqTeamMax) // exe: 0x005E823C
+}
+
+func (b *ZoneWorldBridge) IsKQJoinerExact(handle uint32) bool {
+	if b.zMap == nil || handle == 0 {
+		return false // exe: 0x005E8387
+	}
+	p := b.zMap.GetPlayer(uint16(handle))
+	if p == nil && b.zMap.handler != nil {
+		p = b.zMap.handler.findPlayerByHandle(uint16(handle))
+	}
+	if p == nil || p.Char == nil {
+		return false
+	}
+	// exe: 0x005E8371 (ShinePlayer::so_ply_IsKQJoiner @ 0x005615D0)
+	if b.zMap.handler != nil {
+		return b.zMap.handler.so_ply_IsKQJoiner(p)
+	}
+	return p.Char.KQHandle != 0 && p.Char.KQHandle != kqInvalidHandle
+}
+
+func (b *ZoneWorldBridge) KQRewardIndexExact(playerHandle uint32, rewardIndex string) {
+	if b.zMap != nil {
+		b.zMap.bridgeKQRewardIndex(playerHandle, rewardIndex) // exe: 0x005E4000 -> 0x0052EA80
+	}
+}
+
+func (b *ZoneWorldBridge) RewardKQMap(mapName, rewardType string) bool {
+	if zm := b.resolveMap(mapName); zm != nil {
+		return zm.bridgeRewardAll(rewardType) // exe: 0x005DF060 -> 0x004288C0
+	}
+	return false
+}
+
+func (b *ZoneWorldBridge) SetTeamBattleMap(mapName string, enabled bool) {
+	zm := b.resolveMap(mapName)
+	if zm == nil {
+		return
+	}
+	// exe: 0x005E83E0 (cSetTeamBattle): actualiza elem->Info.IsTeamPVP (+0x16C) y emite 0x1828 / 0x1829.
+	if zm.handler != nil {
+		kqHandle := zm.fm_GetKQhandle()
+		if kqHandle != kqInvalidHandle {
+			if elem, _, ok := zm.handler.kqState().container.kqc_SearchHandle(kqHandle); ok && elem != nil {
+				if enabled {
+					elem.Info.IsTeamPVP = 1 // exe: 0x005E855F
+				} else {
+					elem.Info.IsTeamPVP = 0 // exe: 0x005E855F
+				}
+			}
+		}
+	}
+	op := protocol.PROTO_NC_MAP_KQTEAMBATTLEZONE_OFF_CMD // exe: 0x005E858C (0x1829)
+	if enabled {
+		op = protocol.PROTO_NC_MAP_KQTEAMBATTLEZONE_ON_CMD // exe: 0x005E858C (0x1828)
+	}
+	pw := protocol.NewPacketWriter(op)
+	for _, p := range zm.GetPlayers() {
+		if p != nil && p.Client != nil {
+			_ = p.Client.SendPacket(pw)
+		}
+	}
+}
+
+func (b *ZoneWorldBridge) QuestResultMap(mapName, result string) bool {
+	if zm := b.resolveMap(mapName); zm != nil {
+		return zm.bridgeQuestResult(mapName, result) // exe: 0x005E30D0
+	}
+	return false
+}
+
+func (b *ZoneWorldBridge) QuestResultIndividualExact(playerHandle uint32, result string) bool {
+	if b.zMap == nil {
+		return false
+	}
+	return b.zMap.bridgeQuestResultIndividual(playerHandle, result) // exe: 0x005ECCA0
+}
+
+func (b *ZoneWorldBridge) ScoreInfoAllInMap(mapName string, scores []uint32) {
+	zm := b.resolveMap(mapName)
+	if zm == nil {
+		return
+	}
+	// exe: 0x005E3970 (cScoreInfo_AllInMap -> PROTO_NC_KQ_SCORE_INFO_CMD 0x5836, 2 x uint32)
+	var s0, s1 uint32
+	if len(scores) > 0 {
+		s0 = scores[0]
+	}
+	if len(scores) > 1 {
+		s1 = scores[1]
+	}
+	pw := protocol.NewPacketWriter(protocol.PROTO_NC_KQ_SCORE_INFO_CMD)
+	pw.WriteUint32(s0)
+	pw.WriteUint32(s1)
+	for _, p := range zm.GetPlayers() {
+		if p != nil && p.Client != nil {
+			_ = p.Client.SendPacket(pw)
+		}
+	}
+}
+
+func (b *ZoneWorldBridge) ScoreInfoObj(playerHandle uint32, scores []uint32) {
+	if b.zMap == nil {
+		return
+	}
+	p := b.zMap.GetPlayer(uint16(playerHandle))
+	if p == nil && b.zMap.handler != nil {
+		p = b.zMap.handler.findPlayerByHandle(uint16(playerHandle))
+	}
+	if p == nil || p.Client == nil {
+		return
+	}
+	// exe: 0x005E3790 (cScoreInfo -> PROTO_NC_KQ_SCORE_INFO_CMD 0x5836, 2 x uint32)
+	var s0, s1 uint32
+	if len(scores) > 0 {
+		s0 = scores[0]
+	}
+	if len(scores) > 1 {
+		s1 = scores[1]
+	}
+	pw := protocol.NewPacketWriter(protocol.PROTO_NC_KQ_SCORE_INFO_CMD)
+	pw.WriteUint32(s0)
+	pw.WriteUint32(s1)
+	_ = p.Client.SendPacket(pw)
+}
+
+func (b *ZoneWorldBridge) TimerMap(mapName string, seconds int) bool {
+	zm := b.resolveMap(mapName)
+	if zm == nil {
+		return false
+	}
+	// exe: 0x005DD310 (cTimer -> PROTO_NC_SCENARIO_TIMER_CMD 0x6C16, uint16 sec)
+	pw := protocol.NewPacketWriter(protocol.PROTO_NC_SCENARIO_TIMER_CMD)
+	pw.WriteUint16(uint16(seconds))
+	for _, p := range zm.GetPlayers() {
+		if p != nil && p.Client != nil {
+			_ = p.Client.SendPacket(pw)
+		}
+	}
+	return true
+}
+
+func (b *ZoneWorldBridge) TimerObj(playerHandle uint32, seconds int) bool {
+	if b.zMap == nil {
+		return false
+	}
+	p := b.zMap.GetPlayer(uint16(playerHandle))
+	if p == nil && b.zMap.handler != nil {
+		p = b.zMap.handler.findPlayerByHandle(uint16(playerHandle))
+	}
+	if p == nil || p.Client == nil {
+		return false
+	}
+	// exe: 0x005DD4B0 (cTimer_Obj -> PROTO_NC_SCENARIO_TIMER_CMD 0x6C16, uint16 sec)
+	pw := protocol.NewPacketWriter(protocol.PROTO_NC_SCENARIO_TIMER_CMD)
+	pw.WriteUint16(uint16(seconds))
+	_ = p.Client.SendPacket(pw)
+	return true
 }
 func (b *ZoneWorldBridge) RegisterFieldScriptFunc(mapName, eventName, funcName string) bool {
 	if b.zMap != nil {
@@ -1802,5 +2016,6 @@ func (m *ZoneMap) NotifyMonsterDeath(mob *ZoneMonster, killer *ZonePlayer) {
 
 	if h != nil {
 		h.HandleMonsterDeath(m, mob, killer)
+		h.RecordKQMobKill(m, killer) // exe: 0x00499FF0 (KQContributeList::kqcl_SendMobKill)
 	}
 }

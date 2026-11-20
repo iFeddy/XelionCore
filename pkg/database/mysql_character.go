@@ -542,11 +542,51 @@ func (r *MySQLCharacterRepository) CharacterLogout(charNo int, playMin int) erro
 
 // SaveCharLocation persiste la posición y mapa de un personaje invocando p_Char_SaveLocation.
 func (r *MySQLCharacterRepository) SaveCharLocation(charNo int, mapName string, x, y int, rotation byte) error {
-	_, err := r.db.Exec("CALL p_Char_SaveLocation(?, ?, ?, ?, 0, '', 0, 0)", charNo, mapName, x, y)
+	return r.SaveCharLocationWithKQ(charNo, mapName, x, y, 0, "", 0, 0)
+}
+
+// SaveCharLocationWithKQ persiste la posición normal + ubicación KQ previa invocando p_Char_SaveLocation
+// (Character.exe @ 0x00459E90 / 0x00459F78: "{CALL p_Char_SaveLocation(?,?,?,?, ?,?,?,?)}").
+func (r *MySQLCharacterRepository) SaveCharLocationWithKQ(charNo int, mapName string, x, y int, kqHandle uint32, kqMap string, kqX, kqY uint32) error {
+	_, err := r.db.Exec("CALL p_Char_SaveLocation(?, ?, ?, ?, ?, ?, ?, ?)", charNo, mapName, x, y, kqHandle, kqMap, kqX, kqY)
 	if err != nil {
 		return fmt.Errorf("error calling p_Char_SaveLocation: %w", err)
 	}
 	return nil
+}
+
+// GetCharKQMap lee nKQHandle, sKQMap, nKQX, nKQY, nKQD, dKQDate invocando p_Char_GetKQMap
+// (Character.exe @ 0x0045A130 / 0x0045A165: "{CALL p_Char_GetKQMap(?)}").
+func (r *MySQLCharacterRepository) GetCharKQMap(charNo int) (*CharKQMapInfo, error) {
+	var (
+		kqHandle sql.NullInt64
+		kqMap    sql.NullString
+		kqX      sql.NullInt64
+		kqY      sql.NullInt64
+		kqD      sql.NullInt64
+		kqDate   sql.NullTime
+	)
+	err := r.db.QueryRow("CALL p_Char_GetKQMap(?)", charNo).Scan(
+		&kqHandle, &kqMap, &kqX, &kqY, &kqD, &kqDate,
+	)
+	if err != nil {
+		if err == sql.ErrNoRows {
+			return nil, ErrCharacterNotFound
+		}
+		return nil, fmt.Errorf("error calling p_Char_GetKQMap: %w", err)
+	}
+	info := &CharKQMapInfo{
+		KQHandle:  uint32(kqHandle.Int64),
+		KQMapName: strings.TrimSpace(kqMap.String),
+		KQX:       uint32(kqX.Int64),
+		KQY:       uint32(kqY.Int64),
+		KQD:       uint16(kqD.Int64),
+	}
+	if kqDate.Valid {
+		info.KQDate = kqDate.Time
+		info.KQDatePacked = PackKQDateTime(kqDate.Time)
+	}
+	return info, nil
 }
 
 // SaveCharStats persiste los vitales de combate (HP, SP, piedras) invocando p_Char_SaveStat.

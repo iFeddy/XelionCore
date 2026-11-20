@@ -202,6 +202,10 @@ type ZonePlayer struct {
 	CasinoDiceJoined         bool
 	KQTeam                   byte
 	KQRewardIdx              string
+	KQReturnMap              string
+	KQReturnX                int
+	KQReturnY                int
+	KQRewardOrderSeq         uint16
 	GTObserving              bool
 
 	// Campos de subsistemas de la Fase 16 (GM, Sesión, Beauty, GuildStorage, ActionMode)

@@ -65,3 +65,44 @@ func (d *GameLogDispatcher) EnqueueFromLogType8(p *protocol.PROTO_NC_LOG_GAME_DA
 	return d.EnqueueType8(int(p.NType), int(p.NCharNo), sMap, int(p.NMapX), int(p.NMapY), int(p.NMapZ), int(p.NInt1))
 }
 
+// EnqueueFromKQEnter encola un evento PROTO_NC_LOG_GAME_KQ_ENTER (0x0441, Zone.exe @ 0x00496740)
+// hacia GameLog (Tipo H / KQ_ENTER).
+func (d *GameLogDispatcher) EnqueueFromKQEnter(p *protocol.PROTO_NC_LOG_GAME_KQ_ENTER_DATA) bool {
+	if d == nil || p == nil {
+		return false
+	}
+	sMap := strings.TrimRight(string(p.Mappos.MapName[:]), "\x00")
+	return d.Enqueue(&GameLogEntry{
+		Type:         int(protocol.PROTO_NC_LOG_GAME_KQ_ENTER), // exe: 0x00496740 (0x0441)
+		CharNo:       int(p.Chrregnum),
+		Map:          sMap,
+		MapX:         int(p.Mappos.Coord.X),
+		MapY:         int(p.Mappos.Coord.Y),
+		MapZ:         0,
+		TargetCharNo: int(p.KQ_ID),
+		Int1:         int(p.KQ_ID),
+		Int2:         int(p.KQ_Handle),
+	})
+}
+
+// EnqueueFromKQLeave encola un evento PROTO_NC_LOG_GAME_KQ_LEAVE (0x0442, Zone.exe @ 0x00429E52)
+// hacia GameLog (Tipo H / KQ_LEAVE).
+func (d *GameLogDispatcher) EnqueueFromKQLeave(p *protocol.PROTO_NC_LOG_GAME_KQ_LEAVE_DATA) bool {
+	if d == nil || p == nil {
+		return false
+	}
+	sMap := strings.TrimRight(string(p.Mappos.MapName[:]), "\x00")
+	return d.Enqueue(&GameLogEntry{
+		Type:         int(protocol.PROTO_NC_LOG_GAME_KQ_LEAVE), // exe: 0x00429E52 (0x0442)
+		CharNo:       int(p.Chrregnum),
+		Map:          sMap,
+		MapX:         int(p.Mappos.Coord.X),
+		MapY:         int(p.Mappos.Coord.Y),
+		MapZ:         0,
+		TargetCharNo: int(p.KQ_ID),
+		Int1:         int(p.KQ_ID),
+		Int2:         int(p.KQ_Handle),
+		Int3:         int(p.Leave_Status),
+	})
+}
+

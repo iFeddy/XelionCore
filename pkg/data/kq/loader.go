@@ -2,12 +2,14 @@ package kq
 
 import (
 	"fmt"
+	"os"
 	"path/filepath"
 
 	"github.com/iFeddy/XelionCore/pkg/data/shn"
 )
 
-// Store holds all 7 official Kingdom Quest SHN tables loaded with positional column access.
+// Store holds all official Kingdom Quest SHN tables (7 KQ SHNs + ShineReward.shn)
+// loaded with positional column access.
 type Store struct {
 	Quests            []KINGDOM_QUEST
 	Maps              []KINGDOM_QUEST_MAP
@@ -16,9 +18,10 @@ type Store struct {
 	VoteMajorityRates []KQVoteMajorityRate
 	Rewards           []KINGDOM_QUEST_REW
 	Items             []KQItem
+	ShineRewards      []SHINE_REWARD
 }
 
-// LoadDir loads all 7 Kingdom Quest SHN files from dataDir.
+// LoadDir loads all Kingdom Quest SHN files (+ ShineReward.shn if present) from dataDir.
 func LoadDir(dataDir string) (*Store, error) {
 	quests, err := LoadKingdomQuest(filepath.Join(dataDir, "KingdomQuest.shn"))
 	if err != nil {
@@ -49,6 +52,15 @@ func LoadDir(dataDir string) (*Store, error) {
 		return nil, err
 	}
 
+	var shineRewards []SHINE_REWARD
+	shineRewPath := filepath.Join(dataDir, "ShineReward.shn")
+	if _, statErr := os.Stat(shineRewPath); statErr == nil {
+		shineRewards, err = LoadShineReward(shineRewPath)
+		if err != nil {
+			return nil, err
+		}
+	}
+
 	return &Store{
 		Quests:            quests,
 		Maps:              maps,
@@ -57,6 +69,7 @@ func LoadDir(dataDir string) (*Store, error) {
 		VoteMajorityRates: voteRates,
 		Rewards:           rewards,
 		Items:             items,
+		ShineRewards:      shineRewards,
 	}, nil
 }
 
@@ -327,7 +340,37 @@ func (s *Store) GetMap(mapIdx uint16) (*KINGDOM_QUEST_MAP, bool) {
 	return &m, true
 }
 
+// LoadShineReward loads ShineReward.shn using positional column indices (16 columns, 66-byte record).
+// Matches RewardData::rd_Load (Zone.exe @ 0x0064C830, "../9Data/Shine/ShineReward.shn").
+func LoadShineReward(path string) ([]SHINE_REWARD, error) {
+	f, err := shn.ReadFile(path)
+	if err != nil {
+		return nil, err
+	}
+	if err := validateSHNLayout(path, f, 16, SizeOfShineReward); err != nil {
+		return nil, err
+	}
+	out := make([]SHINE_REWARD, len(f.Rows))
+	for i := range f.Rows {
+		r := &f.Rows[i]
+		sr := SHINE_REWARD{
+			RewardHandle: r.GetUint16At(0),
+			RewardType:   ShineRewardType(r.GetByteAt(1)),
+			Quantity:     r.GetUint32At(3),
+			OptionDegree: r.GetUint16At(14),
+			TitleDegree:  r.GetUint32At(15),
+		}
+		copy(sr.Argument[:], r.GetBytesAt(2))
+		for j := 0; j < 10; j++ {
+			sr.Upgrade[j] = r.GetUint16At(4 + j)
+		}
+		out[i] = sr
+	}
+	return out, nil
+}
+
 // GetReward returns the KINGDOM_QUEST_REW matching rewardID.
+// Mirrors KQRewardDataBox::operator[](uint16) (Zone.exe @ 0x0049A950).
 func (s *Store) GetReward(rewardID uint32) (*KINGDOM_QUEST_REW, bool) {
 	if s == nil {
 		return nil, false
@@ -336,6 +379,36 @@ func (s *Store) GetReward(rewardID uint32) (*KINGDOM_QUEST_REW, bool) {
 		if s.Rewards[i].ID == rewardID {
 			r := s.Rewards[i]
 			return &r, true
+		}
+	}
+	return nil, false
+}
+
+// GetRewardByName returns the KINGDOM_QUEST_REW matching IndexString exactly (case-sensitive).
+// Mirrors KQRewardDataBox::operator[](uint8*) (Zone.exe @ 0x0049A9A0).
+func (s *Store) GetRewardByName(inxName string) (*KINGDOM_QUEST_REW, bool) {
+	if s == nil || inxName == "" {
+		return nil, false
+	}
+	for i := range s.Rewards {
+		if s.Rewards[i].IndexName() == inxName {
+			r := s.Rewards[i]
+			return &r, true
+		}
+	}
+	return nil, false
+}
+
+// GetShineReward returns the SHINE_REWARD matching RewardHandle.
+// Mirrors RewardData::rd_FindHandle (Zone.exe @ 0x0064C850).
+func (s *Store) GetShineReward(handle uint16) (*SHINE_REWARD, bool) {
+	if s == nil {
+		return nil, false
+	}
+	for i := range s.ShineRewards {
+		if s.ShineRewards[i].RewardHandle == handle {
+			sr := s.ShineRewards[i]
+			return &sr, true
 		}
 	}
 	return nil, false

@@ -7,6 +7,7 @@ import (
 	"time"
 
 	"github.com/iFeddy/XelionCore/pkg/data/kq"
+	"github.com/iFeddy/XelionCore/pkg/database"
 	"github.com/iFeddy/XelionCore/pkg/network"
 	"github.com/iFeddy/XelionCore/pkg/protocol"
 	"github.com/iFeddy/XelionCore/pkg/s2s"
@@ -1105,4 +1106,95 @@ func (km *KQManager) sendLinkToForceByBanLocked(r *kqRoom, j *kqJoiner) {
 			"out_maps":     outMaps,
 		},
 	})
+}
+
+// ============================================================================
+// Sub-fase 27D: Restauración de posición previa / KQMap en Login
+// (Character.exe @ 0x0045A130 p_Char_GetKQMap, 0x0043903B PROTO_NC_CHAR_KQMAP_CMD,
+//  WorldManager.exe @ 0x0040AA10 fc_NC_CHAR_KQMAP_CMD)
+// ============================================================================
+
+// BuildProtoCharKQMapCmd serializa PROTO_NC_CHAR_KQMAP_CMD (0x101A, 28 bytes payload)
+// idéntico a Character.exe @ 0x0043903B..0x004391A9.
+func BuildProtoCharKQMapCmd(info *database.CharKQMapInfo) (*protocol.PacketWriter, protocol.PROTO_NC_CHAR_KQMAP_CMD_DATA) {
+	var data protocol.PROTO_NC_CHAR_KQMAP_CMD_DATA
+	if info != nil {
+		data.NKQHandle = info.KQHandle
+		copy(data.SKQMapName[:], info.KQMapName)
+		data.NKQCoord = uint64(info.KQX) | (uint64(info.KQY) << 32)
+		data.DKQDate = info.KQDatePacked
+		if data.DKQDate == 0 && !info.KQDate.IsZero() {
+			data.DKQDate = database.PackKQDateTime(info.KQDate) // exe: Character.exe @ 0x0043911F..0x00439199
+		}
+	}
+	pw := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_KQMAP_CMD) // 0x101A
+	pw.WriteUint32(data.NKQHandle)
+	pw.WriteBytes(data.SKQMapName[:])
+	pw.WriteUint64(data.NKQCoord)
+	pw.WriteUint32(data.DKQDate)
+	return pw, data
+}
+
+// InKQStatusRunning verifica si una instancia KQ por handle está actualmente en estado RUNNING
+// (exe: WorldManager.exe @ 0x00452D98).
+func (km *KQManager) InKQStatusRunning(handle uint32) bool {
+	if km == nil || handle == 0 || handle == kqUnsetHandle {
+		return false
+	}
+	km.mu.RLock()
+	defer km.mu.RUnlock()
+	r, _ := km.getRoomByHandle(handle)
+	return r != nil && r.Info.Status == kq.KQStatusRunning
+}
+
+// IsCharActiveKQJoiner verifica que el personaje siga siendo participante activo y no expulsado
+// de una KQ actualmente en ejecución.
+func (km *KQManager) IsCharActiveKQJoiner(handle uint32, charName string) bool {
+	if km == nil || handle == 0 || handle == kqUnsetHandle || charName == "" {
+		return false
+	}
+	km.mu.RLock()
+	defer km.mu.RUnlock()
+	r, _ := km.getRoomByHandle(handle)
+	if r == nil || r.Info.Status != kq.KQStatusRunning {
+		return false
+	}
+	idx := km.getJoinerIndex(r, charName)
+	if idx < 0 {
+		return false
+	}
+	return !r.Joiners[idx].IsBan
+}
+
+// ResolveCharKQLoginLocation ejecuta p_Char_GetKQMap (Character.exe @ 0x0045A130) y aplica
+// la lógica de CParserCharacter::fc_NC_CHAR_KQMAP_CMD (WorldManager.exe @ 0x0040AA10):
+//   - Si el personaje tiene nKQHandle/sKQMap activos en una KQ RUNNING y no fue expulsado,
+//     restaura su entrada en sKQMap (nKQX, nKQY).
+//   - Si la KQ ya terminó o fue expulsado, restaura la posición normal previa (sLoginZone, fallbackX, fallbackY).
+func (km *KQManager) ResolveCharKQLoginLocation(
+	charRepo database.CharacterAvatarRepository,
+	charID int,
+	charName string,
+	fallbackMap string,
+	fallbackX, fallbackY int,
+) (destMap string, destX, destY int, kqMapPkt *protocol.PacketWriter, restoredToKQ bool) {
+	destMap = fallbackMap
+	destX = fallbackX
+	destY = fallbackY
+	if charRepo == nil || charID <= 0 {
+		return destMap, destX, destY, nil, false
+	}
+	info, err := charRepo.GetCharKQMap(charID) // exe: Character.exe @ 0x0045A130 (p_Char_GetKQMap)
+	if err != nil || info == nil {
+		return destMap, destX, destY, nil, false
+	}
+	kqMapPkt, _ = BuildProtoCharKQMapCmd(info) // exe: Character.exe @ 0x0043903B (0x101A)
+
+	kqMap := strings.TrimSpace(info.KQMapName)
+	if km != nil && info.KQHandle != 0 && info.KQHandle != kqUnsetHandle && kqMap != "" {
+		if km.IsCharActiveKQJoiner(info.KQHandle, charName) {
+			return kqMap, int(info.KQX), int(info.KQY), kqMapPkt, true
+		}
+	}
+	return destMap, destX, destY, kqMapPkt, false
 }

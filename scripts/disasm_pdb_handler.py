@@ -23,36 +23,70 @@ ROOT = Path(__file__).resolve().parent.parent
 
 TARGETS = {
     "zone": {
-        "pdb": [ROOT / "pdo" / "Zone.pdb", ROOT.parent / "AstraServer" / "Server" / "Zone00" / "Zone.pdb"],
-        "exe": [ROOT.parent / "AstraServer" / "Server" / "Zone00" / "Zone.exe"],
+        "pdb": [
+            ROOT / "pdo" / "Zone.pdb",
+            ROOT / "re" / "pdo" / "Zone.pdb",
+            ROOT.parent / "AstraServer" / "Server" / "Zone00" / "Zone.pdb",
+            ROOT.parent / "NA2016" / "Server" / "Zone00" / "Zone.pdb",
+        ],
+        "exe": [
+            ROOT.parent / "AstraServer" / "Server" / "Zone00" / "Zone.exe",
+            ROOT.parent / "NA2016" / "Server" / "Zone00" / "Zone.exe",
+        ],
         "image_base": 0x00400000,
         "text_rva": 0x00001000,
     },
     "world": {
-        "pdb": [ROOT / "pdo" / "WorldManager.pdb", ROOT.parent / "AstraServer" / "Server" / "WorldManager" / "WorldManager.pdb"],
-        "exe": [ROOT.parent / "AstraServer" / "Server" / "WorldManager" / "WorldManager.exe"],
+        "pdb": [
+            ROOT / "pdo" / "WorldManager.pdb",
+            ROOT / "re" / "pdo" / "WorldManager.pdb",
+            ROOT.parent / "AstraServer" / "Server" / "WorldManager" / "WorldManager.pdb",
+            ROOT.parent / "NA2016" / "Server" / "WorldManager" / "WorldManager.pdb",
+        ],
+        "exe": [
+            ROOT.parent / "AstraServer" / "Server" / "WorldManager" / "WorldManager.exe",
+            ROOT.parent / "NA2016" / "Server" / "WorldManager" / "WorldManager.exe",
+        ],
         "image_base": 0x00400000,
         "text_rva": 0x00001000,
     },
     "character": {
-        "pdb": [ROOT.parent / "AstraServer" / "Server" / "Character" / "Character.pdb"],
-        "exe": [ROOT.parent / "AstraServer" / "Server" / "Character" / "Character.exe"],
+        "pdb": [
+            ROOT / "pdo" / "Character.pdb",
+            ROOT / "re" / "pdo" / "Character.pdb",
+            ROOT.parent / "AstraServer" / "Server" / "Character" / "Character.pdb",
+            ROOT.parent / "NA2016" / "Server" / "Character" / "Character.pdb",
+        ],
+        "exe": [
+            ROOT.parent / "AstraServer" / "Server" / "Character" / "Character.exe",
+            ROOT.parent / "NA2016" / "Server" / "Character" / "Character.exe",
+        ],
         "image_base": 0x00400000,
         "text_rva": 0x00001000,
     },
     "login": {
-        "pdb": [ROOT / "pdo" / "Login.pdb", ROOT.parent / "AstraServer" / "Server" / "Login" / "Login.pdb"],
-        "exe": [ROOT.parent / "AstraServer" / "Server" / "Login" / "Login.exe"],
+        "pdb": [
+            ROOT / "pdo" / "Login.pdb",
+            ROOT / "re" / "pdo" / "Login.pdb",
+            ROOT.parent / "AstraServer" / "Server" / "Login" / "Login.pdb",
+            ROOT.parent / "NA2016" / "Server" / "Login" / "Login.pdb",
+        ],
+        "exe": [
+            ROOT.parent / "AstraServer" / "Server" / "Login" / "Login.exe",
+            ROOT.parent / "NA2016" / "Server" / "Login" / "Login.exe",
+        ],
         "image_base": 0x00400000,
         "text_rva": 0x00001000,
     },
 }
 
 
-def pick_existing(paths):
+def pick_existing(paths, required=True):
     for p in paths:
         if p.exists():
             return p
+    if not required:
+        return None
     raise FileNotFoundError(f"Ninguno de los archivos existe: {[str(p) for p in paths]}")
 
 
@@ -155,36 +189,130 @@ def build_elf32_for_code(code: bytes, start_va: int) -> bytes:
     return ehdr + pad + code + shstrtab + sh_null + sh_text + sh_str
 
 
+def pe_read_cstring(exe_bytes: bytes, va: int) -> str:
+    pe_off = struct.unpack_from("<I", exe_bytes, 0x3C)[0]
+    num_sec = struct.unpack_from("<H", exe_bytes, pe_off + 6)[0]
+    opt_size = struct.unpack_from("<H", exe_bytes, pe_off + 20)[0]
+    image_base = struct.unpack_from("<I", exe_bytes, pe_off + 24 + 28)[0]
+    rva = va - image_base
+    if rva < 0x1000 or rva > 0x02000000:
+        return ""
+    sec_table = pe_off + 24 + opt_size
+    for i in range(num_sec):
+        s_off = sec_table + i * 40
+        name = exe_bytes[s_off : s_off + 8].rstrip(b"\x00")
+        vsize, vaddr, rawsize, rawptr = struct.unpack_from("<IIII", exe_bytes, s_off + 8)
+        if name in (b".rdata", b".data") and vaddr <= rva < vaddr + rawsize:
+            foff = rawptr + (rva - vaddr)
+            end = exe_bytes.find(b"\x00", foff, min(len(exe_bytes), foff + 96))
+            if end > foff:
+                raw = exe_bytes[foff:end]
+                if len(raw) >= 3 and all(32 <= b < 127 or b in (9, 10, 13) for b in raw):
+                    return raw.decode("ascii", errors="ignore").replace("\r", "\\r").replace("\n", "\\n")
+    return ""
+
+
 def disassemble_range(exe_path: Path, start_va: int, length: int, va_to_sym: dict):
     exe_bytes = exe_path.read_bytes()
     file_off = pe_va_to_offset(exe_bytes, start_va)
     code = exe_bytes[file_off : file_off + length]
-    elf_bytes = build_elf32_for_code(code, start_va)
 
-    with tempfile.NamedTemporaryFile(suffix=".elf", delete=True) as tmp:
-        tmp.write(elf_bytes)
-        tmp.flush()
-        cmd = [
-            "/usr/bin/objdump",
-            "-d",
-            "--x86-asm-syntax=intel",
-            tmp.name,
+    objdump_path = Path("/usr/bin/objdump")
+    if objdump_path.exists():
+        elf_bytes = build_elf32_for_code(code, start_va)
+        with tempfile.NamedTemporaryFile(suffix=".elf", delete=True) as tmp:
+            tmp.write(elf_bytes)
+            tmp.flush()
+            cmd = [
+                str(objdump_path),
+                "-d",
+                "--x86-asm-syntax=intel",
+                tmp.name,
+            ]
+            out = subprocess.check_output(cmd, text=True, errors="replace")
+        raw_lines = [
+            l for l in out.splitlines()
+            if not ("file format" in l or "Disassembly of section" in l or "<.text>:" in l)
         ]
-        out = subprocess.check_output(cmd, text=True, errors="replace")
+    else:
+        import capstone
+        md = capstone.Cs(capstone.CS_ARCH_X86, capstone.CS_MODE_32)
+        raw_lines = []
+        for insn in md.disasm(code, start_va):
+            hex_bytes = " ".join(f"{b:02x}" for b in insn.bytes)
+            raw_lines.append(f"  {insn.address:8x}:\t{hex_bytes:<24}\t{insn.mnemonic} {insn.op_str}".rstrip())
 
     call_pat = re.compile(r"\b(call|jmp|je|jne|ja|jb|jg|jl|jge|jle)\s+0x([0-9a-fA-F]+)")
+    imm_pat = re.compile(r"\b0x([0-9a-fA-F]{6,8})\b")
     lines = []
-    for line in out.splitlines():
-        if "file format" in line or "Disassembly of section" in line or "<.text>:" in line:
-            continue
+    for line in raw_lines:
         m = call_pat.search(line)
+        annotated = False
         if m:
             target_va = int(m.group(2), 16)
             sym = va_to_sym.get(target_va)
             if sym:
                 line = f"{line}    ; -> {sym}"
+                annotated = True
+        if not annotated:
+            for im in imm_pat.finditer(line):
+                val = int(im.group(1), 16)
+                s = pe_read_cstring(exe_bytes, val)
+                if s:
+                    line = f'{line}    ; str="{s}"'
+                    break
         lines.append(line)
     return "\n".join(lines).strip()
+
+
+def search_strings_and_xrefs(exe_path: Path, query: str):
+    exe_bytes = exe_path.read_bytes()
+    pe_off = struct.unpack_from("<I", exe_bytes, 0x3C)[0]
+    num_sec = struct.unpack_from("<H", exe_bytes, pe_off + 6)[0]
+    opt_size = struct.unpack_from("<H", exe_bytes, pe_off + 20)[0]
+    image_base = struct.unpack_from("<I", exe_bytes, pe_off + 24 + 28)[0]
+    sec_table = pe_off + 24 + opt_size
+    sections = []
+    for i in range(num_sec):
+        s_off = sec_table + i * 40
+        name = exe_bytes[s_off : s_off + 8].rstrip(b"\x00").decode("latin1")
+        vsize, vaddr, rawsize, rawptr = struct.unpack_from("<IIII", exe_bytes, s_off + 8)
+        sections.append((name, vaddr, rawsize, rawptr))
+
+    text_sec = next((s for s in sections if s[0] == ".text"), sections[0])
+    text_bytes = exe_bytes[text_sec[3] : text_sec[3] + text_sec[2]]
+    q_bytes = query.encode("latin1").lower()
+    hits = []
+    for name, vaddr, rawsize, rawptr in sections:
+        if name not in (".rdata", ".data"):
+            continue
+        sec_data = exe_bytes[rawptr : rawptr + rawsize]
+        pos = 0
+        low = sec_data.lower()
+        while True:
+            idx = low.find(q_bytes, pos)
+            if idx == -1:
+                break
+            start = sec_data.rfind(b"\x00", 0, idx) + 1
+            end = sec_data.find(b"\x00", idx)
+            if end == -1:
+                end = len(sec_data)
+            s = sec_data[start:end].decode("latin1", errors="replace")
+            va = image_base + vaddr + start
+            packed = struct.pack("<I", va)
+            xrefs = []
+            xpos = 0
+            while True:
+                xidx = text_bytes.find(packed, xpos)
+                if xidx == -1:
+                    break
+                xrefs.append(image_base + text_sec[1] + xidx)
+                xpos = xidx + 1
+            hits.append((va, s, xrefs))
+            pos = end + 1
+    for va, s, xrefs in hits[:60]:
+        xr = ", ".join(f"0x{x:08X}" for x in xrefs[:8])
+        print(f'  0x{va:08X}  "{s[:100]}"  xrefs=[{xr}]')
 
 
 def main():
@@ -198,18 +326,29 @@ def main():
         sys.exit(1)
 
     cfg = TARGETS[target_key]
-    pdb_path = pick_existing(cfg["pdb"])
+    pdb_path = pick_existing(cfg["pdb"], required=False)
     exe_path = pick_existing(cfg["exe"])
-    va_to_sym, name_to_vas = load_pdb_symbols(pdb_path, cfg["image_base"], cfg["text_rva"])
+    if pdb_path is not None:
+        va_to_sym, name_to_vas = load_pdb_symbols(pdb_path, cfg["image_base"], cfg["text_rva"])
+    else:
+        va_to_sym, name_to_vas = {}, {}
+
+    if sys.argv[2] == "--strings":
+        query = sys.argv[3] if len(sys.argv) > 3 else ""
+        search_strings_and_xrefs(exe_path, query)
+        return
 
     if sys.argv[2] == "--search":
+        if pdb_path is None:
+            print(f"Sin PDB para '{target_key}'; usa --strings para buscar en {exe_path.name}.")
+            sys.exit(1)
         query = sys.argv[3].lower() if len(sys.argv) > 3 else ""
         matches = []
         for va, desc in sorted(va_to_sym.items()):
             if query in desc.lower():
                 matches.append((va, desc))
         print(f" Encontrados {len(matches)} símbolos para '{query}' en {pdb_path.name}:")
-        for va, desc in matches[:100]:
+        for va, desc in matches[:150]:
             print(f"  0x{va:08X}  {desc}")
         return
 
@@ -230,7 +369,7 @@ def main():
                 candidates.append((va, desc))
 
     if not candidates:
-        print(f"No se encontró el símbolo '{sym_arg}' en {pdb_path.name}")
+        print(f"No se encontró el símbolo '{sym_arg}' en {pdb_path.name if pdb_path else exe_path.name}")
         sys.exit(1)
 
     for va, raw in candidates[:3]:
