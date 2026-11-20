@@ -81,3 +81,15 @@ Todos los archivos de configuración y datos del mundo de `Zone.exe` han sido mo
 | **Quest Parser** | `data/World/Quest/QuestParser.json` | `pkg/data/questparser` | Mapeo de IDs de clases de misiones (`gQuestParserData`). |
 | **Scripts & Lua** | `data/Script/*.json` y `data/LuaScript/` | `pkg/data/script`, `pkg/script/lua` | Lógica de eventos, diálogos y scripts de misiones ejecutados en runtime Lua. |
 | **SHN Tables** | `data/*.shn` y `data/View/*.shn` | `pkg/data/shn` | Universo binario de datos oficiales (189 SHNs). |
+
+---
+
+## 6. Client Reverse Engineering Reference (`re/client/`)
+
+- **Ubicación y propósito:** La carpeta `re/client/` contiene el volcado decompilado y desensamblado del cliente clásico compatible con XelionCore (`Fiesta.c`, `Fiesta.h`, `Fiesta.asm`, `README.md`). Es la fuente de verdad para validar opcodes (`(dept << 10) | cmd`), layouts binarios de paquetes, cifrado XOR y lectura de tablas `.shn`.
+- **Solo lectura y fuera de Git:** Nunca modifiques, formatees ni elimines archivos dentro de `re/`. Esta carpeta está excluida en `.gitignore` y no debe incluirse en commits.
+- **Aislamiento de compilación Go:** Nunca crees archivos `.go` dentro de `re/` (ni muevas archivos `.c`/`.h` hacia `cmd/` o `pkg/`), para evitar que `go build` active `cgo` o rompa la compilación.
+- **Búsqueda quirúrgica (no leer archivos completos):** `Fiesta.c` y `Fiesta.asm` son archivos masivos. Al consultar el protocolo o estructuras del cliente:
+  - Buscá primero en `re/client/Fiesta.h` para declaraciones de funciones y structs.
+  - Usá búsquedas puntuales (`grep` / regex) en `re/client/Fiesta.c` por valor hexadecimal del opcode, strings literales de error o nombres de archivos `.shn` (ej. `ItemInfo`, `MobInfo`), leyendo solo el bloque de líneas relevante alrededor del match.
+- **Separación con `data/`:** `data/` contiene únicamente los recursos `.shn` y mapas que el servidor Go carga en tiempo de ejecución; `re/client/` es exclusivamente referencia estática de desarrollo.
