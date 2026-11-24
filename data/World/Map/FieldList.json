@@ -292,79 +292,6 @@
     "fiesta": 0
   },
   {
-    "serial": 4,
-    "mapId": "RouCos04",
-    "subFrom": "-",
-    "subTo": "-",
-    "name": "Captain Mara's Pirate Hideout",
-    "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
-    "immortalSec": 5000,
-    "scriptName": "-",
-    "combat": {
-      "itemDropByKilled": 0,
-      "pker": 1,
-      "enemyGuild": 1,
-      "party": 0,
-      "monster": 2,
-      "summoned": 0,
-      "isPkKq": false,
-      "isFreePk": false,
-      "isPartyBattle": false,
-      "nameHide": false
-    },
-    "teleport": {
-      "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
-    },
-    "respawn": {
-      "city": "Rou",
-      "spotCount": 1,
-      "spots": [
-        {
-          "x": 4134,
-          "y": 6488
-        },
-        {
-          "x": 0,
-          "y": 0
-        },
-        {
-          "x": 0,
-          "y": 0
-        },
-        {
-          "x": 0,
-          "y": 0
-        }
-      ]
-    },
-    "permissions": {
-      "canRestart": true,
-      "canTrade": true,
-      "canMiniHouse": true,
-      "canItem": true,
-      "canSkill": true,
-      "chat": true,
-      "shout": true,
-      "canBooth": true,
-      "canProduce": true,
-      "canRide": true,
-      "canStone": true,
-      "canParty": true
-    },
-    "expLoss": {
-      "byMonster": 1000,
-      "byPlayer": 0
-    },
-    "usrSubLayer": 0,
-    "checkSum": 4,
-    "fiesta": 1
-  },
-  {
     "serial": 5,
     "mapId": "RouTemDn01",
     "subFrom": "-",
@@ -4232,79 +4159,6 @@
     "usrSubLayer": 0,
     "checkSum": 106,
     "fiesta": 1
-  },
-  {
-    "serial": 57,
-    "mapId": "KDRockCan",
-    "subFrom": "00",
-    "subTo": "09",
-    "name": "Rock Valley",
-    "isKq": true,
-    "kq": 1,
-    "width": 256,
-    "height": 256,
-    "immortalSec": 5000,
-    "scriptName": "-",
-    "combat": {
-      "itemDropByKilled": 0,
-      "pker": 1,
-      "enemyGuild": 0,
-      "party": 0,
-      "monster": 2,
-      "summoned": 0,
-      "isPkKq": false,
-      "isFreePk": false,
-      "isPartyBattle": false,
-      "nameHide": false
-    },
-    "teleport": {
-      "linkIn": false,
-      "linkOut": false,
-      "systemMap": true
-    },
-    "respawn": {
-      "city": "Gate",
-      "spotCount": 1,
-      "spots": [
-        {
-          "x": 1487,
-          "y": 1517
-        },
-        {
-          "x": 0,
-          "y": 0
-        },
-        {
-          "x": 0,
-          "y": 0
-        },
-        {
-          "x": 0,
-          "y": 0
-        }
-      ]
-    },
-    "permissions": {
-      "canRestart": false,
-      "canTrade": false,
-      "canMiniHouse": true,
-      "canItem": true,
-      "canSkill": true,
-      "chat": true,
-      "shout": true,
-      "canBooth": false,
-      "canProduce": true,
-      "canRide": false,
-      "canStone": true,
-      "canParty": true
-    },
-    "expLoss": {
-      "byMonster": 0,
-      "byPlayer": 0
-    },
-    "usrSubLayer": 0,
-    "checkSum": 57,
-    "fiesta": 3
   },
   {
     "serial": 58,
@@ -11167,5 +11021,7013 @@
     "usrSubLayer": 0,
     "checkSum": 154,
     "fiesta": 2
+  },
+  {
+    "serial": 155,
+    "mapId": "Job2_TimeG",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Agujero del Tiempo",
+    "isKq": false,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 3189,
+          "y": 3232
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 156,
+    "mapId": "E_Hwin",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Templo del Misterio",
+    "isKq": false,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 2095,
+          "y": 261
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 157,
+    "mapId": "KDSoccer",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Football Field",
+    "isKq": true,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 6400,
+          "y": 4500
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 158,
+    "mapId": "EventF01",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Colina del Ciclón",
+    "isKq": false,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 7227,
+          "y": 9198
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 159,
+    "mapId": "KDEaster",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Desafio de Pascua",
+    "isKq": true,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 5613,
+          "y": 4195
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 160,
+    "mapId": "BH_Karen",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Guarida de la Reina Demoníaca",
+    "isKq": true,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 4475,
+          "y": 4286
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 161,
+    "mapId": "TevaL",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Isla de Eya",
+    "isKq": false,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 2666,
+          "y": 15997
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 162,
+    "mapId": "Ser",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Refugio de Pagel",
+    "isKq": false,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 1321,
+          "y": 10573
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 163,
+    "mapId": "RShip",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Mareas del Dragón Marino",
+    "isKq": true,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 7420,
+          "y": 4897
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 164,
+    "mapId": "VoidAbyss",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Refugio en ruinas del abismo",
+    "isKq": true,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 9888,
+          "y": 17257
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 165,
+    "mapId": "Battlefield",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Campo de Batalla de Pagel",
+    "isKq": false,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 21165,
+          "y": 2950
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 166,
+    "mapId": "TempleG",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Templo de los Dioses",
+    "isKq": true,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 5841,
+          "y": 1636
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 167,
+    "mapId": "TCave",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Cueva de Cristal",
+    "isKq": false,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 3182,
+          "y": 2816
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 168,
+    "mapId": "Urg_AlruinT",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Tutorial",
+    "isKq": true,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 3182,
+          "y": 5076
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 169,
+    "mapId": "Bla",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Ciudadela del Caos",
+    "isKq": true,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 1309,
+          "y": 10551
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 170,
+    "mapId": "KDCollisio",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Santuario de Collisio",
+    "isKq": true,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 6564,
+          "y": 2424
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 171,
+    "mapId": "KDBirthday",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Grieta Dimensional",
+    "isKq": true,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 10754,
+          "y": 2024
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 172,
+    "mapId": "VoidDn",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Crepúsculo del Abismo",
+    "isKq": false,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 9888,
+          "y": 17257
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 173,
+    "mapId": "KDPanMaze",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Catacombe de Sorah",
+    "isKq": true,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 4885,
+          "y": 10830
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 174,
+    "mapId": "KDBRP1",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Battle Royal - Onslaught",
+    "isKq": true,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 6550,
+          "y": 7430
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 175,
+    "mapId": "SD_Vale00",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Valle siniestro",
+    "isKq": false,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 17000,
+          "y": 18500
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 176,
+    "mapId": "Teva",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Jardines Celestiales",
+    "isKq": false,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 2972,
+          "y": 17078
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 177,
+    "mapId": "TevaBoss",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Templo de Amatheon",
+    "isKq": false,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 6406,
+          "y": 2717
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 178,
+    "mapId": "Cypian",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Bosque de la Vida",
+    "isKq": false,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 10960,
+          "y": 16277
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 179,
+    "mapId": "CypDn01",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Corazón del Bosque Putrefacto",
+    "isKq": true,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 1669,
+          "y": 11019
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 180,
+    "mapId": "Apoline",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Jardincillo de las Delicias",
+    "isKq": false,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 6453,
+          "y": 20954
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 181,
+    "mapId": "TevaDn01",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Templo de la Desesperanza",
+    "isKq": false,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 5995,
+          "y": 1725
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 182,
+    "mapId": "TevaVal01",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Islotes Celestiales",
+    "isKq": false,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 11191,
+          "y": 11211
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 183,
+    "mapId": "CypVal01",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Bosque de Árboles Susurrantes",
+    "isKq": false,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 5681,
+          "y": 6427
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 184,
+    "mapId": "TevaDn02",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Arena de Amatheon",
+    "isKq": true,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 6406,
+          "y": 2717
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 185,
+    "mapId": "E_Hwin2",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Laberinto de la locura",
+    "isKq": false,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 6230,
+          "y": 5619
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 186,
+    "mapId": "E_XmasRide",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Paseo helado de Blizzard",
+    "isKq": false,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 21109,
+          "y": 17597
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 187,
+    "mapId": "KDXmasBoss",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Roumen congelado",
+    "isKq": true,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 5141,
+          "y": 5657
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 188,
+    "mapId": "E_Valen",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Event Map",
+    "isKq": false,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 1826,
+          "y": 2268
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 189,
+    "mapId": "OgreID",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "El Escondite del Acosador Noctu",
+    "isKq": true,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 1775,
+          "y": 939
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 190,
+    "mapId": "S_Tower01",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Torre espiral de sacrificio",
+    "isKq": true,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 1569,
+          "y": 10201
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 191,
+    "mapId": "S_Tower02",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Torre espiral de la venganza",
+    "isKq": true,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 8570,
+          "y": 13262
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 192,
+    "mapId": "S_Tower03",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Torre Espiral de la Corrupción",
+    "isKq": true,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 12537,
+          "y": 3717
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 193,
+    "mapId": "Awaken",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "?????",
+    "isKq": false,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 9590,
+          "y": 9966
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 194,
+    "mapId": "Egma",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Elga",
+    "isKq": false,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 3481,
+          "y": 1023
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 195,
+    "mapId": "EgmaDn01",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Las Profundidades Negras",
+    "isKq": true,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 9788,
+          "y": 2066
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 196,
+    "mapId": "Croad01",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Base de la Tumba",
+    "isKq": false,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 2896,
+          "y": 5861
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 197,
+    "mapId": "Croad01D",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Guarida del Crepúsculo",
+    "isKq": false,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 8029,
+          "y": 1765
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 198,
+    "mapId": "DarkTown",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Santuario Arbor Vitae",
+    "isKq": false,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 2985,
+          "y": 2387
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 199,
+    "mapId": "Beach",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Bahía de baño",
+    "isKq": false,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 3915,
+          "y": 2745
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 200,
+    "mapId": "KDAlice",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Intrusos en la Fiesta de Cumple",
+    "isKq": true,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 7088,
+          "y": 4594
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 201,
+    "mapId": "KDSwar",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Brigada de Medianoche",
+    "isKq": true,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 11852,
+          "y": 11182
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 202,
+    "mapId": "SX_Tower01",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Aguja Copo de Nieve",
+    "isKq": true,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 1182,
+          "y": 7218
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 203,
+    "mapId": "SX_Tower02",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Aguja Copo de Nieve",
+    "isKq": true,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 1182,
+          "y": 7218
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 204,
+    "mapId": "SX_Tower03",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Aguja Copo de Nieve",
+    "isKq": true,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 1182,
+          "y": 7218
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 205,
+    "mapId": "KDLaCo",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "La Cosa Chongus",
+    "isKq": true,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 1740,
+          "y": 11070
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 206,
+    "mapId": "FroTundra",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Tundra helada",
+    "isKq": false,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 1644,
+          "y": 1365
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 207,
+    "mapId": "FerTundra",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Tundra feroz",
+    "isKq": true,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 1644,
+          "y": 1365
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 208,
+    "mapId": "Valtara",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Valtara",
+    "isKq": false,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 2343,
+          "y": 2416
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 209,
+    "mapId": "BorIce",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Fiordo Boreal",
+    "isKq": false,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 10799,
+          "y": 11172
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 210,
+    "mapId": "FerTundraH",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Tundra feroz (Modo Infernal)",
+    "isKq": true,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 1644,
+          "y": 1365
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 211,
+    "mapId": "KDSummer",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Batalla de Agua de Valtara",
+    "isKq": true,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 3522,
+          "y": 1290
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 212,
+    "mapId": "E_Hwin3",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Catedral de la Desesperación",
+    "isKq": false,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 3142,
+          "y": 1490
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 213,
+    "mapId": "EnhanceD01",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Dungeon of Goods",
+    "isKq": true,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 1162,
+          "y": 991
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 214,
+    "mapId": "V_Field01",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Vínculo de Cupido",
+    "isKq": true,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 1582,
+          "y": 690
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 215,
+    "mapId": "V_Field02",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Esposas de Cupido",
+    "isKq": true,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 388,
+          "y": 630
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 216,
+    "mapId": "V_Field03",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Cadenas de Cupido",
+    "isKq": true,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 1338,
+          "y": 1247
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 217,
+    "mapId": "V_Field04",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Jaula de Cupido",
+    "isKq": true,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 642,
+          "y": 1370
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 218,
+    "mapId": "Mem_UA",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Vestigios del Pasado [Historia]",
+    "isKq": true,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 9991,
+          "y": 6792
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 219,
+    "mapId": "Mem_UA_D01",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Vestigios del Pasado [20-65]",
+    "isKq": true,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 3895,
+          "y": 6169
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 220,
+    "mapId": "Mem_UA_D02",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Vestigios del Pasado [66-95]",
+    "isKq": true,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 3895,
+          "y": 6169
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 221,
+    "mapId": "Mem_UA_D03",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Vestigios del Pasado [96-125]",
+    "isKq": true,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 3895,
+          "y": 6169
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 222,
+    "mapId": "Mem_UA_D04",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Vestigios del Pasado [126-140]",
+    "isKq": true,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 3895,
+          "y": 6169
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 223,
+    "mapId": "IDKebChaos",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Kebing Chaos",
+    "isKq": true,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 1162,
+          "y": 991
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 224,
+    "mapId": "P_Hide",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Santuario Bajo Asedio (Historia",
+    "isKq": true,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 10900,
+          "y": 1100
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 225,
+    "mapId": "P_HideD",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Santuario Bajo Asedio",
+    "isKq": true,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 10900,
+          "y": 1100
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 226,
+    "mapId": "GateTime01",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Eco del Legado",
+    "isKq": true,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 9355,
+          "y": 11456
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 227,
+    "mapId": "Kas",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Tumba de Kasya",
+    "isKq": false,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 16512,
+          "y": 5014
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 228,
+    "mapId": "Morass_Mem",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Ciénaga de los Recuerdos",
+    "isKq": true,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 5156,
+          "y": 4154
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 229,
+    "mapId": "LTower",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Palacio del Eclipse (Historia)",
+    "isKq": true,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 2963,
+          "y": 2030
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 230,
+    "mapId": "LTowerD",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Palacio del Eclipse",
+    "isKq": true,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 2963,
+          "y": 2030
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 231,
+    "mapId": "R_Darkness",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Legelheim",
+    "isKq": false,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 12486,
+          "y": 22377
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 232,
+    "mapId": "LThrone",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Trono de Legel",
+    "isKq": false,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 13683,
+          "y": 1159
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 233,
+    "mapId": "KDElves",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "La Fábrica de Regalos de Benny",
+    "isKq": true,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 10291,
+          "y": 11799
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 234,
+    "mapId": "Valen26",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Espejo del Corazón [20-50]",
+    "isKq": true,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 5264,
+          "y": 5218
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 235,
+    "mapId": "Valen262",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Espejo del Corazón [51-85]",
+    "isKq": true,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 5264,
+          "y": 5218
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 236,
+    "mapId": "Valen263",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Espejo del Corazón [86-115]",
+    "isKq": true,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 5264,
+          "y": 5218
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 237,
+    "mapId": "Valen264",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Espejo del Corazón [116-135]",
+    "isKq": true,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 5264,
+          "y": 5218
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 238,
+    "mapId": "Valen265",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Espejo del Corazón [136-145]",
+    "isKq": true,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 5264,
+          "y": 5218
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 239,
+    "mapId": "Rou_Val26",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Espejo de Roumen",
+    "isKq": false,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 5323,
+          "y": 4501
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 240,
+    "mapId": "Eld_Val26",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Espejo de Elderine",
+    "isKq": false,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 17214,
+          "y": 13445
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 241,
+    "mapId": "Urg_Val26",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Espejo de Uruga",
+    "isKq": false,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 6293,
+          "y": 5477
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 242,
+    "mapId": "Bera_Val26",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Espejo de Bera",
+    "isKq": false,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 6532,
+          "y": 1529
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 243,
+    "mapId": "ValtaVal26",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Espejo de Valtara",
+    "isKq": false,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 2343,
+          "y": 2416
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 244,
+    "mapId": "KDPShipE1",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "The Mara Pirate Invasion",
+    "isKq": true,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 11069,
+          "y": 8456
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 245,
+    "mapId": "KDPShipE2",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "The Mara Pirate Conspiracy",
+    "isKq": true,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 11069,
+          "y": 8456
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 246,
+    "mapId": "KDPShipE3",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "The Mara Pirate Ultimatum",
+    "isKq": true,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 11069,
+          "y": 8456
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 247,
+    "mapId": "KDPShipE4",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "The Mara Pirate Endgame",
+    "isKq": true,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 11069,
+          "y": 8456
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 248,
+    "mapId": "LegelVal",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Valle de Legel",
+    "isKq": false,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 11263,
+          "y": 11646
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 249,
+    "mapId": "DarkAbyss",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Vacío Eterno",
+    "isKq": true,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 1360,
+          "y": 4602
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
+  },
+  {
+    "serial": 250,
+    "mapId": "MRace",
+    "subFrom": "-",
+    "subTo": "-",
+    "name": "Carrera de Monstruos",
+    "isKq": false,
+    "kq": 0,
+    "width": 256,
+    "height": 256,
+    "immortalSec": 5000,
+    "scriptName": "-",
+    "combat": {
+      "itemDropByKilled": 0,
+      "pker": 1,
+      "enemyGuild": 1,
+      "party": 0,
+      "monster": 2,
+      "summoned": 0,
+      "isPkKq": false,
+      "isFreePk": false,
+      "isPartyBattle": false,
+      "nameHide": false
+    },
+    "teleport": {
+      "linkIn": true,
+      "linkOut": true,
+      "systemMap": false
+    },
+    "respawn": {
+      "city": "Rou",
+      "spotCount": 1,
+      "spots": [
+        {
+          "x": 600,
+          "y": 415
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 0,
+          "y": 0
+        }
+      ]
+    },
+    "permissions": {
+      "canRestart": true,
+      "canTrade": true,
+      "canMiniHouse": true,
+      "canItem": true,
+      "canSkill": true,
+      "chat": true,
+      "shout": true,
+      "canBooth": true,
+      "canProduce": true,
+      "canRide": true,
+      "canStone": true,
+      "canParty": true
+    },
+    "expLoss": {
+      "byMonster": 0,
+      "byPlayer": 0
+    },
+    "usrSubLayer": 0,
+    "checkSum": 0,
+    "fiesta": 0
   }
 ]
