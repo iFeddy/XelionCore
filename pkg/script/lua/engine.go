@@ -1,13 +1,87 @@
 package lua
 
 import (
+	"bytes"
 	"fmt"
 	"os"
 	"path/filepath"
 	"sync"
 
 	lua "github.com/yuin/gopher-lua"
+	"github.com/yuin/gopher-lua/parse"
 )
+
+type cachedLuaProto struct {
+	size    int64
+	modTime int64
+	proto   *lua.FunctionProto
+}
+
+var (
+	luaProtoCacheMu sync.RWMutex
+	luaProtoCache   = make(map[string]cachedLuaProto)
+)
+
+// ClearProtoCache limpia el caché global de bytecode compilado *lua.FunctionProto.
+func ClearProtoCache() {
+	luaProtoCacheMu.Lock()
+	luaProtoCache = make(map[string]cachedLuaProto)
+	luaProtoCacheMu.Unlock()
+}
+
+// CompileFileCached lee y compila un archivo Lua a *lua.FunctionProto una sola vez en todo el proceso.
+// El *lua.FunctionProto resultante es inmutable y seguro para compartir entre múltiples lua.LState.
+func CompileFileCached(path string) (*lua.FunctionProto, error) {
+	absPath, err := filepath.Abs(path)
+	if err != nil {
+		absPath = path
+	}
+
+	fi, statErr := os.Stat(absPath)
+	if statErr == nil {
+		size := fi.Size()
+		modTime := fi.ModTime().UnixNano()
+
+		luaProtoCacheMu.RLock()
+		if entry, ok := luaProtoCache[absPath]; ok && entry.size == size && entry.modTime == modTime {
+			luaProtoCacheMu.RUnlock()
+			return entry.proto, nil
+		}
+		luaProtoCacheMu.RUnlock()
+
+		src, err := os.ReadFile(absPath)
+		if err != nil {
+			return nil, err
+		}
+		chunk, err := parse.Parse(bytes.NewReader(src), absPath)
+		if err != nil {
+			return nil, err
+		}
+		proto, err := lua.Compile(chunk, absPath)
+		if err != nil {
+			return nil, err
+		}
+
+		luaProtoCacheMu.Lock()
+		luaProtoCache[absPath] = cachedLuaProto{
+			size:    size,
+			modTime: modTime,
+			proto:   proto,
+		}
+		luaProtoCacheMu.Unlock()
+		return proto, nil
+	}
+
+	src, err := os.ReadFile(path)
+	if err != nil {
+		return nil, err
+	}
+	chunk, err := parse.Parse(bytes.NewReader(src), path)
+	if err != nil {
+		return nil, err
+	}
+	return lua.Compile(chunk, path)
+}
 
 // Engine administra el entorno de ejecución de Lua para ZoneService (Kingdom Quests, Dungeons e IA).
 type Engine struct {
@@ -40,8 +114,11 @@ func NewEngine(cfg Config) (*Engine, error) {
 	}
 
 	L := lua.NewState(lua.Options{
-		CallStackSize: 1024,
-		RegistrySize:  1024 * 20,
+		CallStackSize:       128,
+		RegistrySize:        1024,
+		RegistryMaxSize:     1024 * 20,
+		RegistryGrowStep:    1024,
+		MinimizeStackMemory: true,
 	})
 
 	e := &Engine{
@@ -66,16 +143,26 @@ func NewEngine(cfg Config) (*Engine, error) {
 	// 3. Registrar el 100% de las 274 funciones oficiales C-API de Zone.pdb
 	e.registerAllOfficialAPIs()
 
-	// 4. Cargar el archivo común maestro common.lua
+	// 4. Cargar el archivo común maestro common.lua usando el caché de bytecode *lua.FunctionProto
 	commonPath := filepath.Join(absPath, "common.lua")
 	if _, err := os.Stat(commonPath); err == nil {
-		if err := L.DoFile(commonPath); err != nil {
+		if err := e.doFileLocked(commonPath); err != nil {
 			L.Close()
 			return nil, fmt.Errorf("error cargando common.lua: %w", err)
 		}
 	}
 
 	return e, nil
+}
+
+func (e *Engine) doFileLocked(path string) error {
+	proto, err := CompileFileCached(path)
+	if err != nil {
+		return err
+	}
+	fn := e.state.NewFunctionFromProto(proto)
+	e.state.Push(fn)
+	return e.state.PCall(0, 0, nil)
 }
 
 // SetBridge enlaza una nueva implementación de WorldBridge (por ejemplo al arrancar un mapa).
@@ -104,7 +191,7 @@ func (e *Engine) Close() {
 	}
 }
 
-// DoFile ejecuta un archivo Lua dentro del contexto del motor.
+// DoFile ejecuta un archivo Lua dentro del contexto del motor reutilizando su bytecode compilado.
 func (e *Engine) DoFile(filename string) error {
 	e.mu.Lock()
 	defer e.mu.Unlock()
@@ -115,7 +202,7 @@ func (e *Engine) DoFile(filename string) error {
 			path = candidate
 		}
 	}
-	return e.state.DoFile(path)
+	return e.doFileLocked(path)
 }
 
 // CallFunction invoca una función global de Lua con argumentos y devuelve los valores de retorno.

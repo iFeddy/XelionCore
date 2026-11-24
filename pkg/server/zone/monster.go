@@ -26,6 +26,7 @@ const (
 // ZoneMonster representa un monstruo activo instanciado en un ZoneMap con todo su ciclo de vida, IA y combate.
 type ZoneMonster struct {
 	mu            sync.RWMutex
+	Template      *MobTemplate // Referencia inmutable compartida (paridad ShineMob -> MOB_DATA*)
 	Handle        uint16
 	MobID         uint16
 	Name          string // Nombre legible (MobInfo.Name)
@@ -158,10 +159,6 @@ func NewZoneMonster(handle uint16, mobID uint16, name, mapID string, x, y int32,
 		Visible:          true,
 		IsKillableByUser: true,
 		AIState:          MobAIIdle,
-		ActiveStates:     make(map[uint16]*ActiveAbState),
-		Aggro:            make(map[uint16]int),
-		DamageContrib:    make(map[int]int),
-		FiredTriggers:    make(map[int]bool),
 	}
 }
 
@@ -215,6 +212,9 @@ func (m *ZoneMonster) RemoveAbState(id uint16) {
 	m.mu.Lock()
 	defer m.mu.Unlock()
 	delete(m.ActiveStates, id)
+	if len(m.ActiveStates) == 0 {
+		m.ActiveStates = nil
+	}
 }
 
 // GetAbState obtiene un estado anormal por su ID.
@@ -252,10 +252,10 @@ func (m *ZoneMonster) RecordDamage(attackerHandle uint16, charNo int, dmg int) {
 	}
 	m.mu.Lock()
 	defer m.mu.Unlock()
-	if m.DamageContrib == nil {
-		m.DamageContrib = make(map[int]int)
-	}
 	if charNo > 0 {
+		if m.DamageContrib == nil {
+			m.DamageContrib = make(map[int]int)
+		}
 		m.DamageContrib[charNo] += dmg
 		m.LastKillerChar = charNo
 	}
@@ -290,15 +290,20 @@ func (m *ZoneMonster) RemoveAggroTarget(targetHandle uint16) uint16 {
 	m.mu.Lock()
 	defer m.mu.Unlock()
 	delete(m.Aggro, targetHandle)
+	if len(m.Aggro) == 0 {
+		m.Aggro = nil
+		m.TargetHandle = 0
+		return 0
+	}
 	m.reselectTopTargetLocked()
 	return m.TargetHandle
 }
 
-// ResetAggro limpia completamente la tabla de aggro del monstruo.
+// ResetAggro limpia completamente la tabla de aggro del monstruo liberando su mapa al GC.
 func (m *ZoneMonster) ResetAggro() {
 	m.mu.Lock()
 	defer m.mu.Unlock()
-	m.Aggro = make(map[uint16]int)
+	m.Aggro = nil
 	m.TargetHandle = 0
 }
 

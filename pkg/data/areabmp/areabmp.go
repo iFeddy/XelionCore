@@ -19,11 +19,14 @@ type CFsAreaBMP struct {
 	Height   int
 	Bpp      int
 	RowBytes int
-	// Pixels almacena la matriz en orden top-down: [y][x]
+	// Data almacena los píxeles en un único bloque plano 1D contiguo en orden top-down: Data[y*Width+x]
+	Data []byte
+	// Pixels expone vistas sub-slice por fila respaldadas por el mismo backing array Data (0 bytes extra de píxeles)
 	Pixels [][]byte
 }
 
-// LoadBMP deserializa una imagen BMP de 8 bpp desde un io.Reader.
+// LoadBMP deserializa una imagen BMP de 8 bpp o 1 bpp desde un io.Reader usando
+// un único buffer de fila reutilizable y un backing array plano 1D contiguo.
 func LoadBMP(r io.Reader, name string) (*CFsAreaBMP, error) {
 	var fileHdr [14]byte
 	if _, err := io.ReadFull(r, fileHdr[:]); err != nil {
@@ -75,42 +78,42 @@ func LoadBMP(r io.Reader, name string) (*CFsAreaBMP, error) {
 	// En BMP cada fila está alineada a múltiplos de 4 bytes
 	rowBytes := ((width*bpp + 31) / 32) * 4
 
-	rawRows := make([][]byte, height)
-	for y := 0; y < height; y++ {
-		row := make([]byte, rowBytes)
-		if _, err := io.ReadFull(r, row); err != nil {
-			return nil, fmt.Errorf("error leyendo fila %d de BMP: %w", y, err)
-		}
-		rawRows[y] = row
-	}
-
-	// Normalizar a matriz top-down [y][x]
+	data := make([]byte, width*height)
 	pixels := make([][]byte, height)
 	for y := 0; y < height; y++ {
-		srcY := y
-		if !isTopDown {
-			srcY = height - 1 - y // En BMP estándar, la primera fila en el archivo es la inferior
+		pixels[y] = data[y*width : (y+1)*width]
+	}
+
+	// Único buffer de fila reutilizable (elimina el doble buffer rawRows completo)
+	rowBuf := make([]byte, rowBytes)
+	for y := 0; y < height; y++ {
+		if _, err := io.ReadFull(r, rowBuf); err != nil {
+			return nil, fmt.Errorf("error leyendo fila %d de BMP: %w", y, err)
 		}
-		row := make([]byte, width)
+
+		dstY := y
+		if !isTopDown {
+			dstY = height - 1 - y // En BMP estándar, la primera fila en el archivo es la inferior
+		}
+		dstRow := data[dstY*width : (dstY+1)*width]
+
 		if bpp == 8 {
-			copy(row, rawRows[srcY][:width])
+			copy(dstRow, rowBuf[:width])
 		} else if bpp == 1 {
 			for x := 0; x < width; x++ {
-				byteVal := rawRows[srcY][x/8]
+				byteVal := rowBuf[x/8]
 				bit := 7 - (x % 8)
 				if (byteVal & (1 << bit)) != 0 {
-					row[x] = 1
+					dstRow[x] = 1
 				}
 			}
 		} else {
-			// Para otros formatos no indexados, truncar o copiar hasta el ancho disponible
-			limit := len(rawRows[srcY])
+			limit := len(rowBuf)
 			if limit > width {
 				limit = width
 			}
-			copy(row, rawRows[srcY][:limit])
+			copy(dstRow, rowBuf[:limit])
 		}
-		pixels[y] = row
 	}
 
 	return &CFsAreaBMP{
@@ -119,6 +122,7 @@ func LoadBMP(r io.Reader, name string) (*CFsAreaBMP, error) {
 		Height:   height,
 		Bpp:      bpp,
 		RowBytes: rowBytes,
+		Data:     data,
 		Pixels:   pixels,
 	}, nil
 }
@@ -135,21 +139,29 @@ func LoadBMPFile(path string) (*CFsAreaBMP, error) {
 	return LoadBMP(f, base)
 }
 
+// PixelAt retorna el valor del píxel (x, y) en orden top-down (0 si está fuera de rango).
+func (bmp *CFsAreaBMP) PixelAt(x, y int) byte {
+	if bmp == nil || x < 0 || x >= bmp.Width || y < 0 || y >= bmp.Height {
+		return 0
+	}
+	if len(bmp.Data) == bmp.Width*bmp.Height {
+		return bmp.Data[y*bmp.Width+x]
+	}
+	if y < len(bmp.Pixels) && x < len(bmp.Pixels[y]) {
+		return bmp.Pixels[y][x]
+	}
+	return 0
+}
+
 // IsHit comprueba si la celda (x, y) de la máscara contiene un valor de impacto activo (> 0).
 func (bmp *CFsAreaBMP) IsHit(x, y int) bool {
-	if bmp == nil || len(bmp.Pixels) == 0 {
-		return false
-	}
-	if x < 0 || x >= bmp.Width || y < 0 || y >= bmp.Height {
-		return false
-	}
-	return bmp.Pixels[y][x] > 0
+	return bmp.PixelAt(x, y) > 0
 }
 
 // ContainsTarget evalúa si una posición objetivo (targetX, targetY) es alcanzada por el AoE
 // proyectado desde el lanzador (casterX, casterY) orientado con ángulo dirDeg (en grados 0..360).
 func (bmp *CFsAreaBMP) ContainsTarget(casterX, casterY, dirDeg, targetX, targetY float64) bool {
-	if bmp == nil || len(bmp.Pixels) == 0 {
+	if bmp == nil || (len(bmp.Data) == 0 && len(bmp.Pixels) == 0) {
 		return false
 	}
 
@@ -173,14 +185,16 @@ func (bmp *CFsAreaBMP) ContainsTarget(casterX, casterY, dirDeg, targetX, targetY
 
 // Store cataloga las máscaras .bmp de data/AreaBMP/.
 type Store struct {
-	mu   sync.RWMutex
-	BMPs map[string]*CFsAreaBMP
+	mu      sync.RWMutex
+	BMPs    map[string]*CFsAreaBMP
+	byLower map[string]*CFsAreaBMP
 }
 
 // NewStore inicializa el catálogo de máscaras AoE.
 func NewStore() *Store {
 	return &Store{
-		BMPs: make(map[string]*CFsAreaBMP),
+		BMPs:    make(map[string]*CFsAreaBMP),
+		byLower: make(map[string]*CFsAreaBMP),
 	}
 }
 
@@ -209,9 +223,12 @@ func LoadAll(areaBMPDir string) (*Store, error) {
 		}
 
 		base := strings.TrimSuffix(name, filepath.Ext(name))
+		lowerBase := strings.ToLower(base)
+		lowerName := strings.ToLower(name)
 		store.BMPs[base] = bmp
-		// También registrar con nombre de archivo completo en minúsculas para resolución robusta
-		store.BMPs[strings.ToLower(name)] = bmp
+		store.BMPs[lowerName] = bmp
+		store.byLower[lowerBase] = bmp
+		store.byLower[lowerName] = bmp
 	}
 
 	return store, nil
@@ -228,7 +245,7 @@ func (s *Store) Count() int {
 	return len(seen)
 }
 
-// GetBMP busca una máscara por nombre base o nombre de archivo (búsqueda insensible a mayúsculas/minúsculas).
+// GetBMP busca una máscara por nombre base o nombre de archivo en O(1) (insensible a mayúsculas/minúsculas).
 func (s *Store) GetBMP(name string) *CFsAreaBMP {
 	s.mu.RLock()
 	defer s.mu.RUnlock()
@@ -236,6 +253,14 @@ func (s *Store) GetBMP(name string) *CFsAreaBMP {
 	cleaned := strings.TrimSuffix(name, filepath.Ext(name))
 	if b, ok := s.BMPs[cleaned]; ok {
 		return b
+	}
+	if s.byLower != nil {
+		if b, ok := s.byLower[strings.ToLower(cleaned)]; ok {
+			return b
+		}
+		if b, ok := s.byLower[strings.ToLower(name)]; ok {
+			return b
+		}
 	}
 	for k, v := range s.BMPs {
 		if strings.EqualFold(k, cleaned) || strings.EqualFold(k, name) {

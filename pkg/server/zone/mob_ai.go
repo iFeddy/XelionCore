@@ -6,8 +6,10 @@ import (
 	"math/rand"
 	"os"
 	"path/filepath"
+	"regexp"
 	"strconv"
 	"strings"
+	"sync"
 	"time"
 
 	"github.com/iFeddy/XelionCore/pkg/data/misc"
@@ -1117,7 +1119,120 @@ func resolveZoneDataDir() string {
 	return "data"
 }
 
-// initMapLuaAI carga DefaultBehavior.lua y los scripts de MobBehaviorDescript / AIScript para el mapa.
+var (
+	aiScriptFuncDeclRe = regexp.MustCompile(`(?m)^\s*function\s+([A-Za-z_][A-Za-z0-9_]*)\s*\(`)
+	aiScriptIndexMu    sync.RWMutex
+	aiScriptIndexByDir = make(map[string]map[string]string) // dataRoot -> (funcName / lowerFuncName -> scriptPath)
+)
+
+// getAIScriptFuncIndex escanea una sola vez data/LuaScript/AIScript/*.lua para indexar funcName -> scriptPath.
+func getAIScriptFuncIndex(dataRoot string) map[string]string {
+	absRoot, err := filepath.Abs(dataRoot)
+	if err != nil {
+		absRoot = dataRoot
+	}
+	aiScriptIndexMu.RLock()
+	if idx, ok := aiScriptIndexByDir[absRoot]; ok {
+		aiScriptIndexMu.RUnlock()
+		return idx
+	}
+	aiScriptIndexMu.RUnlock()
+
+	idx := make(map[string]string)
+	if matches, err := filepath.Glob(filepath.Join(absRoot, "LuaScript", "AIScript", "*.lua")); err == nil {
+		for _, p := range matches {
+			src, rErr := os.ReadFile(p)
+			if rErr != nil {
+				continue
+			}
+			for _, sub := range aiScriptFuncDeclRe.FindAllSubmatch(src, -1) {
+				if len(sub) >= 2 {
+					fn := string(sub[1])
+					idx[fn] = p
+					idx[strings.ToLower(fn)] = p
+				}
+			}
+		}
+	}
+
+	aiScriptIndexMu.Lock()
+	aiScriptIndexByDir[absRoot] = idx
+	aiScriptIndexMu.Unlock()
+	return idx
+}
+
+func (m *ZoneMap) needsEagerLuaAI() bool {
+	if m == nil {
+		return false
+	}
+	dataRoot := resolveZoneDataDir()
+	kqLua := filepath.Join(dataRoot, "MobBehaviorDescript", "KQ", m.MapID+".lua")
+	if _, err := os.Stat(kqLua); err == nil {
+		return true
+	}
+	for _, mob := range m.GetAllMonsters() {
+		if mob == nil {
+			continue
+		}
+		mob.mu.RLock()
+		hasAI := mob.AIScriptFunc != ""
+		mob.mu.RUnlock()
+		if hasAI {
+			return true
+		}
+	}
+	return false
+}
+
+func (m *ZoneMap) loadAIScriptForFunc(eng *lua.Engine, dataRoot, funcName string) {
+	if eng == nil || funcName == "" {
+		return
+	}
+	if eng.GetGlobal(funcName).Type() == glua.LTFunction {
+		return
+	}
+	idx := getAIScriptFuncIndex(dataRoot)
+	scriptPath, ok := idx[funcName]
+	if !ok {
+		scriptPath, ok = idx[strings.ToLower(funcName)]
+	}
+	if !ok || scriptPath == "" {
+		return
+	}
+
+	m.mu.Lock()
+	if m.loadedAIScripts == nil {
+		m.loadedAIScripts = make(map[string]bool)
+	}
+	if m.loadedAIScripts[scriptPath] {
+		m.mu.Unlock()
+		return
+	}
+	m.loadedAIScripts[scriptPath] = true
+	m.mu.Unlock()
+
+	_ = eng.DoFile(scriptPath)
+}
+
+// ensureMapLuaAI inicializa perezosamente la VM Lua del mapa si aún no existe y la retorna.
+func (m *ZoneMap) ensureMapLuaAI() *lua.Engine {
+	if m == nil {
+		return nil
+	}
+	m.mu.RLock()
+	eng := m.luaEngine
+	m.mu.RUnlock()
+	if eng != nil {
+		return eng
+	}
+	m.initMapLuaAI()
+	m.mu.RLock()
+	eng = m.luaEngine
+	m.mu.RUnlock()
+	return eng
+}
+
+// initMapLuaAI carga DefaultBehavior.lua, el script KQ del mapa y selectivamente solo los AIScript usados por mobs del mapa.
 func (m *ZoneMap) initMapLuaAI() {
 	m.mu.Lock()
 	if m.luaEngine != nil {
@@ -1146,10 +1261,16 @@ func (m *ZoneMap) initMapLuaAI() {
 	if _, err := os.Stat(kqLua); err == nil {
 		_ = eng.DoFile(kqLua)
 	}
-	// Precargar scripts oficiales de AIScript comunes si están presentes
-	if matches, err := filepath.Glob(filepath.Join(dataRoot, "LuaScript", "AIScript", "*.lua")); err == nil {
-		for _, p := range matches {
-			_ = eng.DoFile(p)
+	// Carga selectiva: solo los AIScript correspondientes a mobs con AIScriptFunc presentes en este mapa
+	for _, mob := range m.GetAllMonsters() {
+		if mob == nil {
+			continue
+		}
+		mob.mu.RLock()
+		fn := mob.AIScriptFunc
+		mob.mu.RUnlock()
+		if fn != "" {
+			m.loadAIScriptForFunc(eng, dataRoot, fn)
 		}
 	}
 }
@@ -1159,11 +1280,12 @@ func (m *ZoneMap) RunMobBehaviorLua(mob *ZoneMonster, funcName string) (handled 
 	if m == nil || mob == nil || funcName == "" {
 		return false
 	}
-	m.mu.RLock()
-	eng := m.luaEngine
-	m.mu.RUnlock()
+	eng := m.ensureMapLuaAI()
 	if eng == nil {
 		return false
+	}
+	if eng.GetGlobal(funcName).Type() != glua.LTFunction {
+		m.loadAIScriptForFunc(eng, resolveZoneDataDir(), funcName)
 	}
 
 	rets, err := eng.CallFunction(funcName, glua.LNumber(mob.Handle), glua.LNumber(m.ID))
@@ -1339,6 +1461,9 @@ func (m *ZoneMap) TickMonsters1s(now time.Time) {
 				expiredAbStates = append(expiredAbStates, id)
 			}
 		}
+		if len(mob.ActiveStates) == 0 {
+			mob.ActiveStates = nil
+		}
 		lastAttackerHandle := mob.LastAttacker
 		mob.mu.Unlock()
 
@@ -1377,10 +1502,10 @@ func (m *ZoneMap) respawnMonster(mob *ZoneMonster) {
 	mob.Y = sy
 	mob.Direct = mob.SpawnDirect
 	mob.RespawnTime = time.Time{}
-	mob.Aggro = make(map[uint16]int)
-	mob.DamageContrib = make(map[int]int)
-	mob.FiredTriggers = make(map[int]bool)
-	mob.ActiveStates = make(map[uint16]*ActiveAbState)
+	mob.Aggro = nil
+	mob.DamageContrib = nil
+	mob.FiredTriggers = nil
+	mob.ActiveStates = nil
 	mob.TargetHandle = 0
 	mob.LastAttacker = 0
 	mob.LastKillerChar = 0
@@ -1564,9 +1689,10 @@ func (m *ZoneMap) tickMobReturn(mob *ZoneMonster, now time.Time) {
 		mob.Y = sy
 		mob.CurHP = mob.MaxHP
 		mob.CurSP = mob.MaxSP
-		mob.Aggro = make(map[uint16]int)
-		mob.DamageContrib = make(map[int]int)
-		mob.FiredTriggers = make(map[int]bool)
+		mob.Aggro = nil
+		mob.DamageContrib = nil
+		mob.FiredTriggers = nil
+		mob.ActiveStates = nil
 		mob.TargetHandle = 0
 		mob.HelpCalled = false
 		mob.IsMoving = false
@@ -1666,6 +1792,9 @@ func (m *ZoneMap) tickMobCombat(mob *ZoneMonster, now time.Time, ds *DataStore, 
 			// Disparar llamada de auxilio cuando ConditionID está activo y HP cae debajo de 50%
 			if tr.ConditionID > 0 && hpPct <= 50 {
 				mob.mu.Lock()
+				if mob.FiredTriggers == nil {
+					mob.FiredTriggers = make(map[int]bool)
+				}
 				mob.FiredTriggers[idx] = true
 				mob.mu.Unlock()
 				m.callFamilyHelp(mob, target, 400, 1)

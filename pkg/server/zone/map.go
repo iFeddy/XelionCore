@@ -210,24 +210,27 @@ type ZoneMap struct {
 	Width        int
 	Height       int
 	nextObjID    uint16
-	players      map[uint16]*ZonePlayer
-	npcs         map[uint16]*ZoneNPC
-	mobs         map[uint16]*ZoneMonster
-	gates        []*ZoneNPC
-	droppedItems map[uint16]*ZoneDroppedItem
-	tents        map[uint16]uint16 // MapObjectID -> tentID
-	grid         *SpatialGrid
-	blockInfo    *blockinfo.MapBlockInformation
-	doors        *blockinfo.MapDoorArray
-	gameLoop     *MapGameLoop
-	FieldEntry   *field.FieldEntry
-	dataStore    *DataStore
-	handler      *Handler
-	mobCatalog   *MobCatalog
-	regenGroups  map[string]*MobRegenGroup
-	luaEngine    *lua.Engine
-	worldBridge  *ZoneWorldBridge
-	aiTimersSec  map[int]int64
+	players          map[uint16]*ZonePlayer
+	npcs             map[uint16]*ZoneNPC
+	mobs             map[uint16]*ZoneMonster
+	monstersSnapshot []*ZoneMonster
+	monstersDirty    bool
+	gates            []*ZoneNPC
+	droppedItems     map[uint16]*ZoneDroppedItem
+	tents            map[uint16]uint16 // MapObjectID -> tentID
+	grid             *SpatialGrid
+	blockInfo        *blockinfo.MapBlockInformation
+	doors            *blockinfo.MapDoorArray
+	gameLoop         *MapGameLoop
+	FieldEntry       *field.FieldEntry
+	dataStore        *DataStore
+	handler          *Handler
+	mobCatalog       *MobCatalog
+	regenGroups      map[string]*MobRegenGroup
+	luaEngine        *lua.Engine
+	loadedAIScripts  map[string]bool
+	worldBridge      *ZoneWorldBridge
+	aiTimersSec      map[int]int64
 
 	// Campos de subsistemas de la Fase 15 (Instancias Lua, KQ, Guild Tournament y Bodas)
 	IsInstance         bool
@@ -815,6 +818,7 @@ func (m *ZoneMap) AddMonster(mob *ZoneMonster) {
 		m.nextObjID++
 	}
 	m.mobs[mob.Handle] = mob
+	m.monstersDirty = true
 	m.mu.Unlock()
 
 	if m.grid != nil {
@@ -826,7 +830,10 @@ func (m *ZoneMap) AddMonster(mob *ZoneMonster) {
 func (m *ZoneMap) RemoveMonster(handle uint16) {
 	m.mu.Lock()
 	_, ok := m.mobs[handle]
-	delete(m.mobs, handle)
+	if ok {
+		delete(m.mobs, handle)
+		m.monstersDirty = true
+	}
 	m.mu.Unlock()
 
 	if ok && m.grid != nil {
@@ -848,15 +855,33 @@ func (m *ZoneMap) GetMonster(handle uint16) *ZoneMonster {
 	return m.mobs[handle]
 }
 
-// GetAllMonsters retorna una instantánea de todos los monstruos vivos en el mapa.
+// GetAllMonsters retorna una instantánea inmutable cacheada de todos los monstruos en el mapa.
+// En estado estable (sin spawns/despawns) opera en O(1) con 0 alocaciones por tick.
 func (m *ZoneMap) GetAllMonsters() []*ZoneMonster {
 	m.mu.RLock()
-	defer m.mu.RUnlock()
-	res := make([]*ZoneMonster, 0, len(m.mobs))
-	for _, mob := range m.mobs {
-		res = append(res, mob)
+	if !m.monstersDirty {
+		snap := m.monstersSnapshot
+		m.mu.RUnlock()
+		return snap
 	}
-	return res
+	m.mu.RUnlock()
+
+	m.mu.Lock()
+	if m.monstersDirty {
+		if len(m.mobs) == 0 {
+			m.monstersSnapshot = nil
+		} else {
+			snap := make([]*ZoneMonster, 0, len(m.mobs))
+			for _, mob := range m.mobs {
+				snap = append(snap, mob)
+			}
+			m.monstersSnapshot = snap
+		}
+		m.monstersDirty = false
+	}
+	snap := m.monstersSnapshot
+	m.mu.Unlock()
+	return snap
 }
 
 // GetEntity recupera cualquier entidad activa (jugador, monstruo, NPC) por su handle.

@@ -525,8 +525,11 @@ func (m *ZoneMap) LoadMobsFromRegen(ds *DataStore) int {
 		}
 	}
 
-	// Inicializar Lua Behavior/AIScript bridge del mapa si aplica.
-	m.initMapLuaAI()
+	// Inicializar Lua Behavior/AIScript bridge del mapa solo si posee script KQ propio o mobs con AIScriptFunc;
+	// en el resto de los mapas el motor Lua se instancia perezosamente en el primer llamado a RunMobBehaviorLua/ensureMapLuaAI.
+	if m.needsEagerLuaAI() {
+		m.initMapLuaAI()
+	}
 
 	log.Printf("[Zone][Map %s] Spawned %d live monsters from %d MobRegen groups.", m.MapID, spawnedCount, len(mr.Groups))
 	return spawnedCount
@@ -618,6 +621,7 @@ func (m *ZoneMap) SpawnMobFromTemplate(tmpl *MobTemplate, x, y int32, dir int16,
 		tmpl.TB,
 		tmpl.MonEXP,
 	)
+	mob.Template = tmpl
 	mob.InxName = tmpl.InxName
 	mob.MinMA = tmpl.MinMA
 	mob.MaxMA = tmpl.MaxMA

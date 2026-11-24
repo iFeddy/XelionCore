@@ -139,10 +139,6 @@ func (mm *MapManager) CreateInstanceMap(baseMapID, instanceKey, kind string, def
 	})
 	if err == nil {
 		zMap.luaEngine = eng
-		commonScript := filepath.Join(luaRoot, "common.lua")
-		if _, stErr := os.Stat(commonScript); stErr == nil {
-			_ = eng.DoFile(commonScript)
-		}
 		if scriptRelPath != "" {
 			fullScript := scriptRelPath
 			if !filepath.IsAbs(fullScript) {

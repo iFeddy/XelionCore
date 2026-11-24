@@ -10,7 +10,7 @@ import (
 )
 
 // loadSHNWithFallback intenta cargar una tabla desde DataStore RAM y, si no está en los 180
-// archivos base, intenta leerla directamente desde disco (data/ o data/View/).
+// archivos base, la lee desde disco (data/ o data/View/) y la cachea inmediatamente en ds.SHNTables.
 func (ds *DataStore) loadSHNWithFallback(dataDir string, names ...string) *shn.File {
 	for _, name := range names {
 		if ds != nil {
@@ -21,6 +21,14 @@ func (ds *DataStore) loadSHNWithFallback(dataDir string, names ...string) *shn.F
 		if dataDir != "" {
 			for _, sub := range []string{name + ".shn", filepath.Join("View", name+".shn")} {
 				if f, err := shn.ReadFile(filepath.Join(dataDir, sub)); err == nil {
+					if ds != nil {
+						if ds.SHNTables == nil {
+							ds.SHNTables = make(map[string]*shn.File)
+						}
+						base := strings.TrimSuffix(filepath.Base(name), filepath.Ext(name))
+						ds.SHNTables[base] = f
+						ds.SHNTables[strings.ToLower(base)] = f
+					}
 					return f
 				}
 			}

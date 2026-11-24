@@ -70,13 +70,16 @@ type DataStore struct {
 	AdminLvCatalog     *AdminLvCatalog
 }
 
-// GetSHN retorna una tabla .shn por nombre o nombre base (búsqueda insensible a mayúsculas/minúsculas).
+// GetSHN retorna una tabla .shn por nombre o nombre base (búsqueda O(1) insensible a mayúsculas/minúsculas).
 func (ds *DataStore) GetSHN(name string) *shn.File {
 	if ds == nil || ds.SHNTables == nil {
 		return nil
 	}
 	base := strings.TrimSuffix(filepath.Base(name), filepath.Ext(name))
 	if f, ok := ds.SHNTables[base]; ok {
+		return f
+	}
+	if f, ok := ds.SHNTables[strings.ToLower(base)]; ok {
 		return f
 	}
 	for k, v := range ds.SHNTables {
@@ -95,12 +98,20 @@ func (ds *DataStore) IsPassiveSkill(skillID uint16) bool {
 	return ds.PassiveSkillMap[skillID]
 }
 
-// LoadAllData carga en memoria RAM la totalidad del universo de datos estáticos de ZoneService.
+// LoadAllData carga en memoria RAM la totalidad del universo de datos estáticos de ZoneService
+// sin lecturas duplicadas de tablas .shn.
 func LoadAllData(dataDir string) (*DataStore, error) {
 	ds := &DataStore{}
 
-	// 1. ClassParam
+	// 1. Catálogo exhaustivo de las 180 tablas .shn reales en disco (cargado primero para 0 re-lecturas)
 	var err error
+	ds.SHNTables, err = LoadAllSHNTables(dataDir)
+	if err != nil {
+		return nil, fmt.Errorf("error cargando catálogo SHN: %w", err)
+	}
+	log.Printf("[Zone][Data] Successfully indexed %d unique SHN table keys in RAM (180 required SHNs verified).", len(ds.SHNTables)/2)
+
+	// 2. ClassParam
 	ds.ClassStore, err = classparam.Load(filepath.Join(dataDir, "World", "ClassParam"))
 	if err != nil {
 		log.Printf("[Zone][Data] Warning: ClassParam load error: %v", err)
@@ -108,7 +119,7 @@ func LoadAllData(dataDir string) (*DataStore, error) {
 		log.Printf("[Zone][Data] Loaded %d character classes.", ds.ClassStore.ClassCount())
 	}
 
-	// 2. Field / Map
+	// 3. Field / Map
 	ds.FieldStore, err = field.Load(filepath.Join(dataDir, "World", "Map"))
 	if err != nil {
 		log.Printf("[Zone][Data] Warning: Field load error: %v", err)
@@ -116,26 +127,41 @@ func LoadAllData(dataDir string) (*DataStore, error) {
 		log.Printf("[Zone][Data] Loaded %d field definitions.", ds.FieldStore.FieldCount())
 	}
 
-	// 3. Item Store (ItemInfo.shn + ItemUseEffect.shn + World/Item JSONs)
+	// 4. Item Store (reutilizando tablas *shn.File ya cargadas + World/Item JSONs)
 	ds.ItemStore = item.NewStore()
-	itemShnPath := filepath.Join(dataDir, "ItemInfo.shn")
-	if err := ds.ItemStore.LoadItemInfoSHN(itemShnPath); err != nil {
+	if itemInfoSHN := ds.GetSHN("ItemInfo"); itemInfoSHN != nil {
+		err = ds.ItemStore.LoadItemInfoFromSHN(itemInfoSHN)
+	} else {
+		err = ds.ItemStore.LoadItemInfoSHN(filepath.Join(dataDir, "ItemInfo.shn"))
+	}
+	if err != nil {
 		log.Printf("[Zone][Data] Warning: ItemInfo.shn load error: %v", err)
 	} else {
 		log.Printf("[Zone][Data] Loaded 14999 item definitions from ItemInfo.shn.")
 	}
-	if err := ds.ItemStore.LoadInventoryDataSHN(
-		filepath.Join(dataDir, "ItemInfoServer.shn"),
-		filepath.Join(dataDir, "ItemSort.shn"),
-		filepath.Join(dataDir, "UseClassTypeInfo.shn"),
-		filepath.Join(dataDir, "ClassName.shn"),
-	); err != nil {
+
+	if fSrv, fSort, fUse, fCls := ds.GetSHN("ItemInfoServer"), ds.GetSHN("ItemSort"), ds.GetSHN("UseClassTypeInfo"), ds.GetSHN("ClassName"); fSrv != nil && fSort != nil && fUse != nil && fCls != nil {
+		err = ds.ItemStore.LoadInventoryDataFromSHN(fSrv, fSort, fUse, fCls)
+	} else {
+		err = ds.ItemStore.LoadInventoryDataSHN(
+			filepath.Join(dataDir, "ItemInfoServer.shn"),
+			filepath.Join(dataDir, "ItemSort.shn"),
+			filepath.Join(dataDir, "UseClassTypeInfo.shn"),
+			filepath.Join(dataDir, "ClassName.shn"),
+		)
+	}
+	if err != nil {
 		log.Printf("[Zone][Data] Warning: inventory item data load error: %v", err)
 	} else {
 		log.Printf("[Zone][Data] Loaded official inventory sort order and class-use matrix.")
 	}
-	useEffPath := filepath.Join(dataDir, "ItemUseEffect.shn")
-	if err := ds.ItemStore.LoadItemUseEffectSHN(useEffPath); err != nil {
+
+	if useEffSHN := ds.GetSHN("ItemUseEffect"); useEffSHN != nil {
+		err = ds.ItemStore.LoadItemUseEffectFromSHN(useEffSHN)
+	} else {
+		err = ds.ItemStore.LoadItemUseEffectSHN(filepath.Join(dataDir, "ItemUseEffect.shn"))
+	}
+	if err != nil {
 		log.Printf("[Zone][Data] Warning: ItemUseEffect.shn load error: %v", err)
 	} else {
 		log.Printf("[Zone][Data] Loaded consumable recovery effects from ItemUseEffect.shn.")
@@ -146,7 +172,7 @@ func LoadAllData(dataDir string) (*DataStore, error) {
 		log.Printf("[Zone][Data] Loaded item options, containers, and random options.")
 	}
 
-	// 4. NPCs y links de mapas
+	// 5. NPCs y links de mapas
 	ds.NPCStore, err = npc.Load(filepath.Join(dataDir, "World", "NPC"))
 	if err != nil {
 		log.Printf("[Zone][Data] Warning: NPC load error: %v", err)
@@ -154,7 +180,7 @@ func LoadAllData(dataDir string) (*DataStore, error) {
 		log.Printf("[Zone][Data] Loaded NPC database (26 map spawns, LinkTable, Actions).")
 	}
 
-	// 5. Mob Regen
+	// 6. Mob Regen
 	ds.MobRegen, err = mobregen.LoadAll(filepath.Join(dataDir, "MobRegen"))
 	if err != nil {
 		log.Printf("[Zone][Data] Warning: MobRegen load error: %v", err)
@@ -162,7 +188,7 @@ func LoadAllData(dataDir string) (*DataStore, error) {
 		log.Printf("[Zone][Data] Loaded %d map mob respawn configurations.", len(ds.MobRegen))
 	}
 
-	// 6. Mob Setting & Behavior
+	// 7. Mob Setting & Behavior
 	ds.MobSetting, err = mobsetting.LoadFromDir(filepath.Join(dataDir, "MobSetting"))
 	if err != nil {
 		log.Printf("[Zone][Data] Warning: MobSetting load error: %v", err)
@@ -170,7 +196,7 @@ func LoadAllData(dataDir string) (*DataStore, error) {
 		log.Printf("[Zone][Data] Loaded %d monster action configurations.", len(ds.MobSetting.Actions))
 	}
 
-	// 7. Mob Attack Sequences
+	// 8. Mob Attack Sequences
 	ds.MobAttack, err = mobattack.LoadFromDir(filepath.Join(dataDir, "MobAttackSequence"))
 	if err != nil {
 		log.Printf("[Zone][Data] Warning: MobAttack load error: %v", err)
@@ -178,7 +204,7 @@ func LoadAllData(dataDir string) (*DataStore, error) {
 		log.Printf("[Zone][Data] Loaded %d monster attack sequences.", len(ds.MobAttack.Mobs))
 	}
 
-	// 8. Mob Roam
+	// 9. Mob Roam
 	ds.MobRoam, err = mobroam.LoadFromDir(filepath.Join(dataDir, "MobRoam"))
 	if err != nil {
 		log.Printf("[Zone][Data] Warning: MobRoam load error: %v", err)
@@ -186,7 +212,7 @@ func LoadAllData(dataDir string) (*DataStore, error) {
 		log.Printf("[Zone][Data] Loaded %d monster roam paths.", len(ds.MobRoam.Routes))
 	}
 
-	// 9. Drop Store
+	// 10. Drop Store
 	ds.DropStore = drop.NewStore()
 	if err := ds.DropStore.LoadDir(filepath.Join(dataDir, "World", "Drop")); err != nil {
 		log.Printf("[Zone][Data] Warning: Drop load error: %v", err)
@@ -195,7 +221,7 @@ func LoadAllData(dataDir string) (*DataStore, error) {
 			ds.DropStore.MobCount(), ds.DropStore.GroupCount())
 	}
 
-	// 10. Combat Store
+	// 11. Combat Store
 	ds.CombatStore = combat.NewStore()
 	if err := ds.CombatStore.LoadDir(filepath.Join(dataDir, "World", "Combat")); err != nil {
 		log.Printf("[Zone][Data] Warning: Combat load error: %v", err)
@@ -204,7 +230,7 @@ func LoadAllData(dataDir string) (*DataStore, error) {
 			ds.CombatStore.MaxLevel())
 	}
 
-	// 11. NPC Merchant Items
+	// 12. NPC Merchant Items
 	ds.NPCItem, err = npcitem.LoadFromDir(filepath.Join(dataDir, "NPCItemList"))
 	if err != nil {
 		log.Printf("[Zone][Data] Warning: NPCItemList load error: %v", err)
@@ -212,7 +238,7 @@ func LoadAllData(dataDir string) (*DataStore, error) {
 		log.Printf("[Zone][Data] Loaded %d merchant inventories.", len(ds.NPCItem.Merchants))
 	}
 
-	// 12. AbState (Buffs / Debuffs)
+	// 13. AbState (Buffs / Debuffs)
 	ds.AbState, err = abstate.LoadFromDir(filepath.Join(dataDir, "AbState"))
 	if err != nil {
 		log.Printf("[Zone][Data] Warning: AbState load error: %v", err)
@@ -220,7 +246,7 @@ func LoadAllData(dataDir string) (*DataStore, error) {
 		log.Printf("[Zone][Data] Loaded %d abnormal state configurations.", len(ds.AbState.States))
 	}
 
-	// 13. Misc Store
+	// 14. Misc Store
 	ds.MiscStore = misc.NewStore()
 	if err := ds.MiscStore.LoadDir(filepath.Join(dataDir, "World", "Misc")); err != nil {
 		log.Printf("[Zone][Data] Warning: Misc load error: %v", err)
@@ -228,7 +254,7 @@ func LoadAllData(dataDir string) (*DataStore, error) {
 		log.Printf("[Zone][Data] Loaded misc game mechanics and stealth matrix.")
 	}
 
-	// 14. Quest Parser
+	// 15. Quest Parser
 	ds.QuestParser = questparser.NewStore()
 	if err := ds.QuestParser.LoadFile(filepath.Join(dataDir, "World", "Quest", "QuestParser.json")); err != nil {
 		log.Printf("[Zone][Data] Warning: QuestParser load error: %v", err)
@@ -236,7 +262,7 @@ func LoadAllData(dataDir string) (*DataStore, error) {
 		log.Printf("[Zone][Data] Loaded %d quest parser entries.", ds.QuestParser.Count())
 	}
 
-	// 15. Scripts
+	// 16. Scripts
 	ds.Script, err = script.LoadFromDir(filepath.Join(dataDir, "Script"))
 	if err != nil {
 		log.Printf("[Zone][Data] Warning: Script load error: %v", err)
@@ -244,50 +270,62 @@ func LoadAllData(dataDir string) (*DataStore, error) {
 		log.Printf("[Zone][Data] Loaded %d game event script tables.", len(ds.Script.Tables))
 	}
 
-	// 16. Checksum Engine (49 SHNs)
-	ds.ChkEngine, err = shn.NewChecksumEngine(dataDir, filepath.Join(dataDir, "View"))
+	// 17. Checksum Engine (49 SHNs reutilizando hashes MD5 ya calculados en ds.SHNTables)
+	ds.ChkEngine, err = shn.NewChecksumEngineFromFiles(ds.SHNTables, dataDir, filepath.Join(dataDir, "View"))
 	if err != nil {
 		log.Printf("[Zone][Data] Warning: ChecksumEngine error: %v", err)
 	} else {
 		log.Printf("[Zone][Data] Initialized ChecksumEngine with 49 SHN files.")
 	}
 
-	// 17. ActiveSkill.shn
-	activeSkillPath := filepath.Join(dataDir, "ActiveSkill.shn")
-	ds.ActiveSkillSHN, err = shn.ReadFile(activeSkillPath)
-	if err != nil {
+	// 18. ActiveSkill.shn (reutilizado desde ds.SHNTables)
+	ds.ActiveSkillSHN = ds.GetSHN("ActiveSkill")
+	if ds.ActiveSkillSHN == nil {
+		ds.ActiveSkillSHN, err = shn.ReadFile(filepath.Join(dataDir, "ActiveSkill.shn"))
+	} else {
+		err = nil
+	}
+	if err != nil || ds.ActiveSkillSHN == nil {
 		log.Printf("[Zone][Data] Warning: ActiveSkill.shn load error: %v", err)
 	} else {
 		log.Printf("[Zone][Data] Loaded ActiveSkill.shn (%d skills).", ds.ActiveSkillSHN.RecordCount)
 		ds.ActiveSkillMap = make(map[uint16]bool, len(ds.ActiveSkillSHN.Rows))
-		for _, row := range ds.ActiveSkillSHN.Rows {
-			ds.ActiveSkillMap[row.GetUint16("ID")] = true
+		for i := range ds.ActiveSkillSHN.Rows {
+			ds.ActiveSkillMap[ds.ActiveSkillSHN.Rows[i].GetUint16("ID")] = true
 		}
 	}
 
-	// 18. PassiveSkill.shn
-	passiveSkillPath := filepath.Join(dataDir, "PassiveSkill.shn")
-	ds.PassiveSkillSHN, err = shn.ReadFile(passiveSkillPath)
-	if err != nil {
+	// 19. PassiveSkill.shn (reutilizado desde ds.SHNTables)
+	ds.PassiveSkillSHN = ds.GetSHN("PassiveSkill")
+	if ds.PassiveSkillSHN == nil {
+		ds.PassiveSkillSHN, err = shn.ReadFile(filepath.Join(dataDir, "PassiveSkill.shn"))
+	} else {
+		err = nil
+	}
+	if err != nil || ds.PassiveSkillSHN == nil {
 		log.Printf("[Zone][Data] Warning: PassiveSkill.shn load error: %v", err)
 	} else {
 		log.Printf("[Zone][Data] Loaded PassiveSkill.shn (%d passive skills).", ds.PassiveSkillSHN.RecordCount)
 		ds.PassiveSkillMap = make(map[uint16]bool, len(ds.PassiveSkillSHN.Rows))
-		for _, row := range ds.PassiveSkillSHN.Rows {
-			ds.PassiveSkillMap[row.GetUint16("ID")] = true
+		for i := range ds.PassiveSkillSHN.Rows {
+			ds.PassiveSkillMap[ds.PassiveSkillSHN.Rows[i].GetUint16("ID")] = true
 		}
 	}
 
-	// 19. MobInfo.shn
-	mobInfoPath := filepath.Join(dataDir, "MobInfo.shn")
-	ds.MobInfoSHN, err = shn.ReadFile(mobInfoPath)
-	if err != nil {
+	// 20. MobInfo.shn (reutilizado desde ds.SHNTables)
+	ds.MobInfoSHN = ds.GetSHN("MobInfo")
+	if ds.MobInfoSHN == nil {
+		ds.MobInfoSHN, err = shn.ReadFile(filepath.Join(dataDir, "MobInfo.shn"))
+	} else {
+		err = nil
+	}
+	if err != nil || ds.MobInfoSHN == nil {
 		log.Printf("[Zone][Data] Warning: MobInfo.shn load error: %v", err)
 	} else {
 		log.Printf("[Zone][Data] Loaded MobInfo.shn (%d monsters).", ds.MobInfoSHN.RecordCount)
 	}
 
-	// 20. Universo de Geometría y Colisiones (301 archivos en BlockInfo/)
+	// 21. Universo de Geometría y Colisiones (301 archivos en BlockInfo/, .bdt lazy)
 	blockInfoPath := filepath.Join(dataDir, "BlockInfo")
 	ds.BlockInfo, err = blockinfo.LoadAll(blockInfoPath)
 	if err != nil {
@@ -297,7 +335,7 @@ func LoadAllData(dataDir string) (*DataStore, error) {
 			ds.BlockInfo.TotalCount())
 	}
 
-	// 21. Máscaras AoE de Habilidades (AreaBMP/ - 44+ máscaras)
+	// 22. Máscaras AoE de Habilidades (AreaBMP/ - 44+ máscaras)
 	areaBMPPath := filepath.Join(dataDir, "AreaBMP")
 	ds.AreaBMP, err = areabmp.LoadAll(areaBMPPath)
 	if err != nil {
@@ -305,13 +343,6 @@ func LoadAllData(dataDir string) (*DataStore, error) {
 	} else {
 		log.Printf("[Zone][Data] Loaded %d AoE masks from AreaBMP/.", ds.AreaBMP.Count())
 	}
-
-	// 22. Catálogo exhaustivo de las 180 tablas .shn reales en disco (194/195 rutas)
-	ds.SHNTables, err = LoadAllSHNTables(dataDir)
-	if err != nil {
-		return nil, fmt.Errorf("error cargando catálogo SHN: %w", err)
-	}
-	log.Printf("[Zone][Data] Successfully indexed %d unique SHN table keys in RAM (180 required SHNs verified).", len(ds.SHNTables)/2)
 
 	ds.DataDir = dataDir
 	ds.MobCatalog = BuildMobCatalog(ds)
