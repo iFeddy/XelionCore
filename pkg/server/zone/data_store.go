@@ -54,6 +54,7 @@ type DataStore struct {
 	MobInfoSHN         *shn.File
 	PassiveSkillMap    map[uint16]bool
 	ActiveSkillMap     map[uint16]bool
+	SkillCatalog       *SkillCatalog
 	MobCatalog         *MobCatalog
 	TitleCatalog       *TitleCatalog
 	CollectCatalog     *CollectCatalog
@@ -293,6 +294,7 @@ func LoadAllData(dataDir string) (*DataStore, error) {
 		for i := range ds.ActiveSkillSHN.Rows {
 			ds.ActiveSkillMap[ds.ActiveSkillSHN.Rows[i].GetUint16("ID")] = true
 		}
+		ds.SkillCatalog = BuildSkillCatalog(ds)
 	}
 
 	// 19. PassiveSkill.shn (reutilizado desde ds.SHNTables)

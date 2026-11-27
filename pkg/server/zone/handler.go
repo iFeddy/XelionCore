@@ -991,6 +991,7 @@ func (h *Handler) sendInGameChunk(p *ZonePlayer) {
 	var passiveSkills []*database.CharacterSkill
 	if h.charRepo != nil && p.Char != nil {
 		skills, _ := h.charRepo.GetCharacterSkills(p.Char.ID)
+		p.SyncLearnedSkills(skills)
 		for _, sk := range skills {
 			if h.dataStore != nil && h.dataStore.IsPassiveSkill(sk.SkillNo) {
 				passiveSkills = append(passiveSkills, sk)

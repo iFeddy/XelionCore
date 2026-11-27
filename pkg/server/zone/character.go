@@ -152,7 +152,17 @@ type ZonePlayer struct {
 	IsAutoAttacking       bool
 	LastAttackTime        time.Time
 	CastingSkillID        uint16
+	CastingTargetHandle   uint16
+	CastingFieldX         int32
+	CastingFieldY         int32
+	CastingEndTime        time.Time
+	NextCastIndex         uint16
+	LearnedSkills         map[uint16]*database.CharacterSkill
+	ToggleSkills          map[uint16]bool
 	SkillCooldowns        map[uint16]time.Time
+	MoverSkillCooldowns   map[uint16]time.Time
+	PendingRevive         bool
+	PendingReviveRate     uint16
 	ActiveStates          map[uint16]*ActiveAbState
 	PKCount               int
 	PKYellowTime          int
@@ -666,4 +676,100 @@ func (p *ZonePlayer) WriteCharacterDisplay(pw *protocol.PacketWriter) {
 	pw.WriteByte(p.MoverSlot)     // 0x0e8 (232): nMoverSlot (1)
 	pw.WriteByte(p.KQTeam)        // 0x0e9 (233): nKQTeamType (1)
 	pw.WriteByte(0)               // 0x0ea (234): IsUseItemMinimon (1)
+}
+
+// SyncLearnedSkills sincroniza el caché en memoria de habilidades aprendidas del jugador.
+func (p *ZonePlayer) SyncLearnedSkills(skills []*database.CharacterSkill) {
+	if p == nil {
+		return
+	}
+	p.LearnedSkills = make(map[uint16]*database.CharacterSkill, len(skills))
+	for _, sk := range skills {
+		if sk != nil {
+			cp := *sk
+			p.LearnedSkills[sk.SkillNo] = &cp
+		}
+	}
+}
+
+// HasSkill verifica si el jugador tiene aprendida la skill dada (csl_IsLearn).
+func (p *ZonePlayer) HasSkill(skillID uint16) bool {
+	if p == nil || p.LearnedSkills == nil {
+		return false
+	}
+	_, ok := p.LearnedSkills[skillID]
+	return ok
+}
+
+// GetLearnedSkill retorna la entrada aprendida de la skill o nil.
+func (p *ZonePlayer) GetLearnedSkill(skillID uint16) *database.CharacterSkill {
+	if p == nil || p.LearnedSkills == nil {
+		return nil
+	}
+	return p.LearnedSkills[skillID]
+}
+
+// SetLearnedSkill registra o actualiza una skill aprendida en el caché en memoria.
+func (p *ZonePlayer) SetLearnedSkill(sk *database.CharacterSkill) {
+	if p == nil || sk == nil {
+		return
+	}
+	if p.LearnedSkills == nil {
+		p.LearnedSkills = make(map[uint16]*database.CharacterSkill)
+	}
+	cp := *sk
+	p.LearnedSkills[sk.SkillNo] = &cp
+}
+
+// RemoveLearnedSkill elimina una skill aprendida del caché en memoria.
+func (p *ZonePlayer) RemoveLearnedSkill(skillID uint16) {
+	if p == nil || p.LearnedSkills == nil {
+		return
+	}
+	delete(p.LearnedSkills, skillID)
+}
+
+// GetSkillEmpower retorna los 4 niveles de empoderamiento (0..5) de una skill aprendida:
+// track 0 = damage/heal, track 1 = SP, track 2 = keepTime, track 3 = coolTime.
+func (p *ZonePlayer) GetSkillEmpower(skillID uint16) (dmg, sp, keepTime, coolTime uint8) {
+	sk := p.GetLearnedSkill(skillID)
+	if sk == nil {
+		return 0, 0, 0, 0
+	}
+	return sk.SkillPowerDemage, sk.SkillPowerSP, sk.SkillPowerKeepTime, sk.SkillPowerCoolTime
+}
+
+// TotalEmpowerUsed suma todos los puntos de empower invertidos en todas las skills aprendidas (csl_EmpowerSummary).
+func (p *ZonePlayer) TotalEmpowerUsed() int {
+	if p == nil || p.LearnedSkills == nil {
+		return 0
+	}
+	total := 0
+	for _, sk := range p.LearnedSkills {
+		if sk != nil {
+			total += int(sk.SkillPowerDemage) + int(sk.SkillPowerSP) + int(sk.SkillPowerKeepTime) + int(sk.SkillPowerCoolTime)
+		}
+	}
+	return total
+}
+
+// MaxEmpowerPoints retorna el máximo de puntos de empower disponibles según nivel del personaje.
+// En Fiesta Online oficial se gana 1 punto de empower por cada nivel a partir de nivel 2 (level - 1).
+func (p *ZonePlayer) MaxEmpowerPoints() int {
+	if p == nil || p.Char == nil || p.Char.Level <= 1 {
+		return 0
+	}
+	return int(p.Char.Level) - 1
+}
+
+// NextSkillCastIndex genera un castIndex dinámico no nulo (1..65535), equivalente a sbec_GetIndex en Zone.exe.
+func (p *ZonePlayer) NextSkillCastIndex() uint16 {
+	if p == nil {
+		return 1
+	}
+	p.NextCastIndex++
+	if p.NextCastIndex == 0 {
+		p.NextCastIndex = 1
+	}
+	return p.NextCastIndex
 }
