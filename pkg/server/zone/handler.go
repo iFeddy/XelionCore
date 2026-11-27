@@ -2266,9 +2266,11 @@ func (h *Handler) sendUint16Ack(client *network.Client, opCode uint16, errCode u
 }
 
 // resolveClientMapID busca mapName en MapInfo.shn (columna MapName, case-insensitive)
-// y devuelve su índice de fila (0-based) en MapInfo.shn, que es el uint16 esperado por Fiesta.bin
-// en LINKSAME (0x1809), LINKOTHER (0x180A) y REVIVESAME (0x104F) para indexar el array de MapInfo
-// (p. ej. RouN está en la fila 129 de 138, mientras que su columna ID=150 cae fuera de rango y hace fallback a fila 0).
+// y devuelve su columna ID (uint16), que es el índice esperado por Fiesta.bin en
+// LINKSAME (0x1809), LINKOTHER (0x180A) y REVIVESAME (0x104F).
+// Verificado en Fiesta.bin: MapInfoTab::vfunc_1 (0x4615a0) + MapInfoTab::vfunc_3 (0x6a1110)
+// indexan table->field_0xc4[ID] usando la columna uint16 ID (p. ej. RouN=150, Apoline=181, LegelVal=254),
+// y LinkFrameWork (0x624b40) consulta directamente g_MapViewInfoTab->field_0xc4[mapID].
 // Si MapInfo.shn no está cargado o no contiene el mapa, devuelve fallbackSerial.
 func (h *Handler) resolveClientMapID(mapName string, fallbackSerial uint16) uint16 {
 	mapName = strings.TrimSpace(mapName)
@@ -2279,7 +2281,7 @@ func (h *Handler) resolveClientMapID(mapName string, fallbackSerial uint16) uint
 		for i := range tbl.Rows {
 			row := &tbl.Rows[i]
 			if strings.EqualFold(strings.TrimSpace(row.GetString("MapName")), mapName) {
-				return uint16(i)
+				return uint16(row.GetInt("ID"))
 			}
 		}
 		if h.mapManager != nil {
@@ -2288,7 +2290,7 @@ func (h *Handler) resolveClientMapID(mapName string, fallbackSerial uint16) uint
 				for i := range tbl.Rows {
 					row := &tbl.Rows[i]
 					if strings.EqualFold(strings.TrimSpace(row.GetString("MapName")), baseName) {
-						return uint16(i)
+						return uint16(row.GetInt("ID"))
 					}
 				}
 			}
@@ -2430,7 +2432,6 @@ func (h *Handler) WarpPlayer(player *ZonePlayer, targetMapID string, x, y int, r
 	linkSame.WriteUint32(uint32(x))
 	linkSame.WriteUint32(uint32(y))
 	_ = player.Client.SendPacket(linkSame)
-	h.sendInGameChunk(player)
 	return true
 }
 

@@ -1004,14 +1004,10 @@ func (mm *MapManager) EnsureKQMap(mapName, baseMap string) *ZoneMap {
 			fieldEntry = entry
 			serial = uint16(entry.Serial)
 			name = entry.Name
-			width = entry.Width
-			height = entry.Height
 		} else if entry, ok := mm.fieldStore.GetField(normName); ok && entry != nil {
 			fieldEntry = entry
 			serial = uint16(entry.Serial)
 			name = entry.Name
-			width = entry.Width
-			height = entry.Height
 		}
 	}
 

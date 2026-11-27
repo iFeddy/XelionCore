@@ -325,14 +325,21 @@ func LoadAllData(dataDir string) (*DataStore, error) {
 		log.Printf("[Zone][Data] Loaded MobInfo.shn (%d monsters).", ds.MobInfoSHN.RecordCount)
 	}
 
-	// 21. Universo de Geometría y Colisiones (301 archivos en BlockInfo/, .bdt lazy)
+	// 21. Universo de Geometría y Colisiones (BlockInfo/, .bdt lazy)
 	blockInfoPath := filepath.Join(dataDir, "BlockInfo")
 	ds.BlockInfo, err = blockinfo.LoadAll(blockInfoPath)
 	if err != nil {
 		log.Printf("[Zone][Data] Warning: BlockInfo load error: %v", err)
 	} else {
-		log.Printf("[Zone][Data] Loaded %d geometry/collision files from BlockInfo/ (158 shbd, 33 sbi, 23 aid, 76 bdt, 8 shab, 2 shmd, 1 shad).",
-			ds.BlockInfo.TotalCount())
+		if mapInfo := ds.SHNTables["MapInfo"]; mapInfo != nil {
+			for i := range mapInfo.Rows {
+				r := &mapInfo.Rows[i]
+				ds.BlockInfo.SetFolderAlias(r.GetString("MapName"), r.GetString("MapFolderName"))
+			}
+		}
+		log.Printf("[Zone][Data] Loaded %d geometry/collision files from BlockInfo/ (%d shbd, %d sbi, %d aid, %d bdt, %d shab, %d shmd, %d shad).",
+			ds.BlockInfo.TotalCount(), len(ds.BlockInfo.SHBD), len(ds.BlockInfo.SBI), len(ds.BlockInfo.AID),
+			len(ds.BlockInfo.BDT), len(ds.BlockInfo.SHAB), len(ds.BlockInfo.SHMD), len(ds.BlockInfo.SHAD))
 	}
 
 	// 22. Máscaras AoE de Habilidades (AreaBMP/ - 44+ máscaras)

@@ -92,34 +92,49 @@ func TestFase10_Control6_BlockInfo_301Files(t *testing.T) {
 		t.Fatalf("blockinfo.LoadAll failed: %v", err)
 	}
 
-	// 1. Validar conteos exactos de los 301 archivos
-	if len(store.SHBD) != 158 {
-		t.Errorf("Expected 158 .shbd files, got %d", len(store.SHBD))
+	// 1. Validar conteos exactos contra todos los archivos presentes en data/BlockInfo/
+	entries, err := os.ReadDir(blockInfoDir)
+	if err != nil {
+		t.Fatalf("os.ReadDir(%s) failed: %v", blockInfoDir, err)
 	}
-	if len(store.SBI) != 33 {
-		t.Errorf("Expected 33 .sbi files, got %d", len(store.SBI))
+	wantByExt := make(map[string]int)
+	wantTotal := 0
+	for _, e := range entries {
+		if e.IsDir() {
+			continue
+		}
+		ext := strings.ToLower(filepath.Ext(e.Name()))
+		wantByExt[ext]++
+		wantTotal++
 	}
-	if len(store.AID) != 23 {
-		t.Errorf("Expected 23 .aid files, got %d", len(store.AID))
+
+	if len(store.SHBD) != wantByExt[".shbd"] {
+		t.Errorf("Expected %d .shbd files, got %d", wantByExt[".shbd"], len(store.SHBD))
 	}
-	if len(store.BDT) != 76 {
-		t.Errorf("Expected 76 .bdt files, got %d", len(store.BDT))
+	if len(store.SBI) != wantByExt[".sbi"] {
+		t.Errorf("Expected %d .sbi files, got %d", wantByExt[".sbi"], len(store.SBI))
 	}
-	if len(store.SHAB) != 8 {
-		t.Errorf("Expected 8 .shab files, got %d", len(store.SHAB))
+	if len(store.AID) != wantByExt[".aid"] {
+		t.Errorf("Expected %d .aid files, got %d", wantByExt[".aid"], len(store.AID))
 	}
-	if len(store.SHMD) != 2 {
-		t.Errorf("Expected 2 .shmd files, got %d", len(store.SHMD))
+	if len(store.BDT) != wantByExt[".bdt"] {
+		t.Errorf("Expected %d .bdt files, got %d", wantByExt[".bdt"], len(store.BDT))
 	}
-	if len(store.SHAD) != 1 {
-		t.Errorf("Expected 1 .shad files, got %d", len(store.SHAD))
+	if len(store.SHAB) != wantByExt[".shab"] {
+		t.Errorf("Expected %d .shab files, got %d", wantByExt[".shab"], len(store.SHAB))
+	}
+	if len(store.SHMD) != wantByExt[".shmd"] {
+		t.Errorf("Expected %d .shmd files, got %d", wantByExt[".shmd"], len(store.SHMD))
+	}
+	if len(store.SHAD) != wantByExt[".shad"] {
+		t.Errorf("Expected %d .shad files, got %d", wantByExt[".shad"], len(store.SHAD))
 	}
 
 	total := store.TotalCount()
-	if total != 301 {
-		t.Fatalf("Expected exactly 301 files in data/BlockInfo/, got %d", total)
+	if total == 0 || total != wantTotal {
+		t.Fatalf("Expected %d files in data/BlockInfo/, got %d", wantTotal, total)
 	}
-	t.Logf("Control 6 (BlockInfo): 100%% Parity (301/301 binary geometry files loaded)")
+	t.Logf("Control 6 (BlockInfo): 100%% Parity (%d/%d binary geometry files loaded)", total, wantTotal)
 
 	// 2. Probar colisiones reales en Rou.shbd, RouN.shbd y Adl.shbd
 	rou := store.GetSHBD("Rou")

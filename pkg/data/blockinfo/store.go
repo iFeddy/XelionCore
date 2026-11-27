@@ -20,29 +20,47 @@ type Store struct {
 	SHAD map[string]*ArenaAttribute      // 1 atributo extendido (.shad)
 
 	// Índices O(1) insensibles a mayúsculas/minúsculas y registro lazy de .bdt
-	shbdLower map[string]*MapBlockInformation
-	sbiLower  map[string]*MapDoorArray
-	aidLower  map[string]*AreaInfoData
-	bdtPaths  map[string]string // base -> fullPath
-	bdtLower  map[string]string // lower(base) -> base
+	shbdLower   map[string]*MapBlockInformation
+	sbiLower    map[string]*MapDoorArray
+	aidLower    map[string]*AreaInfoData
+	bdtPaths    map[string]string // base -> fullPath
+	bdtLower    map[string]string // lower(base) -> base
+	folderAlias map[string]string // lower(mapName) -> lower(mapFolderName)
 }
 
 // NewStore crea una instancia vacía del repositorio de geometría.
 func NewStore() *Store {
 	return &Store{
-		SHBD:      make(map[string]*MapBlockInformation),
-		SBI:       make(map[string]*MapDoorArray),
-		AID:       make(map[string]*AreaInfoData),
-		BDT:       make(map[string][]byte),
-		SHAB:      make(map[string]*ArenaAttribute),
-		SHMD:      make(map[string]string),
-		SHAD:      make(map[string]*ArenaAttribute),
-		shbdLower: make(map[string]*MapBlockInformation),
-		sbiLower:  make(map[string]*MapDoorArray),
-		aidLower:  make(map[string]*AreaInfoData),
-		bdtPaths:  make(map[string]string),
-		bdtLower:  make(map[string]string),
+		SHBD:        make(map[string]*MapBlockInformation),
+		SBI:         make(map[string]*MapDoorArray),
+		AID:         make(map[string]*AreaInfoData),
+		BDT:         make(map[string][]byte),
+		SHAB:        make(map[string]*ArenaAttribute),
+		SHMD:        make(map[string]string),
+		SHAD:        make(map[string]*ArenaAttribute),
+		shbdLower:   make(map[string]*MapBlockInformation),
+		sbiLower:    make(map[string]*MapDoorArray),
+		aidLower:    make(map[string]*AreaInfoData),
+		bdtPaths:    make(map[string]string),
+		bdtLower:    make(map[string]string),
+		folderAlias: make(map[string]string),
 	}
+}
+
+// SetFolderAlias registra un alias MapName -> MapFolderName (desde MapInfo.shn) para
+// resolver archivos .shbd/.sbi/.aid compartidos sin duplicar binarios en disco.
+func (s *Store) SetFolderAlias(mapName, folderName string) {
+	kMap := strings.ToLower(strings.TrimSpace(mapName))
+	kFolder := strings.ToLower(strings.TrimSpace(folderName))
+	if kMap == "" || kFolder == "" || kMap == kFolder {
+		return
+	}
+	s.mu.Lock()
+	if s.folderAlias == nil {
+		s.folderAlias = make(map[string]string)
+	}
+	s.folderAlias[kMap] = kFolder
+	s.mu.Unlock()
 }
 
 // LoadAll escanea e indexa la totalidad de los 301 archivos binarios de data/BlockInfo/.
@@ -214,9 +232,15 @@ func (s *Store) GetSHBD(mapName string) *MapBlockInformation {
 	if mbi, ok := s.SHBD[mapName]; ok {
 		return mbi
 	}
+	lower := strings.ToLower(mapName)
 	if s.shbdLower != nil {
-		if mbi, ok := s.shbdLower[strings.ToLower(mapName)]; ok {
+		if mbi, ok := s.shbdLower[lower]; ok {
 			return mbi
+		}
+		if alias, ok := s.folderAlias[lower]; ok {
+			if mbi, ok := s.shbdLower[alias]; ok {
+				return mbi
+			}
 		}
 		if len(s.shbdLower) == len(s.SHBD) {
 			return nil
@@ -238,9 +262,15 @@ func (s *Store) GetSBI(mapName string) *MapDoorArray {
 	if mda, ok := s.SBI[mapName]; ok {
 		return mda
 	}
+	lower := strings.ToLower(mapName)
 	if s.sbiLower != nil {
-		if mda, ok := s.sbiLower[strings.ToLower(mapName)]; ok {
+		if mda, ok := s.sbiLower[lower]; ok {
 			return mda
+		}
+		if alias, ok := s.folderAlias[lower]; ok {
+			if mda, ok := s.sbiLower[alias]; ok {
+				return mda
+			}
 		}
 		if len(s.sbiLower) == len(s.SBI) {
 			return nil
@@ -271,9 +301,15 @@ func (s *Store) GetAID(mapName string) *AreaInfoData {
 	if aid, ok := s.AID[mapName]; ok {
 		return aid
 	}
+	lower := strings.ToLower(mapName)
 	if s.aidLower != nil {
-		if aid, ok := s.aidLower[strings.ToLower(mapName)]; ok {
+		if aid, ok := s.aidLower[lower]; ok {
 			return aid
+		}
+		if alias, ok := s.folderAlias[lower]; ok {
+			if aid, ok := s.aidLower[alias]; ok {
+				return aid
+			}
 		}
 		if len(s.aidLower) == len(s.AID) {
 			return nil
