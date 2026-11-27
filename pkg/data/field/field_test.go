@@ -40,7 +40,7 @@ func TestFieldStore_LoadAll(t *testing.T) {
 	if rou.MapID != "Rou" || rou.Name != "Roumen" {
 		t.Errorf("Unexpected Roumen config: %+v", rou)
 	}
-	if rou.Respawn.City != "Rou" || len(rou.Respawn.Spots) != 4 || rou.Respawn.Spots[0].X != 4134 {
+	if rou.Respawn.City != "Rou" || len(rou.Respawn.Spots) != 1 || rou.Respawn.Spots[0].X != 4134 {
 		t.Errorf("Unexpected Roumen respawn: %+v", rou.Respawn)
 	}
 	if !rou.Permissions.CanTrade || !rou.Permissions.CanMiniHouse {
