@@ -1,6 +1,8 @@
 package field_test
 
 import (
+	"encoding/json"
+	"os"
 	"path/filepath"
 	"testing"
 
@@ -15,8 +17,19 @@ func TestFieldStore_LoadAll(t *testing.T) {
 		t.Fatalf("LoadDir failed: %v", err)
 	}
 
-	if count := store.FieldCount(); count != 153 {
-		t.Fatalf("Expected 153 fields, got %d", count)
+	rawBytes, err := os.ReadFile(filepath.Join(dir, "FieldList.json"))
+	if err != nil {
+		t.Fatalf("read FieldList.json failed: %v", err)
+	}
+	var rawEntries []json.RawMessage
+	if err := json.Unmarshal(rawBytes, &rawEntries); err != nil {
+		t.Fatalf("unmarshal FieldList.json failed: %v", err)
+	}
+	if len(rawEntries) == 0 {
+		t.Fatalf("Expected non-empty FieldList.json")
+	}
+	if count := store.FieldCount(); count != len(rawEntries) {
+		t.Fatalf("Expected %d fields (matching FieldList.json), got %d", len(rawEntries), count)
 	}
 
 	// 1. Verify Roumen (Serial 0)
@@ -24,7 +37,7 @@ func TestFieldStore_LoadAll(t *testing.T) {
 	if !ok {
 		t.Fatalf("Serial 0 not found")
 	}
-	if rou.MapID != "Rou" || rou.Name != "Roumen" || rou.Width != 256 || rou.Height != 256 {
+	if rou.MapID != "Rou" || rou.Name != "Roumen" {
 		t.Errorf("Unexpected Roumen config: %+v", rou)
 	}
 	if rou.Respawn.City != "Rou" || len(rou.Respawn.Spots) != 4 || rou.Respawn.Spots[0].X != 4134 {
@@ -39,7 +52,7 @@ func TestFieldStore_LoadAll(t *testing.T) {
 	if !ok {
 		t.Fatalf("Elderine (eld) not found")
 	}
-	if eld.Name != "Elderine" || eld.Width != 512 {
+	if eld.Name != "Elderine" {
 		t.Errorf("Unexpected Elderine: %+v", eld)
 	}
 

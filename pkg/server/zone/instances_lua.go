@@ -85,8 +85,6 @@ func (mm *MapManager) CreateInstanceMap(baseMapID, instanceKey, kind string, def
 		if entry, ok := mm.fieldStore.GetField(baseMapID); ok && entry != nil {
 			serial = uint16(entry.Serial)
 			name = entry.Name
-			width = entry.Width
-			height = entry.Height
 		}
 	}
 

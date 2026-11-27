@@ -2,15 +2,9 @@
   {
     "serial": 0,
     "mapId": "Rou",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Roumen",
     "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -25,12 +19,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 4134,
@@ -68,22 +60,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 1,
     "mapId": "RouCos01",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Sand Beach",
     "isKq": false,
-    "kq": 0,
-    "width": 512,
-    "height": 512,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -98,12 +82,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "RouCos01",
-      "spotCount": 1,
       "spots": [
         {
           "x": 8839,
@@ -141,22 +123,14 @@
       "byMonster": 1000,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 1,
     "fiesta": 1
   },
   {
     "serial": 2,
     "mapId": "RouCos02",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Forest of Tides",
     "isKq": false,
-    "kq": 0,
-    "width": 512,
-    "height": 512,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -171,12 +145,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "RouCos02",
-      "spotCount": 1,
       "spots": [
         {
           "x": 9647,
@@ -214,22 +186,14 @@
       "byMonster": 1000,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 2,
     "fiesta": 2
   },
   {
     "serial": 3,
     "mapId": "RouCos03",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Sea of Greed",
     "isKq": false,
-    "kq": 0,
-    "width": 512,
-    "height": 512,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -244,12 +208,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "RouCos03",
-      "spotCount": 1,
       "spots": [
         {
           "x": 19699,
@@ -287,22 +249,14 @@
       "byMonster": 1000,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 3,
     "fiesta": 0
   },
   {
     "serial": 5,
     "mapId": "RouTemDn01",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Luminous Stone 1",
     "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -317,12 +271,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "RouTemDn01",
-      "spotCount": 1,
       "spots": [
         {
           "x": 6252,
@@ -360,22 +312,14 @@
       "byMonster": 1000,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 5,
     "fiesta": 2
   },
   {
     "serial": 6,
     "mapId": "RouTemDn02",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Luminous Stone 2",
     "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -390,12 +334,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "RouTemDn02",
-      "spotCount": 1,
       "spots": [
         {
           "x": 5203,
@@ -433,22 +375,14 @@
       "byMonster": 1000,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 6,
     "fiesta": 0
   },
   {
     "serial": 7,
     "mapId": "RouVal01",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Forest of Mist",
     "isKq": false,
-    "kq": 0,
-    "width": 512,
-    "height": 512,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -463,12 +397,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "RouVal01",
-      "spotCount": 1,
       "spots": [
         {
           "x": 13197,
@@ -506,22 +438,14 @@
       "byMonster": 1000,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 7,
     "fiesta": 1
   },
   {
     "serial": 8,
     "mapId": "RouVal02",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Burning Hill",
     "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -536,12 +460,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "RouVal02",
-      "spotCount": 1,
       "spots": [
         {
           "x": 6049,
@@ -579,22 +501,14 @@
       "byMonster": 1000,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 8,
     "fiesta": 0
   },
   {
     "serial": 9,
     "mapId": "Eld",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Elderine",
     "isKq": false,
-    "kq": 0,
-    "width": 512,
-    "height": 512,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -609,12 +523,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Eld",
-      "spotCount": 1,
       "spots": [
         {
           "x": 14618,
@@ -652,22 +564,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 9,
     "fiesta": 1
   },
   {
     "serial": 10,
     "mapId": "EldCem01",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Moonlight Tomb",
     "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -682,12 +586,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "EldCem01",
-      "spotCount": 1,
       "spots": [
         {
           "x": 11455,
@@ -725,22 +627,14 @@
       "byMonster": 1000,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 10,
     "fiesta": 1
   },
   {
     "serial": 11,
     "mapId": "EldCem02",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Vine Tomb",
     "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -755,12 +649,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "EldCem02",
-      "spotCount": 1,
       "spots": [
         {
           "x": 1207,
@@ -798,22 +690,14 @@
       "byMonster": 1000,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 11,
     "fiesta": 2
   },
   {
     "serial": 12,
     "mapId": "EldGbl01",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Goblin Camp",
     "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -828,12 +712,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "EldGbl01",
-      "spotCount": 1,
       "spots": [
         {
           "x": 6495,
@@ -871,22 +753,14 @@
       "byMonster": 1000,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 12,
     "fiesta": 0
   },
   {
     "serial": 13,
     "mapId": "EldPri01",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Collapsed Prison",
     "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -901,12 +775,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "EldPri01",
-      "spotCount": 1,
       "spots": [
         {
           "x": 2318,
@@ -944,22 +816,14 @@
       "byMonster": 1000,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 13,
     "fiesta": 1
   },
   {
     "serial": 14,
     "mapId": "EldPriDn01",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Concealed Prison 1st Floor",
     "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -974,12 +838,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Eld",
-      "spotCount": 1,
       "spots": [
         {
           "x": 14618,
@@ -1017,22 +879,14 @@
       "byMonster": 1000,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 14,
     "fiesta": 2
   },
   {
     "serial": 15,
     "mapId": "UrgFireDn01",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Flaming Mine",
     "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -1047,12 +901,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Urg",
-      "spotCount": 1,
       "spots": [
         {
           "x": 5835,
@@ -1090,22 +942,14 @@
       "byMonster": 1000,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 15,
     "fiesta": 1
   },
   {
     "serial": 16,
     "mapId": "UrgSwaDn01",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Spirit Temple",
     "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -1120,12 +964,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "UrgSwaDn01",
-      "spotCount": 1,
       "spots": [
         {
           "x": 5655,
@@ -1163,22 +1005,14 @@
       "byMonster": 1000,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 16,
     "fiesta": 2
   },
   {
     "serial": 17,
     "mapId": "EchoCave",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Echo Cave",
     "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -1193,12 +1027,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "EchoCave",
-      "spotCount": 1,
       "spots": [
         {
           "x": 9240,
@@ -1236,22 +1068,14 @@
       "byMonster": 1000,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 17,
     "fiesta": 0
   },
   {
     "serial": 18,
     "mapId": "EldPri",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Restricted Area",
     "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -1266,12 +1090,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": true
+      "linkOut": false
     },
     "respawn": {
       "city": "EldPri",
-      "spotCount": 1,
       "spots": [
         {
           "x": 14618,
@@ -1309,22 +1131,14 @@
       "byMonster": 1000,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 18,
     "fiesta": 1
   },
   {
     "serial": 19,
     "mapId": "WindyCave",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Cave of Wind",
     "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -1339,12 +1153,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "WindyCave",
-      "spotCount": 1,
       "spots": [
         {
           "x": 2506,
@@ -1382,22 +1194,14 @@
       "byMonster": 1000,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 19,
     "fiesta": 2
   },
   {
     "serial": 20,
     "mapId": "EldFor01",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Ancient Elven Woods",
     "isKq": false,
-    "kq": 0,
-    "width": 512,
-    "height": 512,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -1412,12 +1216,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Urg",
-      "spotCount": 1,
       "spots": [
         {
           "x": 5835,
@@ -1455,22 +1257,14 @@
       "byMonster": 1000,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 20,
     "fiesta": 1
   },
   {
     "serial": 21,
     "mapId": "EldSleep01",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Forest of Slumber",
     "isKq": false,
-    "kq": 0,
-    "width": 512,
-    "height": 512,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -1485,12 +1279,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Urg",
-      "spotCount": 1,
       "spots": [
         {
           "x": 5835,
@@ -1528,22 +1320,14 @@
       "byMonster": 1000,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 21,
     "fiesta": 2
   },
   {
     "serial": 22,
     "mapId": "Urg",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Uruga",
     "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -1558,12 +1342,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Urg",
-      "spotCount": 1,
       "spots": [
         {
           "x": 5835,
@@ -1601,22 +1383,14 @@
       "byMonster": 1000,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 22,
     "fiesta": 2
   },
   {
     "serial": 23,
     "mapId": "UrgFire01",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Burning Rock",
     "isKq": false,
-    "kq": 0,
-    "width": 512,
-    "height": 512,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -1631,12 +1405,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Urg",
-      "spotCount": 1,
       "spots": [
         {
           "x": 5835,
@@ -1674,22 +1446,14 @@
       "byMonster": 1000,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 23,
     "fiesta": 3
   },
   {
     "serial": 24,
     "mapId": "EldPriDn02",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Concealed Prison 2nd Floor",
     "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -1704,12 +1468,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Urg",
-      "spotCount": 1,
       "spots": [
         {
           "x": 5835,
@@ -1747,22 +1509,14 @@
       "byMonster": 1000,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 24,
     "fiesta": 1
   },
   {
     "serial": 25,
     "mapId": "GblDn01",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Concealed Peak",
     "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -1777,12 +1531,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": false
+      "linkOut": false
     },
     "respawn": {
       "city": "GblDn01",
-      "spotCount": 1,
       "spots": [
         {
           "x": 5095,
@@ -1820,22 +1572,14 @@
       "byMonster": 1000,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 25,
     "fiesta": 2
   },
   {
     "serial": 26,
     "mapId": "GoldCave",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Golden Cave",
     "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -1850,12 +1594,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Urg",
-      "spotCount": 1,
       "spots": [
         {
           "x": 5835,
@@ -1893,22 +1635,14 @@
       "byMonster": 1000,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 26,
     "fiesta": 2
   },
   {
     "serial": 27,
     "mapId": "CemDn01",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Graveyard of the Dead",
     "isKq": false,
-    "kq": 0,
-    "width": 512,
-    "height": 512,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -1923,12 +1657,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": false
+      "linkOut": false
     },
     "respawn": {
       "city": "CemDn01",
-      "spotCount": 1,
       "spots": [
         {
           "x": 8029,
@@ -1966,22 +1698,14 @@
       "byMonster": 1000,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 27,
     "fiesta": 0
   },
   {
     "serial": 28,
     "mapId": "ElfDn01",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Land of Trials",
     "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -1996,12 +1720,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": false
+      "linkOut": false
     },
     "respawn": {
       "city": "ElfDn01",
-      "spotCount": 1,
       "spots": [
         {
           "x": 2660,
@@ -2039,22 +1761,14 @@
       "byMonster": 1000,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 28,
     "fiesta": 0
   },
   {
     "serial": 29,
     "mapId": "ValDn01",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Marlone Clan's Hideout",
     "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -2069,12 +1783,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": false
+      "linkOut": false
     },
     "respawn": {
       "city": "ValDn01",
-      "spotCount": 1,
       "spots": [
         {
           "x": 1159,
@@ -2112,22 +1824,14 @@
       "byMonster": 1000,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 29,
     "fiesta": 0
   },
   {
     "serial": 30,
     "mapId": "PriDn01",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Bonds of Darkness",
     "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -2142,12 +1846,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": false
+      "linkOut": false
     },
     "respawn": {
       "city": "PriDn01",
-      "spotCount": 1,
       "spots": [
         {
           "x": 12208,
@@ -2185,22 +1887,14 @@
       "byMonster": 1000,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 30,
     "fiesta": 1
   },
   {
     "serial": 31,
     "mapId": "ForDn01",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Trumpy Remains",
     "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -2215,12 +1909,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": false
+      "linkOut": false
     },
     "respawn": {
       "city": "ForDn01",
-      "spotCount": 1,
       "spots": [
         {
           "x": 5825,
@@ -2258,22 +1950,14 @@
       "byMonster": 1000,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 31,
     "fiesta": 2
   },
   {
     "serial": 32,
     "mapId": "FireDn01",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Guardian's Holy Shrine",
     "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -2288,12 +1972,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": false
+      "linkOut": false
     },
     "respawn": {
       "city": "FireDn01",
-      "spotCount": 1,
       "spots": [
         {
           "x": 6358,
@@ -2331,22 +2013,14 @@
       "byMonster": 1000,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 32,
     "fiesta": 2
   },
   {
     "serial": 33,
     "mapId": "SwaDn01",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Tear's Marsh",
     "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -2361,12 +2035,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": false
+      "linkOut": false
     },
     "respawn": {
       "city": "SwaDn01",
-      "spotCount": 1,
       "spots": [
         {
           "x": 6183,
@@ -2404,22 +2076,14 @@
       "byMonster": 1000,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 33,
     "fiesta": 1
   },
   {
     "serial": 34,
     "mapId": "UrgSwa01",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Dawning Marsh",
     "isKq": false,
-    "kq": 0,
-    "width": 512,
-    "height": 512,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -2434,12 +2098,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Urg",
-      "spotCount": 1,
       "spots": [
         {
           "x": 5835,
@@ -2477,22 +2139,14 @@
       "byMonster": 1000,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 34,
     "fiesta": 0
   },
   {
     "serial": 35,
     "mapId": "EldPri02",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Scaffold Execution ground",
     "isKq": false,
-    "kq": 0,
-    "width": 512,
-    "height": 512,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -2507,12 +2161,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "EldPri02",
-      "spotCount": 1,
       "spots": [
         {
           "x": 2812,
@@ -2550,22 +2202,14 @@
       "byMonster": 1000,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 35,
     "fiesta": 0
   },
   {
     "serial": 36,
     "mapId": "EldGbl02",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Sandy Hill",
     "isKq": false,
-    "kq": 0,
-    "width": 512,
-    "height": 512,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -2580,12 +2224,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "EldGbl02",
-      "spotCount": 1,
       "spots": [
         {
           "x": 9130,
@@ -2623,22 +2265,14 @@
       "byMonster": 1000,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 36,
     "fiesta": 1
   },
   {
     "serial": 37,
     "mapId": "Linkfield01",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Dark Passage II",
     "isKq": false,
-    "kq": 0,
-    "width": 512,
-    "height": 512,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -2653,12 +2287,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Linkfield01",
-      "spotCount": 1,
       "spots": [
         {
           "x": 3687,
@@ -2696,22 +2328,14 @@
       "byMonster": 1000,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 37,
     "fiesta": 1
   },
   {
     "serial": 38,
     "mapId": "Linkfield02",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Dark Passage I",
     "isKq": false,
-    "kq": 0,
-    "width": 512,
-    "height": 512,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -2726,12 +2350,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Linkfield02",
-      "spotCount": 1,
       "spots": [
         {
           "x": 3074,
@@ -2769,22 +2391,14 @@
       "byMonster": 1000,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 38,
     "fiesta": 1
   },
   {
     "serial": 39,
     "mapId": "BFGate01",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Forest Perimeter",
     "isKq": false,
-    "kq": 0,
-    "width": 512,
-    "height": 512,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -2799,12 +2413,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Eld",
-      "spotCount": 1,
       "spots": [
         {
           "x": 14618,
@@ -2842,22 +2454,14 @@
       "byMonster": 1000,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 39,
     "fiesta": 0
   },
   {
     "serial": 40,
     "mapId": "BFGate02",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Forest Perimeter",
     "isKq": false,
-    "kq": 0,
-    "width": 512,
-    "height": 512,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -2872,12 +2476,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Urg",
-      "spotCount": 1,
       "spots": [
         {
           "x": 5835,
@@ -2915,22 +2517,14 @@
       "byMonster": 1000,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 40,
     "fiesta": 0
   },
   {
     "serial": 41,
     "mapId": "Urg_Alruin",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Alberstol Ruins",
     "isKq": false,
-    "kq": 0,
-    "width": 512,
-    "height": 512,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -2945,12 +2539,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Urg_Alruin",
-      "spotCount": 1,
       "spots": [
         {
           "x": 6721,
@@ -2988,22 +2580,14 @@
       "byMonster": 1000,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 41,
     "fiesta": 1
   },
   {
     "serial": 42,
     "mapId": "IDGate01",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Secret Basement",
     "isKq": false,
-    "kq": 0,
-    "width": 512,
-    "height": 512,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -3018,12 +2602,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": true
+      "linkOut": false
     },
     "respawn": {
       "city": "RouN",
-      "spotCount": 1,
       "spots": [
         {
           "x": 6980,
@@ -3061,22 +2643,14 @@
       "byMonster": 1000,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 42,
     "fiesta": 2
   },
   {
     "serial": 43,
     "mapId": "BerKal01",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Kahal Plain",
     "isKq": false,
-    "kq": 0,
-    "width": 512,
-    "height": 512,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -3091,12 +2665,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Adl",
-      "spotCount": 1,
       "spots": [
         {
           "x": 11696,
@@ -3134,22 +2706,14 @@
       "byMonster": 1000,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 43,
     "fiesta": 0
   },
   {
     "serial": 44,
     "mapId": "Bera",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Bera",
     "isKq": false,
-    "kq": 0,
-    "width": 512,
-    "height": 512,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -3164,12 +2728,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Bera",
-      "spotCount": 1,
       "spots": [
         {
           "x": 6532,
@@ -3207,22 +2769,14 @@
       "byMonster": 1000,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 44,
     "fiesta": 0
   },
   {
     "serial": 45,
     "mapId": "UrgDark01",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Dark Land",
     "isKq": false,
-    "kq": 0,
-    "width": 512,
-    "height": 512,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -3237,12 +2791,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Urg_Alruin",
-      "spotCount": 1,
       "spots": [
         {
           "x": 6721,
@@ -3280,22 +2832,14 @@
       "byMonster": 1000,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 45,
     "fiesta": 2
   },
   {
     "serial": 46,
     "mapId": "AlDn01",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Origin of Life Tree",
     "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 7000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -3310,12 +2854,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "AlDn01",
-      "spotCount": 1,
       "spots": [
         {
           "x": 11356,
@@ -3353,22 +2895,14 @@
       "byMonster": 1000,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 46,
     "fiesta": 0
   },
   {
     "serial": 47,
     "mapId": "ValDn02",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Abysmal Cave",
     "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 10000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -3383,12 +2917,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": false
+      "linkOut": false
     },
     "respawn": {
       "city": "ValDn02",
-      "spotCount": 1,
       "spots": [
         {
           "x": 1159,
@@ -3426,22 +2958,14 @@
       "byMonster": 1000,
       "byPlayer": 1000
     },
-    "usrSubLayer": 0,
-    "checkSum": 47,
     "fiesta": 0
   },
   {
     "serial": 48,
     "mapId": "CemDn02",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Grave of Abyss",
     "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 10000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -3456,12 +2980,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": false
+      "linkOut": false
     },
     "respawn": {
       "city": "CemDn02",
-      "spotCount": 1,
       "spots": [
         {
           "x": 5739,
@@ -3499,22 +3021,14 @@
       "byMonster": 1000,
       "byPlayer": 1000
     },
-    "usrSubLayer": 0,
-    "checkSum": 48,
     "fiesta": 0
   },
   {
     "serial": 49,
     "mapId": "GblDn02",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Abysmal Summit",
     "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 10000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -3529,12 +3043,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": false
+      "linkOut": false
     },
     "respawn": {
       "city": "GblDn02",
-      "spotCount": 1,
       "spots": [
         {
           "x": 5081,
@@ -3572,22 +3084,14 @@
       "byMonster": 1000,
       "byPlayer": 1000
     },
-    "usrSubLayer": 0,
-    "checkSum": 49,
     "fiesta": 2
   },
   {
     "serial": 50,
     "mapId": "ElfDn02",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Dungeon of the Abyss",
     "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 10000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -3602,12 +3106,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": false
+      "linkOut": false
     },
     "respawn": {
       "city": "ElfDn02",
-      "spotCount": 1,
       "spots": [
         {
           "x": 5230,
@@ -3645,22 +3147,14 @@
       "byMonster": 1000,
       "byPlayer": 1000
     },
-    "usrSubLayer": 0,
-    "checkSum": 50,
     "fiesta": 1
   },
   {
     "serial": 51,
     "mapId": "PriDn02",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Passage of the Abyss",
     "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 10000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -3675,12 +3169,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": false
+      "linkOut": false
     },
     "respawn": {
       "city": "PriDn02",
-      "spotCount": 1,
       "spots": [
         {
           "x": 5154,
@@ -3718,22 +3210,14 @@
       "byMonster": 1000,
       "byPlayer": 1000
     },
-    "usrSubLayer": 0,
-    "checkSum": 51,
     "fiesta": 0
   },
   {
     "serial": 52,
     "mapId": "ForDn02",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Relic of the Abyss",
     "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 10000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -3748,12 +3232,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": false
+      "linkOut": false
     },
     "respawn": {
       "city": "ForDn02",
-      "spotCount": 1,
       "spots": [
         {
           "x": 5825,
@@ -3791,22 +3273,14 @@
       "byMonster": 1000,
       "byPlayer": 1000
     },
-    "usrSubLayer": 0,
-    "checkSum": 52,
     "fiesta": 0
   },
   {
     "serial": 53,
     "mapId": "FireDn02",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Holy Place of the Abyss",
     "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 10000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -3821,12 +3295,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": false
+      "linkOut": false
     },
     "respawn": {
       "city": "FireDn02",
-      "spotCount": 1,
       "spots": [
         {
           "x": 6358,
@@ -3864,22 +3336,14 @@
       "byMonster": 1000,
       "byPlayer": 1000
     },
-    "usrSubLayer": 0,
-    "checkSum": 53,
     "fiesta": 1
   },
   {
     "serial": 54,
     "mapId": "SwaDn02",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Abyss Marsh",
     "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -3894,12 +3358,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": false
+      "linkOut": false
     },
     "respawn": {
       "city": "SwaDn02",
-      "spotCount": 1,
       "spots": [
         {
           "x": 6183,
@@ -3937,22 +3399,14 @@
       "byMonster": 1000,
       "byPlayer": 1000
     },
-    "usrSubLayer": 0,
-    "checkSum": 54,
     "fiesta": 2
   },
   {
     "serial": 55,
     "mapId": "R_Helga01",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Helga's Tomb",
     "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 10000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 2,
@@ -3967,12 +3421,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "EldSleep01",
-      "spotCount": 1,
       "spots": [
         {
           "x": 8590,
@@ -4010,22 +3462,14 @@
       "byMonster": 1000,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 55,
     "fiesta": 2
   },
   {
     "serial": 56,
     "mapId": "AdlThorn01",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Thorn Cave",
     "isKq": false,
-    "kq": 0,
-    "width": 512,
-    "height": 512,
     "immortalSec": 10000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 2,
@@ -4040,12 +3484,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Adl",
-      "spotCount": 1,
       "spots": [
         {
           "x": 11696,
@@ -4083,22 +3525,14 @@
       "byMonster": 1000,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 56,
     "fiesta": 1
   },
   {
     "serial": 106,
     "mapId": "B_Cracker",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Malephar's Lair",
     "isKq": false,
-    "kq": 0,
-    "width": 128,
-    "height": 128,
     "immortalSec": 10000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 2,
@@ -4113,12 +3547,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Urg_Alruin",
-      "spotCount": 1,
       "spots": [
         {
           "x": 6721,
@@ -4156,22 +3588,14 @@
       "byMonster": 1000,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 106,
     "fiesta": 1
   },
   {
     "serial": 58,
     "mapId": "KDPrtShip",
-    "subFrom": "00",
-    "subTo": "09",
     "name": "Captain Mara's Pirate Ship",
     "isKq": true,
-    "kq": 1,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -4186,12 +3610,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": true
+      "linkOut": false
     },
     "respawn": {
       "city": "Gate",
-      "spotCount": 1,
       "spots": [
         {
           "x": 1487,
@@ -4229,22 +3651,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 58,
     "fiesta": 3
   },
   {
     "serial": 59,
     "mapId": "KDEddyHill",
-    "subFrom": "00",
-    "subTo": "09",
     "name": "Cyclone Hill",
     "isKq": true,
-    "kq": 1,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -4259,12 +3673,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": true
+      "linkOut": false
     },
     "respawn": {
       "city": "Gate",
-      "spotCount": 1,
       "spots": [
         {
           "x": 1487,
@@ -4302,22 +3714,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 59,
     "fiesta": 3
   },
   {
     "serial": 60,
     "mapId": "KDTrDn",
-    "subFrom": "00",
-    "subTo": "09",
     "name": "Adventurer Dungeon",
     "isKq": true,
-    "kq": 1,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -4332,12 +3736,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": true
+      "linkOut": false
     },
     "respawn": {
       "city": "Gate",
-      "spotCount": 1,
       "spots": [
         {
           "x": 1487,
@@ -4375,22 +3777,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 60,
     "fiesta": 3
   },
   {
     "serial": 61,
     "mapId": "KDUnHall",
-    "subFrom": "00",
-    "subTo": "09",
     "name": "Underground Square",
     "isKq": true,
-    "kq": 1,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -4405,12 +3799,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": true
+      "linkOut": false
     },
     "respawn": {
       "city": "Gate",
-      "spotCount": 1,
       "spots": [
         {
           "x": 1487,
@@ -4448,22 +3840,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 61,
     "fiesta": 3
   },
   {
     "serial": 62,
     "mapId": "KDEnMaze",
-    "subFrom": "00",
-    "subTo": "09",
     "name": "Endless Maze",
     "isKq": true,
-    "kq": 1,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -4478,12 +3862,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": true
+      "linkOut": false
     },
     "respawn": {
       "city": "Gate",
-      "spotCount": 1,
       "spots": [
         {
           "x": 1487,
@@ -4521,22 +3903,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 62,
     "fiesta": 3
   },
   {
     "serial": 63,
     "mapId": "KDGoldHill",
-    "subFrom": "00",
-    "subTo": "09",
     "name": "Golden Hill",
     "isKq": true,
-    "kq": 1,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -4551,12 +3925,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": true
+      "linkOut": false
     },
     "respawn": {
       "city": "Gate",
-      "spotCount": 1,
       "spots": [
         {
           "x": 1487,
@@ -4594,22 +3966,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 63,
     "fiesta": 3
   },
   {
     "serial": 64,
     "mapId": "KDMDragon",
-    "subFrom": "00",
-    "subTo": "09",
     "name": "Mini Dragon",
     "isKq": true,
-    "kq": 1,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -4624,12 +3988,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": true
+      "linkOut": false
     },
     "respawn": {
       "city": "Gate",
-      "spotCount": 1,
       "spots": [
         {
           "x": 1487,
@@ -4667,22 +4029,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 64,
     "fiesta": 3
   },
   {
     "serial": 65,
     "mapId": "KDKingkong",
-    "subFrom": "00",
-    "subTo": "09",
     "name": "King Kong Phino's Mess",
     "isKq": true,
-    "kq": 1,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -4697,12 +4051,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": true
+      "linkOut": false
     },
     "respawn": {
       "city": "Gate",
-      "spotCount": 1,
       "spots": [
         {
           "x": 1487,
@@ -4740,22 +4092,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 65,
     "fiesta": 3
   },
   {
     "serial": 66,
     "mapId": "KDHero",
-    "subFrom": "100",
-    "subTo": "103",
     "name": "Warrior's Hall of Trials",
     "isKq": true,
-    "kq": 1,
-    "width": 256,
-    "height": 256,
     "immortalSec": 10000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 2,
@@ -4770,12 +4114,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": true
+      "linkOut": false
     },
     "respawn": {
       "city": "Gate",
-      "spotCount": 1,
       "spots": [
         {
           "x": 1487,
@@ -4813,22 +4155,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 66,
     "fiesta": 3
   },
   {
     "serial": 67,
     "mapId": "KDHero",
-    "subFrom": "200",
-    "subTo": "203",
     "name": "Warrior's Hall of Trials",
     "isKq": true,
-    "kq": 1,
-    "width": 256,
-    "height": 256,
     "immortalSec": 10000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 2,
@@ -4843,12 +4177,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": true
+      "linkOut": false
     },
     "respawn": {
       "city": "Gate",
-      "spotCount": 1,
       "spots": [
         {
           "x": 1487,
@@ -4886,22 +4218,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 67,
     "fiesta": 3
   },
   {
     "serial": 68,
     "mapId": "KDHero",
-    "subFrom": "300",
-    "subTo": "303",
     "name": "Warrior's Hall of Trials",
     "isKq": true,
-    "kq": 1,
-    "width": 256,
-    "height": 256,
     "immortalSec": 10000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 2,
@@ -4916,12 +4240,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": true
+      "linkOut": false
     },
     "respawn": {
       "city": "Gate",
-      "spotCount": 1,
       "spots": [
         {
           "x": 1487,
@@ -4959,22 +4281,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 68,
     "fiesta": 3
   },
   {
     "serial": 69,
     "mapId": "KDHero",
-    "subFrom": "400",
-    "subTo": "403",
     "name": "Warrior's Hall of Trials",
     "isKq": true,
-    "kq": 1,
-    "width": 256,
-    "height": 256,
     "immortalSec": 10000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 2,
@@ -4989,12 +4303,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": true
+      "linkOut": false
     },
     "respawn": {
       "city": "Gate",
-      "spotCount": 1,
       "spots": [
         {
           "x": 1487,
@@ -5032,22 +4344,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 69,
     "fiesta": 3
   },
   {
     "serial": 70,
     "mapId": "KDHero",
-    "subFrom": "500",
-    "subTo": "503",
     "name": "Warrior's Hall of Trials",
     "isKq": true,
-    "kq": 1,
-    "width": 256,
-    "height": 256,
     "immortalSec": 10000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 2,
@@ -5062,12 +4366,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": true
+      "linkOut": false
     },
     "respawn": {
       "city": "Gate",
-      "spotCount": 1,
       "spots": [
         {
           "x": 1487,
@@ -5105,22 +4407,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 70,
     "fiesta": 3
   },
   {
     "serial": 71,
     "mapId": "KDHero",
-    "subFrom": "600",
-    "subTo": "603",
     "name": "Warrior's Hall of Trials",
     "isKq": true,
-    "kq": 1,
-    "width": 256,
-    "height": 256,
     "immortalSec": 10000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 2,
@@ -5135,12 +4429,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": true
+      "linkOut": false
     },
     "respawn": {
       "city": "Gate",
-      "spotCount": 1,
       "spots": [
         {
           "x": 1487,
@@ -5178,22 +4470,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 71,
     "fiesta": 3
   },
   {
     "serial": 72,
     "mapId": "KDHero",
-    "subFrom": "700",
-    "subTo": "703",
     "name": "Warrior's Hall of Trials",
     "isKq": true,
-    "kq": 1,
-    "width": 256,
-    "height": 256,
     "immortalSec": 10000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 2,
@@ -5208,12 +4492,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": true
+      "linkOut": false
     },
     "respawn": {
       "city": "Gate",
-      "spotCount": 1,
       "spots": [
         {
           "x": 1487,
@@ -5251,22 +4533,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 72,
     "fiesta": 3
   },
   {
     "serial": 73,
     "mapId": "KDHero",
-    "subFrom": "800",
-    "subTo": "803",
     "name": "Warrior's Hall of Trials",
     "isKq": true,
-    "kq": 1,
-    "width": 256,
-    "height": 256,
     "immortalSec": 10000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 2,
@@ -5281,12 +4555,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": true
+      "linkOut": false
     },
     "respawn": {
       "city": "Gate",
-      "spotCount": 1,
       "spots": [
         {
           "x": 1487,
@@ -5324,22 +4596,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 73,
     "fiesta": 3
   },
   {
     "serial": 74,
     "mapId": "KDHoneying",
-    "subFrom": "00",
-    "subTo": "09",
     "name": "Grumpy Giant Honeying",
     "isKq": true,
-    "kq": 1,
-    "width": 256,
-    "height": 256,
     "immortalSec": 10000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -5354,12 +4618,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": true
+      "linkOut": false
     },
     "respawn": {
       "city": "Gate",
-      "spotCount": 1,
       "spots": [
         {
           "x": 1487,
@@ -5397,22 +4659,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 74,
     "fiesta": 3
   },
   {
     "serial": 75,
     "mapId": "KDSpider",
-    "subFrom": "00",
-    "subTo": "09",
     "name": "Assault of Spiders",
     "isKq": true,
-    "kq": 1,
-    "width": 256,
-    "height": 256,
     "immortalSec": 10000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -5427,12 +4681,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": true
+      "linkOut": false
     },
     "respawn": {
       "city": "Gate",
-      "spotCount": 1,
       "spots": [
         {
           "x": 1487,
@@ -5470,22 +4722,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 75,
     "fiesta": 3
   },
   {
     "serial": 76,
     "mapId": "KDHDragon",
-    "subFrom": "00",
-    "subTo": "09",
     "name": "Mini Dragon (Hardcore)",
     "isKq": true,
-    "kq": 1,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -5500,12 +4744,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": true
+      "linkOut": false
     },
     "respawn": {
       "city": "Gate",
-      "spotCount": 1,
       "spots": [
         {
           "x": 1487,
@@ -5543,22 +4785,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 76,
     "fiesta": 3
   },
   {
     "serial": 77,
     "mapId": "KDAntiHenis",
-    "subFrom": "0",
-    "subTo": "9",
     "name": "Anti-Henneath Hideout",
     "isKq": true,
-    "kq": 1,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -5573,12 +4807,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": true
+      "linkOut": false
     },
     "respawn": {
       "city": "Gate",
-      "spotCount": 1,
       "spots": [
         {
           "x": 1487,
@@ -5616,22 +4848,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 77,
     "fiesta": 3
   },
   {
     "serial": 78,
     "mapId": "KDHBat1",
-    "subFrom": "100",
-    "subTo": "103",
     "name": "Warrior Arena",
     "isKq": true,
-    "kq": 1,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -5646,12 +4870,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": true
+      "linkOut": false
     },
     "respawn": {
       "city": "Gate",
-      "spotCount": 4,
       "spots": [
         {
           "x": 1487,
@@ -5689,22 +4911,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 78,
     "fiesta": 3
   },
   {
     "serial": 79,
     "mapId": "KDHBat1",
-    "subFrom": "200",
-    "subTo": "203",
     "name": "Warrior Arena",
     "isKq": true,
-    "kq": 1,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -5719,12 +4933,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": true
+      "linkOut": false
     },
     "respawn": {
       "city": "Gate",
-      "spotCount": 4,
       "spots": [
         {
           "x": 1487,
@@ -5762,22 +4974,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 79,
     "fiesta": 3
   },
   {
     "serial": 80,
     "mapId": "KDHBat1",
-    "subFrom": "300",
-    "subTo": "303",
     "name": "Warrior Arena",
     "isKq": true,
-    "kq": 1,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -5792,12 +4996,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": true
+      "linkOut": false
     },
     "respawn": {
       "city": "Gate",
-      "spotCount": 4,
       "spots": [
         {
           "x": 1487,
@@ -5835,22 +5037,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 80,
     "fiesta": 3
   },
   {
     "serial": 81,
     "mapId": "KDHBat1",
-    "subFrom": "400",
-    "subTo": "403",
     "name": "Warrior Arena",
     "isKq": true,
-    "kq": 1,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -5865,12 +5059,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": true
+      "linkOut": false
     },
     "respawn": {
       "city": "Gate",
-      "spotCount": 4,
       "spots": [
         {
           "x": 1487,
@@ -5908,22 +5100,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 81,
     "fiesta": 3
   },
   {
     "serial": 120,
     "mapId": "KDHBat1",
-    "subFrom": "500",
-    "subTo": "503",
     "name": "Warrior Arena",
     "isKq": true,
-    "kq": 1,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -5938,12 +5122,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": true
+      "linkOut": false
     },
     "respawn": {
       "city": "Gate",
-      "spotCount": 4,
       "spots": [
         {
           "x": 1487,
@@ -5981,22 +5163,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 120,
     "fiesta": 3
   },
   {
     "serial": 82,
     "mapId": "KDVictor",
-    "subFrom": "00",
-    "subTo": "03",
     "name": "Inheritos of Bijou",
     "isKq": true,
-    "kq": 1,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -6011,12 +5185,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": true
+      "linkOut": false
     },
     "respawn": {
       "city": "Gate",
-      "spotCount": 1,
       "spots": [
         {
           "x": 1487,
@@ -6054,22 +5226,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 82,
     "fiesta": 3
   },
   {
     "serial": 83,
     "mapId": "GuildT01",
-    "subFrom": "00",
-    "subTo": "15",
     "name": "Guild Tournament 1",
     "isKq": false,
-    "kq": 0,
-    "width": 128,
-    "height": 128,
     "immortalSec": 10000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 2,
@@ -6084,12 +5248,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": true
+      "linkOut": false
     },
     "respawn": {
       "city": "RouN",
-      "spotCount": 1,
       "spots": [
         {
           "x": 6980,
@@ -6127,22 +5289,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 83,
     "fiesta": 1
   },
   {
     "serial": 84,
     "mapId": "GuildT02",
-    "subFrom": "00",
-    "subTo": "15",
     "name": "Guild Tournament 2",
     "isKq": false,
-    "kq": 0,
-    "width": 128,
-    "height": 128,
     "immortalSec": 10000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 2,
@@ -6157,12 +5311,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": true
+      "linkOut": false
     },
     "respawn": {
       "city": "RouN",
-      "spotCount": 1,
       "spots": [
         {
           "x": 6980,
@@ -6200,22 +5352,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 84,
     "fiesta": 2
   },
   {
     "serial": 85,
     "mapId": "GuildT03",
-    "subFrom": "00",
-    "subTo": "15",
     "name": "Guild Tournament 3",
     "isKq": false,
-    "kq": 0,
-    "width": 128,
-    "height": 128,
     "immortalSec": 10000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 2,
@@ -6230,12 +5374,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": true
+      "linkOut": false
     },
     "respawn": {
       "city": "RouN",
-      "spotCount": 1,
       "spots": [
         {
           "x": 6980,
@@ -6273,22 +5415,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 85,
     "fiesta": 0
   },
   {
     "serial": 86,
     "mapId": "GuildT04",
-    "subFrom": "00",
-    "subTo": "09",
     "name": "Fields of Glory",
     "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 10000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 2,
@@ -6303,12 +5437,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": true
+      "linkOut": false
     },
     "respawn": {
       "city": "RouN",
-      "spotCount": 2,
       "spots": [
         {
           "x": 1795,
@@ -6346,22 +5478,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 86,
     "fiesta": 0
   },
   {
     "serial": 87,
     "mapId": "Fbattle01",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Free Battle Zone 1",
     "isKq": false,
-    "kq": 0,
-    "width": 128,
-    "height": 128,
     "immortalSec": 10000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 2,
@@ -6376,12 +5500,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": false
+      "linkOut": false
     },
     "respawn": {
       "city": "Fbattle01",
-      "spotCount": 4,
       "spots": [
         {
           "x": 572,
@@ -6419,22 +5541,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 87,
     "fiesta": 1
   },
   {
     "serial": 88,
     "mapId": "Fbattle02",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Free Battle Zone 2",
     "isKq": false,
-    "kq": 0,
-    "width": 128,
-    "height": 128,
     "immortalSec": 10000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 2,
@@ -6449,12 +5563,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": false
+      "linkOut": false
     },
     "respawn": {
       "city": "Fbattle02",
-      "spotCount": 4,
       "spots": [
         {
           "x": 3225,
@@ -6492,22 +5604,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 88,
     "fiesta": 2
   },
   {
     "serial": 89,
     "mapId": "Fbattle03",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Free Battle Zone 3",
     "isKq": false,
-    "kq": 0,
-    "width": 128,
-    "height": 128,
     "immortalSec": 10000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 2,
@@ -6522,12 +5626,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": false
+      "linkOut": false
     },
     "respawn": {
       "city": "Fbattle03",
-      "spotCount": 4,
       "spots": [
         {
           "x": 2374,
@@ -6565,22 +5667,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 89,
     "fiesta": 0
   },
   {
     "serial": 90,
     "mapId": "OX_field",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "OX Quiz Field",
     "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 10000,
-    "scriptName": "Map/OXFieldInit",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 2,
@@ -6595,12 +5689,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": false
+      "linkOut": false
     },
     "respawn": {
       "city": "Eld",
-      "spotCount": 1,
       "spots": [
         {
           "x": 14618,
@@ -6638,22 +5730,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 90,
     "fiesta": 2
   },
   {
     "serial": 91,
     "mapId": "MHBasic",
-    "subFrom": "0",
-    "subTo": "3",
     "name": "basic room",
     "isKq": true,
-    "kq": 2,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -6668,12 +5752,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": true
+      "linkOut": false
     },
     "respawn": {
       "city": "Eld",
-      "spotCount": 1,
       "spots": [
         {
           "x": 14618,
@@ -6711,22 +5793,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 91,
     "fiesta": 99
   },
   {
     "serial": 92,
     "mapId": "Wedding",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Blessed Garden",
     "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 10000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 2,
@@ -6741,12 +5815,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": true
+      "linkOut": false
     },
     "respawn": {
       "city": "Eld",
-      "spotCount": 1,
       "spots": [
         {
           "x": 14618,
@@ -6784,22 +5856,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 92,
     "fiesta": 1
   },
   {
     "serial": 93,
     "mapId": "QField01",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Cave of memories",
     "isKq": false,
-    "kq": 0,
-    "width": 64,
-    "height": 64,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -6814,12 +5878,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Urg",
-      "spotCount": 1,
       "spots": [
         {
           "x": 5835,
@@ -6857,22 +5919,14 @@
       "byMonster": 1000,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 93,
     "fiesta": 0
   },
   {
     "serial": 94,
     "mapId": "QField02",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Dangerous cave",
     "isKq": false,
-    "kq": 0,
-    "width": 64,
-    "height": 64,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -6887,12 +5941,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Urg",
-      "spotCount": 1,
       "spots": [
         {
           "x": 5835,
@@ -6930,22 +5982,14 @@
       "byMonster": 1000,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 94,
     "fiesta": 0
   },
   {
     "serial": 95,
     "mapId": "QField03",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Cave of Fever",
     "isKq": false,
-    "kq": 0,
-    "width": 64,
-    "height": 64,
     "immortalSec": 7000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -6960,12 +6004,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "UrgFire01",
-      "spotCount": 1,
       "spots": [
         {
           "x": 2411,
@@ -7003,22 +6045,14 @@
       "byMonster": 1000,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 95,
     "fiesta": 0
   },
   {
     "serial": 96,
     "mapId": "QField04",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Burning Cave",
     "isKq": false,
-    "kq": 0,
-    "width": 64,
-    "height": 64,
     "immortalSec": 7000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -7033,12 +6067,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "UrgFire01",
-      "spotCount": 1,
       "spots": [
         {
           "x": 2411,
@@ -7076,22 +6108,14 @@
       "byMonster": 1000,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 96,
     "fiesta": 0
   },
   {
     "serial": 97,
     "mapId": "Job1_Dn01",
-    "subFrom": "00",
-    "subTo": "10",
     "name": "Shadow Dungeon",
     "isKq": true,
-    "kq": 1,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -7106,12 +6130,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": true
+      "linkOut": false
     },
     "respawn": {
       "city": "RouVal01",
-      "spotCount": 1,
       "spots": [
         {
           "x": 12807,
@@ -7149,22 +6171,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 97,
     "fiesta": 1
   },
   {
     "serial": 98,
     "mapId": "Rou",
-    "subFrom": "00",
-    "subTo": "19",
     "name": "Roumen",
     "isKq": true,
-    "kq": 1,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -7179,12 +6193,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": true
+      "linkOut": false
     },
     "respawn": {
       "city": "RouVal01",
-      "spotCount": 1,
       "spots": [
         {
           "x": 12807,
@@ -7222,22 +6234,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 98,
     "fiesta": 1
   },
   {
     "serial": 99,
     "mapId": "Job2_Dn01",
-    "subFrom": "00",
-    "subTo": "19",
     "name": "Forgotten Ruins",
     "isKq": true,
-    "kq": 1,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -7252,12 +6256,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": true
+      "linkOut": false
     },
     "respawn": {
       "city": "RouN",
-      "spotCount": 1,
       "spots": [
         {
           "x": 7176,
@@ -7295,22 +6297,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 99,
     "fiesta": 0
   },
   {
     "serial": 100,
     "mapId": "Job2_Dn02",
-    "subFrom": "00",
-    "subTo": "19",
     "name": "Elven Forest",
     "isKq": true,
-    "kq": 1,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -7325,12 +6319,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": true
+      "linkOut": false
     },
     "respawn": {
       "city": "RouN",
-      "spotCount": 1,
       "spots": [
         {
           "x": 7176,
@@ -7368,22 +6360,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 100,
     "fiesta": 0
   },
   {
     "serial": 101,
     "mapId": "Rou",
-    "subFrom": "50",
-    "subTo": "51",
     "name": "Roumen",
     "isKq": true,
-    "kq": 1,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -7398,12 +6382,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 4134,
@@ -7441,22 +6423,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 101,
     "fiesta": 1
   },
   {
     "serial": 102,
     "mapId": "UrgDragon",
-    "subFrom": "00",
-    "subTo": "09",
     "name": "Dragon's Tomb",
     "isKq": true,
-    "kq": 3,
-    "width": 256,
-    "height": 256,
     "immortalSec": 10000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -7471,12 +6445,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": true
+      "linkOut": false
     },
     "respawn": {
       "city": "UrgFire01",
-      "spotCount": 1,
       "spots": [
         {
           "x": 22171,
@@ -7514,22 +6486,14 @@
       "byMonster": 1000,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 102,
     "fiesta": 3
   },
   {
     "serial": 103,
     "mapId": "Tower01",
-    "subFrom": "00",
-    "subTo": "09",
     "name": "Tower of Iyzel",
     "isKq": true,
-    "kq": 3,
-    "width": 256,
-    "height": 256,
     "immortalSec": 10000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -7544,12 +6508,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": true
+      "linkOut": false
     },
     "respawn": {
       "city": "RouVal01",
-      "spotCount": 1,
       "spots": [
         {
           "x": 4661,
@@ -7587,22 +6549,14 @@
       "byMonster": 1000,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 103,
     "fiesta": 3
   },
   {
     "serial": 104,
     "mapId": "Tower02",
-    "subFrom": "00",
-    "subTo": "09",
     "name": "Crystal Castle",
     "isKq": true,
-    "kq": 3,
-    "width": 256,
-    "height": 256,
     "immortalSec": 10000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -7617,12 +6571,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": true
+      "linkOut": false
     },
     "respawn": {
       "city": "Urg",
-      "spotCount": 1,
       "spots": [
         {
           "x": 9376,
@@ -7660,22 +6612,14 @@
       "byMonster": 1000,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 104,
     "fiesta": 3
   },
   {
     "serial": 105,
     "mapId": "Leviathan",
-    "subFrom": "00",
-    "subTo": "09",
     "name": "Leviathan Nest",
     "isKq": true,
-    "kq": 3,
-    "width": 256,
-    "height": 256,
     "immortalSec": 10000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -7690,12 +6634,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": true
+      "linkOut": false
     },
     "respawn": {
       "city": "IDGate01",
-      "spotCount": 1,
       "spots": [
         {
           "x": 1004,
@@ -7733,22 +6675,14 @@
       "byMonster": 1000,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 105,
     "fiesta": 3
   },
   {
     "serial": 107,
     "mapId": "GBHouse",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Lucky House",
     "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 7000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -7763,12 +6697,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": false
+      "linkOut": false
     },
     "respawn": {
       "city": "RouN",
-      "spotCount": 1,
       "spots": [
         {
           "x": 6980,
@@ -7806,22 +6738,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 107,
     "fiesta": 3
   },
   {
     "serial": 108,
     "mapId": "AlDn02",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Tree of Abyss",
     "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 10000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -7836,12 +6760,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": false
+      "linkOut": false
     },
     "respawn": {
       "city": "AlDn02",
-      "spotCount": 1,
       "spots": [
         {
           "x": 11353,
@@ -7879,22 +6801,14 @@
       "byMonster": 1000,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 108,
     "fiesta": 2
   },
   {
     "serial": 109,
     "mapId": "BFGate03",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Forest Perimeter",
     "isKq": false,
-    "kq": 0,
-    "width": 512,
-    "height": 512,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -7909,12 +6823,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Urg_Alruin",
-      "spotCount": 1,
       "spots": [
         {
           "x": 6439,
@@ -7952,22 +6864,14 @@
       "byMonster": 1000,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 109,
     "fiesta": 0
   },
   {
     "serial": 110,
     "mapId": "Tower03",
-    "subFrom": "0",
-    "subTo": "9",
     "name": "Secret Laboratory",
     "isKq": true,
-    "kq": 3,
-    "width": 256,
-    "height": 256,
     "immortalSec": 10000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -7982,12 +6886,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": true
+      "linkOut": false
     },
     "respawn": {
       "city": "Urg_Alruin",
-      "spotCount": 1,
       "spots": [
         {
           "x": 21948,
@@ -8025,22 +6927,14 @@
       "byMonster": 1000,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 110,
     "fiesta": 1
   },
   {
     "serial": 111,
     "mapId": "BH_Helga",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Helga's Tomb (Hard)",
     "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 10000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 2,
@@ -8055,12 +6949,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Urg",
-      "spotCount": 1,
       "spots": [
         {
           "x": 5835,
@@ -8098,22 +6990,14 @@
       "byMonster": 1000,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 111,
     "fiesta": 2
   },
   {
     "serial": 112,
     "mapId": "BH_Cracker",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Malephar's Lair (Hard)",
     "isKq": false,
-    "kq": 0,
-    "width": 128,
-    "height": 128,
     "immortalSec": 10000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 2,
@@ -8128,12 +7012,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "UrgDark01",
-      "spotCount": 1,
       "spots": [
         {
           "x": 2436,
@@ -8171,22 +7053,14 @@
       "byMonster": 1000,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 112,
     "fiesta": 1
   },
   {
     "serial": 113,
     "mapId": "PsyIn",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Psiken Mansion",
     "isKq": false,
-    "kq": 0,
-    "width": 950,
-    "height": 475,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -8201,12 +7075,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": false
+      "linkOut": false
     },
     "respawn": {
       "city": "Adl",
-      "spotCount": 1,
       "spots": [
         {
           "x": 11696,
@@ -8244,22 +7116,14 @@
       "byMonster": 1000,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 113,
     "fiesta": 1
   },
   {
     "serial": 114,
     "mapId": "PsyOut",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Psiken Garden",
     "isKq": false,
-    "kq": 0,
-    "width": 950,
-    "height": 475,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -8274,12 +7138,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": false
+      "linkOut": false
     },
     "respawn": {
       "city": "Adl",
-      "spotCount": 1,
       "spots": [
         {
           "x": 11696,
@@ -8317,22 +7179,14 @@
       "byMonster": 1000,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 114,
     "fiesta": 1
   },
   {
     "serial": 115,
     "mapId": "AdlF",
-    "subFrom": "0",
-    "subTo": "4",
     "name": "Burning Adealia",
     "isKq": true,
-    "kq": 3,
-    "width": 412,
-    "height": 412,
     "immortalSec": 10000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -8347,12 +7201,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": true
+      "linkOut": false
     },
     "respawn": {
       "city": "AdlVal01",
-      "spotCount": 1,
       "spots": [
         {
           "x": 31733,
@@ -8390,22 +7242,14 @@
       "byMonster": 1000,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 115,
     "fiesta": 3
   },
   {
     "serial": 116,
     "mapId": "KDMine",
-    "subFrom": "00",
-    "subTo": "03",
     "name": "Hidden Mine",
     "isKq": true,
-    "kq": 1,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 0,
@@ -8420,12 +7264,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": true
+      "linkOut": false
     },
     "respawn": {
       "city": "Eld",
-      "spotCount": 1,
       "spots": [
         {
           "x": 2353,
@@ -8463,22 +7305,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 116,
     "fiesta": 2
   },
   {
     "serial": 117,
     "mapId": "Adl",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Adealia",
     "isKq": false,
-    "kq": 0,
-    "width": 950,
-    "height": 475,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -8493,12 +7327,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Adl",
-      "spotCount": 1,
       "spots": [
         {
           "x": 11696,
@@ -8536,22 +7368,14 @@
       "byMonster": 1000,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 117,
     "fiesta": 2
   },
   {
     "serial": 118,
     "mapId": "BFGate04",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Forest Perimeter",
     "isKq": false,
-    "kq": 0,
-    "width": 512,
-    "height": 512,
     "immortalSec": 7000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -8566,12 +7390,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Adl",
-      "spotCount": 1,
       "spots": [
         {
           "x": 11696,
@@ -8609,22 +7431,14 @@
       "byMonster": 1000,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 118,
     "fiesta": 0
   },
   {
     "serial": 119,
     "mapId": "PsyInDn02",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Abyss Mansion",
     "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 7000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -8639,12 +7453,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": false
+      "linkOut": false
     },
     "respawn": {
       "city": "PsyInDn02",
-      "spotCount": 1,
       "spots": [
         {
           "x": 11875,
@@ -8682,22 +7494,14 @@
       "byMonster": 1000,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 119,
     "fiesta": 2
   },
   {
     "serial": 121,
     "mapId": "WarN",
-    "subFrom": "00",
-    "subTo": "04",
     "name": "Devildom Territory",
     "isKq": true,
-    "kq": 3,
-    "width": 256,
-    "height": 256,
     "immortalSec": 10000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -8712,12 +7516,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": true
+      "linkOut": false
     },
     "respawn": {
       "city": "EldFor01",
-      "spotCount": 1,
       "spots": [
         {
           "x": 16015,
@@ -8755,22 +7557,14 @@
       "byMonster": 1000,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 121,
     "fiesta": 3
   },
   {
     "serial": 122,
     "mapId": "KDEgg",
-    "subFrom": "00",
-    "subTo": "09",
     "name": "Protect the Golden Egg",
     "isKq": true,
-    "kq": 1,
-    "width": 512,
-    "height": 512,
     "immortalSec": 10000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -8785,12 +7579,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": true
+      "linkOut": false
     },
     "respawn": {
       "city": "Eld",
-      "spotCount": 1,
       "spots": [
         {
           "x": 14618,
@@ -8828,22 +7620,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 122,
     "fiesta": 2
   },
   {
     "serial": 123,
     "mapId": "KDSpring",
-    "subFrom": "00",
-    "subTo": "03",
     "name": "Spring Battlefield",
     "isKq": true,
-    "kq": 1,
-    "width": 128,
-    "height": 128,
     "immortalSec": 10000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 0,
@@ -8858,12 +7642,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": true
+      "linkOut": false
     },
     "respawn": {
       "city": "Eld",
-      "spotCount": 1,
       "spots": [
         {
           "x": 16200,
@@ -8901,22 +7683,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 123,
     "fiesta": 2
   },
   {
     "serial": 124,
     "mapId": "Gate",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Gate Field",
     "isKq": false,
-    "kq": 0,
-    "width": 512,
-    "height": 512,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -8931,12 +7705,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "RouN",
-      "spotCount": 1,
       "spots": [
         {
           "x": 6980,
@@ -8974,22 +7746,14 @@
       "byMonster": 1000,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 124,
     "fiesta": 3
   },
   {
     "serial": 125,
     "mapId": "WarBL",
-    "subFrom": "00",
-    "subTo": "04",
     "name": "Devildom Mine",
     "isKq": true,
-    "kq": 3,
-    "width": 256,
-    "height": 256,
     "immortalSec": 10000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -9004,12 +7768,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": true
+      "linkOut": false
     },
     "respawn": {
       "city": "Linkfield01",
-      "spotCount": 1,
       "spots": [
         {
           "x": 2205,
@@ -9047,22 +7809,14 @@
       "byMonster": 1000,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 125,
     "fiesta": 3
   },
   {
     "serial": 127,
     "mapId": "WarH",
-    "subFrom": "00",
-    "subTo": "04",
     "name": "Devildom Fortress",
     "isKq": true,
-    "kq": 3,
-    "width": 256,
-    "height": 256,
     "immortalSec": 10000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -9077,12 +7831,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": true
+      "linkOut": false
     },
     "respawn": {
       "city": "UrgSwa01",
-      "spotCount": 1,
       "spots": [
         {
           "x": 17304,
@@ -9120,22 +7872,14 @@
       "byMonster": 1000,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 127,
     "fiesta": 0
   },
   {
     "serial": 126,
     "mapId": "RouT",
-    "subFrom": "00",
-    "subTo": "09",
     "name": "Roumen",
     "isKq": true,
-    "kq": 4,
-    "width": 256,
-    "height": 256,
     "immortalSec": 7000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 1,
       "pker": 1,
@@ -9150,12 +7894,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": true
+      "linkOut": false
     },
     "respawn": {
       "city": "RouN",
-      "spotCount": 1,
       "spots": [
         {
           "x": 6980,
@@ -9193,22 +7935,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 126,
     "fiesta": 2
   },
   {
     "serial": 131,
     "mapId": "KDGreenHill",
-    "subFrom": "0",
-    "subTo": "9",
     "name": "Rage of the Emperor Slime",
     "isKq": true,
-    "kq": 1,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -9223,12 +7957,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": true
+      "linkOut": false
     },
     "respawn": {
       "city": "Gate",
-      "spotCount": 1,
       "spots": [
         {
           "x": 1487,
@@ -9266,22 +7998,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 131,
     "fiesta": 3
   },
   {
     "serial": 133,
     "mapId": "WarL",
-    "subFrom": "00",
-    "subTo": "04",
     "name": "Devildom Barracks",
     "isKq": true,
-    "kq": 3,
-    "width": 256,
-    "height": 256,
     "immortalSec": 10000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -9296,12 +8020,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": true
+      "linkOut": false
     },
     "respawn": {
       "city": "EldGbl02",
-      "spotCount": 1,
       "spots": [
         {
           "x": 9762,
@@ -9339,22 +8061,14 @@
       "byMonster": 1000,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 133,
     "fiesta": 2
   },
   {
     "serial": 134,
     "mapId": "KDArena",
-    "subFrom": "100",
-    "subTo": "109",
     "name": "Arena",
     "isKq": true,
-    "kq": 1,
-    "width": 128,
-    "height": 128,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -9369,12 +8083,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": true
+      "linkOut": false
     },
     "respawn": {
       "city": "Gate",
-      "spotCount": 1,
       "spots": [
         {
           "x": 1487,
@@ -9412,22 +8124,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 134,
     "fiesta": 2
   },
   {
     "serial": 135,
     "mapId": "KDArena",
-    "subFrom": "200",
-    "subTo": "209",
     "name": "Arena",
     "isKq": true,
-    "kq": 1,
-    "width": 128,
-    "height": 128,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -9442,12 +8146,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": true
+      "linkOut": false
     },
     "respawn": {
       "city": "Gate",
-      "spotCount": 1,
       "spots": [
         {
           "x": 1487,
@@ -9485,22 +8187,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 135,
     "fiesta": 2
   },
   {
     "serial": 136,
     "mapId": "KDArena",
-    "subFrom": "300",
-    "subTo": "309",
     "name": "Arena",
     "isKq": true,
-    "kq": 1,
-    "width": 128,
-    "height": 128,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -9515,12 +8209,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": true
+      "linkOut": false
     },
     "respawn": {
       "city": "Gate",
-      "spotCount": 1,
       "spots": [
         {
           "x": 1487,
@@ -9558,22 +8250,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 136,
     "fiesta": 2
   },
   {
     "serial": 137,
     "mapId": "KDArena",
-    "subFrom": "400",
-    "subTo": "409",
     "name": "Arena",
     "isKq": true,
-    "kq": 1,
-    "width": 128,
-    "height": 128,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -9588,12 +8272,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": true
+      "linkOut": false
     },
     "respawn": {
       "city": "Gate",
-      "spotCount": 1,
       "spots": [
         {
           "x": 1487,
@@ -9631,22 +8313,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 137,
     "fiesta": 2
   },
   {
     "serial": 138,
     "mapId": "KDArena",
-    "subFrom": "500",
-    "subTo": "509",
     "name": "Arena",
     "isKq": true,
-    "kq": 1,
-    "width": 128,
-    "height": 128,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -9661,12 +8335,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": true
+      "linkOut": false
     },
     "respawn": {
       "city": "Gate",
-      "spotCount": 1,
       "spots": [
         {
           "x": 1487,
@@ -9704,22 +8376,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 138,
     "fiesta": 2
   },
   {
     "serial": 139,
     "mapId": "KDArena",
-    "subFrom": "600",
-    "subTo": "609",
     "name": "Arena",
     "isKq": true,
-    "kq": 1,
-    "width": 128,
-    "height": 128,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -9734,12 +8398,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": true
+      "linkOut": false
     },
     "respawn": {
       "city": "Gate",
-      "spotCount": 1,
       "spots": [
         {
           "x": 1487,
@@ -9777,22 +8439,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 139,
     "fiesta": 2
   },
   {
     "serial": 128,
     "mapId": "E_Olympic",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Ski Tournament Arena",
     "isKq": false,
-    "kq": 0,
-    "width": 512,
-    "height": 512,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 0,
@@ -9807,12 +8461,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": false
+      "linkOut": false
     },
     "respawn": {
       "city": "E_Olympic",
-      "spotCount": 1,
       "spots": [
         {
           "x": 5782,
@@ -9850,22 +8502,14 @@
       "byMonster": 1000,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 128,
     "fiesta": 1
   },
   {
     "serial": 141,
     "mapId": "KDWater",
-    "subFrom": "00",
-    "subTo": "04",
     "name": "Water Battlefield",
     "isKq": true,
-    "kq": 1,
-    "width": 256,
-    "height": 256,
     "immortalSec": 10000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 0,
@@ -9880,12 +8524,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": true
+      "linkOut": false
     },
     "respawn": {
       "city": "Gate",
-      "spotCount": 1,
       "spots": [
         {
           "x": 1487,
@@ -9923,22 +8565,14 @@
       "byMonster": 1000,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 141,
     "fiesta": 2
   },
   {
     "serial": 129,
     "mapId": "BerFrz01",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Kahal Snow Fields",
     "isKq": false,
-    "kq": 0,
-    "width": 512,
-    "height": 512,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -9953,12 +8587,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Bera",
-      "spotCount": 1,
       "spots": [
         {
           "x": 6532,
@@ -9996,22 +8628,14 @@
       "byMonster": 1000,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 129,
     "fiesta": 1
   },
   {
     "serial": 130,
     "mapId": "ArkDn01",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Arkroute",
     "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -10026,12 +8650,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Bera",
-      "spotCount": 1,
       "spots": [
         {
           "x": 6532,
@@ -10069,22 +8691,14 @@
       "byMonster": 1000,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 130,
     "fiesta": 0
   },
   {
     "serial": 142,
     "mapId": "Siren",
-    "subFrom": "00",
-    "subTo": "20",
     "name": "Siren's Castle",
     "isKq": true,
-    "kq": 3,
-    "width": 256,
-    "height": 256,
     "immortalSec": 10000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -10099,12 +8713,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": true
+      "linkOut": false
     },
     "respawn": {
       "city": "BerFrz01",
-      "spotCount": 1,
       "spots": [
         {
           "x": 25149,
@@ -10142,22 +8754,14 @@
       "byMonster": 1000,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 142,
     "fiesta": 2
   },
   {
     "serial": 143,
     "mapId": "ArkDn02",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Arkroute of the Abyss",
     "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -10172,12 +8776,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": false
+      "linkOut": false
     },
     "respawn": {
       "city": "ArkDn02",
-      "spotCount": 1,
       "spots": [
         {
           "x": 2442,
@@ -10215,22 +8817,14 @@
       "byMonster": 1000,
       "byPlayer": 1000
     },
-    "usrSubLayer": 0,
-    "checkSum": 143,
     "fiesta": 2
   },
   {
     "serial": 144,
     "mapId": "B_Albi",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "King Albireo's Hideout",
     "isKq": false,
-    "kq": 0,
-    "width": 64,
-    "height": 64,
     "immortalSec": 10000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 2,
@@ -10245,12 +8839,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "ArkDn01",
-      "spotCount": 1,
       "spots": [
         {
           "x": 5440,
@@ -10288,22 +8880,14 @@
       "byMonster": 1000,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 144,
     "fiesta": 2
   },
   {
     "serial": 145,
     "mapId": "BerVale01",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Kahal Canyon",
     "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -10318,12 +8902,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Bera",
-      "spotCount": 1,
       "spots": [
         {
           "x": 6532,
@@ -10361,22 +8943,14 @@
       "byMonster": 1000,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 145,
     "fiesta": 1
   },
   {
     "serial": 147,
     "mapId": "AdlFH",
-    "subFrom": "00",
-    "subTo": "04",
     "name": "Seized Adealia",
     "isKq": true,
-    "kq": 3,
-    "width": 412,
-    "height": 412,
     "immortalSec": 10000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -10391,12 +8965,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": true
+      "linkOut": false
     },
     "respawn": {
       "city": "AdlVal01",
-      "spotCount": 1,
       "spots": [
         {
           "x": 26057,
@@ -10434,22 +9006,14 @@
       "byMonster": 1000,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 147,
     "fiesta": 2
   },
   {
     "serial": 148,
     "mapId": "RouN",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Roumen",
     "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -10464,12 +9028,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "RouN",
-      "spotCount": 1,
       "spots": [
         {
           "x": 4700,
@@ -10507,22 +9069,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 148,
     "fiesta": 0
   },
   {
     "serial": 149,
     "mapId": "AdlVal01",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Adealia Valley",
     "isKq": false,
-    "kq": 0,
-    "width": 950,
-    "height": 475,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -10537,12 +9091,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "AdlVal01",
-      "spotCount": 1,
       "spots": [
         {
           "x": 28193,
@@ -10580,22 +9132,14 @@
       "byMonster": 1000,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 149,
     "fiesta": 2
   },
   {
     "serial": 146,
     "mapId": "Fbattle04",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Free Battle Zone 4",
     "isKq": false,
-    "kq": 0,
-    "width": 128,
-    "height": 128,
     "immortalSec": 10000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 2,
@@ -10610,12 +9154,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": false
+      "linkOut": false
     },
     "respawn": {
       "city": "Fbattle04",
-      "spotCount": 4,
       "spots": [
         {
           "x": 5071,
@@ -10653,22 +9195,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 146,
     "fiesta": 0
   },
   {
     "serial": 150,
     "mapId": "KDSoccer_W",
-    "subFrom": "00",
-    "subTo": "09",
     "name": "WinterCup Field",
     "isKq": true,
-    "kq": 1,
-    "width": 128,
-    "height": 128,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 0,
@@ -10683,12 +9217,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": true
+      "linkOut": false
     },
     "respawn": {
       "city": "Gate",
-      "spotCount": 1,
       "spots": [
         {
           "x": 1487,
@@ -10726,22 +9258,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 150,
     "fiesta": 2
   },
   {
     "serial": 151,
     "mapId": "KDFargels",
-    "subFrom": "00",
-    "subTo": "09",
     "name": "Bijou's Sanctuary",
     "isKq": true,
-    "kq": 1,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -10756,12 +9280,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": true
+      "linkOut": false
     },
     "respawn": {
       "city": "Gate",
-      "spotCount": 1,
       "spots": [
         {
           "x": 1487,
@@ -10799,22 +9321,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 151,
     "fiesta": 2
   },
   {
     "serial": 152,
     "mapId": "SD_Vale01",
-    "subFrom": "00",
-    "subTo": "04",
     "name": "Ominous Canyon",
     "isKq": true,
-    "kq": 3,
-    "width": 256,
-    "height": 256,
     "immortalSec": 10000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -10829,12 +9343,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": true
+      "linkOut": false
     },
     "respawn": {
       "city": "RouN",
-      "spotCount": 1,
       "spots": [
         {
           "x": 4700,
@@ -10872,22 +9384,14 @@
       "byMonster": 1000,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 152,
     "fiesta": 0
   },
   {
     "serial": 153,
     "mapId": "KDCake",
-    "subFrom": "00",
-    "subTo": "07",
     "name": "Cupcake War",
     "isKq": true,
-    "kq": 1,
-    "width": 256,
-    "height": 256,
     "immortalSec": 10000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 0,
@@ -10902,12 +9406,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": false,
-      "systemMap": true
+      "linkOut": false
     },
     "respawn": {
       "city": "Gate",
-      "spotCount": 1,
       "spots": [
         {
           "x": 1487,
@@ -10945,22 +9447,14 @@
       "byMonster": 1000,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 153,
     "fiesta": 2
   },
   {
     "serial": 154,
     "mapId": "BH_Albi",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "King Albireo's Hideout (Hard)",
     "isKq": false,
-    "kq": 0,
-    "width": 64,
-    "height": 64,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 2,
@@ -10975,12 +9469,10 @@
     },
     "teleport": {
       "linkIn": false,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "ArkDn01",
-      "spotCount": 1,
       "spots": [
         {
           "x": 7127,
@@ -11018,22 +9510,14 @@
       "byMonster": 1000,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 154,
     "fiesta": 2
   },
   {
     "serial": 155,
     "mapId": "Job2_TimeG",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Agujero del Tiempo",
     "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -11048,12 +9532,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 3189,
@@ -11091,22 +9573,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 156,
     "mapId": "E_Hwin",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Templo del Misterio",
     "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -11121,12 +9595,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 2095,
@@ -11164,22 +9636,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 157,
     "mapId": "KDSoccer",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Football Field",
     "isKq": true,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -11194,12 +9658,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 6400,
@@ -11237,22 +9699,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 158,
     "mapId": "EventF01",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Colina del Ciclón",
     "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -11267,12 +9721,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 7227,
@@ -11310,22 +9762,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 159,
     "mapId": "KDEaster",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Desafio de Pascua",
     "isKq": true,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -11340,12 +9784,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 5613,
@@ -11383,22 +9825,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 160,
     "mapId": "BH_Karen",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Guarida de la Reina Demoníaca",
     "isKq": true,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -11413,12 +9847,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 4475,
@@ -11456,22 +9888,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 161,
     "mapId": "TevaL",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Isla de Eya",
     "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -11486,12 +9910,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 2666,
@@ -11529,22 +9951,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 162,
     "mapId": "Ser",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Refugio de Pagel",
     "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -11559,12 +9973,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 1321,
@@ -11602,22 +10014,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 163,
     "mapId": "RShip",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Mareas del Dragón Marino",
     "isKq": true,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -11632,12 +10036,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 7420,
@@ -11675,22 +10077,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 164,
     "mapId": "VoidAbyss",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Refugio en ruinas del abismo",
     "isKq": true,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -11705,12 +10099,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 9888,
@@ -11748,22 +10140,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 165,
     "mapId": "Battlefield",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Campo de Batalla de Pagel",
     "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -11778,12 +10162,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 21165,
@@ -11821,22 +10203,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 166,
     "mapId": "TempleG",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Templo de los Dioses",
     "isKq": true,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -11851,12 +10225,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 5841,
@@ -11894,22 +10266,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 167,
     "mapId": "TCave",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Cueva de Cristal",
     "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -11924,12 +10288,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 3182,
@@ -11967,22 +10329,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 168,
     "mapId": "Urg_AlruinT",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Tutorial",
     "isKq": true,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -11997,12 +10351,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 3182,
@@ -12040,22 +10392,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 169,
     "mapId": "Bla",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Ciudadela del Caos",
     "isKq": true,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -12070,12 +10414,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 1309,
@@ -12113,22 +10455,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 170,
     "mapId": "KDCollisio",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Santuario de Collisio",
     "isKq": true,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -12143,12 +10477,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 6564,
@@ -12186,22 +10518,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 171,
     "mapId": "KDBirthday",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Grieta Dimensional",
     "isKq": true,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -12216,12 +10540,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 10754,
@@ -12259,22 +10581,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 172,
     "mapId": "VoidDn",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Crepúsculo del Abismo",
     "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -12289,12 +10603,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 9888,
@@ -12332,22 +10644,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 173,
     "mapId": "KDPanMaze",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Catacombe de Sorah",
     "isKq": true,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -12362,12 +10666,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 4885,
@@ -12405,22 +10707,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 174,
     "mapId": "KDBRP1",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Battle Royal - Onslaught",
     "isKq": true,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -12435,12 +10729,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 6550,
@@ -12478,22 +10770,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 175,
     "mapId": "SD_Vale00",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Valle siniestro",
     "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -12508,12 +10792,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 17000,
@@ -12551,22 +10833,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 176,
     "mapId": "Teva",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Jardines Celestiales",
     "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -12581,12 +10855,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 2972,
@@ -12624,22 +10896,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 177,
     "mapId": "TevaBoss",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Templo de Amatheon",
     "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -12654,12 +10918,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 6406,
@@ -12697,22 +10959,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 178,
     "mapId": "Cypian",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Bosque de la Vida",
     "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -12727,12 +10981,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 10960,
@@ -12770,22 +11022,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 179,
     "mapId": "CypDn01",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Corazón del Bosque Putrefacto",
     "isKq": true,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -12800,12 +11044,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 1669,
@@ -12843,22 +11085,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 180,
     "mapId": "Apoline",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Jardincillo de las Delicias",
     "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -12873,12 +11107,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 6453,
@@ -12916,22 +11148,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 181,
     "mapId": "TevaDn01",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Templo de la Desesperanza",
     "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -12946,12 +11170,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 5995,
@@ -12989,22 +11211,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 182,
     "mapId": "TevaVal01",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Islotes Celestiales",
     "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -13019,12 +11233,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 11191,
@@ -13062,22 +11274,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 183,
     "mapId": "CypVal01",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Bosque de Árboles Susurrantes",
     "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -13092,12 +11296,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 5681,
@@ -13135,22 +11337,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 184,
     "mapId": "TevaDn02",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Arena de Amatheon",
     "isKq": true,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -13165,12 +11359,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 6406,
@@ -13208,22 +11400,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 185,
     "mapId": "E_Hwin2",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Laberinto de la locura",
     "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -13238,12 +11422,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 6230,
@@ -13281,22 +11463,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 186,
     "mapId": "E_XmasRide",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Paseo helado de Blizzard",
     "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -13311,12 +11485,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 21109,
@@ -13354,22 +11526,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 187,
     "mapId": "KDXmasBoss",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Roumen congelado",
     "isKq": true,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -13384,12 +11548,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 5141,
@@ -13427,22 +11589,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 188,
     "mapId": "E_Valen",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Event Map",
     "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -13457,12 +11611,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 1826,
@@ -13500,22 +11652,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 189,
     "mapId": "OgreID",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "El Escondite del Acosador Noctu",
     "isKq": true,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -13530,12 +11674,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 1775,
@@ -13573,22 +11715,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 190,
     "mapId": "S_Tower01",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Torre espiral de sacrificio",
     "isKq": true,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -13603,12 +11737,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 1569,
@@ -13646,22 +11778,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 191,
     "mapId": "S_Tower02",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Torre espiral de la venganza",
     "isKq": true,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -13676,12 +11800,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 8570,
@@ -13719,22 +11841,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 192,
     "mapId": "S_Tower03",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Torre Espiral de la Corrupción",
     "isKq": true,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -13749,12 +11863,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 12537,
@@ -13792,22 +11904,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 193,
     "mapId": "Awaken",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "?????",
     "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -13822,12 +11926,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 9590,
@@ -13865,22 +11967,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 194,
     "mapId": "Egma",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Elga",
     "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -13895,12 +11989,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 3481,
@@ -13938,22 +12030,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 195,
     "mapId": "EgmaDn01",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Las Profundidades Negras",
     "isKq": true,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -13968,12 +12052,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 9788,
@@ -14011,22 +12093,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 196,
     "mapId": "Croad01",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Base de la Tumba",
     "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -14041,12 +12115,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 2896,
@@ -14084,22 +12156,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 197,
     "mapId": "Croad01D",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Guarida del Crepúsculo",
     "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -14114,12 +12178,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 8029,
@@ -14157,22 +12219,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 198,
     "mapId": "DarkTown",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Santuario Arbor Vitae",
     "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -14187,12 +12241,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 2985,
@@ -14230,22 +12282,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 199,
     "mapId": "Beach",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Bahía de baño",
     "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -14260,12 +12304,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 3915,
@@ -14303,22 +12345,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 200,
     "mapId": "KDAlice",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Intrusos en la Fiesta de Cumple",
     "isKq": true,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -14333,12 +12367,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 7088,
@@ -14376,22 +12408,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 201,
     "mapId": "KDSwar",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Brigada de Medianoche",
     "isKq": true,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -14406,12 +12430,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 11852,
@@ -14449,22 +12471,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 202,
     "mapId": "SX_Tower01",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Aguja Copo de Nieve",
     "isKq": true,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -14479,12 +12493,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 1182,
@@ -14522,22 +12534,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 203,
     "mapId": "SX_Tower02",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Aguja Copo de Nieve",
     "isKq": true,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -14552,12 +12556,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 1182,
@@ -14595,22 +12597,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 204,
     "mapId": "SX_Tower03",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Aguja Copo de Nieve",
     "isKq": true,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -14625,12 +12619,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 1182,
@@ -14668,22 +12660,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 205,
     "mapId": "KDLaCo",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "La Cosa Chongus",
     "isKq": true,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -14698,12 +12682,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 1740,
@@ -14741,22 +12723,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 206,
     "mapId": "FroTundra",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Tundra helada",
     "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -14771,12 +12745,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 1644,
@@ -14814,22 +12786,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 207,
     "mapId": "FerTundra",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Tundra feroz",
     "isKq": true,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -14844,12 +12808,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 1644,
@@ -14887,22 +12849,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 208,
     "mapId": "Valtara",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Valtara",
     "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -14917,12 +12871,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 2343,
@@ -14960,22 +12912,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 209,
     "mapId": "BorIce",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Fiordo Boreal",
     "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -14990,12 +12934,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 10799,
@@ -15033,22 +12975,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 210,
     "mapId": "FerTundraH",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Tundra feroz (Modo Infernal)",
     "isKq": true,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -15063,12 +12997,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 1644,
@@ -15106,22 +13038,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 211,
     "mapId": "KDSummer",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Batalla de Agua de Valtara",
     "isKq": true,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -15136,12 +13060,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 3522,
@@ -15179,22 +13101,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 212,
     "mapId": "E_Hwin3",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Catedral de la Desesperación",
     "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -15209,12 +13123,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 3142,
@@ -15252,22 +13164,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 213,
     "mapId": "EnhanceD01",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Dungeon of Goods",
     "isKq": true,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -15282,12 +13186,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 1162,
@@ -15325,22 +13227,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 214,
     "mapId": "V_Field01",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Vínculo de Cupido",
     "isKq": true,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -15355,12 +13249,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 1582,
@@ -15398,22 +13290,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 215,
     "mapId": "V_Field02",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Esposas de Cupido",
     "isKq": true,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -15428,12 +13312,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 388,
@@ -15471,22 +13353,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 216,
     "mapId": "V_Field03",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Cadenas de Cupido",
     "isKq": true,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -15501,12 +13375,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 1338,
@@ -15544,22 +13416,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 217,
     "mapId": "V_Field04",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Jaula de Cupido",
     "isKq": true,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -15574,12 +13438,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 642,
@@ -15617,22 +13479,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 218,
     "mapId": "Mem_UA",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Vestigios del Pasado [Historia]",
     "isKq": true,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -15647,12 +13501,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 9991,
@@ -15690,22 +13542,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 219,
     "mapId": "Mem_UA_D01",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Vestigios del Pasado [20-65]",
     "isKq": true,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -15720,12 +13564,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 3895,
@@ -15763,22 +13605,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 220,
     "mapId": "Mem_UA_D02",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Vestigios del Pasado [66-95]",
     "isKq": true,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -15793,12 +13627,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 3895,
@@ -15836,22 +13668,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 221,
     "mapId": "Mem_UA_D03",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Vestigios del Pasado [96-125]",
     "isKq": true,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -15866,12 +13690,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 3895,
@@ -15909,22 +13731,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 222,
     "mapId": "Mem_UA_D04",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Vestigios del Pasado [126-140]",
     "isKq": true,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -15939,12 +13753,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 3895,
@@ -15982,22 +13794,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 223,
     "mapId": "IDKebChaos",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Kebing Chaos",
     "isKq": true,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -16012,12 +13816,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 1162,
@@ -16055,22 +13857,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 224,
     "mapId": "P_Hide",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Santuario Bajo Asedio (Historia",
     "isKq": true,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -16085,12 +13879,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 10900,
@@ -16128,22 +13920,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 225,
     "mapId": "P_HideD",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Santuario Bajo Asedio",
     "isKq": true,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -16158,12 +13942,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 10900,
@@ -16201,22 +13983,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 226,
     "mapId": "GateTime01",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Eco del Legado",
     "isKq": true,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -16231,12 +14005,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 9355,
@@ -16274,22 +14046,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 227,
     "mapId": "Kas",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Tumba de Kasya",
     "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -16304,12 +14068,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 16512,
@@ -16347,22 +14109,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 228,
     "mapId": "Morass_Mem",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Ciénaga de los Recuerdos",
     "isKq": true,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -16377,12 +14131,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 5156,
@@ -16420,22 +14172,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 229,
     "mapId": "LTower",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Palacio del Eclipse (Historia)",
     "isKq": true,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -16450,12 +14194,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 2963,
@@ -16493,22 +14235,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 230,
     "mapId": "LTowerD",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Palacio del Eclipse",
     "isKq": true,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -16523,12 +14257,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 2963,
@@ -16566,22 +14298,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 231,
     "mapId": "R_Darkness",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Legelheim",
     "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -16596,12 +14320,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 12486,
@@ -16639,22 +14361,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 232,
     "mapId": "LThrone",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Trono de Legel",
     "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -16669,12 +14383,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 13683,
@@ -16712,22 +14424,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 233,
     "mapId": "KDElves",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "La Fábrica de Regalos de Benny",
     "isKq": true,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -16742,12 +14446,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 10291,
@@ -16785,22 +14487,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 234,
     "mapId": "Valen26",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Espejo del Corazón [20-50]",
     "isKq": true,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -16815,12 +14509,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 5264,
@@ -16858,22 +14550,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 235,
     "mapId": "Valen262",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Espejo del Corazón [51-85]",
     "isKq": true,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -16888,12 +14572,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 5264,
@@ -16931,22 +14613,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 236,
     "mapId": "Valen263",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Espejo del Corazón [86-115]",
     "isKq": true,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -16961,12 +14635,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 5264,
@@ -17004,22 +14676,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 237,
     "mapId": "Valen264",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Espejo del Corazón [116-135]",
     "isKq": true,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -17034,12 +14698,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 5264,
@@ -17077,22 +14739,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 238,
     "mapId": "Valen265",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Espejo del Corazón [136-145]",
     "isKq": true,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -17107,12 +14761,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 5264,
@@ -17150,22 +14802,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 239,
     "mapId": "Rou_Val26",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Espejo de Roumen",
     "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -17180,12 +14824,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 5323,
@@ -17223,22 +14865,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 240,
     "mapId": "Eld_Val26",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Espejo de Elderine",
     "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -17253,12 +14887,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 17214,
@@ -17296,22 +14928,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 241,
     "mapId": "Urg_Val26",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Espejo de Uruga",
     "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -17326,12 +14950,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 6293,
@@ -17369,22 +14991,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 242,
     "mapId": "Bera_Val26",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Espejo de Bera",
     "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -17399,12 +15013,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 6532,
@@ -17442,22 +15054,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 243,
     "mapId": "ValtaVal26",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Espejo de Valtara",
     "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -17472,12 +15076,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 2343,
@@ -17515,22 +15117,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 244,
     "mapId": "KDPShipE1",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "The Mara Pirate Invasion",
     "isKq": true,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -17545,12 +15139,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 11069,
@@ -17588,22 +15180,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 245,
     "mapId": "KDPShipE2",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "The Mara Pirate Conspiracy",
     "isKq": true,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -17618,12 +15202,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 11069,
@@ -17661,22 +15243,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 246,
     "mapId": "KDPShipE3",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "The Mara Pirate Ultimatum",
     "isKq": true,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -17691,12 +15265,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 11069,
@@ -17734,22 +15306,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 247,
     "mapId": "KDPShipE4",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "The Mara Pirate Endgame",
     "isKq": true,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -17764,12 +15328,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 11069,
@@ -17807,22 +15369,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 248,
     "mapId": "LegelVal",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Valle de Legel",
     "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -17837,12 +15391,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 11263,
@@ -17880,22 +15432,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 249,
     "mapId": "DarkAbyss",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Vacío Eterno",
     "isKq": true,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -17910,12 +15454,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 1360,
@@ -17953,22 +15495,14 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   },
   {
     "serial": 250,
     "mapId": "MRace",
-    "subFrom": "-",
-    "subTo": "-",
     "name": "Carrera de Monstruos",
     "isKq": false,
-    "kq": 0,
-    "width": 256,
-    "height": 256,
     "immortalSec": 5000,
-    "scriptName": "-",
     "combat": {
       "itemDropByKilled": 0,
       "pker": 1,
@@ -17983,12 +15517,10 @@
     },
     "teleport": {
       "linkIn": true,
-      "linkOut": true,
-      "systemMap": false
+      "linkOut": true
     },
     "respawn": {
       "city": "Rou",
-      "spotCount": 1,
       "spots": [
         {
           "x": 600,
@@ -18026,8 +15558,6 @@
       "byMonster": 0,
       "byPlayer": 0
     },
-    "usrSubLayer": 0,
-    "checkSum": 0,
     "fiesta": 0
   }
 ]

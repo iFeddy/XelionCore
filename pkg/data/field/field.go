@@ -23,11 +23,10 @@ type CombatFlags struct {
 	NameHide         bool `json:"nameHide"`
 }
 
-// TeleportFlags defines routing and system map status.
+// TeleportFlags defines routing permissions on a map.
 type TeleportFlags struct {
-	LinkIn    bool `json:"linkIn"`
-	LinkOut   bool `json:"linkOut"`
-	SystemMap bool `json:"systemMap"`
+	LinkIn  bool `json:"linkIn"`
+	LinkOut bool `json:"linkOut"`
 }
 
 // Coord represents a 2D position.
@@ -45,9 +44,8 @@ type CoordDir struct {
 
 // RespawnConfig defines return city and respawn coordinates upon death.
 type RespawnConfig struct {
-	City      string  `json:"city"`
-	SpotCount int     `json:"spotCount"`
-	Spots     []Coord `json:"spots"`
+	City  string  `json:"city"`
+	Spots []Coord `json:"spots"`
 }
 
 // PermissionFlags defines allowed actions and player features on a map.
@@ -76,22 +74,14 @@ type ExpLossConfig struct {
 type FieldEntry struct {
 	Serial      int             `json:"serial"`
 	MapID       string          `json:"mapId"`
-	SubFrom     string          `json:"subFrom"`
-	SubTo       string          `json:"subTo"`
 	Name        string          `json:"name"`
 	IsKQ        bool            `json:"isKq"`
-	KQ          int             `json:"kq"`
-	Width       int             `json:"width"`
-	Height      int             `json:"height"`
 	ImmortalSec int             `json:"immortalSec"`
-	ScriptName  string          `json:"scriptName"`
 	Combat      CombatFlags     `json:"combat"`
 	Teleport    TeleportFlags   `json:"teleport"`
 	Respawn     RespawnConfig   `json:"respawn"`
 	Permissions PermissionFlags `json:"permissions"`
 	ExpLoss     ExpLossConfig   `json:"expLoss"`
-	UsrSubLayer int             `json:"usrSubLayer"`
-	CheckSum    int             `json:"checkSum"`
 	Fiesta      int             `json:"fiesta"`
 }
 

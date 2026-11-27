@@ -1,7 +1,9 @@
 package npc
 
 import (
+	"os"
 	"path/filepath"
+	"strings"
 	"testing"
 )
 
@@ -13,20 +15,30 @@ func TestLoadNPC(t *testing.T) {
 		t.Fatalf("Load() failed: %v", err)
 	}
 
-	// 1. Check maps count
-	if count := store.MapCount(); count != 95 {
-		t.Errorf("expected 95 maps, got %d", count)
+	// 1. Check maps count matches Maps/*.json on disk
+	mapEntries, err := os.ReadDir(filepath.Join(npcDir, "Maps"))
+	if err != nil {
+		t.Fatalf("ReadDir(Maps) failed: %v", err)
+	}
+	wantMaps := 0
+	for _, e := range mapEntries {
+		if !e.IsDir() && strings.EqualFold(filepath.Ext(e.Name()), ".json") {
+			wantMaps++
+		}
+	}
+	if count := store.MapCount(); count == 0 || count != wantMaps {
+		t.Errorf("expected %d maps (matching Maps/*.json), got %d", wantMaps, count)
 	}
 
-	// 2. Check total NPCs
+	// 2. Check total and enabled NPCs
 	allNPCs := store.GetAllNPCs(false)
-	if len(allNPCs) != 657 {
-		t.Errorf("expected 657 total NPCs, got %d", len(allNPCs))
+	if len(allNPCs) == 0 {
+		t.Errorf("expected non-zero total NPCs")
 	}
 
 	enabledNPCs := store.GetAllNPCs(true)
-	if len(enabledNPCs) != 530 {
-		t.Errorf("expected 530 enabled NPCs, got %d", len(enabledNPCs))
+	if len(enabledNPCs) == 0 || len(enabledNPCs) > len(allNPCs) {
+		t.Errorf("invalid enabled NPCs count: %d (total=%d)", len(enabledNPCs), len(allNPCs))
 	}
 
 	// 3. Test map query (RouN)

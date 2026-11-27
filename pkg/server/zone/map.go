@@ -579,8 +579,6 @@ func (mm *MapManager) GetOrCreateMap(mapID string) *ZoneMap {
 		if entry, ok := mm.fieldStore.GetField(normID); ok && entry != nil {
 			serial = uint16(entry.Serial)
 			name = entry.Name
-			width = entry.Width
-			height = entry.Height
 			normID = entry.MapID
 		}
 	}
