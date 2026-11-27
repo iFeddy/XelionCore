@@ -320,9 +320,20 @@ func LoadAllData(dataDir string) (*DataStore, error) {
 		err = nil
 	}
 	if err != nil || ds.MobInfoSHN == nil {
-		log.Printf("[Zone][Data] Warning: MobInfo.shn load error: %v", err)
-	} else {
-		log.Printf("[Zone][Data] Loaded MobInfo.shn (%d monsters).", ds.MobInfoSHN.RecordCount)
+		return nil, fmt.Errorf("MobInfo.shn load error: %w", err)
+	}
+	log.Printf("[Zone][Data] Loaded MobInfo.shn (%d monsters).", ds.MobInfoSHN.RecordCount)
+
+	mobInfoServer := ds.GetSHN("MobInfoServer")
+	if mobInfoServer == nil {
+		mobInfoServer, err = shn.ReadFile(filepath.Join(dataDir, "MobInfoServer.shn"))
+		if err != nil || mobInfoServer == nil {
+			return nil, fmt.Errorf("MobInfoServer.shn load error: %w", err)
+		}
+	}
+	if ds.MobInfoSHN.RecordCount != mobInfoServer.RecordCount {
+		return nil, fmt.Errorf("MobInfo.shn (%d rows) != MobInfoServer.shn (%d rows): row count mismatch, aborting",
+			ds.MobInfoSHN.RecordCount, mobInfoServer.RecordCount)
 	}
 
 	// 21. Universo de Geometría y Colisiones (BlockInfo/, .bdt lazy)
