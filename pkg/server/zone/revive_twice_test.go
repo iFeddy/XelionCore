@@ -10,8 +10,8 @@ import (
 
 // TestCharReviveReq_DieAndReviveTwice simula morir y revivir dos veces seguidas (en mapa exterior y en ciudad)
 // verificando que PROTO_NC_CHAR_REVIVE_REQ (0x104E) en el mismo mapa envíe PROTO_NC_CHAR_REVIVESAME_CMD (0x104F)
-// con el índice de fila 0-based de MapInfo.shn (p. ej. RouN -> 129, dentro de 0..137) sin disparar sendInGameChunk,
-// y que WarpPlayer envíe ese mismo índice en PROTO_NC_MAP_LINKSAME_CMD (0x1809).
+// con la columna ID de MapInfo.shn (p. ej. RouN -> 150, Apoline -> 181, LegelVal -> 254) sin disparar sendInGameChunk,
+// y que WarpPlayer envíe ese mismo ID en PROTO_NC_MAP_LINKSAME_CMD (0x1809).
 func TestCharReviveReq_DieAndReviveTwice(t *testing.T) {
 	ds, h, repo, _ := loadFase13TestEnv(t)
 	if h.fieldStore == nil {
@@ -22,11 +22,11 @@ func TestCharReviveReq_DieAndReviveTwice(t *testing.T) {
 		t.Fatal("MapInfo.shn no cargado en DataStore")
 	}
 
-	lookupMapInfoRowIdx := func(mapName string) (uint16, bool) {
+	lookupMapInfoID := func(mapName string) (uint16, bool) {
 		for i := range mapInfo.Rows {
 			r := &mapInfo.Rows[i]
 			if strings.EqualFold(strings.TrimSpace(r.GetString("MapName")), mapName) {
-				return uint16(i), true
+				return uint16(r.GetInt("ID")), true
 			}
 		}
 		return 0, false
@@ -35,9 +35,9 @@ func TestCharReviveReq_DieAndReviveTwice(t *testing.T) {
 	cases := []struct {
 		startMap string
 	}{
-		{"RouCos01"}, // mapa exterior (Respawn.City = RouCos01, row=1)
-		{"Rou"},      // ciudad (Respawn.City = Rou, row=0)
-		{"RouN"},     // ciudad nueva (Respawn.City = RouN, Serial=148, ID=150, row=129)
+		{"RouCos01"}, // mapa exterior (Respawn.City = RouCos01, ID=1)
+		{"Rou"},      // ciudad (Respawn.City = Rou, ID=0)
+		{"RouN"},     // ciudad nueva (Respawn.City = RouN, Serial=148, ID=150)
 	}
 
 	for _, tc := range cases {
@@ -50,7 +50,7 @@ func TestCharReviveReq_DieAndReviveTwice(t *testing.T) {
 		if !ok || wantField == nil {
 			t.Fatalf("Respawn.City %q de %s no existe en FieldList", wantMap, tc.startMap)
 		}
-		wantRowIdx, ok := lookupMapInfoRowIdx(wantField.MapID)
+		wantMapID, ok := lookupMapInfoID(wantField.MapID)
 		if !ok {
 			t.Fatalf("MapInfo.shn sin %s", wantField.MapID)
 		}
@@ -83,8 +83,8 @@ func TestCharReviveReq_DieAndReviveTwice(t *testing.T) {
 			if len(revives) != 1 || len(revives[0].Payload) < 10 {
 				t.Fatalf("[%s #%d] se esperaba 1 PROTO_NC_CHAR_REVIVESAME_CMD, obtenidos %d", tc.startMap, i, len(revives))
 			}
-			if got := binary.LittleEndian.Uint16(revives[0].Payload[0:2]); got != wantRowIdx {
-				t.Fatalf("[%s #%d] REVIVESAME mapid esperado %d (fila MapInfo.shn), obtenido %d", tc.startMap, i, wantRowIdx, got)
+			if got := binary.LittleEndian.Uint16(revives[0].Payload[0:2]); got != wantMapID {
+				t.Fatalf("[%s #%d] REVIVESAME mapid esperado %d (col ID MapInfo.shn), obtenido %d", tc.startMap, i, wantMapID, got)
 			}
 			if n := len(conn.findByOpcode(protocol.PROTO_NC_MAP_LINKSAME_CMD)); n != 0 {
 				t.Fatalf("[%s #%d] revive en mismo mapa no debe enviar LINKSAME (enviados=%d)", tc.startMap, i, n)
@@ -101,22 +101,31 @@ func TestCharReviveReq_DieAndReviveTwice(t *testing.T) {
 			}
 		}
 
-		// Verificar también que WarpPlayer hacia RouN envía el índice de fila 129 en LINKSAME_CMD.
-		if !strings.EqualFold(tc.startMap, "RouN") {
-			rounRowIdx, ok := lookupMapInfoRowIdx("RouN")
+		// Verificar también que WarpPlayer hacia RouN y Apoline envía la columna ID de MapInfo.shn en LINKSAME_CMD.
+		for _, target := range []string{"RouN", "Apoline"} {
+			if strings.EqualFold(tc.startMap, target) {
+				continue
+			}
+			wantID, ok := lookupMapInfoID(target)
 			if !ok {
-				t.Fatal("MapInfo.shn sin RouN")
+				t.Fatalf("MapInfo.shn sin %s", target)
 			}
 			conn.clear()
-			if !h.WarpPlayer(p, "RouN", 4134, 6488, 0) {
-				t.Fatalf("[%s] WarpPlayer hacia RouN falló", tc.startMap)
+			if !h.WarpPlayer(p, target, 4134, 6488, 0) {
+				t.Fatalf("[%s] WarpPlayer hacia %s falló", tc.startMap, target)
 			}
 			links := conn.findByOpcode(protocol.PROTO_NC_MAP_LINKSAME_CMD)
 			if len(links) != 1 || len(links[0].Payload) < 10 {
-				t.Fatalf("[%s] se esperaba 1 PROTO_NC_MAP_LINKSAME_CMD al warpear a RouN, obtenidos %d", tc.startMap, len(links))
+				t.Fatalf("[%s] se esperaba 1 PROTO_NC_MAP_LINKSAME_CMD al warpear a %s, obtenidos %d", tc.startMap, target, len(links))
 			}
-			if got := binary.LittleEndian.Uint16(links[0].Payload[0:2]); got != rounRowIdx {
-				t.Fatalf("[%s] LINKSAME mapid para RouN esperado %d (fila MapInfo.shn), obtenido %d", tc.startMap, rounRowIdx, got)
+			if got := binary.LittleEndian.Uint16(links[0].Payload[0:2]); got != wantID {
+				t.Fatalf("[%s] LINKSAME mapid para %s esperado %d (col ID MapInfo.shn), obtenido %d", tc.startMap, target, wantID, got)
+			}
+			if n := len(conn.findByOpcode(protocol.PROTO_NC_CHAR_CLIENT_BASE_CMD)); n != 0 {
+				t.Fatalf("[%s] LINKSAME hacia %s no debe disparar sendInGameChunk (CLIENT_BASE=%d)", tc.startMap, target, n)
+			}
+			if p.MapObjectID < 10000 {
+				t.Fatalf("[%s] player MapObjectID=%d debe estar en rango dedicado (>=10000) para no colisionar con NPCs/mobs", tc.startMap, p.MapObjectID)
 			}
 		}
 	}

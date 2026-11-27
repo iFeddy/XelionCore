@@ -615,12 +615,27 @@ func (mm *MapManager) GetOrCreateMap(mapID string) *ZoneMap {
 }
 
 // AssignObjectID assigns a unique MapObjectID to a player before in-game chunk transmission.
+var (
+	playerObjIDMu   sync.Mutex
+	nextPlayerObjID uint16 = 10000
+)
+
+func allocPlayerObjectID() uint16 {
+	playerObjIDMu.Lock()
+	defer playerObjIDMu.Unlock()
+	id := nextPlayerObjID
+	nextPlayerObjID++
+	if nextPlayerObjID >= 30000 {
+		nextPlayerObjID = 10000
+	}
+	return id
+}
+
+// AssignObjectID asegura que el jugador tenga un MapObjectID único a nivel de Zona (10000..29999),
+// disjunto del rango local de NPCs/mobs/drops (1..9999) para evitar colisiones de handle al cambiar de mapa con LINKSAME.
 func (m *ZoneMap) AssignObjectID(p *ZonePlayer) {
-	m.mu.Lock()
-	defer m.mu.Unlock()
 	if p.MapObjectID == 0 {
-		p.MapObjectID = m.nextObjID
-		m.nextObjID++
+		p.MapObjectID = allocPlayerObjectID()
 	}
 }
 
@@ -628,8 +643,7 @@ func (m *ZoneMap) AssignObjectID(p *ZonePlayer) {
 func (m *ZoneMap) AddPlayer(p *ZonePlayer) {
 	m.mu.Lock()
 	if p.MapObjectID == 0 {
-		p.MapObjectID = m.nextObjID
-		m.nextObjID++
+		p.MapObjectID = allocPlayerObjectID()
 	}
 	m.players[p.MapObjectID] = p
 	m.mu.Unlock()
