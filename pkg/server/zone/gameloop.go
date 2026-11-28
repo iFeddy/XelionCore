@@ -266,6 +266,11 @@ func (gl *MapGameLoop) tick1s() {
 
 			if !st.ExpiresAt.IsZero() && now.After(st.ExpiresAt) {
 				p.RemoveAbState(id)
+				if gl.zMap.handler != nil {
+					gl.zMap.handler.syncPlayerAbStateParams(p)
+				} else {
+					p.RecalculateAbStateStats()
+				}
 				if p.Client != nil {
 					informCmd := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_ABSTATEINFORM_CMD)
 					informCmd.WriteUint32(uint32(id))
@@ -411,6 +416,28 @@ func (gl *MapGameLoop) tick1s() {
 			_ = p.Client.SendPacket(spUpdate)
 		}
 	}
+	// Expirar AbStates en monstruos y difundir PROTO_NC_BAT_ABSTATERESET_CMD (0x2428)
+	for _, m := range gl.zMap.GetAllMonsters() {
+		if m == nil {
+			continue
+		}
+		var expiredIDs []uint16
+		m.mu.Lock()
+		for id, st := range m.ActiveStates {
+			if st != nil && !st.ExpiresAt.IsZero() && now.After(st.ExpiresAt) {
+				delete(m.ActiveStates, id)
+				expiredIDs = append(expiredIDs, id)
+			}
+		}
+		m.mu.Unlock()
+		for _, id := range expiredIDs {
+			resetCmd := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_ABSTATERESET_CMD)
+			resetCmd.WriteUint16(m.Handle)
+			resetCmd.WriteUint32(uint32(id))
+			gl.zMap.Broadcast(resetCmd, 0)
+		}
+	}
+
 	// Tick de script Lua KQ activo (1 Hz, Zone.exe CinemaComplex @ 0x005089A0)
 	if gl.zMap.KQScriptActive {
 		gl.zMap.TickKQScript()

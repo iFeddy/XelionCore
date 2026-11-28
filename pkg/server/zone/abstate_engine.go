@@ -28,7 +28,154 @@ type ActiveAbState struct {
 	SpeedDownRate int
 	AtkMod        int
 	DefMod        int
+	WCMod         int
+	ACMod         int
+	MAMod         int
+	MRMod         int
+	THMod         int
+	TBMod         int
+	MaxHPMod      int
+	MaxSPMod      int
 	PolymorphID   uint16
+}
+
+// applySubAbStateActions traduce los 4 pares ActionIndex/ActionArg oficiales de SubAbstate.shn a modificadores de combate.
+func applySubAbStateActions(st *ActiveAbState, actions [4]SubAbStateAction) {
+	if st == nil {
+		return
+	}
+	for _, a := range actions {
+		switch a.Index {
+		case 1: // WCPlus (daño físico)
+			st.WCMod += a.Arg
+		case 3, 74: // ACPlus (defensa física)
+			st.ACMod += a.Arg
+		case 7: // TBPlus (evasión)
+			st.TBMod += a.Arg
+		case 9: // MaxHPPlus
+			st.MaxHPMod += a.Arg
+		case 11: // MaxSPPlus
+			st.MaxSPMod += a.Arg
+		case 13: // MAPlus (daño mágico, ej. SubStaMentalShout +11)
+			st.MAMod += a.Arg
+		case 15: // MRPlus (defensa mágica, ej. SubStaMentalShout +11)
+			st.MRMod += a.Arg
+		case 19: // Stun (ej. SubStaBattleBlowStun)
+			st.IsStun = true
+		case 21: // THMinus (ej. SubStaSeverBone)
+			st.THMod -= a.Arg
+		case 25: // Root / Hold
+			st.IsRoot = true
+		case 30: // HP Heal Over Time (ej. SubStaRestore)
+			if a.Arg > 0 {
+				st.DotDamage = -a.Arg
+				st.DotInterval = 2 * time.Second
+			}
+		case 73: // Bleed/Poison DoT (ej. SubStaRedSlash)
+			if a.Arg > 0 {
+				st.DotDamage = a.Arg
+				st.DotInterval = 2 * time.Second
+			}
+		case 94: // WCMinus
+			st.WCMod -= a.Arg
+		}
+	}
+}
+
+// RecalculateAbStateStats recalcula los bonos acumulados de todos los AbStates activos del jugador.
+func (p *ZonePlayer) RecalculateAbStateStats() {
+	if p == nil {
+		return
+	}
+	var wc, ac, ma, mr, th, tb, maxHP, maxSP int
+	for _, st := range p.ActiveStates {
+		if st == nil {
+			continue
+		}
+		wc += st.WCMod
+		ac += st.ACMod
+		ma += st.MAMod
+		mr += st.MRMod
+		th += st.THMod
+		tb += st.TBMod
+		maxHP += st.MaxHPMod
+		maxSP += st.MaxSPMod
+	}
+	p.AbWC = wc
+	p.AbAC = ac
+	p.AbMA = ma
+	p.AbMR = mr
+	p.AbTH = th
+	p.AbTB = tb
+	p.AbMaxHP = maxHP
+	p.AbMaxSP = maxSP
+}
+
+func clampStatUint32(base uint32, mod int) uint32 {
+	v := int(base) + mod
+	if v < 0 {
+		return 0
+	}
+	return uint32(v)
+}
+
+// syncPlayerAbStateParams recalcula los bonos de AbState y notifica al cliente vía PROTO_NC_CHAR_BASEPARAMCHANGE_CMD
+// cualquier cambio en WC, AC, TH, TB, MA, MR, MaxHP o MaxSP.
+func (h *Handler) syncPlayerAbStateParams(p *ZonePlayer) {
+	if p == nil {
+		return
+	}
+	oldMinWC := clampStatUint32(p.EquipMinWC, p.AbWC)
+	oldMaxWC := clampStatUint32(p.EquipMaxWC, p.AbWC)
+	oldAC := clampStatUint32(p.EquipAC, p.AbAC)
+	oldTH := clampStatUint32(p.EquipTH, p.AbTH)
+	oldTB := clampStatUint32(p.EquipTB, p.AbTB)
+	oldMinMA := clampStatUint32(p.EquipMinMA, p.AbMA)
+	oldMaxMA := clampStatUint32(p.EquipMaxMA, p.AbMA)
+	oldMR := clampStatUint32(p.EquipMR, p.AbMR)
+	oldMaxHP := clampStatUint32(uint32(p.MaxHP), p.AbMaxHP)
+	oldMaxSP := clampStatUint32(uint32(p.MaxSP), p.AbMaxSP)
+
+	p.RecalculateAbStateStats()
+
+	if p.Client == nil {
+		return
+	}
+	type paramDelta struct {
+		what uint8
+		val  uint32
+	}
+	candidates := []struct {
+		what uint8
+		oldV uint32
+		newV uint32
+	}{
+		{0x06, oldMinWC, clampStatUint32(p.EquipMinWC, p.AbWC)},
+		{0x07, oldMaxWC, clampStatUint32(p.EquipMaxWC, p.AbWC)},
+		{0x08, oldAC, clampStatUint32(p.EquipAC, p.AbAC)},
+		{0x09, oldTH, clampStatUint32(p.EquipTH, p.AbTH)},
+		{0x0A, oldTB, clampStatUint32(p.EquipTB, p.AbTB)},
+		{0x0B, oldMinMA, clampStatUint32(p.EquipMinMA, p.AbMA)},
+		{0x0C, oldMaxMA, clampStatUint32(p.EquipMaxMA, p.AbMA)},
+		{0x0D, oldMR, clampStatUint32(p.EquipMR, p.AbMR)},
+		{0x10, oldMaxHP, clampStatUint32(uint32(p.MaxHP), p.AbMaxHP)},
+		{0x11, oldMaxSP, clampStatUint32(uint32(p.MaxSP), p.AbMaxSP)},
+	}
+	var diffs []paramDelta
+	for _, c := range candidates {
+		if c.oldV != c.newV {
+			diffs = append(diffs, paramDelta{what: c.what, val: c.newV})
+		}
+	}
+	if len(diffs) > 0 {
+		pw := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_BASEPARAMCHANGE_CMD)
+		pw.WriteByte(byte(len(diffs)))
+		for _, d := range diffs {
+			pw.WriteByte(d.what)
+			pw.WriteUint32(d.val)
+		}
+		_ = p.Client.SendPacket(pw)
+	}
 }
 
 // ComputeAbStateBit genera el bitfield oficial de 99 bytes (792 bits) a partir de los estados activos.
@@ -297,6 +444,7 @@ func (h *Handler) handleAbStateEraseReq(client *network.Client, pkt *protocol.Pa
 	_ = client.SendPacket(ack)
 
 	if removed {
+		h.syncPlayerAbStateParams(player)
 		inform := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_ABSTATEINFORM_CMD)
 		inform.WriteUint32(uint32(stateIndex))
 		inform.WriteUint32(0)

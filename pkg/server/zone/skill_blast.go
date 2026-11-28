@@ -24,8 +24,8 @@ func calcOfficialSkillAttackPower(player *ZonePlayer, skill *SkillDef, empDmg ui
 
 	if skill.IsMagical() {
 		if player != nil {
-			minBase = float64(player.EquipMinMA) + float64(player.Int)
-			maxBase = float64(player.EquipMaxMA) + float64(player.Int)
+			minBase = float64(clampStatUint32(player.EquipMinMA, player.AbMA)) + float64(player.Int)
+			maxBase = float64(clampStatUint32(player.EquipMaxMA, player.AbMA)) + float64(player.Int)
 		}
 		minRate = float64(skill.MinMARate)
 		maxRate = float64(skill.MaxMARate)
@@ -33,8 +33,8 @@ func calcOfficialSkillAttackPower(player *ZonePlayer, skill *SkillDef, empDmg ui
 		maxAdd = float64(skill.MaxMA)
 	} else {
 		if player != nil {
-			minBase = float64(player.EquipMinWC) + float64(player.Str)
-			maxBase = float64(player.EquipMaxWC) + float64(player.Str)
+			minBase = float64(clampStatUint32(player.EquipMinWC, player.AbWC)) + float64(player.Str)
+			maxBase = float64(clampStatUint32(player.EquipMaxWC, player.AbWC)) + float64(player.Str)
 		}
 		minRate = float64(skill.MinWCRate)
 		maxRate = float64(skill.MaxWCRate)
@@ -238,9 +238,9 @@ func (h *Handler) resolveSkillBlastOnEntity(caster *ZonePlayer, target GridEntit
 		}
 	case *ZonePlayer:
 		if isMag {
-			def = int(te.EquipMR) + int(te.Spr)
+			def = int(clampStatUint32(te.EquipMR, te.AbMR)) + int(te.Spr)
 		} else {
-			def = int(te.EquipAC) + int(te.End)
+			def = int(clampStatUint32(te.EquipAC, te.AbAC)) + int(te.End)
 		}
 		if te.HasAbState(0x16D) {
 			isOneDmgShield = true
@@ -341,19 +341,20 @@ func (h *Handler) resolveSkillBlastOnEntity(caster *ZonePlayer, target GridEntit
 	return skillDamageTarget{}, false
 }
 
-// resolveAbStateInfo obtiene ID, duración base y metadatos desde Abstate.shn + SubAbstate.shn
+// resolveAbStateInfo obtiene ID, duración base, metadatos y acciones desde Abstate.shn + SubAbstate.shn
 // (con fallback al repositorio JSON data/AbState para los 10 estados legacy).
-func (h *Handler) resolveAbStateInfo(name string, strength int) (id uint16, dur time.Duration, def *AbStateDef, ok bool) {
+func (h *Handler) resolveAbStateInfo(name string, strength int) (id uint16, dur time.Duration, def *AbStateDef, sub *SubAbStateDef, ok bool) {
 	if h == nil || h.dataStore == nil {
-		return 0, 0, nil, false
+		return 0, 0, nil, nil, false
 	}
 	if h.dataStore.SkillCatalog != nil {
 		if d := h.dataStore.SkillCatalog.LookupAbState(name); d != nil {
 			ms := 10000
-			if sub := h.dataStore.SkillCatalog.LookupSubAbState(d.SubAbState, strength); sub != nil && sub.KeepTimeMs > 0 {
-				ms = sub.KeepTimeMs
+			s := h.dataStore.SkillCatalog.LookupSubAbState(d.SubAbState, strength)
+			if s != nil && s.KeepTimeMs > 0 {
+				ms = s.KeepTimeMs
 			}
-			return d.ID, time.Duration(ms) * time.Millisecond, d, true
+			return d.ID, time.Duration(ms) * time.Millisecond, d, s, true
 		}
 	}
 	if h.dataStore.AbState != nil {
@@ -362,15 +363,16 @@ func (h *Handler) resolveAbStateInfo(name string, strength int) (id uint16, dur 
 			if lvlCfg, err := cfg.GetLevelConfig(strength); err == nil && lvlCfg != nil && lvlCfg.DurationMs > 0 {
 				d = time.Duration(lvlCfg.DurationMs) * time.Millisecond
 			}
-			return cfg.ID, d, nil, true
+			return cfg.ID, d, nil, nil, true
 		}
 	}
-	return 0, 0, nil, false
+	return 0, 0, nil, nil, false
 }
 
-// applyOneAbStateToPlayer agrega un AbState al jugador y envía los paquetes oficiales S2C:
+// applyOneAbStateToPlayer agrega un AbState al jugador, aplica los modificadores de SubAbstate.shn,
+// sincroniza stats en cliente y envía los paquetes oficiales S2C:
 // PROTO_NC_BAT_ABSTATEINFORM_CMD (0x2429, 8B) al jugador y PROTO_NC_BAT_ABSTATESET_CMD (0x2426, 6B) al AOI.
-func (h *Handler) applyOneAbStateToPlayer(target *ZonePlayer, abID uint16, name string, strength int, dur time.Duration, isBuff bool) {
+func (h *Handler) applyOneAbStateToPlayer(target *ZonePlayer, abID uint16, name string, strength int, dur time.Duration, isBuff bool, sub *SubAbStateDef) {
 	if target == nil {
 		return
 	}
@@ -383,7 +385,11 @@ func (h *Handler) applyOneAbStateToPlayer(target *ZonePlayer, abID uint16, name 
 		IsBuff:    isBuff,
 		IsDebuff:  !isBuff,
 	}
+	if sub != nil {
+		applySubAbStateActions(st, sub.Actions)
+	}
 	target.AddAbState(st)
+	h.syncPlayerAbStateParams(target)
 
 	if target.Client != nil {
 		inform := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_ABSTATEINFORM_CMD)
@@ -415,20 +421,20 @@ func (h *Handler) applySkillAbStatesToPlayer(target *ZonePlayer, skill *SkillDef
 		if entry.SucRate < 1000 && rand.Intn(1000) >= entry.SucRate {
 			continue
 		}
-		abID, dur, def, ok := h.resolveAbStateInfo(entry.Name, entry.Strength)
+		abID, dur, def, sub, ok := h.resolveAbStateInfo(entry.Name, entry.Strength)
 		if !ok {
 			continue
 		}
 		dur += extraDur
 		isBuff := def == nil || def.DispelIndex != 2
-		h.applyOneAbStateToPlayer(target, abID, entry.Name, entry.Strength, dur, isBuff)
+		h.applyOneAbStateToPlayer(target, abID, entry.Name, entry.Strength, dur, isBuff, sub)
 		applied = true
 
 		// Propagar aura de party (ej. StaMentalShoutMain -> PartyState1 = StaMentalShout en PartyRange)
 		if def != nil && def.PartyStates[0] != "" && def.PartyStates[0] != "-" {
-			if pAbID, _, pDef, pOK := h.resolveAbStateInfo(def.PartyStates[0], entry.Strength); pOK {
+			if pAbID, _, pDef, pSub, pOK := h.resolveAbStateInfo(def.PartyStates[0], entry.Strength); pOK {
 				pIsBuff := pDef == nil || pDef.DispelIndex != 2
-				h.applyOneAbStateToPlayer(target, pAbID, def.PartyStates[0], entry.Strength, dur, pIsBuff)
+				h.applyOneAbStateToPlayer(target, pAbID, def.PartyStates[0], entry.Strength, dur, pIsBuff, pSub)
 
 				if h.charRepo != nil && target.Char != nil && target.CurrentMap != nil {
 					if partyNo, _, _, err := h.charRepo.GetPartyByChar(target.Char.ID); err == nil && partyNo > 0 {
@@ -448,7 +454,7 @@ func (h *Handler) applySkillAbStatesToPlayer(target *ZonePlayer, skill *SkillDef
 								}
 								mx, my := mp.GetPosition()
 								if math.Hypot(float64(mx-tx), float64(my-ty)) <= maxRange {
-									h.applyOneAbStateToPlayer(mp, pAbID, def.PartyStates[0], entry.Strength, dur, pIsBuff)
+									h.applyOneAbStateToPlayer(mp, pAbID, def.PartyStates[0], entry.Strength, dur, pIsBuff, pSub)
 								}
 							}
 						}
@@ -475,16 +481,12 @@ func (h *Handler) applySkillAbStatesToMonster(zMap *ZoneMap, mob *ZoneMonster, s
 		if entry.SucRate < 1000 && rand.Intn(1000) >= entry.SucRate {
 			continue
 		}
-		abID, dur, _, ok := h.resolveAbStateInfo(entry.Name, entry.Strength)
+		abID, dur, _, sub, ok := h.resolveAbStateInfo(entry.Name, entry.Strength)
 		if !ok {
 			continue
 		}
 		dur += extraDur
-		mob.mu.Lock()
-		if mob.ActiveStates == nil {
-			mob.ActiveStates = make(map[uint16]*ActiveAbState)
-		}
-		mob.ActiveStates[abID] = &ActiveAbState{
+		st := &ActiveAbState{
 			ID:        abID,
 			Name:      entry.Name,
 			Level:     entry.Strength,
@@ -492,6 +494,14 @@ func (h *Handler) applySkillAbStatesToMonster(zMap *ZoneMap, mob *ZoneMonster, s
 			ExpiresAt: time.Now().Add(dur),
 			IsDebuff:  true,
 		}
+		if sub != nil {
+			applySubAbStateActions(st, sub.Actions)
+		}
+		mob.mu.Lock()
+		if mob.ActiveStates == nil {
+			mob.ActiveStates = make(map[uint16]*ActiveAbState)
+		}
+		mob.ActiveStates[abID] = st
 		mob.mu.Unlock()
 		if zMap != nil {
 			setCmd := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_ABSTATESET_CMD)

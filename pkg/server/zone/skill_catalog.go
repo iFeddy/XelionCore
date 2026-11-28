@@ -209,11 +209,18 @@ type AbStateDef struct {
 	DispelIndex int // 1 = buff removible, 2 = debuff
 }
 
+// SubAbStateAction representa un par ActionIndex/ActionArg de SubAbstate.shn (A..D).
+type SubAbStateAction struct {
+	Index int
+	Arg   int
+}
+
 // SubAbStateDef representa una fila de SubAbstate.shn indexada por (InxName, Strength).
 type SubAbStateDef struct {
 	InxName    string
 	Strength   int
 	KeepTimeMs int
+	Actions    [4]SubAbStateAction
 }
 
 // PassiveSkillDef representa una habilidad pasiva oficial cargada desde PassiveSkill.shn + PassiveSkillView.shn + ItemInfo.shn.
@@ -629,6 +636,12 @@ func BuildSkillCatalog(ds *DataStore) *SkillCatalog {
 				InxName:    inx,
 				Strength:   str,
 				KeepTimeMs: row.GetInt("KeepTime"),
+				Actions: [4]SubAbStateAction{
+					{Index: row.GetInt("ActionIndexA"), Arg: row.GetInt("ActionArgA")},
+					{Index: row.GetInt("ActionIndexB"), Arg: row.GetInt("ActionArgB")},
+					{Index: row.GetInt("ActionIndexC"), Arg: row.GetInt("ActionArgC")},
+					{Index: row.GetInt("ActionIndexD"), Arg: row.GetInt("ActionArgD")},
+				},
 			}
 		}
 	}
