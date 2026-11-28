@@ -437,6 +437,7 @@ func TestFase12_SoulStoneAndStatsAndRevive(t *testing.T) {
 	// 8. Resurrección por habilidad aliada: PROTO_NC_SKILL_REPLYREVIVE_CMD (0x482A)
 	player.State = 3
 	player.Char.CurHP = 0
+	player.PendingRevive = true
 	replyRevive := protocol.NewPacketWriter(protocol.PROTO_NC_SKILL_REPLYREVIVE_CMD)
 	h.HandlePacket(client, protocol.NewPacket(replyRevive.Data()))
 

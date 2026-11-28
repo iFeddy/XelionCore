@@ -97,7 +97,7 @@
   - Tests unitarios cubriendo todos los códigos de error y éxito.
 
 ### Fase 6 — `REPLYREVIVE` (`0x482A`) y `ITEM_USE_ACTIVESKILL` (`0x304E`)
-- **Estado:** Pendiente
+- **Estado:** **Completada**
 - **Alcance:**
   - `handleSkillReplyReviveCmd`: mapa + `PendingRevive` (`0x1506`), HP = `(MaxHP * rate) / 1000` (100%), `0x481F` por AOI.
   - `handleItemUseActiveSkillReq`: ejecutar skill activa asociada al ítem consumible con validaciones `0x3129..0x312F` y éxito `0x3128`.
