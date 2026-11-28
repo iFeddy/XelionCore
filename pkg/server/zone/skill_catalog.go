@@ -171,6 +171,48 @@ func (s *SkillDef) IsTeleportSkill() bool {
 	return false
 }
 
+// HasAnyAbState indica si la skill declara al menos un AbState (StaNameA..D).
+func (s *SkillDef) HasAnyAbState() bool {
+	if s == nil {
+		return false
+	}
+	for _, st := range s.AbStates {
+		if st.Name != "" && st.Name != "-" && st.SucRate > 0 {
+			return true
+		}
+	}
+	return false
+}
+
+// IsPureBuff indica si la skill aplica únicamente AbStates (buff/party-buff/debuff puro) sin daño ni curación directa.
+func (s *SkillDef) IsPureBuff() bool {
+	if s == nil || s.HealAmount() > 0 {
+		return false
+	}
+	if s.MinWC > 0 || s.MaxWC > 0 || s.MinWCRate > 0 || s.MaxWCRate > 0 ||
+		s.MinMA > 0 || s.MaxMA > 0 || s.MinMARate > 0 || s.MaxMARate > 0 {
+		return false
+	}
+	return s.HasAnyAbState()
+}
+
+// AbStateDef representa una entrada oficial de Abstate.shn (todos los 792+ estados anormales del cliente).
+type AbStateDef struct {
+	ID          uint16
+	InxName     string
+	SubAbState  string
+	PartyStates [5]string
+	PartyRange  int
+	DispelIndex int // 1 = buff removible, 2 = debuff
+}
+
+// SubAbStateDef representa una fila de SubAbstate.shn indexada por (InxName, Strength).
+type SubAbStateDef struct {
+	InxName    string
+	Strength   int
+	KeepTimeMs int
+}
+
 // PassiveSkillDef representa una habilidad pasiva oficial cargada desde PassiveSkill.shn + PassiveSkillView.shn + ItemInfo.shn.
 type PassiveSkillDef struct {
 	ID        uint16 // ID base de PassiveSkill.shn (0..842, enviado al cliente en 0x103E / 0x4804 / 0x4827)
@@ -185,10 +227,59 @@ type PassiveSkillDef struct {
 // SkillCatalog indexa en memoria todas las skills activas y pasivas desde ActiveSkill.shn, ActiveSkillInfoServer.shn,
 // ActiveSkillView.shn, PassiveSkill.shn, PassiveSkillView.shn, ItemInfo.shn y UseClassTypeInfo.shn.
 type SkillCatalog struct {
-	ByID           map[uint16]*SkillDef
-	ByInx          map[string]*SkillDef
-	PassivesByID   map[uint16]*PassiveSkillDef // índice: ID base de PassiveSkill.shn (0..842)
-	UseClassMatrix map[uint32][28]bool         // índice 1..27 = Job ID oficial (Fig=1 .. Sav=27)
+	ByID            map[uint16]*SkillDef
+	ByInx           map[string]*SkillDef
+	PassivesByID    map[uint16]*PassiveSkillDef // índice: ID base de PassiveSkill.shn (0..842)
+	UseClassMatrix  map[uint32][28]bool         // índice 1..27 = Job ID oficial (Fig=1 .. Sav=27)
+	AbStateByInx    map[string]*AbStateDef      // índice: lower(InxName) desde Abstate.shn
+	SubAbStateByKey map[string]*SubAbStateDef   // índice: lower(InxName)#Strength desde SubAbstate.shn
+}
+
+func subAbStateKey(inx string, strength int) string {
+	var buf [12]byte
+	i := len(buf)
+	v := strength
+	if v == 0 {
+		i--
+		buf[i] = '0'
+	} else {
+		neg := v < 0
+		if neg {
+			v = -v
+		}
+		for v > 0 {
+			i--
+			buf[i] = byte('0' + v%10)
+			v /= 10
+		}
+		if neg {
+			i--
+			buf[i] = '-'
+		}
+	}
+	return strings.ToLower(strings.TrimSpace(inx)) + "#" + string(buf[i:])
+}
+
+// LookupAbState busca un AbState oficial por InxName (case-insensitive) en Abstate.shn.
+func (c *SkillCatalog) LookupAbState(name string) *AbStateDef {
+	if c == nil || c.AbStateByInx == nil {
+		return nil
+	}
+	return c.AbStateByInx[strings.ToLower(strings.TrimSpace(name))]
+}
+
+// LookupSubAbState busca la entrada de SubAbstate.shn por (InxName, Strength) con fallback a 999 y 1.
+func (c *SkillCatalog) LookupSubAbState(inxName string, strength int) *SubAbStateDef {
+	if c == nil || c.SubAbStateByKey == nil || inxName == "" || inxName == "-" {
+		return nil
+	}
+	if s := c.SubAbStateByKey[subAbStateKey(inxName, strength)]; s != nil {
+		return s
+	}
+	if s := c.SubAbStateByKey[subAbStateKey(inxName, 999)]; s != nil {
+		return s
+	}
+	return c.SubAbStateByKey[subAbStateKey(inxName, 1)]
 }
 
 // CanClassUseSkill verifica según UseClassTypeInfo.shn si una clase (job 1..27) puede usar/aprender una skill con dado UseClass.
@@ -257,10 +348,12 @@ func readSHNIntAt(row *shn.Row, idx int) int {
 // BuildSkillCatalog construye SkillCatalog reutilizando los *shn.File ya cargados en DataStore.
 func BuildSkillCatalog(ds *DataStore) *SkillCatalog {
 	cat := &SkillCatalog{
-		ByID:           make(map[uint16]*SkillDef),
-		ByInx:          make(map[string]*SkillDef),
-		PassivesByID:   make(map[uint16]*PassiveSkillDef),
-		UseClassMatrix: make(map[uint32][28]bool),
+		ByID:            make(map[uint16]*SkillDef),
+		ByInx:           make(map[string]*SkillDef),
+		PassivesByID:    make(map[uint16]*PassiveSkillDef),
+		UseClassMatrix:  make(map[uint32][28]bool),
+		AbStateByInx:    make(map[string]*AbStateDef),
+		SubAbStateByKey: make(map[string]*SubAbStateDef),
 	}
 	if ds == nil {
 		return cat
@@ -491,6 +584,47 @@ func BuildSkillCatalog(ds *DataStore) *SkillCatalog {
 			pdef.UseClass = row.GetUint32("UseClass")
 			if pdef.DemandLv == 0 {
 				pdef.DemandLv = row.GetInt("DemandLv")
+			}
+		}
+	}
+
+	// Indexar todos los AbStates oficiales desde Abstate.shn + SubAbstate.shn
+	if abSHN := ds.GetSHN("Abstate"); abSHN != nil {
+		for i := range abSHN.Rows {
+			row := &abSHN.Rows[i]
+			inx := strings.TrimSpace(row.GetString("InxName"))
+			if inx == "" || inx == "-" {
+				continue
+			}
+			def := &AbStateDef{
+				ID:          row.GetUint16("ID"),
+				InxName:     inx,
+				SubAbState:  strings.TrimSpace(row.GetString("SubAbState")),
+				PartyRange:  row.GetInt("PartyRange"),
+				DispelIndex: row.GetInt("DispelIndex"),
+				PartyStates: [5]string{
+					strings.TrimSpace(row.GetString("PartyState1")),
+					strings.TrimSpace(row.GetString("PartyState2")),
+					strings.TrimSpace(row.GetString("PartyState3")),
+					strings.TrimSpace(row.GetString("PartyState4")),
+					strings.TrimSpace(row.GetString("PartyState5")),
+				},
+			}
+			cat.AbStateByInx[strings.ToLower(inx)] = def
+		}
+	}
+	if subSHN := ds.GetSHN("SubAbstate"); subSHN != nil {
+		for i := range subSHN.Rows {
+			row := &subSHN.Rows[i]
+			inx := strings.TrimSpace(row.GetString("InxName"))
+			if inx == "" || inx == "-" {
+				continue
+			}
+			str := row.GetInt("Strength")
+			cat.SubAbStateByKey[subAbStateKey(inx, str)] = &SubAbStateDef{
+				InxName:    inx,
+				Strength:   str,
+				KeepTimeMs: row.GetInt("KeepTime"),
 			}
 		}
 	}

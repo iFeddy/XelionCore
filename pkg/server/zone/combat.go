@@ -996,14 +996,19 @@ func (h *Handler) handleSkillBashFldCastReq(client *network.Client, pkt *protoco
 
 	// Selección oficial AoE (sbe_BlastLocate 0x00584160): Area/2, cono SkillDegree, qsort por distancia, cap TargetNumber
 	empDmg, _, empKeep, _ := player.GetSkillEmpower(skillID)
-	mobs := selectAoEMonsters(player.CurrentMap, px, py, int(fldX), int(fldY), skillDef)
 	var hitTargets []skillDamageTarget
 	var deadHandles []uint16
-	for _, mob := range mobs {
-		res, isDead := h.resolveSkillBlastOnEntity(player, mob, skillDef, empDmg, empKeep)
+	if skillDef != nil && skillDef.IsPureBuff() {
+		res, _ := h.resolveSkillBlastOnEntity(player, player, skillDef, empDmg, empKeep)
 		hitTargets = append(hitTargets, res)
-		if isDead {
-			deadHandles = append(deadHandles, mob.Handle)
+	} else {
+		mobs := selectAoEMonsters(player.CurrentMap, px, py, int(fldX), int(fldY), skillDef)
+		for _, mob := range mobs {
+			res, isDead := h.resolveSkillBlastOnEntity(player, mob, skillDef, empDmg, empKeep)
+			hitTargets = append(hitTargets, res)
+			if isDead {
+				deadHandles = append(deadHandles, mob.Handle)
+			}
 		}
 	}
 

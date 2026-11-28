@@ -161,9 +161,14 @@ func (h *Handler) resolveSkillBlastOnEntity(caster *ZonePlayer, target GridEntit
 	// 1. Curación (Zone.exe 0x005817CE..0x00581980)
 	if healAmt := calcOfficialSkillHeal(skill, empDmg); healAmt > 0 {
 		if tp, ok := target.(*ZonePlayer); ok && tp.Char != nil {
+			oldHP := tp.Char.CurHP
 			tp.Char.CurHP += healAmt
 			if tp.Char.CurHP > tp.MaxHP {
 				tp.Char.CurHP = tp.MaxHP
+			}
+			actualHealed := tp.Char.CurHP - oldHP
+			if actualHealed < 0 {
+				actualHealed = 0
 			}
 			restHP := uint32(tp.Char.CurHP)
 			if tp.Client != nil {
@@ -175,9 +180,35 @@ func (h *Handler) resolveSkillBlastOnEntity(caster *ZonePlayer, target GridEntit
 			appliedAb := h.applySkillAbStatesToPlayer(tp, skill, empKeep)
 			return skillDamageTarget{
 				Handle:    tp.MapObjectID,
-				Damage:    uint32(healAmt),
+				Damage:    uint32(actualHealed),
 				RestHP:    restHP,
 				IsHeal:    true,
+				IsAbState: appliedAb,
+			}, false
+		}
+	}
+
+	// 1b. Buff / Party-Buff / Debuff puro (sin daño ni heal directo, ej. Resist 1 / MentalShout01)
+	if skill != nil && skill.IsPureBuff() {
+		switch te := target.(type) {
+		case *ZonePlayer:
+			appliedAb := h.applySkillAbStatesToPlayer(te, skill, empKeep)
+			var restHP uint32
+			if te.Char != nil {
+				restHP = uint32(te.Char.CurHP)
+			}
+			return skillDamageTarget{
+				Handle:    te.MapObjectID,
+				Damage:    0,
+				RestHP:    restHP,
+				IsAbState: appliedAb,
+			}, false
+		case *ZoneMonster:
+			appliedAb := h.applySkillAbStatesToMonster(caster.CurrentMap, te, skill, empKeep)
+			return skillDamageTarget{
+				Handle:    te.Handle,
+				Damage:    0,
+				RestHP:    uint32(te.CurHP),
 				IsAbState: appliedAb,
 			}, false
 		}
@@ -267,7 +298,7 @@ func (h *Handler) resolveSkillBlastOnEntity(caster *ZonePlayer, target GridEntit
 	case *ZoneMonster:
 		restHP, isDead = caster.CurrentMap.ApplyDamageToMonster(te, caster, dmg)
 		if !isDead {
-			appliedAb = h.applySkillAbStatesToMonster(te, skill, empKeep)
+			appliedAb = h.applySkillAbStatesToMonster(caster.CurrentMap, te, skill, empKeep)
 		}
 		return skillDamageTarget{
 			Handle:    te.Handle,
@@ -310,10 +341,69 @@ func (h *Handler) resolveSkillBlastOnEntity(caster *ZonePlayer, target GridEntit
 	return skillDamageTarget{}, false
 }
 
+// resolveAbStateInfo obtiene ID, duración base y metadatos desde Abstate.shn + SubAbstate.shn
+// (con fallback al repositorio JSON data/AbState para los 10 estados legacy).
+func (h *Handler) resolveAbStateInfo(name string, strength int) (id uint16, dur time.Duration, def *AbStateDef, ok bool) {
+	if h == nil || h.dataStore == nil {
+		return 0, 0, nil, false
+	}
+	if h.dataStore.SkillCatalog != nil {
+		if d := h.dataStore.SkillCatalog.LookupAbState(name); d != nil {
+			ms := 10000
+			if sub := h.dataStore.SkillCatalog.LookupSubAbState(d.SubAbState, strength); sub != nil && sub.KeepTimeMs > 0 {
+				ms = sub.KeepTimeMs
+			}
+			return d.ID, time.Duration(ms) * time.Millisecond, d, true
+		}
+	}
+	if h.dataStore.AbState != nil {
+		if cfg, found := h.dataStore.AbState.GetByName(name); found && cfg != nil {
+			d := 10 * time.Second
+			if lvlCfg, err := cfg.GetLevelConfig(strength); err == nil && lvlCfg != nil && lvlCfg.DurationMs > 0 {
+				d = time.Duration(lvlCfg.DurationMs) * time.Millisecond
+			}
+			return cfg.ID, d, nil, true
+		}
+	}
+	return 0, 0, nil, false
+}
+
+// applyOneAbStateToPlayer agrega un AbState al jugador y envía los paquetes oficiales S2C:
+// PROTO_NC_BAT_ABSTATEINFORM_CMD (0x2429, 8B) al jugador y PROTO_NC_BAT_ABSTATESET_CMD (0x2426, 6B) al AOI.
+func (h *Handler) applyOneAbStateToPlayer(target *ZonePlayer, abID uint16, name string, strength int, dur time.Duration, isBuff bool) {
+	if target == nil {
+		return
+	}
+	st := &ActiveAbState{
+		ID:        abID,
+		Name:      name,
+		Level:     strength,
+		Duration:  dur,
+		ExpiresAt: time.Now().Add(dur),
+		IsBuff:    isBuff,
+		IsDebuff:  !isBuff,
+	}
+	target.AddAbState(st)
+
+	if target.Client != nil {
+		inform := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_ABSTATEINFORM_CMD)
+		inform.WriteUint32(uint32(abID))
+		inform.WriteUint32(uint32(dur.Milliseconds()))
+		_ = target.Client.SendPacket(inform)
+	}
+	if target.CurrentMap != nil {
+		setCmd := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_ABSTATESET_CMD)
+		setCmd.WriteUint16(target.MapObjectID)
+		setCmd.WriteUint32(uint32(abID))
+		target.CurrentMap.broadcastSkillAOI(setCmd, target.MapObjectID, 0)
+	}
+}
+
 // applySkillAbStatesToPlayer aplica los hasta 4 AbStates (StaNameA..D) definidos en la skill
-// sumando el bono de duración de empower track 2 (Zone.exe 0x005824A7..0x00582791).
+// sumando el bono de duración de empower track 2 (Zone.exe 0x005824A7..0x00582791),
+// enviando 0x2429 + 0x2426 y propagando PartyState1 a miembros de party en rango.
 func (h *Handler) applySkillAbStatesToPlayer(target *ZonePlayer, skill *SkillDef, empKeep uint8) bool {
-	if target == nil || skill == nil || h.dataStore == nil || h.dataStore.AbState == nil {
+	if target == nil || skill == nil || h.dataStore == nil {
 		return false
 	}
 	applied := false
@@ -325,31 +415,55 @@ func (h *Handler) applySkillAbStatesToPlayer(target *ZonePlayer, skill *SkillDef
 		if entry.SucRate < 1000 && rand.Intn(1000) >= entry.SucRate {
 			continue
 		}
-		cfg, ok := h.dataStore.AbState.GetByName(entry.Name)
-		if !ok || cfg == nil {
+		abID, dur, def, ok := h.resolveAbStateInfo(entry.Name, entry.Strength)
+		if !ok {
 			continue
 		}
-		dur := 10 * time.Second
-		if lvlCfg, err := cfg.GetLevelConfig(entry.Strength); err == nil && lvlCfg != nil && lvlCfg.DurationMs > 0 {
-			dur = time.Duration(lvlCfg.DurationMs) * time.Millisecond
-		}
 		dur += extraDur
-		st := &ActiveAbState{
-			ID:        cfg.ID,
-			Name:      cfg.Name,
-			Level:     entry.Strength,
-			Duration:  dur,
-			ExpiresAt: time.Now().Add(dur),
-		}
-		target.AddAbState(st)
+		isBuff := def == nil || def.DispelIndex != 2
+		h.applyOneAbStateToPlayer(target, abID, entry.Name, entry.Strength, dur, isBuff)
 		applied = true
+
+		// Propagar aura de party (ej. StaMentalShoutMain -> PartyState1 = StaMentalShout en PartyRange)
+		if def != nil && def.PartyStates[0] != "" && def.PartyStates[0] != "-" {
+			if pAbID, _, pDef, pOK := h.resolveAbStateInfo(def.PartyStates[0], entry.Strength); pOK {
+				pIsBuff := pDef == nil || pDef.DispelIndex != 2
+				h.applyOneAbStateToPlayer(target, pAbID, def.PartyStates[0], entry.Strength, dur, pIsBuff)
+
+				if h.charRepo != nil && target.Char != nil && target.CurrentMap != nil {
+					if partyNo, _, _, err := h.charRepo.GetPartyByChar(target.Char.ID); err == nil && partyNo > 0 {
+						if members, err := h.charRepo.GetPartyMembers(partyNo); err == nil {
+							tx, ty := target.GetPosition()
+							maxRange := float64(def.PartyRange)
+							if maxRange <= 0 {
+								maxRange = 1600
+							}
+							for _, m := range members {
+								if m == nil || m.CharNo == target.Char.ID {
+									continue
+								}
+								mp := h.findPlayerInMapByCharID(target.CurrentMap, m.CharNo)
+								if mp == nil || mp.Char == nil || mp.State == 3 {
+									continue
+								}
+								mx, my := mp.GetPosition()
+								if math.Hypot(float64(mx-tx), float64(my-ty)) <= maxRange {
+									h.applyOneAbStateToPlayer(mp, pAbID, def.PartyStates[0], entry.Strength, dur, pIsBuff)
+								}
+							}
+						}
+					}
+				}
+			}
+		}
 	}
 	return applied
 }
 
-// applySkillAbStatesToMonster aplica los hasta 4 AbStates de la skill a un monstruo vivo.
-func (h *Handler) applySkillAbStatesToMonster(mob *ZoneMonster, skill *SkillDef, empKeep uint8) bool {
-	if mob == nil || skill == nil || h.dataStore == nil || h.dataStore.AbState == nil {
+// applySkillAbStatesToMonster aplica los hasta 4 AbStates de la skill a un monstruo vivo
+// y difunde PROTO_NC_BAT_ABSTATESET_CMD (0x2426, 6B) al AOI.
+func (h *Handler) applySkillAbStatesToMonster(zMap *ZoneMap, mob *ZoneMonster, skill *SkillDef, empKeep uint8) bool {
+	if mob == nil || skill == nil || h.dataStore == nil {
 		return false
 	}
 	applied := false
@@ -361,27 +475,30 @@ func (h *Handler) applySkillAbStatesToMonster(mob *ZoneMonster, skill *SkillDef,
 		if entry.SucRate < 1000 && rand.Intn(1000) >= entry.SucRate {
 			continue
 		}
-		cfg, ok := h.dataStore.AbState.GetByName(entry.Name)
-		if !ok || cfg == nil {
+		abID, dur, _, ok := h.resolveAbStateInfo(entry.Name, entry.Strength)
+		if !ok {
 			continue
-		}
-		dur := 10 * time.Second
-		if lvlCfg, err := cfg.GetLevelConfig(entry.Strength); err == nil && lvlCfg != nil && lvlCfg.DurationMs > 0 {
-			dur = time.Duration(lvlCfg.DurationMs) * time.Millisecond
 		}
 		dur += extraDur
 		mob.mu.Lock()
 		if mob.ActiveStates == nil {
 			mob.ActiveStates = make(map[uint16]*ActiveAbState)
 		}
-		mob.ActiveStates[cfg.ID] = &ActiveAbState{
-			ID:        cfg.ID,
-			Name:      cfg.Name,
+		mob.ActiveStates[abID] = &ActiveAbState{
+			ID:        abID,
+			Name:      entry.Name,
 			Level:     entry.Strength,
 			Duration:  dur,
 			ExpiresAt: time.Now().Add(dur),
+			IsDebuff:  true,
 		}
 		mob.mu.Unlock()
+		if zMap != nil {
+			setCmd := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_ABSTATESET_CMD)
+			setCmd.WriteUint16(mob.Handle)
+			setCmd.WriteUint32(uint32(abID))
+			zMap.Broadcast(setCmd, 0)
+		}
 		applied = true
 	}
 	return applied
