@@ -196,9 +196,12 @@ func (s *SkillDef) IsPureBuff() bool {
 	return s.HasAnyAbState()
 }
 
-// AbStateDef representa una entrada oficial de Abstate.shn (todos los 792+ estados anormales del cliente).
+// AbStateDef representa una entrada oficial de Abstate.shn (todos los 792 estados anormales del cliente).
+// En Fiesta Online, el índice oficial de protocolo (enum ABSTATEINDEX en 0x2426/0x2428/0x2429 y bitfield 99B)
+// es la columna AbStataIndex (0..791), NO la columna ID (que llega a 8880+).
 type AbStateDef struct {
-	ID          uint16
+	ID          uint16 // Abstate.shn AbStataIndex (0..791, enum ABSTATEINDEX oficial)
+	RawID       uint16 // Abstate.shn ID (identificador interno de fila SHN)
 	InxName     string
 	SubAbState  string
 	PartyStates [5]string
@@ -597,7 +600,8 @@ func BuildSkillCatalog(ds *DataStore) *SkillCatalog {
 				continue
 			}
 			def := &AbStateDef{
-				ID:          row.GetUint16("ID"),
+				ID:          row.GetUint16("AbStataIndex"),
+				RawID:       row.GetUint16("ID"),
 				InxName:     inx,
 				SubAbState:  strings.TrimSpace(row.GetString("SubAbState")),
 				PartyRange:  row.GetInt("PartyRange"),
