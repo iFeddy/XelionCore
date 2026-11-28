@@ -9,6 +9,90 @@ import (
 	"github.com/iFeddy/XelionCore/pkg/protocol"
 )
 
+// Constantes oficiales de enum SubAbstateAction (0..120) extraídas directamente de re/pdo/Zone.pdb (TPI LF_ENUMERATE).
+const (
+	SAA_NONE                = 0
+	SAA_STRRATE             = 1
+	SAA_STRPLUS             = 2
+	SAA_WCPLUS              = 3
+	SAA_WCRATE              = 4
+	SAA_ACPLUS              = 5
+	SAA_ACRATE              = 6
+	SAA_DEXPLUS             = 7
+	SAA_TBPLUS              = 8
+	SAA_TBRATE              = 9
+	SAA_THPLUS              = 10
+	SAA_THRATE              = 11
+	SAA_INTPLUS             = 12
+	SAA_MAPLUS              = 13
+	SAA_MENTALPLUS          = 14
+	SAA_MRPLUS              = 15
+	SAA_MRRATE              = 16
+	SAA_SHIELDAMOUNT        = 17
+	SAA_SHIELDACRATE        = 18
+	SAA_NOMOVE              = 19
+	SAA_SPEEDRATE           = 20
+	SAA_ATTACKSPEEDRATE     = 21
+	SAA_MAXHPRATE           = 22
+	SAA_MAXSPRATE           = 23
+	SAA_DEADHPSPRECOVRATE   = 24
+	SAA_NOATTACK            = 25
+	SAA_TICK                = 26
+	SAA_DOTDAMAGE           = 27
+	SAA_CONHEAL             = 28
+	SAA_CASTINGTIMEPLUS     = 29
+	SAA_HEALAMOUNT          = 30
+	SAA_POISONRESISTRATE    = 31
+	SAA_DISEASERESISTRATE   = 32
+	SAA_CURSERESISTRATE     = 33
+	SAA_CRITICALRATE        = 34
+	SAA_MAXHPPLUS           = 35
+	SAA_MAXSPPLUS           = 36
+	SAA_INTRATE             = 37
+	SAA_FEAR                = 38
+	SAA_ALLSTATEPLUS        = 39
+	SAA_REVIVEHEALRATE      = 40
+	SAA_COUNT               = 41
+	SAA_SILIENCE            = 42
+	SAA_DEADLYBLESSING      = 43
+	SAA_DAMAGERATE          = 44
+	SAA_MARATE              = 46
+	SAA_HEALRATE            = 47
+	SAA_TOTALDAMAGERATE     = 50
+	SAA_REFLECTDAMAGE       = 61
+	SAA_HIDEENEMY           = 65
+	SAA_EVASIONAMOUNT       = 71
+	SAA_USESPRATE           = 72
+	SAA_ACMINUS             = 73
+	SAA_ACDOWNRATE          = 74
+	SAA_ATKSPEEDDOWNRATE    = 78
+	SAA_CRITICALDOWNRATE    = 80
+	SAA_DEXMINUS            = 81
+	SAA_HEALAMOUNTMINUS     = 82
+	SAA_MAMINUS             = 83
+	SAA_MADOWNRATE          = 84
+	SAA_MAXHPDOWNRATE       = 85
+	SAA_MRMINUS             = 86
+	SAA_MRDOWNRATE          = 87
+	SAA_SPEEDDOWNRATE       = 88
+	SAA_STRMINUS            = 89
+	SAA_TBMINUS             = 90
+	SAA_TBDOWNRATE          = 91
+	SAA_THMINUS             = 92
+	SAA_THDOWNRATE          = 93
+	SAA_WCMINUS             = 94
+	SAA_WCDOWNRATE          = 95
+	SAA_MENDOWNRATE         = 99
+	SAA_USESPDOWN           = 100
+	SAA_CRIUPRATE           = 101
+	SAA_MRSHIELDRATE        = 102
+	SAA_ACSHIELDRATE        = 103
+	SAA_SHIELDRATE          = 112
+	SAA_MINHP               = 114
+	SAA_DMGDOWNRATE         = 115
+	SAA_ALLSTATPLUS         = 119
+)
+
 // ActiveAbState modela una instancia de estado anormal activo con sus atributos oficiales de combate.
 type ActiveAbState struct {
 	ID            uint16
@@ -23,64 +107,194 @@ type ActiveAbState struct {
 	IsDebuff      bool
 	IsStun        bool
 	IsRoot        bool
+	IsNoAttack    bool
 	IsSilence     bool
+	IsHide        bool
 	ShieldHP      int
 	SpeedDownRate int
 	AtkMod        int
 	DefMod        int
 	WCMod         int
+	WCRate        int
 	ACMod         int
+	ACRate        int
 	MAMod         int
+	MARate        int
 	MRMod         int
+	MRRate        int
 	THMod         int
+	THRate        int
 	TBMod         int
+	TBRate        int
 	MaxHPMod      int
+	MaxHPRate     int
 	MaxSPMod      int
+	MaxSPRate     int
+	CritRate      int
+	DamageRate    int
+	DmgDownRate   int
+	ReflectRate   int
+	HealRate      int
+	CastTimeModMs int
+	MinHPFloor    int
 	PolymorphID   uint16
 }
 
-// applySubAbStateActions traduce los 4 pares ActionIndex/ActionArg oficiales de SubAbstate.shn a modificadores de combate.
-func applySubAbStateActions(st *ActiveAbState, actions [4]SubAbStateAction) {
+// applySubAbStateActions traduce los 4 pares ActionIndex/ActionArg oficiales de SubAbstate.shn
+// usando el enum oficial SubAbstateAction (SAA_*, 0..120) extraído de re/pdo/Zone.pdb.
+func applySubAbStateActions(st *ActiveAbState, actions [4]SubAbStateAction, targetMaxHP int) {
 	if st == nil {
 		return
 	}
+	hasNoMove := false
+	hasNoAttack := false
 	for _, a := range actions {
 		switch a.Index {
-		case 1: // WCPlus (daño físico)
+		case SAA_NONE:
+			continue
+		case SAA_STRRATE:
+			st.WCRate += a.Arg
+		case SAA_STRPLUS:
 			st.WCMod += a.Arg
-		case 3, 74: // ACPlus (defensa física)
+		case SAA_WCPLUS:
+			st.WCMod += a.Arg
+		case SAA_WCRATE:
+			st.WCRate += a.Arg
+		case SAA_ACPLUS:
 			st.ACMod += a.Arg
-		case 7: // TBPlus (evasión)
+		case SAA_ACRATE, SAA_SHIELDACRATE, SAA_ACSHIELDRATE:
+			st.ACRate += a.Arg
+		case SAA_DEXPLUS:
 			st.TBMod += a.Arg
-		case 9: // MaxHPPlus
-			st.MaxHPMod += a.Arg
-		case 11: // MaxSPPlus
-			st.MaxSPMod += a.Arg
-		case 13: // MAPlus (daño mágico, ej. SubStaMentalShout +11)
+			st.THMod += a.Arg
+		case SAA_TBPLUS, SAA_EVASIONAMOUNT:
+			st.TBMod += a.Arg
+		case SAA_TBRATE:
+			st.TBRate += a.Arg
+		case SAA_THPLUS:
+			st.THMod += a.Arg
+		case SAA_THRATE:
+			st.THRate += a.Arg
+		case SAA_INTPLUS:
 			st.MAMod += a.Arg
-		case 15: // MRPlus (defensa mágica, ej. SubStaMentalShout +11)
+		case SAA_MAPLUS:
+			st.MAMod += a.Arg
+		case SAA_MENTALPLUS:
 			st.MRMod += a.Arg
-		case 17: // Shield absorb (ej. SubStaDivineShield Invincible=1040, SubStaNeglect=1e9)
+		case SAA_MRPLUS:
+			st.MRMod += a.Arg
+		case SAA_MRRATE, SAA_MRSHIELDRATE:
+			st.MRRate += a.Arg
+		case SAA_SHIELDAMOUNT:
 			st.ShieldHP += a.Arg
-		case 19: // Stun (ej. SubStaBattleBlowStun)
-			st.IsStun = true
-		case 21: // THMinus (ej. SubStaSeverBone)
-			st.THMod -= a.Arg
-		case 25: // Root / Hold
+		case SAA_SHIELDRATE:
+			if targetMaxHP > 0 && a.Arg > 0 {
+				st.ShieldHP += (targetMaxHP * a.Arg) / 1000
+			}
+		case SAA_NOMOVE:
 			st.IsRoot = true
-		case 30: // HP Heal Over Time (ej. SubStaRestore)
+			hasNoMove = true
+		case SAA_SPEEDDOWNRATE:
+			st.SpeedDownRate += a.Arg
+		case SAA_MAXHPRATE:
+			st.MaxHPRate += a.Arg
+		case SAA_MAXSPRATE:
+			st.MaxSPRate += a.Arg
+		case SAA_NOATTACK:
+			st.IsNoAttack = true
+			hasNoAttack = true
+		case SAA_TICK:
 			if a.Arg > 0 {
-				st.DotDamage = -a.Arg
-				st.DotInterval = 2 * time.Second
+				st.DotInterval = time.Duration(a.Arg) * time.Millisecond
 			}
-		case 73: // Bleed/Poison DoT (ej. SubStaRedSlash)
+		case SAA_DOTDAMAGE:
 			if a.Arg > 0 {
-				st.DotDamage = a.Arg
-				st.DotInterval = 2 * time.Second
+				st.DotDamage += a.Arg
+				if st.DotInterval == 0 {
+					st.DotInterval = 2 * time.Second
+				}
 			}
-		case 94: // WCMinus
+		case SAA_CONHEAL, SAA_HEALAMOUNT:
+			if a.Arg > 0 {
+				st.DotDamage -= a.Arg
+				if st.DotInterval == 0 {
+					st.DotInterval = 2 * time.Second
+				}
+			}
+		case SAA_CASTINGTIMEPLUS:
+			st.CastTimeModMs += a.Arg
+		case SAA_CRITICALRATE, SAA_CRIUPRATE:
+			st.CritRate += a.Arg
+		case SAA_MAXHPPLUS:
+			st.MaxHPMod += a.Arg
+		case SAA_MAXSPPLUS:
+			st.MaxSPMod += a.Arg
+		case SAA_INTRATE:
+			st.MARate += a.Arg
+		case SAA_FEAR:
+			st.IsStun = true
+		case SAA_ALLSTATEPLUS, SAA_ALLSTATPLUS:
+			st.WCMod += a.Arg
+			st.ACMod += a.Arg
+			st.MAMod += a.Arg
+			st.MRMod += a.Arg
+			st.THMod += a.Arg
+			st.TBMod += a.Arg
+		case SAA_SILIENCE:
+			st.IsSilence = true
+		case SAA_DAMAGERATE, SAA_TOTALDAMAGERATE:
+			st.DamageRate += a.Arg
+		case SAA_MARATE:
+			st.MARate += a.Arg
+		case SAA_HEALRATE:
+			st.HealRate += a.Arg
+		case SAA_REFLECTDAMAGE:
+			st.ReflectRate += a.Arg
+		case SAA_HIDEENEMY:
+			st.IsHide = true
+		case SAA_ACMINUS:
+			st.ACMod -= a.Arg
+		case SAA_ACDOWNRATE:
+			st.ACRate -= a.Arg
+		case SAA_CRITICALDOWNRATE:
+			st.CritRate -= a.Arg
+		case SAA_DEXMINUS:
+			st.TBMod -= a.Arg
+			st.THMod -= a.Arg
+		case SAA_MAMINUS:
+			st.MAMod -= a.Arg
+		case SAA_MADOWNRATE:
+			st.MARate -= a.Arg
+		case SAA_MAXHPDOWNRATE:
+			st.MaxHPRate -= a.Arg
+		case SAA_MRMINUS:
+			st.MRMod -= a.Arg
+		case SAA_MRDOWNRATE, SAA_MENDOWNRATE:
+			st.MRRate -= a.Arg
+		case SAA_STRMINUS:
 			st.WCMod -= a.Arg
+		case SAA_TBMINUS:
+			st.TBMod -= a.Arg
+		case SAA_TBDOWNRATE:
+			st.TBRate -= a.Arg
+		case SAA_THMINUS:
+			st.THMod -= a.Arg
+		case SAA_THDOWNRATE:
+			st.THRate -= a.Arg
+		case SAA_WCMINUS:
+			st.WCMod -= a.Arg
+		case SAA_WCDOWNRATE:
+			st.WCRate -= a.Arg
+		case SAA_MINHP:
+			if a.Arg > st.MinHPFloor {
+				st.MinHPFloor = a.Arg
+			}
+		case SAA_DMGDOWNRATE:
+			st.DmgDownRate += a.Arg
 		}
+	}
+	if hasNoMove && hasNoAttack {
+		st.IsStun = true
 	}
 }
 
@@ -125,37 +339,73 @@ func (p *ZonePlayer) AbsorbDamageWithShield(zMap *ZoneMap, dmg int) int {
 	return dmg
 }
 
-// RecalculateAbStateStats recalcula los bonos acumulados de todos los AbStates activos del jugador.
+// RecalculateAbStateStats recalcula los bonos planos y porcentuales (permille) de todos los AbStates activos del jugador.
 func (p *ZonePlayer) RecalculateAbStateStats() {
 	if p == nil {
 		return
 	}
-	var wc, ac, ma, mr, th, tb, maxHP, maxSP int
+	var wc, wcR, ac, acR, ma, maR, mr, mrR, th, thR, tb, tbR, maxHP, maxHPR, maxSP, maxSPR int
+	var critR, dmgR, dmgDownR, reflR, healR, castMod, minHP int
 	for _, st := range p.ActiveStates {
 		if st == nil {
 			continue
 		}
 		wc += st.WCMod
+		wcR += st.WCRate
 		ac += st.ACMod
+		acR += st.ACRate
 		ma += st.MAMod
+		maR += st.MARate
 		mr += st.MRMod
+		mrR += st.MRRate
 		th += st.THMod
+		thR += st.THRate
 		tb += st.TBMod
+		tbR += st.TBRate
 		maxHP += st.MaxHPMod
+		maxHPR += st.MaxHPRate
 		maxSP += st.MaxSPMod
+		maxSPR += st.MaxSPRate
+		critR += st.CritRate
+		dmgR += st.DamageRate
+		dmgDownR += st.DmgDownRate
+		reflR += st.ReflectRate
+		healR += st.HealRate
+		castMod += st.CastTimeModMs
+		if st.MinHPFloor > minHP {
+			minHP = st.MinHPFloor
+		}
 	}
-	p.AbWC = wc
-	p.AbAC = ac
-	p.AbMA = ma
-	p.AbMR = mr
-	p.AbTH = th
-	p.AbTB = tb
-	p.AbMaxHP = maxHP
-	p.AbMaxSP = maxSP
+	p.AbWC, p.AbWCRate = wc, wcR
+	p.AbAC, p.AbACRate = ac, acR
+	p.AbMA, p.AbMARate = ma, maR
+	p.AbMR, p.AbMRRate = mr, mrR
+	p.AbTH, p.AbTHRate = th, thR
+	p.AbTB, p.AbTBRate = tb, tbR
+	p.AbMaxHP, p.AbMaxHPRate = maxHP, maxHPR
+	p.AbMaxSP, p.AbMaxSPRate = maxSP, maxSPR
+	p.AbCritRate = critR
+	p.AbDamageRate = dmgR
+	p.AbDmgDownRate = dmgDownR
+	p.AbReflectRate = reflR
+	p.AbHealRate = healR
+	p.AbCastTimeMod = castMod
+	p.AbMinHPFloor = minHP
 }
 
 func clampStatUint32(base uint32, mod int) uint32 {
 	v := int(base) + mod
+	if v < 0 {
+		return 0
+	}
+	return uint32(v)
+}
+
+func applyStatWithRate(base uint32, flatMod, ratePermille int) uint32 {
+	v := int(base) + flatMod
+	if ratePermille != 0 {
+		v += (v * ratePermille) / 1000
+	}
 	if v < 0 {
 		return 0
 	}
@@ -168,16 +418,16 @@ func (h *Handler) syncPlayerAbStateParams(p *ZonePlayer) {
 	if p == nil {
 		return
 	}
-	oldMinWC := clampStatUint32(p.EquipMinWC, p.AbWC)
-	oldMaxWC := clampStatUint32(p.EquipMaxWC, p.AbWC)
-	oldAC := clampStatUint32(p.EquipAC, p.AbAC)
-	oldTH := clampStatUint32(p.EquipTH, p.AbTH)
-	oldTB := clampStatUint32(p.EquipTB, p.AbTB)
-	oldMinMA := clampStatUint32(p.EquipMinMA, p.AbMA)
-	oldMaxMA := clampStatUint32(p.EquipMaxMA, p.AbMA)
-	oldMR := clampStatUint32(p.EquipMR, p.AbMR)
-	oldMaxHP := clampStatUint32(uint32(p.MaxHP), p.AbMaxHP)
-	oldMaxSP := clampStatUint32(uint32(p.MaxSP), p.AbMaxSP)
+	oldMinWC := applyStatWithRate(p.EquipMinWC, p.AbWC, p.AbWCRate)
+	oldMaxWC := applyStatWithRate(p.EquipMaxWC, p.AbWC, p.AbWCRate)
+	oldAC := applyStatWithRate(p.EquipAC, p.AbAC, p.AbACRate)
+	oldTH := applyStatWithRate(p.EquipTH, p.AbTH, p.AbTHRate)
+	oldTB := applyStatWithRate(p.EquipTB, p.AbTB, p.AbTBRate)
+	oldMinMA := applyStatWithRate(p.EquipMinMA, p.AbMA, p.AbMARate)
+	oldMaxMA := applyStatWithRate(p.EquipMaxMA, p.AbMA, p.AbMARate)
+	oldMR := applyStatWithRate(p.EquipMR, p.AbMR, p.AbMRRate)
+	oldMaxHP := applyStatWithRate(uint32(p.MaxHP), p.AbMaxHP, p.AbMaxHPRate)
+	oldMaxSP := applyStatWithRate(uint32(p.MaxSP), p.AbMaxSP, p.AbMaxSPRate)
 
 	p.RecalculateAbStateStats()
 
@@ -193,16 +443,16 @@ func (h *Handler) syncPlayerAbStateParams(p *ZonePlayer) {
 		oldV uint32
 		newV uint32
 	}{
-		{0x06, oldMinWC, clampStatUint32(p.EquipMinWC, p.AbWC)},
-		{0x07, oldMaxWC, clampStatUint32(p.EquipMaxWC, p.AbWC)},
-		{0x08, oldAC, clampStatUint32(p.EquipAC, p.AbAC)},
-		{0x09, oldTH, clampStatUint32(p.EquipTH, p.AbTH)},
-		{0x0A, oldTB, clampStatUint32(p.EquipTB, p.AbTB)},
-		{0x0B, oldMinMA, clampStatUint32(p.EquipMinMA, p.AbMA)},
-		{0x0C, oldMaxMA, clampStatUint32(p.EquipMaxMA, p.AbMA)},
-		{0x0D, oldMR, clampStatUint32(p.EquipMR, p.AbMR)},
-		{0x10, oldMaxHP, clampStatUint32(uint32(p.MaxHP), p.AbMaxHP)},
-		{0x11, oldMaxSP, clampStatUint32(uint32(p.MaxSP), p.AbMaxSP)},
+		{0x06, oldMinWC, applyStatWithRate(p.EquipMinWC, p.AbWC, p.AbWCRate)},
+		{0x07, oldMaxWC, applyStatWithRate(p.EquipMaxWC, p.AbWC, p.AbWCRate)},
+		{0x08, oldAC, applyStatWithRate(p.EquipAC, p.AbAC, p.AbACRate)},
+		{0x09, oldTH, applyStatWithRate(p.EquipTH, p.AbTH, p.AbTHRate)},
+		{0x0A, oldTB, applyStatWithRate(p.EquipTB, p.AbTB, p.AbTBRate)},
+		{0x0B, oldMinMA, applyStatWithRate(p.EquipMinMA, p.AbMA, p.AbMARate)},
+		{0x0C, oldMaxMA, applyStatWithRate(p.EquipMaxMA, p.AbMA, p.AbMARate)},
+		{0x0D, oldMR, applyStatWithRate(p.EquipMR, p.AbMR, p.AbMRRate)},
+		{0x10, oldMaxHP, applyStatWithRate(uint32(p.MaxHP), p.AbMaxHP, p.AbMaxHPRate)},
+		{0x11, oldMaxSP, applyStatWithRate(uint32(p.MaxSP), p.AbMaxSP, p.AbMaxSPRate)},
 	}
 	var diffs []paramDelta
 	for _, c := range candidates {

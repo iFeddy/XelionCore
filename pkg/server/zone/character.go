@@ -148,15 +148,30 @@ type ZonePlayer struct {
 	EquipMR       uint32
 	EquipTH       uint32
 	EquipTB       uint32
-	// Bonificadores dinámicos acumulados por AbStates activos (SubAbstate.shn ActionIndexA..D)
-	AbWC    int
-	AbAC    int
-	AbMA    int
-	AbMR    int
-	AbTH    int
-	AbTB    int
-	AbMaxHP int
-	AbMaxSP int
+	// Bonificadores dinámicos acumulados por AbStates activos (SubAbstate.shn SAA_* oficial de Zone.pdb)
+	AbWC           int
+	AbWCRate       int
+	AbAC           int
+	AbACRate       int
+	AbMA           int
+	AbMARate       int
+	AbMR           int
+	AbMRRate       int
+	AbTH           int
+	AbTHRate       int
+	AbTB           int
+	AbTBRate       int
+	AbMaxHP        int
+	AbMaxHPRate    int
+	AbMaxSP        int
+	AbMaxSPRate    int
+	AbCritRate     int
+	AbDamageRate   int
+	AbDmgDownRate  int
+	AbReflectRate  int
+	AbHealRate     int
+	AbCastTimeMod  int
+	AbMinHPFloor   int
 	LoginTime     time.Time
 	LastWarpTime  time.Time
 

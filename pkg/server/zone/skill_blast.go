@@ -24,8 +24,8 @@ func calcOfficialSkillAttackPower(player *ZonePlayer, skill *SkillDef, empDmg ui
 
 	if skill.IsMagical() {
 		if player != nil {
-			minBase = float64(clampStatUint32(player.EquipMinMA, player.AbMA)) + float64(player.Int)
-			maxBase = float64(clampStatUint32(player.EquipMaxMA, player.AbMA)) + float64(player.Int)
+			minBase = float64(applyStatWithRate(player.EquipMinMA, player.AbMA, player.AbMARate)) + float64(player.Int)
+			maxBase = float64(applyStatWithRate(player.EquipMaxMA, player.AbMA, player.AbMARate)) + float64(player.Int)
 		}
 		minRate = float64(skill.MinMARate)
 		maxRate = float64(skill.MaxMARate)
@@ -33,8 +33,8 @@ func calcOfficialSkillAttackPower(player *ZonePlayer, skill *SkillDef, empDmg ui
 		maxAdd = float64(skill.MaxMA)
 	} else {
 		if player != nil {
-			minBase = float64(clampStatUint32(player.EquipMinWC, player.AbWC)) + float64(player.Str)
-			maxBase = float64(clampStatUint32(player.EquipMaxWC, player.AbWC)) + float64(player.Str)
+			minBase = float64(applyStatWithRate(player.EquipMinWC, player.AbWC, player.AbWCRate)) + float64(player.Str)
+			maxBase = float64(applyStatWithRate(player.EquipMaxWC, player.AbWC, player.AbWCRate)) + float64(player.Str)
 		}
 		minRate = float64(skill.MinWCRate)
 		maxRate = float64(skill.MaxWCRate)
@@ -160,6 +160,9 @@ func (h *Handler) resolveSkillBlastOnEntity(caster *ZonePlayer, target GridEntit
 
 	// 1. Curación (Zone.exe 0x005817CE..0x00581980 + bono PassiveSkill HealUPRate)
 	if healAmt := calcOfficialSkillHeal(skill, empDmg); healAmt > 0 {
+		if caster != nil && caster.AbHealRate != 0 {
+			healAmt += (healAmt * caster.AbHealRate) / 1000
+		}
 		if h != nil && h.dataStore != nil && h.dataStore.SkillCatalog != nil {
 			if pb := h.dataStore.SkillCatalog.ComputePassiveBonuses(caster); pb.HealUpRate > 0 {
 				healAmt += (healAmt * pb.HealUpRate) / 1000
@@ -258,9 +261,9 @@ func (h *Handler) resolveSkillBlastOnEntity(caster *ZonePlayer, target GridEntit
 		}
 	case *ZonePlayer:
 		if isMag {
-			def = int(clampStatUint32(te.EquipMR, te.AbMR)) + int(te.Spr)
+			def = int(applyStatWithRate(te.EquipMR, te.AbMR, te.AbMRRate)) + int(te.Spr)
 		} else {
-			def = int(clampStatUint32(te.EquipAC, te.AbAC)) + int(te.End)
+			def = int(applyStatWithRate(te.EquipAC, te.AbAC, te.AbACRate)) + int(te.End)
 		}
 		if te.HasAbState(0x16D) {
 			isOneDmgShield = true
@@ -271,9 +274,17 @@ func (h *Handler) resolveSkillBlastOnEntity(caster *ZonePlayer, target GridEntit
 	}
 
 	dmg := atk - def
-	if tp, ok := target.(*ZonePlayer); ok && h != nil && h.dataStore != nil && h.dataStore.SkillCatalog != nil {
-		if pb := h.dataStore.SkillCatalog.ComputePassiveBonuses(tp); pb.DMGMinusRate > 0 && pb.DMGMinusRate < 1000 {
-			dmg -= (dmg * pb.DMGMinusRate) / 1000
+	if caster != nil && caster.AbDamageRate != 0 {
+		dmg += (dmg * caster.AbDamageRate) / 1000
+	}
+	if tp, ok := target.(*ZonePlayer); ok {
+		if tp.AbDmgDownRate > 0 && tp.AbDmgDownRate < 1000 {
+			dmg -= (dmg * tp.AbDmgDownRate) / 1000
+		}
+		if h != nil && h.dataStore != nil && h.dataStore.SkillCatalog != nil {
+			if pb := h.dataStore.SkillCatalog.ComputePassiveBonuses(tp); pb.DMGMinusRate > 0 && pb.DMGMinusRate < 1000 {
+				dmg -= (dmg * pb.DMGMinusRate) / 1000
+			}
 		}
 	}
 	if dmg < 1 {
@@ -414,7 +425,7 @@ func (h *Handler) applyOneAbStateToPlayer(target *ZonePlayer, abID uint16, name 
 		IsDebuff:  !isBuff,
 	}
 	if sub != nil {
-		applySubAbStateActions(st, sub.Actions)
+		applySubAbStateActions(st, sub.Actions, target.MaxHP)
 	}
 	target.AddAbState(st)
 	h.syncPlayerAbStateParams(target)
@@ -530,7 +541,7 @@ func (h *Handler) applySkillAbStatesToMonster(zMap *ZoneMap, mob *ZoneMonster, s
 			IsDebuff:  true,
 		}
 		if sub != nil {
-			applySubAbStateActions(st, sub.Actions)
+			applySubAbStateActions(st, sub.Actions, int(mob.MaxHP))
 		}
 		mob.mu.Lock()
 		if mob.ActiveStates == nil {
