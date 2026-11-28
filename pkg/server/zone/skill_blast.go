@@ -196,10 +196,15 @@ func (h *Handler) resolveSkillBlastOnEntity(caster *ZonePlayer, target GridEntit
 		}
 	}
 
-	// 1b. Buff / Party-Buff / Debuff puro (sin daño ni heal directo, ej. Resist 1 / MentalShout01)
+	// 1b. Buff / Party-Buff / Cure / Dispel / Debuff puro (sin daño ni heal directo)
 	if skill != nil && skill.IsPureBuff() {
+		isCure, isDispelEnemy, maxRemove := skill.CureDispelSpec()
 		switch te := target.(type) {
 		case *ZonePlayer:
+			dispelled := false
+			if isCure || isDispelEnemy {
+				dispelled = h.applyCureOrDispel(te, isCure, isDispelEnemy, maxRemove)
+			}
 			appliedAb := h.applySkillAbStatesToPlayer(te, skill, empKeep)
 			var restHP uint32
 			if te.Char != nil {
@@ -209,7 +214,7 @@ func (h *Handler) resolveSkillBlastOnEntity(caster *ZonePlayer, target GridEntit
 				Handle:    te.MapObjectID,
 				Damage:    0,
 				RestHP:    restHP,
-				IsAbState: appliedAb,
+				IsAbState: appliedAb || dispelled,
 			}, false
 		case *ZoneMonster:
 			appliedAb := h.applySkillAbStatesToMonster(caster.CurrentMap, te, skill, empKeep)
@@ -378,6 +383,50 @@ func (h *Handler) resolveSkillBlastOnEntity(caster *ZonePlayer, target GridEntit
 	}
 
 	return skillDamageTarget{}, false
+}
+
+// applyCureOrDispel implementa so_SkillCure (Zone.exe 0x0042C440):
+// remueve debuffs en aliados (Cure/Release) o buffs en enemigos (Expel/Dispel), sincroniza stats
+// y envía 0x2429(0) + 0x2428 por cada estado eliminado.
+func (h *Handler) applyCureOrDispel(target *ZonePlayer, isCure, isDispelEnemy bool, maxRemove int) bool {
+	if target == nil || len(target.ActiveStates) == 0 {
+		return false
+	}
+	var toRemove []uint16
+	for id, st := range target.ActiveStates {
+		if st == nil {
+			continue
+		}
+		if isCure && st.IsDebuff && !st.IsBuff {
+			toRemove = append(toRemove, id)
+		} else if isDispelEnemy && st.IsBuff {
+			toRemove = append(toRemove, id)
+		}
+	}
+	if len(toRemove) == 0 {
+		return false
+	}
+	sort.Slice(toRemove, func(i, j int) bool { return toRemove[i] < toRemove[j] })
+	if maxRemove > 0 && len(toRemove) > maxRemove {
+		toRemove = toRemove[:maxRemove]
+	}
+	for _, id := range toRemove {
+		target.RemoveAbState(id)
+		if target.Client != nil {
+			inform := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_ABSTATEINFORM_CMD)
+			inform.WriteUint32(uint32(id))
+			inform.WriteUint32(0)
+			_ = target.Client.SendPacket(inform)
+		}
+		if target.CurrentMap != nil {
+			resetCmd := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_ABSTATERESET_CMD)
+			resetCmd.WriteUint16(target.MapObjectID)
+			resetCmd.WriteUint32(uint32(id))
+			target.CurrentMap.Broadcast(resetCmd, 0)
+		}
+	}
+	h.syncPlayerAbStateParams(target)
+	return true
 }
 
 // resolveAbStateInfo obtiene ID, duración base, metadatos y acciones desde Abstate.shn + SubAbstate.shn

@@ -250,3 +250,31 @@ func TestRuntime4_SharedCooldownGroupAndClericRevive(t *testing.T) {
 			deadAlly.PendingRevive, deadAlly.PendingReviveRate)
 	}
 }
+
+func TestRuntime5_CureAndDispel(t *testing.T) {
+	h, _, player, _ := setupFase12TestEnvironment(t)
+	// Aplicar un debuff (ID 0 StaSeverBone) y un buff (ID 27 StaMentalShout)
+	player.AddAbState(&ActiveAbState{ID: 0, Name: "StaSeverBone", IsDebuff: true, IsBuff: false, THMod: -300, ExpiresAt: time.Now().Add(time.Minute)})
+	player.AddAbState(&ActiveAbState{ID: 27, Name: "StaMentalShout", IsBuff: true, IsDebuff: false, MAMod: 11, ExpiresAt: time.Now().Add(time.Minute)})
+	player.RecalculateAbStateStats()
+
+	// Cure [01] (ID 1660, EffectType=8, SpecialIndex=2, Value=1) debe remover SOLO el debuff (ID 0), manteniendo el buff (ID 27)
+	cure01 := &SkillDef{ID: 1660, EffectType: 8, Specials: [5]SkillSpecialEntry{{Index: 2, Value: 1}}}
+	res, dead := h.resolveSkillBlastOnEntity(player, player, cure01, 0, 0)
+	if dead || res.Damage != 0 || !res.IsAbState {
+		t.Fatalf("Cure 1 debe limpiar debuff sin daño: got dmg=%d dead=%v isAb=%v", res.Damage, dead, res.IsAbState)
+	}
+	if player.HasAbState(0) {
+		t.Errorf("Cure 1 debería haber removido el debuff ID=0")
+	}
+	if !player.HasAbState(27) {
+		t.Errorf("Cure 1 NO debería remover el buff ID=27")
+	}
+
+	// Expel / DispelMagic01 (SpecialIndex=8, Value=1) debe remover el buff ID=27
+	dispel := &SkillDef{ID: 6420, EffectType: 9, Specials: [5]SkillSpecialEntry{{Index: 8, Value: 1}}}
+	h.resolveSkillBlastOnEntity(player, player, dispel, 0, 0)
+	if player.HasAbState(27) {
+		t.Errorf("Dispel enemigo debería haber removido el buff ID=27")
+	}
+}

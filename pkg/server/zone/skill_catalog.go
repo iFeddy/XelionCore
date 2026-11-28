@@ -192,7 +192,27 @@ func (s *SkillDef) HasAnyAbState() bool {
 	return false
 }
 
-// IsPureBuff indica si la skill aplica únicamente AbStates (buff/party-buff/debuff puro) sin daño ni curación directa.
+// CureDispelSpec retorna si la skill cura debuffs en aliados (SpecialIndex 2 o 9, EffectType 8)
+// o disipa buffs en enemigos (SpecialIndex 8 o 26), junto con el máximo de estados a remover (0 = todos).
+func (s *SkillDef) CureDispelSpec() (isCure bool, isDispelEnemy bool, maxRemove int) {
+	if s == nil {
+		return false, false, 0
+	}
+	for _, sp := range s.Specials {
+		switch sp.Index {
+		case 2, 9:
+			return true, false, sp.Value
+		case 8, 26:
+			return false, true, sp.Value
+		}
+	}
+	if s.EffectType == 8 {
+		return true, false, 1
+	}
+	return false, false, 0
+}
+
+// IsPureBuff indica si la skill aplica únicamente AbStates o Cure/Dispel sin daño ni curación directa.
 func (s *SkillDef) IsPureBuff() bool {
 	if s == nil || s.HealAmount() > 0 {
 		return false
@@ -201,7 +221,8 @@ func (s *SkillDef) IsPureBuff() bool {
 		s.MinMA > 0 || s.MaxMA > 0 || s.MinMARate > 0 || s.MaxMARate > 0 {
 		return false
 	}
-	return s.HasAnyAbState()
+	isCure, isDispel, _ := s.CureDispelSpec()
+	return s.HasAnyAbState() || isCure || isDispel
 }
 
 // AbStateDef representa una entrada oficial de Abstate.shn (todos los 792 estados anormales del cliente).
