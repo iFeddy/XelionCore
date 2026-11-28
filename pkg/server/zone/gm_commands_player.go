@@ -725,25 +725,15 @@ func init() {
 					if ctx.Handler.charRepo != nil {
 						_ = ctx.Handler.charRepo.DeleteCharacterSkill(player.Char.ID, int16(skillNo))
 					}
-					clientID := skillNo
-					errCode := uint16(0x1501) // Active skill unlearn (Zone.exe VA 0x0057F269)
 					if skillNo >= PassiveSkillIDOffset {
-						clientID = skillNo - PassiveSkillIDOffset
-						errCode = 0x1505 // Passive skill unlearn (Zone.exe VA 0x0057F2A6)
 						removedPassive++
 					} else {
 						removedActive++
 					}
-					if player.Client != nil {
-						ack := protocol.NewPacketWriter(protocol.PROTO_NC_SKILL_UNLEARN_ACK)
-						ack.WriteUint16(clientID)
-						ack.WriteUint16(errCode)
-						_ = player.Client.SendPacket(ack)
-					}
 				}
 
 				ctx.Int1 = removedActive + removedPassive
-				ctx.Reply = fmt.Sprintf("[GM] Reset %d active + %d passive skills for %s.",
+				ctx.Reply = fmt.Sprintf("[GM] Reset %d active + %d passive skills for %s. Relog to refresh K window.",
 					removedActive, removedPassive, className)
 				return nil
 			}

@@ -585,6 +585,35 @@ func sendSkillBashCastFail(client *network.Client, errCode uint16) {
 	_ = client.SendPacket(failAck)
 }
 
+// emitSkillBashHitBlast difunde PROTO_NC_BAT_SKILLBASH_HIT_BLAST_CMD (0x2457, 6B payload)
+// a todo el AOI incluyendo al lanzador (paridad Zone.exe smo_SkillBash_Blast VA 0x0057CC56..0x0057CC9F).
+func emitSkillBashHitBlast(zMap *ZoneMap, castIndex, casterHandle, skillID uint16) {
+	if zMap == nil {
+		return
+	}
+	blastCmd := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_SKILLBASH_HIT_BLAST_CMD)
+	blastCmd.WriteUint16(castIndex)
+	blastCmd.WriteUint16(casterHandle)
+	blastCmd.WriteUint16(skillID)
+	zMap.broadcastSkillAOI(blastCmd, casterHandle, 0)
+}
+
+// sendSkillCoolTime envía PROTO_NC_SKILL_COOLTIME_CMD (0x4821, 6B payload: uint16 skill + uint32 sec)
+// sincronizando el temporizador de recarga en el cliente (Zone.exe so_ply_NewSkillCoolTime VA 0x00569260).
+func sendSkillCoolTime(client *network.Client, skillID uint16, cd time.Duration) {
+	if client == nil || cd < time.Second {
+		return
+	}
+	coolSec := uint32(cd.Milliseconds() / 1000)
+	if coolSec == 0 {
+		return
+	}
+	cdCmd := protocol.NewPacketWriter(protocol.PROTO_NC_SKILL_COOLTIME_CMD)
+	cdCmd.WriteUint16(skillID)
+	cdCmd.WriteUint32(coolSec)
+	_ = client.SendPacket(cdCmd)
+}
+
 // handleSkillBashObjCastReq implementa PROTO_NC_BAT_SKILLBASH_OBJ_CAST_REQ (0x2440).
 // Verificado en Zone.exe sp_NC_BAT_SKILLBASH_OBJ_CAST_REQ (0x0057FA50) + smo_SkillBash_Casting (0x0057BEF0).
 func (h *Handler) handleSkillBashObjCastReq(client *network.Client, pkt *protocol.Packet) {
@@ -729,7 +758,8 @@ func (h *Handler) handleSkillBashObjCastReq(client *network.Client, pkt *protoco
 	if player.SkillCooldowns == nil {
 		player.SkillCooldowns = make(map[uint16]time.Time)
 	}
-	player.SkillCooldowns[skillID] = now.Add(calcOfficialSkillCooldown(skillDef, empCool))
+	skillCD := calcOfficialSkillCooldown(skillDef, empCool)
+	player.SkillCooldowns[skillID] = now.Add(skillCD)
 
 	// Consumir HP y SP según csl_SPCheck y notificar cambios
 	if hpCost > 0 {
@@ -790,6 +820,8 @@ func (h *Handler) handleSkillBashObjCastReq(client *network.Client, pkt *protoco
 	}
 
 	emitSkillBashHitDamage(player.CurrentMap, castIndex, player.MapObjectID, hitTargets)
+	emitSkillBashHitBlast(player.CurrentMap, castIndex, player.MapObjectID, skillID)
+	sendSkillCoolTime(client, skillID, skillCD)
 
 	for _, de := range deadEntities {
 		emitReallyKill(player.CurrentMap, de.GetHandle(), player.MapObjectID)
@@ -924,7 +956,8 @@ func (h *Handler) handleSkillBashFldCastReq(client *network.Client, pkt *protoco
 	if player.SkillCooldowns == nil {
 		player.SkillCooldowns = make(map[uint16]time.Time)
 	}
-	player.SkillCooldowns[skillID] = now.Add(calcOfficialSkillCooldown(skillDef, empCool))
+	skillCD := calcOfficialSkillCooldown(skillDef, empCool)
+	player.SkillCooldowns[skillID] = now.Add(skillCD)
 
 	if hpCost > 0 {
 		player.Char.CurHP -= hpCost
@@ -975,6 +1008,8 @@ func (h *Handler) handleSkillBashFldCastReq(client *network.Client, pkt *protoco
 	}
 
 	emitSkillBashHitDamage(player.CurrentMap, castIndex, player.MapObjectID, hitTargets)
+	emitSkillBashHitBlast(player.CurrentMap, castIndex, player.MapObjectID, skillID)
+	sendSkillCoolTime(client, skillID, skillCD)
 	for _, deadH := range deadHandles {
 		emitReallyKill(player.CurrentMap, deadH, player.MapObjectID)
 	}
@@ -1168,6 +1203,7 @@ func (h *Handler) handleMoverSkillBashObjCastReq(client *network.Client, pkt *pr
 
 	res, dead := h.resolveSkillBlastOnEntity(player, targetEntity, skillDef, 0, 0)
 	emitSkillBashHitDamage(player.CurrentMap, castIndex, casterHandle, []skillDamageTarget{res})
+	emitSkillBashHitBlast(player.CurrentMap, castIndex, casterHandle, skillID)
 	if dead {
 		emitReallyKill(player.CurrentMap, targetObj, player.MapObjectID)
 		if defP, ok := targetEntity.(*ZonePlayer); ok {
@@ -1305,6 +1341,7 @@ func (h *Handler) handleMoverSkillBashFldCastReq(client *network.Client, pkt *pr
 	}
 
 	emitSkillBashHitDamage(player.CurrentMap, castIndex, casterHandle, hitTargets)
+	emitSkillBashHitBlast(player.CurrentMap, castIndex, casterHandle, skillID)
 	for _, deadH := range deadHandles {
 		emitReallyKill(player.CurrentMap, deadH, player.MapObjectID)
 	}
