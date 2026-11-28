@@ -1019,14 +1019,296 @@ func (h *Handler) handleSkillBashCastAbortReq(client *network.Client, pkt *proto
 	_ = client.SendPacket(ack)
 }
 
+// isMoverStateValidForSkill valida el estado del jinete/montura (Zone.exe so_smv_SkillBash_*: bitmask 0x0006 -> estados 1, 2 o 6 montado).
+func isMoverStateValidForSkill(player *ZonePlayer) bool {
+	if player == nil || player.Char == nil || player.Char.CurHP <= 0 {
+		return false
+	}
+	if player.State == 3 {
+		return false
+	}
+	return player.State == 1 || player.State == 2 || player.State == 6
+}
+
 // handleMoverSkillBashObjCastReq implementa PROTO_NC_MOVER_SKILLBASH_OBJ_CAST_REQ (0xCC0E).
+// Verificado en Zone.exe ShineMover::so_smv_SkillBash_Object (0x00580800):
+// bitmask 0x0006, sin consumo de SP del jugador, cooldown en MoverSkillList (msl_CoolTimeCheck),
+// rango oficial min(1.25x, +60), LoS (0x0FD1) y error 0x0FD6 para objetivo inválido.
 func (h *Handler) handleMoverSkillBashObjCastReq(client *network.Client, pkt *protocol.Packet) {
-	h.handleSkillBashObjCastReq(client, pkt)
+	player, ok := h.getPlayer(client)
+	if !ok || player == nil || player.CurrentMap == nil || player.Char == nil {
+		return
+	}
+
+	skillID, err := pkt.Reader.ReadUint16()
+	if err != nil {
+		return
+	}
+	targetObj, err := pkt.Reader.ReadUint16()
+	if err != nil {
+		return
+	}
+
+	if !isMoverStateValidForSkill(player) {
+		sendSkillBashCastFail(client, 0x0FC0)
+		return
+	}
+	targetEntity := player.CurrentMap.GetEntity(targetObj)
+	if targetEntity == nil {
+		sendSkillBashCastFail(client, 0x0FC4)
+		return
+	}
+	if !h.mapCanUseSkill(player.CurrentMap) {
+		sendSkillBashCastFail(client, 0x0FC3)
+		return
+	}
+	if player.CastingSkillID != 0 || player.IsStunned() {
+		sendSkillBashCastFail(client, 0x0FCC)
+		return
+	}
+	if player.IsSilenced() {
+		sendSkillBashCastFail(client, 0x0FC7)
+		return
+	}
+	if player.HasAbState(0x123) || player.HasAbState(0x1F3) {
+		sendSkillBashCastFail(client, 0x0FC1)
+		return
+	}
+
+	targetObjSize := 0
+	switch te := targetEntity.(type) {
+	case *ZoneMonster:
+		te.mu.RLock()
+		dead := te.IsDead || te.CurHP <= 0
+		killable := te.IsKillableByUser
+		te.mu.RUnlock()
+		if dead || !killable {
+			// Zone.exe 0x00580974 / 0x00580BD3: target no matable -> 0x0FD6
+			sendSkillBashCastFail(client, 0x0FD6)
+			return
+		}
+		targetObjSize = 30
+	case *ZonePlayer:
+		if te.HasAbState(0x1F3) || te.State == 3 || (te.Char != nil && te.Char.CurHP <= 0) {
+			sendSkillBashCastFail(client, 0x0FD6)
+			return
+		}
+		if te.HasAbState(0x123) {
+			sendSkillBashCastFail(client, 0x0FC2)
+			return
+		}
+	}
+
+	px, py := player.GetPosition()
+	tx, ty := targetEntity.GetPosition()
+	if player.CurrentMap.blockInfo != nil && player.CurrentMap.blockInfo.IsWorldAttackBlocked(float64(px), float64(py), float64(tx), float64(ty)) {
+		sendSkillBashCastFail(client, 0x0FD1)
+		return
+	}
+
+	var skillDef *SkillDef
+	if h.dataStore != nil && h.dataStore.SkillCatalog != nil {
+		if h.dataStore.IsPassiveSkill(skillID) {
+			sendSkillBashCastFail(client, 0x0FC6)
+			return
+		}
+		skillDef = h.dataStore.SkillCatalog.Get(skillID)
+		if skillDef == nil {
+			sendSkillBashCastFail(client, 0x0FC6)
+			return
+		}
+	}
+
+	// MoverSkillList::msl_CoolTimeCheck (0x00580C52) — sin consumo de SP del jugador
+	now := time.Now()
+	if player.MoverSkillCooldowns != nil {
+		if cdUntil, onCD := player.MoverSkillCooldowns[skillID]; onCD && now.Before(cdUntil) {
+			sendSkillBashCastFail(client, 0x0FC8)
+			return
+		}
+	}
+
+	maxRange := 450
+	if skillDef != nil && skillDef.Range > 0 {
+		maxRange = calcOfficialSkillMaxRange(targetObjSize, skillDef.Range)
+	}
+	dx := int64(px - tx)
+	dy := int64(py - ty)
+	if dx*dx+dy*dy > int64(maxRange)*int64(maxRange) {
+		sendSkillBashCastFail(client, 0x0FCA)
+		return
+	}
+
+	player.CastingSkillID = skillID
+	if player.MoverSkillCooldowns == nil {
+		player.MoverSkillCooldowns = make(map[uint16]time.Time)
+	}
+	player.MoverSkillCooldowns[skillID] = now.Add(calcOfficialSkillCooldown(skillDef, 0))
+
+	_ = client.SendPacket(protocol.NewPacketWriter(protocol.PROTO_NC_BAT_SKILLBASH_CAST_SUC_ACK))
+	castIndex := player.NextSkillCastIndex()
+
+	casterHandle := player.MapObjectID
+	if player.MoverHandle != 0 {
+		casterHandle = player.MoverHandle
+	}
+
+	startCmd := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_SKILLBASH_HIT_OBJ_START_CMD)
+	startCmd.WriteUint16(skillID)
+	startCmd.WriteUint16(targetObj)
+	startCmd.WriteUint16(castIndex)
+	_ = client.SendPacket(startCmd)
+
+	someoneStart := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_SOMEONESKILLBASH_HIT_OBJ_START_CMD)
+	someoneStart.WriteUint16(casterHandle)
+	someoneStart.WriteUint16(skillID)
+	someoneStart.WriteUint16(targetObj)
+	someoneStart.WriteUint16(castIndex)
+	player.CurrentMap.broadcastSkillAOI(someoneStart, player.MapObjectID, player.MapObjectID)
+
+	res, dead := h.resolveSkillBlastOnEntity(player, targetEntity, skillDef, 0, 0)
+	emitSkillBashHitDamage(player.CurrentMap, castIndex, casterHandle, []skillDamageTarget{res})
+	if dead {
+		emitReallyKill(player.CurrentMap, targetObj, player.MapObjectID)
+		if defP, ok := targetEntity.(*ZonePlayer); ok {
+			sendCharDeadMenu(defP)
+		}
+	}
+	player.CastingSkillID = 0
 }
 
 // handleMoverSkillBashFldCastReq implementa PROTO_NC_MOVER_SKILLBASH_FLD_CAST_REQ (0xCC0F).
+// Verificado en Zone.exe ShineMover::so_smv_SkillBash_Location (0x00580CF0).
 func (h *Handler) handleMoverSkillBashFldCastReq(client *network.Client, pkt *protocol.Packet) {
-	h.handleSkillBashFldCastReq(client, pkt)
+	player, ok := h.getPlayer(client)
+	if !ok || player == nil || player.CurrentMap == nil || player.Char == nil {
+		return
+	}
+
+	skillID, err := pkt.Reader.ReadUint16()
+	if err != nil {
+		return
+	}
+	fldX, err := pkt.Reader.ReadInt32()
+	if err != nil {
+		return
+	}
+	fldY, err := pkt.Reader.ReadInt32()
+	if err != nil {
+		return
+	}
+
+	if !isMoverStateValidForSkill(player) {
+		sendSkillBashCastFail(client, 0x0FC0)
+		return
+	}
+	if !h.mapCanUseSkill(player.CurrentMap) {
+		sendSkillBashCastFail(client, 0x0FC3)
+		return
+	}
+	if player.CastingSkillID != 0 || player.IsStunned() {
+		sendSkillBashCastFail(client, 0x0FCC)
+		return
+	}
+	if player.IsSilenced() {
+		sendSkillBashCastFail(client, 0x0FC7)
+		return
+	}
+	if player.HasAbState(0x123) || player.HasAbState(0x1F3) {
+		sendSkillBashCastFail(client, 0x0FC1)
+		return
+	}
+
+	px, py := player.GetPosition()
+	if player.CurrentMap.blockInfo != nil && player.CurrentMap.blockInfo.IsWorldAttackBlocked(float64(px), float64(py), float64(fldX), float64(fldY)) {
+		sendSkillBashCastFail(client, 0x0FD1)
+		return
+	}
+
+	var skillDef *SkillDef
+	if h.dataStore != nil && h.dataStore.SkillCatalog != nil {
+		if h.dataStore.IsPassiveSkill(skillID) {
+			sendSkillBashCastFail(client, 0x0FC6)
+			return
+		}
+		skillDef = h.dataStore.SkillCatalog.Get(skillID)
+		if skillDef == nil {
+			sendSkillBashCastFail(client, 0x0FC6)
+			return
+		}
+	}
+
+	if skillDef != nil && skillDef.IsTeleportSkill() && player.CurrentMap.blockInfo != nil {
+		if player.CurrentMap.blockInfo.IsWorldMoveBlocked(float64(fldX), float64(fldY)) {
+			sendSkillBashCastFail(client, 0x0FD1)
+			return
+		}
+	}
+
+	now := time.Now()
+	if player.MoverSkillCooldowns != nil {
+		if cdUntil, onCD := player.MoverSkillCooldowns[skillID]; onCD && now.Before(cdUntil) {
+			sendSkillBashCastFail(client, 0x0FC8)
+			return
+		}
+	}
+
+	maxRange := 600
+	if skillDef != nil && skillDef.Range > 0 {
+		maxRange = calcOfficialSkillMaxRange(0, skillDef.Range)
+	}
+	dx := int64(px) - int64(fldX)
+	dy := int64(py) - int64(fldY)
+	if dx*dx+dy*dy > int64(maxRange)*int64(maxRange) {
+		sendSkillBashCastFail(client, 0x0FCA)
+		return
+	}
+
+	player.CastingSkillID = skillID
+	if player.MoverSkillCooldowns == nil {
+		player.MoverSkillCooldowns = make(map[uint16]time.Time)
+	}
+	player.MoverSkillCooldowns[skillID] = now.Add(calcOfficialSkillCooldown(skillDef, 0))
+
+	_ = client.SendPacket(protocol.NewPacketWriter(protocol.PROTO_NC_BAT_SKILLBASH_CAST_SUC_ACK))
+	castIndex := player.NextSkillCastIndex()
+
+	casterHandle := player.MapObjectID
+	if player.MoverHandle != 0 {
+		casterHandle = player.MoverHandle
+	}
+
+	fldCmd := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_SKILLBASH_HIT_FLD_START_CMD)
+	fldCmd.WriteUint16(skillID)
+	fldCmd.WriteInt32(fldX)
+	fldCmd.WriteInt32(fldY)
+	fldCmd.WriteUint16(castIndex)
+	_ = client.SendPacket(fldCmd)
+
+	someoneFld := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_SOMEONESKILLBASH_HIT_FLD_START_CMD)
+	someoneFld.WriteUint16(casterHandle)
+	someoneFld.WriteUint16(skillID)
+	someoneFld.WriteInt32(fldX)
+	someoneFld.WriteInt32(fldY)
+	someoneFld.WriteUint16(castIndex)
+	player.CurrentMap.broadcastSkillAOI(someoneFld, player.MapObjectID, player.MapObjectID)
+
+	mobs := selectAoEMonsters(player.CurrentMap, px, py, int(fldX), int(fldY), skillDef)
+	var hitTargets []skillDamageTarget
+	var deadHandles []uint16
+	for _, mob := range mobs {
+		res, isDead := h.resolveSkillBlastOnEntity(player, mob, skillDef, 0, 0)
+		hitTargets = append(hitTargets, res)
+		if isDead {
+			deadHandles = append(deadHandles, mob.Handle)
+		}
+	}
+
+	emitSkillBashHitDamage(player.CurrentMap, castIndex, casterHandle, hitTargets)
+	for _, deadH := range deadHandles {
+		emitReallyKill(player.CurrentMap, deadH, player.MapObjectID)
+	}
+	player.CastingSkillID = 0
 }
 
 // ExecuteAutoAttack realiza un golpe del bucle de auto-ataque contra el objetivo actual.

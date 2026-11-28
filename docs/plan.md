@@ -83,7 +83,7 @@
   - Tests unitarios de daño físico/mágico, heal, AoE cono/radio/cap, AbStates y abort.
 
 ### Fase 4 — Mover Skills (`0xCC0E` / `0xCC0F`)
-- **Estado:** Pendiente
+- **Estado:** **Completada**
 - **Alcance:**
   - Implementar `handleMoverSkillBashObjCastReq` (`0x00580800`) y `handleMoverSkillBashFldCastReq` (`0x00580CF0`) con bitmask `0x0006`, cooldown en `MoverSkillCooldowns`, sin costo SP del jugador, LoS en OBJ/FLD, rango oficial y error `0x0FD6`.
   - Tests unitarios dedicados.
