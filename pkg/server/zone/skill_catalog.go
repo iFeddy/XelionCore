@@ -225,13 +225,64 @@ type SubAbStateDef struct {
 
 // PassiveSkillDef representa una habilidad pasiva oficial cargada desde PassiveSkill.shn + PassiveSkillView.shn + ItemInfo.shn.
 type PassiveSkillDef struct {
-	ID        uint16 // ID base de PassiveSkill.shn (0..842, enviado al cliente en 0x103E / 0x4804 / 0x4827)
-	DBID      uint16 // ID almacenado en tSkill.nSkillNo = PassiveSkillIDOffset + ID (>= 30000)
-	InxName   string
-	Name      string
-	UseClass  uint32
-	DemandLv  int
-	HasScroll bool
+	ID              uint16 // ID base de PassiveSkill.shn (0..842, enviado al cliente en 0x103E / 0x4804 / 0x4827)
+	DBID            uint16 // ID almacenado en tSkill.nSkillNo = PassiveSkillIDOffset + ID (>= 30000)
+	InxName         string
+	Name            string
+	UseClass        uint32
+	DemandLv        int
+	HasScroll       bool
+	MstRt           [12]int // Permille de maestría por tipo de arma (1..11)
+	MstPl           [12]int // Bono plano de ataque por tipo de arma (1..11)
+	TB              int
+	MaxSP           int
+	WCRateUp        int
+	MARateUp        int
+	HealUpRate      int
+	DMGMinusRate    int
+	CastingTimeRate int // Permille (1000 = 100%)
+}
+
+// PassiveBonusSummary resume los bonificadores efectivos de todas las pasivas aprendidas por un jugador.
+type PassiveBonusSummary struct {
+	WeaponRatePermille int // MstRt del arma equipada (permille)
+	WeaponFlatPlus     int // MstPl del arma equipada (plano)
+	WCRateUp           int
+	MARateUp           int
+	HealUpRate         int
+	DMGMinusRate       int
+	TB                 int
+	MaxSP              int
+	CastingTimeRate    int // Permille (1000 = sin reducción)
+}
+
+func weaponTypeToMasterySlot(wt uint8) int {
+	switch wt {
+	case 1: // Sword1
+		return 1
+	case 13, 16: // Hammer1
+		return 2
+	case 21: // Sword2
+		return 3
+	case 4: // Axe2
+		return 4
+	case 5: // Mace1
+		return 5
+	case 2: // Bow2
+		return 6
+	case 10: // CrossBow2
+		return 7
+	case 11: // Wand2
+		return 8
+	case 3: // Staff2
+		return 9
+	case 17, 18: // Claw
+		return 10
+	case 19: // DSword
+		return 11
+	default:
+		return 0
+	}
 }
 
 // SkillCatalog indexa en memoria todas las skills activas y pasivas desde ActiveSkill.shn, ActiveSkillInfoServer.shn,
@@ -240,9 +291,75 @@ type SkillCatalog struct {
 	ByID            map[uint16]*SkillDef
 	ByInx           map[string]*SkillDef
 	PassivesByID    map[uint16]*PassiveSkillDef // índice: ID base de PassiveSkill.shn (0..842)
+	ItemWeaponType  map[uint16]uint8            // índice: ItemInfo.shn ID -> WeaponType
 	UseClassMatrix  map[uint32][28]bool         // índice 1..27 = Job ID oficial (Fig=1 .. Sav=27)
 	AbStateByInx    map[string]*AbStateDef      // índice: lower(InxName) desde Abstate.shn
 	SubAbStateByKey map[string]*SubAbStateDef   // índice: lower(InxName)#Strength desde SubAbstate.shn
+}
+
+// ComputePassiveBonuses calcula los bonificadores efectivos de las skills pasivas aprendidas por el jugador
+// cruzando el tipo de arma equipada en ItemInfo.shn con PassiveSkill.shn.
+func (c *SkillCatalog) ComputePassiveBonuses(p *ZonePlayer) PassiveBonusSummary {
+	out := PassiveBonusSummary{CastingTimeRate: 1000}
+	if c == nil || p == nil || len(p.LearnedSkills) == 0 || len(c.PassivesByID) == 0 {
+		return out
+	}
+
+	// Determinar el slot de maestría del arma equipada
+	masterySlot := 0
+	if p.Char != nil && p.Char.Equips != nil && len(c.ItemWeaponType) > 0 {
+		for _, itemID := range p.Char.Equips {
+			if itemID == 0 || itemID == 0xFFFF {
+				continue
+			}
+			if wt := c.ItemWeaponType[itemID]; wt > 0 {
+				if slot := weaponTypeToMasterySlot(wt); slot > 0 {
+					masterySlot = slot
+					break
+				}
+			}
+		}
+	}
+
+	for skillNo := range p.LearnedSkills {
+		if skillNo < PassiveSkillIDOffset {
+			continue
+		}
+		ps := c.PassivesByID[skillNo-PassiveSkillIDOffset]
+		if ps == nil {
+			continue
+		}
+		if masterySlot > 0 {
+			if ps.MstRt[masterySlot] > out.WeaponRatePermille {
+				out.WeaponRatePermille = ps.MstRt[masterySlot]
+			}
+			if ps.MstPl[masterySlot] > out.WeaponFlatPlus {
+				out.WeaponFlatPlus = ps.MstPl[masterySlot]
+			}
+		}
+		if ps.WCRateUp > out.WCRateUp {
+			out.WCRateUp = ps.WCRateUp
+		}
+		if ps.MARateUp > out.MARateUp {
+			out.MARateUp = ps.MARateUp
+		}
+		if ps.HealUpRate > out.HealUpRate {
+			out.HealUpRate = ps.HealUpRate
+		}
+		if ps.DMGMinusRate > out.DMGMinusRate {
+			out.DMGMinusRate = ps.DMGMinusRate
+		}
+		if ps.TB > out.TB {
+			out.TB = ps.TB
+		}
+		if ps.MaxSP > out.MaxSP {
+			out.MaxSP = ps.MaxSP
+		}
+		if ps.CastingTimeRate > 0 && ps.CastingTimeRate < out.CastingTimeRate {
+			out.CastingTimeRate = ps.CastingTimeRate
+		}
+	}
+	return out
 }
 
 func subAbStateKey(inx string, strength int) string {
@@ -361,6 +478,7 @@ func BuildSkillCatalog(ds *DataStore) *SkillCatalog {
 		ByID:            make(map[uint16]*SkillDef),
 		ByInx:           make(map[string]*SkillDef),
 		PassivesByID:    make(map[uint16]*PassiveSkillDef),
+		ItemWeaponType:  make(map[uint16]uint8),
 		UseClassMatrix:  make(map[uint32][28]bool),
 		AbStateByInx:    make(map[string]*AbStateDef),
 		SubAbStateByKey: make(map[string]*SubAbStateDef),
@@ -528,11 +646,14 @@ func BuildSkillCatalog(ds *DataStore) *SkillCatalog {
 		}
 	}
 
-	// Indexar libros/scrolls de habilidades (Class == 11) desde ItemInfo.shn (paridad Zone.exe ac_AllLearnSKill VA 0x004213AF)
+	// Indexar libros/scrolls de habilidades (Class == 11) y WeaponType desde ItemInfo.shn
 	scrollDemandByInx := make(map[string]int)
 	if itemSHN := ds.GetSHN("ItemInfo"); itemSHN != nil {
 		for i := range itemSHN.Rows {
 			row := &itemSHN.Rows[i]
+			if wt := row.GetByte("WeaponType"); wt > 0 {
+				cat.ItemWeaponType[row.GetUint16("ID")] = wt
+			}
 			if row.GetInt("Class") != 11 {
 				continue
 			}
@@ -571,10 +692,45 @@ func BuildSkillCatalog(ds *DataStore) *SkillCatalog {
 				continue
 			}
 			pdef := &PassiveSkillDef{
-				ID:      id,
-				DBID:    PassiveSkillIDOffset + id,
-				InxName: inx,
-				Name:    strings.TrimSpace(row.GetString("Name")),
+				ID:              id,
+				DBID:            PassiveSkillIDOffset + id,
+				InxName:         inx,
+				Name:            strings.TrimSpace(row.GetString("Name")),
+				TB:              row.GetInt("TB"),
+				MaxSP:           row.GetInt("MaxSP"),
+				WCRateUp:        row.GetInt("WCRateUp"),
+				MARateUp:        row.GetInt("MARateUp"),
+				HealUpRate:      row.GetInt("HealUPRate"),
+				DMGMinusRate:    row.GetInt("DMG_MinusRate"),
+				CastingTimeRate: row.GetInt("CastingTime"),
+				MstRt: [12]int{
+					0,
+					row.GetInt("MstRtSword1"),
+					row.GetInt("MstRtHammer1"),
+					row.GetInt("MstRtSword2"),
+					row.GetInt("MstRtAxe2"),
+					row.GetInt("MstRtMace1"),
+					row.GetInt("MstRtBow2"),
+					row.GetInt("MstRtCrossBow2"),
+					row.GetInt("MstRtWand2"),
+					row.GetInt("MstRtStaff2"),
+					row.GetInt("MstRtClaw"),
+					row.GetInt("MstRtDSword"),
+				},
+				MstPl: [12]int{
+					0,
+					row.GetInt("MstPlSword1"),
+					row.GetInt("MstPlHammer1"),
+					row.GetInt("MstPlSword2"),
+					row.GetInt("MstPlAxe2"),
+					row.GetInt("MstPlMace1"),
+					row.GetInt("MstPlBow2"),
+					row.GetInt("MstPlCrossBow2"),
+					row.GetInt("MstPlWand2"),
+					row.GetInt("MstPlStaff2"),
+					row.GetInt("MstPlClaw"),
+					row.GetInt("MstPlDSword"),
+				},
 			}
 			if dlv, ok := scrollDemandByInx[strings.ToLower(inx)]; ok {
 				pdef.HasScroll = true

@@ -6,6 +6,7 @@ import (
 	"time"
 
 	"github.com/iFeddy/XelionCore/pkg/data/shn"
+	"github.com/iFeddy/XelionCore/pkg/database"
 )
 
 func TestRuntime1_AbStateEffectsAndExpiration(t *testing.T) {
@@ -64,5 +65,67 @@ func TestRuntime1_AbStateEffectsAndExpiration(t *testing.T) {
 	}
 	if player.AbMA != 0 || player.AbMR != 0 {
 		t.Errorf("Tras expirar AbState 27, AbMA/AbMR deben volver a 0 (got %d/%d)", player.AbMA, player.AbMR)
+	}
+}
+
+func TestRuntime2_PassiveSkillBonuses(t *testing.T) {
+	dataDir := filepath.Join("..", "..", "..", "data")
+	loadSHN := func(rel ...string) *shn.File {
+		t.Helper()
+		f, err := shn.ReadFile(filepath.Join(append([]string{dataDir}, rel...)...))
+		if err != nil {
+			t.Fatalf("error leyendo %v: %v", rel, err)
+		}
+		return f
+	}
+
+	activeSHN := loadSHN("ActiveSkill.shn")
+	passiveSHN := loadSHN("PassiveSkill.shn")
+	itemSHN := loadSHN("ItemInfo.shn")
+
+	h, _, player, _ := setupFase12TestEnvironment(t)
+	ds := &DataStore{
+		ActiveSkillSHN:  activeSHN,
+		PassiveSkillSHN: passiveSHN,
+		SHNTables: map[string]*shn.File{
+			"ActiveSkill":  activeSHN,
+			"PassiveSkill": passiveSHN,
+			"ItemInfo":     itemSHN,
+		},
+	}
+	ds.SkillCatalog = BuildSkillCatalog(ds)
+	h.dataStore = ds
+
+	// Buscar un ítem 1H Sword (WeaponType == 1) en ItemInfo.shn
+	var swordID uint16
+	for id, wt := range ds.SkillCatalog.ItemWeaponType {
+		if wt == 1 {
+			swordID = id
+			break
+		}
+	}
+	if swordID == 0 {
+		t.Fatalf("no se encontró espada 1H (WeaponType=1) en ItemInfo.shn")
+	}
+
+	// Aprender BraveMastery01 (ID=0 -> MstRtSword1=100) + OHSwdMastery01 (ID=9 -> +3) + OHSwdMastery02 (ID=10 -> +7)
+	player.SyncLearnedSkills([]*database.CharacterSkill{
+		{SkillNo: PassiveSkillIDOffset + 0, SkillLevel: 1},
+		{SkillNo: PassiveSkillIDOffset + 9, SkillLevel: 1},
+		{SkillNo: PassiveSkillIDOffset + 10, SkillLevel: 1},
+	})
+
+	// Sin arma equipada -> maestría de espada no aplica
+	player.Char.Equips = map[byte]uint16{}
+	unarmed := ds.SkillCatalog.ComputePassiveBonuses(player)
+	if unarmed.WeaponFlatPlus != 0 || unarmed.WeaponRatePermille != 0 {
+		t.Errorf("sin arma no debería aplicar Sword1 mastery (got flat=%d rate=%d)", unarmed.WeaponFlatPlus, unarmed.WeaponRatePermille)
+	}
+
+	// Con espada 1H equipada -> max(3,7)=7 plano + 100 permille (+10%)
+	player.Char.Equips = map[byte]uint16{10: swordID}
+	armed := ds.SkillCatalog.ComputePassiveBonuses(player)
+	if armed.WeaponFlatPlus != 7 || armed.WeaponRatePermille != 100 {
+		t.Errorf("con espada 1H esperado flat=7 rate=100, got flat=%d rate=%d", armed.WeaponFlatPlus, armed.WeaponRatePermille)
 	}
 }

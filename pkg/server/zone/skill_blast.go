@@ -158,8 +158,13 @@ func (h *Handler) resolveSkillBlastOnEntity(caster *ZonePlayer, target GridEntit
 		return skillDamageTarget{}, false
 	}
 
-	// 1. Curación (Zone.exe 0x005817CE..0x00581980)
+	// 1. Curación (Zone.exe 0x005817CE..0x00581980 + bono PassiveSkill HealUPRate)
 	if healAmt := calcOfficialSkillHeal(skill, empDmg); healAmt > 0 {
+		if h != nil && h.dataStore != nil && h.dataStore.SkillCatalog != nil {
+			if pb := h.dataStore.SkillCatalog.ComputePassiveBonuses(caster); pb.HealUpRate > 0 {
+				healAmt += (healAmt * pb.HealUpRate) / 1000
+			}
+		}
 		if tp, ok := target.(*ZonePlayer); ok && tp.Char != nil {
 			oldHP := tp.Char.CurHP
 			tp.Char.CurHP += healAmt
@@ -214,9 +219,24 @@ func (h *Handler) resolveSkillBlastOnEntity(caster *ZonePlayer, target GridEntit
 		}
 	}
 
-	// 2. Daño físico o mágico (RulesOfEngagementPhisycalSkill / MagicalSkill)
+	// 2. Daño físico o mágico (RulesOfEngagementPhisycalSkill / MagicalSkill + bonos de PassiveSkill.shn)
 	atk := calcOfficialSkillAttackPower(caster, skill, empDmg)
 	isMag := skill != nil && skill.IsMagical()
+	if h != nil && h.dataStore != nil && h.dataStore.SkillCatalog != nil {
+		pb := h.dataStore.SkillCatalog.ComputePassiveBonuses(caster)
+		if pb.WeaponFlatPlus > 0 {
+			atk += pb.WeaponFlatPlus
+		}
+		rateBoost := pb.WeaponRatePermille
+		if isMag {
+			rateBoost += pb.MARateUp
+		} else {
+			rateBoost += pb.WCRateUp
+		}
+		if rateBoost > 0 {
+			atk += (atk * rateBoost) / 1000
+		}
+	}
 
 	var def int
 	var isOneDmgShield bool
@@ -251,6 +271,11 @@ func (h *Handler) resolveSkillBlastOnEntity(caster *ZonePlayer, target GridEntit
 	}
 
 	dmg := atk - def
+	if tp, ok := target.(*ZonePlayer); ok && h != nil && h.dataStore != nil && h.dataStore.SkillCatalog != nil {
+		if pb := h.dataStore.SkillCatalog.ComputePassiveBonuses(tp); pb.DMGMinusRate > 0 && pb.DMGMinusRate < 1000 {
+			dmg -= (dmg * pb.DMGMinusRate) / 1000
+		}
+	}
 	if dmg < 1 {
 		dmg = 1
 	}
