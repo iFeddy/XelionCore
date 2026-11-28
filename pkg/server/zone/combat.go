@@ -928,7 +928,9 @@ func (h *Handler) finishObjSkillCast(player *ZonePlayer, skillID, targetObj uint
 		}
 	}
 
-	emitSkillBashHitDamage(player.CurrentMap, castIndex, player.MapObjectID, hitTargets)
+	if skillDef == nil || !skillDef.IsPureBuff() {
+		emitSkillBashHitDamage(player.CurrentMap, castIndex, player.MapObjectID, hitTargets)
+	}
 	emitSkillBashHitBlast(player.CurrentMap, castIndex, player.MapObjectID, skillID)
 	sendSkillCoolTime(player.Client, skillID, skillCD)
 
@@ -1195,7 +1197,9 @@ func (h *Handler) finishFldSkillCast(player *ZonePlayer, skillID uint16, fldX, f
 		}
 	}
 
-	emitSkillBashHitDamage(player.CurrentMap, castIndex, player.MapObjectID, hitTargets)
+	if skillDef == nil || !skillDef.IsPureBuff() {
+		emitSkillBashHitDamage(player.CurrentMap, castIndex, player.MapObjectID, hitTargets)
+	}
 	emitSkillBashHitBlast(player.CurrentMap, castIndex, player.MapObjectID, skillID)
 	sendSkillCoolTime(player.Client, skillID, skillCD)
 	for _, deadH := range deadHandles {

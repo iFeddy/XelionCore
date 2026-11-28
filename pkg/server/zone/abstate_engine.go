@@ -60,6 +60,8 @@ func applySubAbStateActions(st *ActiveAbState, actions [4]SubAbStateAction) {
 			st.MAMod += a.Arg
 		case 15: // MRPlus (defensa mágica, ej. SubStaMentalShout +11)
 			st.MRMod += a.Arg
+		case 17: // Shield absorb (ej. SubStaDivineShield Invincible=1040, SubStaNeglect=1e9)
+			st.ShieldHP += a.Arg
 		case 19: // Stun (ej. SubStaBattleBlowStun)
 			st.IsStun = true
 		case 21: // THMinus (ej. SubStaSeverBone)
@@ -80,6 +82,47 @@ func applySubAbStateActions(st *ActiveAbState, actions [4]SubAbStateAction) {
 			st.WCMod -= a.Arg
 		}
 	}
+}
+
+// AbsorbDamageWithShield absorbe daño entrante usando escudos activos (ActionIndex=17: Invincible, Neglect, etc.).
+// Si un escudo se agota, remueve el AbState y notifica 0x2429(0) + 0x2428. Retorna el daño restante (>= 0).
+func (p *ZonePlayer) AbsorbDamageWithShield(zMap *ZoneMap, dmg int) int {
+	if p == nil || dmg <= 0 || len(p.ActiveStates) == 0 {
+		return dmg
+	}
+	var broken []uint16
+	for id, st := range p.ActiveStates {
+		if st == nil || st.ShieldHP <= 0 {
+			continue
+		}
+		if st.ShieldHP >= dmg {
+			st.ShieldHP -= dmg
+			dmg = 0
+			if st.ShieldHP == 0 {
+				broken = append(broken, id)
+			}
+			break
+		}
+		dmg -= st.ShieldHP
+		st.ShieldHP = 0
+		broken = append(broken, id)
+	}
+	for _, id := range broken {
+		p.RemoveAbState(id)
+		if p.Client != nil {
+			inform := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_ABSTATEINFORM_CMD)
+			inform.WriteUint32(uint32(id))
+			inform.WriteUint32(0)
+			_ = p.Client.SendPacket(inform)
+		}
+		if zMap != nil {
+			resetCmd := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_ABSTATERESET_CMD)
+			resetCmd.WriteUint16(p.MapObjectID)
+			resetCmd.WriteUint32(uint32(id))
+			zMap.Broadcast(resetCmd, 0)
+		}
+	}
+	return dmg
 }
 
 // RecalculateAbStateStats recalcula los bonos acumulados de todos los AbStates activos del jugador.

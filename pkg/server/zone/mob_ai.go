@@ -1989,13 +1989,16 @@ func (m *ZoneMap) applyMonsterDamageToPlayer(mob *ZoneMonster, target *ZonePlaye
 		}
 		return
 	}
-	if target.Char.CurHP <= dmg {
-		target.Char.CurHP = 0
-		target.State = 3
-		target.IsAutoAttacking = false
-		target.TargetHandle = 0
-	} else {
-		target.Char.CurHP -= dmg
+	dmg = target.AbsorbDamageWithShield(m, dmg)
+	if dmg > 0 {
+		if target.Char.CurHP <= dmg {
+			target.Char.CurHP = 0
+			target.State = 3
+			target.IsAutoAttacking = false
+			target.TargetHandle = 0
+		} else {
+			target.Char.CurHP -= dmg
+		}
 	}
 	restHP := uint32(target.Char.CurHP)
 	isDead := target.Char.CurHP <= 0

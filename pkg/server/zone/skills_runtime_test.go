@@ -50,11 +50,24 @@ func TestRuntime1_AbStateEffectsAndExpiration(t *testing.T) {
 	if dead || res.Damage != 0 || !res.IsAbState {
 		t.Fatalf("Resist 1 debe aplicar AbState sin daño: got damage=%d dead=%v isAbState=%v", res.Damage, dead, res.IsAbState)
 	}
-	if !player.HasAbState(26) || !player.HasAbState(27) {
-		t.Fatalf("Player debe tener AbStataIndex 26 (StaMentalShoutMain) y 27 (StaMentalShout)")
+	if player.HasAbState(26) {
+		t.Fatalf("Resist 1 NO debe duplicar el portador oculto 26 (StaMentalShoutMain)")
+	}
+	if !player.HasAbState(27) {
+		t.Fatalf("Player debe tener AbStataIndex 27 (StaMentalShout)")
 	}
 	if player.AbMA != 11 || player.AbMR != 11 {
 		t.Fatalf("Resist 1 debe sumar +11 MA y +11 MR (got AbMA=%d AbMR=%d)", player.AbMA, player.AbMR)
+	}
+
+	// Invincible (DivineShield01, ID=1800) -> ShieldHP=1040 absorbe 500 de daño
+	invincible := ds.SkillCatalog.Get(1800)
+	if invincible == nil {
+		t.Fatalf("DivineShield01 (1800) no encontrado en ActiveSkill.shn")
+	}
+	h.resolveSkillBlastOnEntity(player, player, invincible, 0, 0)
+	if rem := player.AbsorbDamageWithShield(zMap, 500); rem != 0 {
+		t.Fatalf("Invincible (ShieldHP=1040) debe absorber 500 de daño completo, got rem=%d", rem)
 	}
 
 	// Verificar expiración en tick1s() de MapGameLoop

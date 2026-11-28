@@ -335,12 +335,15 @@ func (h *Handler) resolveSkillBlastOnEntity(caster *ZonePlayer, target GridEntit
 		}, isDead
 	case *ZonePlayer:
 		if te.Char != nil {
-			if te.Char.CurHP <= dmg {
-				te.Char.CurHP = 0
-				te.State = 3
-				isDead = true
-			} else {
-				te.Char.CurHP -= dmg
+			dmg = te.AbsorbDamageWithShield(caster.CurrentMap, dmg)
+			if dmg > 0 {
+				if te.Char.CurHP <= dmg {
+					te.Char.CurHP = 0
+					te.State = 3
+					isDead = true
+				} else {
+					te.Char.CurHP -= dmg
+				}
 			}
 			restHP = uint32(te.Char.CurHP)
 			if te.Client != nil {
@@ -423,16 +426,18 @@ func (h *Handler) applyOneAbStateToPlayer(target *ZonePlayer, abID uint16, name 
 		_ = target.Client.SendPacket(inform)
 	}
 	if target.CurrentMap != nil {
+		// Zone.exe so_AbnormalState_BroadcastSet (VA 0x00405738): difunde 0x2427 excluyendo al objetivo,
+		// porque el objetivo ya recibió 0x2429 con el keepTimeMs exacto (enviarle 0x2427 pisa y borra el timer).
 		setCmd := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_ABSTATESET_CMD)
 		setCmd.WriteUint16(target.MapObjectID)
 		setCmd.WriteUint32(uint32(abID))
-		target.CurrentMap.broadcastSkillAOI(setCmd, target.MapObjectID, 0)
+		target.CurrentMap.broadcastSkillAOI(setCmd, target.MapObjectID, target.MapObjectID)
 	}
 }
 
 // applySkillAbStatesToPlayer aplica los hasta 4 AbStates (StaNameA..D) definidos en la skill
 // sumando el bono de duración de empower track 2 (Zone.exe 0x005824A7..0x00582791),
-// enviando 0x2429 + 0x2426 y propagando PartyState1 a miembros de party en rango.
+// enviando 0x2429 + 0x2427 y propagando PartyState1 a miembros de party en rango sin duplicar el aura Main.
 func (h *Handler) applySkillAbStatesToPlayer(target *ZonePlayer, skill *SkillDef, empKeep uint8) bool {
 	if target == nil || skill == nil || h.dataStore == nil {
 		return false
@@ -451,15 +456,15 @@ func (h *Handler) applySkillAbStatesToPlayer(target *ZonePlayer, skill *SkillDef
 			continue
 		}
 		dur += extraDur
-		isBuff := def == nil || def.DispelIndex != 2
-		h.applyOneAbStateToPlayer(target, abID, entry.Name, entry.Strength, dur, isBuff, sub)
-		applied = true
 
-		// Propagar aura de party (ej. StaMentalShoutMain -> PartyState1 = StaMentalShout en PartyRange)
+		// Si el estado es un portador de aura de party (ej. StaMentalShoutMain con PartyState1 = StaMentalShout),
+		// aplicar únicamente PartyState1 visible al lanzador y a los miembros de la party en PartyRange
+		// para evitar duplicar el ícono con descripción "-".
 		if def != nil && def.PartyStates[0] != "" && def.PartyStates[0] != "-" {
 			if pAbID, _, pDef, pSub, pOK := h.resolveAbStateInfo(def.PartyStates[0], entry.Strength); pOK {
 				pIsBuff := pDef == nil || pDef.DispelIndex != 2
 				h.applyOneAbStateToPlayer(target, pAbID, def.PartyStates[0], entry.Strength, dur, pIsBuff, pSub)
+				applied = true
 
 				if h.charRepo != nil && target.Char != nil && target.CurrentMap != nil {
 					if partyNo, _, _, err := h.charRepo.GetPartyByChar(target.Char.ID); err == nil && partyNo > 0 {
@@ -485,8 +490,13 @@ func (h *Handler) applySkillAbStatesToPlayer(target *ZonePlayer, skill *SkillDef
 						}
 					}
 				}
+				continue
 			}
 		}
+
+		isBuff := def == nil || def.DispelIndex != 2
+		h.applyOneAbStateToPlayer(target, abID, entry.Name, entry.Strength, dur, isBuff, sub)
+		applied = true
 	}
 	return applied
 }
