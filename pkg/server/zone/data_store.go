@@ -55,6 +55,7 @@ type DataStore struct {
 	PassiveSkillMap    map[uint16]bool
 	ActiveSkillMap     map[uint16]bool
 	SkillCatalog       *SkillCatalog
+	SpecialSkills      *SpecialSkillConfig
 	MobCatalog         *MobCatalog
 	TitleCatalog       *TitleCatalog
 	CollectCatalog     *CollectCatalog

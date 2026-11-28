@@ -89,7 +89,7 @@
   - Tests unitarios dedicados.
 
 ### Fase 5 — `EMPOWALLOC` (`0x4811`), `PRODUCTFIELD` (`0x4822`) y `UNLEARN` (`0x4824`)
-- **Estado:** Pendiente
+- **Estado:** **Completada**
 - **Alcance:**
   - `handleSkillEmpowAllocReq`: estado (`0x0882`), `minusMask` + ítem reset (`0x0886`), tope global (`0x0883`), tope `0..5` por track + underflow + skill aprendida (`0x0884`), `0x4810` con puntos restantes reales.
   - `handleSkillProductFieldReq`: estado (`0x0B04`), whitelist de 5 skills de producción (`0x0B12`), duplicado (`0x0B13`), máx. 2 (`0x0B14`), aprendizaje y persistencia.
