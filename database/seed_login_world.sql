@@ -40,9 +40,10 @@ INSERT INTO `tWorldServer` (
 ON DUPLICATE KEY UPDATE
     `nWorldNo` = `nWorldNo`;
 
--- 5. Cuentas base iniciales (admin y test) sin pisar cuentas existentes
--- admin / admin -> MD5: 21232f297a57a5a743894a0e4a801fc3
--- test / test   -> MD5: 098f6bcd4621d373cade4e832627b4f6
+-- 5. Cuentas base iniciales (admin, test y admina) sin pisar cuentas existentes
+-- admin / admin  -> MD5: 21232f297a57a5a743894a0e4a801fc3
+-- test / test    -> MD5: 098f6bcd4621d373cade4e832627b4f6
+-- admina / admin -> MD5: 21232f297a57a5a743894a0e4a801fc3
 INSERT INTO `tUser` (
     `nUserNo`, `sUserID`, `sUserPW`, `sUserName`, 
     `bIsBlock`, `bIsDelete`, `nAuthID`, `sUserIP`, `dDate`, `sUserNo`, `blsBlock`, `blsDelete`
@@ -63,6 +64,17 @@ ON DUPLICATE KEY UPDATE `sUserID` = `sUserID`;
 
 INSERT INTO `tUserOption` (`nUserNo`, `sEmail`)
 VALUES (2, 'test@xelion.online')
+ON DUPLICATE KEY UPDATE `sEmail` = VALUES(`sEmail`);
+
+INSERT INTO `tUser` (
+    `nUserNo`, `sUserID`, `sUserPW`, `sUserName`, 
+    `bIsBlock`, `bIsDelete`, `nAuthID`, `sUserIP`, `dDate`, `sUserNo`, `blsBlock`, `blsDelete`
+) VALUES
+(3, 'admina', '21232f297a57a5a743894a0e4a801fc3', 'Administrator2', 0, 0, 4, '127.0.0.1', NOW(), NULL, 0, 0)
+ON DUPLICATE KEY UPDATE `sUserID` = `sUserID`;
+
+INSERT INTO `tUserOption` (`nUserNo`, `sEmail`)
+VALUES (3, 'admina@xelion.online')
 ON DUPLICATE KEY UPDATE `sEmail` = VALUES(`sEmail`);
 
 -- 6. tAccountEventReward: Configuración en BD de recompensas de eventos de cuenta (cero hardcode en Go)
