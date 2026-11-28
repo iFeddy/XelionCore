@@ -187,6 +187,7 @@ type ZonePlayer struct {
 	LearnedSkills         map[uint16]*database.CharacterSkill
 	ToggleSkills          map[uint16]bool
 	SkillCooldowns        map[uint16]time.Time
+	SkillGroupCooldowns   map[int]time.Time // Cooldowns compartidos por DlyGroupNum (ActiveSkill.shn)
 	MoverSkillCooldowns   map[uint16]time.Time
 	PendingRevive         bool
 	PendingReviveRate     uint16

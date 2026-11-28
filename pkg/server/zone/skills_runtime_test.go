@@ -176,3 +176,64 @@ func TestRuntime3_CastTimeDelayAndAbort(t *testing.T) {
 		t.Errorf("Tras completar CastTime, el mob debería haber recibido daño (HP=%d)", mob.CurHP)
 	}
 }
+
+func TestRuntime4_SharedCooldownGroupAndClericRevive(t *testing.T) {
+	h, zMap, cleric, clericClient := setupFase12TestEnvironment(t)
+	h.dataStore = &DataStore{
+		SkillCatalog: &SkillCatalog{
+			ByID: map[uint16]*SkillDef{
+				601:  {ID: 601, SP: 5, Range: 200, DlyTimeMs: 5000, DlyGroupNum: 77, DlyTimeGroupMs: 4000, MinMA: 30, MaxMA: 30},
+				602:  {ID: 602, SP: 5, Range: 200, DlyTimeMs: 5000, DlyGroupNum: 77, DlyTimeGroupMs: 4000, MinMA: 30, MaxMA: 30},
+				1620: {ID: 1620, SP: 10, Range: 400, DlyTimeMs: 5000, SkillTargetState: 1, Specials: [5]SkillSpecialEntry{{Index: 12}}},
+			},
+		},
+	}
+	mob := NewZoneMonster(60, 102, "GroupCDMob", "Rou", int32(cleric.Char.XPos+40), int32(cleric.Char.YPos), 0, 5, 500, 50, 10, 5, 10, 20, 30, 10, 50)
+	zMap.AddMonster(mob)
+	cleric.SyncLearnedSkills([]*database.CharacterSkill{
+		{SkillNo: 601, SkillLevel: 1},
+		{SkillNo: 602, SkillLevel: 1},
+		{SkillNo: 1620, SkillLevel: 1},
+	})
+	cleric.Char.CurSP = 100
+
+	// 1. Castear skill 601 (DlyGroupNum=77) debe bloquear skill 602 del mismo grupo
+	p1 := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_SKILLBASH_OBJ_CAST_REQ)
+	p1.WriteUint16(601)
+	p1.WriteUint16(mob.Handle)
+	h.HandlePacket(clericClient, protocol.NewPacket(p1.Data()))
+	hpAfter601 := mob.CurHP
+	if hpAfter601 >= 500 {
+		t.Fatalf("Skill 601 debería haber dañado al mob")
+	}
+
+	p2 := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_SKILLBASH_OBJ_CAST_REQ)
+	p2.WriteUint16(602)
+	p2.WriteUint16(mob.Handle)
+	h.HandlePacket(clericClient, protocol.NewPacket(p2.Data()))
+	if mob.CurHP != hpAfter601 {
+		t.Errorf("Skill 602 del mismo DlyGroupNum=77 debería estar bloqueada por cooldown compartido")
+	}
+
+	// 2. Cleric lanza Revival01 (1620, SkillTargetState=1) sobre un jugador muerto -> activa PendingRevive y envía 0x4829
+	deadChar := &database.Character{ID: 777, Name: "DeadAlly", Level: 10, CurHP: 0, CurSP: 0}
+	deadAlly := NewZonePlayer(nil, deadChar, nil, nil)
+	deadAlly.CurrentMap = zMap
+	deadAlly.MapObjectID = 10999
+	deadAlly.MaxHP = 200
+	deadAlly.MaxSP = 100
+	deadAlly.State = 3 // Dead
+	deadAlly.Char.XPos = cleric.Char.XPos + 30
+	deadAlly.Char.YPos = cleric.Char.YPos
+	zMap.AddPlayer(deadAlly)
+
+	revPkt := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_SKILLBASH_OBJ_CAST_REQ)
+	revPkt.WriteUint16(1620)
+	revPkt.WriteUint16(deadAlly.MapObjectID)
+	h.HandlePacket(clericClient, protocol.NewPacket(revPkt.Data()))
+
+	if !deadAlly.PendingRevive || deadAlly.PendingReviveRate != 1000 {
+		t.Fatalf("Revival01 sobre jugador muerto debe marcar PendingRevive=true (rate=1000), got pending=%v rate=%d",
+			deadAlly.PendingRevive, deadAlly.PendingReviveRate)
+	}
+}

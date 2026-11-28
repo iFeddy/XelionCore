@@ -675,7 +675,14 @@ func (h *Handler) handleSkillBashObjCastReq(client *network.Client, pkt *protoco
 		}
 		targetObjSize = 30
 	case *ZonePlayer:
-		if te.State == 3 || (te.Char != nil && te.Char.CurHP <= 0) {
+		isRevive := h.dataStore != nil && h.dataStore.SkillCatalog != nil && h.dataStore.SkillCatalog.Get(skillID).IsReviveSkill()
+		isDeadPlayer := te.State == 3 || (te.Char != nil && te.Char.CurHP <= 0)
+		if isRevive {
+			if !isDeadPlayer {
+				sendSkillBashCastFail(client, 0x0FC3)
+				return
+			}
+		} else if isDeadPlayer {
 			sendSkillBashCastFail(client, 0x0FC3)
 			return
 		}
@@ -716,10 +723,16 @@ func (h *Handler) handleSkillBashObjCastReq(client *network.Client, pkt *protoco
 		}
 	}
 
-	// 9. Validar cooldown activo (Zone.exe 0x0046A420 -> 0x0FC8)
+	// 9. Validar cooldown activo individual y de grupo DlyGroupNum (Zone.exe 0x0046A420 -> 0x0FC8)
 	now := time.Now()
 	if player.SkillCooldowns != nil {
 		if cdUntil, onCD := player.SkillCooldowns[skillID]; onCD && now.Before(cdUntil) {
+			sendSkillBashCastFail(client, 0x0FC8)
+			return
+		}
+	}
+	if skillDef != nil && skillDef.DlyGroupNum > 0 && player.SkillGroupCooldowns != nil {
+		if grpUntil, onGrpCD := player.SkillGroupCooldowns[skillDef.DlyGroupNum]; onGrpCD && now.Before(grpUntil) {
 			sendSkillBashCastFail(client, 0x0FC8)
 			return
 		}
@@ -816,7 +829,9 @@ func (h *Handler) finishObjSkillCast(player *ZonePlayer, skillID, targetObj uint
 		return
 	}
 	if tp, isPlayer := targetEntity.(*ZonePlayer); isPlayer && tp.State == 3 {
-		return
+		if skillDef == nil || !skillDef.IsReviveSkill() {
+			return
+		}
 	}
 
 	if player.SkillCooldowns == nil {
@@ -824,6 +839,12 @@ func (h *Handler) finishObjSkillCast(player *ZonePlayer, skillID, targetObj uint
 	}
 	skillCD := calcOfficialSkillCooldown(skillDef, empCool)
 	player.SkillCooldowns[skillID] = now.Add(skillCD)
+	if skillDef != nil && skillDef.DlyGroupNum > 0 && skillDef.DlyTimeGroupMs > 0 {
+		if player.SkillGroupCooldowns == nil {
+			player.SkillGroupCooldowns = make(map[int]time.Time)
+		}
+		player.SkillGroupCooldowns[skillDef.DlyGroupNum] = now.Add(time.Duration(skillDef.DlyTimeGroupMs) * time.Millisecond)
+	}
 
 	// Consumir HP y SP según csl_SPCheck y notificar cambios
 	if hpCost > 0 {
@@ -868,6 +889,20 @@ func (h *Handler) finishObjSkillCast(player *ZonePlayer, skillID, targetObj uint
 	someoneStart.WriteUint16(targetObj)
 	someoneStart.WriteUint16(castIndex)
 	player.CurrentMap.broadcastSkillAOI(someoneStart, player.MapObjectID, player.MapObjectID)
+
+	// Resolver impacto: si es Revive (SkillTargetState == 1) sobre jugador muerto, ofrecer resurrección (0x4829)
+	if skillDef != nil && skillDef.IsReviveSkill() {
+		if tp, ok := targetEntity.(*ZonePlayer); ok && tp != nil {
+			tp.PendingRevive = true
+			tp.PendingReviveRate = 1000 // 100% HP/SP (sp_ReviveNow 0x3E8)
+			if tp.Client != nil {
+				_ = tp.Client.SendPacket(protocol.NewPacketWriter(protocol.PROTO_NC_SKILL_SOMEONEREVAVALTOME_CMD))
+			}
+		}
+		emitSkillBashHitBlast(player.CurrentMap, castIndex, player.MapObjectID, skillID)
+		sendSkillCoolTime(player.Client, skillID, skillCD)
+		return
+	}
 
 	// Resolver impacto usando motor oficial smo_SkillBlast (daño físico/mágico, heal, AoE, AbStates)
 	px, py := player.GetPosition()
@@ -993,6 +1028,12 @@ func (h *Handler) handleSkillBashFldCastReq(client *network.Client, pkt *protoco
 			return
 		}
 	}
+	if skillDef != nil && skillDef.DlyGroupNum > 0 && player.SkillGroupCooldowns != nil {
+		if grpUntil, onGrpCD := player.SkillGroupCooldowns[skillDef.DlyGroupNum]; onGrpCD && now.Before(grpUntil) {
+			sendSkillBashCastFail(client, 0x0FC8)
+			return
+		}
+	}
 
 	// 10. Costos HP / LP / SP (Zone.exe 0x0057F869..0x0057F8E9)
 	_, empSP, _, empCool := player.GetSkillEmpower(skillID)
@@ -1084,6 +1125,12 @@ func (h *Handler) finishFldSkillCast(player *ZonePlayer, skillID uint16, fldX, f
 	}
 	skillCD := calcOfficialSkillCooldown(skillDef, empCool)
 	player.SkillCooldowns[skillID] = now.Add(skillCD)
+	if skillDef != nil && skillDef.DlyGroupNum > 0 && skillDef.DlyTimeGroupMs > 0 {
+		if player.SkillGroupCooldowns == nil {
+			player.SkillGroupCooldowns = make(map[int]time.Time)
+		}
+		player.SkillGroupCooldowns[skillDef.DlyGroupNum] = now.Add(time.Duration(skillDef.DlyTimeGroupMs) * time.Millisecond)
+	}
 
 	if hpCost > 0 {
 		player.Char.CurHP -= hpCost

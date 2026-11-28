@@ -157,6 +157,14 @@ func (s *SkillDef) HealAmount() int {
 	return 0
 }
 
+// IsReviveSkill indica si la skill apunta a jugadores muertos (SkillTargetState == 1, ej. Revival01 ID 1620).
+func (s *SkillDef) IsReviveSkill() bool {
+	if s == nil {
+		return false
+	}
+	return s.SkillTargetState == 1
+}
+
 // IsTeleportSkill indica si la skill desplaza/teletransporta al lanzador hacia el objetivo o coordenada.
 func (s *SkillDef) IsTeleportSkill() bool {
 	if s == nil {
