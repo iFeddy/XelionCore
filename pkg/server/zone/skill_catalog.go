@@ -60,6 +60,7 @@ type SkillDef struct {
 	Area         int
 	TargetNumber int
 	UseClass     uint32
+	DemandLv     int // Nivel requerido oficial (ActiveSkillView.shn uiDemandLv)
 
 	AbStates [4]SkillAbStateEntry
 
@@ -169,10 +170,27 @@ func (s *SkillDef) IsTeleportSkill() bool {
 	return false
 }
 
-// SkillCatalog indexa en memoria todas las skills activas desde ActiveSkill.shn + ActiveSkillInfoServer.shn.
+// SkillCatalog indexa en memoria todas las skills activas desde ActiveSkill.shn + ActiveSkillInfoServer.shn + ActiveSkillView.shn
+// junto con la matriz oficial de clases UseClassTypeInfo.shn.
 type SkillCatalog struct {
-	ByID  map[uint16]*SkillDef
-	ByInx map[string]*SkillDef
+	ByID           map[uint16]*SkillDef
+	ByInx          map[string]*SkillDef
+	UseClassMatrix map[uint32][28]bool // índice 1..27 = Job ID oficial (Fig=1 .. Sav=27)
+}
+
+// CanClassUseSkill verifica según UseClassTypeInfo.shn si una clase (job 1..27) puede usar/aprender una skill con dado UseClass.
+func (c *SkillCatalog) CanClassUseSkill(useClass uint32, job byte) bool {
+	if c == nil || job < 1 || job > 27 {
+		return false
+	}
+	if len(c.UseClassMatrix) == 0 {
+		return false
+	}
+	row, ok := c.UseClassMatrix[useClass]
+	if !ok {
+		return false
+	}
+	return row[job]
 }
 
 // Get retorna la definición oficial de una skill activa por ID.
@@ -208,8 +226,9 @@ func readSHNIntAt(row *shn.Row, idx int) int {
 // BuildSkillCatalog construye SkillCatalog reutilizando los *shn.File ya cargados en DataStore.
 func BuildSkillCatalog(ds *DataStore) *SkillCatalog {
 	cat := &SkillCatalog{
-		ByID:  make(map[uint16]*SkillDef),
-		ByInx: make(map[string]*SkillDef),
+		ByID:           make(map[uint16]*SkillDef),
+		ByInx:          make(map[string]*SkillDef),
+		UseClassMatrix: make(map[uint32][28]bool),
 	}
 	if ds == nil {
 		return cat
@@ -342,6 +361,35 @@ func BuildSkillCatalog(ds *DataStore) *SkillCatalog {
 			def.AggroPerDmg = row.GetInt("AggroPerDamage")
 			def.AbsoluteAggro = row.GetInt("AbsoluteAggro")
 			def.AddSoul = row.GetByte("AddSoul")
+		}
+	}
+
+	// Cargar uiDemandLv desde ActiveSkillView.shn (reutilizado desde ds.SHNTables)
+	if viewSHN := ds.GetSHN("ActiveSkillView"); viewSHN != nil {
+		for i := range viewSHN.Rows {
+			row := &viewSHN.Rows[i]
+			id := row.GetUint16("ID")
+			def := cat.ByID[id]
+			if def == nil {
+				inx := strings.ToLower(strings.TrimSpace(row.GetString("InxName")))
+				def = cat.ByInx[inx]
+			}
+			if def != nil {
+				def.DemandLv = row.GetInt("uiDemandLv")
+			}
+		}
+	}
+
+	// Cargar matriz oficial UseClassTypeInfo.shn (columnas 1..27 corresponden 1:1 a Job 1..27)
+	if ucSHN := ds.GetSHN("UseClassTypeInfo"); ucSHN != nil {
+		for i := range ucSHN.Rows {
+			row := &ucSHN.Rows[i]
+			uc := row.GetUint32("UseClass")
+			var flags [28]bool
+			for job := 1; job <= 27 && job < row.ColumnCount(); job++ {
+				flags[job] = row.GetByteAt(job) != 0
+			}
+			cat.UseClassMatrix[uc] = flags
 		}
 	}
 

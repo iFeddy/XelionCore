@@ -3,10 +3,12 @@ package zone
 import (
 	"errors"
 	"fmt"
+	"sort"
 	"strconv"
 	"strings"
 
 	"github.com/iFeddy/XelionCore/pkg/data/combat"
+	"github.com/iFeddy/XelionCore/pkg/database"
 	"github.com/iFeddy/XelionCore/pkg/protocol"
 )
 
@@ -651,4 +653,99 @@ func formatFiestaMoney(copper int64) string {
 		parts = append(parts, fmt.Sprintf("%dc", cop))
 	}
 	return neg + strings.Join(parts, " ")
+}
+
+func init() {
+	registerGMCommand([]string{"learnskill"}, gmCommandSpec{
+		MinArgs:           1,
+		Usage:             "&learnskill <id|all>",
+		LogType:           7,
+		DefaultAdminLevel: 50,
+		Exec: func(ctx *gmContext) error {
+			if ctx.Handler == nil || ctx.Handler.dataStore == nil || ctx.Handler.dataStore.SkillCatalog == nil {
+				return errors.New("SkillCatalog unavailable.")
+			}
+			cat := ctx.Handler.dataStore.SkillCatalog
+			player := ctx.Player
+			job := player.Char.Job
+			className := JobToClassName(job)
+			playerLv := int(player.Char.Level)
+
+			learnOne := func(sk *SkillDef) {
+				newSkill := &database.CharacterSkill{
+					CharNo:     player.Char.ID,
+					SkillNo:    sk.ID,
+					SkillLevel: 1,
+				}
+				player.SetLearnedSkill(newSkill)
+				if ctx.Handler.charRepo != nil {
+					_ = ctx.Handler.charRepo.SaveCharacterSkill(player.Char.ID, newSkill)
+				}
+				if player.Client != nil {
+					sucCmd := protocol.NewPacketWriter(protocol.PROTO_NC_SKILL_SKILL_LEARNSUC_CMD)
+					sucCmd.WriteUint16(sk.ID)
+					_ = player.Client.SendPacket(sucCmd)
+				}
+			}
+
+			arg := strings.TrimSpace(ctx.Args[0])
+			if strings.EqualFold(arg, "all") {
+				// Recolectar y ordenar por ID todas las skills de la clase del GM con 0 < DemandLv <= player.Level
+				var eligible []*SkillDef
+				for _, sk := range cat.ByID {
+					if sk == nil {
+						continue
+					}
+					if !cat.CanClassUseSkill(sk.UseClass, job) {
+						continue
+					}
+					if sk.DemandLv <= 0 || sk.DemandLv > playerLv {
+						continue
+					}
+					eligible = append(eligible, sk)
+				}
+				sort.Slice(eligible, func(i, j int) bool {
+					return eligible[i].ID < eligible[j].ID
+				})
+
+				learned := 0
+				skipped := 0
+				for _, sk := range eligible {
+					if player.HasSkill(sk.ID) {
+						skipped++
+						continue
+					}
+					learnOne(sk)
+					learned++
+				}
+
+				ctx.Int1 = learned
+				ctx.Reply = fmt.Sprintf("[GM] Learned %d skills for %s (Lv.%d) (skipped %d already known).",
+					learned, className, playerLv, skipped)
+				return nil
+			}
+
+			rawID, err := strconv.ParseUint(arg, 10, 16)
+			if err != nil {
+				return errors.New("Invalid skill ID. Usage: &learnskill <id|all>")
+			}
+			skillID := uint16(rawID)
+			sk := cat.Get(skillID)
+			if sk == nil {
+				return fmt.Errorf("Skill ID %d not found in ActiveSkill.shn.", skillID)
+			}
+			if !cat.CanClassUseSkill(sk.UseClass, job) {
+				return fmt.Errorf("Skill %d (%s) cannot be learned by class %s.", sk.ID, sk.Name, className)
+			}
+			if player.HasSkill(sk.ID) {
+				ctx.Reply = fmt.Sprintf("[GM] Skill %d (%s) is already learned.", sk.ID, sk.Name)
+				return nil
+			}
+
+			learnOne(sk)
+			ctx.Int1 = int(sk.ID)
+			ctx.Reply = fmt.Sprintf("[GM] Learned skill %d (%s, DemandLv=%d).", sk.ID, sk.Name, sk.DemandLv)
+			return nil
+		},
+	})
 }
