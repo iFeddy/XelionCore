@@ -21,6 +21,10 @@ func TestGMCommand_LearnSkill_ByIDAndAll(t *testing.T) {
 	if err != nil {
 		t.Fatalf("error leyendo UseClassTypeInfo.shn: %v", err)
 	}
+	adminSHN, err := shn.ReadFile(filepath.Join(dataDir, "AdminLvSet.shn"))
+	if err != nil {
+		t.Fatalf("error leyendo AdminLvSet.shn: %v", err)
+	}
 
 	h, _, player, _ := setupFase12TestEnvironment(t)
 	ds := &DataStore{
@@ -29,10 +33,13 @@ func TestGMCommand_LearnSkill_ByIDAndAll(t *testing.T) {
 			"ActiveSkill":      activeSHN,
 			"ActiveSkillView":  viewSHN,
 			"UseClassTypeInfo": ucSHN,
+			"AdminLvSet":       adminSHN,
+			"AdminLvSet.shn":   adminSHN,
 		},
-		AdminLvCatalog: &AdminLvCatalog{
-			Levels: map[string]byte{},
-		},
+	}
+	ds.AdminLvCatalog = BuildAdminLvCatalog(ds)
+	if reqLv, ok := ds.AdminLvCatalog.RequiredLevel("learnskill"); !ok || reqLv != 50 {
+		t.Fatalf("AdminLvSet.shn debe definir 'learnskill' con ALS_Lv=50 (got ok=%v lv=%d)", ok, reqLv)
 	}
 	ds.SkillCatalog = BuildSkillCatalog(ds)
 	h.dataStore = ds
