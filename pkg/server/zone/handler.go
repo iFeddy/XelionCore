@@ -986,14 +986,14 @@ func (h *Handler) sendInGameChunk(p *ZonePlayer) {
 	}
 	_ = p.Client.SendPacket(questsRepeat)
 
-	// 7. 0x103E - PROTO_NC_CHAR_CLIENT_PASSIVE_CMD (Siempre, clasificado por PassiveSkill.shn)
+	// 7. 0x103E - PROTO_NC_CHAR_CLIENT_PASSIVE_CMD (Siempre; en tSkill las pasivas tienen offset +0x7530)
 	var activeSkills []*database.CharacterSkill
 	var passiveSkills []*database.CharacterSkill
 	if h.charRepo != nil && p.Char != nil {
 		skills, _ := h.charRepo.GetCharacterSkills(p.Char.ID)
 		p.SyncLearnedSkills(skills)
 		for _, sk := range skills {
-			if h.dataStore != nil && h.dataStore.IsPassiveSkill(sk.SkillNo) {
+			if sk.SkillNo >= PassiveSkillIDOffset {
 				passiveSkills = append(passiveSkills, sk)
 			} else {
 				activeSkills = append(activeSkills, sk)
@@ -1004,7 +1004,8 @@ func (h *Handler) sendInGameChunk(p *ZonePlayer) {
 	passiveSkillsPkt := protocol.NewPacketWriter(protocol.PROTO_NC_CHAR_CLIENT_PASSIVE_CMD)
 	passiveSkillsPkt.WriteUint16(uint16(len(passiveSkills)))
 	for _, ps := range passiveSkills {
-		passiveSkillsPkt.WriteUint16(ps.SkillNo)
+		// El cliente espera el ID base de PassiveSkill.shn (< 0x3E8 = 1000, Zone.exe cpl_Store VA 0x00447B23)
+		passiveSkillsPkt.WriteUint16(ps.SkillNo - PassiveSkillIDOffset)
 	}
 	_ = p.Client.SendPacket(passiveSkillsPkt)
 

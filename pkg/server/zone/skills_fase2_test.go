@@ -60,7 +60,7 @@ func TestFase2_CastValidationsAndErrorCodes(t *testing.T) {
 				103: {ID: 103, LP: 10, Range: 150, DlyTimeMs: 1000},
 			},
 		},
-		PassiveSkillMap: map[uint16]bool{900: true},
+		PassiveSkillMap: map[uint16]bool{0: true},
 	}
 
 	mob := NewZoneMonster(60, 102, "TargetMob", "Rou", int32(player.Char.XPos+40), int32(player.Char.YPos), 0, 5, 200, 50, 10, 5, 10, 20, 30, 10, 50)
@@ -85,9 +85,9 @@ func TestFase2_CastValidationsAndErrorCodes(t *testing.T) {
 	}
 	player.RemoveAbState(51)
 
-	// 2. Skill pasiva -> 0x0FC6
+	// 2. Skill pasiva (>= 0x7530) -> 0x0FC6
 	pkt = protocol.NewPacketWriter(protocol.PROTO_NC_BAT_SKILLBASH_OBJ_CAST_REQ)
-	pkt.WriteUint16(900)
+	pkt.WriteUint16(PassiveSkillIDOffset + 0)
 	pkt.WriteUint16(mob.Handle)
 	h.HandlePacket(client, protocol.NewPacket(pkt.Data()))
 	if mob.CurHP != 200 {

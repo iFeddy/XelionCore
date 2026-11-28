@@ -655,10 +655,21 @@ func formatFiestaMoney(copper int64) string {
 	return neg + strings.Join(parts, " ")
 }
 
+// officialStarterSkillIDs contiene los IDs de skills iniciales de sistema/acciones/minijuegos
+// otorgados en data/default_character_data.json (que &learnskill reset NO debe borrar).
+var officialStarterSkillIDs = map[uint16]bool{
+	29001: true,
+	29200: true, 29201: true, 29202: true, 29203: true, 29204: true, 29205: true, 29206: true, 29209: true,
+	29429: true, 29430: true,
+	29468: true, 29469: true, 29480: true, 29482: true, 29484: true,
+	29498: true, 29499: true, 29500: true,
+	29613: true, 29614: true, 29644: true, 29645: true, 29745: true, 29746: true,
+}
+
 func init() {
 	registerGMCommand([]string{"learnskill"}, gmCommandSpec{
 		MinArgs:           1,
-		Usage:             "&learnskill <id|all>",
+		Usage:             "&learnskill <id|all|reset>",
 		LogType:           7,
 		DefaultAdminLevel: 50,
 		Exec: func(ctx *gmContext) error {
@@ -671,10 +682,12 @@ func init() {
 			className := JobToClassName(job)
 			playerLv := int(player.Char.Level)
 
-			learnOne := func(sk *SkillDef) {
+			// Envía PROTO_NC_SKILL_SKILL_LEARNSUC_CMD (0x4804, 3B payload: uint16 skillid + byte ispassive)
+			// Verificado en Zone.exe gds_NC_SKILL_SKILLTEACHSUC_ACK (VA 0x0044ED60..0x0044ED82).
+			learnSkill := func(dbSkillNo uint16, clientSkillID uint16, isPassive byte) {
 				newSkill := &database.CharacterSkill{
 					CharNo:     player.Char.ID,
-					SkillNo:    sk.ID,
+					SkillNo:    dbSkillNo,
 					SkillLevel: 1,
 				}
 				player.SetLearnedSkill(newSkill)
@@ -683,58 +696,147 @@ func init() {
 				}
 				if player.Client != nil {
 					sucCmd := protocol.NewPacketWriter(protocol.PROTO_NC_SKILL_SKILL_LEARNSUC_CMD)
-					sucCmd.WriteUint16(sk.ID)
+					sucCmd.WriteUint16(clientSkillID)
+					sucCmd.WriteByte(isPassive)
 					_ = player.Client.SendPacket(sucCmd)
 				}
 			}
 
 			arg := strings.TrimSpace(ctx.Args[0])
-			if strings.EqualFold(arg, "all") {
-				// Recolectar y ordenar por ID todas las skills de la clase del GM con 0 < DemandLv <= player.Level
-				var eligible []*SkillDef
-				for _, sk := range cat.ByID {
-					if sk == nil {
+
+			// 1. &learnskill reset: elimina todas las skills reales aprendidas (activas y pasivas),
+			// conservando las skills iniciales de acciones/sistema/emojis, y sincroniza en vivo con 0x4827.
+			if strings.EqualFold(arg, "reset") {
+				var toRemove []uint16
+				for skillNo := range player.LearnedSkills {
+					if officialStarterSkillIDs[skillNo] {
 						continue
 					}
-					if !cat.CanClassUseSkill(sk.UseClass, job) {
+					toRemove = append(toRemove, skillNo)
+				}
+				sort.Slice(toRemove, func(i, j int) bool {
+					return toRemove[i] < toRemove[j]
+				})
+
+				removedActive := 0
+				removedPassive := 0
+				for _, skillNo := range toRemove {
+					player.RemoveLearnedSkill(skillNo)
+					if ctx.Handler.charRepo != nil {
+						_ = ctx.Handler.charRepo.DeleteCharacterSkill(player.Char.ID, int16(skillNo))
+					}
+					clientID := skillNo
+					errCode := uint16(0x1501) // Active skill unlearn (Zone.exe VA 0x0057F269)
+					if skillNo >= PassiveSkillIDOffset {
+						clientID = skillNo - PassiveSkillIDOffset
+						errCode = 0x1505 // Passive skill unlearn (Zone.exe VA 0x0057F2A6)
+						removedPassive++
+					} else {
+						removedActive++
+					}
+					if player.Client != nil {
+						ack := protocol.NewPacketWriter(protocol.PROTO_NC_SKILL_UNLEARN_ACK)
+						ack.WriteUint16(clientID)
+						ack.WriteUint16(errCode)
+						_ = player.Client.SendPacket(ack)
+					}
+				}
+
+				ctx.Int1 = removedActive + removedPassive
+				ctx.Reply = fmt.Sprintf("[GM] Reset %d active + %d passive skills for %s.",
+					removedActive, removedPassive, className)
+				return nil
+			}
+
+			// 2. &learnskill all: aprende todas las skills REALES (activas + pasivas) de la clase del GM
+			// con scroll oficial en ItemInfo.shn (Class=11), UseClass > 1 y 0 < DemandLv <= player.Level.
+			if strings.EqualFold(arg, "all") {
+				var eligibleActive []*SkillDef
+				for _, sk := range cat.ByID {
+					if !cat.IsRealClassActiveSkill(sk, job) {
 						continue
 					}
 					if sk.DemandLv <= 0 || sk.DemandLv > playerLv {
 						continue
 					}
-					eligible = append(eligible, sk)
+					eligibleActive = append(eligibleActive, sk)
 				}
-				sort.Slice(eligible, func(i, j int) bool {
-					return eligible[i].ID < eligible[j].ID
+				sort.Slice(eligibleActive, func(i, j int) bool {
+					return eligibleActive[i].ID < eligibleActive[j].ID
 				})
 
-				learned := 0
+				var eligiblePassive []*PassiveSkillDef
+				for _, ps := range cat.PassivesByID {
+					if !cat.IsRealClassPassiveSkill(ps, job) {
+						continue
+					}
+					if ps.DemandLv <= 0 || ps.DemandLv > playerLv {
+						continue
+					}
+					eligiblePassive = append(eligiblePassive, ps)
+				}
+				sort.Slice(eligiblePassive, func(i, j int) bool {
+					return eligiblePassive[i].ID < eligiblePassive[j].ID
+				})
+
+				learnedActive := 0
+				learnedPassive := 0
 				skipped := 0
-				for _, sk := range eligible {
+				for _, sk := range eligibleActive {
 					if player.HasSkill(sk.ID) {
 						skipped++
 						continue
 					}
-					learnOne(sk)
-					learned++
+					learnSkill(sk.ID, sk.ID, 0)
+					learnedActive++
+				}
+				for _, ps := range eligiblePassive {
+					if player.HasSkill(ps.DBID) {
+						skipped++
+						continue
+					}
+					learnSkill(ps.DBID, ps.ID, 1)
+					learnedPassive++
 				}
 
-				ctx.Int1 = learned
-				ctx.Reply = fmt.Sprintf("[GM] Learned %d skills for %s (Lv.%d) (skipped %d already known).",
-					learned, className, playerLv, skipped)
+				ctx.Int1 = learnedActive + learnedPassive
+				ctx.Reply = fmt.Sprintf("[GM] Learned %d active + %d passive skills for %s (Lv.%d) (skipped %d already known).",
+					learnedActive, learnedPassive, className, playerLv, skipped)
 				return nil
 			}
 
+			// 3. &learnskill <id>: aprende una skill puntual de la clase del GM sin exigir DemandLv.
+			// IDs < 30000 = ActiveSkill.shn; IDs >= 30000 = PassiveSkill.shn (30000 + rawID).
 			rawID, err := strconv.ParseUint(arg, 10, 16)
 			if err != nil {
-				return errors.New("Invalid skill ID. Usage: &learnskill <id|all>")
+				return errors.New("Invalid skill ID. Usage: &learnskill <id|all|reset>")
 			}
 			skillID := uint16(rawID)
+
+			if skillID >= PassiveSkillIDOffset {
+				rawPassiveID := skillID - PassiveSkillIDOffset
+				ps := cat.PassivesByID[rawPassiveID]
+				if ps == nil {
+					return fmt.Errorf("Passive skill ID %d (DB %d) not found in PassiveSkill.shn.", rawPassiveID, skillID)
+				}
+				if ps.UseClass <= 1 || !cat.CanClassUseSkill(ps.UseClass, job) {
+					return fmt.Errorf("Passive skill %d (%s) cannot be learned by class %s.", ps.ID, ps.Name, className)
+				}
+				if player.HasSkill(ps.DBID) {
+					ctx.Reply = fmt.Sprintf("[GM] Passive skill %d (%s) is already learned.", ps.ID, ps.Name)
+					return nil
+				}
+				learnSkill(ps.DBID, ps.ID, 1)
+				ctx.Int1 = int(ps.DBID)
+				ctx.Reply = fmt.Sprintf("[GM] Learned passive skill %d (%s, DemandLv=%d).", ps.ID, ps.Name, ps.DemandLv)
+				return nil
+			}
+
 			sk := cat.Get(skillID)
 			if sk == nil {
 				return fmt.Errorf("Skill ID %d not found in ActiveSkill.shn.", skillID)
 			}
-			if !cat.CanClassUseSkill(sk.UseClass, job) {
+			if sk.UseClass <= 1 || !cat.CanClassUseSkill(sk.UseClass, job) {
 				return fmt.Errorf("Skill %d (%s) cannot be learned by class %s.", sk.ID, sk.Name, className)
 			}
 			if player.HasSkill(sk.ID) {
@@ -742,7 +844,7 @@ func init() {
 				return nil
 			}
 
-			learnOne(sk)
+			learnSkill(sk.ID, sk.ID, 0)
 			ctx.Int1 = int(sk.ID)
 			ctx.Reply = fmt.Sprintf("[GM] Learned skill %d (%s, DemandLv=%d).", sk.ID, sk.Name, sk.DemandLv)
 			return nil

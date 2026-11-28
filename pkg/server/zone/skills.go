@@ -357,11 +357,16 @@ func (h *Handler) handleSkillUnlearnReq(client *network.Client, pkt *protocol.Pa
 	_ = h.charRepo.DeleteCharacterSkill(player.Char.ID, int16(skillIndex))
 
 	errCode := uint16(0x1501) // Active skill unlearn (Zone.exe VA 0x0057F269)
-	if (h.dataStore != nil && h.dataStore.IsPassiveSkill(skillIndex)) || skillIndex >= 0x7530 {
+	ackSkillID := skillIndex
+	if skillIndex >= PassiveSkillIDOffset {
 		errCode = 0x1505 // Passive skill unlearn (Zone.exe VA 0x0057F2A6)
+		ackSkillID = skillIndex - PassiveSkillIDOffset
 	}
 
-	sendAck(errCode)
+	ack := protocol.NewPacketWriter(protocol.PROTO_NC_SKILL_UNLEARN_ACK)
+	ack.WriteUint16(ackSkillID)
+	ack.WriteUint16(errCode)
+	_ = client.SendPacket(ack)
 }
 
 // handleSkillReplyReviveCmd implementa sp_NC_SKILL_REPLYREVIVE_CMD (0x482A, VA 0x00418A30) -> sp_ReviveNow (VA 0x0057D290).

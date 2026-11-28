@@ -92,12 +92,20 @@ func (ds *DataStore) GetSHN(name string) *shn.File {
 	return nil
 }
 
-// IsPassiveSkill verifica rápidamente si un ID de habilidad pertenece a PassiveSkill.shn.
+// PassiveSkillIDOffset es el offset oficial de Zone.exe (0x7530 = 30000, VA 0x0057F27E)
+// utilizado en tSkill.nSkillNo para distinguir skills pasivas (>= 30000) de activas (< 30000),
+// ya que ActiveSkill.shn y PassiveSkill.shn comparten el mismo rango de IDs base (0..842).
+const PassiveSkillIDOffset uint16 = 0x7530
+
+// IsPassiveSkill verifica si un skillID (formato tSkill/protocolo) corresponde a una skill pasiva (>= 0x7530).
 func (ds *DataStore) IsPassiveSkill(skillID uint16) bool {
-	if ds == nil || ds.PassiveSkillMap == nil {
+	if skillID < PassiveSkillIDOffset {
 		return false
 	}
-	return ds.PassiveSkillMap[skillID]
+	if ds == nil || ds.PassiveSkillMap == nil {
+		return true
+	}
+	return ds.PassiveSkillMap[skillID-PassiveSkillIDOffset]
 }
 
 // LoadAllData carga en memoria RAM la totalidad del universo de datos estáticos de ZoneService

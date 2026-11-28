@@ -60,7 +60,8 @@ type SkillDef struct {
 	Area         int
 	TargetNumber int
 	UseClass     uint32
-	DemandLv     int // Nivel requerido oficial (ActiveSkillView.shn uiDemandLv)
+	DemandLv     int  // Nivel requerido oficial (ItemInfo.shn scroll DemandLv / ActiveSkillView.shn uiDemandLv)
+	HasScroll    bool // true si existe libro/scroll de aprendizaje (Class == 11) en ItemInfo.shn (Zone.exe ac_AllLearnSKill VA 0x004213AF)
 
 	AbStates [4]SkillAbStateEntry
 
@@ -170,12 +171,24 @@ func (s *SkillDef) IsTeleportSkill() bool {
 	return false
 }
 
-// SkillCatalog indexa en memoria todas las skills activas desde ActiveSkill.shn + ActiveSkillInfoServer.shn + ActiveSkillView.shn
-// junto con la matriz oficial de clases UseClassTypeInfo.shn.
+// PassiveSkillDef representa una habilidad pasiva oficial cargada desde PassiveSkill.shn + PassiveSkillView.shn + ItemInfo.shn.
+type PassiveSkillDef struct {
+	ID        uint16 // ID base de PassiveSkill.shn (0..842, enviado al cliente en 0x103E / 0x4804 / 0x4827)
+	DBID      uint16 // ID almacenado en tSkill.nSkillNo = PassiveSkillIDOffset + ID (>= 30000)
+	InxName   string
+	Name      string
+	UseClass  uint32
+	DemandLv  int
+	HasScroll bool
+}
+
+// SkillCatalog indexa en memoria todas las skills activas y pasivas desde ActiveSkill.shn, ActiveSkillInfoServer.shn,
+// ActiveSkillView.shn, PassiveSkill.shn, PassiveSkillView.shn, ItemInfo.shn y UseClassTypeInfo.shn.
 type SkillCatalog struct {
 	ByID           map[uint16]*SkillDef
 	ByInx          map[string]*SkillDef
-	UseClassMatrix map[uint32][28]bool // índice 1..27 = Job ID oficial (Fig=1 .. Sav=27)
+	PassivesByID   map[uint16]*PassiveSkillDef // índice: ID base de PassiveSkill.shn (0..842)
+	UseClassMatrix map[uint32][28]bool         // índice 1..27 = Job ID oficial (Fig=1 .. Sav=27)
 }
 
 // CanClassUseSkill verifica según UseClassTypeInfo.shn si una clase (job 1..27) puede usar/aprender una skill con dado UseClass.
@@ -191,6 +204,24 @@ func (c *SkillCatalog) CanClassUseSkill(useClass uint32, job byte) bool {
 		return false
 	}
 	return row[job]
+}
+
+// IsRealClassActiveSkill retorna true solo para skills activas reales de clase (UseClass > 1, con scroll Class=11 en ItemInfo.shn)
+// habilitadas para el job indicado. Excluye skills globales (UseClass=1: Ball*, Recipe_*, SummonMate01) y DT_*.
+func (c *SkillCatalog) IsRealClassActiveSkill(sk *SkillDef, job byte) bool {
+	if c == nil || sk == nil || sk.UseClass <= 1 || !sk.HasScroll {
+		return false
+	}
+	return c.CanClassUseSkill(sk.UseClass, job)
+}
+
+// IsRealClassPassiveSkill retorna true solo para skills pasivas reales de clase (UseClass > 1, con scroll Class=11 en ItemInfo.shn)
+// habilitadas para el job indicado. Excluye pasivas globales (UseClass=1 como PowerofLove01).
+func (c *SkillCatalog) IsRealClassPassiveSkill(ps *PassiveSkillDef, job byte) bool {
+	if c == nil || ps == nil || ps.UseClass <= 1 || !ps.HasScroll {
+		return false
+	}
+	return c.CanClassUseSkill(ps.UseClass, job)
 }
 
 // Get retorna la definición oficial de una skill activa por ID.
@@ -228,6 +259,7 @@ func BuildSkillCatalog(ds *DataStore) *SkillCatalog {
 	cat := &SkillCatalog{
 		ByID:           make(map[uint16]*SkillDef),
 		ByInx:          make(map[string]*SkillDef),
+		PassivesByID:   make(map[uint16]*PassiveSkillDef),
 		UseClassMatrix: make(map[uint32][28]bool),
 	}
 	if ds == nil {
@@ -390,6 +422,76 @@ func BuildSkillCatalog(ds *DataStore) *SkillCatalog {
 				flags[job] = row.GetByteAt(job) != 0
 			}
 			cat.UseClassMatrix[uc] = flags
+		}
+	}
+
+	// Indexar libros/scrolls de habilidades (Class == 11) desde ItemInfo.shn (paridad Zone.exe ac_AllLearnSKill VA 0x004213AF)
+	scrollDemandByInx := make(map[string]int)
+	if itemSHN := ds.GetSHN("ItemInfo"); itemSHN != nil {
+		for i := range itemSHN.Rows {
+			row := &itemSHN.Rows[i]
+			if row.GetInt("Class") != 11 {
+				continue
+			}
+			inx := strings.ToLower(strings.TrimSpace(row.GetString("InxName")))
+			if inx == "" {
+				continue
+			}
+			scrollDemandByInx[inx] = row.GetInt("DemandLv")
+		}
+	}
+	if len(scrollDemandByInx) > 0 {
+		for _, def := range cat.ByID {
+			if def == nil || def.InxName == "" {
+				continue
+			}
+			if dlv, ok := scrollDemandByInx[strings.ToLower(def.InxName)]; ok {
+				def.HasScroll = true
+				if dlv > 0 {
+					def.DemandLv = dlv
+				}
+			}
+		}
+	}
+
+	// Indexar habilidades pasivas reales desde PassiveSkill.shn + PassiveSkillView.shn
+	passiveSHN := ds.PassiveSkillSHN
+	if passiveSHN == nil {
+		passiveSHN = ds.GetSHN("PassiveSkill")
+	}
+	if passiveSHN != nil {
+		for i := range passiveSHN.Rows {
+			row := &passiveSHN.Rows[i]
+			id := row.GetUint16("ID")
+			inx := strings.TrimSpace(row.GetString("InxName"))
+			if id == 0 && inx == "" {
+				continue
+			}
+			pdef := &PassiveSkillDef{
+				ID:      id,
+				DBID:    PassiveSkillIDOffset + id,
+				InxName: inx,
+				Name:    strings.TrimSpace(row.GetString("Name")),
+			}
+			if dlv, ok := scrollDemandByInx[strings.ToLower(inx)]; ok {
+				pdef.HasScroll = true
+				pdef.DemandLv = dlv
+			}
+			cat.PassivesByID[id] = pdef
+		}
+	}
+	if pvSHN := ds.GetSHN("PassiveSkillView"); pvSHN != nil {
+		for i := range pvSHN.Rows {
+			row := &pvSHN.Rows[i]
+			id := row.GetUint16("ID")
+			pdef := cat.PassivesByID[id]
+			if pdef == nil {
+				continue
+			}
+			pdef.UseClass = row.GetUint32("UseClass")
+			if pdef.DemandLv == 0 {
+				pdef.DemandLv = row.GetInt("DemandLv")
+			}
 		}
 	}
 
