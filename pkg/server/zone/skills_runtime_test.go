@@ -346,3 +346,72 @@ func TestRuntime6_MagicFieldGroundTicks(t *testing.T) {
 		t.Errorf("MagicField expirado debería eliminarse, quedaron %d", remaining)
 	}
 }
+
+func TestRuntime7_AbStatePersistenceOnRelog(t *testing.T) {
+	h, zMap, player, _ := setupFase12TestEnvironment(t)
+	h.dataStore = &DataStore{
+		SkillCatalog: &SkillCatalog{
+			AbStateByInx: map[string]*AbStateDef{
+				"staprotect": {ID: 26, InxName: "StaProtect", SubAbState: "SubProtect", DispelIndex: 1, SaveType: 1},
+				"stastun":    {ID: 50, InxName: "StaStun", SubAbState: "SubStun", DispelIndex: 2, SaveType: 0},
+			},
+			AbStateByIndex: map[uint16]*AbStateDef{
+				26: {ID: 26, InxName: "StaProtect", SubAbState: "SubProtect", DispelIndex: 1, SaveType: 1},
+				50: {ID: 50, InxName: "StaStun", SubAbState: "SubStun", DispelIndex: 2, SaveType: 0},
+			},
+			SubAbStateByKey: map[string]*SubAbStateDef{
+				subAbStateKey("SubProtect", 1): {
+					InxName:    "SubProtect",
+					Strength:   1,
+					KeepTimeMs: 120000,
+					Actions:    [4]SubAbStateAction{{Index: int(SAA_ACPLUS), Arg: 35}},
+				},
+			},
+		},
+	}
+
+	// Jugador tiene 1 buff persistible (SaveType=1) y 1 debuff no persistible (SaveType=0)
+	player.AddAbState(&ActiveAbState{
+		ID:        26,
+		Name:      "StaProtect",
+		Level:     1,
+		Duration:  2 * time.Minute,
+		ExpiresAt: time.Now().Add(90 * time.Second),
+		IsBuff:    true,
+	})
+	player.AddAbState(&ActiveAbState{
+		ID:        50,
+		Name:      "StaStun",
+		Level:     1,
+		Duration:  5 * time.Second,
+		ExpiresAt: time.Now().Add(4 * time.Second),
+		IsDebuff:  true,
+	})
+
+	// 1. Guardar al desconectar
+	h.savePlayerAbStates(player)
+
+	// 2. Simular relog con un nuevo ZonePlayer para el mismo Char.ID
+	savedStates, err := h.charRepo.GetCharacterStates(player.Char.ID)
+	if err != nil {
+		t.Fatalf("GetCharacterStates falló: %v", err)
+	}
+	if len(savedStates) != 1 || savedStates[0].StateNo != 26 {
+		t.Fatalf("Debe persistirse únicamente StaProtect (26), got %+v", savedStates)
+	}
+
+	relogPlayer := NewZonePlayer(nil, player.Char, nil, nil)
+	relogPlayer.CurrentMap = zMap
+	relogPlayer.MaxHP = 500
+	h.restorePlayerAbStates(relogPlayer, savedStates)
+
+	if !relogPlayer.HasAbState(26) {
+		t.Fatalf("Al reloguear debería restaurarse StaProtect (26)")
+	}
+	if relogPlayer.HasAbState(50) {
+		t.Errorf("Al reloguear NO debería restaurarse StaStun (SaveType=0)")
+	}
+	if relogPlayer.AbAC != 35 {
+		t.Errorf("Al reloguear debería recalcularse AbAC=35 desde SubAbstate, got %d", relogPlayer.AbAC)
+	}
+}

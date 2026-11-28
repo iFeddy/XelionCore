@@ -1005,6 +1005,7 @@ type MemoryCharacterRepository struct {
 	zoneNodes     map[uint16]*ZoneNodeInfo
 
 	titles              map[int][]*CharacterTitleData
+	charStates          map[int][]*CharacterStateData
 	quests              map[int]map[int]*QuestData
 	autoPick            map[int]bool
 	restExpTime         map[int]time.Time
@@ -1444,10 +1445,56 @@ func (r *MemoryCharacterRepository) DecStatPoint(charNo int, statType byte) erro
 }
 
 func (r *MemoryCharacterRepository) GetCharacterStates(charNo int) ([]*CharacterStateData, error) {
-	return nil, nil
+	r.mu.RLock()
+	defer r.mu.RUnlock()
+	src := r.charStates[charNo]
+	out := make([]*CharacterStateData, 0, len(src))
+	for _, s := range src {
+		cp := *s
+		out = append(out, &cp)
+	}
+	return out, nil
 }
 
 func (r *MemoryCharacterRepository) SetCharacterState(charNo int, stateNo int16, level int16, stateTime int, restTime int, count int16, pd, ps, pk, pc byte) error {
+	r.mu.Lock()
+	defer r.mu.Unlock()
+	if r.charStates == nil {
+		r.charStates = make(map[int][]*CharacterStateData)
+	}
+	list := r.charStates[charNo]
+	for i, s := range list {
+		if s.StateNo == stateNo {
+			if restTime <= 0 {
+				r.charStates[charNo] = append(list[:i], list[i+1:]...)
+				return nil
+			}
+			s.StateLevel = level
+			s.StateTime = stateTime
+			s.RestTime = restTime
+			s.StateCount = count
+			s.PowerDamage = pd
+			s.PowerSP = ps
+			s.PowerKeepTime = pk
+			s.PowerCoolTime = pc
+			return nil
+		}
+	}
+	if restTime <= 0 {
+		return nil
+	}
+	r.charStates[charNo] = append(list, &CharacterStateData{
+		CharNo:        charNo,
+		StateNo:       stateNo,
+		StateLevel:    level,
+		StateTime:     stateTime,
+		RestTime:      restTime,
+		StateCount:    count,
+		PowerDamage:   pd,
+		PowerSP:       ps,
+		PowerKeepTime: pk,
+		PowerCoolTime: pc,
+	})
 	return nil
 }
 

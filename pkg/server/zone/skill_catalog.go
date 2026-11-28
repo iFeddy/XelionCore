@@ -253,6 +253,7 @@ type AbStateDef struct {
 	PartyStates [5]string
 	PartyRange  int
 	DispelIndex int // 1 = buff removible, 2 = debuff
+	SaveType    int // Abstate.shn AbStateSaveType (!= 0 => persistir en tCharacterState al desconectar)
 }
 
 // SubAbStateAction representa un par ActionIndex/ActionArg de SubAbstate.shn (A..D).
@@ -340,6 +341,7 @@ type SkillCatalog struct {
 	ItemWeaponType  map[uint16]uint8            // índice: ItemInfo.shn ID -> WeaponType
 	UseClassMatrix  map[uint32][28]bool         // índice 1..27 = Job ID oficial (Fig=1 .. Sav=27)
 	AbStateByInx    map[string]*AbStateDef      // índice: lower(InxName) desde Abstate.shn
+	AbStateByIndex  map[uint16]*AbStateDef      // índice: AbStataIndex (0..791) desde Abstate.shn
 	SubAbStateByKey map[string]*SubAbStateDef   // índice: lower(InxName)#Strength desde SubAbstate.shn
 }
 
@@ -441,6 +443,14 @@ func (c *SkillCatalog) LookupAbState(name string) *AbStateDef {
 	return c.AbStateByInx[strings.ToLower(strings.TrimSpace(name))]
 }
 
+// LookupAbStateByIndex busca un AbState oficial por AbStataIndex (0..791) en Abstate.shn.
+func (c *SkillCatalog) LookupAbStateByIndex(idx uint16) *AbStateDef {
+	if c == nil || c.AbStateByIndex == nil {
+		return nil
+	}
+	return c.AbStateByIndex[idx]
+}
+
 // LookupSubAbState busca la entrada de SubAbstate.shn por (InxName, Strength) con fallback a 999 y 1.
 func (c *SkillCatalog) LookupSubAbState(inxName string, strength int) *SubAbStateDef {
 	if c == nil || c.SubAbStateByKey == nil || inxName == "" || inxName == "-" {
@@ -527,6 +537,7 @@ func BuildSkillCatalog(ds *DataStore) *SkillCatalog {
 		ItemWeaponType:  make(map[uint16]uint8),
 		UseClassMatrix:  make(map[uint32][28]bool),
 		AbStateByInx:    make(map[string]*AbStateDef),
+		AbStateByIndex:  make(map[uint16]*AbStateDef),
 		SubAbStateByKey: make(map[string]*SubAbStateDef),
 	}
 	if ds == nil {
@@ -815,6 +826,7 @@ func BuildSkillCatalog(ds *DataStore) *SkillCatalog {
 				SubAbState:  strings.TrimSpace(row.GetString("SubAbState")),
 				PartyRange:  row.GetInt("PartyRange"),
 				DispelIndex: row.GetInt("DispelIndex"),
+				SaveType:    row.GetInt("AbStateSaveType"),
 				PartyStates: [5]string{
 					strings.TrimSpace(row.GetString("PartyState1")),
 					strings.TrimSpace(row.GetString("PartyState2")),
@@ -824,6 +836,7 @@ func BuildSkillCatalog(ds *DataStore) *SkillCatalog {
 				},
 			}
 			cat.AbStateByInx[strings.ToLower(inx)] = def
+			cat.AbStateByIndex[def.ID] = def
 		}
 	}
 	if subSHN := ds.GetSHN("SubAbstate"); subSHN != nil {

@@ -688,8 +688,9 @@ func (h *Handler) OnClientDisconnect(client *network.Client) {
 			_ = h.charRepo.SaveCharLevelExp(player.Char.ID, int16(player.Char.Level), player.Char.TCharacterState.Exp)
 			_ = h.charRepo.SaveCharMoney(player.Char.ID, player.Char.TCharacterState.Money)
 
-			// 3. CALL usp_Char_SetRestExpExecTime oficial
+			// 3. CALL usp_Char_SetRestExpExecTime oficial y persistir AbStates (tCharacterState)
 			_ = h.charRepo.SetRestExpExecTime(player.Char.ID, time.Now())
+			h.savePlayerAbStates(player)
 
 			_ = h.charRepo.UpdateCharacter(player.Char)
 		}
@@ -1053,7 +1054,9 @@ func (h *Handler) sendInGameChunk(p *ZonePlayer) {
 	raidNo := uint16(0xFFFF)
 	if h.charRepo != nil && p.Char != nil {
 		_, _ = h.charRepo.GetCharacterOptions(p.Char.ID)
-		_, _ = h.charRepo.GetCharacterStates(p.Char.ID)
+		if savedStates, err := h.charRepo.GetCharacterStates(p.Char.ID); err == nil && len(savedStates) > 0 {
+			h.restorePlayerAbStates(p, savedStates)
+		}
 		_, _ = h.charRepo.GetItemActionCoolTime(p.Char.ID)
 		_, _ = h.charRepo.GetRestExpExecTime(p.Char.ID)
 		if ptNo, _, _, err := h.charRepo.GetPartyByChar(p.Char.ID); err == nil && ptNo > 0 {

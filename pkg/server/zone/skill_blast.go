@@ -6,6 +6,7 @@ import (
 	"sort"
 	"time"
 
+	"github.com/iFeddy/XelionCore/pkg/database"
 	"github.com/iFeddy/XelionCore/pkg/protocol"
 )
 
@@ -607,4 +608,107 @@ func (h *Handler) applySkillAbStatesToMonster(zMap *ZoneMap, mob *ZoneMonster, s
 		applied = true
 	}
 	return applied
+}
+
+// savePlayerAbStates persiste en tCharacterState los AbStates activos con AbStateSaveType != 0
+// al desconectar o guardar personaje (Zone.exe so_SaveAbnormalState).
+func (h *Handler) savePlayerAbStates(player *ZonePlayer) {
+	if h == nil || h.charRepo == nil || player == nil || player.Char == nil || len(player.ActiveStates) == 0 {
+		return
+	}
+	now := time.Now()
+	var cat *SkillCatalog
+	if h.dataStore != nil {
+		cat = h.dataStore.SkillCatalog
+	}
+	for id, st := range player.ActiveStates {
+		if st == nil || st.ExpiresAt.IsZero() {
+			continue
+		}
+		restMs := int(st.ExpiresAt.Sub(now).Milliseconds())
+		if restMs <= 1000 {
+			continue
+		}
+		shouldSave := false
+		if cat != nil {
+			if abDef := cat.LookupAbStateByIndex(id); abDef != nil {
+				shouldSave = abDef.SaveType != 0
+			} else {
+				shouldSave = st.IsBuff && restMs >= 5000
+			}
+		} else {
+			shouldSave = st.IsBuff && restMs >= 5000
+		}
+		if !shouldSave {
+			continue
+		}
+		stateTimeMs := int(st.Duration.Milliseconds())
+		if stateTimeMs < restMs {
+			stateTimeMs = restMs
+		}
+		_ = h.charRepo.SetCharacterState(player.Char.ID, int16(id), int16(st.Level), stateTimeMs, restMs, 0, 0, 0, 0, 0)
+	}
+}
+
+// restorePlayerAbStates reconstruye los AbStates persistidos en tCharacterState al ingresar al mapa,
+// recalcula stats y envía PROTO_NC_BAT_ABSTATEINFORM_NOEFFECT_CMD (0x242A, 8B) al cliente
+// (verificado en Zone.exe aeo_InformAfterLogin VA 0x00409A20).
+func (h *Handler) restorePlayerAbStates(player *ZonePlayer, states []*database.CharacterStateData) {
+	if player == nil || len(states) == 0 {
+		return
+	}
+	now := time.Now()
+	var cat *SkillCatalog
+	if h != nil && h.dataStore != nil {
+		cat = h.dataStore.SkillCatalog
+	}
+	restored := false
+	for _, cs := range states {
+		if cs == nil || cs.RestTime <= 0 || cs.StateNo < 0 {
+			continue
+		}
+		abID := uint16(cs.StateNo)
+		dur := time.Duration(cs.StateTime) * time.Millisecond
+		restDur := time.Duration(cs.RestTime) * time.Millisecond
+		if dur < restDur {
+			dur = restDur
+		}
+		strength := int(cs.StateLevel)
+		if strength <= 0 {
+			strength = 1
+		}
+		st := &ActiveAbState{
+			ID:        abID,
+			Level:     strength,
+			Duration:  dur,
+			ExpiresAt: now.Add(restDur),
+			IsBuff:    true,
+			IsDebuff:  false,
+		}
+		if cat != nil {
+			if abDef := cat.LookupAbStateByIndex(abID); abDef != nil {
+				st.Name = abDef.InxName
+				st.IsDebuff = abDef.DispelIndex == 2
+				st.IsBuff = !st.IsDebuff
+				if sub := cat.LookupSubAbState(abDef.SubAbState, strength); sub != nil {
+					applySubAbStateActions(st, sub.Actions, player.MaxHP)
+				}
+			}
+		}
+		player.AddAbState(st)
+		restored = true
+		if player.Client != nil {
+			noEff := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_ABSTATEINFORM_NOEFFECT_CMD)
+			noEff.WriteUint32(uint32(abID))
+			noEff.WriteUint32(uint32(cs.RestTime))
+			_ = player.Client.SendPacket(noEff)
+		}
+	}
+	if restored {
+		if h != nil {
+			h.syncPlayerAbStateParams(player)
+		} else {
+			player.RecalculateAbStateStats()
+		}
+	}
 }
