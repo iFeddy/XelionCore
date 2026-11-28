@@ -349,12 +349,15 @@ func (h *Handler) handleAssistReq(client *network.Client, pkt *protocol.Packet) 
 
 // skillDamageTarget encapsula un objetivo impactado para PROTO_NC_BAT_SKILLBASH_HIT_DAMAGE_CMD (0x2452).
 type skillDamageTarget struct {
-	Handle   uint16
-	Damage   uint32
-	RestHP   uint32
-	IsCrit   bool
-	IsMissed bool
-	IsDead   bool
+	Handle    uint16
+	Damage    uint32
+	RestHP    uint32
+	IsCrit    bool
+	IsMissed  bool
+	IsHeal    bool
+	IsAbState bool
+	IsResist  bool
+	IsDead    bool
 }
 
 // emitSkillBashHitDamage construye y difunde PROTO_NC_BAT_SKILLBASH_HIT_DAMAGE_CMD (0x2452, 5 + 14*N bytes).
@@ -379,6 +382,16 @@ func emitSkillBashHitDamage(zMap *ZoneMap, index, caster uint16, targets []skill
 		if t.IsMissed {
 			flag &^= 0x0001
 			flag |= 0x0004 // ismissed
+		}
+		if t.IsHeal {
+			flag &^= 0x0001
+			flag |= 0x0010 // isheal (Zone.exe SkillResultBuffer +0x26)
+		}
+		if t.IsAbState {
+			flag |= 0x0020 // isabstate
+		}
+		if t.IsResist {
+			flag |= 0x0040 // isresist
 		}
 		if t.IsDead {
 			flag |= 0x0100 // isDead
@@ -753,39 +766,34 @@ func (h *Handler) handleSkillBashObjCastReq(client *network.Client, pkt *protoco
 	someoneStart.WriteUint16(castIndex)
 	player.CurrentMap.broadcastSkillAOI(someoneStart, player.MapObjectID, player.MapObjectID)
 
-	// Calcular daño de habilidad
-	dmg := 35
-	var restHP uint32
-	var isDead bool
-	if mob, ok := targetEntity.(*ZoneMonster); ok {
-		restHP, isDead = player.CurrentMap.ApplyDamageToMonster(mob, player, dmg)
-	} else if defP, ok := targetEntity.(*ZonePlayer); ok {
-		if defP.Char.CurHP <= dmg {
-			defP.Char.CurHP = 0
-			defP.State = 3
-			isDead = true
-		} else {
-			defP.Char.CurHP -= dmg
+	// Resolver impacto usando motor oficial smo_SkillBlast (daño físico/mágico, heal, AoE, AbStates)
+	empDmg, _, empKeep, _ := player.GetSkillEmpower(skillID)
+	var hitTargets []skillDamageTarget
+	var deadEntities []GridEntity
+
+	if skillDef != nil && skillDef.Area > 0 && skillDef.TargetNumber > 1 && skillDef.HealAmount() == 0 {
+		// Skill objetivo con AoE alrededor del target (sbe_BlastObject 0x00583BC0)
+		mobs := selectAoEMonsters(player.CurrentMap, px, py, tx, ty, skillDef)
+		for _, m := range mobs {
+			res, dead := h.resolveSkillBlastOnEntity(player, m, skillDef, empDmg, empKeep)
+			hitTargets = append(hitTargets, res)
+			if dead {
+				deadEntities = append(deadEntities, m)
+			}
 		}
-		restHP = uint32(defP.Char.CurHP)
-		if defP.Client != nil {
-			hpCmd := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_HPCHANGE_CMD)
-			hpCmd.WriteUint32(restHP)
-			hpCmd.WriteUint16(defP.NextHPChangeOrder()) //defensor hpchangeorder
-			_ = defP.Client.SendPacket(hpCmd)
+	} else {
+		res, dead := h.resolveSkillBlastOnEntity(player, targetEntity, skillDef, empDmg, empKeep)
+		hitTargets = append(hitTargets, res)
+		if dead {
+			deadEntities = append(deadEntities, targetEntity)
 		}
 	}
 
-	emitSkillBashHitDamage(player.CurrentMap, castIndex, player.MapObjectID, []skillDamageTarget{{
-		Handle: targetObj,
-		Damage: uint32(dmg),
-		RestHP: restHP,
-		IsDead: isDead,
-	}})
+	emitSkillBashHitDamage(player.CurrentMap, castIndex, player.MapObjectID, hitTargets)
 
-	if isDead {
-		emitReallyKill(player.CurrentMap, targetObj, player.MapObjectID)
-		if defP, ok := targetEntity.(*ZonePlayer); ok {
+	for _, de := range deadEntities {
+		emitReallyKill(player.CurrentMap, de.GetHandle(), player.MapObjectID)
+		if defP, ok := de.(*ZonePlayer); ok {
 			sendCharDeadMenu(defP) // el menú va a la víctima, no al atacante
 		}
 	}
@@ -953,25 +961,16 @@ func (h *Handler) handleSkillBashFldCastReq(client *network.Client, pkt *protoco
 	someoneFld.WriteUint16(castIndex)
 	player.CurrentMap.broadcastSkillAOI(someoneFld, player.MapObjectID, player.MapObjectID)
 
-	// Aplicar daño a entidades dentro del radio AoE usando distancia euclidiana
-	radius := 200.0
-	const aoeDmg = 25
+	// Selección oficial AoE (sbe_BlastLocate 0x00584160): Area/2, cono SkillDegree, qsort por distancia, cap TargetNumber
+	empDmg, _, empKeep, _ := player.GetSkillEmpower(skillID)
+	mobs := selectAoEMonsters(player.CurrentMap, px, py, int(fldX), int(fldY), skillDef)
 	var hitTargets []skillDamageTarget
 	var deadHandles []uint16
-	for _, mob := range player.CurrentMap.GetAllMonsters() {
-		mx, my := mob.GetPosition()
-		dist := math.Hypot(float64(mx)-float64(fldX), float64(my)-float64(fldY))
-		if dist <= radius && !mob.IsDead {
-			restHP, isDead := player.CurrentMap.ApplyDamageToMonster(mob, player, aoeDmg)
-			hitTargets = append(hitTargets, skillDamageTarget{
-				Handle: mob.Handle,
-				Damage: aoeDmg,
-				RestHP: restHP,
-				IsDead: isDead,
-			})
-			if isDead {
-				deadHandles = append(deadHandles, mob.Handle)
-			}
+	for _, mob := range mobs {
+		res, isDead := h.resolveSkillBlastOnEntity(player, mob, skillDef, empDmg, empKeep)
+		hitTargets = append(hitTargets, res)
+		if isDead {
+			deadHandles = append(deadHandles, mob.Handle)
 		}
 	}
 
@@ -983,23 +982,35 @@ func (h *Handler) handleSkillBashFldCastReq(client *network.Client, pkt *protoco
 }
 
 // handleSkillBashCastAbortReq implementa PROTO_NC_BAT_SKILLBASH_CASTABORT_REQ (0x2444).
-// Verificado en Zone.exe sp_NC_BAT_SKILLBASH_CASTABORT_REQ (0x0057C480).
+// Verificado en Zone.exe sp_NC_BAT_SKILLBASH_CASTABORT_REQ (0x0057C480) + sp_NC_BAT_SKILLBASH_CASTABORT_CMD (0x00579F10).
 func (h *Handler) handleSkillBashCastAbortReq(client *network.Client, pkt *protocol.Packet) {
 	player, ok := h.getPlayer(client)
 	if !ok || player == nil {
 		return
 	}
 
-	var errCode uint16 = 0x20EA // no está casteando / modo inválido (Zone.exe 0x0057C552)
+	var errCode uint16
 	if player.State == 6 {
+		// Zone.exe 0x0057C4EE: estado 6 -> 0x20E9
 		errCode = 0x20E9
-	} else if player.CastingSkillID != 0 {
-		errCode = 0x20E8 // abortado con éxito
-		player.CastingSkillID = 0
-		if player.CurrentMap != nil {
-			cutCmd := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_SOMEONESKILLBASH_CASTCUT_CMD)
-			cutCmd.WriteUint16(player.MapObjectID)
-			player.CurrentMap.Broadcast(cutCmd, player.MapObjectID)
+	} else if !isPlayerStateValidForSkill(player.State) {
+		// Zone.exe 0x0057C538: bitmask (1<<state)&0x0004 falla -> 0x20EA
+		errCode = 0x20EA
+	} else {
+		// Zone.exe 0x00579F10 (sp_NC_BAT_SKILLBASH_CASTABORT_CMD): emite 0x2438 (4B)
+		errCode = 0x20E8
+		cutCmd := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_SOMEONESKILLBASH_CASTCUT_CMD)
+		cutCmd.WriteUint16(player.MapObjectID)
+		if player.CastingSkillID != 0 {
+			player.CastingSkillID = 0
+			player.CastingTargetHandle = 0
+			if player.CurrentMap != nil {
+				// Broadcast por AOI (so_AllOfRange 0x0057A0AC..0x0057A0DD)
+				player.CurrentMap.broadcastSkillAOI(cutCmd, player.MapObjectID, 0)
+			}
+		} else {
+			// Si no estaba casteando, envía 0x2438 solo al propio jugador (0x0057A016..0x0057A09E)
+			_ = client.SendPacket(cutCmd)
 		}
 	}
 

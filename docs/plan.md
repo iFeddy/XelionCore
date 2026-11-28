@@ -73,7 +73,7 @@
   - Tests unitarios de todas las ramas de rechazo y fórmulas.
 
 ### Fase 3 — Motor de resolución (`smo_SkillBlast`, `RulesOfEngagement`, Heal, AoE, AbStates, CastAbort)
-- **Estado:** Pendiente
+- **Estado:** **Completada**
 - **Alcance:**
   - Implementar cálculo de daño de skill físico (`0x00506B40`) y mágico (`0x00506ED0`) con empower track 0 (`nT0`), hit/crit rolls y AbState `0x16D` / `0xC9` / `0xCA`.
   - Implementar skills de curación (`0x005817CE`) con flag `isHeal=1` en `0x2452`.
