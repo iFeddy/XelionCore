@@ -755,6 +755,70 @@ func (h *Handler) handleSkillBashObjCastReq(client *network.Client, pkt *protoco
 	}
 
 	player.CastingSkillID = skillID
+	player.CastingTargetHandle = targetObj
+	empDmg, _, empKeep, _ := player.GetSkillEmpower(skillID)
+
+	castMs := 0
+	if skillDef != nil && skillDef.CastTimeMs > 0 {
+		castMs = skillDef.CastTimeMs
+		if h.dataStore != nil && h.dataStore.SkillCatalog != nil {
+			if pb := h.dataStore.SkillCatalog.ComputePassiveBonuses(player); pb.CastingTimeRate > 0 && pb.CastingTimeRate < 1000 {
+				castMs = (castMs * pb.CastingTimeRate) / 1000
+			}
+		}
+	}
+
+	// Confirmar inicio de casteo exitoso: PROTO_NC_BAT_SKILLBASH_CAST_SUC_ACK (0x2435, vacío)
+	_ = client.SendPacket(protocol.NewPacketWriter(protocol.PROTO_NC_BAT_SKILLBASH_CAST_SUC_ACK))
+
+	if castMs > 0 {
+		// Difundir inicio de barra de casteo a AOI: PROTO_NC_BAT_SOMEONESKILLBASH_OBJ_CAST_CMD (0x2442, 6B)
+		someoneCast := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_SOMEONESKILLBASH_OBJ_CAST_CMD)
+		someoneCast.WriteUint16(skillID)
+		someoneCast.WriteUint16(player.MapObjectID)
+		someoneCast.WriteUint16(targetObj)
+		player.CurrentMap.broadcastSkillAOI(someoneCast, player.MapObjectID, player.MapObjectID)
+
+		player.PendingCast = &PendingSkillCast{
+			SkillID:   skillID,
+			IsField:   false,
+			TargetObj: targetObj,
+			ExecuteAt: now.Add(time.Duration(castMs) * time.Millisecond),
+			IsMoving:  skillDef.IsMovingSkill,
+			HPCost:    hpCost,
+			SPCost:    spCost,
+			EmpDmg:    empDmg,
+			EmpKeep:   empKeep,
+			EmpCool:   empCool,
+			SkillDef:  skillDef,
+		}
+		return
+	}
+
+	h.finishObjSkillCast(player, skillID, targetObj, skillDef, hpCost, spCost, empDmg, empKeep, empCool, now)
+}
+
+func (h *Handler) finishObjSkillCast(player *ZonePlayer, skillID, targetObj uint16, skillDef *SkillDef, hpCost, spCost int, empDmg, empKeep, empCool uint8, now time.Time) {
+	if player == nil || player.CurrentMap == nil || player.Char == nil {
+		return
+	}
+	defer func() {
+		player.PendingCast = nil
+		player.CastingSkillID = 0
+		player.CastingTargetHandle = 0
+	}()
+
+	targetEntity := player.CurrentMap.GetEntity(targetObj)
+	if targetEntity == nil {
+		return
+	}
+	if mob, isMob := targetEntity.(*ZoneMonster); isMob && mob.IsDead {
+		return
+	}
+	if tp, isPlayer := targetEntity.(*ZonePlayer); isPlayer && tp.State == 3 {
+		return
+	}
+
 	if player.SkillCooldowns == nil {
 		player.SkillCooldowns = make(map[uint16]time.Time)
 	}
@@ -764,29 +828,38 @@ func (h *Handler) handleSkillBashObjCastReq(client *network.Client, pkt *protoco
 	// Consumir HP y SP según csl_SPCheck y notificar cambios
 	if hpCost > 0 {
 		player.Char.CurHP -= hpCost
-		hpCmd := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_HPCHANGE_CMD)
-		hpCmd.WriteUint32(uint32(player.Char.CurHP))
-		hpCmd.WriteUint16(player.NextHPChangeOrder())
-		_ = client.SendPacket(hpCmd)
+		if player.Char.CurHP < 1 {
+			player.Char.CurHP = 1
+		}
+		if player.Client != nil {
+			hpCmd := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_HPCHANGE_CMD)
+			hpCmd.WriteUint32(uint32(player.Char.CurHP))
+			hpCmd.WriteUint16(player.NextHPChangeOrder())
+			_ = player.Client.SendPacket(hpCmd)
+		}
 	}
 	if spCost > 0 {
 		player.Char.CurSP -= spCost
-		spCmd := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_SPCHANGE_CMD)
-		spCmd.WriteUint32(uint32(player.Char.CurSP))
-		_ = client.SendPacket(spCmd)
+		if player.Char.CurSP < 0 {
+			player.Char.CurSP = 0
+		}
+		if player.Client != nil {
+			spCmd := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_SPCHANGE_CMD)
+			spCmd.WriteUint32(uint32(player.Char.CurSP))
+			_ = player.Client.SendPacket(spCmd)
+		}
 	}
-
-	// Confirmar inicio de casteo exitoso: PROTO_NC_BAT_SKILLBASH_CAST_SUC_ACK (0x2435, vacío)
-	_ = client.SendPacket(protocol.NewPacketWriter(protocol.PROTO_NC_BAT_SKILLBASH_CAST_SUC_ACK))
 
 	castIndex := player.NextSkillCastIndex()
 
 	// Lanzador recibe PROTO_NC_BAT_SKILLBASH_HIT_OBJ_START_CMD (0x244E, 6B payload = 8B wire)
-	startCmd := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_SKILLBASH_HIT_OBJ_START_CMD)
-	startCmd.WriteUint16(skillID)
-	startCmd.WriteUint16(targetObj)
-	startCmd.WriteUint16(castIndex)
-	_ = client.SendPacket(startCmd)
+	if player.Client != nil {
+		startCmd := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_SKILLBASH_HIT_OBJ_START_CMD)
+		startCmd.WriteUint16(skillID)
+		startCmd.WriteUint16(targetObj)
+		startCmd.WriteUint16(castIndex)
+		_ = player.Client.SendPacket(startCmd)
+	}
 
 	// Circundantes en AOI reciben PROTO_NC_BAT_SOMEONESKILLBASH_HIT_OBJ_START_CMD (0x244F, 8B payload = 10B wire)
 	someoneStart := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_SOMEONESKILLBASH_HIT_OBJ_START_CMD)
@@ -797,11 +870,12 @@ func (h *Handler) handleSkillBashObjCastReq(client *network.Client, pkt *protoco
 	player.CurrentMap.broadcastSkillAOI(someoneStart, player.MapObjectID, player.MapObjectID)
 
 	// Resolver impacto usando motor oficial smo_SkillBlast (daño físico/mágico, heal, AoE, AbStates)
-	empDmg, _, empKeep, _ := player.GetSkillEmpower(skillID)
+	px, py := player.GetPosition()
+	tx, ty := targetEntity.GetPosition()
 	var hitTargets []skillDamageTarget
 	var deadEntities []GridEntity
 
-	if skillDef != nil && skillDef.Area > 0 && skillDef.TargetNumber > 1 && skillDef.HealAmount() == 0 {
+	if skillDef != nil && skillDef.Area > 0 && skillDef.TargetNumber > 1 && skillDef.HealAmount() == 0 && !skillDef.IsPureBuff() {
 		// Skill objetivo con AoE alrededor del target (sbe_BlastObject 0x00583BC0)
 		mobs := selectAoEMonsters(player.CurrentMap, px, py, tx, ty, skillDef)
 		for _, m := range mobs {
@@ -821,7 +895,7 @@ func (h *Handler) handleSkillBashObjCastReq(client *network.Client, pkt *protoco
 
 	emitSkillBashHitDamage(player.CurrentMap, castIndex, player.MapObjectID, hitTargets)
 	emitSkillBashHitBlast(player.CurrentMap, castIndex, player.MapObjectID, skillID)
-	sendSkillCoolTime(client, skillID, skillCD)
+	sendSkillCoolTime(player.Client, skillID, skillCD)
 
 	for _, de := range deadEntities {
 		emitReallyKill(player.CurrentMap, de.GetHandle(), player.MapObjectID)
@@ -829,7 +903,6 @@ func (h *Handler) handleSkillBashObjCastReq(client *network.Client, pkt *protoco
 			sendCharDeadMenu(defP) // el menú va a la víctima, no al atacante
 		}
 	}
-	player.CastingSkillID = 0
 }
 
 // handleSkillBashFldCastReq implementa PROTO_NC_BAT_SKILLBASH_FLD_CAST_REQ (0x2441).
@@ -953,6 +1026,59 @@ func (h *Handler) handleSkillBashFldCastReq(client *network.Client, pkt *protoco
 	}
 
 	player.CastingSkillID = skillID
+	empDmg, _, empKeep, _ := player.GetSkillEmpower(skillID)
+
+	castMs := 0
+	if skillDef != nil && skillDef.CastTimeMs > 0 {
+		castMs = skillDef.CastTimeMs
+		if h.dataStore != nil && h.dataStore.SkillCatalog != nil {
+			if pb := h.dataStore.SkillCatalog.ComputePassiveBonuses(player); pb.CastingTimeRate > 0 && pb.CastingTimeRate < 1000 {
+				castMs = (castMs * pb.CastingTimeRate) / 1000
+			}
+		}
+	}
+
+	_ = client.SendPacket(protocol.NewPacketWriter(protocol.PROTO_NC_BAT_SKILLBASH_CAST_SUC_ACK))
+
+	if castMs > 0 {
+		// Difundir inicio de barra de casteo a AOI: PROTO_NC_BAT_SOMEONESKILLBASH_FLD_CAST_CMD (0x2443, 12B)
+		someoneCast := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_SOMEONESKILLBASH_FLD_CAST_CMD)
+		someoneCast.WriteUint16(skillID)
+		someoneCast.WriteUint16(player.MapObjectID)
+		someoneCast.WriteInt32(fldX)
+		someoneCast.WriteInt32(fldY)
+		player.CurrentMap.broadcastSkillAOI(someoneCast, player.MapObjectID, player.MapObjectID)
+
+		player.PendingCast = &PendingSkillCast{
+			SkillID:   skillID,
+			IsField:   true,
+			FldX:      fldX,
+			FldY:      fldY,
+			ExecuteAt: now.Add(time.Duration(castMs) * time.Millisecond),
+			IsMoving:  skillDef.IsMovingSkill,
+			HPCost:    hpCost,
+			SPCost:    spCost,
+			EmpDmg:    empDmg,
+			EmpKeep:   empKeep,
+			EmpCool:   empCool,
+			SkillDef:  skillDef,
+		}
+		return
+	}
+
+	h.finishFldSkillCast(player, skillID, fldX, fldY, skillDef, hpCost, spCost, empDmg, empKeep, empCool, now)
+}
+
+func (h *Handler) finishFldSkillCast(player *ZonePlayer, skillID uint16, fldX, fldY int32, skillDef *SkillDef, hpCost, spCost int, empDmg, empKeep, empCool uint8, now time.Time) {
+	if player == nil || player.CurrentMap == nil || player.Char == nil {
+		return
+	}
+	defer func() {
+		player.PendingCast = nil
+		player.CastingSkillID = 0
+		player.CastingTargetHandle = 0
+	}()
+
 	if player.SkillCooldowns == nil {
 		player.SkillCooldowns = make(map[uint16]time.Time)
 	}
@@ -961,29 +1087,39 @@ func (h *Handler) handleSkillBashFldCastReq(client *network.Client, pkt *protoco
 
 	if hpCost > 0 {
 		player.Char.CurHP -= hpCost
-		hpCmd := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_HPCHANGE_CMD)
-		hpCmd.WriteUint32(uint32(player.Char.CurHP))
-		hpCmd.WriteUint16(player.NextHPChangeOrder())
-		_ = client.SendPacket(hpCmd)
+		if player.Char.CurHP < 1 {
+			player.Char.CurHP = 1
+		}
+		if player.Client != nil {
+			hpCmd := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_HPCHANGE_CMD)
+			hpCmd.WriteUint32(uint32(player.Char.CurHP))
+			hpCmd.WriteUint16(player.NextHPChangeOrder())
+			_ = player.Client.SendPacket(hpCmd)
+		}
 	}
 	if spCost > 0 {
 		player.Char.CurSP -= spCost
-		spCmd := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_SPCHANGE_CMD)
-		spCmd.WriteUint32(uint32(player.Char.CurSP))
-		_ = client.SendPacket(spCmd)
+		if player.Char.CurSP < 0 {
+			player.Char.CurSP = 0
+		}
+		if player.Client != nil {
+			spCmd := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_SPCHANGE_CMD)
+			spCmd.WriteUint32(uint32(player.Char.CurSP))
+			_ = player.Client.SendPacket(spCmd)
+		}
 	}
-
-	_ = client.SendPacket(protocol.NewPacketWriter(protocol.PROTO_NC_BAT_SKILLBASH_CAST_SUC_ACK))
 
 	castIndex := player.NextSkillCastIndex()
 
 	// Lanzador recibe PROTO_NC_BAT_SKILLBASH_HIT_FLD_START_CMD (0x2450, 12B payload)
-	fldCmd := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_SKILLBASH_HIT_FLD_START_CMD)
-	fldCmd.WriteUint16(skillID)
-	fldCmd.WriteInt32(fldX)
-	fldCmd.WriteInt32(fldY)
-	fldCmd.WriteUint16(castIndex)
-	_ = client.SendPacket(fldCmd)
+	if player.Client != nil {
+		fldCmd := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_SKILLBASH_HIT_FLD_START_CMD)
+		fldCmd.WriteUint16(skillID)
+		fldCmd.WriteInt32(fldX)
+		fldCmd.WriteInt32(fldY)
+		fldCmd.WriteUint16(castIndex)
+		_ = player.Client.SendPacket(fldCmd)
+	}
 
 	// Circundantes en AOI reciben PROTO_NC_BAT_SOMEONESKILLBASH_HIT_FLD_START_CMD (0x2451, 14B payload)
 	someoneFld := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_SOMEONESKILLBASH_HIT_FLD_START_CMD)
@@ -995,7 +1131,7 @@ func (h *Handler) handleSkillBashFldCastReq(client *network.Client, pkt *protoco
 	player.CurrentMap.broadcastSkillAOI(someoneFld, player.MapObjectID, player.MapObjectID)
 
 	// Selección oficial AoE (sbe_BlastLocate 0x00584160): Area/2, cono SkillDegree, qsort por distancia, cap TargetNumber
-	empDmg, _, empKeep, _ := player.GetSkillEmpower(skillID)
+	px, py := player.GetPosition()
 	var hitTargets []skillDamageTarget
 	var deadHandles []uint16
 	if skillDef != nil && skillDef.IsPureBuff() {
@@ -1014,11 +1150,53 @@ func (h *Handler) handleSkillBashFldCastReq(client *network.Client, pkt *protoco
 
 	emitSkillBashHitDamage(player.CurrentMap, castIndex, player.MapObjectID, hitTargets)
 	emitSkillBashHitBlast(player.CurrentMap, castIndex, player.MapObjectID, skillID)
-	sendSkillCoolTime(client, skillID, skillCD)
+	sendSkillCoolTime(player.Client, skillID, skillCD)
 	for _, deadH := range deadHandles {
 		emitReallyKill(player.CurrentMap, deadH, player.MapObjectID)
 	}
+}
+
+// FinishPendingSkillCast completa una habilidad con CastTime > 0 cuando llega ExecuteAt en tick100ms.
+func (h *Handler) FinishPendingSkillCast(player *ZonePlayer, now time.Time) {
+	if player == nil || player.PendingCast == nil {
+		return
+	}
+	pc := player.PendingCast
+	if now.Before(pc.ExecuteAt) {
+		return
+	}
+	if player.State == 3 || player.IsStunned() || player.IsSilenced() {
+		h.abortCastAndBroadcast(player)
+		return
+	}
+	if pc.IsField {
+		h.finishFldSkillCast(player, pc.SkillID, pc.FldX, pc.FldY, pc.SkillDef, pc.HPCost, pc.SPCost, pc.EmpDmg, pc.EmpKeep, pc.EmpCool, now)
+	} else {
+		h.finishObjSkillCast(player, pc.SkillID, pc.TargetObj, pc.SkillDef, pc.HPCost, pc.SPCost, pc.EmpDmg, pc.EmpKeep, pc.EmpCool, now)
+	}
+}
+
+// abortCastAndBroadcast cancela un casteo activo y difunde PROTO_NC_BAT_SOMEONESKILLBASH_CASTCUT_CMD (0x2438).
+func (h *Handler) abortCastAndBroadcast(player *ZonePlayer) {
+	if player == nil {
+		return
+	}
+	player.PendingCast = nil
 	player.CastingSkillID = 0
+	player.CastingTargetHandle = 0
+	if player.CurrentMap != nil {
+		cutCmd := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_SOMEONESKILLBASH_CASTCUT_CMD)
+		cutCmd.WriteUint16(player.MapObjectID)
+		player.CurrentMap.broadcastSkillAOI(cutCmd, player.MapObjectID, 0)
+	}
+}
+
+// abortNonMovingCastOnMove cancela la canalización si el jugador se mueve con una skill !IsMovingSkill.
+func (h *Handler) abortNonMovingCastOnMove(player *ZonePlayer) {
+	if player == nil || player.PendingCast == nil || player.PendingCast.IsMoving {
+		return
+	}
+	h.abortCastAndBroadcast(player)
 }
 
 // handleSkillBashCastAbortReq implementa PROTO_NC_BAT_SKILLBASH_CASTABORT_REQ (0x2444).
@@ -1042,6 +1220,7 @@ func (h *Handler) handleSkillBashCastAbortReq(client *network.Client, pkt *proto
 		cutCmd := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_SOMEONESKILLBASH_CASTCUT_CMD)
 		cutCmd.WriteUint16(player.MapObjectID)
 		if player.CastingSkillID != 0 {
+			player.PendingCast = nil
 			player.CastingSkillID = 0
 			player.CastingTargetHandle = 0
 			if player.CurrentMap != nil {

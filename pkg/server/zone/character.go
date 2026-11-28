@@ -98,6 +98,23 @@ func JobToClassName(job byte) string {
 	}
 }
 
+// PendingSkillCast representa una habilidad con CastTime > 0 en proceso de canalización en el tick de 100ms.
+type PendingSkillCast struct {
+	SkillID   uint16
+	IsField   bool
+	TargetObj uint16
+	FldX      int32
+	FldY      int32
+	ExecuteAt time.Time
+	IsMoving  bool
+	HPCost    int
+	SPCost    int
+	EmpDmg    uint8
+	EmpKeep   uint8
+	EmpCool   uint8
+	SkillDef  *SkillDef
+}
+
 // ZonePlayer representa a un jugador autenticado y activo en una instancia de ZoneServer.
 type ZonePlayer struct {
 	Client        *network.Client
@@ -162,6 +179,7 @@ type ZonePlayer struct {
 	LastAttackTime        time.Time
 	CastingSkillID        uint16
 	CastingTargetHandle   uint16
+	PendingCast           *PendingSkillCast
 	CastingFieldX         int32
 	CastingFieldY         int32
 	CastingEndTime        time.Time

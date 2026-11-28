@@ -7,6 +7,7 @@ import (
 
 	"github.com/iFeddy/XelionCore/pkg/data/shn"
 	"github.com/iFeddy/XelionCore/pkg/database"
+	"github.com/iFeddy/XelionCore/pkg/protocol"
 )
 
 func TestRuntime1_AbStateEffectsAndExpiration(t *testing.T) {
@@ -127,5 +128,51 @@ func TestRuntime2_PassiveSkillBonuses(t *testing.T) {
 	armed := ds.SkillCatalog.ComputePassiveBonuses(player)
 	if armed.WeaponFlatPlus != 7 || armed.WeaponRatePermille != 100 {
 		t.Errorf("con espada 1H esperado flat=7 rate=100, got flat=%d rate=%d", armed.WeaponFlatPlus, armed.WeaponRatePermille)
+	}
+}
+
+func TestRuntime3_CastTimeDelayAndAbort(t *testing.T) {
+	h, zMap, player, client := setupFase12TestEnvironment(t)
+	h.dataStore = &DataStore{
+		SkillCatalog: &SkillCatalog{
+			ByID: map[uint16]*SkillDef{
+				501: {ID: 501, SP: 10, Range: 300, CastTimeMs: 1200, DlyTimeMs: 3000, MinMA: 50, MaxMA: 50, IsMovingSkill: false},
+			},
+		},
+	}
+	mob := NewZoneMonster(60, 102, "CastTarget", "Rou", int32(player.Char.XPos+40), int32(player.Char.YPos), 0, 5, 300, 50, 10, 5, 10, 20, 30, 10, 50)
+	zMap.AddMonster(mob)
+	player.SyncLearnedSkills([]*database.CharacterSkill{{SkillNo: 501, SkillLevel: 1}})
+	player.Char.CurSP = 100
+
+	// 1. Iniciar casteo con CastTime=1200ms -> NO debe dañar inmediatamente
+	pkt := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_SKILLBASH_OBJ_CAST_REQ)
+	pkt.WriteUint16(501)
+	pkt.WriteUint16(mob.Handle)
+	h.HandlePacket(client, protocol.NewPacket(pkt.Data()))
+	if player.PendingCast == nil || player.CastingSkillID != 501 {
+		t.Fatalf("Skill con CastTimeMs=1200 debe quedar en PendingCast")
+	}
+	if mob.CurHP != 300 {
+		t.Fatalf("Skill con CastTimeMs=1200 no debe dañar antes de terminar el cast (mob HP=%d)", mob.CurHP)
+	}
+
+	// 2. Moverse con !IsMovingSkill cancela el casteo
+	h.abortNonMovingCastOnMove(player)
+	if player.PendingCast != nil || player.CastingSkillID != 0 {
+		t.Fatalf("Moverse con !IsMovingSkill debe cancelar PendingCast")
+	}
+
+	// 3. Volver a castear y completar en FinishPendingSkillCast al vencer ExecuteAt
+	h.HandlePacket(client, protocol.NewPacket(pkt.Data()))
+	if player.PendingCast == nil {
+		t.Fatalf("Segundo casteo debería crear PendingCast")
+	}
+	h.FinishPendingSkillCast(player, player.PendingCast.ExecuteAt.Add(10*time.Millisecond))
+	if player.PendingCast != nil || player.CastingSkillID != 0 {
+		t.Errorf("Tras FinishPendingSkillCast, PendingCast y CastingSkillID deben limpiarse")
+	}
+	if mob.CurHP >= 300 {
+		t.Errorf("Tras completar CastTime, el mob debería haber recibido daño (HP=%d)", mob.CurHP)
 	}
 }

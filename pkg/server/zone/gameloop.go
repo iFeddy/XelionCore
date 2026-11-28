@@ -102,6 +102,9 @@ func (gl *MapGameLoop) tick100ms() {
 	gl.zMap.TickMonsters100ms(now)
 
 	for _, p := range players {
+		if p.PendingCast != nil && !now.Before(p.PendingCast.ExecuteAt) && gl.zMap.handler != nil {
+			gl.zMap.handler.FinishPendingSkillCast(p, now)
+		}
 		if p.IsAutoAttacking && p.TargetHandle != 0 && p.CanAttack() {
 			if now.Sub(p.LastAttackTime) >= 1000*time.Millisecond {
 				gl.executeAutoAttack(p, now)

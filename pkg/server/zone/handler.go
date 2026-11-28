@@ -1226,6 +1226,7 @@ func (h *Handler) handleMoveWalk(client *network.Client, pkt *protocol.Packet) {
 		return
 	}
 
+	h.abortNonMovingCastOnMove(player)
 	player.CurrentMap.MovePlayerCmd(player, int(fromX), int(fromY), int(toX), int(toY), true)
 }
 
@@ -1250,6 +1251,7 @@ func (h *Handler) handleMoveRun(client *network.Client, pkt *protocol.Packet) {
 		return
 	}
 
+	h.abortNonMovingCastOnMove(player)
 	player.CurrentMap.MovePlayerCmd(player, int(fromX), int(fromY), int(toX), int(toY), false)
 
 	// Verificar activación de Gate si el jugador corrió hacia el portal
