@@ -61,7 +61,7 @@
   - Tests unitarios para `SkillCatalog` y helpers de `ZonePlayer`.
 
 ### Fase 2 — Validaciones de casteo (`0x2440` / `0x2441`), costos SP/HP/LP, cooldown y rango oficial
-- **Estado:** Pendiente
+- **Estado:** **Completada**
 - **Alcance:**
   - Actualizar `handleSkillBashObjCastReq` (`0x0057FA50`) y `handleSkillBashFldCastReq` (`0x0057F400`):
     - Estado válido (`0x0FC0`), mapa permite skills (`0x0FC3`), ya casteando (`0x0FCC`), Silence (`0x0FC7`), AbStates `0x123`/`0x1F3` (`0x0FC1`/`0x0FC2`).

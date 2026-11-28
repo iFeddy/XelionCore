@@ -394,7 +394,88 @@ func emitSkillBashHitDamage(zMap *ZoneMap, index, caster uint16, targets []skill
 		pkt.WriteUint32(t.RestHP)
 		pkt.WriteUint16(hpOrder) // hpchangeorder
 	}
-	zMap.Broadcast(pkt, 0)
+	zMap.broadcastSkillAOI(pkt, caster, 0)
+}
+
+// broadcastSkillAOI difunde un paquete de skill por AOI alrededor de la entidad origen (Zone.exe so_AllOfRange).
+// Si el mapa no tiene SpatialGrid inicializado, hace fallback a Broadcast de mapa.
+func (m *ZoneMap) broadcastSkillAOI(pw *protocol.PacketWriter, originHandle, excludeHandle uint16) {
+	if m == nil || pw == nil {
+		return
+	}
+	if m.grid != nil {
+		if ent := m.GetEntity(originHandle); ent != nil {
+			ox, oy := ent.GetPosition()
+			m.grid.BroadcastAOI(pw, ox, oy, excludeHandle)
+			return
+		}
+	}
+	m.Broadcast(pw, excludeHandle)
+}
+
+// calcOfficialSkillMaxRange implementa la fórmula exacta de rango de Zone.exe
+// (sp_NC_BAT_SKILLBASH_OBJ_CAST_REQ 0x0058016E..0x005801A8 / FLD 0x0057F8EE..0x0057F92B):
+//
+//	baseRange = objSize + skillRange
+//	maxRange  = min((baseRange * 10) >> 3, baseRange + 60)
+func calcOfficialSkillMaxRange(objSize, skillRange int) int {
+	base := objSize + skillRange
+	if base < 0 {
+		base = 0
+	}
+	scaled := (base * 10) >> 3
+	if scaled-base > 0x3C {
+		return base + 0x3C
+	}
+	return scaled
+}
+
+// calcOfficialSkillCosts implementa las fórmulas de csl_SPCheck (Zone.exe 0x0055B920):
+//   - HPCost = baseHP + (MaxHP * hpRate) / 1000
+//   - LPCost = baseLP
+//   - SPCost = max(0, baseSP + (MaxSP * spRate) / 1000 - empowerSPReduction)
+func calcOfficialSkillCosts(skill *SkillDef, maxHP, maxSP int, empowerSPLevel uint8) (hpCost, spCost, lpCost int) {
+	if skill == nil {
+		return 0, 10, 0
+	}
+	hpCost = skill.HP + (maxHP*skill.HPRate)/1000
+	lpCost = skill.LP
+	spCost = skill.SP + (maxSP*skill.SPRate)/1000 - skill.EmpowerSPReduction(empowerSPLevel)
+	if spCost < 0 {
+		spCost = 0
+	}
+	return hpCost, spCost, lpCost
+}
+
+// calcOfficialSkillCooldown implementa csl_CoolTimeCheck / smo_ply_SkillCoolTime (Zone.exe 0x0046A420 / 0x0055B6A0).
+func calcOfficialSkillCooldown(skill *SkillDef, empowerCoolLevel uint8) time.Duration {
+	if skill == nil {
+		return 50 * time.Millisecond
+	}
+	dlyMs := skill.DlyTimeMs - skill.EmpowerCoolTimeReduction(empowerCoolLevel)
+	if dlyMs < 0 {
+		dlyMs = 0
+	}
+	return time.Duration(dlyMs) * time.Millisecond
+}
+
+// mapCanUseSkill verifica FieldInfo.CanSkill (Zone.exe [field+0x9F] != 0, 0x0057FB0E / 0x0057F515).
+func (h *Handler) mapCanUseSkill(zMap *ZoneMap) bool {
+	if zMap == nil {
+		return false
+	}
+	if h.dataStore != nil && h.dataStore.FieldStore != nil {
+		if f, ok := h.dataStore.FieldStore.GetField(zMap.MapID); ok && f != nil {
+			return f.Permissions.CanSkill
+		}
+	}
+	return true
+}
+
+// isPlayerStateValidForSkill valida el estado del jugador (Zone.exe (1<<state)&0x0004: solo Normal/InGame).
+// En XelionCore State==1 (Normal) y State==2 (Player) representan el estado InGame normal.
+func isPlayerStateValidForSkill(state byte) bool {
+	return state == 1 || state == 2
 }
 
 // emitReallyKill difunde PROTO_NC_BAT_REALLYKILL_CMD (0x244A, 4B payload = 6B wire).
@@ -508,22 +589,39 @@ func (h *Handler) handleSkillBashObjCastReq(client *network.Client, pkt *protoco
 		return
 	}
 
-	// Ramas de rechazo oficiales de Zone.exe sp_NC_BAT_SKILLBASH_OBJ_CAST_REQ -> SKILLBASH_CAST_FAIL_ACK (0x2434)
-	if player.State == 3 || player.Char.CurHP <= 0 {
+	// 1. Validación de estado del jugador (Zone.exe 0x0057FAEA: (1<<state)&0x0004 -> 0x0FC0)
+	if !isPlayerStateValidForSkill(player.State) || player.Char.CurHP <= 0 {
 		sendSkillBashCastFail(client, 0x0FC0)
 		return
 	}
-	if !player.CanCast() {
+	// 2. Validación de mapa canUseSkill (Zone.exe 0x0057FB0E -> 0x0FC3)
+	if !h.mapCanUseSkill(player.CurrentMap) {
+		sendSkillBashCastFail(client, 0x0FC3)
+		return
+	}
+	// 3. Ya casteando o aturdido (Zone.exe 0x0057FB5C: [esi+0x1E78]&0x04 -> 0x0FCC)
+	if player.CastingSkillID != 0 || player.IsStunned() {
 		sendSkillBashCastFail(client, 0x0FCC)
 		return
 	}
+	// 4. AbStates 0x123 (291) y 0x1F3 (499) en caster (Zone.exe 0x0057FC6A..0x0057FCBF -> 0x0FC1)
+	if player.HasAbState(0x123) || player.HasAbState(0x1F3) {
+		sendSkillBashCastFail(client, 0x0FC1)
+		return
+	}
+	// 5. Silence (Zone.exe 0x0058001E: smo_SkillBlastOption() == 2 -> 0x0FC7)
+	if player.IsSilenced() {
+		sendSkillBashCastFail(client, 0x0FC7)
+		return
+	}
 
-	// Validar objetivo en mapa y si sigue vivo
+	// 6. Validar objetivo en mapa y si sigue vivo
 	targetEntity := player.CurrentMap.GetEntity(targetObj)
 	if targetEntity == nil {
 		sendSkillBashCastFail(client, 0x0FC4)
 		return
 	}
+	targetObjSize := 0
 	switch te := targetEntity.(type) {
 	case *ZoneMonster:
 		te.mu.RLock()
@@ -533,14 +631,23 @@ func (h *Handler) handleSkillBashObjCastReq(client *network.Client, pkt *protoco
 			sendSkillBashCastFail(client, 0x0FC3)
 			return
 		}
+		targetObjSize = 30
 	case *ZonePlayer:
 		if te.State == 3 || (te.Char != nil && te.Char.CurHP <= 0) {
 			sendSkillBashCastFail(client, 0x0FC3)
 			return
 		}
+		// Zone.exe 0x0057FCC1: target con AbState 0x1F3 -> abort silencioso; 0x123 -> 0x0FC2
+		if te.HasAbState(0x1F3) {
+			return
+		}
+		if te.HasAbState(0x123) {
+			sendSkillBashCastFail(client, 0x0FC2)
+			return
+		}
 	}
 
-	// Validar línea de visión (LoS) con .shbd (Zone.exe so_FindBlockLocate -> 0x0FD1)
+	// 7. Validar línea de visión (LoS) con .shbd (Zone.exe 0x0057FD52: so_FindBlockLocate -> 0x0FD1)
 	px, py := player.GetPosition()
 	tx, ty := targetEntity.GetPosition()
 	if player.CurrentMap.blockInfo != nil && player.CurrentMap.blockInfo.IsWorldAttackBlocked(float64(px), float64(py), float64(tx), float64(ty)) {
@@ -548,7 +655,26 @@ func (h *Handler) handleSkillBashObjCastReq(client *network.Client, pkt *protoco
 		return
 	}
 
-	// Validar cooldown activo (0x0FC8)
+	// 8. Lookup en SkillCatalog y validación de existencia / no-pasiva (Zone.exe 0x0057FD92..0x0057FDF6 -> 0x0FC6)
+	var skillDef *SkillDef
+	if h.dataStore != nil && h.dataStore.SkillCatalog != nil {
+		if h.dataStore.IsPassiveSkill(skillID) {
+			sendSkillBashCastFail(client, 0x0FC6)
+			return
+		}
+		skillDef = h.dataStore.SkillCatalog.Get(skillID)
+		if skillDef == nil {
+			sendSkillBashCastFail(client, 0x0FC6)
+			return
+		}
+		// Verificar que el jugador haya aprendido la skill (csl_CoolTimeCheck 0x0046A420 -> 0x0FC8)
+		if player.LearnedSkills != nil && !player.HasSkill(skillID) {
+			sendSkillBashCastFail(client, 0x0FC8)
+			return
+		}
+	}
+
+	// 9. Validar cooldown activo (Zone.exe 0x0046A420 -> 0x0FC8)
 	now := time.Now()
 	if player.SkillCooldowns != nil {
 		if cdUntil, onCD := player.SkillCooldowns[skillID]; onCD && now.Before(cdUntil) {
@@ -557,17 +683,32 @@ func (h *Handler) handleSkillBashObjCastReq(client *network.Client, pkt *protoco
 		}
 	}
 
-	// Validar distancia máxima del skill (0x0FCA fuera de rango)
-	const defaultMaxCastRange = 450.0
-	if math.Hypot(float64(px-tx), float64(py-ty)) > defaultMaxCastRange {
-		sendSkillBashCastFail(client, 0x0FCA)
+	// 10. Validar costos HP / LP / SP (Zone.exe csl_SPCheck 0x0055B920 + 0x005800D5..0x00580169)
+	_, empSP, _, empCool := player.GetSkillEmpower(skillID)
+	hpCost, spCost, lpCost := calcOfficialSkillCosts(skillDef, player.MaxHP, player.MaxSP, empSP)
+	if hpCost > 0 && player.Char.CurHP <= hpCost {
+		sendSkillBashCastFail(client, 0x0FD5)
+		return
+	}
+	if lpCost > 0 {
+		// CurLP no implementado en tCharacter aún (0): si skill exige LP > 0 -> 0x0FDC
+		sendSkillBashCastFail(client, 0x0FDC)
+		return
+	}
+	if player.Char.CurSP < spCost {
+		sendSkillBashCastFail(client, 0x0FC9)
 		return
 	}
 
-	// Validar consumo de SP (0x0FC9 sin SP suficiente)
-	spCost := 10
-	if player.Char.CurSP < spCost {
-		sendSkillBashCastFail(client, 0x0FC9)
+	// 11. Validar distancia máxima oficial (Zone.exe 0x0058016E..0x005801A8 -> 0x0FCA)
+	maxRange := 450
+	if skillDef != nil && skillDef.Range > 0 {
+		maxRange = calcOfficialSkillMaxRange(targetObjSize, skillDef.Range)
+	}
+	dx := int64(px - tx)
+	dy := int64(py - ty)
+	if dx*dx+dy*dy > int64(maxRange)*int64(maxRange) {
+		sendSkillBashCastFail(client, 0x0FCA)
 		return
 	}
 
@@ -575,18 +716,27 @@ func (h *Handler) handleSkillBashObjCastReq(client *network.Client, pkt *protoco
 	if player.SkillCooldowns == nil {
 		player.SkillCooldowns = make(map[uint16]time.Time)
 	}
-	player.SkillCooldowns[skillID] = now.Add(50 * time.Millisecond)
+	player.SkillCooldowns[skillID] = now.Add(calcOfficialSkillCooldown(skillDef, empCool))
 
-	// Consumir SP y notificar PROTO_NC_BAT_SPCHANGE_CMD (0x240F)
-	player.Char.CurSP -= spCost
-	spCmd := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_SPCHANGE_CMD)
-	spCmd.WriteUint32(uint32(player.Char.CurSP))
-	_ = client.SendPacket(spCmd)
+	// Consumir HP y SP según csl_SPCheck y notificar cambios
+	if hpCost > 0 {
+		player.Char.CurHP -= hpCost
+		hpCmd := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_HPCHANGE_CMD)
+		hpCmd.WriteUint32(uint32(player.Char.CurHP))
+		hpCmd.WriteUint16(player.NextHPChangeOrder())
+		_ = client.SendPacket(hpCmd)
+	}
+	if spCost > 0 {
+		player.Char.CurSP -= spCost
+		spCmd := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_SPCHANGE_CMD)
+		spCmd.WriteUint32(uint32(player.Char.CurSP))
+		_ = client.SendPacket(spCmd)
+	}
 
 	// Confirmar inicio de casteo exitoso: PROTO_NC_BAT_SKILLBASH_CAST_SUC_ACK (0x2435, vacío)
 	_ = client.SendPacket(protocol.NewPacketWriter(protocol.PROTO_NC_BAT_SKILLBASH_CAST_SUC_ACK))
 
-	const castIndex uint16 = 1
+	castIndex := player.NextSkillCastIndex()
 
 	// Lanzador recibe PROTO_NC_BAT_SKILLBASH_HIT_OBJ_START_CMD (0x244E, 6B payload = 8B wire)
 	startCmd := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_SKILLBASH_HIT_OBJ_START_CMD)
@@ -595,13 +745,13 @@ func (h *Handler) handleSkillBashObjCastReq(client *network.Client, pkt *protoco
 	startCmd.WriteUint16(castIndex)
 	_ = client.SendPacket(startCmd)
 
-	// Circundantes reciben PROTO_NC_BAT_SOMEONESKILLBASH_HIT_OBJ_START_CMD (0x244F, 8B payload = 10B wire)
+	// Circundantes en AOI reciben PROTO_NC_BAT_SOMEONESKILLBASH_HIT_OBJ_START_CMD (0x244F, 8B payload = 10B wire)
 	someoneStart := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_SOMEONESKILLBASH_HIT_OBJ_START_CMD)
 	someoneStart.WriteUint16(player.MapObjectID)
 	someoneStart.WriteUint16(skillID)
 	someoneStart.WriteUint16(targetObj)
 	someoneStart.WriteUint16(castIndex)
-	player.CurrentMap.Broadcast(someoneStart, player.MapObjectID)
+	player.CurrentMap.broadcastSkillAOI(someoneStart, player.MapObjectID, player.MapObjectID)
 
 	// Calcular daño de habilidad
 	dmg := 35
@@ -663,15 +813,66 @@ func (h *Handler) handleSkillBashFldCastReq(client *network.Client, pkt *protoco
 		return
 	}
 
-	if player.State == 3 || player.Char.CurHP <= 0 {
+	// 1. Estado del jugador (Zone.exe 0x0057F4A2 -> 0x0FC0)
+	if !isPlayerStateValidForSkill(player.State) || player.Char.CurHP <= 0 {
 		sendSkillBashCastFail(client, 0x0FC0)
 		return
 	}
-	if !player.CanCast() {
+	// 2. AbStates 0x123 / 0x1F3 en caster (Zone.exe 0x0057F4D8..0x0057F504 -> 0x0FC1)
+	if player.HasAbState(0x123) || player.HasAbState(0x1F3) {
+		sendSkillBashCastFail(client, 0x0FC1)
+		return
+	}
+	// 3. Mapa canUseSkill (Zone.exe 0x0057F515 -> 0x0FC3)
+	if !h.mapCanUseSkill(player.CurrentMap) {
+		sendSkillBashCastFail(client, 0x0FC3)
+		return
+	}
+	// 4. Ya casteando o aturdido (Zone.exe 0x0057F594 -> 0x0FCC)
+	if player.CastingSkillID != 0 || player.IsStunned() {
 		sendSkillBashCastFail(client, 0x0FCC)
 		return
 	}
+	// 5. Silence (Zone.exe 0x0057F7BF -> 0x0FC7)
+	if player.IsSilenced() {
+		sendSkillBashCastFail(client, 0x0FC7)
+		return
+	}
 
+	// 6. LoS en FLD (Zone.exe 0x0057F605..0x0057F638 -> 0x0FD1)
+	px, py := player.GetPosition()
+	if player.CurrentMap.blockInfo != nil && player.CurrentMap.blockInfo.IsWorldAttackBlocked(float64(px), float64(py), float64(fldX), float64(fldY)) {
+		sendSkillBashCastFail(client, 0x0FD1)
+		return
+	}
+
+	// 7. Lookup en SkillCatalog y validación de existencia / aprendizaje (Zone.exe 0x0057F648..0x0057F69A -> 0x0FC6 / 0x0FC8)
+	var skillDef *SkillDef
+	if h.dataStore != nil && h.dataStore.SkillCatalog != nil {
+		if h.dataStore.IsPassiveSkill(skillID) {
+			sendSkillBashCastFail(client, 0x0FC6)
+			return
+		}
+		skillDef = h.dataStore.SkillCatalog.Get(skillID)
+		if skillDef == nil {
+			sendSkillBashCastFail(client, 0x0FC6)
+			return
+		}
+		if player.LearnedSkills != nil && !player.HasSkill(skillID) {
+			sendSkillBashCastFail(client, 0x0FC8)
+			return
+		}
+	}
+
+	// 8. Si es skill de teleport/dash, validar move-block (Zone.exe 0x0057F6F8..0x0057F74C -> 0x0FD1)
+	if skillDef != nil && skillDef.IsTeleportSkill() && player.CurrentMap.blockInfo != nil {
+		if player.CurrentMap.blockInfo.IsWorldMoveBlocked(float64(fldX), float64(fldY)) {
+			sendSkillBashCastFail(client, 0x0FD1)
+			return
+		}
+	}
+
+	// 9. Cooldown activo (Zone.exe 0x0046A420 -> 0x0FC8)
 	now := time.Now()
 	if player.SkillCooldowns != nil {
 		if cdUntil, onCD := player.SkillCooldowns[skillID]; onCD && now.Before(cdUntil) {
@@ -680,15 +881,34 @@ func (h *Handler) handleSkillBashFldCastReq(client *network.Client, pkt *protoco
 		}
 	}
 
-	px, py := player.GetPosition()
-	if math.Hypot(float64(px)-float64(fldX), float64(py)-float64(fldY)) > 600.0 {
-		sendSkillBashCastFail(client, 0x0FCA)
+	// 10. Costos HP / LP / SP (Zone.exe 0x0057F869..0x0057F8E9)
+	_, empSP, _, empCool := player.GetSkillEmpower(skillID)
+	hpCost, spCost, lpCost := calcOfficialSkillCosts(skillDef, player.MaxHP, player.MaxSP, empSP)
+	if skillDef == nil {
+		spCost = 15
+	}
+	if hpCost > 0 && player.Char.CurHP <= hpCost {
+		sendSkillBashCastFail(client, 0x0FD5)
+		return
+	}
+	if lpCost > 0 {
+		sendSkillBashCastFail(client, 0x0FDC)
+		return
+	}
+	if player.Char.CurSP < spCost {
+		sendSkillBashCastFail(client, 0x0FC9)
 		return
 	}
 
-	spCost := 15
-	if player.Char.CurSP < spCost {
-		sendSkillBashCastFail(client, 0x0FC9)
+	// 11. Rango máximo oficial FLD (Zone.exe 0x0057F8EE..0x0057F92B -> 0x0FCA)
+	maxRange := 600
+	if skillDef != nil && skillDef.Range > 0 {
+		maxRange = calcOfficialSkillMaxRange(0, skillDef.Range)
+	}
+	dx := int64(px) - int64(fldX)
+	dy := int64(py) - int64(fldY)
+	if dx*dx+dy*dy > int64(maxRange)*int64(maxRange) {
+		sendSkillBashCastFail(client, 0x0FCA)
 		return
 	}
 
@@ -696,16 +916,25 @@ func (h *Handler) handleSkillBashFldCastReq(client *network.Client, pkt *protoco
 	if player.SkillCooldowns == nil {
 		player.SkillCooldowns = make(map[uint16]time.Time)
 	}
-	player.SkillCooldowns[skillID] = now.Add(50 * time.Millisecond)
+	player.SkillCooldowns[skillID] = now.Add(calcOfficialSkillCooldown(skillDef, empCool))
 
-	player.Char.CurSP -= spCost
-	spCmd := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_SPCHANGE_CMD)
-	spCmd.WriteUint32(uint32(player.Char.CurSP))
-	_ = client.SendPacket(spCmd)
+	if hpCost > 0 {
+		player.Char.CurHP -= hpCost
+		hpCmd := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_HPCHANGE_CMD)
+		hpCmd.WriteUint32(uint32(player.Char.CurHP))
+		hpCmd.WriteUint16(player.NextHPChangeOrder())
+		_ = client.SendPacket(hpCmd)
+	}
+	if spCost > 0 {
+		player.Char.CurSP -= spCost
+		spCmd := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_SPCHANGE_CMD)
+		spCmd.WriteUint32(uint32(player.Char.CurSP))
+		_ = client.SendPacket(spCmd)
+	}
 
 	_ = client.SendPacket(protocol.NewPacketWriter(protocol.PROTO_NC_BAT_SKILLBASH_CAST_SUC_ACK))
 
-	const castIndex uint16 = 1
+	castIndex := player.NextSkillCastIndex()
 
 	// Lanzador recibe PROTO_NC_BAT_SKILLBASH_HIT_FLD_START_CMD (0x2450, 12B payload)
 	fldCmd := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_SKILLBASH_HIT_FLD_START_CMD)
@@ -715,14 +944,14 @@ func (h *Handler) handleSkillBashFldCastReq(client *network.Client, pkt *protoco
 	fldCmd.WriteUint16(castIndex)
 	_ = client.SendPacket(fldCmd)
 
-	// Circundantes reciben PROTO_NC_BAT_SOMEONESKILLBASH_HIT_FLD_START_CMD (0x2451, 14B payload)
+	// Circundantes en AOI reciben PROTO_NC_BAT_SOMEONESKILLBASH_HIT_FLD_START_CMD (0x2451, 14B payload)
 	someoneFld := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_SOMEONESKILLBASH_HIT_FLD_START_CMD)
 	someoneFld.WriteUint16(player.MapObjectID)
 	someoneFld.WriteUint16(skillID)
 	someoneFld.WriteInt32(fldX)
 	someoneFld.WriteInt32(fldY)
 	someoneFld.WriteUint16(castIndex)
-	player.CurrentMap.Broadcast(someoneFld, player.MapObjectID)
+	player.CurrentMap.broadcastSkillAOI(someoneFld, player.MapObjectID, player.MapObjectID)
 
 	// Aplicar daño a entidades dentro del radio AoE usando distancia euclidiana
 	radius := 200.0

@@ -115,6 +115,31 @@ func (p *ZonePlayer) CanCast() bool {
 	return true
 }
 
+// IsSilenced verifica si el jugador tiene un estado de silencio activo (Zone.exe smo_SkillBlastOption == 2 -> 0x0FC7).
+func (p *ZonePlayer) IsSilenced() bool {
+	for _, st := range p.ActiveStates {
+		if st != nil && st.IsSilence {
+			return true
+		}
+	}
+	return false
+}
+
+// IsStunned verifica si el jugador tiene un estado de aturdimiento activo.
+func (p *ZonePlayer) IsStunned() bool {
+	for _, st := range p.ActiveStates {
+		if st != nil && st.IsStun {
+			return true
+		}
+	}
+	return false
+}
+
+// HasAbState verifica si el jugador tiene activo un AbState por su ID oficial.
+func (p *ZonePlayer) HasAbState(id uint16) bool {
+	return p.GetAbState(id) != nil
+}
+
 // AbStateEngine gobierna la aplicación de estados, cálculo de ticks DoT/HoT y limpieza de expirados.
 type AbStateEngine struct {
 	mu sync.RWMutex
