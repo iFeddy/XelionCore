@@ -200,6 +200,20 @@ func (d *ZoneDroppedItem) GetClient() *network.Client {
 	return nil
 }
 
+// ActiveMagicField representa una zona persistente de daño/control en el suelo (Inferno, FrostNova, etc.).
+type ActiveMagicField struct {
+	Caster       *ZonePlayer
+	SkillDef     *SkillDef
+	X            int32
+	Y            int32
+	EmpDmg       uint8
+	EmpKeep      uint8
+	CastIndex    uint16
+	ExpiresAt    time.Time
+	LastTickAt   time.Time
+	TickInterval time.Duration
+}
+
 // ZoneMap manages the players and entities inside a single map instance with spatial grid AOI.
 type ZoneMap struct {
 	mu           sync.RWMutex
@@ -217,6 +231,7 @@ type ZoneMap struct {
 	monstersDirty    bool
 	gates            []*ZoneNPC
 	droppedItems     map[uint16]*ZoneDroppedItem
+	magicFields      []*ActiveMagicField
 	tents            map[uint16]uint16 // MapObjectID -> tentID
 	grid             *SpatialGrid
 	blockInfo        *blockinfo.MapBlockInformation

@@ -192,6 +192,23 @@ func (s *SkillDef) HasAnyAbState() bool {
 	return false
 }
 
+// MagicFieldDurationMs retorna la duración en ms si la skill crea una zona persistente en el suelo
+// (ActiveSkill.shn: SpecialIndex == 13 con duración en Value, o EffectType == 1 como Inferno01/FrostNova01).
+func (s *SkillDef) MagicFieldDurationMs() int {
+	if s == nil {
+		return 0
+	}
+	for _, sp := range s.Specials {
+		if sp.Index == 13 && sp.Value > 0 {
+			return sp.Value
+		}
+	}
+	if s.EffectType == 1 {
+		return 3000
+	}
+	return 0
+}
+
 // CureDispelSpec retorna si la skill cura debuffs en aliados (SpecialIndex 2 o 9, EffectType 8)
 // o disipa buffs en enemigos (SpecialIndex 8 o 26), junto con el máximo de estados a remover (0 = todos).
 func (s *SkillDef) CureDispelSpec() (isCure bool, isDispelEnemy bool, maxRemove int) {

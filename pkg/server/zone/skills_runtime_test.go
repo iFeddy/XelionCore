@@ -278,3 +278,71 @@ func TestRuntime5_CureAndDispel(t *testing.T) {
 		t.Errorf("Dispel enemigo debería haber removido el buff ID=27")
 	}
 }
+
+func TestRuntime6_MagicFieldGroundTicks(t *testing.T) {
+	h, zMap, player, client := setupFase12TestEnvironment(t)
+	zMap.handler = h
+	mob := NewZoneMonster(7001, 100, "InfernoTarget", "Rou", int32(player.Char.XPos+20), int32(player.Char.YPos), 0, 5, 1000, 50, 10, 5, 10, 20, 30, 10, 50)
+	zMap.AddMonster(mob)
+
+	h.dataStore = &DataStore{
+		SkillCatalog: &SkillCatalog{
+			ByID: map[uint16]*SkillDef{
+				6360: {
+					ID:           6360,
+					InxName:      "Inferno01",
+					EffectType:   1,
+					Area:         400,
+					Range:        500,
+					TargetNumber: 10,
+					MinMA:        40,
+					MaxMA:        50,
+					Specials:     [5]SkillSpecialEntry{{Index: 13, Value: 3000}},
+				},
+			},
+		},
+	}
+	player.SyncLearnedSkills([]*database.CharacterSkill{
+		{SkillNo: 6360, SkillLevel: 1},
+	})
+	player.Char.CurSP = 200
+
+	// Lanzar Inferno01 sobre el suelo en la posición del mob
+	pkt := protocol.NewPacketWriter(protocol.PROTO_NC_BAT_SKILLBASH_FLD_CAST_REQ)
+	pkt.WriteUint16(6360)
+	pkt.WriteInt32(int32(player.Char.XPos + 20))
+	pkt.WriteInt32(int32(player.Char.YPos))
+	h.HandlePacket(client, protocol.NewPacket(pkt.Data()))
+
+	hpAfterCast := mob.CurHP
+	if hpAfterCast >= 1000 {
+		t.Fatalf("Inferno01 debería haber infligido daño inicial al mob (hp=%d)", hpAfterCast)
+	}
+	zMap.mu.RLock()
+	fieldCount := len(zMap.magicFields)
+	var mf *ActiveMagicField
+	if fieldCount > 0 {
+		mf = zMap.magicFields[0]
+	}
+	zMap.mu.RUnlock()
+	if fieldCount != 1 || mf == nil {
+		t.Fatalf("Inferno01 debería haber creado 1 ActiveMagicField en el mapa, got %d", fieldCount)
+	}
+
+	// Simular paso de 1 segundo -> el tick periódico debe volver a dañar al mob
+	mf.LastTickAt = time.Now().Add(-1100 * time.Millisecond)
+	zMap.gameLoop.tickMagicFields(time.Now())
+	if mob.CurHP >= hpAfterCast {
+		t.Errorf("MagicField tick de 1s debería volver a dañar al mob (antes=%d, después=%d)", hpAfterCast, mob.CurHP)
+	}
+
+	// Simular expiración -> el campo debe eliminarse del mapa
+	mf.ExpiresAt = time.Now().Add(-100 * time.Millisecond)
+	zMap.gameLoop.tickMagicFields(time.Now())
+	zMap.mu.RLock()
+	remaining := len(zMap.magicFields)
+	zMap.mu.RUnlock()
+	if remaining != 0 {
+		t.Errorf("MagicField expirado debería eliminarse, quedaron %d", remaining)
+	}
+}

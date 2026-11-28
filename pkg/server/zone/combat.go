@@ -940,6 +940,21 @@ func (h *Handler) finishObjSkillCast(player *ZonePlayer, skillID, targetObj uint
 			sendCharDeadMenu(defP) // el menú va a la víctima, no al atacante
 		}
 	}
+
+	if durMs := skillDef.MagicFieldDurationMs(); durMs > 0 && !skillDef.IsPureBuff() {
+		player.CurrentMap.AddMagicField(&ActiveMagicField{
+			Caster:       player,
+			SkillDef:     skillDef,
+			X:            int32(tx),
+			Y:            int32(ty),
+			EmpDmg:       empDmg,
+			EmpKeep:      empKeep,
+			CastIndex:    castIndex,
+			ExpiresAt:    now.Add(time.Duration(durMs) * time.Millisecond),
+			LastTickAt:   now,
+			TickInterval: time.Second,
+		})
+	}
 }
 
 // handleSkillBashFldCastReq implementa PROTO_NC_BAT_SKILLBASH_FLD_CAST_REQ (0x2441).
@@ -1204,6 +1219,21 @@ func (h *Handler) finishFldSkillCast(player *ZonePlayer, skillID uint16, fldX, f
 	sendSkillCoolTime(player.Client, skillID, skillCD)
 	for _, deadH := range deadHandles {
 		emitReallyKill(player.CurrentMap, deadH, player.MapObjectID)
+	}
+
+	if durMs := skillDef.MagicFieldDurationMs(); durMs > 0 && !skillDef.IsPureBuff() {
+		player.CurrentMap.AddMagicField(&ActiveMagicField{
+			Caster:       player,
+			SkillDef:     skillDef,
+			X:            fldX,
+			Y:            fldY,
+			EmpDmg:       empDmg,
+			EmpKeep:      empKeep,
+			CastIndex:    castIndex,
+			ExpiresAt:    now.Add(time.Duration(durMs) * time.Millisecond),
+			LastTickAt:   now,
+			TickInterval: time.Second,
+		})
 	}
 }
 

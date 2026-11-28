@@ -441,9 +441,79 @@ func (gl *MapGameLoop) tick1s() {
 		}
 	}
 
+	// Tick de zonas persistentes en el suelo (MagicField: Inferno, FrostNova, etc.)
+	gl.tickMagicFields(now)
+
 	// Tick de script Lua KQ activo (1 Hz, Zone.exe CinemaComplex @ 0x005089A0)
 	if gl.zMap.KQScriptActive {
 		gl.zMap.TickKQScript()
+	}
+}
+
+// AddMagicField registra una zona persistente en el mapa.
+func (zm *ZoneMap) AddMagicField(mf *ActiveMagicField) {
+	if zm == nil || mf == nil {
+		return
+	}
+	zm.mu.Lock()
+	zm.magicFields = append(zm.magicFields, mf)
+	zm.mu.Unlock()
+}
+
+// tickMagicFields aplica ticks periódicos de daño/AbState de zonas persistentes en el suelo y expira las vencidas.
+func (gl *MapGameLoop) tickMagicFields(now time.Time) {
+	if gl == nil || gl.zMap == nil {
+		return
+	}
+	gl.zMap.mu.Lock()
+	if len(gl.zMap.magicFields) == 0 {
+		gl.zMap.mu.Unlock()
+		return
+	}
+	active := gl.zMap.magicFields[:0]
+	var ready []*ActiveMagicField
+	for _, mf := range gl.zMap.magicFields {
+		if mf == nil || mf.Caster == nil || mf.SkillDef == nil || now.After(mf.ExpiresAt) {
+			continue
+		}
+		if mf.Caster.CurrentMap != gl.zMap || mf.Caster.State == 3 {
+			continue
+		}
+		active = append(active, mf)
+		interval := mf.TickInterval
+		if interval <= 0 {
+			interval = time.Second
+		}
+		if mf.LastTickAt.IsZero() || now.Sub(mf.LastTickAt) >= interval {
+			mf.LastTickAt = now
+			ready = append(ready, mf)
+		}
+	}
+	gl.zMap.magicFields = active
+	gl.zMap.mu.Unlock()
+
+	if gl.zMap.handler == nil {
+		return
+	}
+	for _, mf := range ready {
+		mobs := selectAoEMonsters(gl.zMap, int(mf.X), int(mf.Y), int(mf.X), int(mf.Y), mf.SkillDef)
+		if len(mobs) == 0 {
+			continue
+		}
+		var hitTargets []skillDamageTarget
+		var deadHandles []uint16
+		for _, mob := range mobs {
+			res, isDead := gl.zMap.handler.resolveSkillBlastOnEntity(mf.Caster, mob, mf.SkillDef, mf.EmpDmg, mf.EmpKeep)
+			hitTargets = append(hitTargets, res)
+			if isDead {
+				deadHandles = append(deadHandles, mob.Handle)
+			}
+		}
+		emitSkillBashHitDamage(gl.zMap, mf.CastIndex, mf.Caster.MapObjectID, hitTargets)
+		emitSkillBashHitBlast(gl.zMap, mf.CastIndex, mf.Caster.MapObjectID, mf.SkillDef.ID)
+		for _, dh := range deadHandles {
+			emitReallyKill(gl.zMap, dh, mf.Caster.MapObjectID)
+		}
 	}
 }
 
